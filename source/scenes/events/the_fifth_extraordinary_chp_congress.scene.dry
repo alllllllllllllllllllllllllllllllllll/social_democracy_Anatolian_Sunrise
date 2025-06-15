@@ -21,6 +21,6 @@ on-arrival:
 Hüdai Oral narrowly wins. The Orthodox camp celebrates a last-minute push, but murmurs grow — is this really what the people want?
 
 @atalay
-on-arrival: left_kemalists += 6; ortho_kemalists -= 3; morale_reformists += 4; military_trust -= 1
+on-arrival: 
 
 Sırrı Atalay triumphs! The Reformist wave has begun to rise. The Left of Center camp is energized, while the old guard begins to waver.
