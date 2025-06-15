@@ -16,7 +16,7 @@ The Orthodoxs support **Hüdai Oral**, while the Reformists push for **Sırrı A
 - @oral: Support the Orthodox faction and back Hüdai Oral.
 - @atalay: Support the Reformists and vote for Sırrı Atalay.
 @oral
-on-arrival: ortho_kemalists += 5; left_kemalists -= 2; morale_reformists -= 3; military_trust += 1
+on-arrival: 
 
 Hüdai Oral narrowly wins. The Orthodox camp celebrates a last-minute push, but murmurs grow — is this really what the people want?
 
