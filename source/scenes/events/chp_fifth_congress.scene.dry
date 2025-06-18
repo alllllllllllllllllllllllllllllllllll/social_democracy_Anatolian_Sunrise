@@ -1,11 +1,11 @@
 title: The Fifth CHP Congress
 subtitle: The party stands at a crossroads.
+audio: music/Sev Kardeşim - Senay.mp3
 view-if: year = 1928 and month = 3
 max-visits: 1
 tags: event
 new-page: true
 face-image: img/chp_congress.jpg
-audio: music/Sev Kardeşim - Senay.mp3
 
 = Fifth CHP Congress
 
