@@ -1,0 +1,24 @@
+title: The Fifth CHP Congress
+subtitle: The party stands at a crossroads.
+view-if: year = 1928 and month = 3
+max-visits: 1
+tags: event
+new-page: true
+face-image: img/chp_congress.jpg
+= Fifth CHP Congress
+
+The Republican People's Party stands at a historic crossroads. As the Fifth Congress begins, two main factions dominate the room: the Orthodox Kemalists led by the venerable İsmet İnönü, and the Reformist "Left of Center" movement backing the rising star, Bülent Ecevit.
+
+Today, delegates will vote for the party secretariat. While not the leadership itself, this vote is widely seen as a **proxy war** for the party’s future direction.
+
+The Orthodoxs support **Hüdai Oral**, while the Reformists push for **Sırrı Atalay**. The stakes are immense — and the military, ever watchful, is surely paying close attention.
+
+- @oral: Support the Orthodox faction and back Hüdai Oral.
+- @atalay: Support the Reformists and vote for Sırrı Atalay.
+@oral
+
+Hüdai Oral narrowly wins. The Orthodox camp celebrates a last-minute push, but murmurs grow — is this really what the people want?
+
+@atalay
+
+Sırrı Atalay triumphs! The Reformist wave has begun to rise. The Left of Center camp is energized, while the old guard begins to waver.
