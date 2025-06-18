@@ -3,7 +3,7 @@ subtitle: Testing face image
 new-page: true
 face-image: "img/bankrun.jpg"
 tags: event
-view-if: year = 1929 and month = 2
+view-if: year = 1928 and month = 2
 max-visits: 1
 
 = Image Test Scene
