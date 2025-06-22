@@ -5,12 +5,13 @@ go-to: menu
 
 = The Library
 
-Herein contains relevant information about the government and politics of the German republic.
+Herein contains relevant information about the government and politics of the Turkish republic.
 
 @menu
 
-- @government: Germany's system of government
-- @weimar_timeline: Timeline of the Weimar Republic before 1928
+- @government: Turkey's system of government
+- @kemalism: Kemalist Revolution and CHP
+- @weimar_timeline: Timeline of the Ottoman Empire and the Turkish Republic before 1972
 - @curr_gov: Current government details
 - @demographics: Demographics
 - @parties: Parties
@@ -23,18 +24,23 @@ Herein contains relevant information about the government and politics of the Ge
 @government
 go-to: menu
 
-The German Republic, called by some of our detractors as the "Weimar Republic", is a parliamentary republic with a somewhat weak president and a strong parliament, called the Reichstag. The Reichstag is responsible for governing, while the President has a largely ceremonial role but also has some important governing responsibilities.
+The Turkish Republic is a Parliamentary Nation-State that was molded out of the ashes of the now deceased Ottoman Empire as a result of the Kemalist Revolution. The Kemalist Revolution, which was guided by the founding father of the republic Mustafa Kemal Atatürk, was essentially an attempt to save the Turkish Nation from certain destruction at the hands of the Western Powers and their so called "servants" within the empire through rapid westernization and the adopting of modern republican values to keep up with the necessities of the Modern Age. Our whole republic is a result of this rapid change and the values of the revolution are being preserved by CHP and the military.
 
-The Reichstag is elected based on a proportional representation system, giving parties seats roughly proportional to their vote share in each electoral district. The Reichstag then elects the Chancellor and the cabinet by a majority vote, who are responsible for government. A majority vote-of-no-confidence can remove the current government.
+The Turkish Republic, as was aforementioned, is a parliamentary democracy with a largely ceremonial president and a powerful prime minister and parliament called TBMM or the Turkish Great National Council. TBMM is responsible for passing legislation while the prime minister is responsible for handling the usual affairs of the state. The Prime Minister is elected by the parliament in accordance with the share of seats each party gets in a general election which is approximately proportional with its vote share. To be elected prime minister one needs a majority in the parliament which opens doors to possible coalition arrangements. The ability to form governments and become prime minister is given by the president, however unless there is a case of military coup the party with the most seats is usually given the upper hand.
 
-The President is elected by a national direct vote, in two rounds. The second round is used if the first round does not result in a majority for one candidate; the candidate who receives a plurality in the second round becomes president (there is no obligation for weaker candidates to drop out). The role of the president is mostly to represent Germany, but he also has some crucial governing powers. The president and chancellor can together use emergency decrees to govern, bypassing the Reichstag. The president can also appoint or remove a chancellor when a parliamentary majority is unable to be established, and can thus influence the formation of a government.
+The president is too elected by the parliament, however as the president is viewed to be a non-partisan and neutral position which sets out to unite all of the nation under its wings, usually technocrats or nonpartisan politicians are elected to the post by the parliament with a consensus of the parliamentary parties.
 
-Germany is divided into a number of states, each of which have their own governments with some responsibilities. By far the largest and most important state is Prussia.
+Turkey has had a troubled past with its military and the military looms over the politics of the young republic as the so called "defenders of the republic". However it is debatable how much of this is actually true and how much of the military oversight over politics is rooted in personal gain.
+
+@kemalism
+go-to: menu
+
+Kemalism, as the name suggests, is based on the principles laid out by the founding father of the republic, Mustafa Kemal Atatürk. 
 
 @weimar_timeline
 go-to: menu
 
-= Timeline of the SPD and the Republic (until 1928)
+= Timeline of the Republic and CHP (until 1972)
 
 **1875**: The SPD is formed as a merger of the General German Workers' Association, founded by Ferdinand Lassalle, and the Social Democratic Workers' Party of Germany, led by Wilhelm Liebknecht and August Bebel. Eventually, the SPD grows to become the largest party in the German Empire.
 
