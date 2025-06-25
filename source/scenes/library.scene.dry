@@ -54,7 +54,7 @@ go-to: menu
 
 **1826**: The Janissary guilds are bombarded with the help of newly imported cannons from the West and replaced with the European style army of Asakir-i Mansure-i Muhammediye. The new army is molded into one of lower-middle class Muslims who will experience the effects of the downfall of the empire first-hand.
 
-**1839**: Mahmud II, persuaded by the liberals to open up the formerly isolationist empire declares the Tanzimat Reforms. The formation of classes which was deemed necessary to become a "modern society" is tried to achieved through economic reforms. The state incentives for local producers and artisans is removed and the creation of the bourgeoisie is expected through direct competition with the Western industrialists. This shock therapy serious pressure on the lower middle class and fuels much of the anxiety about the regression of the empire and its exploitment by Western Industrialists.
+**1839**: Mahmud II, persuaded by the liberals to open up the formerly isolationist empire declares the Tanzimat Reforms. The formation of classes which was deemed necessary to become a "modern society" is attempted to be achieved through economic reforms. The state incentives for local producers and artisans is removed and the creation of the bourgeoisie is expected through direct competition with the Western industrialists. This shock therapy serious pressure on the lower middle class and fuels much of the anxiety about the regression of the empire and its exploitment by Western Industrialists.
 
 Another step towards creating a "modern society" is taken by recognizing the ultimate status of justice, even above that of the sultan. The state is begun to be viewed as a separate entity than the Monarchy which fosters Nationalistic views.
 
@@ -64,11 +64,29 @@ Another step towards creating a "modern society" is taken by recognizing the ult
 
 **1878**: Whoops, Abdulhamid II, citing the defeat in the Russo-Turkish War of 1877 as an excuse, closes the parliament and dismisses the constitution. The Ottomans are back to being an Absolute Monarchy and a period of political repression(İstibdat Dönemi) begins.
 
+**1881**: A baby of a lower middle class, Kemal, is born of a Turkish family in Thessaloniki. This baby would come to revolutionize the fate of the Turkish Nation in the future.
+
 **1889**: The CUP, Committee of Union and Progress, is formed as an illegal political party against the tyranny of Abdulhamid II. Even though a coalition of various ideologies ranging from Islamism to Westernism, the party is largely organized around the concept of Turkish Nationalism fuiled by the perpetual downfall of the empire and the perceived low status of the Turks within the Empire.
 
-**1925**:  President Friedrich Ebert dies, and new presidential elections are held, leading to the narrow election of Paul von Hindenburg in the second round. Hindenburg is a war hero and a right-wing reactionary. The SPD adopts the Heidelberg Program as its party platform. The Locarno Treaties are signed, which confirmed Germany's post-war western borders.
+**1908**: After news of unrest amongst pro-CUP officers in Macedonia, Abdulhamid II. reinstitutes the constitution and the parliament in fear of a coup. Political exiles return to the capital and two factions, the Unionists(primarily CUP members) and the Liberals(associated with another opposition group, the Ahrar party) begin to compete for power.
 
-**1926**: A referendum on the expropriation of the princes, supported by the SPD and KPD, fails.
+The Unionists, fueled by a burning sense of Nationalism, want to modernize and save the Ottoman Empire as a primarily Turkic state through the creation of a "National Bourgeoisie" that derives from the Muslim Turkish community within the empire and land reform to break the hegemony of the large land owners which were created as a class thanks to the Liberal reforms of the last century. Political power was a tool to socially engineer the Ottoman and especially the Turkish society to reach the development scale of the Western powers. the Primarily comprised of the lower middle class and the military bureaucracy which proved to be the groups most affected by Western interference on the economy, the Unionists advocated for a national economy with statist elements which were deemed necessary for the preparation of a modern Turkish economy until the private sector was able to take charge of the economy. Despite their political rivalry, Abdulhamid II. was seen as a benevolent and experienced ruler and for this reason the Unionists desired to collaborate with the Sultan during the transformation into a Constitutional Monarchy.
+
+The Liberals, still believing in the potential survival of the Ottoman identity, want to preserve the empire through decentrialization of power and free market economics which they believed would integrate the Ottoman economy into the European market and result in the creation of a modern society. Largely comprised of non-muslim bourgeoisie and the local land lords, the Liberals took a negative stance against large-scale social engineering programs such as land reform which would break apart the economic powerhouse of local notables. The Liberals viewed Sultan Abdulhamid way more negatively than the Unionists due to his Authoritarianism(to which, many Unionists weren't opposed to in principle) and desired an overthrow of the Monarch as soon as possible.
+
+**1909**: A liberal journalist is murdered by supporters of Absolutism and the incident of 31 March happens.(it actually happened on 13 April but was named the incident of 31 March due to the usage of the Islamic calendar) In response to Liberal protests against the murder, the conservatives led by members of the Ulema and recently demobilised soldiers take on to the streets and start a revolt in the capital. Pro-CUP regiments arrive from Macedonia and end the revolts. Abdulhamid II. is viewed as the culprit behind the revolt and is replaced with Mehmed V. as the sultan.
+
+**1912-1913**: The Balkan Wars take place and millions of Muslim refugees escape from the Balkans to Anatolia. The massacre of hundreds of thousands of Muslims creates a heavy trauma for both the CUP and the Turkish public and further fuels Nationalism and hatred towards the minorities.
+
+**1913**: The Unionists coup the Liberal government and turn the state into a one-party dictatorship rooted in their belief of political power being a tool for furthering social progress. A tripartite of Cemal, Talat and Enver Pashas begin which would last until the end of World War 1.
+
+**1915**: After failure in trying to join the Entente powers, the Ottomans join the Central Powers and join the war after bombarding the Russian port of Sevastopol. 
+
+The Gallipoli Campaign takes place in which a new star, Mustafa Kemal Pasha, arises and becomes popularized among the public.
+
+**1918**: The war ends in favor of the Entente powers.
+
+
 
 @curr_gov
 go-to: cabinet if spd_in_government; menu if not spd_in_government
