@@ -188,11 +188,11 @@ go-to: menu
 
 **Working Class**: The urban working class - blue-collar workers in factories, workshops, mines, and the like. A class created primarily in the last 50 years, the working class families live in ghettos near the industrial zones and support either TİP or CHP. 20% of the population. 4% of that population is comprised of Kurdish workers who have migrated to the cities. 
 
-**Petty Bourgeoisie**: The middle class which 
+**Petty Bourgeoisie**: The urban middle class - shopkeepers, traders and alike. Traditionally one of the main bases of AP but since the party's decision to open up to the global market their alignment have shifted to MSP
 
 **State employees and bureaucrats**: Citizens employed by the state and the bureaucracy. Mostly supports CHP due to the Kemalist roots of the state aparatus. 7% of the population.
 
-**Capitalists/Land Owners**: The owners of capital and production behave in a similar manner and disproportionally support AP and its splinter party DP. 3% of the population.
+**Capitalists/Land Owners**: The owners of capital and production, disproportionally support AP and its splinter party DP. 3% of the population.
 
 **Catholics** are the largest religious minority, at about 30% of the population. They disproportionately support the Center Party (or the Bavarian People's Party in Bavaria).
 
@@ -267,7 +267,7 @@ Catholics: SPD: [+ catholics_spd_display +]%, Z: [+ catholics_z_display +]%, KPD
 @parties
 go-to: menu
 
-**SPD** - *Sozialdemokratische Partei Deutschlands* (Social Democratic Party of Germany) - this is us. We are a socialist and democratic party of the working class. We are the heirs of the legacy of Marx and Engels, Lassalle and Bebel. We are the foremost defenders of the Republic. The modern SPD was formed from a merger of the "Majority" SPD, which supported the Great War, and the "Independent" SPD or USPD, which opposed the war.
+**CHP** - *Cumhuriyet Halk Partisi* (Republican People's Party) - this is us. We are a socialist and democratic party of the working class. We are the heirs of the legacy of Marx and Engels, Lassalle and Bebel. We are the foremost defenders of the Republic. The modern SPD was formed from a merger of the "Majority" SPD, which supported the Great War, and the "Independent" SPD or USPD, which opposed the war.
 
 **Z** - *Zentrumspartei* (Center Party) - a centrist to center-right Catholic party that supports the Republic, and has historically supported many of our labor, welfare, and anti-militarist priorities. They have often been in coalitions with us. They are often associated with the **BVP** (Bavarian People's Party), which represents Catholics in Bavaria. [? if year >= 1930 or chancellor = "Brüning" : They have appeared to take a more conservative turn recently, with the rise of Brüning and the party leader, Ludwig Kaas. ?]
 
