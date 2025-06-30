@@ -128,6 +128,7 @@ In the new elections Kemalists achieve a slim majority. Conflict begins to arise
 
 **1924**: Kemal abolishes the Caliphate as he did with the Monarchy! The Indian Islamic Community offers the title of Caliph to Kemal, but he argues, there should be no religious will superior to that of the people
 
+**1925**: The Sheikh Said rebellion breaks out as a combination of pro Islamic and pro Kurdish sentiments. The rebellion is brutally suppressed.
 @curr_gov
 go-to: cabinet if spd_in_government; menu if not spd_in_government
 
