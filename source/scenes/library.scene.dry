@@ -120,6 +120,13 @@ The Italian and French forces retreat from Anatolia and abandon their posts to t
 
 Negotiations for a new treaty begin. In response to Britain's attempt at splitting the Turkish delegation by inviting both the Ankara Government and the Sultanate to the negotiations, Mustafa Kemal convinces the parliament to remove the imperial post, removing the sultanate with only the post of the caliph, who would be chosen by the parliament from amongst the Ottoman family remaining.
 
+Vahdettin runs away from Istanbul on a British ship.
+
+**1923**: The treaty of Lausanne is signed. The Republic of Turkey is declared.
+
+In the new elections Kemalists achieve a slim majority. Conflict begins to arise between Kemal and his Conservative former comrades. The Conservatives oppose the Republic and reaffrm the role of religion and private enterprise within society.
+
+**1924**: Kemal abolishes the Caliphate as he did with the Monarchy! The Indian Islamic Community offers the title of Caliph to Kemal, but he argues, there should be no religious will superior to that of the people
 
 @curr_gov
 go-to: cabinet if spd_in_government; menu if not spd_in_government
