@@ -21,7 +21,7 @@ on-arrival: {!
 Q.started = 1;
 // time elapsed (in months)
 Q.time = 1;
-Q.year = 1928;
+Q.year = 1972;
 Q.month = 1;
 // how many actions have been taken this month?
 Q.month_actions = 0;
@@ -46,18 +46,16 @@ Q.dissent = 0.05;
 Q.dissent_percent = 5;
 
 // factions
-Q.factions = ['left', 'center', 'labor', 'reformist', 'neorevisionist'];
+Q.factions = ['Kemalist-Marxists', 'Left-Kemalists', 'Orthodox-Kemalists', 'Right-Kemalists',];
 // should this be normalized to 100%?
-Q.left_strength = 15;
-Q.left_dissent = 20;
-Q.center_strength = 30;
-Q.center_dissent = 0;
-Q.labor_strength = 25;
-Q.labor_dissent = 5;
-Q.reformist_strength = 25;
-Q.reformist_dissent = 5;
-Q.neorevisionist_strength = 5;
-Q.neorevisionist_dissent = 10;
+Q.Kemalist-Marxists_strength = 15;
+Q.Kemalist-Marxists_dissent = 20;
+Q.Left-Kemalists_strength = 30;
+Q.Left-Kemalists_dissent = 0;
+Q.Orthodox-Kemalists_strength = 25;
+Q.Orthodox-Kemalists_dissent = 5;
+Q.Right-Kemalists_strength = 25;
+Q.Right-Kemalists_dissent = 5;
 
 // secret events...
 Q.unions_independent = 0;
@@ -101,21 +99,21 @@ Q.moderate_plan_adopted = 0;
 // organizations
 
 // inter-party relations
-Q.z_relation = 50;
-Q.kpd_relation = 25;
-Q.ddp_relation = 60;
-Q.dvp_relation = 35;
-// DNVP and NSDAP are invariably hostile
-Q.DNVP_relation = 10;
-Q.NSDAP_relation = 0;
+Q.cgp_relation = 30;
+Q.tip_relation = 45;
+Q.dp_relation = 35;
+Q.ap_relation = 35;
+// MSP and MHP are invariably hostile
+Q.msp_relation = 20;
+Q.mhp_relation = 20;
 
-Q.kpd_leader = "Thälmann";
+Q.tip_leader = "Türkler";
 // alternative is the Conciliators as party leader
-Q.kpd_party_leader = "Thälmann";
-Q.z_leader = "Brüning";
+Q.tip_party_leader = "Kemal Türkler";
+Q.cgp_leader = "Feyzioğlu";
 // party leader - can be Ludwig Kaas, Joseph Joos, or Adam Stegerwald after the 1928 December conference. Joos will be most friendly to the SPD.
-Q.z_party_leader = "Marx";
-Q.nsdap_leader = "Hitler";
+Q.cgp_party_leader = "Feyzioğlu";
+Q.nsdap_leader = "Türkeş";
 
 // hmm... maybe we can play nice with Hindenburg???
 Q.hindenburg_relation = 25;
@@ -194,26 +192,25 @@ Q.budget = 4;
 
 // Proportion of different social groups
 // source: https://surface.syr.edu/cgi/viewcontent.cgi?filename=3&article=1016&context=books&type=additional page 45, table 3.4 - using 1925 figures
-Q.workers = 48; // industry and trade
-Q.old_middle = 13; // "old mittelstand"
+Q.workers = 20; // industry and trade
+Q.middle_class = 13; // "old mittelstand"
 // 16.4 trade & commerce, 6.6 public and private services, 4.4 domestic help
-Q.new_middle = 14; // "new mittelstand"
-Q.rural = 25; // agriculture and forestry employment... but many of those are proletarians so...
+Q.rural = 50; // agriculture and forestry employment... but many of those are proletarians so...
 // source: https://surface.syr.edu/cgi/viewcontent.cgi?filename=3&article=1016&context=books&type=additional page 43, table 3.3
-Q.unemployed = 8.6;
-Q.catholics = 30;
+Q.unemployed = 1.3;
+Q.kurds = 20;
 
-// unemployment: 1929 - 13.3, 1930 - 22.7, 1931 - 34.3, 1932 - 43.8 (same source as above)
+// unemployment: 1972 - 1.3, 1973 - 3.3, 1974 - 5.4, 1975 - 8.5 (same source as above)
 
 // income for industrial workers in reichsmarks/year - 1928 = 1600 Reichsmarks/year; 1931 = 1440 Reichsmarks/year; 1933 = 1138 Reichsmarks/year - source: https://babel.hathitrust.org/cgi/pt?id=uiug.30112104147985&seq=50
 Q.income = 1600;
 // what about incomes for different classes? rural workers? middle-class workers?
 
-// inflation (in %; 1928: 2.9; 1929: 0; 1930: -5%; 1931: -10%; 1932: -10%) - source: https://en.wikipedia.org/wiki/File:BSPDRWeltkriseEngl.PNG, derived from https://www.destatis.de/DE/Methoden/WISTA-Wirtschaft-und-Statistik/2009/03/rezession-betrachtung-032009.pdf?__blob=publicationFile
+// inflation (in %; 1972: 9%; 1929: 0; 1973: 13%; 1974: 14%; 1975: 15%) - source: https://en.wikipedia.org/wiki/File:BSPDRWeltkriseEngl.PNG, derived from https://www.destatis.de/DE/Methoden/WISTA-Wirtschaft-und-Statistik/2009/03/rezession-betrachtung-032009.pdf?__blob=publicationFile
 Q.inflation = 2.9;
 
 // economic growth - same source as above, Table 2 (preisbereinigt) - this is also the source for the yearly changes in the great depression.
-Q.economic_growth = 4.4;
+Q.economic_growth = 7.1;
 
 // economic expansion timer
 Q.economic_expansion = 0;
@@ -225,8 +222,8 @@ Q.unemployed_qol = 100;
 Q.old_middle_qol = 100;
 Q.new_middle_qol = 100;
 
-Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
-Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'dnvp', 'nsdap', 'other'];
+Q.classes = ['rural', 'workers', 'middle_class', 'rural', 'unemployed', 'kurds'];
+Q.parties = ['chp', 'tip', 'cgp', 'dp', 'ap', 'msp', 'mhp'];
 
 // TODO: add 'sapd' later on
 Q.sapd_formed = 0;
@@ -329,17 +326,17 @@ Q.economic_records = [];
 
 
 // State of the government
-Q.president = "Hindenburg";
-// starting chancellor: Wilhelm Marx
-Q.chancellor = "Marx";
-Q.chancellor_party = 'Z';
-Q.spd_in_government = 0;
-Q.z_in_government = 1;
-Q.ddp_in_government = 0;
-Q.dvp_in_government = 1;
-Q.dnvp_in_government = 1;
-Q.kpd_in_government = 0;
-Q.nsdap_in_government = 0;
+Q.president = "Cevdet Sunay";
+// starting chancellor: Nihat Erim
+Q.chancellor = "Erim";
+Q.chancellor_party = 'I';
+Q.chp_in_government = 0;
+Q.dp_in_government = 0;
+Q.ap_in_government = 0;
+Q.cgp_in_government = 0;
+Q.msp_in_government = 0;
+Q.tip_in_government = 0;
+Q.mhp_in_government = 0;
 
 Q.in_right_coalition = 0;
 // Weimar coalition = SPD + Z + DDP
