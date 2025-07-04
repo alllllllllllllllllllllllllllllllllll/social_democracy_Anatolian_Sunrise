@@ -610,7 +610,6 @@ Q.kpd_relation = 16;
 Q.dvp_relation = 31;
 Q.budget = 2;
 this.state.disableSaves = true;
-!}
 go-to: 1928_main
 
 @1928_main
