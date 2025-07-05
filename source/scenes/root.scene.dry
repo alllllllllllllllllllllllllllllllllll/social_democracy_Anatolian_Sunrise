@@ -596,19 +596,19 @@ go-to: 1928_main
 @1928_historical
 subtitle: Saving, loading, and polls will be disabled. [? if not achievement_game_completed: Not recommended for a first playthrough. ?]
 on-arrival: {!
-Q.difficulty = 2;
-Q.historical_mode = 1;
-Q.resources = 2;
-Q.dues = 1;
-Q.rb_strength = 2000;
-Q.Kemalist-Marxists_dissent = 25;
-Q.Left-Kemalists_dissent = 30;
-Q.Orthodox-Kemalists_dissent = 25;
-Q.Right-Kemalists_dissent = 25;
-Q.cgp_relation = 41;
-Q.tip_relation = 16;
-Q.ap_relation = 31;
-Q.budget = 2;
+difficulty = 2;
+historical_mode = 1;
+resources = 2;
+dues = 1;
+rb_strength = 2000;
+Kemalist-Marxists_dissent = 25;
+Left-Kemalists_dissent = 30;
+Orthodox-Kemalists_dissent = 25;
+Right-Kemalists_dissent = 25;
+cgp_relation = 41;
+tip_relation = 16;
+ap_relation = 31;
+budget = 2;
 this.state.disableSaves = true;
 !}
 go-to: 1928_main;
