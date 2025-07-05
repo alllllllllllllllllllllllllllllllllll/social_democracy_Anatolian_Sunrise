@@ -595,7 +595,7 @@ go-to: 1928_main
 
 @1928_historical
 subtitle: Saving, loading, and polls will be disabled. [? if not achievement_game_completed: Not recommended for a first playthrough. ?]
-on-arrival: {!
+on-arrival:
 difficulty = 2;
 historical_mode = 1;
 resources = 2;
@@ -610,7 +610,6 @@ tip_relation = 16;
 ap_relation = 31;
 budget = 2;
 this.state.disableSaves = true;
-!}
 go-to: 1928_main;
 
 @1928_main
