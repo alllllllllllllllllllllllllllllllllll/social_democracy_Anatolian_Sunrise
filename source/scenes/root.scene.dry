@@ -574,12 +574,12 @@ Q.hirschfeld_advisor = 0; // Magnus Hirschfeld
 Q.radbruch_advisor = 0; // Gustav Radbruch
 Q.stampfer_advisor = 0; // Friedrich Stampfer
 !}
-set-bg: img/map_2.jpg
+set-bg: img/map_4.jpg
 new-page: true
 
-> *"Such a general development cannot be attributed to the false tactics of any single party or to the mistakes of individual leaders. On the contrary, the conduct of individual leaders is determined largely by the sentiments of the people as a whole. It would be erroneous, however, to regard the sentiments of the moment as reflecting the natural make-up and character of the people. They are merely the consequence of the special circumstances which have brought about this profound degradation of the entire nation."*
+> *"To Ecevit, democracy was not merely a means to govern, but the essence of the Kemalist project left unfulfilled. He argued that the 'National Struggle' was not over with the republic's founding; it continued in the form of battling inequality, underdevelopment, and elitism. His speeches blended poetic idealism with hard-nosed populist messaging — seeking to awaken a new civic consciousness in a society long accustomed to hierarchy and passivity. That idealism clashed head-on with the entrenched military mindset that viewed democracy as fragile, contingent, and subordinate to the needs of state stability."
 
- - Karl Kautsky, *Hitlerism and Social Democracy*, 1934
+- Erik J. Zürcher, *Turkey: A Modern History*, 1993
 
 This is a game of alternate history. While historical accuracy is a major concern, keep in mind that this is a *game*, and that any divergence from actual events will necessarily have to involve some element of make-believe. Nevertheless, please let the author know if there are any glaring mistakes.
 
