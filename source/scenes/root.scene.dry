@@ -46,16 +46,16 @@ Q.dissent = 0.05;
 Q.dissent_percent = 5;
 
 // factions
-Q.factions = ['kemalist-marxists', 'left-kemalists', 'orthodox-kemalists', 'right-kemalists'];
+Q.factions = ['kemalist_marxists', 'left_kemalists', 'orthodox_kemalists', 'right_kemalists'];
 // should this be normalized to 100%?
-Q.kemalist-marxists_strength = 15;
-Q.kemalist-marxists_dissent = 20;
-Q.left-kemalists_strength = 30;
-Q.left-kemalists_dissent = 0;
-Q.orthodox-kemalists_strength = 25;
-Q.orthodox-kemalists_dissent = 5;
-Q.right-kemalists_strength = 25;
-Q.right-kemalists_dissent = 5;
+Q.kemalist_marxists_strength = 15;
+Q.kemalist_marxists_dissent = 20;
+Q.left_kemalists_strength = 30;
+Q.left_kemalists_dissent = 0;
+Q.orthodox_kemalists_strength = 25;
+Q.orthodox_kemalists_dissent = 5;
+Q.right_kemalists_strength = 25;
+Q.right_kemalists_dissent = 5;
 
 // secret events...
 Q.unions_independent = 0;
