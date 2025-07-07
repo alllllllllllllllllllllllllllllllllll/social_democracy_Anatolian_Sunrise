@@ -90,13 +90,13 @@ Economic growth: [+ economic_growth_2 +]%
 
 = Internal Factions of the SPD
 
-{!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the KPD.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
+{!<span class="tooltip-text" title="Marxists within the party desire a realignment of the party alongside Socialist elements. Even though many intellectuals such as Tevfik Rüştü Aras and Doğan Avcıoğlu subscribe to this faction, there is no central organization nor a figure that leads the Marxist camp, largely due to ideological differences.">Kemalist Marxists</span>!} strength: [+ kemalist_marxists_strength : strength +], dissent: [+ kemalist_marxists_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Center is a faction of Center Marxists, between reform and revolution.">Center</span>!} strength: [+ center_strength : strength +], dissent: [+ center_dissent : dissent +]
+{!<span class="tooltip-text" title="Left Kemalists aka the "Left of Center" movement is a movement within CHP led by poet Bülent Ecevit which wishes to compliment the Progressive nature of the party with **Social Democracy** and in face of the growing urban working class, instead of swimming against the current, desires to lead the stream.">Left Kemalists</span>!} strength: [+ left_kemalists_strength : strength +], dissent: [+ left_kemalists_dissent : dissent +]
 
-{!<span class="tooltip-text" title="Labor's goal is economic reform and benefits for organized workers.">Labor</span>!} strength: [+ labor_strength : strength +], dissent: [+ labor_dissent : dissent +]
+{!<span class="tooltip-text" title="CHP was created as a middle class party to reinforce the Kemalist and the semi-bourgeoisie revolution of the military intelligentsia. Mostly the remnants of the one party era and lead by the illustrious right-man in command of Ataturk, İsmet İnönü, the Orthodox Kemalists reject any intrusion into the Left in fears of CHP losing its identity as the party that gave birth to the Turkish Republic, as a nation-state found on Corporatist principles.">Orthodox Kemalists</span>!} strength: [+ orthodox_kemalists_strength : strength +], dissent: [+ orthodox_kemalists_dissent : dissent +]
 
-{!<span class="tooltip-text" title="Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy.">Reformist</span>!} strength: [+ reformist_strength : strength +], dissent: [+ reformist_dissent : dissent +]
+{!<span class="tooltip-text" title="Seeing the rising Left of Center movement as a pivot to Socialism and Communism, the Right Kemalists advocate for an increased emphasis on Kemalist Nationalism and Corporatism which would serve as a third and moderate alternative to the two wings of Turkish politics, the "unnational" left and the "backward" right. Even though Right Kemalists have formed a party led by Turhan Feyzioğlu, they still have many sympathizers within the party.>Right Kemalists</span>!} strength: [+ right_kemalists_strength : strength +], dissent: [+ right_kemalists_dissent : dissent +]
 
 [? if neorevisionism > 0 : Neorevisionist strength: [+ neorevisionist_strength : strength +], dissent: [+ neorevisionist_dissent : dissent +] ?]
 
