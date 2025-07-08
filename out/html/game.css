@@ -537,7 +537,7 @@ table {
 .seat.kpd {
     fill: #8B0000;
 }
-.seat.spd {
+.seat.chp {
     fill: #E3000F;
     stroke: var(--border-color);
     stroke-width: 1.5px;
