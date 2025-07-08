@@ -1,10 +1,10 @@
 title: March on Berlin
 subtitle: Right-wing militants are taking action...
-view-if: ((spd_in_government = 1 and coup_progress >= 10 and year >= 1930 and (sa_banned=0 or sh_banned=0)) or (year >= 1933 and month >= 2 and nsdap_normalized + dnvp_normalized >= 0.5)) and march_on_berlin_timer = 0
+view-if: ((CHP_in_government = 1 and coup_progress >= 10 and year >= 1930 and (sa_banned=0 or sh_banned=0)) or (year >= 1933 and month >= 2 and nsdap_normalized + dnvp_normalized >= 0.5)) and march_on_berlin_timer = 0
 new-page: true
 max-visits: 4
 on-arrival: march_on_berlin_seen += 1; sa_strength += 80; sh_strength += 80; strife += 1; march_on_berlin_timer += 8
-go-to: ask_resign if spd_in_government and president != "Braun"; govt_menu if president = "Braun"; non_govt_menu if spd_in_government = 0 and president != "Braun"
+go-to: ask_resign if CHP_in_government and president != "Braun"; govt_menu if president = "Braun"; non_govt_menu if CHP_in_government = 0 and president != "Braun"
 tags: event
 
 = March on Berlin
@@ -25,13 +25,13 @@ title: There is nothing we can do.
 go-to: accept_election if (nsdap_normalized + dnvp_normalized >= 0.5 and far_right_coalition < 50); accept_hitler if (nsdap_normalized + dnvp_normalized < 0.5 or far_right_coalition >= 50)
 
 @accept_election
-on-arrival: next_election_time = time + 1 if next_election_time > time+1; next_election_month = month + 1 if next_election_time >= time+1; next_election_year = year if next_election_time >= time+1; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; old_middle_nsdap += 10; new_middle_nsdap += 10; workers_nsdap += 10; rural_nsdap += 10; unemployed_nsdap += 8; workers_spd -= 10; workers_kpd -= 10; sa_strength += 100;
+on-arrival: next_election_time = time + 1 if next_election_time > time+1; next_election_month = month + 1 if next_election_time >= time+1; next_election_year = year if next_election_time >= time+1; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; old_middle_nsdap += 10; new_middle_nsdap += 10; workers_nsdap += 10; rural_nsdap += 10; unemployed_nsdap += 8; workers_CHP -= 10; workers_kpd -= 10; sa_strength += 100;
 
 President [+ president +] has called for emergency elections, to be held next month, under a caretaker government. The SA is permitted to act with impunity, intimidating voters into supporting the fascists.
 
 
 @accept_hitler
-on-arrival: chancellor = "Hitler"; chancellor_party = "NSDAP"; spd_in_government = 0
+on-arrival: chancellor = "Hitler"; chancellor_party = "NSDAP"; CHP_in_government = 0
 
 After the resignation of the chancellor, Hitler has been appointed chancellor[? if hitler_deported: , after being made a citizen again ?].
 
@@ -45,7 +45,7 @@ President [+ president +] has asked our government to resign.
 - @fight_constitution
 - @resign
 
-# TODO: if Hindenburg is president, he will always ask the govt to resign. If the SPD refuses, this causes a constitutional crisis. If there is a constitutional crisis, then if judicial reform >= 4, then the courts intervene against Hindenburg and preserves the government.
+# TODO: if Hindenburg is president, he will always ask the govt to resign. If the CHP refuses, this causes a constitutional crisis. If there is a constitutional crisis, then if judicial reform >= 4, then the courts intervene against Hindenburg and preserves the government.
 
 # if Reichsbanner + Prussian Police >= SA + Stahlhelm, then the fascists retreat.
 
@@ -57,21 +57,21 @@ President [+ president +] has asked our government to resign.
 
 @fight
 title: Deploy the Reichsbanner and call a general strike to resist the fascists!
-on-arrival: defense_strength = rb_strength*rb_militancy*(1-dissent/2); defense_strength += prussian_police_strength*prussian_police_militancy*prussian_police_loyalty if spd_prussia; enemy_strength = sa_strength*sa_militancy + sh_strength*sh_militancy; defense_strength += workers_spd_normalized*(2 - dissent)*(2 - unemployed/100); defense_strength += reichswehr_strength*reichswehr_loyalty*reichswehr_militancy if president=="Braun" and spd_in_government
+on-arrival: defense_strength = rb_strength*rb_militancy*(1-dissent/2); defense_strength += prussian_police_strength*prussian_police_militancy*prussian_police_loyalty if CHP_prussia; enemy_strength = sa_strength*sa_militancy + sh_strength*sh_militancy; defense_strength += workers_CHP_normalized*(2 - dissent)*(2 - unemployed/100); defense_strength += reichswehr_strength*reichswehr_loyalty*reichswehr_militancy if president=="Braun" and CHP_in_government
 go-to: fight_2_win if defense_strength >= enemy_strength and march_on_berlin_seen <= 1; fight_2_win_2 if defense_strength >= enemy_strength and march_on_berlin_seen > 1; fight_2_pre_civil_war if defense_strength < enemy_strength
 
 The Reichsbanner number at [+ rb_strength +] thousand; many are in Berlin to counter the fascist demonstration.
 
-[? if spd_prussia: The Prussian police has been deployed against the fascists. ?] [? if spd_in_government and president == "Braun" : The portions of the Reichswehr that are loyal are also deployed. ?]
+[? if CHP_prussia: The Prussian police has been deployed against the fascists. ?] [? if CHP_in_government and president == "Braun" : The portions of the Reichswehr that are loyal are also deployed. ?]
 
 
 @fight_2_win
-on-arrival: coup_progress = 0; sa_strength *= 0.7; sh_strength *= 0.7; rb_strength *= 0.9; workers_nsdap -= 12*(1-dissent); unemployed_nsdap -= 10*(1-dissent); new_middle_nsdap -= 6*(1-dissent); workers_spd += 8*(1-dissent); unemployed_spd += 6*(1-dissent); pro_republic += 15
+on-arrival: coup_progress = 0; sa_strength *= 0.7; sh_strength *= 0.7; rb_strength *= 0.9; workers_nsdap -= 12*(1-dissent); unemployed_nsdap -= 10*(1-dissent); new_middle_nsdap -= 6*(1-dissent); workers_CHP += 8*(1-dissent); unemployed_CHP += 6*(1-dissent); pro_republic += 15
 achievement: drei_pfeile
 
 Our forces confront the fascists, and somehow, the fascists retreat! They were overwhelmed by our display of strength, and have chosen to slink away. The attempted coup is over, at least for now.
 
-The show of force has reinvigorated support for the republic and for the SPD, and has weakened the fascists.
+The show of force has reinvigorated support for the republic and for the CHP, and has weakened the fascists.
 
 @fight_2_win_2
 on-arrival: coup_progress = 0; pro_republic += 5; workers_nsdap -= 2*(1-dissent); unemployed_nsdap -= 2*(1-dissent); new_middle_nsdap -= 2*(1-dissent); rb_strength *= 0.9; sa_strength *= 0.9; sh_strength *= 0.9
@@ -80,7 +80,7 @@ on-arrival: coup_progress = 0; pro_republic += 5; workers_nsdap -= 2*(1-dissent)
 
 Our forces confront the fascists, and somehow, the fascists retreat! They were overwhelmed by our display of strength, and have chosen to slink away. The attempted coup is over, at least for now.
 
-The show of force has reinvigorated support for the republic and for the SPD, and has weakened the fascists.
+The show of force has reinvigorated support for the republic and for the CHP, and has weakened the fascists.
 
 
 @fight_2_pre_civil_war
@@ -149,7 +149,7 @@ Influenced by his inner circle and by the fascists in the streets, President Hin
 title: Resign our positions in the government.
 choose-if: president != "Braun"
 unavailable-subtitle: President Braun cannot resign.
-on-arrival: chancellor = "Papen"; chancellor_party = "I"; spd_in_government = 0;
+on-arrival: chancellor = "Papen"; chancellor_party = "I"; CHP_in_government = 0;
 go-to: accept
 
 We have resigned our positions in the government.
@@ -161,7 +161,7 @@ title: We cannot do anything but appoint Hitler chancellor.
 view-if: president == "Braun"
 choose-if: nsdap_normalized >= 0.5 or largest_party == "NSDAP"
 unavailable-subtitle: There is no way President [+ president +] could do such a blatantly undemocratic act.
-on-arrival: chancellor = "Hitler"; chancellor_party = "NSDAP"; spd_in_government = 0
+on-arrival: chancellor = "Hitler"; chancellor_party = "NSDAP"; CHP_in_government = 0
 
 Threatened with a civil war, and unwilling to fight anymore, President [+ president +] dismisses the current government and appoints Hitler of the NSDAP as chancellor.
 

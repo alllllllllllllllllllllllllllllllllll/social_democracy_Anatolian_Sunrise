@@ -240,9 +240,9 @@ if (Q.month_actions >= 1) {
             Q.economic_expansion += Q.economic_growth;
         }
     }
-    if (Q.economic_growth > 0 && Q.reparations <= -2 && Q.spd_in_government) {
+    if (Q.economic_growth > 0 && Q.reparations <= -2 && Q.CHP_in_government) {
         Q.economic_expansion += Q.economic_growth;
-    } else if (Q.economic_growth > 0 && Q.spd_in_government) {
+    } else if (Q.economic_growth > 0 && Q.CHP_in_government) {
         Q.economic_expansion += Q.economic_growth/2;
     }
     /////////////////////////////// update opinions based on economy
@@ -257,28 +257,28 @@ if (Q.month_actions >= 1) {
     }
 
     ///////////////////////////// change party support based on pro_republic
-    // if pro_republic is less than the support of the Weimar coalition, reduce SPD support...
-    if (Q.pro_republic < (Q.spd_votes + Q.ddp_votes + Q.z_votes - 3)) {
-        if (Q.new_middle_spd > 0) {
-            Q.new_middle_spd -= 5/12;
+    // if pro_republic is less than the support of the Weimar coalition, reduce CHP support...
+    if (Q.pro_republic < (Q.CHP_votes + Q.ddp_votes + Q.z_votes - 3)) {
+        if (Q.new_middle_CHP > 0) {
+            Q.new_middle_CHP -= 5/12;
             Q.new_middle_nsdap += 3/12;
         }
-        if (Q.old_middle_spd > 0) {
-            Q.old_middle_spd -= 5/12;
+        if (Q.old_middle_CHP > 0) {
+            Q.old_middle_CHP -= 5/12;
             Q.old_middle_nsdap += 3/12;
         }
-        if (Q.rural_spd > 0) {
-            Q.rural_spd -= 5/12;
+        if (Q.rural_CHP > 0) {
+            Q.rural_CHP -= 5/12;
             Q.rural_nsdap += 3/12;
         }
-        if (Q.workers_spd_normalized > 30) {
-            Q.workers_spd -= 4/12;
+        if (Q.workers_CHP_normalized > 30) {
+            Q.workers_CHP -= 4/12;
         }
-        if (Q.catholics_spd > 0) {
-            Q.catholics_spd -= 4/12;
+        if (Q.catholics_CHP > 0) {
+            Q.catholics_CHP -= 4/12;
         }
-        if (Q.unemployed_spd_normalized > 10) {
-            Q.unemployed_spd -= 4/12;
+        if (Q.unemployed_CHP_normalized > 10) {
+            Q.unemployed_CHP -= 4/12;
         }
         if (Q.new_middle_ddp > 0) {
             Q.new_middle_ddp -= 4/12;
@@ -434,30 +434,30 @@ if (Q.month_actions >= 1) {
             Q.unemployed_nsdap += 2/12;
             Q.old_middle_nsdap += 2/12;
             Q.new_middle_nsdap += 2/12;
-            if (Q.spd_in_government) {
-                Q.workers_spd -= 4/12;
+            if (Q.CHP_in_government) {
+                Q.workers_CHP -= 4/12;
             }
         }
     }
     // prevent forever support if the economy is bad
-    if (Q.year >= 1934 && (Q.inflation >= 8 || Q.unemployed >= 20) && Q.pro_republic <= 45 && Q.spd_in_government) {
-        if (Q.workers_spd_normalized > 40) {
-            Q.workers_spd -= 6/12;
+    if (Q.year >= 1934 && (Q.inflation >= 8 || Q.unemployed >= 20) && Q.pro_republic <= 45 && Q.CHP_in_government) {
+        if (Q.workers_CHP_normalized > 40) {
+            Q.workers_CHP -= 6/12;
         }
-        if (Q.unemployed_spd_normalized > 20) {
-            Q.unemployed_spd -= 6/12;
+        if (Q.unemployed_CHP_normalized > 20) {
+            Q.unemployed_CHP -= 6/12;
         }
-        if (Q.new_middle_spd_normalized > 20) {
-            Q.new_middle_spd -= 6/12;
+        if (Q.new_middle_CHP_normalized > 20) {
+            Q.new_middle_CHP -= 6/12;
         }
-        if (Q.old_middle_spd_normalized > 20) {
-            Q.old_middle_spd -= 6/12;
+        if (Q.old_middle_CHP_normalized > 20) {
+            Q.old_middle_CHP -= 6/12;
         }
-        if (Q.rural_spd_normalized > 20) {
-            Q.rural_spd -= 6/12;
+        if (Q.rural_CHP_normalized > 20) {
+            Q.rural_CHP -= 6/12;
         }
-        if (Q.catholics_spd_normalized > 20) {
-            Q.catholics_spd -= 6/12;
+        if (Q.catholics_CHP_normalized > 20) {
+            Q.catholics_CHP -= 6/12;
         }
     }
 }

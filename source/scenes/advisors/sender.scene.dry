@@ -7,7 +7,7 @@ new-page: true
 
 = Toni Sender
 
-Toni Sender is an organizer and writer who came from a bourgeois family, but was radicalized into socialism after her experiences in the workforce. She was a member of the anti-war USPD, but did not support armed revolution.
+Toni Sender is an organizer and writer who came from a bourgeois family, but was radicalized into socialism after her experiences in the workforce. She was a member of the anti-war UCHP, but did not support armed revolution.
 
 - @left_unity
 - @organizing_women
@@ -29,19 +29,19 @@ title: Organizing women
 subtitle: Sender's strategies are aimed at young working women.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: womens_rights += 1; workers_spd += 3*(1-dissent); new_middle_spd += 5*(1-dissent); advisor_action_timer = 6
+on-arrival: womens_rights += 1; workers_CHP += 3*(1-dissent); new_middle_CHP += 5*(1-dissent); advisor_action_timer = 6
 
 Sender's message is popular among young women working in the service sector, and we have recruited many white-collar employees.
 
-[? if spd_r < 50 : Unfortunately, women still disproportionately support the bourgeois parties. ?]
+[? if CHP_r < 50 : Unfortunately, women still disproportionately support the bourgeois parties. ?]
 
 @against_toleration
 title: Against toleration
 view-if: not constructive_vonc
 subtitle: Break our current toleration arrangement, and bring down the government via a no-confidence vote.
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if spd_toleration == 0 : The SPD is not currently in toleration. ?]
-choose-if: advisor_action_timer == 0 and spd_toleration
-on-arrival: advisor_action_timer = 6; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time + 3; next_election_year = year if next_election_time >= time + 3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; spd_toleration = 0; left_strength += 8; pro_republic -= 4; new_middle_spd -= 3; rural_spd -= 3; old_middle_spd -= 3; catholics_spd -= 3; reformist_dissent += 8
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if CHP_toleration == 0 : The CHP is not currently in toleration. ?]
+choose-if: advisor_action_timer == 0 and CHP_toleration
+on-arrival: advisor_action_timer = 6; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time + 3; next_election_year = year if next_election_time >= time + 3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; CHP_toleration = 0; left_strength += 8; pro_republic -= 4; new_middle_CHP -= 3; rural_CHP -= 3; old_middle_CHP -= 3; catholics_CHP -= 3; reformist_dissent += 8
 
 We have grown tired of the burdens of toleration, and have called a vote of no confidence in the current minority government.
 

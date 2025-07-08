@@ -40,7 +40,7 @@ reichsbanner_flag.jpg: Michel, Der. Flagge Des Reichsbanners Schwarz-Rot-Gold, B
 
 bankrun.jpg: Berlin, Bankenkrach, Andrang Bei Der Sparkasse. 13 July 1931. German Federal Archives, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_102-12023,_Berlin,_Bankenkrach,_Andrang_bei_der_Sparkasse.jpg. CC-BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/de/deed.en
 
-spd_logo.jpg: Nicklaarakkers. Deutsch:  Selbst Gemacht Logo Der SPD in Den 1930er Jahren. 15 June 2008. Own work, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Sozialdemokratische_Partei_Deutschlands,_Logo_um_1930.jpg. Public Domain
+CHP_logo.jpg: Nicklaarakkers. Deutsch:  Selbst Gemacht Logo Der CHP in Den 1930er Jahren. 15 June 2008. Own work, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Sozialdemokratische_Partei_Deutschlands,_Logo_um_1930.jpg. Public Domain
 
 panzerkreuzer.jpg: Seized, 1675-1958, Heinrich Hoffman Collection, U. S. National Archives Collection of Foreign Records. The German “Pocket Battleship” Deutschland with Her Crew Manning the Rails, 1935. This Ship Was Reclassified as a Heavy Cruiser and Renamed Lützow in 1939. 1935. Photograph 242-HB-14598a34 from the Hoffman collection in the U.S. National Archives from the U.S. Navy Naval History and Heritage Command, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:German_cruiser_Deutschland_in_1935.jpg. Public Domain
 
@@ -50,7 +50,7 @@ comintern_logo.png: Thespoondragon. English:  Logo of the Comintern World Congre
 
 reichstag_1.jpg: Unknown. Berlin, Reichstag, Reichsgründungsfeier. Jan. 1931. German Federal Archives, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_102-11057A,_Berlin,_Reichstag,_Reichsgr%C3%BCndungsfeier.jpg. CC-BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/de/deed.en
 
-flags.jpg: UnknownUnknown. Berlin, Maidemonstration Der SPD. 1 May 1930. German Federal Archives, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_102-09700,_Berlin,_Maidemonstration_der_SPD.jpg. CC-BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/de/deed.en
+flags.jpg: UnknownUnknown. Berlin, Maidemonstration Der CHP. 1 May 1930. German Federal Archives, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_102-09700,_Berlin,_Maidemonstration_der_CHP.jpg. CC-BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/de/deed.en
 
 reichsbanner_2.jpg: Verfassungsfeier, Hörsing Vor Dem Berliner Schloss. 11 Aug. 1929. German Federal Archives, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_102-08218,_Verfassungsfeier,_H%C3%B6rsing_vor_dem_Berliner_Schloss.jpg. CC-BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/de/deed.en
 
@@ -83,7 +83,7 @@ zentrum_poster_2.jpg: ---. Zurück Zu Brüning Gegen Brudermord Für Ordnung u. 
 
 1932-kpd.jpg: Deni, Viktor. Русский:  Постер КПГ «Конец Этой Системе». Mk:Податотека:1932-Kpd.Jpg. 1932. http://www.lsg.musin.de/Geschichte/Quellen/Plakate/Plakate%20-%20Weimar/plakate_zur_geschichte_der_weima.htm, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:1932-kpd.jpg. Public Domain
 
-poster_4.jpg: Deutsch:  Schützt Eure Demokratischen Volksrechte – Wählt Liste 2 – Sozialdemokratie. 1932. https://www.baden18-45.de/filter/sozialdemokratische-partei-deutschlands-spd/ (Baden 1918 bis 1945 Das Geschichtsportal des projekts Lernort Kislau), Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Sch%C3%BCtz_Eure_demokratischen_Volksrechte_W%C3%A4hlt_Liste_2_Sozialdemokratie_Wahlplakat_Anti-Faschismus_SPD_1932-11-06_Plakat_SPD_Volksrechte_StadtA_MA_P_318_01_Social_Democratic_Party_Anti-nazi-communist_election_poster_Unknown_artist_No.jpg. CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/deed.en
+poster_4.jpg: Deutsch:  Schützt Eure Demokratischen Volksrechte – Wählt Liste 2 – Sozialdemokratie. 1932. https://www.baden18-45.de/filter/sozialdemokratische-partei-deutschlands-CHP/ (Baden 1918 bis 1945 Das Geschichtsportal des projekts Lernort Kislau), Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Sch%C3%BCtz_Eure_demokratischen_Volksrechte_W%C3%A4hlt_Liste_2_Sozialdemokratie_Wahlplakat_Anti-Faschismus_CHP_1932-11-06_Plakat_CHP_Volksrechte_StadtA_MA_P_318_01_Social_Democratic_Party_Anti-nazi-communist_election_poster_Unknown_artist_No.jpg. CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/deed.en
 
 Vorwaerts_nr_1.png: de.wikipedia, User Akl on. Beschreibung: Titelseite Des de:Vorwärts Vom 1. Oktober 1876 (Erstausgabe). 19 June 2006. Originally from de.wikipedia; description page is (was) here 21:58, 12. Apr 2004 Akl 445 x 600 (100.894 Byte) (Titelseite des [[:de:Vorwärts]] vom 1. Oktober 1876 (Erstausgabe), Urheberrechte abgelaufen), Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Vorwaerts_nr_1.png. Public Domain
 
@@ -97,13 +97,13 @@ THree_Arrows_election_poster.png: Fritz, Plakatsammlung Karl. English:  Election
 
 poster_0.jpg: Kirchbach, Design Fritz Gottfried. English:  Gleiche Rechte Gleiche Pflichten. German Social Democrat Party Election Poster 1919. 1919. http://www.dhm.de/ausstellungen/grundrechte/kap1_2.htm, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Gleiche_Rechte_Gleiche_Pflichten,_social_democrat_party_poster_1919.jpg. Public Domain
 
-braun.jpg: Kirchbach, Poster artist: Fritz Gottfried. Plakat Der SPD Zur Reichstagswahl. 3 Mar. 1925. German Federal Archives, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_102-01196,_Plakat_der_SPD_zur_Reichstagswahl.jpg. Public Domain
+braun.jpg: Kirchbach, Poster artist: Fritz Gottfried. Plakat Der CHP Zur Reichstagswahl. 3 Mar. 1925. German Federal Archives, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_102-01196,_Plakat_der_CHP_zur_Reichstagswahl.jpg. Public Domain
 
 vorwarts_2.jpg: Julie Wolfthorn - VORWÄRTS. Mark 1,10 pro Monat; Frei Ins Haus. Farblithographie, 1360 Mm x 930 Mm, Vor 1902, Druck: Kunstanstalt Hollerbaum & Schmidt, Berlin. before 1902date QS:P,+ - -00T00:00:00Z/7,P1326,+1902-00-00T00:00:00Z/9 1902. http://www.kulturpool.at/plugins/kulturpool/showitem.action?itemId=4296109451, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Julie_Wolfthorn_-_VORW%C3%84RTS._Mark_1,10_pro_Monat;_frei_ins_Haus.jpg. Public Domain
 
 sangerbund.jpg: Reibetantz, Curt. Deutsch:  Plakat von Curt Reibetantz Für Das Erste Deutsche Arbeitersängerbundesfest Vom 16. Bis 18. Juni 1928 in Hannover. Mehrfarbdruck Durch Die Buchdruckerwerkstätte GmbH in Berlin in Den Maßen 88 x 59,2 Cm ... 1929. https://www.plakatkontor.de/plakatkatalog-14/nr-70---77/index.html, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:1928_Curt_Reibetantz_Plakat_Hannover_1928_Erstes_Deutsches_Arbeiter_S%C3%A4ngerbundesfest.jpg. Public Domain
 
-poster_1.png: Riemer, Walter. English:  “Worker, Open Your Eyes!” Workers Are Supposed to Become Political Active to Defend Social Democracy against Forces from the Left (Communist, USPD) and the Right (Monarchist, Militarisitc). 1 Jan. 1919. href="http://digital.slub-dresden.de/id446234842-19210090", Wikimedia Commons, https://commons.wikimedia.org/wiki/File:SPD-1919--Wahlwerbung-Walter-Riemer.png. CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/deed.en
+poster_1.png: Riemer, Walter. English:  “Worker, Open Your Eyes!” Workers Are Supposed to Become Political Active to Defend Social Democracy against Forces from the Left (Communist, UCHP) and the Right (Monarchist, Militarisitc). 1 Jan. 1919. href="http://digital.slub-dresden.de/id446234842-19210090", Wikimedia Commons, https://commons.wikimedia.org/wiki/File:CHP-1919--Wahlwerbung-Walter-Riemer.png. CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/deed.en
 
 hindenburg_election.jpg: UnknownUnknown. For Documentary Purposes the German Federal Archive Often Retained the Original Image Captions, Which May Be Erroneous, Biased, Obsolete or Politically Extreme. Berlin, Wahlplakat Für Hindenburg. 3 Mar. 1932. German Federal Archives, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-R99203,_Berlin,_Wahlplakat_f%C3%BCr_Hindenburg.jpg. CC-BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/de/deed.en
 
@@ -118,7 +118,7 @@ MüllerHermann.jpg: ---. Hermann Müller. 1928date QS:P571,+ - -00T00:00:00Z/9 1
 
 BraunOtto.jpg: ---. Otto Braun Und Rudolf Breitscheid. 4 Apr. 1932. German Federal Archives, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_102-13412,_Otto_Braun_und_Rudolf_Breitscheid.jpg. CC-BY-SA 3.0 https://creativecommons.org/licenses/by-sa/3.0/de/deed.en
 
-WelsOtto.jpg: ---. Otto Wels [1873 - 1939], Deutscher Politiker (SPD). 22 Nov. 2006. http://germanhistorydocs.ghi-dc.org/images/highres_10002240%20copy.jpg, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Ottowelsportait.jpg. CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/deed.en
+WelsOtto.jpg: ---. Otto Wels [1873 - 1939], Deutscher Politiker (CHP). 22 Nov. 2006. http://germanhistorydocs.ghi-dc.org/images/highres_10002240%20copy.jpg, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Ottowelsportait.jpg. CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/deed.en
 
 BaadeFritz.jpg: “BaadeFritz.jpg.” Wikipedia, 5 Apr. 2012. Wikipedia, https://de.wikipedia.org/w/index.php?title=Datei:BaadeFritz.jpg&oldid=101696578.  Public Domain
 
@@ -148,7 +148,7 @@ AufhäuserSiegfried.jpg: “Siegfried Aufhäuser 1928.jpg.” Wikipedia, 6 Nov. 
 
 SenderToni.jpg: S-T-R-E-E-T-L-I-V-E. Toni-Sender. photo, 26 Mar. 2013. Flickr, https://www.flickr.com/photos/s-t-r-e-e-t-l-i-v-e/8593056537/. CC-BY-ND 2.0 https://creativecommons.org/licenses/by-nd/2.0/
 
-RadbruchGustav.jpg: Unbekannt, English: UnknownDeutsch: Deutsch:  Gustav Radbruch (* 21. November 1878 in Lübeck; † 23. November 1949 in Heidelberg) Deutscher Politiker (SPD). English:   or earlierDeutsch: 1920 oder früher 1920. Deutsch:  Büro des Reichstags (Hg.): Reichstags-Handbuch 1920, I. Wahlperiode, Verlag der Reichsdruckerei, Berlin 1920, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:RadbruchGustav.jpg. Public Domain
+RadbruchGustav.jpg: Unbekannt, English: UnknownDeutsch: Deutsch:  Gustav Radbruch (* 21. November 1878 in Lübeck; † 23. November 1949 in Heidelberg) Deutscher Politiker (CHP). English:   or earlierDeutsch: 1920 oder früher 1920. Deutsch:  Büro des Reichstags (Hg.): Reichstags-Handbuch 1920, I. Wahlperiode, Verlag der Reichsdruckerei, Berlin 1920, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:RadbruchGustav.jpg. Public Domain
 
 LeviPaul.jpg: ---. Picture of Paul Levi. between circa   and circa 1925date QS:P,+1920- -00T00:00:00Z/8,P1319,+1920-00-00T00:00:00Z/9,P1326,+1925-00-00T00:00:00Z/9,P1480,Q5727902 1920. עברית:  הספרייה הלאומית, אוסף שבדרון English:  National Library of Israel, Schwadron collection, Wikimedia Commons, https://commons.wikimedia.org/wiki/File:Paul_Levi_-_Schwadron.jpg. CC-BY 3.0 https://creativecommons.org/licenses/by/3.0/deed.en
 

@@ -20,8 +20,8 @@ Minor changes:
 - New advisor actions: End toleration (for some left advisors)
 - Added descriptions of the internal party factions.
 - Some more tax options.
-- Abortion rights and homosexual rights can be passed with a "progressive coalition" of the SPD, KPD, and DDP.
-- Can only use the Shuffle Cabinet and Women's Rights cards if the chancellor is SPD.
+- Abortion rights and homosexual rights can be passed with a "progressive coalition" of the CHP, KPD, and DDP.
+- Can only use the Shuffle Cabinet and Women's Rights cards if the chancellor is CHP.
 - Low relations with the DVP results in less leverage in a grand coalition.
 - Papen being appointed as chancellor reduces judicial reform.
 - Changed frequencies of some cards.
@@ -50,7 +50,7 @@ Minor changes:
 Future changes:
 
 - I didn't get to any of the future changes listed in the previous update, so all of those are carrying over.
-- For the post-1933 update, coups can be initiated in 1933 if the SPD is in power and is unpopular.
+- For the post-1933 update, coups can be initiated in 1933 if the CHP is in power and is unpopular.
 - Add ability to break toleration without using a event or advisor action.
 
 
@@ -72,7 +72,7 @@ Minor changes:
 Future changes:
 
 - Government with the popular front without civil war is possible (but might have votes of no confidence from both the right and the left, and a higher likelihood of right-wing coups).
-- "Historical" difficulty that constrains SPD actions to be more historically accurate.
+- "Historical" difficulty that constrains CHP actions to be more historically accurate.
 - Record of previous actions in the library
 - Tariffs
 - Investigating paramilitaries after banning.
@@ -113,9 +113,9 @@ Potential future changes:
 
 Notes on the Popular Front:
 
-I don't know how the KPD would contend themselves in government. A KPD that is willing to support an SPD government would necessarily be different from Thälmann's Stalinist organization, so I looked to the earlier Paul Levi KPD as well as the French Popular Front for ideas. Originally I had the KPD ministers implementing certain policies, but reading about Paul Levi, I think that the KPD would be abstentionist in government, in that they would not have any ministers to preserve their independent course of action, and disavow themselves from any unpopular course the government may take. 
+I don't know how the KPD would contend themselves in government. A KPD that is willing to support an CHP government would necessarily be different from Thälmann's Stalinist organization, so I looked to the earlier Paul Levi KPD as well as the French Popular Front for ideas. Originally I had the KPD ministers implementing certain policies, but reading about Paul Levi, I think that the KPD would be abstentionist in government, in that they would not have any ministers to preserve their independent course of action, and disavow themselves from any unpopular course the government may take. 
 
-Ironically the hypothetical KPD position towards the Popular Front is basically analogous to the SPD position towards the Brüning government (i.e. toleration).
+Ironically the hypothetical KPD position towards the Popular Front is basically analogous to the CHP position towards the Brüning government (i.e. toleration).
 
 Sources: Gaido, Daniel. “Paul Levi and the Origins of the United-Front Policy in the Communist International.” Historical Materialism 25, no. 1 (2017): 131–74. https://doi.org/10.1163/1569206x-12341515.
 
@@ -253,7 +253,7 @@ v0.14.2 - Heidelberg Program, bug fixes, minority government
 Changes:
 
 - New achievement: Heidelberger Programm (fulfill most of the historical goals of the Heidelberg Program)
-- New achievement: Minderheitsregierung (successfully form an SPD minority government)
+- New achievement: Minderheitsregierung (successfully form an CHP minority government)
 - Minority/emergency governments can get votes of no confidence.
 - Tolerating Brüning cannot happen if the constitutional parties do not have a majority.
 - Bug fix: advisor actions should not reset card timers.
@@ -335,10 +335,10 @@ v0.17 - Conciliators and the SAPD
 
 Major changes:
 - The SAPD is introduced as a new party that receives Reichstag seats when both the Left and Center resign.
-- Internal manipulations of the KPD - scheming can allow the Conciliator faction to take over the KPD, making the party more friendly to the SPD and coalitions. This is a chain of events beginning with the Wittorf Affair, a scandal involving Ernst Thälmann of the KPD, as well as foreign relations with the Soviet Union.
+- Internal manipulations of the KPD - scheming can allow the Conciliator faction to take over the KPD, making the party more friendly to the CHP and coalitions. This is a chain of events beginning with the Wittorf Affair, a scandal involving Ernst Thälmann of the KPD, as well as foreign relations with the Soviet Union.
 - New achievements: Versöhnler - have the conciliators take over the KPD; Große Volksfront - form a Popular Front with both Joos as Zentrum leader and the Conciliators as the KPD leaders; Katholischer Sozialismus - have over 50% support from Catholics.
 - Added two new pieces of music.
-- In order to build relations with the KPD, the SPD might have to face a reckoning with its own history.
+- In order to build relations with the KPD, the CHP might have to face a reckoning with its own history.
 - A right-wing coalition in 1928 is possible.
 
 Minor changes:
@@ -454,7 +454,7 @@ New achievements:
 
 v1.1.3 - Bugfixing
 
-- In the second round of the 1934 presidential election, the Center, DStP, and DVP will consolidate if the SPD is not aligned with them.
+- In the second round of the 1934 presidential election, the Center, DStP, and DVP will consolidate if the CHP is not aligned with them.
 - Fixed bug with the achievement Brüder, zur Sonne, zur Freiheit not appearing.
 - Repeated occurrences of March on Berlin don't reduce paramilitary strength as much.
 - All DDP name occurrences should change to DStP when the time comes.
@@ -464,7 +464,7 @@ v1.1.3 - Bugfixing
 v1.2 - Austrian Civil War, Education and Science, Economic Growth
 
 Major changes:
-- New events for the rise of Austrofascism and the Austrian Civil War in 1933-1934, in which the SPD and Germany may intervene.
+- New events for the rise of Austrofascism and the Austrian Civil War in 1933-1934, in which the CHP and Germany may intervene.
 - New event: Kellogg-Briand Pact
 - New Government Affairs card: Education and Science - change the educational curriculum or fund scientific research.
 - New statistic - economic growth. Higher growth leads to lower unemployment, while negative growth will increase unemployment.
@@ -490,7 +490,7 @@ v1.3 - Economic Expansion, Cabinet, bugfixes and minor updates
 Major changes:
 - New event: Economic Expansion (if economic growth is high enough for long enough)
 - New events: Papen's Economic Plan, Schleicher's Schemes (when Papen or Schleicher are chancellor)
-- New feature: pinned Cabinet card that exposes government actions (only on Easy difficulty with an SPD chancellor)
+- New feature: pinned Cabinet card that exposes government actions (only on Easy difficulty with an CHP chancellor)
 - New music (Sozialisten-Marsch)
 
 Minor changes:

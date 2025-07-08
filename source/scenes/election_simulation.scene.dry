@@ -255,12 +255,12 @@ Q.dnvp_r = Q.dnvp_votes;
 Q.nsdap_r = Q.nsdap_votes;
 Q.other_r = Q.other_votes;
 
-// The largest party can only be the NSDAP or the SPD.
+// The largest party can only be the NSDAP or the CHP.
 Q.largest_party = 'CHP';
 if (Q.nsdap_r >= Q.chp_r && Q.nsdap_r >= Q.kpd_r) {
     Q.largest_party = 'NSDAP';
 }
-if (Q.kpd_r >= Q.spd_r && Q.kpd_r >= Q.nsdap_r) {
+if (Q.kpd_r >= Q.CHP_r && Q.kpd_r >= Q.nsdap_r) {
     Q.largest_party = 'KPD';
 }
 

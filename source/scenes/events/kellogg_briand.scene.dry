@@ -18,7 +18,7 @@ An international treaty has been negotiated which promises an end to war. The tr
 - @not_enough
 
 @sign_treaty
-view-if: spd_in_government and foreign_minister_party = "SPD"
+view-if: CHP_in_government and foreign_minister_party = "CHP"
 on-arrival: kellogg_briand_signed = 1
 
 Foreign Minister Breitscheid will sign the treaty, of course. The reaction is generally muted; both pacifists and militarists are skeptical about the efficacy of the treaty.

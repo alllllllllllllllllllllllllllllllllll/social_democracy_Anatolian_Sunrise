@@ -63,17 +63,17 @@ Q.centrists_resign = 0;
 Q.left_split = 0;
 Q.reformists_resigned = 0;
 
-// crisis_urgency indicates how seriously the SPD is taking the economic crisis - scale from 0 to 10.
+// crisis_urgency indicates how seriously the CHP is taking the economic crisis - scale from 0 to 10.
 Q.crisis_urgency = 0;
-// nazi_urgency indicates how seriously the SPD takes the nazis - scale from 0 to 10.
+// nazi_urgency indicates how seriously the CHP takes the nazis - scale from 0 to 10.
 Q.nazi_urgency = 0;
-// radicalization indicates how radical the SPD's rhetoric is - scale from 0 to 10.
+// radicalization indicates how radical the CHP's rhetoric is - scale from 0 to 10.
 Q.radicalization = 0;
 // Support for the WTB plan and proto-Keynesian works creation plans in general
 Q.wtb_support = 0;
-// Support for Pacifism within the SPD relative to 1928
+// Support for Pacifism within the CHP relative to 1928
 Q.pacifism = 0;
-// Support for democratic reform within the SPD relative to 1928
+// Support for democratic reform within the CHP relative to 1928
 Q.democratization = 0;
 // Support for a communist coalition relative to 1928
 Q.communist_coalition = 0;
@@ -108,7 +108,7 @@ Q.kpd_leader = "Thälmann";
 // alternative is the Conciliators as party leader
 Q.kpd_party_leader = "Thälmann";
 Q.z_leader = "Brüning";
-// party leader - can be Ludwig Kaas, Joseph Joos, or Adam Stegerwald after the 1928 December conference. Joos will be most friendly to the SPD.
+// party leader - can be Ludwig Kaas, Joseph Joos, or Adam Stegerwald after the 1928 December conference. Joos will be most friendly to the CHP.
 Q.z_party_leader = "Marx";
 Q.nsdap_leader = "Hitler";
 
@@ -116,10 +116,10 @@ Q.nsdap_leader = "Hitler";
 Q.hindenburg_relation = 25;
 
 
-// Does the SPD lead in Prussia?
-Q.spd_prussia = 1;
-// Options: spd, z, dnvp, papen, nsdap
-Q.prussian_government = "SPD";
+// Does the CHP lead in Prussia?
+Q.CHP_prussia = 1;
+// Options: CHP, z, dnvp, papen, nsdap
+Q.prussian_government = "CHP";
 
 // The array of forces - paramilitary groups
 // Number of members in 1928 (in thousands)
@@ -204,7 +204,7 @@ Q.catholics = 30;
 Q.income = 1600;
 // what about incomes for different classes? rural workers? middle-class workers?
 
-// inflation (in %; 1928: 2.9; 1929: 0; 1930: -5%; 1931: -10%; 1932: -10%) - source: https://en.wikipedia.org/wiki/File:BSPDRWeltkriseEngl.PNG, derived from https://www.destatis.de/DE/Methoden/WISTA-Wirtschaft-und-Statistik/2009/03/rezession-betrachtung-032009.pdf?__blob=publicationFile
+// inflation (in %; 1928: 2.9; 1929: 0; 1930: -5%; 1931: -10%; 1932: -10%) - source: https://en.wikipedia.org/wiki/File:BCHPRWeltkriseEngl.PNG, derived from https://www.destatis.de/DE/Methoden/WISTA-Wirtschaft-und-Statistik/2009/03/rezession-betrachtung-032009.pdf?__blob=publicationFile
 Q.inflation = 2.9;
 
 // economic growth - same source as above, Table 2 (preisbereinigt) - this is also the source for the yearly changes in the great depression.
@@ -315,7 +315,7 @@ Q.old_sapd_r = 0;
 // for changing the DDP's name to the DStP
 Q.ddp_name = "DDP";
 
-// array of objects of the form {date: Date(), spd: 10, kpd: 12, ...} for each election
+// array of objects of the form {date: Date(), CHP: 10, kpd: 12, ...} for each election
 Q.election_records = [];
 // party support records for every month
 Q.party_support_records = [];
@@ -328,7 +328,7 @@ Q.president = "Hindenburg";
 // starting chancellor: Wilhelm Marx
 Q.chancellor = "Marx";
 Q.chancellor_party = 'Z';
-Q.spd_in_government = 0;
+Q.CHP_in_government = 0;
 Q.z_in_government = 1;
 Q.ddp_in_government = 0;
 Q.dvp_in_government = 1;
@@ -337,20 +337,20 @@ Q.kpd_in_government = 0;
 Q.nsdap_in_government = 0;
 
 Q.in_right_coalition = 0;
-// Weimar coalition = SPD + Z + DDP
+// Weimar coalition = CHP + Z + DDP
 Q.in_weimar_coalition = 0;
-// Grand coalition = SPD + Z + BVP + DDP + DVP
-// also includes the "new grand coalition" of SPD + Z + BVP + DDP + DVP + Others
+// Grand coalition = CHP + Z + BVP + DDP + DVP
+// also includes the "new grand coalition" of CHP + Z + BVP + DDP + DVP + Others
 Q.in_grand_coalition = 0;
-// Popular front = SPD + KPD + Z + DDP
+// Popular front = CHP + KPD + Z + DDP
 Q.in_popular_front = 0;
-// left coalition = SPD + KPD + left-splinters
+// left coalition = CHP + KPD + left-splinters
 Q.in_left_front = 0;
-// emergency government containing the SPD: only president Braun can do this.
+// emergency government containing the CHP: only president Braun can do this.
 Q.in_emergency_government = 0;
-Q.in_spd_majority = 0;
+Q.in_CHP_majority = 0;
 Q.grand_coalition_failed = 0;
-// if the SPD is ruling as part of a minority government
+// if the CHP is ruling as part of a minority government
 Q.in_minority_government = 0;
 // national unity governmet
 
@@ -359,8 +359,8 @@ Q.coalition_dissent = 0;
 // dissent from the KPD, in a popular front or left front government
 Q.kpd_coalition_dissent = 0;
 
-// does the SPD tolerate the government even if it is not a participant?
-Q.spd_toleration = 0;
+// does the CHP tolerate the government even if it is not a participant?
+Q.CHP_toleration = 0;
 
 // is the current government a presidential minority government?
 Q.minority_government = 0;
@@ -442,10 +442,10 @@ Q.tariffs = 0;
 Q.electoral_threshold = 0;
 
 // our conduct in the government, and the conduct of our coalition opponents.
-// did the SPD vote against the previous government in a vote of no confidence?
-Q.spd_no_confidence = 0;
-// was the last SPD government taken down in a vote of no confidence by right-wing coalition partners?
-Q.no_confidence_against_spd = 0;
+// did the CHP vote against the previous government in a vote of no confidence?
+Q.CHP_no_confidence = 0;
+// was the last CHP government taken down in a vote of no confidence by right-wing coalition partners?
+Q.no_confidence_against_CHP = 0;
 
 // Advisors/Leaders
 Q.n_advisors = 3;
