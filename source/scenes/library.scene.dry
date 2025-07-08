@@ -359,7 +359,7 @@ Chancellor: [+ chancellor +] ([+ chancellor_party +])
 Reichstag composition:
 
 # 1928: 30, 1930: 25, 1932: 22
-SPD: [+ spd_r +]%
+CHP: [+ chp_r +]%
 [? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
 # 1928: 15, 1930: 15, 1932: 
 Z + BVP: [+ z_r +]%
@@ -451,7 +451,7 @@ go-to: menu
 **Projected election results** (if the election were to be held now):
 
 # 1928: 30, 1930: 25, 1932: 22
-SPD: [+ spd_votes +]%
+CHP: [+ chp_votes +]%
 
 [? if sapd_formed: SAPD: [+ sapd_votes +]% ?]
 
@@ -572,7 +572,7 @@ Loyalty: [+ prussian_police_loyalty : loyalty +]
 
 @factions
 
-**Internal factions of the SPD**
+**Internal factions of the CHP**
 
 Overall dissent: [+ dissent_percent : dissent +]
 
