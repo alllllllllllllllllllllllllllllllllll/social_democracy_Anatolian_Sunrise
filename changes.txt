@@ -20,9 +20,9 @@ Minor changes:
 - New advisor actions: End toleration (for some left advisors)
 - Added descriptions of the internal party factions.
 - Some more tax options.
-- Abortion rights and homosexual rights can be passed with a "progressive coalition" of the CHP, KPD, and DDP.
+- Abortion rights and homosexual rights can be passed with a "progressive coalition" of the CHP, TİP, and DDP.
 - Can only use the Shuffle Cabinet and Women's Rights cards if the chancellor is CHP.
-- Low relations with the DVP results in less leverage in a grand coalition.
+- Low relations with the DP results in less leverage in a grand coalition.
 - Papen being appointed as chancellor reduces judicial reform.
 - Changed frequencies of some cards.
 
@@ -113,9 +113,9 @@ Potential future changes:
 
 Notes on the Popular Front:
 
-I don't know how the KPD would contend themselves in government. A KPD that is willing to support an CHP government would necessarily be different from Thälmann's Stalinist organization, so I looked to the earlier Paul Levi KPD as well as the French Popular Front for ideas. Originally I had the KPD ministers implementing certain policies, but reading about Paul Levi, I think that the KPD would be abstentionist in government, in that they would not have any ministers to preserve their independent course of action, and disavow themselves from any unpopular course the government may take. 
+I don't know how the TİP would contend themselves in government. A TİP that is willing to support an CHP government would necessarily be different from Thälmann's Stalinist organization, so I looked to the earlier Paul Levi TİP as well as the French Popular Front for ideas. Originally I had the TİP ministers implementing certain policies, but reading about Paul Levi, I think that the TİP would be abstentionist in government, in that they would not have any ministers to preserve their independent course of action, and disavow themselves from any unpopular course the government may take. 
 
-Ironically the hypothetical KPD position towards the Popular Front is basically analogous to the CHP position towards the Brüning government (i.e. toleration).
+Ironically the hypothetical TİP position towards the Popular Front is basically analogous to the CHP position towards the Brüning government (i.e. toleration).
 
 Sources: Gaido, Daniel. “Paul Levi and the Origins of the United-Front Policy in the Communist International.” Historical Materialism 25, no. 1 (2017): 131–74. https://doi.org/10.1163/1569206x-12341515.
 
@@ -127,8 +127,8 @@ LaPorte, Norman H. “The German Communist Party in Saxony, 1924-1933 : Factio
 v0.10.1 - An easier Popular Front
 
 Changes:
-- KPD ultimatum set at 16 months, with an option to appeal for more time.
-- More events cause changes to KPD relations, some other stat changes
+- TİP ultimatum set at 16 months, with an option to appeal for more time.
+- More events cause changes to TİP relations, some other stat changes
 - Bug fixes - thanks everyone for reporting!
 
 
@@ -328,17 +328,17 @@ As with many other major changes, there are a number of bugs introduced here...
 - Changes in party votes should be accurately reflected when there is an electoral threshold.
 - On the electoral threshold reform, it is mentioned that a plurality in an electoral district would bypass the threshold requirement, so that the BVP can remain.
 - Radio is somewhat less effective later in the game.
-- Changes to KPD coalition events if a constructive VONC reform is passed.
+- Changes to TİP coalition events if a constructive VONC reform is passed.
 
 
 v0.17 - Conciliators and the SAPD
 
 Major changes:
 - The SAPD is introduced as a new party that receives Reichstag seats when both the Left and Center resign.
-- Internal manipulations of the KPD - scheming can allow the Conciliator faction to take over the KPD, making the party more friendly to the CHP and coalitions. This is a chain of events beginning with the Wittorf Affair, a scandal involving Ernst Thälmann of the KPD, as well as foreign relations with the Soviet Union.
-- New achievements: Versöhnler - have the conciliators take over the KPD; Große Volksfront - form a Popular Front with both Joos as Zentrum leader and the Conciliators as the KPD leaders; Katholischer Sozialismus - have over 50% support from Catholics.
+- Internal manipulations of the TİP - scheming can allow the Conciliator faction to take over the TİP, making the party more friendly to the CHP and coalitions. This is a chain of events beginning with the Wittorf Affair, a scandal involving Ernst Thälmann of the TİP, as well as foreign relations with the Soviet Union.
+- New achievements: Versöhnler - have the conciliators take over the TİP; Große Volksfront - form a Popular Front with both Joos as Zentrum leader and the Conciliators as the TİP leaders; Katholischer Sozialismus - have over 50% support from Catholics.
 - Added two new pieces of music.
-- In order to build relations with the KPD, the CHP might have to face a reckoning with its own history.
+- In order to build relations with the TİP, the CHP might have to face a reckoning with its own history.
 - A right-wing coalition in 1928 is possible.
 
 Minor changes:
@@ -355,10 +355,10 @@ v0.17.1 - Conciliators, Wirth, Coalitions
 
 Changes:
 - Clarified right-wing coalition formation in the 1928 elections.
-- Slightly easier to form a Popular Front when Joos is Zentrum leader or the Conciliators are the KPD leaders
+- Slightly easier to form a Popular Front when Joos is Zentrum leader or the Conciliators are the TİP leaders
 - Threshold for seeing the Wittorf Affair slightly decreased
 - Fixed bug where foreign affairs option for the Wittorf Affair could only be seen in 1929.
-- Displaying KPD coalition dissent when the KPD is in the coalition.
+- Displaying TİP coalition dissent when the TİP is in the coalition.
 - More SAPD vote share displays in the polls.
 
 v0.18 - Event images, mod loader
@@ -385,7 +385,7 @@ v0.18.1 - Cabinets, protecting rallies, mod loading, difficulties
 
 Changes:
 
-- Changing some of the default names and party assignments for the Weimar Coalition, so that you don't get DVP ministers.
+- Changing some of the default names and party assignments for the Weimar Coalition, so that you don't get DP ministers.
 - There is an option to use both the police and Reichsbanner to protect rallies, after using the Prussian police to train the Reichsbanner.
 - When loading a mod, the game title and author are set to the title and author of the mod.
 - Conciliators are no longer disabled in historical mode.
@@ -398,7 +398,7 @@ Major changes:
 - New government affairs card: Labor Rights
 - The unemployment insurance crisis can be handled preemptively using Labor Rights. In general, some of the flow around unemployment insurance has been changed.
 - New advisor: Rudolf Wissell (labor)
-- Party support changes are now more gradual, happening monthly instead of always at the start of the year. There are some tweaks to party support, with more support from middle-class and rural demographics flowing from Others and the DVP to the NSDAP to better account for historical election results.
+- Party support changes are now more gradual, happening monthly instead of always at the start of the year. There are some tweaks to party support, with more support from middle-class and rural demographics flowing from Others and the DP to the MHP to better account for historical election results.
 
 Minor changes:
 - Some bug fixes and many minor tweaks.
@@ -443,9 +443,9 @@ v1.1.1 - Death of Hindenburg bugfixes, more achievements
 As usual, there are some bugs and stuff...
 
 - Fixed bug where Göring's results were not shown
-- Zentrum no longer supports Adenauer when the DNVP supports Hitler in the second round
+- Zentrum no longer supports Adenauer when the MSP supports Hitler in the second round
 - Slightly harder to get Marie Juchacz as a candidate
-- Added content for a KPD presidential victory (different endings for Thälmann and Münzenberg)
+- Added content for a TİP presidential victory (different endings for Thälmann and Münzenberg)
 
 New achievements:
 
@@ -454,7 +454,7 @@ New achievements:
 
 v1.1.3 - Bugfixing
 
-- In the second round of the 1934 presidential election, the Center, DStP, and DVP will consolidate if the CHP is not aligned with them.
+- In the second round of the 1934 presidential election, the Center, DStP, and DP will consolidate if the CHP is not aligned with them.
 - Fixed bug with the achievement Brüder, zur Sonne, zur Freiheit not appearing.
 - Repeated occurrences of March on Berlin don't reduce paramilitary strength as much.
 - All DDP name occurrences should change to DStP when the time comes.

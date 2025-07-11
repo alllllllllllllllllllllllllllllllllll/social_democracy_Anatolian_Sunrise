@@ -534,7 +534,7 @@ table {
 }
 
 /* Styles for parties */
-.seat.kpd {
+.seat.TİP {
     fill: #8B0000;
 }
 .seat.chp {
@@ -551,16 +551,16 @@ table {
 .seat.bvp {
     fill: #69A2BE;
 }
-.seat.dvp {
+.seat.DP {
     fill: #D5AC27;
 }
 .seat.other {
     fill: #909090;
 }
-.seat.dnvp {
+.seat.MSP {
     fill: #3F7BC1;
 }
-.seat.nsdap {
+.seat.MHP {
     fill: #954B00;
 }
 .seat.sapd {

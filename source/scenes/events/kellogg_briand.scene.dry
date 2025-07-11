@@ -3,7 +3,7 @@ new-page: true
 subtitle: An international treaty for peace
 view-if: year = 1928 and (month = 8 or month = 9)
 max-visits: 1
-on-arrival: kellogg_briand_seen = 1; kellogg_briand_signed = 1 if foreign_minister_party = "DVP"
+on-arrival: kellogg_briand_seen = 1; kellogg_briand_signed = 1 if foreign_minister_party = "DP"
 tags: event
 #face-image: img/portraits/StresemannGustav.jpg
 
@@ -11,7 +11,7 @@ tags: event
 
 An international treaty has been negotiated which promises an end to war. The treaty, negotiated by American Secretary of State Frank Kellogg and French foreign minister Aristide Briand, promises that its signatories will renounce the use of war, and will promise to settle their disputes peacefully. Countries throughout the world are lining up to sign this idealistic agreement. Its detractors argue that it has no enforcement mechanism, and thus is merely a worthless piece of paper.
 
-[? if foreign_minister_party = "DVP": Our foreign Minister Gustav Stresemann has signed the treaty. The reaction is generally muted; both pacifists and militarists are skeptical about the efficacy of the treaty. ?]
+[? if foreign_minister_party = "DP": Our foreign Minister Gustav Stresemann has signed the treaty. The reaction is generally muted; both pacifists and militarists are skeptical about the efficacy of the treaty. ?]
 
 - @sign_treaty: Foreign Minister Breitscheid will sign the treaty, of course.
 - @step_forward

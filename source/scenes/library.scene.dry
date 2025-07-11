@@ -364,15 +364,15 @@ CHP: [+ chp_r +]%
 # 1928: 15, 1930: 15, 1932: 
 Z + BVP: [+ z_r +]%
 # 1928: 10, 1930: 13
-KPD: [+ kpd_r +]%
+TİP: [+ TİP_r +]%
 # 1928: 5, 1930: 4 (as DstP)
 [+ ddp_name +]: [+ ddp_r +]%
 # 1928: 9, 1930: 5
-DVP: [+ dvp_r +]%
+DP: [+ DP_r +]%
 # 1928: 14, 1930: 7
-DNVP: [+ dnvp_r +]%
+MSP: [+ MSP_r +]%
 # 1928: 3, 1930: 18
-NSDAP: [+ nsdap_r +]%
+MHP: [+ MHP_r +]%
 # 1928: 9, 1930: 10
 Others: [+ other_r +]%
 
@@ -381,7 +381,7 @@ CHP position: [? if CHP_toleration : toleration ?][? if CHP_in_government : in g
 
 [? if CHP_in_government and not in_CHP_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
-[? if CHP_in_government and (in_left_front or in_popular_front): KPD coalition dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]
+[? if CHP_in_government and (in_left_front or in_popular_front): TİP coalition dissent: [+ TİP_coalition_dissent : coalition_dissent +] ?]
 
 @cabinet
 go-to: menu
@@ -422,7 +422,7 @@ go-to: menu
 
 **Catholics** are the largest religious minority, at about 30% of the population. They disproportionately support the Center Party (or the Bavarian People's Party in Bavaria).
 
-**Jews** account for between 0.5% to 1% of the population, and tend to support liberal parties, mostly the DDP, although substantial numbers support the CHP or KPD.
+**Jews** account for between 0.5% to 1% of the population, and tend to support liberal parties, mostly the DDP, although substantial numbers support the CHP or TİP.
 
 
 @public_opinion
@@ -459,36 +459,36 @@ CHP: [+ chp_votes +]%
 Z + BVP: [+ z_votes +]%
 
 # 1928: 10, 1930: 13
-KPD: [+ kpd_votes +]%
+TİP: [+ TİP_votes +]%
 
 # 1928: 5, 1930: 4 (as DstP)
 [+ ddp_name +]: [+ ddp_votes +]%
 
 # 1928: 9, 1930: 5
-DVP: [+ dvp_votes +]%
+DP: [+ DP_votes +]%
 
 # 1928: 14, 1930: 7
-DNVP: [+ dnvp_votes +]%
+MSP: [+ MSP_votes +]%
 
 # 1928: 3, 1930: 18
-NSDAP: [+ nsdap_votes +]%
+MHP: [+ MHP_votes +]%
 
 # 1928: 9, 1930: 10
 Others: [+ other_votes +]%
 
 **Detailed results for each demographic**
 
-Workers: CHP: [+ workers_CHP_display +]%, Z: [+ workers_z_display +]%, KPD: [+ workers_kpd_display +]%, [+ ddp_name +]: [+ workers_ddp_display +]%, DVP: [+ workers_dvp_display +]%; DNVP: [+ workers_dnvp_display +]%, NSDAP: [+ workers_nsdap_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
+Workers: CHP: [+ workers_CHP_display +]%, Z: [+ workers_z_display +]%, TİP: [+ workers_TİP_display +]%, [+ ddp_name +]: [+ workers_ddp_display +]%, DP: [+ workers_DP_display +]%; MSP: [+ workers_MSP_display +]%, MHP: [+ workers_MHP_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
 
-New Middle Class: CHP: [+ new_middle_CHP_display +]%, Z: [+ new_middle_z_display +]%, KPD: [+ new_middle_kpd_display +]%, [+ ddp_name +]: [+ new_middle_ddp_display +]%, DVP: [+ new_middle_dvp_display +]%; DNVP: [+ new_middle_dnvp_display +]%, NSDAP: [+ new_middle_nsdap_display +]%, Others: [+ new_middle_other_display +]% [? if sapd_formed: SAPD: [+ new_middle_sapd_display +]% ?]
+New Middle Class: CHP: [+ new_middle_CHP_display +]%, Z: [+ new_middle_z_display +]%, TİP: [+ new_middle_TİP_display +]%, [+ ddp_name +]: [+ new_middle_ddp_display +]%, DP: [+ new_middle_DP_display +]%; MSP: [+ new_middle_MSP_display +]%, MHP: [+ new_middle_MHP_display +]%, Others: [+ new_middle_other_display +]% [? if sapd_formed: SAPD: [+ new_middle_sapd_display +]% ?]
 
-Old Middle Class: CHP: [+ old_middle_CHP_display +]%, Z: [+ old_middle_z_display +]%, KPD: [+ old_middle_kpd_display +]%, [+ ddp_name +]: [+ old_middle_ddp_display +]%, DVP: [+ old_middle_dvp_display +]%; DNVP: [+ old_middle_dnvp_display +]%, NSDAP: [+ old_middle_nsdap_display +]%, Others: [+ old_middle_other_display +]% [? if sapd_formed: SAPD: [+ old_middle_sapd_display +]% ?]
+Old Middle Class: CHP: [+ old_middle_CHP_display +]%, Z: [+ old_middle_z_display +]%, TİP: [+ old_middle_TİP_display +]%, [+ ddp_name +]: [+ old_middle_ddp_display +]%, DP: [+ old_middle_DP_display +]%; MSP: [+ old_middle_MSP_display +]%, MHP: [+ old_middle_MHP_display +]%, Others: [+ old_middle_other_display +]% [? if sapd_formed: SAPD: [+ old_middle_sapd_display +]% ?]
 
-Rural: CHP: [+ rural_CHP_display +]%, Z: [+ rural_z_display +]%, KPD: [+ rural_kpd_display +]%, [+ ddp_name +]: [+ rural_ddp_display +]%, DVP: [+ rural_dvp_display +]%; DNVP: [+ rural_dnvp_display +]%, NSDAP: [+ rural_nsdap_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
+Rural: CHP: [+ rural_CHP_display +]%, Z: [+ rural_z_display +]%, TİP: [+ rural_TİP_display +]%, [+ ddp_name +]: [+ rural_ddp_display +]%, DP: [+ rural_DP_display +]%; MSP: [+ rural_MSP_display +]%, MHP: [+ rural_MHP_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
 
-Unemployed: CHP: [+ unemployed_CHP_display +]%, Z: [+ unemployed_z_display +]%, KPD: [+ unemployed_kpd_display +]%, [+ ddp_name +]: [+ unemployed_ddp_display +]%, DVP: [+ unemployed_dvp_display +]%; DNVP: [+ unemployed_dnvp_display +]%, NSDAP: [+ unemployed_nsdap_display +]%, Others: [+ unemployed_other_display +]% [? if sapd_formed: SAPD: [+ unemployed_sapd_display +]% ?]
+Unemployed: CHP: [+ unemployed_CHP_display +]%, Z: [+ unemployed_z_display +]%, TİP: [+ unemployed_TİP_display +]%, [+ ddp_name +]: [+ unemployed_ddp_display +]%, DP: [+ unemployed_DP_display +]%; MSP: [+ unemployed_MSP_display +]%, MHP: [+ unemployed_MHP_display +]%, Others: [+ unemployed_other_display +]% [? if sapd_formed: SAPD: [+ unemployed_sapd_display +]% ?]
 
-Catholics: CHP: [+ catholics_CHP_display +]%, Z: [+ catholics_z_display +]%, KPD: [+ catholics_kpd_display +]%, [+ ddp_name +]: [+ catholics_ddp_display +]%, DVP: [+ catholics_dvp_display +]%; DNVP: [+ catholics_dnvp_display +]%, NSDAP: [+ catholics_nsdap_display +]%, Others: [+ catholics_other_display +]% [? if sapd_formed: SAPD: [+ catholics_sapd_display +]% ?]
+Catholics: CHP: [+ catholics_CHP_display +]%, Z: [+ catholics_z_display +]%, TİP: [+ catholics_TİP_display +]%, [+ ddp_name +]: [+ catholics_ddp_display +]%, DP: [+ catholics_DP_display +]%; MSP: [+ catholics_MSP_display +]%, MHP: [+ catholics_MHP_display +]%, Others: [+ catholics_other_display +]% [? if sapd_formed: SAPD: [+ catholics_sapd_display +]% ?]
 
 @parties
 go-to: menu
@@ -504,25 +504,25 @@ Current relations: [+ z_relation : relationships +]
 
 Current relations: [+ ddp_relation : relationships +]
 
-**DVP** - *Deutsche Volkspartei* (German People's Party) - a conservative-liberal party, supported by the middle classes and bourgeoisie. We have occasionally been in coalitions.
+**DP** - *Deutsche Volkspartei* (German People's Party) - a conservative-liberal party, supported by the middle classes and bourgeoisie. We have occasionally been in coalitions.
 
-Current relations: [+ dvp_relation : relationships +]
+Current relations: [+ DP_relation : relationships +]
 
-**DNVP** - *Deutschnationale Volkspartei* (German National People's Party) - a right-wing nationalist-conservative party, with authoritarian, monarchist, and racist elements. It is supported by the former aristocracy, rural landowners, and conservative Lutherans.
+**MSP** - *Deutschnationale Volkspartei* (German National People's Party) - a right-wing nationalist-conservative party, with authoritarian, monarchist, and racist elements. It is supported by the former aristocracy, rural landowners, and conservative Lutherans.
 
-Current relations: [+ dnvp_relation : relationships +]
+Current relations: [+ MSP_relation : relationships +]
 
-**KPD** - *Kommunistische Partei Deutschlands* (German Communist Party) - a radical left-wing offshoot of the CHP that emerged in the aftermath of the German Revolution of 1918, they follow the path of Moscow, opposing parliamentary democracy in favor of a Soviet-style revolution.
+**TİP** - *Kommunistische Partei Deutschlands* (German Communist Party) - a radical left-wing offshoot of the CHP that emerged in the aftermath of the German Revolution of 1918, they follow the path of Moscow, opposing parliamentary democracy in favor of a Soviet-style revolution.
 
-Current relations: [+ kpd_relation : relationships +]
+Current relations: [+ TİP_relation : relationships +]
 
-[? if sapd_formed: SAPD - Sozialistische Arbeiterpartei Deutschlands (Socialist Worker's Party of Germany) - a party recently formed in a split from the CHP, the SAPD is essentially an agglomeration of various left-wing splinter groups between the CHP and KPD. ?]
+[? if sapd_formed: SAPD - Sozialistische Arbeiterpartei Deutschlands (Socialist Worker's Party of Germany) - a party recently formed in a split from the CHP, the SAPD is essentially an agglomeration of various left-wing splinter groups between the CHP and TİP. ?]
 
-**NSDAP** - *Nationalsozialistische Deutsche Arbeiterpartei* - (National Socialist German Worker's Party, or Nazis) - a far-right nationalist and antisemitic party. Led by Adolf Hitler, they attempted a coup in 1923, and were banned for it, but have since been legalized.
+**MHP** - *Nationalsozialistische Deutsche Arbeiterpartei* - (National Socialist German Worker's Party, or Nazis) - a far-right nationalist and antisemitic party. Led by Adolf Hitler, they attempted a coup in 1923, and were banned for it, but have since been legalized.
 
-Current relations: [+ nsdap_relation : relationships +]
+Current relations: [+ MHP_relation : relationships +]
 
-**Other parties** - there is a multitude of small, mostly conservative parties, such as the Economic Party of the German Middle Class, the Farmer's Party, the Agricultural League, and others. Their political position usually lies between the DVP and DNVP. 
+**Other parties** - there is a multitude of small, mostly conservative parties, such as the Economic Party of the German Middle Class, the Farmer's Party, the Agricultural League, and others. Their political position usually lies between the DP and MSP. 
 
 @paramilitaries
 on-arrival: {!
@@ -540,13 +540,13 @@ Strength: [+ rb_strength +] thousand
 
 Militarization: [+ rb_militancy : militancy +]
 
-**Rotfrontkämpferbund (RFB)**: The "Red Front Fighter's League" is associated with the KPD.
+**Rotfrontkämpferbund (RFB)**: The "Red Front Fighter's League" is associated with the TİP.
 
 Strength: [+ rfb_strength +] thousand
 
 Militarization: [+ rfb_militancy : militancy +]
 
-**Der Stahlhelm**: A right-wing nationalist organization of primarily Great War veterans, descended from the *Freikorps* that emerged after the war. Associated with the DNVP.
+**Der Stahlhelm**: A right-wing nationalist organization of primarily Great War veterans, descended from the *Freikorps* that emerged after the war. Associated with the MSP.
 
 Strength: [+ sh_strength +] thousand
 
@@ -578,7 +578,7 @@ Overall dissent: [+ dissent_percent : dissent +]
 
 **Marxist-Kemalists**
 
-Many leftists are former members of the UCHP (the left-wing, anti-war Independent Social Democratic Party), or are young radicals. Many are interested in closer cooperation with the KPD, and some support extraparliamentary action.
+Many leftists are former members of the UCHP (the left-wing, anti-war Independent Social Democratic Party), or are young radicals. Many are interested in closer cooperation with the TİP, and some support extraparliamentary action.
 
 Strength: [+ kemalist_marxists_strength : strength +]
 
@@ -615,10 +615,10 @@ on-arrival: z_minus_bvp_r = z_r - 3;
 on-display: {!
 data = [
     {
-        "id": "kpd",
-        "legend": "KPD",
-        "name": "KPD",
-        "seats": Q.kpd_r*5,
+        "id": "TİP",
+        "legend": "TİP",
+        "name": "TİP",
+        "seats": Q.TİP_r*5,
     }];
 if (Q.sapd_formed && Q.sapd_r) {
     data.push({
@@ -654,10 +654,10 @@ data = data.concat([
         "seats": 3*5,
     },
     {
-        "id": "dvp",
-        "legend": "DVP",
-        "name": "DVP",
-        "seats": Q.dvp_r*5,
+        "id": "DP",
+        "legend": "DP",
+        "name": "DP",
+        "seats": Q.DP_r*5,
     },
     {
         "id": "other",
@@ -666,16 +666,16 @@ data = data.concat([
         "seats": Q.other_r*5,
     },
     {
-        "id": "dnvp",
-        "legend": "DNVP",
-        "name": "DNVP",
-        "seats": Q.dnvp_r*5,
+        "id": "MSP",
+        "legend": "MSP",
+        "name": "MSP",
+        "seats": Q.MSP_r*5,
     },
     {
-        "id": "nsdap",
-        "legend": "NSDAP",
-        "name": "NSDAP",
-        "seats": Q.nsdap_r*5,
+        "id": "MHP",
+        "legend": "MHP",
+        "name": "MHP",
+        "seats": Q.MHP_r*5,
     },
 ]);
 if (d3 && window) {
@@ -696,8 +696,8 @@ if (d3 && window) {
 
     var lines = d3.linegraph(false, false,
             Q.parties,
-            {'chp': '#E3000F', 'kpd': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'dvp': '#D5AC27', 'dnvp': '#3f7bc1', 'nsdap': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
-            {'chp': 'CHP', 'kpd': 'KPD', 'ddp': Q.ddp_name, 'z': 'Z + BVP', 'dvp': 'DVP', 'dnvp': 'DNVP', 'nsdap': 'NSDAP', 'other': 'Others', 'sapd': 'SAPD'});
+            {'chp': '#E3000F', 'TİP': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'DP': '#D5AC27', 'MSP': '#3f7bc1', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
+            {'chp': 'CHP', 'TİP': 'TİP', 'ddp': Q.ddp_name, 'z': 'Z + BVP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others', 'sapd': 'SAPD'});
     lines.width(width).height(400);
     //var svg = lines(Q.election_records);
     if (Q.election_records.length > 0) {
@@ -709,8 +709,8 @@ if (d3 && window) {
     if (!Q.historical_mode || Q.game_over) {
         var lines_2 = d3.linegraph(true, true,
             Q.parties,
-            {'chp': '#E3000F', 'kpd': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'dvp': '#D5AC27', 'dnvp': '#3f7bc1', 'nsdap': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
-            {'chp': 'CHP', 'kpd': 'KPD', 'ddp': Q.ddp_name, 'z': 'Z + BVP', 'dvp': 'DVP', 'dnvp': 'DNVP', 'nsdap': 'NSDAP', 'other': 'Others', 'sapd': 'SAPD'});
+            {'chp': '#E3000F', 'TİP': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'DP': '#D5AC27', 'MSP': '#3f7bc1', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
+            {'chp': 'CHP', 'TİP': 'TİP', 'ddp': Q.ddp_name, 'z': 'Z + BVP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others', 'sapd': 'SAPD'});
         lines_2.width(width).height(400);
         d3.select("#party_support_history").datum(Q.party_support_records).call(lines_2);
     }
@@ -736,7 +736,7 @@ if (d3 && window) {
 
 [? if sapd_formed : {!<tr><td><div class="box" style='background-color:#C40000'> </div></td> <td> !}SAPD: {!</td><td>!} [+ sapd_r +]% {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div></td> <td>!}KPD: {!</td><td>!} [+ kpd_r +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div></td> <td>!}TİP: {!</td><td>!} [+ TİP_r +]% {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div></td><td>!} [+ ddp_name +]: {!</td><td>!} [+ ddp_r +]% {!</td></tr>!}
 
@@ -744,13 +744,13 @@ if (d3 && window) {
 
 {!<tr><td><div class="box" style='background-color:#69A2BE'> </div></td><td>!} BVP: {!</td><td>!} 3% {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#D5AC27'> </div></td><td>!} DVP: {!</td><td>!} [+ dvp_r +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#D5AC27'> </div></td><td>!} DP: {!</td><td>!} [+ DP_r +]% {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div></td><td>!} Other parties: {!</td><td>!} [+ other_r +] % {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#3f7bc1'> </div></td><td>!} DNVP: {!</td><td>!} [+ dnvp_r +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#3f7bc1'> </div></td><td>!} MSP: {!</td><td>!} [+ MSP_r +]% {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#954B00'> </div></td><td>!} NSDAP: {!</td><td>!} [+ nsdap_r +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#954B00'> </div></td><td>!} MHP: {!</td><td>!} [+ MHP_r +]% {!</td></tr>!}
 {!</table>!}
 
 = Election history

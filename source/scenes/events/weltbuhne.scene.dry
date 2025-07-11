@@ -7,7 +7,7 @@ on-arrival: weltbuhne_seen = 1
 face-image: img/weltbune.jpg
 tags: event
 
-# if the CHP controls the judiciary then they can just cancel the trial (at the expense of DVP relations).
+# if the CHP controls the judiciary then they can just cancel the trial (at the expense of DP relations).
 # If in a grand coalition then the CHP can pressure the coalition to cancel the trial at the expense of dissent.
 # If the trial goes ahead, then reparations negotiation process gets set back by a few steps and relations with the west suffers.
 
@@ -27,7 +27,7 @@ The left-wing news and literary magazine Weltbühne has been targeted by the nat
 view-if: CHP_in_government
 choose-if: CHP_in_government and justice_minister_party = "CHP"
 unavailable-subtitle: [? if not CHP_in_government : CHP not in government. ?] [? if CHP_in_government and justice_minister_party != "CHP": The CHP does not control the Justice Ministry. ?]
-on-arrival: weltbuhne_dropped = 1; dvp_relation -= 4; nationalism -= 3*(1-dissent); coalition_dissent += 1 if in_grand_coalition; reichswehr_loyalty -= 0.1; west_relation += 1; east_relation += 1; coup_progress += 1; reparations_negotiation += 1; pacifism += 1
+on-arrival: weltbuhne_dropped = 1; DP_relation -= 4; nationalism -= 3*(1-dissent); coalition_dissent += 1 if in_grand_coalition; reichswehr_loyalty -= 0.1; west_relation += 1; east_relation += 1; coup_progress += 1; reparations_negotiation += 1; pacifism += 1
 
 The Justice Ministry has dropped all persecution of Carl von Ossietzky and Walter Kreiser, the journalist responsible for the offending publication. In fact, some say that the Weltbühne journalists should be feted as heroes.
 
@@ -36,13 +36,13 @@ The Western powers and all countries that feel threatened by German militarism a
 
 @let_persecute
 view-if: CHP_in_government
-on-arrival: weltbuhne_dropped = 0; dvp_relation += 4; reichswehr_loyalty += 0.05; west_relation -= 1; east_relation -= 1; reparations_negotiation -= 1; pacifism -= 1; nationalism += 4; left_dissent += 5
+on-arrival: weltbuhne_dropped = 0; DP_relation += 4; reichswehr_loyalty += 0.05; west_relation -= 1; east_relation -= 1; reparations_negotiation -= 1; pacifism -= 1; nationalism += 4; left_dissent += 5
 
 The case progresses slowly, given the military secrets involved, and there will be no determination made for a while. The Reichswehr is pleased of our loyalty. However, the affair has made the Western powers suspicious of our resurgent militarism, as well as displeasing the left wing of the party.
 
 @pressure_drop
 view-if: CHP_in_government and justice_minister_party != "CHP"
-on-arrival: weltbuhne_dropped = 1; dvp_relation -= 5; nationalism += 3*(1-dissent); coalition_dissent += 1; coalition_dissent += 1 if in_grand_coalition; reichswehr_loyalty -= 0.1; coup_progress += 1; west_relation += 1; east_relation += 1; reparations_negotiation += 1
+on-arrival: weltbuhne_dropped = 1; DP_relation -= 5; nationalism += 3*(1-dissent); coalition_dissent += 1; coalition_dissent += 1 if in_grand_coalition; reichswehr_loyalty -= 0.1; coup_progress += 1; west_relation += 1; east_relation += 1; reparations_negotiation += 1
 
 We have pressured the Justice Ministry to drop the case against the Weltbühne, raising tensions with our coalition.
 

@@ -2,7 +2,7 @@ title: Economic Expansion
 subtitle: The economy is growing steadily.
 new-page: true
 view-if: economic_expansion >= 85 and unemployed <= 6 and inflation <= 6 and CHP_in_government
-on-arrival: economic_expansion = 0; capital_strike_progress -= 2 if capital_strike_progress >= 2; budget += 1; workers_CHP += 4*(1-dissent) if CHP_in_government; new_middle_CHP += 2*(1-dissent) if CHP_in_government; old_middle_CHP += 2*(1-dissent) if CHP_in_government; rural_CHP += 2*(1-dissent) if CHP_in_government; new_middle_ddp += 5 if in_weimar_coalition or in_grand_coalition or in_popular_front; workers_kpd += 3 if in_popular_front or in_left_front; old_middle_dvp += 4 if in_grand_coalition; new_middle_dvp += 3 if in_grand_coalition; inflation += 0.4
+on-arrival: economic_expansion = 0; capital_strike_progress -= 2 if capital_strike_progress >= 2; budget += 1; workers_CHP += 4*(1-dissent) if CHP_in_government; new_middle_CHP += 2*(1-dissent) if CHP_in_government; old_middle_CHP += 2*(1-dissent) if CHP_in_government; rural_CHP += 2*(1-dissent) if CHP_in_government; new_middle_ddp += 5 if in_weimar_coalition or in_grand_coalition or in_popular_front; workers_TİP += 3 if in_popular_front or in_left_front; old_middle_DP += 4 if in_grand_coalition; new_middle_DP += 3 if in_grand_coalition; inflation += 0.4
 tags: event
 
 = Economic Expansion

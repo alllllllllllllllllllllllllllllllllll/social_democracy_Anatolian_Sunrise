@@ -27,7 +27,7 @@ go-to: main_rally
 The police successfully protected our rally, so it can go ahead as usual.
 
 @police_protect_lose
-on-arrival: strife += 1; workers_nsdap += 3
+on-arrival: strife += 1; workers_MHP += 3
 
 Unfortunately, the police were unable or unwilling to hold back the SA mob. The Nazis have won this show of strength.
 
@@ -41,7 +41,7 @@ go-to: main_rally
 The Reichsbanner has successfully protected our rally against the SA! Our meeting can go ahead as usual.
 
 @rb_protect_lose
-on-arrival: workers_nsdap += 3; rb_strength -= 50
+on-arrival: workers_MHP += 3; rb_strength -= 50
 
 Unfortunately, the Reichsbanner was not able to hold back the SA mob. The Nazis have won this show of strength.
 
@@ -58,13 +58,13 @@ go-to: main_rally
 The police and Reichsbanner have successfully protected our rally against the SA! Our meeting can go ahead as usual.
 
 @both_protect_lose
-on-arrival: workers_nsdap += 3; rb_strength -= 50
+on-arrival: workers_MHP += 3; rb_strength -= 50
 
 Unfortunately, the police and Reichsbanner were not able to hold back the SA mob. The Nazis have won this show of strength.
 
 
 @cancel
-on-arrival: workers_nsdap += 3;
+on-arrival: workers_MHP += 3;
 
 The SA have won this show of strength.
 

@@ -1,7 +1,7 @@
 title: Hitler appointed Chancellor!
 subtitle: The beginning of the end...
-view-if: year >= 1933 and president = "Hindenburg" and (chancellor = "Papen" or chancellor = "Schleicher") and in_grand_coalition = 0 and CHP_in_government = 0 and largest_party = "NSDAP" and hitler_deported = 0 and not presidential_powers and not schleichers_scheme_success
-on-departure: chancellor = "Hitler"; chancellor_party = "NSDAP"
+view-if: year >= 1933 and president = "Hindenburg" and (chancellor = "Papen" or chancellor = "Schleicher") and in_grand_coalition = 0 and CHP_in_government = 0 and largest_party = "MHP" and hitler_deported = 0 and not presidential_powers and not schleichers_scheme_success
+on-departure: chancellor = "Hitler"; chancellor_party = "MHP"
 tags: event
 new-page: true
 
@@ -28,7 +28,7 @@ Do we realize that this means civil war, against the full force of the state?
 
 Speeches are made. Votes are held. Bullets fly in the streets. Some socialists are killed or jailed. Others flee the country. What can votes even do at this juncture?
 
-The Reichstag is burned, ostensibly by a foreign communist. In the wake, the Nazis pass decrees giving them unlimited power. They, combined with the DNVP, will win a majority at the next elections.
+The Reichstag is burned, ostensibly by a foreign communist. In the wake, the Nazis pass decrees giving them unlimited power. They, combined with the MSP, will win a majority at the next elections.
 
 Germany is lost.
 

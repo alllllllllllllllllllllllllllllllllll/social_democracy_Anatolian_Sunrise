@@ -24,7 +24,7 @@ if (Q.republic_victory) {
 // Einigkeit und Recht - survive on medium without a civil war.
 // Einigkeit und Recht und Freiheit - survive on hard without a civil war.
 
-// Einheitsfront - form a united front with the KPD, and win the civil war.
+// Einheitsfront - form a united front with the TİP, and win the civil war.
 
 // Volksfront - form a popular front government, and win the civil war.
 
@@ -69,7 +69,7 @@ for (var c of Q.classes) {
     }
 }
 
-// Die Rote Fahne - join the KPD in the May Day march.
+// Die Rote Fahne - join the TİP in the May Day march.
 // Mehrheitspartei - form an CHP majority government in the Reichstag.
 // Panik im Mittelstand - have over 50% of New Middle Class support.
 if (Q.new_middle_CHP_normalized && Q.new_middle_CHP_normalized >= 50) {
@@ -105,7 +105,7 @@ if (Q.factory_takeovers >= 2) {
     this.achieve("syndikalismus");
 }
 // Stolperstein - lose the civil war against Hitler.
-if ((Q.chancellor_party == "NSDAP" || Q.chancellor == "Hitler" || Q.president == "Hitler") && Q.total_defeat) {
+if ((Q.chancellor_party == "MHP" || Q.chancellor == "Hitler" || Q.president == "Hitler") && Q.total_defeat) {
     this.achieve('stolperstein');
 }
 // Heidelberger Programm - fulfill the goals of the Heidelberg programm - increase welfare, reform justice, support women's rights, progressive taxation, works councils, build a European Union.
@@ -143,7 +143,7 @@ Adolf Hitler has taken power in Germany. However, we have rallied the democratic
 
 
 @no_hitler
-view-if: chancellor != "Hitler" and president != "Hitler" and president != "Göring" and chancellor_party != "NSDAP"
+view-if: chancellor != "Hitler" and president != "Hitler" and president != "Göring" and chancellor_party != "MHP"
 title: Hitler does not yet control Germany...
 tags: endings
 go-to: eg_menu
@@ -152,13 +152,13 @@ Hitler does not yet control Germany. [? if chancellor == "Papen" : However, Chan
 
 [? if hitler_deported == 1 : We have deported Hitler back to Austria. Hopefully he will never return. ?]
 
-@nsdap_win
+@MHP_win
 view-if: chancellor == "Goebbels" or president == "Göring"
 title: Despite the deportation of Hitler, the Nazis have still taken power...
 tags: endings
 go-to: eg_menu
 
-Despite the deportation of Hitler, the NSDAP has somehow still wormed its way into power. [? if long_war == 1 : We are fighting them for control of Germany. ?]
+Despite the deportation of Hitler, the MHP has somehow still wormed its way into power. [? if long_war == 1 : We are fighting them for control of Germany. ?]
 
 
 @civil_war_won
@@ -232,11 +232,11 @@ The CHP is still in government, under Chancellor [+ chancellor +]. Given the cir
 
 @communist_victory
 title: Communist victory
-view-if: chancellor_party == "KPD" or president == "Thälmann" and total_defeat == 0 and long_war == 0
+view-if: chancellor_party == "TİP" or president == "Thälmann" and total_defeat == 0 and long_war == 0
 tags: endings
 go-to: eg_menu
 
-The KPD has won power in Germany, with our assistance. They will try to remake Germany in the Soviet image. How much they succeed is yet to be determined.
+The TİP has won power in Germany, with our assistance. They will try to remake Germany in the Soviet image. How much they succeed is yet to be determined.
 
 @works_program
 title: Works program enacted!
@@ -340,15 +340,15 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_red_tzar_of_prussia : **Roter Zar von Preußen** - Otto Braun is President, Chancellor, and Minister-President. ?]
 
-[? if game_achievement_einheitsfront: **Einheitsfront** - Form a government consisting of the CHP and KPD. ?]
+[? if game_achievement_einheitsfront: **Einheitsfront** - Form a government consisting of the CHP and TİP. ?]
 
-[? if game_achievement_einheitsfront_2: **Sieg für die Einheitsfront** - Form a Left Front that survives the KPD demands. ?]
+[? if game_achievement_einheitsfront_2: **Sieg für die Einheitsfront** - Form a Left Front that survives the TİP demands. ?]
 
-[? if game_achievement_volksfront: **Volksfront** - Form a government consisting of the CHP, KPD, Z, and DDP. ?]
+[? if game_achievement_volksfront: **Volksfront** - Form a government consisting of the CHP, TİP, Z, and DDP. ?]
 
-[? if game_achievement_grosse_volksfront: **Große Volksfront** - With Joos leading the Center Party and the Conciliators leading the KPD, form a government consisting of the CHP, KPD, Z, and DDP. ?]
+[? if game_achievement_grosse_volksfront: **Große Volksfront** - With Joos leading the Center Party and the Conciliators leading the TİP, form a government consisting of the CHP, TİP, Z, and DDP. ?]
 
-[? if game_achievement_volksfront_2: **Sieg für die Volksfront** - Form a Popular Front that survives the KPD demands. ?]
+[? if game_achievement_volksfront_2: **Sieg für die Volksfront** - Form a Popular Front that survives the TİP demands. ?]
 
 [? if game_achievement_constitutional_coalition: **Verfassungskoalition** - form a "constitutional coalition". ?]
 
@@ -364,7 +364,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_rote_millionar: **Der rote Millionär** - Willi Münzenberg is president. ?]
 
-[? if game_achievement_versohnler: **Versöhnler** - the Conciliators lead the KPD. ?]
+[? if game_achievement_versohnler: **Versöhnler** - the Conciliators lead the TİP. ?]
 
 [? if game_achievement_deport_hitler : **Der österreichische Gefreite** - deported Hitler ?]
 
@@ -384,7 +384,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_bruder_zur_sonne: **Brüder, zur Sonne, zur Freiheit** - reduce unemployment, pause reparations, increase women's rights, elect an CHP president, and deport Hitler in one playthrough on at least normal difficulty. ?]
 
-[? if game_achievement_die_rote_fahne: **Die Rote Fahne** - join the KPD in their May Day march. ?]
+[? if game_achievement_die_rote_fahne: **Die Rote Fahne** - join the TİP in their May Day march. ?]
 
 [? if game_achievement_panik_im_mittelstand: **Panik im Mittelstand** - CHP new middle class support is at least 50%. ?]
 
@@ -447,15 +447,15 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_red_tzar_of_prussia : **Roter Zar von Preußen** - Otto Braun is President, Chancellor, and Minister-President. ?]
 
-[? if achievement_einheitsfront: **Einheitsfront** - Form a government consisting of the CHP and KPD. ?]
+[? if achievement_einheitsfront: **Einheitsfront** - Form a government consisting of the CHP and TİP. ?]
 
-[? if achievement_einheitsfront_2: **Sieg für die Einheitsfront** - Form a Left Front that survives the KPD demands. ?]
+[? if achievement_einheitsfront_2: **Sieg für die Einheitsfront** - Form a Left Front that survives the TİP demands. ?]
 
-[? if achievement_volksfront: **Volksfront** - Form a government consisting of the CHP, KPD, Z, and DDP. ?]
+[? if achievement_volksfront: **Volksfront** - Form a government consisting of the CHP, TİP, Z, and DDP. ?]
 
-[? if achievement_grosse_volksfront: **Große Volksfront** - With Joos leading the Center Party and the Conciliators leading the KPD, form a government consisting of the CHP, KPD, Z, and DDP. ?]
+[? if achievement_grosse_volksfront: **Große Volksfront** - With Joos leading the Center Party and the Conciliators leading the TİP, form a government consisting of the CHP, TİP, Z, and DDP. ?]
 
-[? if achievement_volksfront_2: **Sieg für die Volksfront** - Form a Popular Front that survives the KPD demands. ?]
+[? if achievement_volksfront_2: **Sieg für die Volksfront** - Form a Popular Front that survives the TİP demands. ?]
 
 [? if achievement_constitutional_coalition: **Verfassungskoalition** - form a "constitutional coalition". ?]
 
@@ -471,7 +471,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_rote_millionar: **Der rote Millionär** - Willi Münzenberg is president. ?]
 
-[? if achievement_versohnler: **Versöhnler** - the Conciliators lead the KPD. ?]
+[? if achievement_versohnler: **Versöhnler** - the Conciliators lead the TİP. ?]
 
 [? if achievement_deport_hitler : **Der österreichische Gefreite** - deported Hitler ?]
 
@@ -491,7 +491,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_bruder_zur_sonne: **Brüder, zur Sonne, zur Freiheit** - reduce unemployment, pause reparations, increase women's rights, elect an CHP president, and deport Hitler in one playthrough on at least normal difficulty. ?]
 
-[? if achievement_die_rote_fahne: **Die Rote Fahne** - join the KPD in their May Day march. ?]
+[? if achievement_die_rote_fahne: **Die Rote Fahne** - join the TİP in their May Day march. ?]
 
 [? if achievement_panik_im_mittelstand: **Panik im Mittelstand** - CHP new middle class support is at least 50%. ?]
 
@@ -552,15 +552,15 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if not achievement_red_tzar_of_prussia : **Roter Zar von Preußen** - Otto Braun is President, Chancellor, and Minister-President. ?]
 
-[? if not achievement_einheitsfront: **Einheitsfront** - Form a government consisting of the CHP and KPD. ?]
+[? if not achievement_einheitsfront: **Einheitsfront** - Form a government consisting of the CHP and TİP. ?]
 
-[? if not achievement_einheitsfront_2: **Sieg für die Einheitsfront** - Form a Left Front that survives the KPD demands. ?]
+[? if not achievement_einheitsfront_2: **Sieg für die Einheitsfront** - Form a Left Front that survives the TİP demands. ?]
 
-[? if not achievement_volksfront: **Volksfront** - Form a government consisting of the CHP, KPD, Z, and DDP. ?]
+[? if not achievement_volksfront: **Volksfront** - Form a government consisting of the CHP, TİP, Z, and DDP. ?]
 
-[? if not achievement_grosse_volksfront: **Große Volksfront** - With Joos leading the Center Party and the Conciliators leading the KPD, form a government consisting of the CHP, KPD, Z, and DDP. ?]
+[? if not achievement_grosse_volksfront: **Große Volksfront** - With Joos leading the Center Party and the Conciliators leading the TİP, form a government consisting of the CHP, TİP, Z, and DDP. ?]
 
-[? if not achievement_volksfront_2: **Sieg für die Volksfront** - Form a Popular Front that survives the KPD demands. ?]
+[? if not achievement_volksfront_2: **Sieg für die Volksfront** - Form a Popular Front that survives the TİP demands. ?]
 
 [? if not achievement_constitutional_coalition: **Verfassungskoalition** - form a "constitutional coalition". ?]
 
@@ -576,7 +576,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if not achievement_rote_millionar: **Der rote Millionär** - Willi Münzenberg is president. ?]
 
-[? if not achievement_versohnler: **Versöhnler** - the Conciliators lead the KPD. ?]
+[? if not achievement_versohnler: **Versöhnler** - the Conciliators lead the TİP. ?]
 
 [? if not achievement_deport_hitler : **Der österreichische Gefreite** - deported Hitler ?]
 
@@ -596,7 +596,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if not achievement_bruder_zur_sonne: **Brüder, zur Sonne, zur Freiheit** - reduce unemployment, pause reparations, increase women's rights, elect an CHP president, and deport Hitler in one playthrough on at least normal difficulty. ?]
 
-[? if not achievement_die_rote_fahne: **Die Rote Fahne** - join the KPD in their May Day march. ?]
+[? if not achievement_die_rote_fahne: **Die Rote Fahne** - join the TİP in their May Day march. ?]
 
 [? if not achievement_panik_im_mittelstand: **Panik im Mittelstand** - CHP new middle class support is at least 50%. ?]
 

@@ -9,7 +9,7 @@ card-image: img/muller_cabinet.jpg
 
 = Coalition Affairs
 
-Our coalition is in trouble. The right-leaning members of the Center [? if in_grand_coalition: and DVP ?] are constantly criticizing us for our policies, and are threatening to call a vote of no confidence to collapse this government[? if CHP_prussia :, or to do the same for our government in the state of Prussia ?].
+Our coalition is in trouble. The right-leaning members of the Center [? if in_grand_coalition: and DP ?] are constantly criticizing us for our policies, and are threatening to call a vote of no confidence to collapse this government[? if CHP_prussia :, or to do the same for our government in the state of Prussia ?].
 
 How do we reduce tensions with the coalition?
 
@@ -21,7 +21,7 @@ How do we reduce tensions with the coalition?
 
 
 @promise_cuts
-on-arrival: workers_CHP -= 5; unemployed_CHP -= 6; workers_kpd += 5; unemployed_kpd += 3; unemployed_nsdap += 3; left_dissent += 10; labor_dissent += 5; welfare -= 1; budget += 1; coalition_dissent = 0
+on-arrival: workers_CHP -= 5; unemployed_CHP -= 6; workers_TİP += 5; unemployed_TİP += 3; unemployed_MHP += 3; left_dissent += 10; labor_dissent += 5; welfare -= 1; budget += 1; coalition_dissent = 0
 
 Fine. By cutting welfare, we have reduced dissent within the coalition.
 
