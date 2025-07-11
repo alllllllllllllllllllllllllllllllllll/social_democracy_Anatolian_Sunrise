@@ -366,7 +366,7 @@ Z + BVP: [+ z_r +]%
 # 1928: 10, 1930: 13
 TIP: [+ TIP_r +]%
 # 1928: 5, 1930: 4 (as DstP)
-[+ ddp_name +]: [+ ddp_r +]%
+[+ CGP_name +]: [+ CGP_r +]%
 # 1928: 9, 1930: 5
 DP: [+ DP_r +]%
 # 1928: 14, 1930: 7
@@ -422,7 +422,7 @@ go-to: menu
 
 **Catholics** are the largest religious minority, at about 30% of the population. They disproportionately support the Center Party (or the Bavarian People's Party in Bavaria).
 
-**Jews** account for between 0.5% to 1% of the population, and tend to support liberal parties, mostly the DDP, although substantial numbers support the CHP or TIP.
+**Jews** account for between 0.5% to 1% of the population, and tend to support liberal parties, mostly the CGP, although substantial numbers support the CHP or TIP.
 
 
 @public_opinion
@@ -462,7 +462,7 @@ Z + BVP: [+ z_votes +]%
 TIP: [+ TIP_votes +]%
 
 # 1928: 5, 1930: 4 (as DstP)
-[+ ddp_name +]: [+ ddp_votes +]%
+[+ CGP_name +]: [+ CGP_votes +]%
 
 # 1928: 9, 1930: 5
 DP: [+ DP_votes +]%
@@ -478,17 +478,17 @@ Others: [+ other_votes +]%
 
 **Detailed results for each demographic**
 
-Workers: CHP: [+ workers_CHP_display +]%, Z: [+ workers_z_display +]%, TIP: [+ workers_TIP_display +]%, [+ ddp_name +]: [+ workers_ddp_display +]%, DP: [+ workers_DP_display +]%; MSP: [+ workers_MSP_display +]%, MHP: [+ workers_MHP_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
+Workers: CHP: [+ workers_CHP_display +]%, Z: [+ workers_z_display +]%, TIP: [+ workers_TIP_display +]%, [+ CGP_name +]: [+ workers_CGP_display +]%, DP: [+ workers_DP_display +]%; MSP: [+ workers_MSP_display +]%, MHP: [+ workers_MHP_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
 
-New Middle Class: CHP: [+ new_middle_CHP_display +]%, Z: [+ new_middle_z_display +]%, TIP: [+ new_middle_TIP_display +]%, [+ ddp_name +]: [+ new_middle_ddp_display +]%, DP: [+ new_middle_DP_display +]%; MSP: [+ new_middle_MSP_display +]%, MHP: [+ new_middle_MHP_display +]%, Others: [+ new_middle_other_display +]% [? if sapd_formed: SAPD: [+ new_middle_sapd_display +]% ?]
+New Middle Class: CHP: [+ new_middle_CHP_display +]%, Z: [+ new_middle_z_display +]%, TIP: [+ new_middle_TIP_display +]%, [+ CGP_name +]: [+ new_middle_CGP_display +]%, DP: [+ new_middle_DP_display +]%; MSP: [+ new_middle_MSP_display +]%, MHP: [+ new_middle_MHP_display +]%, Others: [+ new_middle_other_display +]% [? if sapd_formed: SAPD: [+ new_middle_sapd_display +]% ?]
 
-Old Middle Class: CHP: [+ old_middle_CHP_display +]%, Z: [+ old_middle_z_display +]%, TIP: [+ old_middle_TIP_display +]%, [+ ddp_name +]: [+ old_middle_ddp_display +]%, DP: [+ old_middle_DP_display +]%; MSP: [+ old_middle_MSP_display +]%, MHP: [+ old_middle_MHP_display +]%, Others: [+ old_middle_other_display +]% [? if sapd_formed: SAPD: [+ old_middle_sapd_display +]% ?]
+Old Middle Class: CHP: [+ old_middle_CHP_display +]%, Z: [+ old_middle_z_display +]%, TIP: [+ old_middle_TIP_display +]%, [+ CGP_name +]: [+ old_middle_CGP_display +]%, DP: [+ old_middle_DP_display +]%; MSP: [+ old_middle_MSP_display +]%, MHP: [+ old_middle_MHP_display +]%, Others: [+ old_middle_other_display +]% [? if sapd_formed: SAPD: [+ old_middle_sapd_display +]% ?]
 
-Rural: CHP: [+ rural_CHP_display +]%, Z: [+ rural_z_display +]%, TIP: [+ rural_TIP_display +]%, [+ ddp_name +]: [+ rural_ddp_display +]%, DP: [+ rural_DP_display +]%; MSP: [+ rural_MSP_display +]%, MHP: [+ rural_MHP_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
+Rural: CHP: [+ rural_CHP_display +]%, Z: [+ rural_z_display +]%, TIP: [+ rural_TIP_display +]%, [+ CGP_name +]: [+ rural_CGP_display +]%, DP: [+ rural_DP_display +]%; MSP: [+ rural_MSP_display +]%, MHP: [+ rural_MHP_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
 
-Unemployed: CHP: [+ unemployed_CHP_display +]%, Z: [+ unemployed_z_display +]%, TIP: [+ unemployed_TIP_display +]%, [+ ddp_name +]: [+ unemployed_ddp_display +]%, DP: [+ unemployed_DP_display +]%; MSP: [+ unemployed_MSP_display +]%, MHP: [+ unemployed_MHP_display +]%, Others: [+ unemployed_other_display +]% [? if sapd_formed: SAPD: [+ unemployed_sapd_display +]% ?]
+Unemployed: CHP: [+ unemployed_CHP_display +]%, Z: [+ unemployed_z_display +]%, TIP: [+ unemployed_TIP_display +]%, [+ CGP_name +]: [+ unemployed_CGP_display +]%, DP: [+ unemployed_DP_display +]%; MSP: [+ unemployed_MSP_display +]%, MHP: [+ unemployed_MHP_display +]%, Others: [+ unemployed_other_display +]% [? if sapd_formed: SAPD: [+ unemployed_sapd_display +]% ?]
 
-Catholics: CHP: [+ catholics_CHP_display +]%, Z: [+ catholics_z_display +]%, TIP: [+ catholics_TIP_display +]%, [+ ddp_name +]: [+ catholics_ddp_display +]%, DP: [+ catholics_DP_display +]%; MSP: [+ catholics_MSP_display +]%, MHP: [+ catholics_MHP_display +]%, Others: [+ catholics_other_display +]% [? if sapd_formed: SAPD: [+ catholics_sapd_display +]% ?]
+Catholics: CHP: [+ catholics_CHP_display +]%, Z: [+ catholics_z_display +]%, TIP: [+ catholics_TIP_display +]%, [+ CGP_name +]: [+ catholics_CGP_display +]%, DP: [+ catholics_DP_display +]%; MSP: [+ catholics_MSP_display +]%, MHP: [+ catholics_MHP_display +]%, Others: [+ catholics_other_display +]% [? if sapd_formed: SAPD: [+ catholics_sapd_display +]% ?]
 
 @parties
 go-to: menu
@@ -500,9 +500,9 @@ go-to: menu
 Current relations: [+ z_relation : relationships +]
 
 # TODO: replace this with the german state party after 1930
-**DDP** - *Deutsche Demokratische Partei* (German Democratic Party) - a center-left liberal party, popular among the intelligensia and educated middle class. They have often been in coalitions with us. [? if year >= 1930 : They have recently reformed themselves as the German State Party (DStP). ?]
+**CGP** - *Deutsche Demokratische Partei* (German Democratic Party) - a center-left liberal party, popular among the intelligensia and educated middle class. They have often been in coalitions with us. [? if year >= 1930 : They have recently reformed themselves as the German State Party (DStP). ?]
 
-Current relations: [+ ddp_relation : relationships +]
+Current relations: [+ CGP_relation : relationships +]
 
 **DP** - *Deutsche Volkspartei* (German People's Party) - a conservative-liberal party, supported by the middle classes and bourgeoisie. We have occasionally been in coalitions.
 
@@ -534,7 +534,7 @@ go-to: menu
 
 **Paramilitary groups:**
 
-**Reichsbanner Schwarz-Rot-Gold**: The Reichsbanner is an organization affiliated with all of the democratic parties - the CHP, Z, and DDP, but primarily with the CHP. Historically, this has been an unarmed organization.
+**Reichsbanner Schwarz-Rot-Gold**: The Reichsbanner is an organization affiliated with all of the democratic parties - the CHP, Z, and CGP, but primarily with the CHP. Historically, this has been an unarmed organization.
 
 Strength: [+ rb_strength +] thousand
 
@@ -636,10 +636,10 @@ data = data.concat([
         "seats": Q.chp_r*5,
     },
     {
-        "id": "ddp",
-        "legend": "DDP",
-        "name": "DDP",
-        "seats": Q.ddp_r*5,
+        "id": "CGP",
+        "legend": "CGP",
+        "name": "CGP",
+        "seats": Q.CGP_r*5,
     },
     {
         "id": "z",
@@ -696,8 +696,8 @@ if (d3 && window) {
 
     var lines = d3.linegraph(false, false,
             Q.parties,
-            {'chp': '#E3000F', 'TIP': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'DP': '#750a6f', 'MSP': '#054521', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
-            {'chp': 'CHP', 'TIP': 'TIP', 'ddp': Q.ddp_name, 'z': 'Z + BVP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others', 'sapd': 'SAPD'});
+            {'chp': '#E3000F', 'TIP': '#8B0000', 'CGP': '#DCCA4A', 'z': '#000', 'DP': '#750a6f', 'MSP': '#054521', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
+            {'chp': 'CHP', 'TIP': 'TIP', 'CGP': Q.CGP_name, 'z': 'Z + BVP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others', 'sapd': 'SAPD'});
     lines.width(width).height(400);
     //var svg = lines(Q.election_records);
     if (Q.election_records.length > 0) {
@@ -709,8 +709,8 @@ if (d3 && window) {
     if (!Q.historical_mode || Q.game_over) {
         var lines_2 = d3.linegraph(true, true,
             Q.parties,
-            {'chp': '#E3000F', 'TIP': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'DP': '#750a6f', 'MSP': '#054521', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
-            {'chp': 'CHP', 'TIP': 'TIP', 'ddp': Q.ddp_name, 'z': 'Z + BVP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others', 'sapd': 'SAPD'});
+            {'chp': '#E3000F', 'TIP': '#8B0000', 'CGP': '#DCCA4A', 'z': '#000', 'DP': '#750a6f', 'MSP': '#054521', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
+            {'chp': 'CHP', 'TIP': 'TIP', 'CGP': Q.CGP_name, 'z': 'Z + BVP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others', 'sapd': 'SAPD'});
         lines_2.width(width).height(400);
         d3.select("#party_support_history").datum(Q.party_support_records).call(lines_2);
     }
@@ -738,7 +738,7 @@ if (d3 && window) {
 
 {!<tr><td><div class="box" style='background-color:#8B0000'> </div></td> <td>!}TIP: {!</td><td>!} [+ TIP_r +]% {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#DCCA4A'> </div></td><td>!} [+ ddp_name +]: {!</td><td>!} [+ ddp_r +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#DCCA4A'> </div></td><td>!} [+ CGP_name +]: {!</td><td>!} [+ CGP_r +]% {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#000'> </div></td><td>!} Z: {!</td><td>!} [+ z_minus_bvp_r +]% {!</td></tr>!}
 

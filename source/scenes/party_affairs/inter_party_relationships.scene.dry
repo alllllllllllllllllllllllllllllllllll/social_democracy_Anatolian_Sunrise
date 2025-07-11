@@ -41,7 +41,7 @@ For further improvements in TIP relations, it might be necessary to expel Noske,
 - @no_history: No, we have no need to apologize.
 
 @yes_history
-on-arrival: reformist_dissent += 12; reformist_strength -= 2; neorevisionist_dissent += 5; left_dissent -= 6; left_strength += 5; TIP_rectified_history = 1; z_relation -= 6; DP_relation -= 6; ddp_relation -= 4; TIP_relation += 8*(1-dissent); coalition_dissent += 1
+on-arrival: reformist_dissent += 12; reformist_strength -= 2; neorevisionist_dissent += 5; left_dissent -= 6; left_strength += 5; TIP_rectified_history = 1; z_relation -= 6; DP_relation -= 6; CGP_relation -= 4; TIP_relation += 8*(1-dissent); coalition_dissent += 1
 
 As part of normalizing relations with the TIP, we have to acknowledge the wrongdoings of our past. We have expelled Noske, and have held public commemorations for those killed by troops during the uprisings.
 
@@ -89,10 +89,10 @@ The Brüning semi-autocratic regime makes building friendly relations difficult,
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; ddp_relation += 5*(1 - dissent)
+on-arrival: resources -= 1; CGP_relation += 5*(1 - dissent)
 go-to: DP_stresemann if stresemann_dead = 0; DP_loss if stresemann_dead = 1 and year <= 1930; DP_moribound if year > 1930
 
-The [+ ddp_name +] has been one of our closest allies through the course of the Republic.
+The [+ CGP_name +] has been one of our closest allies through the course of the Republic.
 
 @DP_stresemann
 on-arrival: DP_relation += 8*(1 - dissent)
@@ -109,7 +109,7 @@ However, given the influence of the DP among the other right-leaning parties [? 
 @DP_moribound
 on-arrival: DP_relation += 5*(1 - dissent)
 
-The liberal parties (both the [+ ddp_name +] and DP) are electorally moribund, so perhaps our efforts are best spent elsewhere.
+The liberal parties (both the [+ CGP_name +] and DP) are electorally moribund, so perhaps our efforts are best spent elsewhere.
 
 However, given the influence of the DP among the other right-leaning parties[? if president == "Hindenburg": and with President Hindenburg ?], it can still be helpful to influence them.
 

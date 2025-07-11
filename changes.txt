@@ -20,7 +20,7 @@ Minor changes:
 - New advisor actions: End toleration (for some left advisors)
 - Added descriptions of the internal party factions.
 - Some more tax options.
-- Abortion rights and homosexual rights can be passed with a "progressive coalition" of the CHP, TIP, and DDP.
+- Abortion rights and homosexual rights can be passed with a "progressive coalition" of the CHP, TIP, and CGP.
 - Can only use the Shuffle Cabinet and Women's Rights cards if the chancellor is CHP.
 - Low relations with the DP results in less leverage in a grand coalition.
 - Papen being appointed as chancellor reduces judicial reform.
@@ -367,7 +367,7 @@ Major changes:
 - Event images are added! These are currently disabled by default, but can be enabled in the options menu. I find that while playing online, there's a bit of lag in loading the images, so they're disabled by default for now, but they should look better in one of the downloaded versions.
 - Mod loader: This uses the target mod's `game.json` file, and the base game's music and images.
 - Curated mod list: If you want to add a mod, send a pull request adding a line to `mod_list.tsv` at https://github.com/aucchen/social_democracy_mods.
-- New event: Exodus from the Reichsbanner (high militarization leads to Center and DDP exit from the Reichsbanner).
+- New event: Exodus from the Reichsbanner (high militarization leads to Center and CGP exit from the Reichsbanner).
 - New achievement: Klassenkampf (high worker support, low middle-class support)
 
 Minor changes:
@@ -423,7 +423,7 @@ v1.1 - The Death of Hindenburg
 
 Major changes:
 - The end of the game has been extended to August 1934, ending with the death of Paul von Hindenburg (and the new presidential elections, if that were to happen). The 1934 presidential election is now one of the largest events in the game.
-- New events: Weltbühne Trial, DDP Reformation, London Economic Conference
+- New events: Weltbühne Trial, CGP Reformation, London Economic Conference
 - Several late-game events have been altered or replaced; "Nazis in Crisis" has been replaced by "Return to Normalcy", and "Global Economic Recovery" has been replaced by "London Economic Conference".
 - New achievements: Große Volkspartei, Zeppelinkapitän, Bundesrepublik
 - Some new event images (turn on event images in the options!)
@@ -433,7 +433,7 @@ Minor changes:
 - The "second round" trick for winning the 1932 presidential election should no longer be possible.
 - High inflation threshold is lower.
 - March on Berlin can happen multiple times.
-- Finally, the DDP becoming the DStP is visible.
+- Finally, the CGP becoming the DStP is visible.
 - Decimals for presidential elections.
 - Bourgeois party support begins to rise after Return to Normalcy is seen.
 - Various other tweaks...
@@ -457,7 +457,7 @@ v1.1.3 - Bugfixing
 - In the second round of the 1934 presidential election, the Center, DStP, and DP will consolidate if the CHP is not aligned with them.
 - Fixed bug with the achievement Brüder, zur Sonne, zur Freiheit not appearing.
 - Repeated occurrences of March on Berlin don't reduce paramilitary strength as much.
-- All DDP name occurrences should change to DStP when the time comes.
+- All CGP name occurrences should change to DStP when the time comes.
 - Reduction in coalition dissent from persecuting the RFB only happens once.
 
 

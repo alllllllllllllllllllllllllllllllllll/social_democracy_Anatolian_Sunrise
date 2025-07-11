@@ -45,7 +45,7 @@ Reichstag composition:
 # 1928: 10, 1930: 13
 {!<span class="tooltip-text" title="Communist Party of Germany">TIP</span>!}: [+ TIP_r +]%
 # 1928: 5, 1930: 4 (as DstP)
-{!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_r +]%
+{!<span class="tooltip-text" title="German Democratic Party">!}[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]{!</span>!}: [+ CGP_r +]%
 # 1928: 9, 1930: 5
 {!<span class="tooltip-text" title="German People's Party">DP</span>!}: [+ DP_r +]%
 # 1928: 14, 1930: 7
@@ -78,7 +78,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 {!<span class="tooltip-text" title="Center Party">Z</span>!}: [+ z_relation : relationships +]
 
-{!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_relation : relationships +]
+{!<span class="tooltip-text" title="German Democratic Party">!}[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]{!</span>!}: [+ CGP_relation : relationships +]
 
 {!<span class="tooltip-text" title="German People's Party">DP</span>!}: [+ DP_relation : relationships +]
 
@@ -166,7 +166,7 @@ Z + BVP: [+ z_votes +]%
 
 TIP: [+ TIP_votes +]%
 
-[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ ddp_votes +]%
+[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ CGP_votes +]%
 
 DP: [+ DP_votes +]%
 
@@ -178,16 +178,16 @@ Others: [+ other_votes +]%
 
 **Detailed results for each demographic**
 
-Workers: CHP: [+ workers_chp_display +]%, Z: [+ workers_z_display +]%, TIP: [+ workers_TIP_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ workers_ddp_display +]%, DP: [+ workers_DP_display +]%; MSP: [+ workers_MSP_display +]%, MHP: [+ workers_MHP_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
+Workers: CHP: [+ workers_chp_display +]%, Z: [+ workers_z_display +]%, TIP: [+ workers_TIP_display +]%, [? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ workers_CGP_display +]%, DP: [+ workers_DP_display +]%; MSP: [+ workers_MSP_display +]%, MHP: [+ workers_MHP_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
 
-New Middle Class: CHP: [+ new_middle_chp_display +]%, Z: [+ new_middle_z_display +]%, TIP: [+ new_middle_TIP_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ new_middle_ddp_display +]%, DP: [+ new_middle_DP_display +]%; MSP: [+ new_middle_MSP_display +]%, MHP: [+ new_middle_MHP_display +]%, Others: [+ new_middle_other_display +]% [? if sapd_formed: SAPD: [+ new_middle_sapd_display +]% ?]
+New Middle Class: CHP: [+ new_middle_chp_display +]%, Z: [+ new_middle_z_display +]%, TIP: [+ new_middle_TIP_display +]%, [? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ new_middle_CGP_display +]%, DP: [+ new_middle_DP_display +]%; MSP: [+ new_middle_MSP_display +]%, MHP: [+ new_middle_MHP_display +]%, Others: [+ new_middle_other_display +]% [? if sapd_formed: SAPD: [+ new_middle_sapd_display +]% ?]
 
-Old Middle Class: CHP: [+ old_middle_chp_display +]%, Z: [+ old_middle_z_display +]%, TIP: [+ old_middle_TIP_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ old_middle_ddp_display +]%, DP: [+ old_middle_DP_display +]%; MSP: [+ old_middle_MSP_display +]%, MHP: [+ old_middle_MHP_display +]%, Others: [+ old_middle_other_display +]% [? if sapd_formed: SAPD: [+ old_middle_sapd_display +]% ?]
+Old Middle Class: CHP: [+ old_middle_chp_display +]%, Z: [+ old_middle_z_display +]%, TIP: [+ old_middle_TIP_display +]%, [? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ old_middle_CGP_display +]%, DP: [+ old_middle_DP_display +]%; MSP: [+ old_middle_MSP_display +]%, MHP: [+ old_middle_MHP_display +]%, Others: [+ old_middle_other_display +]% [? if sapd_formed: SAPD: [+ old_middle_sapd_display +]% ?]
 
-Rural: CHP: [+ rural_chp_display +]%, Z: [+ rural_z_display +]%, TIP: [+ rural_TIP_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ rural_ddp_display +]%, DP: [+ rural_DP_display +]%; MSP: [+ rural_MSP_display +]%, MHP: [+ rural_MHP_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
+Rural: CHP: [+ rural_chp_display +]%, Z: [+ rural_z_display +]%, TIP: [+ rural_TIP_display +]%, [? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ rural_CGP_display +]%, DP: [+ rural_DP_display +]%; MSP: [+ rural_MSP_display +]%, MHP: [+ rural_MHP_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
 
-Unemployed: CHP: [+ unemployed_chp_display +]%, Z: [+ unemployed_z_display +]%, TIP: [+ unemployed_TIP_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ unemployed_ddp_display +]%, DP: [+ unemployed_DP_display +]%; MSP: [+ unemployed_MSP_display +]%, MHP: [+ unemployed_MHP_display +]%, Others: [+ unemployed_other_display +]% [? if sapd_formed: SAPD: [+ unemployed_sapd_display +]% ?]
+Unemployed: CHP: [+ unemployed_chp_display +]%, Z: [+ unemployed_z_display +]%, TIP: [+ unemployed_TIP_display +]%, [? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ unemployed_CGP_display +]%, DP: [+ unemployed_DP_display +]%; MSP: [+ unemployed_MSP_display +]%, MHP: [+ unemployed_MHP_display +]%, Others: [+ unemployed_other_display +]% [? if sapd_formed: SAPD: [+ unemployed_sapd_display +]% ?]
 
-Catholics: CHP: [+ catholics_chp_display +]%, Z: [+ catholics_z_display +]%, TIP: [+ catholics_TIP_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ catholics_ddp_display +]%, DP: [+ catholics_DP_display +]%; MSP: [+ catholics_MSP_display +]%, MHP: [+ catholics_MHP_display +]%, Others: [+ catholics_other_display +]% [? if sapd_formed: SAPD: [+ catholics_sapd_display +]% ?]
+Catholics: CHP: [+ catholics_chp_display +]%, Z: [+ catholics_z_display +]%, TIP: [+ catholics_TIP_display +]%, [? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ catholics_CGP_display +]%, DP: [+ catholics_DP_display +]%; MSP: [+ catholics_MSP_display +]%, MHP: [+ catholics_MHP_display +]%, Others: [+ catholics_other_display +]% [? if sapd_formed: SAPD: [+ catholics_sapd_display +]% ?]
 
 Support for the Republic: [+ pro_republic_disp +]%

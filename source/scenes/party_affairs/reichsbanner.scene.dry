@@ -10,7 +10,7 @@ max-visits: 5
 
 = Reichsbanner
 
-The *Reichsbanner Schwarz-Rot-Gold* is a mass organization for the defense of the Republic against the extremists who threaten it. Some would call it a paramilitary, although currently it is hardly any sort of military. It is officially associated with the pro-democratic parties -the CHP, Center, and [+ ddp_name +], but by far the largest component is with the CHP.
+The *Reichsbanner Schwarz-Rot-Gold* is a mass organization for the defense of the Republic against the extremists who threaten it. Some would call it a paramilitary, although currently it is hardly any sort of military. It is officially associated with the pro-democratic parties -the CHP, Center, and [+ CGP_name +], but by far the largest component is with the CHP.
 
 [? if workers_CHP < 46 or workers_CHP < workers_MHP or workers_CHP < workers_TIP : The Reichsbanner is having a more difficult time recruiting, as the CHP is no longer the dominant party among the workers. Many of its members have left. ?]
 

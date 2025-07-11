@@ -28,7 +28,7 @@ on-arrival: welfare -= 1; budget += 1; capital_strike_progress -= 2; unemployed 
 Reducing the amount of government spending should reduce the inflation rate, according to classical economics. But it imposes pain upon the people who are suffering the most.
 
 @price_controls
-on-arrival: capital_strike_progress += 3; inflation -= 3; coalition_dissent += 1; unemployed += 1; old_middle_CHP -= 4; new_middle_CHP -= 3; rural_CHP -= 5; workers_CHP -= 2; unemployed_CHP += 3; labor_dissent += 6; DP_relation -= 6; z_relation -= 4; ddp_relation -= 4; economic_growth -= 0.4
+on-arrival: capital_strike_progress += 3; inflation -= 3; coalition_dissent += 1; unemployed += 1; old_middle_CHP -= 4; new_middle_CHP -= 3; rural_CHP -= 5; workers_CHP -= 2; unemployed_CHP += 3; labor_dissent += 6; DP_relation -= 6; z_relation -= 4; CGP_relation -= 4; economic_growth -= 0.4
 
 Price controls are very unpopular with the bourgeoisie and their representatives, as well as rural producers, while wage controls hurt organized workers. However, the policies do stem the tide of inflation, at least somewhat.
 

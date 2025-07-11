@@ -28,6 +28,6 @@ With our control of the Justice Ministry, we are able to pardon von Ossietzky an
 
 
 @weltbuhne_dropped
-on-arrival: west_relation += 1; east_relation += 1; reparations_negotiation += 1; ddp_relation += 3; pacifism += 1
+on-arrival: west_relation += 1; east_relation += 1; reparations_negotiation += 1; CGP_relation += 3; pacifism += 1
 
 Finally, a judge has made a decision in the Weltbühne case, clearing the editor Carl von Ossietzky and journalist Walter Kreiser of all charges! The international community and pacifists within Germany are rejoicing in the verdict. Finally Germany can be said to have overcome its old imperial militarism.

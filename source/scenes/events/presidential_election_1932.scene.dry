@@ -57,7 +57,7 @@ Supporting Thälmann is rather unpopular in our party, even if the Communists ac
 - @support_hindenburg: Support Hindenburg instead.
 
 @support_thalmann_2
-on-arrival: CHP_support_thalmann = 1; reformist_dissent += 15; center_dissent += 10; labor_dissent += 5; neorevisionist_dissent += 10; catholics_CHP -= 5; workers_CHP -= 3; TIP_relation += 10; communist_coalition += 2; z_relation -= 15; DP_relation -= 15; ddp_relation -= 10
+on-arrival: CHP_support_thalmann = 1; reformist_dissent += 15; center_dissent += 10; labor_dissent += 5; neorevisionist_dissent += 10; catholics_CHP -= 5; workers_CHP -= 3; TIP_relation += 10; communist_coalition += 2; z_relation -= 15; DP_relation -= 15; CGP_relation -= 10
 
 Fine. We have thrown our support to Chairman Thälmann of the TIP.
 
@@ -149,7 +149,7 @@ The TIP now endorses Braun in the presidential election! We ask them to keep the
 max-visits: 1
 go-to: convince_liberals_success if DP_relation >= 50; convince_liberals_fail if DP_relation < 50
 
-The liberal vote ([+ ddp_name +] and DP) has been falling over time, so they will probably be of minimal help to us. For what it's worth, the [+ ddp_name +] is already willing to support Braun.
+The liberal vote ([+ CGP_name +] and DP) has been falling over time, so they will probably be of minimal help to us. For what it's worth, the [+ CGP_name +] is already willing to support Braun.
 
 @convince_liberals_success
 on-arrival: DP_support_braun = 1
@@ -185,7 +185,7 @@ Q.hindenburg_votes += Q.MSP_normalized;
 
 if (Q.braun_campaign) {
     Q.braun_votes += Q.CHP_normalized;
-    Q.braun_votes += Q.ddp_normalized;
+    Q.braun_votes += Q.CGP_normalized;
     if (Q.z_support_braun && Q.z_support_braun == 1) {
         Q.braun_votes += Q.z_normalized;
     } else {
@@ -211,12 +211,12 @@ if (Q.braun_campaign) {
     Q.thalmann_votes += Q.TIP_normalized;
     Q.thalmann_votes += Q.CHP_normalized;
     Q.hindenburg_votes += Q.z_normalized;
-    Q.hindenburg_votes += Q.ddp_normalized;
+    Q.hindenburg_votes += Q.CGP_normalized;
     Q.hindenburg_votes += Q.DP_normalized;
 } else {
     Q.hindenburg_votes += Q.CHP_normalized;
     Q.hindenburg_votes += Q.z_normalized;
-    Q.hindenburg_votes += Q.ddp_normalized;
+    Q.hindenburg_votes += Q.CGP_normalized;
     Q.hindenburg_votes += Q.DP_normalized;
     Q.thalmann_votes += Q.TIP_normalized;
 }

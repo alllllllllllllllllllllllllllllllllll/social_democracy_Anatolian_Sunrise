@@ -37,13 +37,13 @@ We attempt to impress upon our coalition partners the gravity of the potential A
 @end_toleration
 view-if: CHP_toleration = 1
 subtitle: This is difficult; all of the right-of-center parties support this policy.
-go-to: end_toleration_success if CHP_r + TIP_r + ddp_r >= 50; end_toleration_fail if CHP_r + TIP_r + ddp_r < 50
+go-to: end_toleration_success if CHP_r + TIP_r + CGP_r >= 50; end_toleration_fail if CHP_r + TIP_r + CGP_r < 50
 
 @end_toleration_success
 on-arrival: time_to_election = 3; CHP_in_government = 0; in_grand_coalition = 0; CHP_toleration = 0;
 call: set_next_election_time
 
-With the support of the TIP and [+ ddp_name +], we have successfully stopped the formation of the customs union. This results in the fall of the [+ chancellor +] government.
+With the support of the TIP and [+ CGP_name +], we have successfully stopped the formation of the customs union. This results in the fall of the [+ chancellor +] government.
 
 New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
 

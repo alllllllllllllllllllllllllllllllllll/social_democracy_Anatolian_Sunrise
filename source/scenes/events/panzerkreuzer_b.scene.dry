@@ -26,7 +26,7 @@ The vote in favor of the battlecruiser easily passes, with opposition only from 
 
 @vote_no
 on-arrival: DP_relation -= 8; z_relation -= 5; pacifism += 1; nationalism -= 5*(1-dissent); coalition_dissent += 1; workers_CHP += 4*(1-dissent) if nationalism < 49;
-go-to: built if CHP_r + TIP_r + ddp_r < 50; not_built if CHP_r + TIP_r + ddp_r >= 50
+go-to: built if CHP_r + TIP_r + CGP_r < 50; not_built if CHP_r + TIP_r + CGP_r >= 50
 
 Our vote against the battlecruiser is unpopular among the right-wing parties[? if in_grand_coalition or in_weimar_coalition: , including our coalition partners ?][? if CHP_toleration: , including the minority government that we are currently supporting ?].
 
@@ -45,7 +45,7 @@ Chancellor [+ chancellor +] brings the matter to a full Reichstag vote, which pa
 @not_built
 on-arrival: panzerkreuzer_b_funded = 0; budget += 1 if panzerkreuzer_funded = 0
 
-Our vote against the battlecruiser succeeds, with the support of the TIP and anti-war portions of the [+ ddp_name +]. The ship will not be built! [? if panzerkreuzer_funded == 0 : We have saved some budget from not funding the two ships. ?]
+Our vote against the battlecruiser succeeds, with the support of the TIP and anti-war portions of the [+ CGP_name +]. The ship will not be built! [? if panzerkreuzer_funded == 0 : We have saved some budget from not funding the two ships. ?]
 
 @ministry
 on-arrival: panzerkreuzer_b_funded = 0; budget += 1 if panzerkreuzer_funded = 0

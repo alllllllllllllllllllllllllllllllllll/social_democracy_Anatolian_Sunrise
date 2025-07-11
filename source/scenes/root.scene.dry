@@ -98,7 +98,7 @@ Q.moderate_plan_adopted = 0;
 // inter-party relations
 Q.z_relation = 50;
 Q.TIP_relation = 25;
-Q.ddp_relation = 60;
+Q.CGP_relation = 60;
 Q.DP_relation = 35;
 // MSP and MHP are invariably hostile
 Q.MSP_relation = 10;
@@ -221,7 +221,7 @@ Q.old_middle_qol = 100;
 Q.new_middle_qol = 100;
 
 Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
-Q.parties = ['chp', 'TIP', 'z', 'ddp', 'DP', 'MSP', 'MHP', 'other'];
+Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
 
 // TODO: add 'sapd' later on
 Q.sapd_formed = 0;
@@ -231,7 +231,7 @@ Q.sapd_formed = 0;
 Q.workers_chp = 60;
 Q.workers_TIP = 20;
 Q.workers_z = 5;
-Q.workers_ddp = 0;
+Q.workers_CGP = 0;
 Q.workers_DP = 0;
 Q.workers_MSP = 5;
 Q.workers_MHP = 0;
@@ -240,7 +240,7 @@ Q.workers_other = 10;
 Q.old_middle_chp = 5;
 Q.old_middle_TIP = 0;
 Q.old_middle_z = 5;
-Q.old_middle_ddp= 10;
+Q.old_middle_CGP= 10;
 Q.old_middle_DP = 25;
 Q.old_middle_MSP = 25;
 Q.old_middle_MHP = 10;
@@ -249,7 +249,7 @@ Q.old_middle_other = 10;
 Q.new_middle_chp = 5;
 Q.new_middle_TIP = 1;
 Q.new_middle_z = 10;
-Q.new_middle_ddp= 25;
+Q.new_middle_CGP= 25;
 Q.new_middle_DP = 25;
 Q.new_middle_MSP = 10;
 Q.new_middle_MHP = 5;
@@ -258,7 +258,7 @@ Q.new_middle_other = 15;
 Q.rural_chp = 10;
 Q.rural_TIP = 0;
 Q.rural_z = 5;
-Q.rural_ddp= 5;
+Q.rural_CGP= 5;
 Q.rural_DP = 15;
 Q.rural_MSP = 45;
 Q.rural_MHP = 5;
@@ -267,7 +267,7 @@ Q.rural_other = 10;
 Q.unemployed_chp = 25;
 Q.unemployed_TIP = 55;
 Q.unemployed_z = 1;
-Q.unemployed_ddp = 0;
+Q.unemployed_CGP = 0;
 Q.unemployed_DP = 0;
 Q.unemployed_MSP = 5;
 Q.unemployed_MHP = 15;
@@ -276,7 +276,7 @@ Q.unemployed_other = 9;
 Q.catholics_chp = 15;
 Q.catholics_TIP = 2;
 Q.catholics_z = 50;
-Q.catholics_ddp = 0;
+Q.catholics_CGP = 0;
 Q.catholics_DP = 5;
 Q.catholics_MSP = 5;
 Q.catholics_MHP = 0;
@@ -292,7 +292,7 @@ Q.catholics_other = 12;
 Q.chp_r = 26;
 Q.TIP_r = 9;
 Q.z_r = 17;
-Q.ddp_r = 6;
+Q.CGP_r = 6;
 Q.DP_r = 10;
 Q.MSP_r = 20;
 Q.MHP_r = 3;
@@ -302,7 +302,7 @@ Q.other_r = 9;
 Q.old_chp_r = 26;
 Q.old_TIP_r = 9;
 Q.old_z_r = 17;
-Q.old_ddp_r = 6;
+Q.old_CGP_r = 6;
 Q.old_DP_r = 10;
 Q.old_MSP_r = 20;
 Q.old_MHP_r = 3;
@@ -312,8 +312,8 @@ Q.old_other_r = 9;
 Q.sapd_r = 0;
 Q.old_sapd_r = 0;
 
-// for changing the DDP's name to the DStP
-Q.ddp_name = "DDP";
+// for changing the CGP's name to the DStP
+Q.CGP_name = "CGP";
 
 // array of objects of the form {date: Date(), CHP: 10, TIP: 12, ...} for each election
 Q.election_records = [];
@@ -330,19 +330,19 @@ Q.chancellor = "Marx";
 Q.chancellor_party = 'Z';
 Q.CHP_in_government = 0;
 Q.z_in_government = 1;
-Q.ddp_in_government = 0;
+Q.CGP_in_government = 0;
 Q.DP_in_government = 1;
 Q.MSP_in_government = 1;
 Q.TIP_in_government = 0;
 Q.MHP_in_government = 0;
 
 Q.in_right_coalition = 0;
-// Weimar coalition = CHP + Z + DDP
+// Weimar coalition = CHP + Z + CGP
 Q.in_weimar_coalition = 0;
-// Grand coalition = CHP + Z + BVP + DDP + DP
-// also includes the "new grand coalition" of CHP + Z + BVP + DDP + DP + Others
+// Grand coalition = CHP + Z + BVP + CGP + DP
+// also includes the "new grand coalition" of CHP + Z + BVP + CGP + DP + Others
 Q.in_grand_coalition = 0;
-// Popular front = CHP + TIP + Z + DDP
+// Popular front = CHP + TIP + Z + CGP
 Q.in_popular_front = 0;
 // left coalition = CHP + TIP + left-splinters
 Q.in_left_front = 0;
