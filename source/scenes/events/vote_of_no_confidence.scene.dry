@@ -1,13 +1,13 @@
 title: The Right calls a vote of no confidence against the current government!
 subtitle: We have angered our coalition partners too much...
 new-page: true
-on-arrival: tried_supporting_TİP = 0
+on-arrival: tried_supporting_TIP = 0
 view-if: CHP_in_government = 1 and ((in_grand_coalition = 1 or in_popular_front = 1 or in_minority_government = 1) and coalition_dissent >= 3) or (in_weimar_coalition = 1 and coalition_dissent >= 4) and CHP_r < 50 and not constructive_vonc
 tags: event
 go-to: vonc_menu
 
-# Options: spend relations to reduce coalition_dissent, ask for TİP to abstain
-# (lmao TİP toleration arc...)
+# Options: spend relations to reduce coalition_dissent, ask for TIP to abstain
+# (lmao TIP toleration arc...)
 
 = Vote of No Confidence
 
@@ -16,7 +16,7 @@ go-to: vonc_menu
 @vonc_menu
 
 - @try_assuage: Try to assuage our partners.
-- @support_TİP: Could we get the TİP to abstain?
+- @support_TIP: Could we get the TIP to abstain?
 - @let_it_happen: Let the vote happen.
 
 @try_assuage
@@ -26,7 +26,7 @@ How do we assuage our partners?
 - @give_up_prussia: Give up on leadership of Prussia.
 - @austerity: Enact a massive austerity plan.
 - @resources: Use our resources to reduce dissent within the coalition.
-- @support_TİP: Could we get the TİP to abstain?
+- @support_TIP: Could we get the TIP to abstain?
 - @let_it_happen: Never mind. Let the vote happen.
 
 @give_up_prussia
@@ -37,7 +37,7 @@ Fine. We no longer control the government of Prussia. The vote has been called o
 
 @austerity
 view-if: welfare >= 0 and not secularized
-on-arrival: coalition_dissent = 0; workers_CHP -= 10; unemployed_CHP -= 10; workers_TİP += 7; workers_MHP += 3; unemployed_TİP += 5; unemployed_MHP += 5; left_dissent += 15; center_dissent += 10; labor_dissent += 15; reformist_dissent += 5; welfare -= 2; budget += 1; unemployed += 3; TİP_coalition_dissent += 1; TİP_relation -= 10 if in_popular_front
+on-arrival: coalition_dissent = 0; workers_CHP -= 10; unemployed_CHP -= 10; workers_TIP += 7; workers_MHP += 3; unemployed_TIP += 5; unemployed_MHP += 5; left_dissent += 15; center_dissent += 10; labor_dissent += 15; reformist_dissent += 5; welfare -= 2; budget += 1; unemployed += 3; TIP_coalition_dissent += 1; TIP_relation -= 10 if in_popular_front
 
 Fine. We enacted a massive austerity program to cut welfare, in order to maintain the stability of our coalition. The vote has been called off.
 
@@ -50,32 +50,32 @@ on-arrival: resources -= 3; coalition_dissent -= 1;
 
 By transferring resources to our coalition partners, we can reduce their dissent against our policies. This is a crude, but effective solution.
 
-@support_TİP
-choose-if: (in_grand_coalition and communist_coalition >= 3 and TİP_relation >= 50 and TİP_r >= DP_r) or (in_weimar_coalition and TİP_relation >= 50 and TİP_r >= z_r and communist_coalition >= 3)
-view-if: tried_supporting_TİP = 0
-on-arrival: tried_supporting_TİP = 1
-unavailable-subtitle: [? if communist_coalition < 3 : The TİP won't take part in parliamentary government. ?] [? if TİP_relation < 50 : The TİP is not friendly enough with us. ?] [? if (in_grand_coalition and TİP_r < DP_r) or (in_weimar_coalition and TİP_r < z_r): The TİP does not have enough votes. ?] [? if in_popular_front : We are already in a Popular Front with the TİP. ?]
+@support_TIP
+choose-if: (in_grand_coalition and communist_coalition >= 3 and TIP_relation >= 50 and TIP_r >= DP_r) or (in_weimar_coalition and TIP_relation >= 50 and TIP_r >= z_r and communist_coalition >= 3)
+view-if: tried_supporting_TIP = 0
+on-arrival: tried_supporting_TIP = 1
+unavailable-subtitle: [? if communist_coalition < 3 : The TIP won't take part in parliamentary government. ?] [? if TIP_relation < 50 : The TIP is not friendly enough with us. ?] [? if (in_grand_coalition and TIP_r < DP_r) or (in_weimar_coalition and TIP_r < z_r): The TIP does not have enough votes. ?] [? if in_popular_front : We are already in a Popular Front with the TIP. ?]
 
-If the Communists abstain, then we essentially can maintain a minority government[? if president=="Hindenburg":, although it would be very difficult to make policy without the support of President Hindenburg, which we do not have ?]. If this happens, then we will own a massive debt to the TİP. This could lead to broader cooperation in the future, for better or for worse.
+If the Communists abstain, then we essentially can maintain a minority government[? if president=="Hindenburg":, although it would be very difficult to make policy without the support of President Hindenburg, which we do not have ?]. If this happens, then we will own a massive debt to the TIP. This could lead to broader cooperation in the future, for better or for worse.
 
-- @support_TİP_2: Persuade the TİP to "tolerate" us?
+- @support_TIP_2: Persuade the TIP to "tolerate" us?
 - @let_it_happen: Never mind. Let the vote happen.
 
-@support_TİP_2
-on-arrival: communist_coalition += 1; workers_TİP += 3; TİP_relation += 5
-go-to: support_TİP_weimar if in_weimar_coalition; support_TİP_grand if in_grand_coalition
+@support_TIP_2
+on-arrival: communist_coalition += 1; workers_TIP += 3; TIP_relation += 5
+go-to: support_TIP_weimar if in_weimar_coalition; support_TIP_grand if in_grand_coalition
 
 # TODO: this can form an infinite loop
 
-The TİP is not interested in a "toleration" arrangement; they will only support us if they can participate in the government as part of a coalition. And, if this toleration agreement happens, the right-wing parties will not be inclined to support us. 
+The TIP is not interested in a "toleration" arrangement; they will only support us if they can participate in the government as part of a coalition. And, if this toleration agreement happens, the right-wing parties will not be inclined to support us. 
 
-@support_TİP_grand
+@support_TIP_grand
 
 - @election_1928.popular_front_coalition: Form a "Popular Front" coalition?
 - @election_1928.left_coalition
 - @try_assuage: Never mind. We must deal with this some other way.
 
-@support_TİP_weimar
+@support_TIP_weimar
 
 - @election_1928.left_coalition
 - @try_assuage: Never mind. We must deal with this some other way.

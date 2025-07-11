@@ -22,12 +22,12 @@ Supporting labor is always popular in the CHP, although many of our coalition pa
 
 @support_employers
 subtitle: This will alienate the workers.
-on-arrival: labor_dissent += 8; left_dissent += 8; workers_CHP -= 6; coalition_dissent -= 1; DP_relation += 5; z_relation += 5; coalition_dissent -= 1; workers_TİP += 5; TİP_coalition_dissent += 1; TİP_relation -= 8; capital_strike_progress -= 1 if capital_strike_progress > 1; capital_strike_progress -= 1 if capital_strike_progress > 8
+on-arrival: labor_dissent += 8; left_dissent += 8; workers_CHP -= 6; coalition_dissent -= 1; DP_relation += 5; z_relation += 5; coalition_dissent -= 1; workers_TIP += 5; TIP_coalition_dissent += 1; TIP_relation -= 8; capital_strike_progress -= 1 if capital_strike_progress > 1; capital_strike_progress -= 1 if capital_strike_progress > 8
 
 Even though most workers grudgingly accept the our intervention, there is deep bitterness developing against the CHP, especially among the more radical workers. The Communists stand to gain.
 
 @balance
 subtitle: Both sides need to share the pain in the current crisis.
-on-arrival: labor_dissent += 4; workers_CHP -= 2; TİP_coalition_dissent += 1; TİP_relation -= 5; workers_TİP += 2
+on-arrival: labor_dissent += 4; workers_CHP -= 2; TIP_coalition_dissent += 1; TIP_relation -= 5; workers_TIP += 2
 
 Many workers are unhappy at our compromises, but they will learn to accept that we are all in a shared struggle against economic forces. This is perhaps the best we could do given the present circumstances.

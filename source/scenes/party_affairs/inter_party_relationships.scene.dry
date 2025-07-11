@@ -14,52 +14,52 @@ The CHP cannot govern by itself yet. Because we do not have an electoral majorit
 
 - @liberals: Strengthen our bonds with the left-liberal German Democratic Party and conservative-liberal German People's Party.
 - @center: Strengthen our bonds with the Catholic Center Party.
-- @TİP: Work towards repairing relationships with the Communist Party.
+- @TIP: Work towards repairing relationships with the Communist Party.
 - @CHP_alone: The CHP can stand alone for now.
 - @easy_discard
 
 
-@TİP
+@TIP
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; TİP_inter_party_seen += 1
-go-to: TİP_blutmai if blutmai = 1; TİP_1 if blutmai = 0 and TİP_coalition_success = 0 and (TİP_relation < 40 or TİP_rectifed_history = 1); TİP_rectification_of_history if TİP_relation >= 40 and TİP_rectifed_history = 0; TİP_2 if TİP_coalition_success = 1 and TİP_rectified_history = 1
+on-arrival: resources -= 1; TIP_inter_party_seen += 1
+go-to: TIP_blutmai if blutmai = 1; TIP_1 if blutmai = 0 and TIP_coalition_success = 0 and (TIP_relation < 40 or TIP_rectifed_history = 1); TIP_rectification_of_history if TIP_relation >= 40 and TIP_rectifed_history = 0; TIP_2 if TIP_coalition_success = 1 and TIP_rectified_history = 1
 
-@TİP_1
-on-arrival: TİP_relation += 6*(1 - dissent); communist_coalition += 1 if TİP_inter_party_seen <= 1; reformist_dissent += 2; z_relation -= 2; DP_relation -= 3
+@TIP_1
+on-arrival: TIP_relation += 6*(1 - dissent); communist_coalition += 1 if TIP_inter_party_seen <= 1; reformist_dissent += 2; z_relation -= 2; DP_relation -= 3
 
 The communists are suspicious of our overtures, especially the Stalinist leadership, who persist in calling us "social fascists". However, connections are made at the grassroots and local levels.
 
-@TİP_rectification_of_history
+@TIP_rectification_of_history
 
-One stumbling block for our relations with the TİP is our history of conflict, dating back to 1918 and 1919. The TİP is especially contemptuous of Gustav Noske, the CHP "bloodhound" who reportedly ordered the violent suppression of the Spartacist uprising and other TİP revolts. They also blame us for the deaths of Rosa Luxemburg and Karl Liebknecht, two CHP-turned-TİP leaders who were killed during the suppression of the uprising.
+One stumbling block for our relations with the TIP is our history of conflict, dating back to 1918 and 1919. The TIP is especially contemptuous of Gustav Noske, the CHP "bloodhound" who reportedly ordered the violent suppression of the Spartacist uprising and other TIP revolts. They also blame us for the deaths of Rosa Luxemburg and Karl Liebknecht, two CHP-turned-TIP leaders who were killed during the suppression of the uprising.
 
-For further improvements in TİP relations, it might be necessary to expel Noske, and hold some sort of commemoration for Luxemburg and Liebknecht.
+For further improvements in TIP relations, it might be necessary to expel Noske, and hold some sort of commemoration for Luxemburg and Liebknecht.
 
 - @yes_history: Yes, we must apologize for our past actions.
 - @no_history: No, we have no need to apologize.
 
 @yes_history
-on-arrival: reformist_dissent += 12; reformist_strength -= 2; neorevisionist_dissent += 5; left_dissent -= 6; left_strength += 5; TİP_rectified_history = 1; z_relation -= 6; DP_relation -= 6; ddp_relation -= 4; TİP_relation += 8*(1-dissent); coalition_dissent += 1
+on-arrival: reformist_dissent += 12; reformist_strength -= 2; neorevisionist_dissent += 5; left_dissent -= 6; left_strength += 5; TIP_rectified_history = 1; z_relation -= 6; DP_relation -= 6; ddp_relation -= 4; TIP_relation += 8*(1-dissent); coalition_dissent += 1
 
-As part of normalizing relations with the TİP, we have to acknowledge the wrongdoings of our past. We have expelled Noske, and have held public commemorations for those killed by troops during the uprisings.
+As part of normalizing relations with the TIP, we have to acknowledge the wrongdoings of our past. We have expelled Noske, and have held public commemorations for those killed by troops during the uprisings.
 
 This leads to tensions with the moderates and reformists within our party, and criticism from the conservative and liberal parties.
 
 @no_history
-on-arrival: TİP_relation -= 3
+on-arrival: TIP_relation -= 3
 
 We have no need to apologize for the actions of Ebert and Noske; it is the Communists' fault for launching a violent insurrection.
 
 
-@TİP_2
-on-arrival: TİP_relation += 8*(1 - dissent); communist_coalition += 1 if TİP_inter_party_seen <= 1; reformist_dissent += 2; z_relation -= 3; DP_relation -= 3
+@TIP_2
+on-arrival: TIP_relation += 8*(1 - dissent); communist_coalition += 1 if TIP_inter_party_seen <= 1; reformist_dissent += 2; z_relation -= 3; DP_relation -= 3
 
-After the success of the coalition government with the TİP, they are much more amenable to us.
+After the success of the coalition government with the TIP, they are much more amenable to us.
 
-@TİP_blutmai
-on-arrival: TİP_relation += 3*(1 - dissent); reformist_dissent += 1
+@TIP_blutmai
+on-arrival: TIP_relation += 3*(1 - dissent); reformist_dissent += 1
 
 After the events of Blütmai, reconciling with the Communists is difficult, if not impossible. Nevertheless, we must try.
 

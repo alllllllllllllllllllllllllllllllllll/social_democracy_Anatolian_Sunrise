@@ -1,48 +1,48 @@
-title: The TİP checks upon our progress in accomplishing the coalition's goals...
-view-if: (in_popular_front or in_left_front) and (TİP_ultimatum_timer = 0 or (welfare_goal_completed and agriculture_goal_completed and economy_goal_completed and finance_goal_completed and labor_goal_completed and reichswehr_goal_completed)) and TİP_goals_seen = 1 and TİP_ultimatum_seen = 0 and CHP_in_government
+title: The TIP checks upon our progress in accomplishing the coalition's goals...
+view-if: (in_popular_front or in_left_front) and (TIP_ultimatum_timer = 0 or (welfare_goal_completed and agriculture_goal_completed and economy_goal_completed and finance_goal_completed and labor_goal_completed and reichswehr_goal_completed)) and TIP_goals_seen = 1 and TIP_ultimatum_seen = 0 and CHP_in_government
 on-arrival: {!
-Q.TİP_ultimatum_seen = 1;
-Q.TİP_goals_completed = 1;
-Q.TİP_score = 6;
+Q.TIP_ultimatum_seen = 1;
+Q.TIP_goals_completed = 1;
+Q.TIP_score = 6;
 if (Q.welfare_goal && !Q.welfare_goal_completed) {
-    Q.TİP_goals_completed = 0;
-    Q.TİP_score -= 1;
+    Q.TIP_goals_completed = 0;
+    Q.TIP_score -= 1;
 }
 if (Q.agriculture_goal && !Q.agriculture_goal_completed) {
-    Q.TİP_goals_completed = 0;
-    Q.TİP_score -= 1;
+    Q.TIP_goals_completed = 0;
+    Q.TIP_score -= 1;
 }
 if (Q.economy_goal && !Q.economy_goal_completed) {
-    Q.TİP_goals_completed = 0;
-    Q.TİP_score -= 1;
+    Q.TIP_goals_completed = 0;
+    Q.TIP_score -= 1;
 }
 if (Q.finance_goal && !Q.finance_goal_completed) {
-    Q.TİP_goals_completed = 0;
-    Q.TİP_score -= 1;
+    Q.TIP_goals_completed = 0;
+    Q.TIP_score -= 1;
 }
 if (Q.labor_goal && !Q.labor_goal_completed) {
-    Q.TİP_goals_completed = 0;
-    Q.TİP_score -= 1;
+    Q.TIP_goals_completed = 0;
+    Q.TIP_score -= 1;
 }
 if (Q.foreign_goal && !Q.foreign_goal_completed) {
-    Q.TİP_goals_completed = 0;
-    Q.TİP_score -= 1;
+    Q.TIP_goals_completed = 0;
+    Q.TIP_score -= 1;
 }
 if (Q.interior_goal && !Q.interior_goal_completed) {
-    Q.TİP_goals_completed = 0;
+    Q.TIP_goals_completed = 0;
 }
 if (Q.reichswehr_goal && !Q.reichswehr_goal_completed) {
-    Q.TİP_goals_completed = 0;
-    Q.TİP_score -= 1;
+    Q.TIP_goals_completed = 0;
+    Q.TIP_score -= 1;
 }
 !}
 new-page: true
 tags: event
-go-to: goals_success if TİP_goals_completed; goals_failed if not TİP_goals_completed
+go-to: goals_success if TIP_goals_completed; goals_failed if not TIP_goals_completed
 
-= TİP Goals
+= TIP Goals
 
-At the start of this government, the TİP presented a list of goals for the coalition:
+At the start of this government, the TIP presented a list of goals for the coalition:
 
 [? if welfare_goal = 1 : - Expand social welfare programs - [? if welfare_goal_completed : success ?][? if not welfare_goal_completed: failed ?] ?]
 
@@ -59,28 +59,28 @@ At the start of this government, the TİP presented a list of goals for the coal
 [? if reichswehr_goal = 1 : - Reduce funding for the Reichswehr. - [? if reichswehr_goal_completed : success ?][? if not reichswehr_goal_completed: failed ?] ?]
 
 @goals_failed
-on-arrival: TİP_relation -= 10; workers_CHP -= 8; unemployed_CHP -= 8;
+on-arrival: TIP_relation -= 10; workers_CHP -= 8; unemployed_CHP -= 8;
 
-Unfortunately, we have failed to accomplish all of the goals the TİP set out. They plan to call a vote of no confidence against our government, and have already begun mounting a propaganda campaign to delegitimize our government in the eyes of the workers.
+Unfortunately, we have failed to accomplish all of the goals the TIP set out. They plan to call a vote of no confidence against our government, and have already begun mounting a propaganda campaign to delegitimize our government in the eyes of the workers.
 
 - @appeal: Appeal to the Communists to have patience - we are trying!
-- @TİP_vote_of_no_confidence.support_center: Could we form a new government based on the Center Party and [+ ddp_name +] (and possibly DP)?
-- @TİP_vote_of_no_confidence.let_it_happen: Let the vote happen.
+- @TIP_vote_of_no_confidence.support_center: Could we form a new government based on the Center Party and [+ ddp_name +] (and possibly DP)?
+- @TIP_vote_of_no_confidence.let_it_happen: Let the vote happen.
 - @no_vonc: They cannot call a vote of no confidence due to the constitutional reforms, but they can obstruct our government at every opportunity.
 
 @appeal
-choose-if: (TİP_score >= 4 and TİP_relation > 50 and TİP_appeal_seen = 0) or TİP_party_leader = "Conciliators"
-unavailable-subtitle: [? if TİP_score < 4: They do not see us as serious in trying to achieve the goals of the coalition. ?] [? if TİP_relation < 50: Our relations are too poor. ?] [? if TİP_appeal_seen = 1: we do not have any more time. ?]
-on-arrival: TİP_ultimatum_seen = 0; TİP_ultimatum_timer += 6; TİP_appeal_seen = 1
+choose-if: (TIP_score >= 4 and TIP_relation > 50 and TIP_appeal_seen = 0) or TIP_party_leader = "Conciliators"
+unavailable-subtitle: [? if TIP_score < 4: They do not see us as serious in trying to achieve the goals of the coalition. ?] [? if TIP_relation < 50: Our relations are too poor. ?] [? if TIP_appeal_seen = 1: we do not have any more time. ?]
+on-arrival: TIP_ultimatum_seen = 0; TIP_ultimatum_timer += 6; TIP_appeal_seen = 1
 
-We argue that we are working hard to achieve the coalition's goals, and in the name of proletarian solidarity, we must make this coalition function. Surprisingly, the TİP hears our pleas, and is willing to give us six more months before the coalition goals must be achieved.
+We argue that we are working hard to achieve the coalition's goals, and in the name of proletarian solidarity, we must make this coalition function. Surprisingly, the TIP hears our pleas, and is willing to give us six more months before the coalition goals must be achieved.
 
 
 @goals_success
-on-arrival: workers_CHP += 8; unemployed_CHP += 8; TİP_relation += 10; workers_TİP += 5; TİP_coalition_success += 1
+on-arrival: workers_CHP += 8; unemployed_CHP += 8; TIP_relation += 10; workers_TIP += 5; TIP_coalition_success += 1
 go-to: popular_front_achievement if in_popular_front; united_front_achievement if in_left_front
 
-Against all expectations, the TİP's goals have all been met! Apparently the Communists did not prepare for this eventuality, a worker's government successfully built through democratic means. They will continue to "tolerate" our government for the rest of our term, while still acting as a watchdog against bourgeois backsliding.
+Against all expectations, the TIP's goals have all been met! Apparently the Communists did not prepare for this eventuality, a worker's government successfully built through democratic means. They will continue to "tolerate" our government for the rest of our term, while still acting as a watchdog against bourgeois backsliding.
 
 
 @popular_front_achievement
@@ -95,4 +95,4 @@ achievement: einheitsfront_2
 view-if: constructive_vonc
 on-arrival: in_popular_front = 0; in_left_front = 0; in_minority_government = 1;
 
-We have been effectively made a minority government, and the TİP intends to obstruct our attempts to pass policy.
+We have been effectively made a minority government, and the TIP intends to obstruct our attempts to pass policy.

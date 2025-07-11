@@ -16,13 +16,13 @@ function addMonths(date, months) {
 d3.linegraph = function(noTicks, noDots, parties, partyColors, partyNames, dataMax, dataMin, additionalMonths) {
     /* params */
     if (!parties) {
-        parties = ['chp', 'TİP', 'ddp', 'z', 'DP', 'MSP', 'MHP', 'other'];
+        parties = ['chp', 'TIP', 'ddp', 'z', 'DP', 'MSP', 'MHP', 'other'];
     }
     if (!partyColors) {
-        partyColors = {'chp': '#E3000F', 'TİP': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'DP': '#D5AC27', 'MSP': '#3f7bc1', 'MHP': '#954B00', 'other': '#a0a0a0'};
+        partyColors = {'chp': '#E3000F', 'TIP': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'DP': '#D5AC27', 'MSP': '#3f7bc1', 'MHP': '#954B00', 'other': '#a0a0a0'};
     }
     if (!partyNames) {
-        partyNames = {'chp': 'CHP', 'TİP': 'TİP', 'ddp': 'DDP', 'z': 'Z + BVP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others'};
+        partyNames = {'chp': 'CHP', 'TIP': 'TIP', 'ddp': 'DDP', 'z': 'Z + BVP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others'};
     }
     if (!additionalMonths) {
         additionalMonths = 10;

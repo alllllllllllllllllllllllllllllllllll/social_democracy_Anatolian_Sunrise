@@ -12,20 +12,20 @@ face-image: img/hindenburg_election.jpg
 
 @pres_election
 
-The presidential election is coming up soon. [? if CHP_in_government = 0 : While the position of Chancellor is typically more important, recent governments have depended on the president's emergency decree powers, making the office vital. ?] [? if hitler_deported==0 : The Nazis will run Hitler, while the TİP will run Thälmann. A victory for Hitler would mean the end of parliamentary democracy, and the beginning of an era of unspeakable horrors. ?][? if hitler_deported==1 : Since Hitler has been deported, the Nazis will run Hermann Göring in his stead. He is widely seen as a proxy for Hitler, who, despite his legal persecution, retains a popular base who wishes to see him returned to Germany. Meanwhile, the TİP will run Ernst Thälmann. ?]
-[? if sapd_formed: The SAPD, our former leftists, are supporting Thälmann of the TİP, and will likely share an endorsement with the Communists. ?]
+The presidential election is coming up soon. [? if CHP_in_government = 0 : While the position of Chancellor is typically more important, recent governments have depended on the president's emergency decree powers, making the office vital. ?] [? if hitler_deported==0 : The Nazis will run Hitler, while the TIP will run Thälmann. A victory for Hitler would mean the end of parliamentary democracy, and the beginning of an era of unspeakable horrors. ?][? if hitler_deported==1 : Since Hitler has been deported, the Nazis will run Hermann Göring in his stead. He is widely seen as a proxy for Hitler, who, despite his legal persecution, retains a popular base who wishes to see him returned to Germany. Meanwhile, the TIP will run Ernst Thälmann. ?]
+[? if sapd_formed: The SAPD, our former leftists, are supporting Thälmann of the TIP, and will likely share an endorsement with the Communists. ?]
 
 # if hitler is deported, who would MHP run? Duesterberg? or Goering?
 # Goering runs, essentially as a proxy for Hitler, who is now stateless.
 
 Many are calling for us to support the incumbent Hindenburg, despite his well-known reactionary tendencies. Is he truly the best bulwark against Hitler's ascension? On the other hand, many in our party are calling for Otto Braun to run again, but he is reluctant.
 
-[? if TİP_relation >= 50 : Another strange possibilty is an united front with the Communists, either to support Thälmann or our own candidate. ?]
+[? if TIP_relation >= 50 : Another strange possibilty is an united front with the Communists, either to support Thälmann or our own candidate. ?]
 
 
 - @support_hindenburg: Support Hindenburg.
 - @support_braun: Run Otto Braun of the CHP.
-- @support_thalmann: Support Ernst Thälmann of the TİP.
+- @support_thalmann: Support Ernst Thälmann of the TIP.
 
 @support_hindenburg
 subtitle: This is the default option.
@@ -47,8 +47,8 @@ The miniscule remnants of the Democratic Party (now called the German State Part
 
 
 @support_thalmann
-choose-if: TİP_relation >= 50 and reformist_strength < left_strength
-unavailable-subtitle: [? if TİP_relation < 50 : We do not have good enough relations with the Communists, so they are not even willing to accept our support. ?] [? if reformist_strength >= left_strength : The reformist faction is able to dissuade the party from supporting this arrangement. ?]
+choose-if: TIP_relation >= 50 and reformist_strength < left_strength
+unavailable-subtitle: [? if TIP_relation < 50 : We do not have good enough relations with the Communists, so they are not even willing to accept our support. ?] [? if reformist_strength >= left_strength : The reformist faction is able to dissuade the party from supporting this arrangement. ?]
 
 Supporting Thälmann is rather unpopular in our party, even if the Communists accept our support. Are we sure?
 
@@ -57,16 +57,16 @@ Supporting Thälmann is rather unpopular in our party, even if the Communists ac
 - @support_hindenburg: Support Hindenburg instead.
 
 @support_thalmann_2
-on-arrival: CHP_support_thalmann = 1; reformist_dissent += 15; center_dissent += 10; labor_dissent += 5; neorevisionist_dissent += 10; catholics_CHP -= 5; workers_CHP -= 3; TİP_relation += 10; communist_coalition += 2; z_relation -= 15; DP_relation -= 15; ddp_relation -= 10
+on-arrival: CHP_support_thalmann = 1; reformist_dissent += 15; center_dissent += 10; labor_dissent += 5; neorevisionist_dissent += 10; catholics_CHP -= 5; workers_CHP -= 3; TIP_relation += 10; communist_coalition += 2; z_relation -= 15; DP_relation -= 15; ddp_relation -= 10
 
-Fine. We have thrown our support to Chairman Thälmann of the TİP.
+Fine. We have thrown our support to Chairman Thälmann of the TIP.
 
 - @final_election: The final vote...
 
 @braun_campaign
 
 - @convince_z: Convince the Center Party.
-- @convince_TİP: Convince the Communists.
+- @convince_TIP: Convince the Communists.
 - @convince_liberals: Convince the remaining liberals, wherever they are.
 - @final_election: The final vote...
 
@@ -114,34 +114,34 @@ go-to: braun_campaign
 
 Unfortunately, we fail to turn them away from Hindenburg.
 
-@convince_TİP
-choose-if: CHP_votes >= TİP_votes
-unavailable-subtitle: The TİP knows that they are more popular than us; they do not see a reason to support our candidate.
+@convince_TIP
+choose-if: CHP_votes >= TIP_votes
+unavailable-subtitle: The TIP knows that they are more popular than us; they do not see a reason to support our candidate.
 max-visits: 1
 
-The TİP is supporting their own candidate, Ernst Thälmann. [? if TİP_relation >= 50 : However, they are willing to be convinced to drop their campaign and support Braun; how do we convince them? ?][? if TİP_relation < 50 or TİP_party_leader != "Conciliators" : They do not seem willing to be convinced. ?]
+The TIP is supporting their own candidate, Ernst Thälmann. [? if TIP_relation >= 50 : However, they are willing to be convinced to drop their campaign and support Braun; how do we convince them? ?][? if TIP_relation < 50 or TIP_party_leader != "Conciliators" : They do not seem willing to be convinced. ?]
 
-- @TİP_resources: Use our resources.
-- @TİP_relations: Use our good relations.
-- @braun_campaign: Forget about the TİP.
+- @TIP_resources: Use our resources.
+- @TIP_relations: Use our good relations.
+- @braun_campaign: Forget about the TIP.
 
-@TİP_resources
-view-if: TİP_relation >= 50 and not historical_mode
+@TIP_resources
+view-if: TIP_relation >= 50 and not historical_mode
 choose-if: resources >= 3
 subtitle: -3 resources
 unavailable-subtitle: Not enough resources (need 3).
-on-arrival: resources -= 3; TİP_support_braun = 1
+on-arrival: resources -= 3; TIP_support_braun = 1
 go-to: braun_campaign
 
-The TİP now endorses Braun in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters.
+The TIP now endorses Braun in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters.
 
-@TİP_relations
-view-if: TİP_relation >= 60 or (TİP_party_leader == "Conciliators" and TİP_relation >= 45)
+@TIP_relations
+view-if: TIP_relation >= 60 or (TIP_party_leader == "Conciliators" and TIP_relation >= 45)
 unavailable-subtitle: Our relations are not good enough.
-on-arrival: TİP_support_braun = 1
+on-arrival: TIP_support_braun = 1
 go-to: braun_campaign
 
-The TİP now endorses Braun in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters.
+The TIP now endorses Braun in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters.
 
 
 
@@ -191,13 +191,13 @@ if (Q.braun_campaign) {
     } else {
         Q.hindenburg_votes += Q.z_normalized;
     }
-    if (Q.TİP_support_braun) {
-        Q.braun_votes += Q.TİP_normalized;
+    if (Q.TIP_support_braun) {
+        Q.braun_votes += Q.TIP_normalized;
         if (Q.sapd_formed && Q.sapd_votes) {
             Q.braun_votes += Q.sapd_normalized;
         }
     } else {
-        Q.thalmann_votes += Q.TİP_normalized;
+        Q.thalmann_votes += Q.TIP_normalized;
         if (Q.sapd_formed && Q.sapd_votes) {
             Q.thalmann_votes += Q.sapd_normalized;
         }
@@ -208,7 +208,7 @@ if (Q.braun_campaign) {
         Q.hindenburg_votes += Q.DP_normalized;
     }
 } else if (Q.CHP_support_thalmann) {
-    Q.thalmann_votes += Q.TİP_normalized;
+    Q.thalmann_votes += Q.TIP_normalized;
     Q.thalmann_votes += Q.CHP_normalized;
     Q.hindenburg_votes += Q.z_normalized;
     Q.hindenburg_votes += Q.ddp_normalized;
@@ -218,7 +218,7 @@ if (Q.braun_campaign) {
     Q.hindenburg_votes += Q.z_normalized;
     Q.hindenburg_votes += Q.ddp_normalized;
     Q.hindenburg_votes += Q.DP_normalized;
-    Q.thalmann_votes += Q.TİP_normalized;
+    Q.thalmann_votes += Q.TIP_normalized;
 }
 if (Q.hitler_support_hindenburg) {
     Q.hitler_votes -= Q.MHP_normalized;
@@ -268,7 +268,7 @@ Hindenburg - [+ hindenburg_votes_disp +]%
 
 [+ MHP_candidate +] - [+ hitler_votes_disp +]%
 
-[? if TİP_support_braun == 0 : Thälmann - [+ thalmann_votes_disp +]% ?]
+[? if TIP_support_braun == 0 : Thälmann - [+ thalmann_votes_disp +]% ?]
 
 [? if braun_campaign > 0 : Braun - [+ braun_votes_disp +]% ?]
 
@@ -284,9 +284,9 @@ There is no majority in this round. In the second round, any candidate who wins 
 @round2_menu
 
 - @round2_convince_z: Convince the Center to switch their support to us.
-- @round2_convince_TİP: Convince the TİP to switch their support to us. 
+- @round2_convince_TIP: Convince the TIP to switch their support to us. 
 - @round2_hindenburg: Switch our support to Hindenburg.
-- @round2_thalmann: Switch our support to Thälmann of the TİP.
+- @round2_thalmann: Switch our support to Thälmann of the TIP.
 - @round2_vote: Let the second round voting begin.
 
 
@@ -350,40 +350,40 @@ Unfortunately, we fail to turn them away from Hindenburg. [? if hindenburg_votes
 
 
 
-@round2_convince_TİP
-choose-if: CHP_votes >= TİP_votes
-unavailable-subtitle: The TİP knows that they are more popular than us; they do not see a reason to support our candidate.
-view-if: braun_campaign > 0 and TİP_support_braun == 0 
+@round2_convince_TIP
+choose-if: CHP_votes >= TIP_votes
+unavailable-subtitle: The TIP knows that they are more popular than us; they do not see a reason to support our candidate.
+view-if: braun_campaign > 0 and TIP_support_braun == 0 
 max-visits: 1
 
-The TİP is committed to supporting Ernst Thälmann. [? if TİP_relation >= 45 : However, the Nazi-Hindenburg coalition worries them enough that they are willing to be convinced to drop their campaign and support Braun. ?][? if TİP_relation < 45 : They do not seem willing to be convinced. ?]
+The TIP is committed to supporting Ernst Thälmann. [? if TIP_relation >= 45 : However, the Nazi-Hindenburg coalition worries them enough that they are willing to be convinced to drop their campaign and support Braun. ?][? if TIP_relation < 45 : They do not seem willing to be convinced. ?]
 
-- @r2_TİP_resources: Use our resources.
-- @r2_TİP_relations: Use our good relations.
-- @round2_menu: Forget about the TİP.
+- @r2_TIP_resources: Use our resources.
+- @r2_TIP_relations: Use our good relations.
+- @round2_menu: Forget about the TIP.
 
-@r2_TİP_resources
-view-if: TİP_relation >= 45 and not historical_mode
+@r2_TIP_resources
+view-if: TIP_relation >= 45 and not historical_mode
 choose-if: resources >= 3
 subtitle: -3 resources
 unavailable-subtitle: Not enough resources (need 3).
-on-arrival: resources -= 3; TİP_support_braun = 1
+on-arrival: resources -= 3; TIP_support_braun = 1
 go-to: round2_menu
 
-The TİP now endorses Braun in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters.
+The TIP now endorses Braun in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters.
 
-@r2_TİP_relations
-view-if: TİP_relation >= 60 or (TİP_party_leader == "Conciliators" and TİP_relation >= 45)
+@r2_TIP_relations
+view-if: TIP_relation >= 60 or (TIP_party_leader == "Conciliators" and TIP_relation >= 45)
 unavailable-subtitle: Our relations are not good enough.
-on-arrival: TİP_support_braun = 1
+on-arrival: TIP_support_braun = 1
 go-to: round2_menu
 
-The TİP now endorses Braun in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters. 
+The TIP now endorses Braun in the presidential election! We ask them to keep their support low-key, so as to not alienate the bourgeois voters. 
 
 @round2_thalmann
-view-if: CHP_support_thalmann == 0 and TİP_support_braun == 0
-choose-if: TİP_relation >= 50 and left_strength > reformist_strength 
-unavailable-subtitle: [? if TİP_relation < 50 : We do not have good enough relations with the Communists, so they are not even willing to accept our support. ?] [? if reformist_strength >= left_strength : The reformist faction is able to dissuade the party from supporting this bizarre arrangement. ?]
+view-if: CHP_support_thalmann == 0 and TIP_support_braun == 0
+choose-if: TIP_relation >= 50 and left_strength > reformist_strength 
+unavailable-subtitle: [? if TIP_relation < 50 : We do not have good enough relations with the Communists, so they are not even willing to accept our support. ?] [? if reformist_strength >= left_strength : The reformist faction is able to dissuade the party from supporting this bizarre arrangement. ?]
 max-visits: 1
 
 Supporting Thälmann is rather unpopular in our party, even if the Communists accept our support. Are we sure?
@@ -392,10 +392,10 @@ Supporting Thälmann is rather unpopular in our party, even if the Communists ac
 - @round2_menu: Never mind.
 
 @round2_thalmann_2
-on-arrival: braun_campaign = 0; CHP_support_thalmann = 1; reformist_dissent += 15; center_dissent += 10; labor_dissent += 5; neorevisionist_dissent += 10; catholics_CHP -= 5; workers_CHP -= 3; TİP_relation += 10; communist_coalition += 2; z_relation -= 15; DP_relation -= 15
-on-departure: z_support_braun = 0; TİP_support_braun = 0;
+on-arrival: braun_campaign = 0; CHP_support_thalmann = 1; reformist_dissent += 15; center_dissent += 10; labor_dissent += 5; neorevisionist_dissent += 10; catholics_CHP -= 5; workers_CHP -= 3; TIP_relation += 10; communist_coalition += 2; z_relation -= 15; DP_relation -= 15
+on-departure: z_support_braun = 0; TIP_support_braun = 0;
 
-Fine. We have thrown our support to Chairman Thälmann of the TİP.
+Fine. We have thrown our support to Chairman Thälmann of the TIP.
 
 [? if z_support_braun : The Center Party is confused at our capricious behavior, and have switched their support to Hindenburg. ?]
 
@@ -423,9 +423,9 @@ on-arrival: president = "Hindenburg"
 As expected, the incumbent Hindenburg wins the presidency. Let's hope he continues to keep the Nazis out of power.
 
 @thalmann_wins
-on-arrival: president = "Thälmann"; TİP_relation = 80;
+on-arrival: president = "Thälmann"; TIP_relation = 80;
 
-Ernst Thälmann of the TİP has won the presidency. Immediately, the far-right launches a coup attempt against the government. We have no choice but to unite with the TİP against the fascists...
+Ernst Thälmann of the TIP has won the presidency. Immediately, the far-right launches a coup attempt against the government. We have no choice but to unite with the TIP against the fascists...
 
 - @civil_war: This is civil war.
 

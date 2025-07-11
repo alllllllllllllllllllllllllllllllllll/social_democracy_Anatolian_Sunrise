@@ -29,7 +29,7 @@ Since we are currently ruling as part of an emergency government, we may use qua
 - @election_algorithm: No, let's hold the elections.
 
 @cancel_elections_2
-on-departure: next_election_year = next_election_year + 1; next_election_time = time + 12; pro_republic -= 10; DP_relation -= 8; z_relation -= 8; ddp_relation -= 10; TİP_relation -= 8; coup_progress += 2; workers_CHP -= 4; new_middle_CHP -= 5; old_middle_CHP -= 5; rural_CHP -= 5; catholics_CHP -= 5; unemployed_CHP -= 5; coup_progress += 2 if MHP_normalized >= 0.3; coup_progress += 2 if MHP_normalized + MSP_normalized >= 0.5; sa_strength += 100 if coup_progress >= 7; sh_strength += 100 if coup_progress >= 7
+on-departure: next_election_year = next_election_year + 1; next_election_time = time + 12; pro_republic -= 10; DP_relation -= 8; z_relation -= 8; ddp_relation -= 10; TIP_relation -= 8; coup_progress += 2; workers_CHP -= 4; new_middle_CHP -= 5; old_middle_CHP -= 5; rural_CHP -= 5; catholics_CHP -= 5; unemployed_CHP -= 5; coup_progress += 2 if MHP_normalized >= 0.3; coup_progress += 2 if MHP_normalized + MSP_normalized >= 0.5; sa_strength += 100 if coup_progress >= 7; sh_strength += 100 if coup_progress >= 7
 achievement: ausnahmezustand
 
 Fine. President [+ president +] has taken the unprecedented step of canceling these elections. New elections are scheduled for [+ next_election_month : month +] [+ next_election_year +].
@@ -90,12 +90,12 @@ if (Q.electoral_threshold && Q.electoral_threshold > 0) {
 
 // The largest party can only be the MHP or the CHP.
 Q.largest_party = 'CHP';
-if (Q.MHP_r >= Q.chp_r && Q.MHP_r >= Q.TİP_r) {
+if (Q.MHP_r >= Q.chp_r && Q.MHP_r >= Q.TIP_r) {
     Q.largest_party = 'MHP';
 }
 
-if (Q.TİP_r >= Q.chp_r && Q.TİP_r >= Q.MHP_r) {
-    Q.largest_party = 'TİP';
+if (Q.TIP_r >= Q.chp_r && Q.TIP_r >= Q.MHP_r) {
+    Q.largest_party = 'TIP';
 }
 
 // coalitions
@@ -105,18 +105,18 @@ Q.bourgeois_coalition = Q.ddp_r + Q.z_r + Q.DP_r + Q.other_r;
 Q.center_right_coalition = Q.z_r + Q.ddp_r + Q.DP_r + Q.other_r + Q.MSP_r;
 Q.right_coalition = Q.z_r + Q.DP_r + Q.other_r + Q.MSP_r;
 Q.far_right_coalition = Q.MSP_r + Q.MHP_r;
-Q.left_coalition = Q.CHP_r + Q.TİP_r + Q.sapd_r;
+Q.left_coalition = Q.CHP_r + Q.TIP_r + Q.sapd_r;
 // this is an absurd concept lol
-Q.popular_front_coalition = Q.CHP_r + Q.TİP_r + Q.z_r + Q.ddp_r - 3 + Q.sapd_r;
-Q.anti_democratic_coalition = Q.TİP_r + Q.MHP_r + Q.MSP_r;
-// aka everyone except nazi, TİP, MSP
+Q.popular_front_coalition = Q.CHP_r + Q.TIP_r + Q.z_r + Q.ddp_r - 3 + Q.sapd_r;
+Q.anti_democratic_coalition = Q.TIP_r + Q.MHP_r + Q.MSP_r;
+// aka everyone except nazi, TIP, MSP
 Q.neo_weimar_coalition = Q.CHP_r + Q.ddp_r + Q.z_r + Q.DP_r + Q.other_r;
 // Hitler + Right-wing parties (only comes into effect if you've alienated Z too badly)
 Q.hitler_right_coalition = Q.z_r + Q.MSP_r + Q.MHP_r;
 // Progressive coalition isn't going to be implemented as a distinct coalition but it's the coalition that lets you pass improved women's rights/gay rights
-Q.progressive_coalition = Q.CHP_r + Q.TİP_r + Q.ddp_r + Q.sapd_r;
+Q.progressive_coalition = Q.CHP_r + Q.TIP_r + Q.ddp_r + Q.sapd_r;
 
-if (Q.TİP_relation >= 30) {
+if (Q.TIP_relation >= 30) {
     Q.weimar_coalition += Q.sapd_r;
 }
 
@@ -125,7 +125,7 @@ Q.leverage = Q.chp_r;
 Q.grand_coalition_failed = 0;
 // Reset government and ministers... Based on Brüning's 1930 govt
 Q.coalition_dissent = 0;
-Q.TİP_coalition_dissent = 0;
+Q.TIP_coalition_dissent = 0;
 Q.CHP_in_government = 0;
 Q.in_weimar_coalition = 0;
 Q.in_grand_coalition = 0;
@@ -145,9 +145,9 @@ Q.economic_minister_party = Q.ddp_name;
 Q.finance_minister_party = 'DP';
 Q.agriculture_minister_party = 'Z';
 
-// reset TİP goals
-Q.TİP_goals_seen = 0;
-Q.TİP_ultimatum_seen = 0;
+// reset TIP goals
+Q.TIP_goals_seen = 0;
+Q.TIP_ultimatum_seen = 0;
 Q.welfare_goal = 0;
 Q.agriculture_goal = 0;
 Q.economy_goal = 0;
@@ -185,10 +185,10 @@ on-departure: nazi_urgency = 1 if (nazi_urgency == 0 and MHP_r >= 15)
 on-display: {!
 data = [
     {
-        "id": "TİP",
-        "legend": "TİP",
-        "name": "TİP",
-        "seats": Math.round(Q.TİP_r*5),
+        "id": "TIP",
+        "legend": "TIP",
+        "name": "TIP",
+        "seats": Math.round(Q.TIP_r*5),
     }
 ];
 if (Q.sapd_formed && Q.sapd_r) {
@@ -279,7 +279,7 @@ go-to: coalition_menu
 
 [? if sapd_formed : {!<tr><td><div class="box" style='background-color:#C40000'> </div> !}SAPD: {!</td><td>!} [+ sapd_r +]% {!</td><td>!} [+ str_change_sapd +] {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}TİP: {!</td><td>!} [+ TİP_r +]% {!</td><td>!} [+ str_change_TİP +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}TIP: {!</td><td>!} [+ TIP_r +]% {!</td><td>!} [+ str_change_TIP +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_r +]% {!</td><td>!} [+ str_change_ddp +] {!</td></tr>!}
 
@@ -308,7 +308,7 @@ Right-wing Coalition (Z + BVP + DP + Others + MSP): [+ right_coalition +]%
 
 [? if nazi_urgency <= 1 and MHP_r >= 15 : The rapid rise in MHP votes is extremely worrying. Many had believed that the party was moribound; now, some of us consider it to be the greatest threat to democracy in Germany. ?]
 
-[? if anti_democratic_coalition >= 50 : Together, the anti-democratic TİP, MSP, and MHP have a majority in the Reichstag. A stable governing majority will be almost impossible. ?]
+[? if anti_democratic_coalition >= 50 : Together, the anti-democratic TIP, MSP, and MHP have a majority in the Reichstag. A stable governing majority will be almost impossible. ?]
 
 There are some potential coalition arrangements.
 
@@ -331,10 +331,10 @@ There are some potential coalition arrangements.
 
 @popular_front_coalition
 title: A new "Popular Front" coalition?
-subtitle: CHP + TİP + Z + [+ ddp_name +]  [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +]%)
-unavailable-subtitle: CHP + TİP + Z + [+ ddp_name +] [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +]%) - [? if ((TİP_relation < 65 and TİP_party_leader == "Thälmann") or (TİP_relation < 45 and TİP_party_leader == "Conciliators")): We do not have good enough relations with the TİP. ?][? if (z_relation < 45 and z_party_leader == "Joos") or (z_relation < 65 and z_party_leader != "Joos" and TİP_party_leader != "Conciliators") or (z_relation < 55 and z_party_leader != "Joos" and TİP_party_leader == "Conciliators"): We do not have good enough relations with the Center Party. ?][? if communist_coalition < 3 : The Communists are unwilling to compromise at all. ?]
+subtitle: CHP + TIP + Z + [+ ddp_name +]  [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +]%)
+unavailable-subtitle: CHP + TIP + Z + [+ ddp_name +] [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +]%) - [? if ((TIP_relation < 65 and TIP_party_leader == "Thälmann") or (TIP_relation < 45 and TIP_party_leader == "Conciliators")): We do not have good enough relations with the TIP. ?][? if (z_relation < 45 and z_party_leader == "Joos") or (z_relation < 65 and z_party_leader != "Joos" and TIP_party_leader != "Conciliators") or (z_relation < 55 and z_party_leader != "Joos" and TIP_party_leader == "Conciliators"): We do not have good enough relations with the Center Party. ?][? if communist_coalition < 3 : The Communists are unwilling to compromise at all. ?]
 view-if: popular_front_coalition >= 50
-choose-if: (((TİP_relation >= 65 and TİP_party_leader == "Thälmann") or (TİP_relation >= 45 and TİP_party_leader == "Conciliators")) and ((z_relation >= 45 and z_party_leader == "Joos") or (z_relation >= 65 and z_party_leader != "Joos" and TİP_party_leader != "Conciliators") or (z_relation >= 55 and z_party_leader != "Joos" and TİP_party_leader == "Conciliators")) and ddp_relation >= 50 and communist_coalition >= 3) or (z_party_leader == "Joos" and TİP_party_leader == "Conciliators" and z_relation >= 30 and TİP_relation >= 30)
+choose-if: (((TIP_relation >= 65 and TIP_party_leader == "Thälmann") or (TIP_relation >= 45 and TIP_party_leader == "Conciliators")) and ((z_relation >= 45 and z_party_leader == "Joos") or (z_relation >= 65 and z_party_leader != "Joos" and TIP_party_leader != "Conciliators") or (z_relation >= 55 and z_party_leader != "Joos" and TIP_party_leader == "Conciliators")) and ddp_relation >= 50 and communist_coalition >= 3) or (z_party_leader == "Joos" and TIP_party_leader == "Conciliators" and z_relation >= 30 and TIP_relation >= 30)
 
 Could we really form a coalition that included both the Center and the Communists? It seems like an absurd concept, but given our good relationships with both sides, it is not an impossibility.
 
@@ -344,9 +344,9 @@ The far-right might attempt a coup, if such a coalition were formed.
 - @great_popular_front: Form the Popular Front!
 
 @popular_front_2
-view-if: z_party_leader != "Joos" or TİP_party_leader != "Conciliators"
+view-if: z_party_leader != "Joos" or TIP_party_leader != "Conciliators"
 
-Somehow, both the Communists and Center are at the very least willing to entertain negotiations. Of course, TİP radicals and Center conservatives derail the negotiations almost immediately. The TİP demands leadership of the coalition for themselves and their chairman Ernst Thälmann, [? if CHP_r > TİP_r : despite our higher vote share, ?]while the Center is offended by the prospect of helping Bolsheviks enter government. *Something* must be done to restore balance.
+Somehow, both the Communists and Center are at the very least willing to entertain negotiations. Of course, TIP radicals and Center conservatives derail the negotiations almost immediately. The TIP demands leadership of the coalition for themselves and their chairman Ernst Thälmann, [? if CHP_r > TIP_r : despite our higher vote share, ?]while the Center is offended by the prospect of helping Bolsheviks enter government. *Something* must be done to restore balance.
 
 - @popular_front_resources
 - @popular_front_democracy
@@ -362,10 +362,10 @@ on-arrival: resources -= 4
 go-to: popular_front_success
 
 @popular_front_democracy
-title: Convince the TİP to accept democracy.
-subtitle: [? if TİP_party_leader == "Conciliators" : The Conciliator leadership of the TİP at least claim to support the Popular Front. ?]
-unavailable-subtitle: Our relationship with the TİP is not high enough.
-choose-if: (TİP_relation >= 60 and communist_coalition >= 3) or TİP_party_leader == "Conciliators"
+title: Convince the TIP to accept democracy.
+subtitle: [? if TIP_party_leader == "Conciliators" : The Conciliator leadership of the TIP at least claim to support the Popular Front. ?]
+unavailable-subtitle: Our relationship with the TIP is not high enough.
+choose-if: (TIP_relation >= 60 and communist_coalition >= 3) or TIP_party_leader == "Conciliators"
 go-to: popular_front_success
 
 @popular_front_braun
@@ -374,37 +374,37 @@ view-if: president == "Braun"
 go-to: popular_front_success
 
 @great_popular_front
-view-if: z_party_leader == "Joos" and TİP_party_leader == "Conciliators"
-on-arrival: CHP_in_government = 1; in_popular_front = 1; chancellor = "Breitscheid"; chancellor_party = "CHP"; TİP_relation += 10; coup_progress += 2; in_left_front = 0; in_weimar_coalition = 0; in_grand_coalition = 0; coalition_dissent = 0;
+view-if: z_party_leader == "Joos" and TIP_party_leader == "Conciliators"
+on-arrival: CHP_in_government = 1; in_popular_front = 1; chancellor = "Breitscheid"; chancellor_party = "CHP"; TIP_relation += 10; coup_progress += 2; in_left_front = 0; in_weimar_coalition = 0; in_grand_coalition = 0; coalition_dissent = 0;
 achievement: grosse_volksfront
 go-to: popular_front_civil_war if coup_progress >= 10; popular_front_no_civil_war if coup_progress < 10
 
-Somehow, the coalition is successfully formed! The conciliatory leadership of the Center Party and TİP helped make the negotiations possible. We still need a chancellor; the only acceptable choice among the parties was Rudolf Breitscheid of the CHP, acceptable to the Center and TİP [? if president == "Hindenburg" : as well as President Hindenburg, albeit extremely reluctantly ?].
+Somehow, the coalition is successfully formed! The conciliatory leadership of the Center Party and TIP helped make the negotiations possible. We still need a chancellor; the only acceptable choice among the parties was Rudolf Breitscheid of the CHP, acceptable to the Center and TIP [? if president == "Hindenburg" : as well as President Hindenburg, albeit extremely reluctantly ?].
 
 @popular_front_success
-on-arrival: CHP_in_government = 1; in_popular_front = 1; chancellor = "Breitscheid"; chancellor_party = "CHP"; TİP_relation += 10; coup_progress += 2; in_left_front = 0; in_weimar_coalition = 0; in_grand_coalition = 0; coalition_dissent = 0;
+on-arrival: CHP_in_government = 1; in_popular_front = 1; chancellor = "Breitscheid"; chancellor_party = "CHP"; TIP_relation += 10; coup_progress += 2; in_left_front = 0; in_weimar_coalition = 0; in_grand_coalition = 0; coalition_dissent = 0;
 go-to: popular_front_civil_war if coup_progress >= 10; popular_front_no_civil_war if coup_progress < 10
 achievement: volksfront
 
-Somehow, surprisingly, the coalition is successfully formed! We still need a chancellor; the only acceptable choice among the parties was Rudolf Breitscheid of the CHP, acceptable to the Center and TİP [? if president == "Hindenburg" : as well as President Hindenburg, albeit extremely reluctantly ?].
+Somehow, surprisingly, the coalition is successfully formed! We still need a chancellor; the only acceptable choice among the parties was Rudolf Breitscheid of the CHP, acceptable to the Center and TIP [? if president == "Hindenburg" : as well as President Hindenburg, albeit extremely reluctantly ?].
 
 @popular_front_no_civil_war
-on-arrival: TİP_goals_seen = 0; finance_minister_party = "Z"; interior_minister_party = "Z"; economic_minister_party = "Z"; labor_minister_party = "Z"; foreign_minister_party = "Z"; agriculture_minister_party = "Z"; reichswehr_minister = "I"; leverage = CHP_r + TİP_r;
+on-arrival: TIP_goals_seen = 0; finance_minister_party = "Z"; interior_minister_party = "Z"; economic_minister_party = "Z"; labor_minister_party = "Z"; foreign_minister_party = "Z"; agriculture_minister_party = "Z"; reichswehr_minister = "I"; leverage = CHP_r + TIP_r;
 achievement: volksfront
 
-In response to the TİP's entrance into the government, the right-wing takes a "wait-and-see" approach for now. They expect that the Popular Front government will be unstable and incompetent, and will collapse of its own accord, discrediting the left and center and eventually enabling the destruction of the Weimar Republic. Our task is to prove them wrong.
+In response to the TIP's entrance into the government, the right-wing takes a "wait-and-see" approach for now. They expect that the Popular Front government will be unstable and incompetent, and will collapse of its own accord, discrediting the left and center and eventually enabling the destruction of the Weimar Republic. Our task is to prove them wrong.
 
-The TİP has taken an abstentionist position with regards to ministries. They claim to be participating as the "loyal opposition" within the Popular Front government, supporting us from the outside while also running their own propaganda campaigns to turn workers to their side. They seem to expect that the Popular Front would inevitably fail, and that our failure would benefit them.
+The TIP has taken an abstentionist position with regards to ministries. They claim to be participating as the "loyal opposition" within the Popular Front government, supporting us from the outside while also running their own propaganda campaigns to turn workers to their side. They seem to expect that the Popular Front would inevitably fail, and that our failure would benefit them.
 
 - @ministries: First, we must select our ministries.
 
 
 @popular_front_civil_war
-on-arrival: TİP_relation = 80; reichswehr_loyalty += 0.25;
+on-arrival: TIP_relation = 80; reichswehr_loyalty += 0.25;
 
-In response to the TİP's entrance into the government, the right-wing immediately launches a coup attempt. Troops of the Stahlhelm and Nazi SA enter Berlin and immediately begin clashing with our supporters! Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop us from taking power.
+In response to the TIP's entrance into the government, the right-wing immediately launches a coup attempt. Troops of the Stahlhelm and Nazi SA enter Berlin and immediately begin clashing with our supporters! Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop us from taking power.
 
-The Center manages to diffuse some of the hostility from the Reichswehr and the Stahlhelm, but fail to prevent the outbreak of fighting. We are forced to fight on the same side as the TİP, whether we want to or not.
+The Center manages to diffuse some of the hostility from the Reichswehr and the Stahlhelm, but fail to prevent the outbreak of fighting. We are forced to fight on the same side as the TIP, whether we want to or not.
 
 - @civil_war: A civil war, then.
 
@@ -450,12 +450,12 @@ Alternatively, Braun could use the emergency powers of the presidency. Article 4
 
 @left_coalition
 title: Is a United Left coalition possible?
-subtitle: CHP + TİP [? if sapd_formed: + SAPD ?] ([+ left_coalition +]%)
-unavailable-subtitle: CHP + TİP [? if sapd_formed: + SAPD ?] ([+ left_coalition +]%). [? if TİP_relation < 50 : We do not have adequate relations with the TİP. ?][? if communist_coalition < 3 : The Communists are too committed to their radical ways to partake in government. ?]
+subtitle: CHP + TIP [? if sapd_formed: + SAPD ?] ([+ left_coalition +]%)
+unavailable-subtitle: CHP + TIP [? if sapd_formed: + SAPD ?] ([+ left_coalition +]%). [? if TIP_relation < 50 : We do not have adequate relations with the TIP. ?][? if communist_coalition < 3 : The Communists are too committed to their radical ways to partake in government. ?]
 view-if: left_coalition >= 50
-choose-if: (TİP_relation >= 50 or (TİP_party_leader == "Conciliators" and TİP_relation >= 40)) and communist_coalition >= 3
+choose-if: (TIP_relation >= 50 or (TIP_party_leader == "Conciliators" and TIP_relation >= 40)) and communist_coalition >= 3
 
-There are enough votes for a CHP + TİP coalition government, if such a thing were actually possible.
+There are enough votes for a CHP + TIP coalition government, if such a thing were actually possible.
 
 The far-right might attempt a coup, if such a coalition were formed.
 
@@ -470,7 +470,7 @@ A far left coalition is impossible.
 
 @left_coalition_possible
 
-The TİP is still very reluctant to join a coalition, despite grassroots friendliness between our memberships. The Stalinist leadership is vehemently against such a thing. They demand the appointment of Ernst Thälmann as chancellor in exchange for a coalition. [? if president == "Hindenburg" : There is no chance whatsoever that President Hindenburg would approve of the appointment of a die-hard communist as chancellor. ?] Alternatively, if our relations with them are good enough, we could convince them to support the appointment of one of our centrist or left-leaning members as chancellor.
+The TIP is still very reluctant to join a coalition, despite grassroots friendliness between our memberships. The Stalinist leadership is vehemently against such a thing. They demand the appointment of Ernst Thälmann as chancellor in exchange for a coalition. [? if president == "Hindenburg" : There is no chance whatsoever that President Hindenburg would approve of the appointment of a die-hard communist as chancellor. ?] Alternatively, if our relations with them are good enough, we could convince them to support the appointment of one of our centrist or left-leaning members as chancellor.
 
 - @thalmann_chancellor: Appoint Thälmann as chancellor.
 - @left_coalition_resources
@@ -480,13 +480,13 @@ The TİP is still very reluctant to join a coalition, despite grassroots friendl
 @thalmann_chancellor
 choose-if: president == "Braun" and reformist_strength + neorevisionist_strength < left_strength
 unavailable-subtitle: [? if president != "Braun": President [+ president +] would never allow such a thing. ?] [? if reformist_strength >= left_strength : Most in the parliamentary party would not support Thälmann as chancellor. ?]
-on-arrival: chancellor = "Thälmann"; chancellor_party = "TİP"; TİP_relation = 80; in_left_front = 1; CHP_in_government = 1 
+on-arrival: chancellor = "Thälmann"; chancellor_party = "TIP"; TIP_relation = 80; in_left_front = 1; CHP_in_government = 1 
 
 With great reluctance, President [+ president +] appoints [+ chancellor +] as chancellor.
 
-Immediately, [+ chancellor +] goes to work building a "Soviet Germany": consolidating as much power as possible in the TİP, purging state institutions of anti-communists, and sending street fighters against the "enemies of the people".
+Immediately, [+ chancellor +] goes to work building a "Soviet Germany": consolidating as much power as possible in the TIP, purging state institutions of anti-communists, and sending street fighters against the "enemies of the people".
 
-In response to [+ chancellor +] being appointed Chancellor, the right-wing forces launches almost immediately launch an attempted coup. Troops of the Stahlhelm and Nazi SA enter Berlin and immediately begin clashing with our supporters! Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop the TİP from taking power. We are forced to be on the same side as the TİP, whether we want to or not.
+In response to [+ chancellor +] being appointed Chancellor, the right-wing forces launches almost immediately launch an attempted coup. Troops of the Stahlhelm and Nazi SA enter Berlin and immediately begin clashing with our supporters! Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop the TIP from taking power. We are forced to be on the same side as the TIP, whether we want to or not.
 
 - @civil_war
 
@@ -500,34 +500,34 @@ on-arrival: resources -= 3
 go-to: left_coalition_success
 
 @left_coalition_relations
-title: Convince the TİP to accept democracy.
-unavailable-subtitle: Our relationships with the TİP are not good enough.
-choose-if: TİP_relation >= 60 or TİP_party_leader == "Conciliators"
+title: Convince the TIP to accept democracy.
+unavailable-subtitle: Our relationships with the TIP are not good enough.
+choose-if: TIP_relation >= 60 or TIP_party_leader == "Conciliators"
 go-to: left_coalition_success
 
 
 @left_coalition_success
-on-arrival: CHP_in_government = 1; in_left_front = 1; chancellor = "Breitscheid"; chancellor_party = "CHP"; coup_progress += 3; capital_strike_progress += 2; in_popular_front = 0; in_grand_coalition = 0; in_weimar_coalition = 0; TİP_relation += 10
+on-arrival: CHP_in_government = 1; in_left_front = 1; chancellor = "Breitscheid"; chancellor_party = "CHP"; coup_progress += 3; capital_strike_progress += 2; in_popular_front = 0; in_grand_coalition = 0; in_weimar_coalition = 0; TIP_relation += 10
 go-to: left_coalition_civil_war if coup_progress >= 10; left_coalition_no_civil_war if coup_progress < 10
 achievement: einheitsfront
 
-Somehow, surprisingly, the left coalition is successfully formed, without appointing Thälmann as chancellor. The consensus choice for chancellor, accepted by the CHP, TİP, and President [+ president +], is Rudolf Breitscheid, who belongs to the centrist faction of the CHP, but was acceptable to the left due to his previous membership in the left-wing anti-war UCHP.
+Somehow, surprisingly, the left coalition is successfully formed, without appointing Thälmann as chancellor. The consensus choice for chancellor, accepted by the CHP, TIP, and President [+ president +], is Rudolf Breitscheid, who belongs to the centrist faction of the CHP, but was acceptable to the left due to his previous membership in the left-wing anti-war UCHP.
 
 # just raise the coup limit, don't immediately go to civil war
 
 @left_coalition_no_civil_war
-on-arrival: TİP_goals_seen = 0; foreign_minister_party = "CHP"; interior_minister_party = "CHP"; justice_minister_party = "CHP"; labor_minister_party = "CHP"; reichswehr_minister_party = "CHP"; economic_minister_party = "CHP"; finance_minister_party = "CHP"; agriculture_minister_party = "CHP"; reichswehr_loyalty -= 0.05
+on-arrival: TIP_goals_seen = 0; foreign_minister_party = "CHP"; interior_minister_party = "CHP"; justice_minister_party = "CHP"; labor_minister_party = "CHP"; reichswehr_minister_party = "CHP"; economic_minister_party = "CHP"; finance_minister_party = "CHP"; agriculture_minister_party = "CHP"; reichswehr_loyalty -= 0.05
 
-In response to the TİP's entrance into the government, the right-wing takes a "wait-and-see" approach for now. They expect that our government will be unstable and incompetent, and will collapse of its own accord, discrediting the left and eventually enabling the destruction of the Weimar Republic. Our task is to prove them wrong.
+In response to the TIP's entrance into the government, the right-wing takes a "wait-and-see" approach for now. They expect that our government will be unstable and incompetent, and will collapse of its own accord, discrediting the left and eventually enabling the destruction of the Weimar Republic. Our task is to prove them wrong.
 
-The TİP has taken an abstentionist position with regards to ministries. They claim to be participating as the "loyal opposition" in the worker's government, supporting us from the outside while also running their own propaganda campaigns to turn workers to their side. They seem to expect that we would inevitably fail, and that our failure would benefit them. 
+The TIP has taken an abstentionist position with regards to ministries. They claim to be participating as the "loyal opposition" in the worker's government, supporting us from the outside while also running their own propaganda campaigns to turn workers to their side. They seem to expect that we would inevitably fail, and that our failure would benefit them. 
 
 Whatever their reasoning is, the CHP has control over the ministries of government.
 
 @left_coalition_civil_war
 on-arrival: reichswehr_loyalty += 0.1
 
-In response to the TİP's entrance into the government, the right-wing immediately launches a coup attempt. Troops of the Stahlhelm and Nazi SA enter Berlin and begin clashing with our supporters. Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop us from taking power.
+In response to the TIP's entrance into the government, the right-wing immediately launches a coup attempt. Troops of the Stahlhelm and Nazi SA enter Berlin and begin clashing with our supporters. Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop us from taking power.
 
 - @civil_war: A civil war, then.
 
@@ -605,7 +605,7 @@ on-arrival: no_majority_bruning_elections += 1
 
 There is no path to a majority government. One option would be to have a continuation of the current Brüning government; if we tolerate it, then it would retain a majority vote against no-confidence.
 
-Alternatively, we could try to form a "new grand coalition" of all constitutional parties except the MHP, TİP, and MSP. The stumbling block are the minor conservative parties such as the "Economic Party of the Middle Class", who detest any hint of socialism and would ruin the country before working with Marxists.
+Alternatively, we could try to form a "new grand coalition" of all constitutional parties except the MHP, TIP, and MSP. The stumbling block are the minor conservative parties such as the "Economic Party of the Middle Class", who detest any hint of socialism and would ruin the country before working with Marxists.
 
 The third option is to have new elections.
 
@@ -814,7 +814,7 @@ Thus, we have Chancellor-President Otto Braun. He claims that he will resign as 
 
 @breitscheid_emergency_chancellor
 subtitle: The Communists are warming to him...
-on-arrival: chancellor = "Breitscheid"; chancellor_party = "CHP"; CHP_in_government = 1; TİP_relation += 5; foreign_minister_party = "CHP"; interior_minister_party = "CHP"; justice_minister_party = "CHP"; labor_minister_party = "CHP"; reichswehr_minister_party = "CHP"; economic_minister_party = "CHP"; finance_minister_party = "CHP"; agriculture_minister_party = "CHP"; reichswehr_loyalty -= 0.1;
+on-arrival: chancellor = "Breitscheid"; chancellor_party = "CHP"; CHP_in_government = 1; TIP_relation += 5; foreign_minister_party = "CHP"; interior_minister_party = "CHP"; justice_minister_party = "CHP"; labor_minister_party = "CHP"; reichswehr_minister_party = "CHP"; economic_minister_party = "CHP"; finance_minister_party = "CHP"; agriculture_minister_party = "CHP"; reichswehr_loyalty -= 0.1;
 
 We have appointed Rudolf Breitscheid as emergency chancellor. The Communists consider him less objectionable than the alternatives, although it is unclear whether they will tolerate this government.
 
@@ -856,9 +856,9 @@ Their numbers are bolstered by the many government workers who are against the p
 @emergency_no_confidence
 title: The Nazis immediately call a no-confidence vote against us...
 view-if: far_right_coalition < 45
-on-arrival: z_no_confidence = 1 if z_relation < 45; TİP_no_confidence = 1 if TİP_relation < 45; other_no_confidence = 1 if (z_relation + DP_relation)/2 < 45; DP_no_confidence = 1 if DP_relation < 45; sa_strength += 200; sh_strength += 200; no_confidence_votes = MHP_r + MSP_r; no_confidence_votes += z_r if z_no_confidence; no_confidence_votes += DP_r if DP_no_confidence; no_confidence_votes += TİP_r if TİP_no_confidence; no_confidence_votes += other_r if other_no_confidence; no_confidence_succeeds = 1 if no_confidence_votes > 50
+on-arrival: z_no_confidence = 1 if z_relation < 45; TIP_no_confidence = 1 if TIP_relation < 45; other_no_confidence = 1 if (z_relation + DP_relation)/2 < 45; DP_no_confidence = 1 if DP_relation < 45; sa_strength += 200; sh_strength += 200; no_confidence_votes = MHP_r + MSP_r; no_confidence_votes += z_r if z_no_confidence; no_confidence_votes += DP_r if DP_no_confidence; no_confidence_votes += TIP_r if TIP_no_confidence; no_confidence_votes += other_r if other_no_confidence; no_confidence_succeeds = 1 if no_confidence_votes > 50
 
-The MHP and MSP will vote against us, of course. The other parties vote their conscience. [? if z_no_confidence: The Center Party is voting against us. ?] [? if TİP_no_confidence: The TİP votes against us. ?] [? if other_no_confidence: The assortment of minor parties are voting against us. ?]
+The MHP and MSP will vote against us, of course. The other parties vote their conscience. [? if z_no_confidence: The Center Party is voting against us. ?] [? if TIP_no_confidence: The TIP votes against us. ?] [? if other_no_confidence: The assortment of minor parties are voting against us. ?]
 
 In total, [+ no_confidence_votes +]% of the Reichstag is against us. [? if no_confidence_succeeds : We have lost the vote of no confidence. ?]
 
@@ -920,7 +920,7 @@ We have won the vote of no confidence, and are currently ruling under an CHP min
 
 @weimar_coalition
 title: We can form a Weimar Coalition.
-subtitle: CHP + Z + [+ ddp_name +] [? if sapd_formed and TİP_relation >= 30 : + SAPD toleration ?] ([+ weimar_coalition +]%)
+subtitle: CHP + Z + [+ ddp_name +] [? if sapd_formed and TIP_relation >= 30 : + SAPD toleration ?] ([+ weimar_coalition +]%)
 view-if: weimar_coalition >= 50
 on-arrival: leverage += 5; leverage += 5 if z_party_leader == "Joos"; in_weimar_coalition = 1; CHP_in_government = 1; in_popular_front = 0; in_left_front = 0; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = ddp_name; labor_minister_party = "Z"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "Z"; agriculture_minister_party = "Z"; foreign_minister = "Wirth"; interior_minister = "Wirth"; justice_minister = "Koch-Weser"; labor_minister = "Stegerwald"; reichswehr_minister = "Groener"; economic_minister = "Dietrich"; finance_minister = "Köhler"; agriculture_minister = "Hermes";
 achievement: weimar_coalition
@@ -1172,7 +1172,7 @@ We have promised to let the Center have more influence in the government in resp
 @z_chancellor
 title: Let the Center Party have their chancellor.
 subtitle: Heinrich Brüning will be chancellor. This is unexpected and will cause internal dissent, but may give us a better position in negotiating for other cabinet positions.
-on-arrival: left_dissent += 5; center_dissent += 5; labor_dissent += 5; z_relation += 10; DP_relation += 5; TİP_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Brüning"; chancellor_party = "Z"; CHP_in_government = 1; leverage += 5
+on-arrival: left_dissent += 5; center_dissent += 5; labor_dissent += 5; z_relation += 10; DP_relation += 5; TIP_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Brüning"; chancellor_party = "Z"; CHP_in_government = 1; leverage += 5
 go-to: ministries
 
 This is highly unexpected, and many in the left and center of our party are criticizing this decision.
@@ -1184,7 +1184,7 @@ This is highly unexpected, and many in the left and center of our party are crit
 title: Let Joseph Wirth of the Center Party be chancellor.
 view-if: z_party_leader == "Joos"
 subtitle: Wirth is on the left wing of the Center Party. This may give us a better position in negotiating for other cabinet positions.
-on-arrival: left_dissent += 2; z_relation += 6; ddp_relation += 3; TİP_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Wirth"; chancellor_party = "Z"; CHP_in_government = 1; leverage += 5
+on-arrival: left_dissent += 2; z_relation += 6; ddp_relation += 3; TIP_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Wirth"; chancellor_party = "Z"; CHP_in_government = 1; leverage += 5
 go-to: ministries
 
 
@@ -1239,7 +1239,7 @@ We are seen as responsible for the failure to form a government, and many of our
 
 @ministries
 
-We can pick from any number of ministries. Controlling a ministry allows us to directly effect policy in that area. [? if in_left_front : Any ministry that we do not take will be given to the TİP. ?] [? if in_left_front and reichswehr_minister_party == "TİP" : If the TİP controls the Reichswehr Ministry, the army will most likely revolt. ?]
+We can pick from any number of ministries. Controlling a ministry allows us to directly effect policy in that area. [? if in_left_front : Any ministry that we do not take will be given to the TIP. ?] [? if in_left_front and reichswehr_minister_party == "TIP" : If the TIP controls the Reichswehr Ministry, the army will most likely revolt. ?]
 
 - #mins_1928
 - #drop_mins_1928

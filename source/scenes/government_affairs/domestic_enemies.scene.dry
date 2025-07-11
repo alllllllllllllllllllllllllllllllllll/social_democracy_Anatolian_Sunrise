@@ -68,19 +68,19 @@ We have arrested more of the Stahlhelm's leaders and confiscated their weapons.
 
 @ban_rfb
 view-if: communist_coalition < 3 and rfb_banned = 0
-on-arrival: TİP_relation -= 15; rfb_strength -= 50; rfb_banned = 1; communist_coalition -= 1; z_relation += 5; DP_relation += 5; prussian_police_loyalty += 0.1; interior_police_loyalty += 0.1; TİP_coalition_dissent += 2; coalition_dissent -= 1 if coalition_dissent > 0 and n_rfb_banned = 0; n_rfb_banned += 1
+on-arrival: TIP_relation -= 15; rfb_strength -= 50; rfb_banned = 1; communist_coalition -= 1; z_relation += 5; DP_relation += 5; prussian_police_loyalty += 0.1; interior_police_loyalty += 0.1; TIP_coalition_dissent += 2; coalition_dissent -= 1 if coalition_dissent > 0 and n_rfb_banned = 0; n_rfb_banned += 1
 
 The ban is enthusiastically carried out by the police, perhaps too enthusiastically. The Communists take this as one more reason why the Socialists are traitors to the left. However, the moderate and center-right parties approve, as do the police.
 
 @unban_rfb
 view-if: rfb_banned = 1
-on-arrival: rfb_banned = 0; TİP_relation += 5; rfb_strength += 50; prussian_police_loyalty -= 0.05; interior_police_loyalty -= 0.05
+on-arrival: rfb_banned = 0; TIP_relation += 5; rfb_strength += 50; prussian_police_loyalty -= 0.05; interior_police_loyalty -= 0.05
 
 The Communist RFB is no longer banned.
 
 @persecute_rfb
 title: Further persecute the RFB.
 view-if: rfb_banned = 1
-on-arrival: rfb_strength *= 0.7; rfb_militancy -= 0.05; TİP_relation -= 10; TİP_coalition_dissent += 1; z_relation += 5; DP_relation += 5; prussian_police_loyalty += 0.1; interior_police_loyalty += 0.1; coalition_dissent -= 1 if coalition_dissent > 0 and n_rfb_persecuted = 0; n_rfb_persecuted += 1
+on-arrival: rfb_strength *= 0.7; rfb_militancy -= 0.05; TIP_relation -= 10; TIP_coalition_dissent += 1; z_relation += 5; DP_relation += 5; prussian_police_loyalty += 0.1; interior_police_loyalty += 0.1; coalition_dissent -= 1 if coalition_dissent > 0 and n_rfb_persecuted = 0; n_rfb_persecuted += 1
 
 We have arrested more of the RFB's leaders and confiscated their weapons.

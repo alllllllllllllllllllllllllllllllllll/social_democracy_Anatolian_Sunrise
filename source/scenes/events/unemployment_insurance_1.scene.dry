@@ -52,11 +52,11 @@ Fine. If the bourgeoisie wish to blow up the government, let them do so. Sociali
 New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
 
 @accept
-on-arrival: workers_CHP -= 0.15*workers_CHP; unemployed_CHP -= 0.3*unemployed_CHP; workers_TİP += 7; workers_MHP += 7; unemployed_TİP += 5; unemployed_MHP += 5; left_dissent += 15; center_dissent += 10; labor_dissent += 15; reformist_dissent += 5; welfare -= 2; budget += 1; unemployed += 3; month += 1; pro_republic -= 4; TİP_relation -= 8; inflation -= 2; economic_growth -= 0.6
+on-arrival: workers_CHP -= 0.15*workers_CHP; unemployed_CHP -= 0.3*unemployed_CHP; workers_TIP += 7; workers_MHP += 7; unemployed_TIP += 5; unemployed_MHP += 5; left_dissent += 15; center_dissent += 10; labor_dissent += 15; reformist_dissent += 5; welfare -= 2; budget += 1; unemployed += 3; month += 1; pro_republic -= 4; TIP_relation -= 8; inflation -= 2; economic_growth -= 0.6
 
 Unfortunately, we must accept this ultimatum if we are to maintain this coalition. The Nazis and Communists are waiting in the wings for us to fail, ready to pounce upon the instability that would result from a breakup of the governing coalition.
 
-The workers are furious at our betrayal, as are a good portion of our membership throughout the factions. Our loss is the TİP's gain, and even the MHP, those lapdogs of the bourgeoisie, have joined in criticizing us for our austerity.
+The workers are furious at our betrayal, as are a good portion of our membership throughout the factions. Our loss is the TIP's gain, and even the MHP, those lapdogs of the bourgeoisie, have joined in criticizing us for our austerity.
 
 
 @compromise
@@ -69,6 +69,6 @@ Thanks to our good relations, the DP have offered a compromise that raises some 
 - @destroy: Reject the compromise and let this government fall.
 
 @accept_compromise
-on-arrival: workers_CHP -= 5; unemployed_CHP -= 6; workers_TİP += 5; unemployed_TİP += 3; unemployed_MHP += 3; left_dissent += 10; labor_dissent += 8; center_dissent += 5; welfare -= 1; budget += 1; month += 1; TİP_relation -= 4; inflation -= 1; economic_growth -= 0.3
+on-arrival: workers_CHP -= 5; unemployed_CHP -= 6; workers_TIP += 5; unemployed_TIP += 3; unemployed_MHP += 3; left_dissent += 10; labor_dissent += 8; center_dissent += 5; welfare -= 1; budget += 1; month += 1; TIP_relation -= 4; inflation -= 1; economic_growth -= 0.3
 
 We have accepted the compromise offered by the bourgeoisie. Many of the workers and unemployed see this as a betrayal, although we present it as the successful aversion of a much worse alternative.

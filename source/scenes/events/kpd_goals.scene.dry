@@ -1,12 +1,12 @@
-title: The TİP presents its list of goals for the coalition.
-view-if: (in_popular_front = 1 or in_left_front = 1) and TİP_goals_seen = 0 and TİP_coalition_success = 0 and next_election_time - time > 12 and CHP_in_government
-on-arrival: TİP_goals_seen = 1; welfare_goal = 1; foreign_goal = 0; agriculture_goal = 1 if agriculture_minister_party != "TİP"; economy_goal = 1 if economic_minister_party != "TİP"; finance_goal = 1 if finance_minister_party != "TİP"; labor_goal = 1 if labor_minister_party != "TİP"; reichswehr_goal = 1 if reichswehr_minister_party != "TİP"; TİP_ultimatum_timer = 12; TİP_ultimatum_timer = 16 if TİP_relation >= 60; TİP_ultimatum_timer = 24 if TİP_party_leader == "Conciliators" or constructive_vonc; TİP_ultimatum_timer = next_election_time - time - 1 if next_election_time - time <= 12;
+title: The TIP presents its list of goals for the coalition.
+view-if: (in_popular_front = 1 or in_left_front = 1) and TIP_goals_seen = 0 and TIP_coalition_success = 0 and next_election_time - time > 12 and CHP_in_government
+on-arrival: TIP_goals_seen = 1; welfare_goal = 1; foreign_goal = 0; agriculture_goal = 1 if agriculture_minister_party != "TIP"; economy_goal = 1 if economic_minister_party != "TIP"; finance_goal = 1 if finance_minister_party != "TIP"; labor_goal = 1 if labor_minister_party != "TIP"; reichswehr_goal = 1 if reichswehr_minister_party != "TIP"; TIP_ultimatum_timer = 12; TIP_ultimatum_timer = 16 if TIP_relation >= 60; TIP_ultimatum_timer = 24 if TIP_party_leader == "Conciliators" or constructive_vonc; TIP_ultimatum_timer = next_election_time - time - 1 if next_election_time - time <= 12;
 new-page: true
 tags: event
 
-= TİP Goals
+= TIP Goals
 
-The TİP presents us with a list of goals for the coalition:
+The TIP presents us with a list of goals for the coalition:
 
 [? if welfare_goal = 1 : - Expand social welfare programs. ?]
 
@@ -24,4 +24,4 @@ The TİP presents us with a list of goals for the coalition:
 
 [? if reichswehr_goal = 1 : - Reduce funding for the Reichswehr. ?]
 
-They say that they expect to see these goals fulfilled in [+ TİP_ultimatum_timer +] months. Otherwise, they will vote to dissolve the coalition.
+They say that they expect to see these goals fulfilled in [+ TIP_ultimatum_timer +] months. Otherwise, they will vote to dissolve the coalition.

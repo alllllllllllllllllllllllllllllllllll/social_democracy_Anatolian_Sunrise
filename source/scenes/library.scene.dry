@@ -364,7 +364,7 @@ CHP: [+ chp_r +]%
 # 1928: 15, 1930: 15, 1932: 
 Z + BVP: [+ z_r +]%
 # 1928: 10, 1930: 13
-TİP: [+ TİP_r +]%
+TIP: [+ TIP_r +]%
 # 1928: 5, 1930: 4 (as DstP)
 [+ ddp_name +]: [+ ddp_r +]%
 # 1928: 9, 1930: 5
@@ -381,7 +381,7 @@ CHP position: [? if CHP_toleration : toleration ?][? if CHP_in_government : in g
 
 [? if CHP_in_government and not in_CHP_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
-[? if CHP_in_government and (in_left_front or in_popular_front): TİP coalition dissent: [+ TİP_coalition_dissent : coalition_dissent +] ?]
+[? if CHP_in_government and (in_left_front or in_popular_front): TIP coalition dissent: [+ TIP_coalition_dissent : coalition_dissent +] ?]
 
 @cabinet
 go-to: menu
@@ -412,7 +412,7 @@ go-to: menu
 
 **Rural**: Peasants who live in a semi-feudal state under the hegemony of the landlords and the local notables. Generally vote for reactionary parties such as AP or MSP. Makes up about 45% of the population, however 15% of that segment is comprised of Kurdish peasantry which currently lack the political consciousness to have a separate political agenda but one may arise depending on the political circumstances.
 
-**Working Class**: The urban working class - blue-collar workers in factories, workshops, mines, and the like. A class created primarily in the last 50 years, the working class families live in ghettos near the industrial zones and support either TİP or CHP. 20% of the population. 4% of that population is comprised of Kurdish workers who have migrated to the cities. 
+**Working Class**: The urban working class - blue-collar workers in factories, workshops, mines, and the like. A class created primarily in the last 50 years, the working class families live in ghettos near the industrial zones and support either TIP or CHP. 20% of the population. 4% of that population is comprised of Kurdish workers who have migrated to the cities. 
 
 **Petty Bourgeoisie**: The urban middle class - shopkeepers, traders and alike. Traditionally one of the main bases of AP but since the party's decision to open up to the global market their alignment have shifted to MSP
 
@@ -422,7 +422,7 @@ go-to: menu
 
 **Catholics** are the largest religious minority, at about 30% of the population. They disproportionately support the Center Party (or the Bavarian People's Party in Bavaria).
 
-**Jews** account for between 0.5% to 1% of the population, and tend to support liberal parties, mostly the DDP, although substantial numbers support the CHP or TİP.
+**Jews** account for between 0.5% to 1% of the population, and tend to support liberal parties, mostly the DDP, although substantial numbers support the CHP or TIP.
 
 
 @public_opinion
@@ -459,7 +459,7 @@ CHP: [+ chp_votes +]%
 Z + BVP: [+ z_votes +]%
 
 # 1928: 10, 1930: 13
-TİP: [+ TİP_votes +]%
+TIP: [+ TIP_votes +]%
 
 # 1928: 5, 1930: 4 (as DstP)
 [+ ddp_name +]: [+ ddp_votes +]%
@@ -478,17 +478,17 @@ Others: [+ other_votes +]%
 
 **Detailed results for each demographic**
 
-Workers: CHP: [+ workers_CHP_display +]%, Z: [+ workers_z_display +]%, TİP: [+ workers_TİP_display +]%, [+ ddp_name +]: [+ workers_ddp_display +]%, DP: [+ workers_DP_display +]%; MSP: [+ workers_MSP_display +]%, MHP: [+ workers_MHP_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
+Workers: CHP: [+ workers_CHP_display +]%, Z: [+ workers_z_display +]%, TIP: [+ workers_TIP_display +]%, [+ ddp_name +]: [+ workers_ddp_display +]%, DP: [+ workers_DP_display +]%; MSP: [+ workers_MSP_display +]%, MHP: [+ workers_MHP_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
 
-New Middle Class: CHP: [+ new_middle_CHP_display +]%, Z: [+ new_middle_z_display +]%, TİP: [+ new_middle_TİP_display +]%, [+ ddp_name +]: [+ new_middle_ddp_display +]%, DP: [+ new_middle_DP_display +]%; MSP: [+ new_middle_MSP_display +]%, MHP: [+ new_middle_MHP_display +]%, Others: [+ new_middle_other_display +]% [? if sapd_formed: SAPD: [+ new_middle_sapd_display +]% ?]
+New Middle Class: CHP: [+ new_middle_CHP_display +]%, Z: [+ new_middle_z_display +]%, TIP: [+ new_middle_TIP_display +]%, [+ ddp_name +]: [+ new_middle_ddp_display +]%, DP: [+ new_middle_DP_display +]%; MSP: [+ new_middle_MSP_display +]%, MHP: [+ new_middle_MHP_display +]%, Others: [+ new_middle_other_display +]% [? if sapd_formed: SAPD: [+ new_middle_sapd_display +]% ?]
 
-Old Middle Class: CHP: [+ old_middle_CHP_display +]%, Z: [+ old_middle_z_display +]%, TİP: [+ old_middle_TİP_display +]%, [+ ddp_name +]: [+ old_middle_ddp_display +]%, DP: [+ old_middle_DP_display +]%; MSP: [+ old_middle_MSP_display +]%, MHP: [+ old_middle_MHP_display +]%, Others: [+ old_middle_other_display +]% [? if sapd_formed: SAPD: [+ old_middle_sapd_display +]% ?]
+Old Middle Class: CHP: [+ old_middle_CHP_display +]%, Z: [+ old_middle_z_display +]%, TIP: [+ old_middle_TIP_display +]%, [+ ddp_name +]: [+ old_middle_ddp_display +]%, DP: [+ old_middle_DP_display +]%; MSP: [+ old_middle_MSP_display +]%, MHP: [+ old_middle_MHP_display +]%, Others: [+ old_middle_other_display +]% [? if sapd_formed: SAPD: [+ old_middle_sapd_display +]% ?]
 
-Rural: CHP: [+ rural_CHP_display +]%, Z: [+ rural_z_display +]%, TİP: [+ rural_TİP_display +]%, [+ ddp_name +]: [+ rural_ddp_display +]%, DP: [+ rural_DP_display +]%; MSP: [+ rural_MSP_display +]%, MHP: [+ rural_MHP_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
+Rural: CHP: [+ rural_CHP_display +]%, Z: [+ rural_z_display +]%, TIP: [+ rural_TIP_display +]%, [+ ddp_name +]: [+ rural_ddp_display +]%, DP: [+ rural_DP_display +]%; MSP: [+ rural_MSP_display +]%, MHP: [+ rural_MHP_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
 
-Unemployed: CHP: [+ unemployed_CHP_display +]%, Z: [+ unemployed_z_display +]%, TİP: [+ unemployed_TİP_display +]%, [+ ddp_name +]: [+ unemployed_ddp_display +]%, DP: [+ unemployed_DP_display +]%; MSP: [+ unemployed_MSP_display +]%, MHP: [+ unemployed_MHP_display +]%, Others: [+ unemployed_other_display +]% [? if sapd_formed: SAPD: [+ unemployed_sapd_display +]% ?]
+Unemployed: CHP: [+ unemployed_CHP_display +]%, Z: [+ unemployed_z_display +]%, TIP: [+ unemployed_TIP_display +]%, [+ ddp_name +]: [+ unemployed_ddp_display +]%, DP: [+ unemployed_DP_display +]%; MSP: [+ unemployed_MSP_display +]%, MHP: [+ unemployed_MHP_display +]%, Others: [+ unemployed_other_display +]% [? if sapd_formed: SAPD: [+ unemployed_sapd_display +]% ?]
 
-Catholics: CHP: [+ catholics_CHP_display +]%, Z: [+ catholics_z_display +]%, TİP: [+ catholics_TİP_display +]%, [+ ddp_name +]: [+ catholics_ddp_display +]%, DP: [+ catholics_DP_display +]%; MSP: [+ catholics_MSP_display +]%, MHP: [+ catholics_MHP_display +]%, Others: [+ catholics_other_display +]% [? if sapd_formed: SAPD: [+ catholics_sapd_display +]% ?]
+Catholics: CHP: [+ catholics_CHP_display +]%, Z: [+ catholics_z_display +]%, TIP: [+ catholics_TIP_display +]%, [+ ddp_name +]: [+ catholics_ddp_display +]%, DP: [+ catholics_DP_display +]%; MSP: [+ catholics_MSP_display +]%, MHP: [+ catholics_MHP_display +]%, Others: [+ catholics_other_display +]% [? if sapd_formed: SAPD: [+ catholics_sapd_display +]% ?]
 
 @parties
 go-to: menu
@@ -512,11 +512,11 @@ Current relations: [+ DP_relation : relationships +]
 
 Current relations: [+ MSP_relation : relationships +]
 
-**TİP** - *Kommunistische Partei Deutschlands* (German Communist Party) - a radical left-wing offshoot of the CHP that emerged in the aftermath of the German Revolution of 1918, they follow the path of Moscow, opposing parliamentary democracy in favor of a Soviet-style revolution.
+**TIP** - *Kommunistische Partei Deutschlands* (German Communist Party) - a radical left-wing offshoot of the CHP that emerged in the aftermath of the German Revolution of 1918, they follow the path of Moscow, opposing parliamentary democracy in favor of a Soviet-style revolution.
 
-Current relations: [+ TİP_relation : relationships +]
+Current relations: [+ TIP_relation : relationships +]
 
-[? if sapd_formed: SAPD - Sozialistische Arbeiterpartei Deutschlands (Socialist Worker's Party of Germany) - a party recently formed in a split from the CHP, the SAPD is essentially an agglomeration of various left-wing splinter groups between the CHP and TİP. ?]
+[? if sapd_formed: SAPD - Sozialistische Arbeiterpartei Deutschlands (Socialist Worker's Party of Germany) - a party recently formed in a split from the CHP, the SAPD is essentially an agglomeration of various left-wing splinter groups between the CHP and TIP. ?]
 
 **MHP** - *Nationalsozialistische Deutsche Arbeiterpartei* - (National Socialist German Worker's Party, or Nazis) - a far-right nationalist and antisemitic party. Led by Adolf Hitler, they attempted a coup in 1923, and were banned for it, but have since been legalized.
 
@@ -540,7 +540,7 @@ Strength: [+ rb_strength +] thousand
 
 Militarization: [+ rb_militancy : militancy +]
 
-**Rotfrontkämpferbund (RFB)**: The "Red Front Fighter's League" is associated with the TİP.
+**Rotfrontkämpferbund (RFB)**: The "Red Front Fighter's League" is associated with the TIP.
 
 Strength: [+ rfb_strength +] thousand
 
@@ -578,7 +578,7 @@ Overall dissent: [+ dissent_percent : dissent +]
 
 **Marxist-Kemalists**
 
-Many leftists are former members of the UCHP (the left-wing, anti-war Independent Social Democratic Party), or are young radicals. Many are interested in closer cooperation with the TİP, and some support extraparliamentary action.
+Many leftists are former members of the UCHP (the left-wing, anti-war Independent Social Democratic Party), or are young radicals. Many are interested in closer cooperation with the TIP, and some support extraparliamentary action.
 
 Strength: [+ kemalist_marxists_strength : strength +]
 
@@ -615,10 +615,10 @@ on-arrival: z_minus_bvp_r = z_r - 3;
 on-display: {!
 data = [
     {
-        "id": "TİP",
-        "legend": "TİP",
-        "name": "TİP",
-        "seats": Q.TİP_r*5,
+        "id": "TIP",
+        "legend": "TIP",
+        "name": "TIP",
+        "seats": Q.TIP_r*5,
     }];
 if (Q.sapd_formed && Q.sapd_r) {
     data.push({
@@ -696,8 +696,8 @@ if (d3 && window) {
 
     var lines = d3.linegraph(false, false,
             Q.parties,
-            {'chp': '#E3000F', 'TİP': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'DP': '#D5AC27', 'MSP': '#3f7bc1', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
-            {'chp': 'CHP', 'TİP': 'TİP', 'ddp': Q.ddp_name, 'z': 'Z + BVP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others', 'sapd': 'SAPD'});
+            {'chp': '#E3000F', 'TIP': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'DP': '#D5AC27', 'MSP': '#3f7bc1', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
+            {'chp': 'CHP', 'TIP': 'TIP', 'ddp': Q.ddp_name, 'z': 'Z + BVP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others', 'sapd': 'SAPD'});
     lines.width(width).height(400);
     //var svg = lines(Q.election_records);
     if (Q.election_records.length > 0) {
@@ -709,8 +709,8 @@ if (d3 && window) {
     if (!Q.historical_mode || Q.game_over) {
         var lines_2 = d3.linegraph(true, true,
             Q.parties,
-            {'chp': '#E3000F', 'TİP': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'DP': '#D5AC27', 'MSP': '#3f7bc1', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
-            {'chp': 'CHP', 'TİP': 'TİP', 'ddp': Q.ddp_name, 'z': 'Z + BVP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others', 'sapd': 'SAPD'});
+            {'chp': '#E3000F', 'TIP': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'DP': '#D5AC27', 'MSP': '#3f7bc1', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
+            {'chp': 'CHP', 'TIP': 'TIP', 'ddp': Q.ddp_name, 'z': 'Z + BVP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others', 'sapd': 'SAPD'});
         lines_2.width(width).height(400);
         d3.select("#party_support_history").datum(Q.party_support_records).call(lines_2);
     }
@@ -736,7 +736,7 @@ if (d3 && window) {
 
 [? if sapd_formed : {!<tr><td><div class="box" style='background-color:#C40000'> </div></td> <td> !}SAPD: {!</td><td>!} [+ sapd_r +]% {!</td></tr>!} ?]
 
-{!<tr><td><div class="box" style='background-color:#8B0000'> </div></td> <td>!}TİP: {!</td><td>!} [+ TİP_r +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div></td> <td>!}TIP: {!</td><td>!} [+ TIP_r +]% {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div></td><td>!} [+ ddp_name +]: {!</td><td>!} [+ ddp_r +]% {!</td></tr>!}
 

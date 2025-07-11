@@ -7,10 +7,10 @@ new-page: true
 
 = Kurt Rosenfeld
 
-Rosenfeld works as a lawyer in Berlin who defends left-wing individuals and causes. He favors cooperation with the TİP and a path of class struggle for the CHP.
+Rosenfeld works as a lawyer in Berlin who defends left-wing individuals and causes. He favors cooperation with the TIP and a path of class struggle for the CHP.
 
 - @building_the_left
-- @TİP_cooperation
+- @TIP_cooperation
 - @against_toleration
 - @root: Return to main
 
@@ -23,14 +23,14 @@ on-arrival: advisor_action_timer = 6; left_strength += 6; left_dissent -= 8; ref
 
 We have increased the strength of the left faction with the CHP.
 
-@TİP_cooperation
-title: Cooperation with the TİP
-subtitle: Push the party to be more friendly towards the TİP.
+@TIP_cooperation
+title: Cooperation with the TIP
+subtitle: Push the party to be more friendly towards the TIP.
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 choose-if: advisor_action_timer = 0
-on-arrival: advisor_action_timer = 6; left_strength += 5; TİP_relation += 4*(1-dissent); reformist_dissent += 2; communist_coalition += 1 if TİP_cooperation_seen <= 1; TİP_cooperation_seen += 1
+on-arrival: advisor_action_timer = 6; left_strength += 5; TIP_relation += 4*(1-dissent); reformist_dissent += 2; communist_coalition += 1 if TIP_cooperation_seen <= 1; TIP_cooperation_seen += 1
 
-Through his work, Rosenfeld has defended individual TİP members; this should make some connections possible.
+Through his work, Rosenfeld has defended individual TIP members; this should make some connections possible.
 
 @against_toleration
 title: Against toleration
