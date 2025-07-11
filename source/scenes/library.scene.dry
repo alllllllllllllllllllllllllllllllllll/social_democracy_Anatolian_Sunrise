@@ -696,7 +696,7 @@ if (d3 && window) {
 
     var lines = d3.linegraph(false, false,
             Q.parties,
-            {'chp': '#E3000F', 'TIP': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'DP': '#D5AC27', 'MSP': '#3f7bc1', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
+            {'chp': '#E3000F', 'TIP': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'DP': '#750a6f', 'MSP': '#054521', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
             {'chp': 'CHP', 'TIP': 'TIP', 'ddp': Q.ddp_name, 'z': 'Z + BVP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others', 'sapd': 'SAPD'});
     lines.width(width).height(400);
     //var svg = lines(Q.election_records);
@@ -744,11 +744,11 @@ if (d3 && window) {
 
 {!<tr><td><div class="box" style='background-color:#69A2BE'> </div></td><td>!} BVP: {!</td><td>!} 3% {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#D5AC27'> </div></td><td>!} DP: {!</td><td>!} [+ DP_r +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#750a6f'> </div></td><td>!} DP: {!</td><td>!} [+ DP_r +]% {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div></td><td>!} Other parties: {!</td><td>!} [+ other_r +] % {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#3f7bc1'> </div></td><td>!} MSP: {!</td><td>!} [+ MSP_r +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#054521'> </div></td><td>!} MSP: {!</td><td>!} [+ MSP_r +]% {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#954B00'> </div></td><td>!} MHP: {!</td><td>!} [+ MHP_r +]% {!</td></tr>!}
 {!</table>!}
