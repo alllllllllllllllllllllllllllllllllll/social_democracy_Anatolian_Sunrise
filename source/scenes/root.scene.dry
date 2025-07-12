@@ -221,7 +221,7 @@ Q.old_middle_qol = 100;
 Q.new_middle_qol = 100;
 
 Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
-Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
+Q.parties = ['chp', 'TIP', 'AP', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
 
 // TODO: add 'sapd' later on
 Q.sapd_formed = 0;
@@ -327,7 +327,7 @@ Q.economic_records = [];
 Q.president = "Hindenburg";
 // starting chancellor: Wilhelm Marx
 Q.chancellor = "Marx";
-Q.chancellor_party = 'Z';
+Q.chancellor_party = 'AP';
 Q.CHP_in_government = 0;
 Q.z_in_government = 1;
 Q.CGP_in_government = 0;
@@ -375,13 +375,13 @@ Q.interior_minister_party = 'MSP';
 Q.justice_minister = 'Hergt';
 Q.justice_minister_party = 'MSP';
 Q.labor_minister = 'Brauns';
-Q.labor_minister_party = 'Z';
+Q.labor_minister_party = 'AP';
 Q.reichswehr_minister = 'Groener';
 Q.reichswehr_minister_party = 'I';
 Q.economic_minister = 'Curtius';
 Q.economic_minister_party = 'DP';
 Q.finance_minister = 'Köhler';
-Q.finance_minister_party = 'Z';
+Q.finance_minister_party = 'AP';
 Q.agriculture_minister = 'Schiele';
 Q.agriculture_minister_party = 'MSP';
 

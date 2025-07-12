@@ -18,7 +18,7 @@ Q.unemployed = 8.6;
 Q.catholics = 30;
 
 Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
-Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
+Q.parties = ['chp', 'TIP', 'AP', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
 
 // Support for party by social group
 // they don't have to sum to 100 since the electoral calculations will be normalized.
@@ -91,7 +91,7 @@ Q.unemployed = 20;
 Q.catholics = 30;
 
 Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
-Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
+Q.parties = ['chp', 'TIP', 'AP', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
 
 // Support for party by social group
 // they don't have to sum to 100 since the electoral calculations will be normalized.
@@ -173,7 +173,7 @@ Q.unemployed = 33;
 Q.catholics = 30;
 
 Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
-Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
+Q.parties = ['chp', 'TIP', 'AP', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
 
 // Support for party by social group
 // they don't have to sum to 100 since the electoral calculations will be normalized.

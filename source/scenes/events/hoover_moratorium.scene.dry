@@ -2,7 +2,7 @@ title: Hoover Moratorium
 subtitle: Owing to the economic crisis, our debt payments have been paused...
 new-page: true
 view-if: banking_crisis_seen = 1 and ((year == 1931 and month >= 6) or (year == 1932)) and reparations >= 0 and unemployed > 15
-on-arrival: budget += 1; reparations_negotiation += 2; hoover_moratorium_seen = 1; workers_DP += 3 if foreign_minister_party == "DP"; new_middle_DP += 3 if foreign_minister_party == "DP"; old_middle_DP += 3 if foreign_minister_party == "DP"; rural_DP += 3 if foreign_minister_party == "DP"; workers_z += 3 if foreign_minister_party == "Z"; new_middle_z += 3 if foreign_minister_party == "Z"; old_middle_z += 3 if foreign_minister_party == "Z"; rural_z += 3 if foreign_minister_party == "Z"; workers_CHP += 3 if foreign_minister_party == "CHP"; new_middle_CHP += 3 if foreign_minister_party == "CHP"; old_middle_CHP += 3 if foreign_minister_party == "CHP"; rural_CHP += 3 if foreign_minister_party == "CHP";
+on-arrival: budget += 1; reparations_negotiation += 2; hoover_moratorium_seen = 1; workers_DP += 3 if foreign_minister_party == "DP"; new_middle_DP += 3 if foreign_minister_party == "DP"; old_middle_DP += 3 if foreign_minister_party == "DP"; rural_DP += 3 if foreign_minister_party == "DP"; workers_z += 3 if foreign_minister_party == "AP"; new_middle_z += 3 if foreign_minister_party == "AP"; old_middle_z += 3 if foreign_minister_party == "AP"; rural_z += 3 if foreign_minister_party == "AP"; workers_CHP += 3 if foreign_minister_party == "CHP"; new_middle_CHP += 3 if foreign_minister_party == "CHP"; old_middle_CHP += 3 if foreign_minister_party == "CHP"; rural_CHP += 3 if foreign_minister_party == "CHP";
 tags: event
 max-visits: 1
 
