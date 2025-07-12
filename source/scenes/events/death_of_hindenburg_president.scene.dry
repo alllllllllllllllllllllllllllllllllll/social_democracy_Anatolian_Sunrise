@@ -543,10 +543,10 @@ view-if: CHP_candidate != "Thälmann" and TIP_candidate = "Thälmann"
 choose-if: TIP_relation >= 50 and left_strength > reformist_strength
 unavailable-subtitle: [? if TIP_relation < 50 : We do not have good enough relations with the Communists, so they are not even willing to accept our support. ?] [? if reformist_strength >= left_strength : The reformist faction is able to dissuade the party from supporting this bizarre arrangement. ?]
 on-arrival: reformist_dissent += 15; center_dissent += 10; labor_dissent += 5; neorevisionist_dissent += 10; catholics_CHP -= 5; workers_CHP -= 3; TIP_relation += 10; communist_coalition += 2;AP_relation -= 15; DP_relation -= 15; CGP_relation -= 12
-on-departure:AP_candidate = "Adenauer" ifAP_candidate = "Braun" orAP_candidate = "Schumacher" orAP_candidate = "Juchacz"; CGP_candidate =AP_candidate if CGP_candidate = "Braun" or CGP_candidate = "Schumacher" or CGP_candidate = "Juchacz"; DP_candidate =AP_candidate if DP_candidate = "Braun" or DP_candidate = "Schumacher" or DP_candidate = "Juchacz"; CHP_candidate = "Thälmann"; 
+on-departure: AP_candidate = "Adenauer" if AP_candidate = "Braun" or AP_candidate = "Schumacher" or AP_candidate = "Juchacz"; CGP_candidate = AP_candidate if CGP_candidate = "Braun" or CGP_candidate = "Schumacher" or CGP_candidate = "Juchacz"; DP_candidate = AP_candidate if DP_candidate = "Braun" or DP_candidate = "Schumacher" or DP_candidate = "Juchacz"; CHP_candidate = "Thälmann"; 
 max-visits: 1
 
-We have switched our endorsement to Ernst Thälmann of the TIP. [? ifAP_candidate = CHP_candidate : Our former allies in the Center Party see this as a betrayal. ?][? ifAP_candidate = "Braun" orAP_candidate = "Schumacher" orAP_candidate = "Juchacz": Now, they will support Konrad Adenauer once again. ?][? if CGP_candidate = "Braun" or CGP_candidate = "Schumacher" or CGP_candidate = "Juchacz": The [+ CGP_name +] will switch their support to the Center Party candidate. ?][? if DP_candidate = "Braun" or DP_candidate = "Schumacher" or DP_candidate = "Juchacz": The DP will also support the Center Party candidate. ?]
+We have switched our endorsement to Ernst Thälmann of the TIP. [? if AP_candidate = CHP_candidate : Our former allies in the Center Party see this as a betrayal. ?][? if AP_candidate = "Braun" or AP_candidate = "Schumacher" or AP_candidate = "Juchacz": Now, they will support Konrad Adenauer once again. ?][? if CGP_candidate = "Braun" or CGP_candidate = "Schumacher" or CGP_candidate = "Juchacz": The [+ CGP_name +] will switch their support to the Center Party candidate. ?][? if DP_candidate = "Braun" or DP_candidate = "Schumacher" or DP_candidate = "Juchacz": The DP will also support the Center Party candidate. ?]
 
 - @r2_vote: Let the voting begin.
 
@@ -557,17 +557,17 @@ view-if: CHP_candidate != "Münzenberg" and TIP_candidate = "Münzenberg"
 choose-if: TIP_relation >= 50 and left_strength > reformist_strength
 unavailable-subtitle: [? if TIP_relation < 50 : We do not have good enough relations with the Communists, so they are not even willing to accept our support. ?] [? if reformist_strength >= left_strength : The reformist faction is able to dissuade the party from supporting this bizarre arrangement. ?]
 on-arrival: reformist_dissent += 12; center_dissent += 10; labor_dissent += 5; neorevisionist_dissent += 10; catholics_CHP -= 5; workers_CHP -= 3; TIP_relation += 10; communist_coalition += 2;AP_relation -= 12; CGP_relation -= 10; DP_relation -= 15; 
-on-departure:AP_candidate = "Adenauer" ifAP_candidate = "Braun" orAP_candidate = "Schumacher" orAP_candidate = "Juchacz"; CGP_candidate =AP_candidate if CGP_candidate = "Braun" or CGP_candidate = "Schumacher" or CGP_candidate = "Juchacz"; DP_candidate =AP_candidate if DP_candidate = "Braun" or DP_candidate = "Schumacher" or DP_candidate = "Juchacz"; CHP_candidate = "Münzenberg"; 
+on-departure: AP_candidate = "Adenauer" if AP_candidate = "Braun" or AP_candidate = "Schumacher" or AP_candidate = "Juchacz"; CGP_candidate = AP_candidate if CGP_candidate = "Braun" or CGP_candidate = "Schumacher" or CGP_candidate = "Juchacz"; DP_candidate = AP_candidate if DP_candidate = "Braun" or DP_candidate = "Schumacher" or DP_candidate = "Juchacz"; CHP_candidate = "Münzenberg"; 
 max-visits: 1
 
-We have switched our endorsement to Willi Münzenberg of the TIP. [? ifAP_candidate = CHP_candidate : Our former allies in the Center Party see this as a betrayal. ?][? ifAP_candidate = "Braun" orAP_candidate = "Schumacher" orAP_candidate = "Juchacz": Now, they will support Konrad Adenauer once again. ?][? if CGP_candidate = "Braun" or CGP_candidate = "Schumacher" or CGP_candidate = "Juchacz": The [+ CGP_name +] will switch their support to the Center Party candidate. ?][? if DP_candidate = "Braun" or DP_candidate = "Schumacher" or DP_candidate = "Juchacz": The DP will also support the Center Party candidate. ?]
+We have switched our endorsement to Willi Münzenberg of the TIP. [? if AP_candidate = CHP_candidate : Our former allies in the Center Party see this as a betrayal. ?][? if AP_candidate = "Braun" or AP_candidate = "Schumacher" or AP_candidate = "Juchacz": Now, they will support Konrad Adenauer once again. ?][? if CGP_candidate = "Braun" or CGP_candidate = "Schumacher" or CGP_candidate = "Juchacz": The [+ CGP_name +] will switch their support to the Center Party candidate. ?][? if DP_candidate = "Braun" or DP_candidate = "Schumacher" or DP_candidate = "Juchacz": The DP will also support the Center Party candidate. ?]
 
 - @r2_vote: Let the voting begin.
 
 
 @r2_endorse_adenauer
 title: Switch our support to Konrad Adenauer of the Center Party.
-view-if:AP_candidate = "Adenauer" and CHP_candidate !=AP_candidate
+view-if: AP_candidate = "Adenauer" and CHP_candidate != AP_candidate
 on-departure: TIP_candidate = "Thälmann" if TIP_candidate == CHP_candidate and TIP_party_leader != "Conciliators"; TIP_candidate = "Münzenberg" if TIP_candidate == CHP_candidate and TIP_party_leader == "Conciliators"; sapd_candidate = TIP_candidate; CHP_candidate = "Adenauer";AP_relation += 4; Adenauer_bonus -= 2.5 if AP_relation < 40; Seldte_bonus += 2.5 if AP_relation < 40; is_unity_candidate = 1
 go-to: r2_campaigning
 

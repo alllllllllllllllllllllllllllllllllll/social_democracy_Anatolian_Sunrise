@@ -40,7 +40,7 @@ go-to: schleicher_success if schleicher_support >= 50; schleicher_failed if schl
 
 With the exception of the trade unions, every faction of the CHP is horrified by this betrayal of democracy.
 
-[? if TIP_relation <= 10 and left_strength + center_strength < labor_strength: Somehow, the MSP has agreed to Schleicher's proposal, forming a temporary alliance with the general against Nazis and Communists. ?][? ifAP_relation >= 50 : The Center Party also supports Schleicher's plan. ?][? if DP_relation >= 30 : In addition, the DP and some other smaller parties support this proposal. ?][? if TIP_relation > 10 or left_strength + center_strength >= labor_strength: The MSP, despite being courted by Schleicher, is not interested in joining this alliance. MSP chairman Hugenberg seems to prefer working with Hitler to any alliance that includes the CHP. ?]
+[? if TIP_relation <= 10 and left_strength + center_strength < labor_strength: Somehow, the MSP has agreed to Schleicher's proposal, forming a temporary alliance with the general against Nazis and Communists. ?][? if AP_relation >= 50 : The Center Party also supports Schleicher's plan. ?][? if DP_relation >= 30 : In addition, the DP and some other smaller parties support this proposal. ?][? if TIP_relation > 10 or left_strength + center_strength >= labor_strength: The MSP, despite being courted by Schleicher, is not interested in joining this alliance. MSP chairman Hugenberg seems to prefer working with Hitler to any alliance that includes the CHP. ?]
 
 @schleicher_success
 on-arrival: time_to_election = 13; schleichers_scheme_success = 1; next_election_time = 10000;

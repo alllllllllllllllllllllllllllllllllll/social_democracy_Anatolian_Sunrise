@@ -33,7 +33,7 @@ With our grassroots connections, we have been able to influence the Center deleg
 @joos_campaign
 choose-if: AP_relation >= 62 and resources >= 1 
 view-if:AP_relation < 70
-unavailable-subtitle: [? ifAP_relation <= 62 : Our relations are not good enough. ?] [? if resources < 1 : We do not have enough resources. ?]
+unavailable-subtitle: [? if AP_relation <= 62 : Our relations are not good enough. ?] [? if resources < 1 : We do not have enough resources. ?]
 subtitle: -1 resource. Joos is likely to be friendlier to us than Kaas.
 on-arrival: resources -= 1;AP_party_leader = "Joos"; catholics_CHP += 5; workers_z += 3
 
