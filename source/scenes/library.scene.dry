@@ -611,7 +611,7 @@ Dissent: [+ right_kemalists_dissent : dissent +]
 @figures
 title: Figures and Charts
 go-to: menu
-on-arrival:AP_minus_bvp_r =AP_r - 3;
+on-arrival: AP_minus_bvp_r = AP_r - 3;
 on-display: {!
 data = [
     {

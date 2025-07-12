@@ -71,17 +71,17 @@ on-arrival: resources -= 1;AP_relation += 2 ifAP_party_leader == "Joos"
 go-to: center_op ifAP_in_government = 1 and CHP_in_government = 0 and chancellor != "Brüning"; center_coalition if CHP_in_government = 1 andAP_in_government = 1; center_bruning if chancellor = "Brüning"
 
 @center_op
-on-arrival:AP_relation += 5*(1 - dissent)
+on-arrival: AP_relation += 5*(1 - dissent)
 
 We are currently in opposition to the Center-led government, but that does not preclude the general building of feelings of good will.
 
 @center_coalition
-on-arrival:AP_relation += 8*(1 - dissent)
+on-arrival: AP_relation += 8*(1 - dissent)
 
 We are currently coalition partners with them, so improving relations comes naturally.
 
 @center_bruning
-on-arrival:AP_relation += 5*(1 - dissent)
+on-arrival: AP_relation += 5*(1 - dissent)
 
 The Brüning semi-autocratic regime makes building friendly relations difficult, but not impossible.
 

@@ -263,7 +263,7 @@ go-to: r1_menu if round = 0; r2_campaigning if round > 0
 Unfortunately, the Center Party is not convinced. [? if CHP_candidate = "Juchacz" : The Catholics are not impressed with Marie Juchacz. This is in part because she is a woman, in part because she had a divorce. ?]
 
 @z_success
-on-arrival:AP_candidate = CHP_candidate; Seldte_bonus += 2.5 ifAP_relation < 40
+on-arrival: AP_candidate = CHP_candidate; Seldte_bonus += 2.5 if AP_relation < 40
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 
 The Center Party is convinced! They will be supporting [+ CHP_candidate +] for the election.
