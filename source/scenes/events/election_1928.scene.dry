@@ -659,7 +659,7 @@ We have assembled a new coalition under Otto Braun.
 @unity_government
 title: The Center Party offers a "Government of National Unity" under Chancellor Joseph Wirth.
 subtitle: CHP + Z + BVP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +]%)
-view-if:AP_party_leader == "Joos" and neo_weimar_coalition >= 50 and weimar_coalition < 50 andAP_relation >= 10
+view-if: AP_party_leader == "Joos" and neo_weimar_coalition >= 50 and weimar_coalition < 50 and AP_relation >= 10
 
 The Center Party leader, Joseph Joos, clearly sees the threat from the ascension of the anti-democratic extremist parties, and thus tries to negotiate a "Government of National Unity" to save the republic. This coalition would be led by Joseph Wirth, a left-leaning member of the Center Party and former chancellor, and would encompass all of the constitutional parties. Our role in this government might be limited, however.
 

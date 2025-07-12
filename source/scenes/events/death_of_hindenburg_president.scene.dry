@@ -220,7 +220,7 @@ if (Q.z_relation >= 40 || (Q.z_relation > 20 && Q.z_party_leader == "Joos")) {
 }
 !}
 max-visits: 1
-go-to:AP_failed ifAP_support_braun = 0 or (z_support_braun == 2 and historical_mode);AP_success ifAP_support_braun = 1;AP_partial ifAP_support_braun = 2 and not historical_mode
+go-to: AP_failed if AP_support_braun = 0 or (z_support_braun == 2 and historical_mode); AP_success if AP_support_braun = 1; AP_partial if AP_support_braun = 2 and not historical_mode
 
 # use the same supports as the Center Party in 1932
 We implore the Center Party to support [+ CHP_candidate +] as a unity candidate against fascism, arguing that together, the Weimar Coalition can defeat the Nazis. [? ifAP_relation >= 50 : We also remind them of the history of cooperation between our parties, dating back to 1918. ?]
@@ -253,9 +253,9 @@ if (Q.CHP_candidate == "Juchacz") {
 }
 !}
 max-visits: 1
-go-to:AP_failed ifAP_support_braun = 0 or (z_support_braun == 2 and historical_mode);AP_success ifAP_support_braun = 1;AP_partial ifAP_support_braun = 2 and not historical_mode
+go-to: AP_failed if AP_support_braun = 0 or (z_support_braun == 2 and historical_mode); AP_success if AP_support_braun = 1; AP_partial if AP_support_braun = 2 and not historical_mode
 
-We implore the Center Party to support [+ CHP_candidate +]. We attempt to convince them of the necessity for unity in the face of fascism: that if we were divided, we would fall to the Nazis. [? ifAP_relation >= 50 : We also remind them of the history of cooperation between our parties, dating back to 1918. ?]
+We implore the Center Party to support [+ CHP_candidate +]. We attempt to convince them of the necessity for unity in the face of fascism: that if we were divided, we would fall to the Nazis. [? if AP_relation >= 50 : We also remind them of the history of cooperation between our parties, dating back to 1918. ?]
 
 @z_failed
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
