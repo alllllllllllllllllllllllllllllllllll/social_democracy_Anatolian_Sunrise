@@ -24,7 +24,7 @@ subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; TIP_inter_party_seen += 1
-go-to: TIP_blutmai if blutmai = 1; TIP_1 if blutmai = 0 and TIP_coalition_success = 0 and (TIP_relation < 40 or TIP_rectifed_history = 1); TIP_rectification_of_history if TIP_relation >= 40 and TIP_rectifed_history = 0; TIP_2 if TIP_coalition_success = 1 and TIP_rectified_history = 1
+go-to: TIP_blutmai if blutmai == 1; TIP_1 if blutmai == 0 and TIP_coalition_success == 0 and (TIP_relation < 40 or TIP_rectifed_history == 1); TIP_rectification_of_history if TIP_relation >= 40 and TIP_rectifed_history == 0; TIP_2 if TIP_coalition_success == 1 and TIP_rectified_history == 1
 
 @TIP_1
 on-arrival: TIP_relation += 6*(1 - dissent); communist_coalition += 1 if TIP_inter_party_seen <= 1; reformist_dissent += 2; AP_relation -= 2; DP_relation -= 3

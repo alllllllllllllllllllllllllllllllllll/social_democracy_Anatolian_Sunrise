@@ -1,6 +1,9 @@
 title: Presidential Election
 subtitle: Hindenburg runs for re-election...
-view-if: year = 1932 and (month = 4 or month = 5) and presidential_election_seen = 0
+vie} else if (Q.AP_relation <= 35) {
+    Q.AP_support_braun = 0;
+} else {
+    Q.AP_support_braun = 2;: year = 1932 and (month = 4 or month = 5) and presidential_election_seen = 0
 frequency: 1000
 max-visits: 1
 new-page: true
@@ -80,20 +83,20 @@ if (Q.z_relation >= 55 || (Q.z_relation > 35 && Q.z_party_leader == "Joos")) {
 } else if (Q.z_relation <= 35) {
     Q.z_support_braun = 0;
 } else {
-    Q.z_support_braun = 2;
+    Q.AP_support_braun = 2;
 }
 !}
-go-to: AP_failed if AP_support_braun = 0 or (z_support_braun == 2 and historical_mode); AP_success if AP_support_braun = 1; AP_partial if AP_support_braun = 2 and not historical_mode
+go-to: AP_failed if AP_support_braun == 0 or (AP_support_braun == 2 and historical_mode); AP_success if AP_support_braun == 1; AP_partial if AP_support_braun == 2 and not historical_mode
 max-visits: 1
 
 We remind the Center leaders of Hindenburg's anti-Catholicism, and try to convince them that Hindenburg's path will eventually lead to Hitler. We also remind them of the successes they've had as part of the Weimar coalition in Prussia with Otto Braun, and our support for the Center candidate Wilhelm Marx in the 1925 presidential election.
 
-@z_success
+@AP_success
 go-to: braun_campaign
 
 The Center are convinced! They will be part of the Braun coalition.
 
-@z_partial
+@AP_partial
 
 The Center are not satisfied with our arguments, but they are open to being convinced. They are willing to run a joint campaign if we front the resources.
 
@@ -109,7 +112,7 @@ go-to: braun_campaign
 
 With our resources, the Center are convinced to support Braun over Hindenburg.
 
-@z_failed
+@AP_failed
 go-to: braun_campaign
 
 Unfortunately, we fail to turn them away from Hindenburg.
@@ -307,15 +310,15 @@ if ((Q.z_relation >= 55 && Q.braun_votes >= Q.hindenburg_votes) || (Q.z_relation
     Q.z_support_braun = 1;
     Q.hindenburg_to_braun_bonus += Q.other_normalized/2;
 } else if (Q.z_relation <= 35 || (Q.z_relation <= 45 && Q.braun_votes < Q.hindenburg_votes && Q.hindenburg_votes > Q.hitler_votes && Q.difficulty >= 0)) {
-    Q.z_support_braun = 0;
+    Q.AP_support_braun = 0;
 } else {
-    Q.z_support_braun = 2;
+    Q.AP_support_braun = 2;
 }
 !}
-go-to: r2_z_failed if AP_support_braun = 0 or (z_support_braun = 2 and historical_mode); r2_z_success if AP_support_braun = 1; r2_z_partial if AP_support_braun = 2 and not historical_mode
+go-to: r2_AP_failed if AP_support_braun == 0 or (AP_support_braun == 2 and historical_mode); r2_AP_success if AP_support_braun == 1; r2_AP_partial if AP_support_braun == 2 and not historical_mode
 max-visits: 1
 
-@r2_z_success
+@r2_AP_success
 go-to: round2_menu
 on-departure: hitler_support_hindenburg = 1 if braun_votes +AP_votes > hitler_votes
 
@@ -323,7 +326,7 @@ on-departure: hitler_support_hindenburg = 1 if braun_votes +AP_votes > hitler_vo
 
 [? if not hitler_support_hindenburg and braun_votes +AP_votes > hitler_votes: With the Center Party supporting Braun, [+ MHP_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a socialist from becoming president. ?]
 
-@r2_z_partial
+@r2_AP_partial
 
 The Center are not satisfied with our arguments, but they are open to being convinced[? if hitler_support_hindenburg: , especially given the Nazis' support for Hindenburg. ?]. They are willing to run a joint campaign if we front the resources.
 
@@ -342,7 +345,7 @@ With our resources, the Center are convinced to support Braun over Hindenburg.
 
 [? if not hitler_support_hindenburg and braun_votes +AP_votes > hitler_votes: With the Center Party supporting Braun, [+ MHP_candidate +] has dropped out of the race, and the Nazis have endorsed Hindenburg to prevent a socialist from becoming president. ?]
 
-@r2_z_failed
+@r2_AP_failed
 go-to: round2_menu
 
 Unfortunately, we fail to turn them away from Hindenburg. [? if hindenburg_votes > braun_votes : Given that Hindenburg received more votes than Braun, they believe that we should turn to Hindenburg, not the other way around. ?]

@@ -76,7 +76,7 @@ go-to: r1_menu
 
 We have endorsed Konrad Adenauer of the Center Party.
 
-[? ifAP_relation < 40 : With our support of Adenauer, some of the most conservative parts of the Bavarian People's Party have broken away from the Center Party, shifting their support to the Stahlhelm leader Seldte. ?]
+[? if AP_relation < 40 : With our support of Adenauer, some of the most conservative parts of the Bavarian People's Party have broken away from the Center Party, shifting their support to the Stahlhelm leader Seldte. ?]
 
 @gessler_r1
 on-arrival: CHP_candidate = "Gessler"; CGP_relation += 4; DP_candidate = "Seldte" if DP_relation < 40; is_unity_candidate = 1
@@ -210,20 +210,20 @@ view-if: round = 0
 title: Convince the Center Party to support [+ CHP_candidate +].
 view-if: (CHP_candidate = "Eckener" or CHP_candidate = "Gessler") and AP_candidate != CHP_candidate
 on-arrival: {!
-Q.z_support_braun = 0;
-if (Q.z_relation >= 40 || (Q.z_relation > 20 && Q.z_party_leader == "Joos")) {
-    Q.z_support_braun = 1;
-} else if (Q.z_relation <= 20) {
-    Q.z_support_braun = 0;
+Q.AP_support_braun = 0;
+if (Q.AP_relation >= 40 || (Q.AP_relation > 20 && Q.AP_party_leader == "Joos")) {
+    Q.AP_support_braun = 1;
+} else if (Q.AP_relation <= 20) {
+    Q.AP_support_braun = 0;
 } else {
-    Q.z_support_braun = 2;
+    Q.AP_support_braun = 2;
 }
 !}
 max-visits: 1
-go-to: AP_failed if AP_support_braun = 0 or (z_support_braun == 2 and historical_mode); AP_success if AP_support_braun = 1; AP_partial if AP_support_braun = 2 and not historical_mode
+go-to: AP_failed if AP_support_braun == 0 or (AP_support_braun == 2 and historical_mode); AP_success if AP_support_braun == 1; AP_partial if AP_support_braun == 2 and not historical_mode
 
 # use the same supports as the Center Party in 1932
-We implore the Center Party to support [+ CHP_candidate +] as a unity candidate against fascism, arguing that together, the Weimar Coalition can defeat the Nazis. [? ifAP_relation >= 50 : We also remind them of the history of cooperation between our parties, dating back to 1918. ?]
+We implore the Center Party to support [+ CHP_candidate +] as a unity candidate against fascism, arguing that together, the Weimar Coalition can defeat the Nazis. [? if AP_relation >= 50 : We also remind them of the history of cooperation between our parties, dating back to 1918. ?]
 
 
 # convincing Z to support an CHP candidate
@@ -233,44 +233,44 @@ choose-if: CHP_votes >= AP_votes
 unavailable-subtitle: [? if CHP_votes < AP_votes: The Center knows that they are more popular than us; they do not see a reason to support our candidate. ?]
 view-if: (CHP_candidate = "Braun" or CHP_candidate = "Schumacher" or CHP_candidate = "Juchacz" or is_cultural_candidate) and AP_candidate != CHP_candidate
 on-arrival: {!
-Q.z_support_braun = 0;
+Q.AP_support_braun = 0;
 if (Q.CHP_candidate == "Juchacz") {
-    if (Q.z_relation >= 60 || (Q.z_relation > 40 && Q.z_party_leader == "Joos")) {
-        Q.z_support_braun = 1;
-    } else if (Q.z_relation <= 40) {
-        Q.z_support_braun = 0;
+    if (Q.AP_relation >= 60 || (Q.AP_relation > 40 && Q.AP_party_leader == "Joos")) {
+        Q.AP_support_braun = 1;
+    } else if (Q.AP_relation <= 40) {
+        Q.AP_support_braun = 0;
     } else {
-        Q.z_support_braun = 2;
+        Q.AP_support_braun = 2;
     }
 } else {
-    if (Q.z_relation >= 55 || (Q.z_relation > 35 && Q.z_party_leader == "Joos")) {
-        Q.z_support_braun = 1;
-    } else if (Q.z_relation <= 35) {
-        Q.z_support_braun = 0;
+    if (Q.AP_relation >= 55 || (Q.AP_relation > 35 && Q.AP_party_leader == "Joos")) {
+        Q.AP_support_braun = 1;
+    } else if (Q.AP_relation <= 35) {
+        Q.AP_support_braun = 0;
     } else {
-        Q.z_support_braun = 2;
+        Q.AP_support_braun = 2;
     }
 }
 !}
 max-visits: 1
-go-to: AP_failed if AP_support_braun = 0 or (z_support_braun == 2 and historical_mode); AP_success if AP_support_braun = 1; AP_partial if AP_support_braun = 2 and not historical_mode
+go-to: AP_failed if AP_support_braun == 0 or (AP_support_braun == 2 and historical_mode); AP_success if AP_support_braun == 1; AP_partial if AP_support_braun == 2 and not historical_mode
 
 We implore the Center Party to support [+ CHP_candidate +]. We attempt to convince them of the necessity for unity in the face of fascism: that if we were divided, we would fall to the Nazis. [? if AP_relation >= 50 : We also remind them of the history of cooperation between our parties, dating back to 1918. ?]
 
-@z_failed
+@AP_failed
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 
 Unfortunately, the Center Party is not convinced. [? if CHP_candidate = "Juchacz" : The Catholics are not impressed with Marie Juchacz. This is in part because she is a woman, in part because she had a divorce. ?]
 
-@z_success
+@AP_success
 on-arrival: AP_candidate = CHP_candidate; Seldte_bonus += 2.5 if AP_relation < 40
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 
 The Center Party is convinced! They will be supporting [+ CHP_candidate +] for the election.
 
-[? ifAP_relation < 40 : Unfortunately, the BVP is breaking with the Center on this election, supporting Seldte of the MSP instead.  ?]
+[? if AP_relation < 40 : Unfortunately, the BVP is breaking with the Center on this election, supporting Seldte of the MSP instead.  ?]
 
-@z_partial
+@AP_partial
 
 The Center are not satisfied with our arguments, but they are open to being convinced. They are willing to run a joint campaign if we front the resources.
 
@@ -286,7 +286,7 @@ go-to: r1_menu if round = 0; r2_campaigning if round > 0
 
 With our resources, the Center are convinced to support [+ CHP_candidate +]. Konrad Adenauer will drop out of the race.
 
-[? ifAP_relation < 40 and MSP_candidate = "Seldte" : Unfortunately, the BVP is breaking with the Center on this election, supporting Seldte of the MSP instead.  ?]
+[? if AP_relation < 40 and MSP_candidate = "Seldte" : Unfortunately, the BVP is breaking with the Center on this election, supporting Seldte of the MSP instead.  ?]
 
 
 @convince_CGP_unity
@@ -568,12 +568,12 @@ We have switched our endorsement to Willi Münzenberg of the TIP. [? ifAP_candid
 @r2_endorse_adenauer
 title: Switch our support to Konrad Adenauer of the Center Party.
 view-if:AP_candidate = "Adenauer" and CHP_candidate !=AP_candidate
-on-departure: TIP_candidate = "Thälmann" if TIP_candidate == CHP_candidate and TIP_party_leader != "Conciliators"; TIP_candidate = "Münzenberg" if TIP_candidate == CHP_candidate and TIP_party_leader == "Conciliators"; sapd_candidate = TIP_candidate; CHP_candidate = "Adenauer";AP_relation += 4; Adenauer_bonus -= 2.5 ifAP_relation < 40; Seldte_bonus += 2.5 ifAP_relation < 40; is_unity_candidate = 1
+on-departure: TIP_candidate = "Thälmann" if TIP_candidate == CHP_candidate and TIP_party_leader != "Conciliators"; TIP_candidate = "Münzenberg" if TIP_candidate == CHP_candidate and TIP_party_leader == "Conciliators"; sapd_candidate = TIP_candidate; CHP_candidate = "Adenauer";AP_relation += 4; Adenauer_bonus -= 2.5 if AP_relation < 40; Seldte_bonus += 2.5 if AP_relation < 40; is_unity_candidate = 1
 go-to: r2_campaigning
 
 We have endorsed Konrad Adenauer of the Center Party.
 
-[? ifAP_relation < 40 : With our support of Adenauer, some of the most conservative parts of the Bavarian People's Party have broken away from the Center Party, shifting their support to the Stahlhelm leader Seldte. ?]
+[? if AP_relation < 40 : With our support of Adenauer, some of the most conservative parts of the Bavarian People's Party have broken away from the Center Party, shifting their support to the Stahlhelm leader Seldte. ?]
 
 [? if TIP_candidate = CHP_candidate: The TIP is now breaking from our previous coalition and supporting their own candidate. ?]
 

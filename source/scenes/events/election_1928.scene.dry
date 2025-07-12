@@ -620,7 +620,7 @@ title: A "New Grand Coalition" of all the constitutional parties?
 subtitle: CHP + Z + BVP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +]%)
 view-if: neo_weimar_coalition >= 50 and grand_coalition < 50
 choose-if: AP_relation >= 50 and DP_relation >= 30
-unavailable-subtitle: CHP + Z + BVP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +]%) - [? ifAP_relation < 50 : We do not have adequate relations with the Center Party. ?][? if DP_relation < 30 : We do not have adequate relations with the DP. ?]
+unavailable-subtitle: CHP + Z + BVP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +]%) - [? if AP_relation < 50 : We do not have adequate relations with the Center Party. ?][? if DP_relation < 30 : We do not have adequate relations with the DP. ?]
 
 How do we convince vehemently anti-socialist parties to allow us to form a majority coalition? Our largely benevolent relations with the Center and DP may allow us some leverage.
 
@@ -858,7 +858,7 @@ title: The Nazis immediately call a no-confidence vote against us...
 view-if: far_right_coalition < 45
 on-arrival: AP_no_confidence = 1 if AP_relation < 45; TIP_no_confidence = 1 if TIP_relation < 45; other_no_confidence = 1 if (z_relation + DP_relation)/2 < 45; DP_no_confidence = 1 if DP_relation < 45; sa_strength += 200; sh_strength += 200; no_confidence_votes = MHP_r + MSP_r; no_confidence_votes += AP_r if AP_no_confidence; no_confidence_votes += DP_r if DP_no_confidence; no_confidence_votes += TIP_r if TIP_no_confidence; no_confidence_votes += other_r if other_no_confidence; no_confidence_succeeds = 1 if no_confidence_votes > 50
 
-The MHP and MSP will vote against us, of course. The other parties vote their conscience. [? ifAP_no_confidence: The Center Party is voting against us. ?] [? if TIP_no_confidence: The TIP votes against us. ?] [? if other_no_confidence: The assortment of minor parties are voting against us. ?]
+The MHP and MSP will vote against us, of course. The other parties vote their conscience. [? if AP_no_confidence: The Center Party is voting against us. ?] [? if TIP_no_confidence: The TIP votes against us. ?] [? if other_no_confidence: The assortment of minor parties are voting against us. ?]
 
 In total, [+ no_confidence_votes +]% of the Reichstag is against us. [? if no_confidence_succeeds : We have lost the vote of no confidence. ?]
 

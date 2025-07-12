@@ -1,5 +1,5 @@
 title: The TIP presents its list of goals for the coalition.
-view-if: (in_popular_front = 1 or in_left_front = 1) and TIP_goals_seen = 0 and TIP_coalition_success = 0 and next_election_time - time > 12 and CHP_in_government
+view-if: (in_popular_front == 1 or in_left_front == 1) and TIP_goals_seen == 0 and TIP_coalition_success == 0 and next_election_time - time > 12 and CHP_in_government
 on-arrival: TIP_goals_seen = 1; welfare_goal = 1; foreign_goal = 0; agriculture_goal = 1 if agriculture_minister_party != "TIP"; economy_goal = 1 if economic_minister_party != "TIP"; finance_goal = 1 if finance_minister_party != "TIP"; labor_goal = 1 if labor_minister_party != "TIP"; reichswehr_goal = 1 if reichswehr_minister_party != "TIP"; TIP_ultimatum_timer = 12; TIP_ultimatum_timer = 16 if TIP_relation >= 60; TIP_ultimatum_timer = 24 if TIP_party_leader == "Conciliators" or constructive_vonc; TIP_ultimatum_timer = next_election_time - time - 1 if next_election_time - time <= 12;
 new-page: true
 tags: event
