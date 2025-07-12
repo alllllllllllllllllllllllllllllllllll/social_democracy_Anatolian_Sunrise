@@ -67,7 +67,7 @@ title: Can we join the government in a new grand coalition?
 view-if: neo_weimar_coalition >= 50
 choose-if: AP_relation >= 50 and DP_relation >= 30 and resources >= 2
 subtitle: We will need 2 resources to smooth out the process of forming the coalition.
-unavailable-subtitle: [? ifAP_relation < 50 : We do not have adequate relations with the Center Party. ?][? if DP_relation < 30 : We do not have adequate relations with the DP. ?] [? if resources < 2 : We do not have enough resources. ?]
+unavailable-subtitle: [? if AP_relation < 50 : We do not have adequate relations with the Center Party. ?][? if DP_relation < 30 : We do not have adequate relations with the DP. ?] [? if resources < 2 : We do not have enough resources. ?]
 on-arrival: resources -= 2; CHP_in_government = 1; in_grand_coalition = 1; CHP_toleration = 0; left_dissent += 6; reformist_strength += 5; leverage = 20 if leverage >= 20
 achievement: constitutional_coalition
 

@@ -291,8 +291,8 @@ There is no majority in this round. In the second round, any candidate who wins 
 
 
 @round2_convince_z
-view-if: braun_campaign > 0 andAP_support_braun != 1 
-choose-if: CHP_votes >=AP_votes
+view-if: braun_campaign > 0 and AP_support_braun != 1
+choose-if: CHP_votes >= AP_votes
 unavailable-subtitle: The Center knows that they are more popular than us; they do not see a reason to support our candidate.
 on-arrival: {!
 Q.z_support_braun = 0;

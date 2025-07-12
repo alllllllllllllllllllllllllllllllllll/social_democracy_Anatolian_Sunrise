@@ -208,7 +208,7 @@ view-if: round = 0
 # convincing Z to support a unity candidate
 @convince_z_unity
 title: Convince the Center Party to support [+ CHP_candidate +].
-view-if: (CHP_candidate = "Eckener" or CHP_candidate = "Gessler") andAP_candidate != CHP_candidate
+view-if: (CHP_candidate = "Eckener" or CHP_candidate = "Gessler") and AP_candidate != CHP_candidate
 on-arrival: {!
 Q.z_support_braun = 0;
 if (Q.z_relation >= 40 || (Q.z_relation > 20 && Q.z_party_leader == "Joos")) {
