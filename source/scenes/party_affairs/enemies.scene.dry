@@ -36,11 +36,11 @@ on-arrival: enemies = "MHP"; neorevisionist_strength += 5; nazi_urgency += 1; wo
 [? if nazi_urgency == 0 or MHP_r < 10 : The MHP is a tiny party right now, with more bark than bite. Many in our party are questioning our choices. ?][? if nazi_urgency > 0 and MHP_r >= 10 : The Nazis are the most urgent problem for us to deal with. ?]
 
 @TIP
-on-arrival: enemies = "TIP"; reformist_strength += 5; left_dissent += 8; reformist_dissent -= 5; TIP_relation -= 15; DP_relation += 5; z_relation += 5; workers_TIP -= 4;
+on-arrival: enemies = "TIP"; reformist_strength += 5; left_dissent += 8; reformist_dissent -= 5; TIP_relation -= 15; DP_relation += 5;AP_relation += 5; workers_TIP -= 4;
 
 Attacking the TIP is supported by all but the most left-wing socialists, and wins us some measure of approval among the bourgeois parties. However, If we are to reconcile with the TIP, this may not be the best choice.
 
 @bourgeois
-on-arrival: enemies = "bourgeois parties"; left_strength += 8; left_dissent -= 5; DP_relation -= 5; z_relation -= 5; TIP_relation += 5; reformist_dissent += 8; workers_z -= 3; coalition_dissent += 1
+on-arrival: enemies = "bourgeois parties"; left_strength += 8; left_dissent -= 5; DP_relation -= 5;AP_relation -= 5; TIP_relation += 5; reformist_dissent += 8; workers_z -= 3; coalition_dissent += 1
 
 Our anti-bourgeois rhetoric is popular among the left, but may make it harder to build the coalitions that are necessary for government in the future.

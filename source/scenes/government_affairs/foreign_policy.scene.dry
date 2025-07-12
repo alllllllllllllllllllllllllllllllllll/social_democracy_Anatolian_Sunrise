@@ -107,7 +107,7 @@ However, the Allies, especially France, are likely to object. This agreement wou
 - @fp_menu: No, we should do something else.
 
 @customs_union_2
-on-arrival: banking_crisis_timer = 2; customs_union = 1; west_relation -= 2; east_relation -= 2; z_relation += 6; DP_relation += 6; coalition_dissent -= 1 if coalition_dissent > 0; coup_progress -= 1
+on-arrival: banking_crisis_timer = 2; customs_union = 1; west_relation -= 2; east_relation -= 2;AP_relation += 6; DP_relation += 6; coalition_dissent -= 1 if coalition_dissent > 0; coup_progress -= 1
 max-visits: 1
 
 We have formed a customs union with Austria! The right-wing parties are praising us for this unexpected turn of events.
@@ -148,7 +148,7 @@ The Allies are grateful of our exposure and repudiation of militarism. Our partn
 @concordat_negotiate
 title: Negotiate a Concordat between the Germany and the Vatican.
 view-if: prussian_concordat = 1 and reichskonkordat = 0 and reichskonkordat_progress < 4
-on-arrival: reichskonkordat_progress += 2; reichskonkordat_progress -= 1 if abortion_rights; reichskonkordat_progress -= 1 if family_law; z_relation += 3*(1-dissent)
+on-arrival: reichskonkordat_progress += 2; reichskonkordat_progress -= 1 if abortion_rights; reichskonkordat_progress -= 1 if family_law;AP_relation += 3*(1-dissent)
 
 The Roman Catholic Church is interested in furthering relations with the German Republic, seeing us as preferable to the old anti-Catholic policies of the Empire. We are working towards the signing of a Concordat, an agreement between the Vatican and the Republic that formally recognizes the Church's rights and interests in the country. The Center Party is especially interested in making this agreement.
 
@@ -157,7 +157,7 @@ The Roman Catholic Church is interested in furthering relations with the German 
 @concordat
 title: We can sign a Concordat with the Vatican!
 view-if: reichskonkordat_progress >= 4 and reichskonkordat = 0
-on-arrival: reichskonkordat = 1; z_relation += 15*(1-dissent); catholics_CHP += 8*(1-dissent); catholics_z += 5 if in_weimar_coalition or in_grand_coalition or in_popular_front;
+on-arrival: reichskonkordat = 1;AP_relation += 15*(1-dissent); catholics_CHP += 8*(1-dissent); catholics_z += 5 if in_weimar_coalition or in_grand_coalition or in_popular_front;
 achievement: reichskonkordat
 
 We have successfully signed a Concordat between Germany and the Roman Catholic Church! This treaty defines a formal relationship between the Church and the German state, guaranteeing freedom of worship for Catholics, and the right of the church to appoint their own clergy. Catholics in Germany are pleased, as are their representatives in the Center Party.

@@ -362,7 +362,7 @@ Reichstag composition:
 CHP: [+ chp_r +]%
 [? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
 # 1928: 15, 1930: 15, 1932: 
-Z + BVP: [+ z_r +]%
+Z + BVP: [+AP_r +]%
 # 1928: 10, 1930: 13
 TIP: [+ TIP_r +]%
 # 1928: 5, 1930: 4 (as DstP)
@@ -456,7 +456,7 @@ CHP: [+ chp_votes +]%
 [? if sapd_formed: SAPD: [+ sapd_votes +]% ?]
 
 # 1928: 15, 1930: 15, 1932: 
-Z + BVP: [+ z_votes +]%
+Z + BVP: [+AP_votes +]%
 
 # 1928: 10, 1930: 13
 TIP: [+ TIP_votes +]%
@@ -497,7 +497,7 @@ go-to: menu
 
 **Z** - *Zentrumspartei* (Center Party) - a centrist to center-right Catholic party that supports the Republic, and has historically supported many of our labor, welfare, and anti-militarist priorities. They have often been in coalitions with us. They are often associated with the **BVP** (Bavarian People's Party), which represents Catholics in Bavaria. [? if year >= 1930 or chancellor = "Brüning" : They have appeared to take a more conservative turn recently, with the rise of Brüning and the party leader, Ludwig Kaas. ?]
 
-Current relations: [+ z_relation : relationships +]
+Current relations: [+AP_relation : relationships +]
 
 # TODO: replace this with the german state party after 1930
 **CGP** - *Deutsche Demokratische Partei* (German Democratic Party) - a center-left liberal party, popular among the intelligensia and educated middle class. They have often been in coalitions with us. [? if year >= 1930 : They have recently reformed themselves as the German State Party (DStP). ?]
@@ -611,7 +611,7 @@ Dissent: [+ right_kemalists_dissent : dissent +]
 @figures
 title: Figures and Charts
 go-to: menu
-on-arrival: z_minus_bvp_r = z_r - 3;
+on-arrival:AP_minus_bvp_r =AP_r - 3;
 on-display: {!
 data = [
     {
@@ -740,7 +740,7 @@ if (d3 && window) {
 
 {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div></td><td>!} [+ CGP_name +]: {!</td><td>!} [+ CGP_r +]% {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#000'> </div></td><td>!} Z: {!</td><td>!} [+ z_minus_bvp_r +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#000'> </div></td><td>!} Z: {!</td><td>!} [+AP_minus_bvp_r +]% {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#69A2BE'> </div></td><td>!} BVP: {!</td><td>!} 3% {!</td></tr>!}
 

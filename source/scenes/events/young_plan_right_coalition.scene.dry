@@ -22,7 +22,7 @@ We can either vote to bring down the government and hold new elections, or "tole
 title: Support the vote of no confidence, voting against the government.
 subtitle: The government will collapse, and there will be new elections.
 view-if: neo_weimar_coalition >= 50
-on-arrival: time_to_election = 3; CHP_in_government = 0; in_right_coalition = 0; in_grand_coalition = 0; CHP_toleration = 0; pro_republic -= 5; DP_relation -= 5; z_relation -= 5;
+on-arrival: time_to_election = 3; CHP_in_government = 0; in_right_coalition = 0; in_grand_coalition = 0; CHP_toleration = 0; pro_republic -= 5; DP_relation -= 5;AP_relation -= 5;
 call: set_next_election_time
 
 The right-wing coalition has fallen. New elections have been set for [+ next_election_month : month +] [+ next_election_year +].

@@ -27,7 +27,7 @@ on-arrival: resources -= 1; TIP_inter_party_seen += 1
 go-to: TIP_blutmai if blutmai = 1; TIP_1 if blutmai = 0 and TIP_coalition_success = 0 and (TIP_relation < 40 or TIP_rectifed_history = 1); TIP_rectification_of_history if TIP_relation >= 40 and TIP_rectifed_history = 0; TIP_2 if TIP_coalition_success = 1 and TIP_rectified_history = 1
 
 @TIP_1
-on-arrival: TIP_relation += 6*(1 - dissent); communist_coalition += 1 if TIP_inter_party_seen <= 1; reformist_dissent += 2; z_relation -= 2; DP_relation -= 3
+on-arrival: TIP_relation += 6*(1 - dissent); communist_coalition += 1 if TIP_inter_party_seen <= 1; reformist_dissent += 2;AP_relation -= 2; DP_relation -= 3
 
 The communists are suspicious of our overtures, especially the Stalinist leadership, who persist in calling us "social fascists". However, connections are made at the grassroots and local levels.
 
@@ -41,7 +41,7 @@ For further improvements in TIP relations, it might be necessary to expel Noske,
 - @no_history: No, we have no need to apologize.
 
 @yes_history
-on-arrival: reformist_dissent += 12; reformist_strength -= 2; neorevisionist_dissent += 5; left_dissent -= 6; left_strength += 5; TIP_rectified_history = 1; z_relation -= 6; DP_relation -= 6; CGP_relation -= 4; TIP_relation += 8*(1-dissent); coalition_dissent += 1
+on-arrival: reformist_dissent += 12; reformist_strength -= 2; neorevisionist_dissent += 5; left_dissent -= 6; left_strength += 5; TIP_rectified_history = 1;AP_relation -= 6; DP_relation -= 6; CGP_relation -= 4; TIP_relation += 8*(1-dissent); coalition_dissent += 1
 
 As part of normalizing relations with the TIP, we have to acknowledge the wrongdoings of our past. We have expelled Noske, and have held public commemorations for those killed by troops during the uprisings.
 
@@ -54,7 +54,7 @@ We have no need to apologize for the actions of Ebert and Noske; it is the Commu
 
 
 @TIP_2
-on-arrival: TIP_relation += 8*(1 - dissent); communist_coalition += 1 if TIP_inter_party_seen <= 1; reformist_dissent += 2; z_relation -= 3; DP_relation -= 3
+on-arrival: TIP_relation += 8*(1 - dissent); communist_coalition += 1 if TIP_inter_party_seen <= 1; reformist_dissent += 2;AP_relation -= 3; DP_relation -= 3
 
 After the success of the coalition government with the TIP, they are much more amenable to us.
 
@@ -67,21 +67,21 @@ After the events of Blütmai, reconciling with the Communists is difficult, if n
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; z_relation += 2 if z_party_leader == "Joos"
-go-to: center_op if z_in_government = 1 and CHP_in_government = 0 and chancellor != "Brüning"; center_coalition if CHP_in_government = 1 and z_in_government = 1; center_bruning if chancellor = "Brüning"
+on-arrival: resources -= 1;AP_relation += 2 ifAP_party_leader == "Joos"
+go-to: center_op ifAP_in_government = 1 and CHP_in_government = 0 and chancellor != "Brüning"; center_coalition if CHP_in_government = 1 andAP_in_government = 1; center_bruning if chancellor = "Brüning"
 
 @center_op
-on-arrival: z_relation += 5*(1 - dissent)
+on-arrival:AP_relation += 5*(1 - dissent)
 
 We are currently in opposition to the Center-led government, but that does not preclude the general building of feelings of good will.
 
 @center_coalition
-on-arrival: z_relation += 8*(1 - dissent)
+on-arrival:AP_relation += 8*(1 - dissent)
 
 We are currently coalition partners with them, so improving relations comes naturally.
 
 @center_bruning
-on-arrival: z_relation += 5*(1 - dissent)
+on-arrival:AP_relation += 5*(1 - dissent)
 
 The Brüning semi-autocratic regime makes building friendly relations difficult, but not impossible.
 
