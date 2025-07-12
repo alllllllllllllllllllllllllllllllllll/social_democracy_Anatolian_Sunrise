@@ -596,9 +596,9 @@ We have endorsed Otto Gessler, independent formerly of the CGP.
 title: Convince the Weimar Coalition parties to unite behind Hugo Eckener.
 subtitle: -2 resources
 unavailable-subtitle: [? if resources < 2 : -2 resources - Not enough resources. ?]
-choose-if: resources >= 2 and ((z_relation >= 50 andAP_leader = "Kaas") or (z_relation >= 30 andAP_leader = "Joos")) and CGP_relation >= 40
-view-if:AP_candidate = "Adenauer" and CGP_candidate = "Gessler" and CHP_candidate != "Eckener"
-on-arrival: TIP_candidate = "Thälmann" if TIP_candidate == CHP_candidate and TIP_party_leader != "Conciliators"; TIP_candidate = "Münzenberg" if TIP_candidate == CHP_candidate and TIP_party_leader == "Conciliators"; sapd_candidate = TIP_candidate; CHP_candidate = "Eckener";AP_candidate = "Eckener"; CGP_candidate = "Eckener"; resources -= 2; is_unity_candidate = 1
+choose-if: resources >= 2 and ((z_relation >= 50 and AP_leader = "Kaas") or (z_relation >= 30 and AP_leader = "Joos")) and CGP_relation >= 40
+view-if: AP_candidate = "Adenauer" and CGP_candidate = "Gessler" and CHP_candidate != "Eckener"
+on-arrival: TIP_candidate = "Thälmann" if TIP_candidate == CHP_candidate and TIP_party_leader != "Conciliators"; TIP_candidate = "Münzenberg" if TIP_candidate == CHP_candidate and TIP_party_leader == "Conciliators"; sapd_candidate = TIP_candidate; CHP_candidate = "Eckener"; AP_candidate = "Eckener"; CGP_candidate = "Eckener"; resources -= 2; is_unity_candidate = 1
 go-to: r2_campaigning
 
 We have successfully united all of the parties of the Weimar Coalition behind Hugo Eckener!
