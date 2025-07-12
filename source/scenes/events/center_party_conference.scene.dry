@@ -1,6 +1,6 @@
 title: Center Party Conference
 subtitle: The Center Party chooses their new leader...
-view-if: year = 1928 and month = 12 andAP_party_leader = "Marx"
+view-if: year = 1928 and month = 12 and AP_party_leader = "Marx"
 max-visits: 1
 tags: event
 new-page: true

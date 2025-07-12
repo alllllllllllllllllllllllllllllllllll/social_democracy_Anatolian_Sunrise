@@ -83,7 +83,7 @@ if (Q.z_relation >= 55 || (Q.z_relation > 35 && Q.z_party_leader == "Joos")) {
     Q.z_support_braun = 2;
 }
 !}
-go-to:AP_failed ifAP_support_braun = 0 or (z_support_braun == 2 and historical_mode);AP_success ifAP_support_braun = 1;AP_partial ifAP_support_braun = 2 and not historical_mode
+go-to: AP_failed if AP_support_braun = 0 or (z_support_braun == 2 and historical_mode); AP_success if AP_support_braun = 1; AP_partial if AP_support_braun = 2 and not historical_mode
 max-visits: 1
 
 We remind the Center leaders of Hindenburg's anti-Catholicism, and try to convince them that Hindenburg's path will eventually lead to Hitler. We also remind them of the successes they've had as part of the Weimar coalition in Prussia with Otto Braun, and our support for the Center candidate Wilhelm Marx in the 1925 presidential election.
@@ -312,7 +312,7 @@ if ((Q.z_relation >= 55 && Q.braun_votes >= Q.hindenburg_votes) || (Q.z_relation
     Q.z_support_braun = 2;
 }
 !}
-go-to: r2_z_failed ifAP_support_braun = 0 or (z_support_braun = 2 and historical_mode); r2_z_success ifAP_support_braun = 1; r2_z_partial ifAP_support_braun = 2 and not historical_mode
+go-to: r2_z_failed if AP_support_braun = 0 or (z_support_braun = 2 and historical_mode); r2_z_success if AP_support_braun = 1; r2_z_partial if AP_support_braun = 2 and not historical_mode
 max-visits: 1
 
 @r2_z_success

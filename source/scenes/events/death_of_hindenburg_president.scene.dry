@@ -71,7 +71,7 @@ We have convinced Hugo Eckener to run on behalf of the CHP, and hopefully the re
 
 
 @adenauer_r1
-on-arrival: CHP_candidate = "Adenauer";AP_relation += 4; Adenauer_bonus -= 2.5 ifAP_relation < 40; Seldte_bonus += 2.5 ifAP_relation < 40; is_unity_candidate = 1
+on-arrival: CHP_candidate = "Adenauer"; AP_relation += 4; Adenauer_bonus -= 2.5 if AP_relation < 40; Seldte_bonus += 2.5 if AP_relation < 40; is_unity_candidate = 1
 go-to: r1_menu
 
 We have endorsed Konrad Adenauer of the Center Party.

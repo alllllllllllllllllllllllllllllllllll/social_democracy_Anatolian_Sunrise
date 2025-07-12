@@ -67,8 +67,8 @@ After the events of Blütmai, reconciling with the Communists is difficult, if n
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1;AP_relation += 2 ifAP_party_leader == "Joos"
-go-to: center_op ifAP_in_government = 1 and CHP_in_government = 0 and chancellor != "Brüning"; center_coalition if CHP_in_government = 1 andAP_in_government = 1; center_bruning if chancellor = "Brüning"
+on-arrival: resources -= 1; AP_relation += 2 if AP_party_leader == "Joos"
+go-to: center_op if AP_in_government = 1 and CHP_in_government = 0 and chancellor != "Brüning"; center_coalition if CHP_in_government = 1 and AP_in_government = 1; center_bruning if chancellor = "Brüning"
 
 @center_op
 on-arrival: AP_relation += 5*(1 - dissent)
