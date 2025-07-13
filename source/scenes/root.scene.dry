@@ -96,13 +96,13 @@ Q.moderate_plan_adopted = 0;
 // organizations
 
 // inter-party relations
-Q.AP_relation = 50;
-Q.TIP_relation = 25;
-Q.CGP_relation = 60;
-Q.DP_relation = 35;
+Q.TIP_relation = 40;
+Q.CGP_relation = 35;
+Q.AP_relation = 30;
+Q.DP_relation = 20;
 // MSP and MHP are invariably hostile
-Q.MSP_relation = 10;
-Q.MHP_relation = 0;
+Q.MSP_relation = 5;
+Q.MHP_relation = 10;
 
 Q.TIP_leader = "Behice Boran";
 // alternative TIP leader: Mehmet Ali Aybar
