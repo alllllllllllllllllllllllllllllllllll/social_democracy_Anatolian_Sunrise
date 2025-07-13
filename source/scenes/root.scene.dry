@@ -286,7 +286,7 @@ Q.catholics_other = 12;
 // Current Reichstag composition
 // % of Reichstag in Jan 1928
 // source: wikipedia
-// note: the Z figures also include the BVP (Bavarian people's party)
+// note: the Z figures represent the AP (Justice Party)
 // since they were ideologically similar, but they were separate parties.
 // They did not have a CDU/CSU-style relationship.
 Q.chp_r = 26;
@@ -339,8 +339,8 @@ Q.MHP_in_government = 0;
 Q.in_right_coalition = 0;
 // Weimar coalition = CHP + Z + CGP
 Q.in_weimar_coalition = 0;
-// Grand coalition = CHP + Z + BVP + CGP + DP
-// also includes the "new grand coalition" of CHP + Z + BVP + CGP + DP + Others
+// Grand coalition = CHP + Z + CGP + DP
+// also includes the "new grand coalition" of CHP + Z + CGP + DP + Others
 Q.in_grand_coalition = 0;
 // Popular front = CHP + TIP + Z + CGP
 Q.in_popular_front = 0;

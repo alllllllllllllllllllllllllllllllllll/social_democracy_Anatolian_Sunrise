@@ -287,7 +287,7 @@ The electoral system is essentially proportional, with the proportion of Reichst
 CHP: [+ chp_r +]
 
 # 1928: 15, 1930: 15, 1932: 
-Z + BVP: [+AP_r +]
+AP: [+AP_r +]
 
 # 1928: 10, 1930: 13
 TIP: [+ TIP_r +]
@@ -311,9 +311,9 @@ Other: [+ other_r +]
 
 Weimar Coalition (CHP + Z + CGP): [+ weimar_coalition +]
 
-Grand Coalition (CHP + Z + BVP + CGP + DP): [+ grand_coalition +]
+Grand Coalition (CHP + Z + CGP + DP): [+ grand_coalition +]
 
-Bourgeois Coalition (Z + BVP + CGP + DP + Others): [+ bourgeois_coalition +]
+Bourgeois Coalition (Z + CGP + DP + Others): [+ bourgeois_coalition +]
 
-Right-wing Coalition (Z + BVP + DP + Others + MSP): [+ right_coalition +]
+Right-wing Coalition (Z + DP + Others + MSP): [+ right_coalition +]
 

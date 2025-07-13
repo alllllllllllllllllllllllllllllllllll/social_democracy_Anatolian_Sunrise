@@ -99,7 +99,7 @@ if (Q.TIP_r >= Q.chp_r && Q.TIP_r >= Q.MHP_r) {
 }
 
 // coalitions
-Q.weimar_coalition = Q.chp_r + Q.CGP_r + Q.z_r - 3;
+Q.weimar_coalition = Q.chp_r + Q.CGP_r + Q.z_r;
 Q.grand_coalition = Q.chp_r + Q.CGP_r + Q.z_r + Q.DP_r;
 Q.bourgeois_coalition = Q.CGP_r + Q.z_r + Q.DP_r + Q.other_r;
 Q.center_right_coalition = Q.z_r + Q.CGP_r + Q.DP_r + Q.other_r + Q.MSP_r;
@@ -107,7 +107,7 @@ Q.right_coalition = Q.z_r + Q.DP_r + Q.other_r + Q.MSP_r;
 Q.far_right_coalition = Q.MSP_r + Q.MHP_r;
 Q.left_coalition = Q.CHP_r + Q.TIP_r + Q.sapd_r;
 // this is an absurd concept lol
-Q.popular_front_coalition = Q.CHP_r + Q.TIP_r + Q.z_r + Q.CGP_r - 3 + Q.sapd_r;
+Q.popular_front_coalition = Q.CHP_r + Q.TIP_r + Q.z_r + Q.CGP_r + Q.sapd_r;
 Q.anti_democratic_coalition = Q.TIP_r + Q.MHP_r + Q.MSP_r;
 // aka everyone except nazi, TIP, MSP
 Q.neo_weimar_coalition = Q.CHP_r + Q.CGP_r + Q.z_r + Q.DP_r + Q.other_r;
@@ -168,7 +168,7 @@ Q.reichswehr_goal_completed = 0;
 
 Q.strike_term_seen = 0;
 
-Q.AP_minus_bvp_r = Q.z_r - 3;
+Q.AP_minus_bvp_r = Q.z_r;
 
 // understanding the enemy
 if (Q.MHP_r >= 15) {
@@ -216,13 +216,7 @@ data = data.concat([
         "id": "z",
         "legend": "AP",
         "name": "AP",
-        "seats": Math.round((Q.z_r - 3)*5),
-    },
-    {
-        "id": "bvp",
-        "legend": "BVP",
-        "name": "BVP",
-        "seats": Math.round(3*5),
+        "seats": Math.round(Q.z_r*5),
     },
     {
         "id": "DP",
@@ -283,9 +277,7 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ CGP_name +]: {!</td><td>!} [+ CGP_r +]% {!</td><td>!} [+ str_change_CGP +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#000'> </div> !} AP: {!</td><td>!} [+AP_minus_bvp_r +]% {!</td><td>!} [+ str_change_z +] {!</td></tr>!}
-
-{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} BVP: {!</td><td>!} 3% {!</td><td>!} 0 {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#000'> </div> !} AP: {!</td><td>!} [+z_r +]% {!</td><td>!} [+ str_change_z +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#750a6f'> </div> !} DP: {!</td><td>!} [+ DP_r +]% {!</td><td>!} [+ str_change_DP +] {!</td></tr>!}
  
@@ -300,11 +292,11 @@ go-to: coalition_menu
 
 Weimar Coalition (CHP + Z + [+ CGP_name +]): [+ weimar_coalition +]%
 
-Grand Coalition (CHP + AP + BVP + [+ CGP_name +] + DP): [+ grand_coalition +]%
+Grand Coalition (CHP + AP + [+ CGP_name +] + DP): [+ grand_coalition +]%
 
-Bourgeois Coalition (AP + BVP + [+ CGP_name +] + DP + Others): [+ bourgeois_coalition +]%
+Bourgeois Coalition (AP + [+ CGP_name +] + DP + Others): [+ bourgeois_coalition +]%
 
-Right-wing Coalition (AP + BVP + DP + Others + MSP): [+ right_coalition +]%
+Right-wing Coalition (AP + DP + Others + MSP): [+ right_coalition +]%
 
 [? if nazi_urgency <= 1 and MHP_r >= 15 : The rapid rise in MHP votes is extremely worrying. Many had believed that the party was moribound; now, some of us consider it to be the greatest threat to democracy in Germany. ?]
 
@@ -547,12 +539,12 @@ go-to: civil_war
 
 @right_coalition
 title: Refuse to form a government, so that a right-wing coalition may be formed.
-subtitle: AP + BVP + DP + MSP + Others ([+ right_coalition +]%)
+subtitle: AP + DP + MSP + Others ([+ right_coalition +]%)
 unavailable-subtitle: The MSP is not interested in a coalition with the Center.
 view-if: right_coalition >= 50
 choose-if: year < 1929
 
-There are enough votes for a right-wing coalition of the Center (+ BVP), DP, MSP, and minor conservative parties. [? if largest_party == "CHP": However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are enough votes for a right-wing coalition of the Center Party, DP, MSP, and minor conservative parties. [? if largest_party == "CHP": However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
 - @right_coalition_sure: Yes, we will abdicate our responsibility for government formation, and let a right-wing coalition take power.
 - @grand_coalition: Actually, we wish to form a grand coalition after all.
@@ -629,10 +621,10 @@ The third option is to have new elections.
 
 @new_grand_coalition
 title: A "New Grand Coalition" of all the constitutional parties?
-subtitle: CHP + AP + BVP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +]%)
+subtitle: CHP + AP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +]%)
 view-if: neo_weimar_coalition >= 50 and grand_coalition < 50
 choose-if: AP_relation >= 50 and DP_relation >= 30
-unavailable-subtitle: CHP + AP + BVP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +]%) - [? if AP_relation < 50 : We do not have adequate relations with the Center Party. ?][? if DP_relation < 30 : We do not have adequate relations with the DP. ?]
+unavailable-subtitle: CHP + AP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +]%) - [? if AP_relation < 50 : We do not have adequate relations with the Center Party. ?][? if DP_relation < 30 : We do not have adequate relations with the DP. ?]
 
 How do we convince vehemently anti-socialist parties to allow us to form a majority coalition? Our largely benevolent relations with the Center and DP may allow us some leverage.
 
@@ -670,7 +662,7 @@ We have assembled a new coalition under Otto Braun.
 
 @unity_government
 title: The Center Party offers a "Government of National Unity" under Chancellor Joseph Wirth.
-subtitle: CHP + AP + BVP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +]%)
+subtitle: CHP + AP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +]%)
 view-if: AP_party_leader == "Joos" and neo_weimar_coalition >= 50 and weimar_coalition < 50 and AP_relation >= 10
 
 The Center Party leader, Joseph Joos, clearly sees the threat from the ascension of the anti-democratic extremist parties, and thus tries to negotiate a "Government of National Unity" to save the republic. This coalition would be led by Joseph Wirth, a left-leaning member of the Center Party and former chancellor, and would encompass all of the constitutional parties. Our role in this government might be limited, however.
@@ -967,7 +959,7 @@ Rudolf Breitscheid has been appointed chancellor.
 @grand_coalition
 title: We can form a Grand Coalition.
 view-if: grand_coalition >= 50 and grand_coalition_failed == 0
-subtitle: CHP + Z + BVP + [+ CGP_name +] + DP ([+ grand_coalition +]%)
+subtitle: CHP + Z + [+ CGP_name +] + DP ([+ grand_coalition +]%)
 on-arrival: in_grand_coalition = 1; in_popular_front = 0; in_left_front = 0
 go-to: grand_coalition_CHP_lead if (n_elections <= 1 and largest_party == "CHP") or (largest_party == "CHP" and CHP_r >= 30) or president = "Braun"; grand_coalition_AP_lead if president != "Braun" and ((n_elections > 1 and CHP_r < 30) or (n_elections <= 1 and largest_party != "CHP"))
 
@@ -977,7 +969,7 @@ go-to: grand_coalition_CHP_lead if (n_elections <= 1 and largest_party == "CHP")
 @grand_coalition_AP_lead
 go-to: grand_coalition_AP_lead_2 if DP_relation >= 30; grand_coalition_fail if DP_relation < 30
 
-There are enough votes to form a majority coalition consisting of the CHP, Center (Z), Bavarian People's (BVP), Democratic ([+ CGP_name +]), and People's (DP) parties. Given our rather weak electoral performance, [? if CHP_no_confidence = 1 : and our previous vote of no confidence against the government, ?][? if no_confidence_against_CHP = 1 : and the vote of no confidence against us, ?] President Hindenburg has asked the Center Party to take the lead role in forming a government.
+There are enough votes to form a majority coalition consisting of the CHP, Center (Z), Democratic ([+ CGP_name +]), and People's (DP) parties. Given our rather weak electoral performance, [? if CHP_no_confidence = 1 : and our previous vote of no confidence against the government, ?][? if no_confidence_against_CHP = 1 : and the vote of no confidence against us, ?] President Hindenburg has asked the Center Party to take the lead role in forming a government.
 
 # TODO: if the CHP participated in bringing down the previous government via a vote-of-no-confidence, or if we were essentially removed from government by our coalition partners, we should be more reluctant to participate in a new government.
 
@@ -1084,7 +1076,7 @@ We have decided to tolerate Brüning's government. This means that we will vote 
 @grand_coalition_fail
 on-arrival: grand_coalition_failed = 1
 
-Unfortunately, the DP and BVP are unwilling to enter into another coalition with the CHP, so the grand coalition is unable to be formed.
+Unfortunately, the DP is unwilling to enter into another coalition with the CHP, so the grand coalition is unable to be formed.
 
 - @no_majority: Thus, there is no clear majority.
 - @brauns_dilemma
@@ -1101,7 +1093,7 @@ go-to: DP_conservative if stresemann_dead == 1; DP_majority if stresemann_dead =
 @DP_majority
 go-to: join_bruning
 
-Under the influence of Gustav Stresemann, the DP agrees to allow us into the coalition, and so does the BVP.
+Under the influence of Gustav Stresemann, the DP agrees to allow us into the coalition.
 
 
 @DP_conservative
@@ -1135,7 +1127,7 @@ As expected, the DP is too set in their anti-democratic ways.
 @grand_coalition_CHP_lead
 on-arrival: leverage -= 15 if DP_relation < 20
 
-As expected, the CHP is the largest party, and this time, we are expected to take the lead role in the formation of the next government, including selecting the chancellor. President [+ president +] has asked us to form a majority coalition with the Center (Z), Bavarian People's (BVP), Democratic ([+ CGP_name +]), and People's (DP) parties.
+As expected, the CHP is the largest party, and this time, we are expected to take the lead role in the formation of the next government, including selecting the chancellor. President [+ president +] has asked us to form a majority coalition with the Center (Z), Democratic ([+ CGP_name +]), and People's (DP) parties.
 
 [? if DP_relation < 20 : As our relation with the DP is poor, they are demanding more minister posts in order to remain part of the coalition. ?]
 

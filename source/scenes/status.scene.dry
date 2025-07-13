@@ -41,7 +41,7 @@ Reichstag composition:
 {!<span class="tooltip-text" title="Republican People's Party">CHP</span>!}: [+ chp_r +]%
 [? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
 # 1928: 15, 1930: 15, 1932: 
-{!<span class="tooltip-text" title="Justice Party + Bavarian People's Party">AP + BVP</span>!}: [+ z_r +]%
+{!<span class="tooltip-text" title="Justice Party">AP</span>!}: [+ z_r +]%
 # 1928: 10, 1930: 13
 {!<span class="tooltip-text" title="Communist Party of Germany">TIP</span>!}: [+ TIP_r +]%
 # 1928: 5, 1930: 4 (as DstP)
@@ -162,7 +162,7 @@ CHP: [+ chp_votes +]%
 
 [? if sapd_formed: SAPD: [+ sapd_votes +]% ?]
 
-AP + BVP: [+AP_votes +]%
+AP: [+AP_votes +]%
 
 TIP: [+ TIP_votes +]%
 

@@ -49,9 +49,9 @@ view-if: electoral_threshold = 0
 
 # The left is opposed to this.
 
-Some political thinkers believe that the proliferation of minor parties is responsible for the instability of the republic. They believe that a higher electoral threshold will reduce the influence of small radical parties. Parties that win a plurality in a constituency will maintain their representation, a gift to regional parties such as the BVP. 
+Some political thinkers believe that the proliferation of minor parties is responsible for the instability of the republic. They believe that a higher electoral threshold will reduce the influence of small radical parties. Parties that win a plurality in a constituency will maintain their representation. 
 
-The smaller parties will obviously oppose this reform. [? if AP_relation > 30 : The Center Party supports this reform, while their BVP partners oppose it. ?] [? if TIP_relation > 50 and TIP_normalized >= 0.1 : Perhaps surprisingly, the TIP supports this reform. ?] [? if MHP_normalized >= 0.2 : The MHP supports this reform, as they believe they have something to gain. ?]
+The smaller parties will obviously oppose this reform. [? if AP_relation > 30 : The Center Party supports this reform. ?] [? if TIP_relation > 50 and TIP_normalized >= 0.1 : Perhaps surprisingly, the TIP supports this reform. ?] [? if MHP_normalized >= 0.2 : The MHP supports this reform, as they believe they have something to gain. ?]
 
 The CHP Left opposes this change, as they believe it to be anti-democratic.
 
