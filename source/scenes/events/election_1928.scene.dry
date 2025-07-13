@@ -406,7 +406,10 @@ In response to the TIP's entrance into the government, the right-wing immediatel
 
 The Center manages to diffuse some of the hostility from the Reichswehr and the Stahlhelm, but fail to prevent the outbreak of fighting. We are forced to fight on the same side as the TIP, whether we want to or not.
 
-- @civil_war: A civil war, then.
+- @civil_war_redirect: A civil war, then.
+
+@civil_war_redirect
+go-to: civil_war
 
 
 
@@ -424,7 +427,10 @@ on-arrival: chancellor = MHP_leader; chancellor_party = "MHP"
 
 [? if president == "Hindenburg" : President Hindenburg's camarilla ?][? if president == "Braun" : President Braun somehow ?] has decided that [+ MHP_leader +] must be chancellor [? if president == "Hindenburg": , and the aging president accepts their recommendations. ?][? if president == "Braun" : because it is what the constitution would stipulate. ?]
 
-- @hitler_takes_power: What do we do now?
+- @hitler_redirect: What do we do now?
+
+@hitler_redirect
+go-to: hitler_takes_power
 
 
 @far_right_fail
@@ -488,7 +494,10 @@ Immediately, [+ chancellor +] goes to work building a "Soviet Germany": consolid
 
 In response to [+ chancellor +] being appointed Chancellor, the right-wing forces launches almost immediately launch an attempted coup. Troops of the Stahlhelm and Nazi SA enter Berlin and immediately begin clashing with our supporters! Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop the TIP from taking power. We are forced to be on the same side as the TIP, whether we want to or not.
 
-- @civil_war
+- @civil_war_redirect2: Begin the civil war.
+
+@civil_war_redirect2
+go-to: civil_war
 
 
 @left_coalition_resources
@@ -529,7 +538,10 @@ on-arrival: reichswehr_loyalty += 0.1
 
 In response to the TIP's entrance into the government, the right-wing immediately launches a coup attempt. Troops of the Stahlhelm and Nazi SA enter Berlin and begin clashing with our supporters. Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop us from taking power.
 
-- @civil_war: A civil war, then.
+- @civil_war_redirect3: A civil war, then.
+
+@civil_war_redirect3
+go-to: civil_war
 
 
 
@@ -725,7 +737,10 @@ on-arrival: chancellor = "Hitler"; chancellor_party = "MHP"
 
 There is no path to a majority government for now. The scheming around President Hindenburg is leading to only one path - that of Chancellor Adolf Hitler. [? if largest_party == "MHP" : Since they are the largest party, it is not exactly contrary to parliamentary procedure, so it is difficult to raise objections solely on procedural grounds. ?] [? if hitler_deported: Despite his earlier deportation, the Nazi leaders and their reactionary allies have connived for the president to give him German citizenship after all. ?]
 
-- @hitler_takes_power: What now?
+- @hitler_redirect2: What now?
+
+@hitler_redirect2
+go-to: hitler_takes_power
 
 # if MHP is largest party and Hindenburg is president, then Hindenburg appoints Hitler chancellor.
 
@@ -850,7 +865,10 @@ The far-right parties, seeing that we are willing to deny them government by que
 
 Their numbers are bolstered by the many government workers who are against the prospect of a unified Socialist government. Police and soldiers defect to the SA and Stahlhelm.
 
-- @civil_war: It is war.
+- @civil_war_redirect4: It is war.
+
+@civil_war_redirect4
+go-to: civil_war
 
 
 @emergency_no_confidence
