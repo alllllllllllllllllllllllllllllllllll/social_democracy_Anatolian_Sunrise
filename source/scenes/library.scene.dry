@@ -22,10 +22,7 @@ Herein contains relevant information about the government and politics of the Tu
 - @backSpecialScene: Exit library.
 
 @government
-go-to:         var lines_2 = d3.linegraph(false, false,
-            Q.parties,
-            {'chp': '#E3000F', 'TIP': '#8B0000', 'CGP': '#DCCA4A', 'AP': '#000', 'DP': '#750a6f', 'MSP': '#054521', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
-            {'chp': 'CHP', 'TIP': 'TIP', 'CGP': Q.CGP_name, 'AP': 'AP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others', 'sapd': 'SAPD'});
+go-to: menu
 
 The Turkish Republic is a Parliamentary Nation-State that was molded out of the ashes of the now deceased Ottoman Empire as a result of the Kemalist Revolution. The Kemalist Revolution, which was guided by the founding father of the republic Mustafa Kemal Atatürk, was essentially an attempt to save the Turkish Nation from certain destruction at the hands of the Western Powers and their so called "servants" within the empire through rapid westernization and the adopting of modern republican values to keep up with the necessities of the Modern Age. Our whole republic is a result of this rapid change and the values of the revolution are being preserved by CHP and the military.
 
@@ -707,7 +704,7 @@ if (d3 && window) {
         var lines_2 = d3.linegraph(true, true,
             Q.parties,
             {'chp': '#E3000F', 'TIP': '#8B0000', 'CGP': '#DCCA4A', 'AP': '#000', 'DP': '#750a6f', 'MSP': '#054521', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
-            {'chp': 'CHP', 'TIP': 'TIP', 'CGP': Q.CGP_name, 'AP': 'AP + BVP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others', 'sapd': 'SAPD'});
+            {'chp': 'CHP', 'TIP': 'TIP', 'CGP': Q.CGP_name, 'AP': 'AP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others', 'sapd': 'SAPD'});
         lines_2.width(width).height(400);
         d3.select("#party_support_history").datum(Q.party_support_records).call(lines_2);
     }
