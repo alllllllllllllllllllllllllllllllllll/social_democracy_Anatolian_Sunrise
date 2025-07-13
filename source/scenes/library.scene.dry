@@ -690,7 +690,7 @@ if (d3 && window) {
 
     var lines = d3.linegraph(false, false,
             Q.parties,
-            {'chp': '#E3000F', 'TIP': '#8B0000', 'CGP': '#DCCA4A', 'AP': '#000', 'DP': '#750a6f', 'MSP': '#054521', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
+            {'chp': '#E3000F', 'TIP': '#8B0000', 'CGP': '#5a5f63', 'AP': '#750a6f', 'DP': '#4a4d04', 'MSP': '#054521', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
             {'chp': 'CHP', 'TIP': 'TIP', 'CGP': Q.CGP_name, 'AP': 'AP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others', 'sapd': 'SAPD'});
     lines.width(width).height(400);
     //var svg = lines(Q.election_records);
@@ -703,7 +703,7 @@ if (d3 && window) {
     if (!Q.historical_mode || Q.game_over) {
         var lines_2 = d3.linegraph(true, true,
             Q.parties,
-            {'chp': '#E3000F', 'TIP': '#8B0000', 'CGP': '#DCCA4A', 'AP': '#000', 'DP': '#750a6f', 'MSP': '#054521', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
+            {'chp': '#E3000F', 'TIP': '#8B0000', 'CGP': '#5a5f63', 'AP': '#750a6f', 'DP': '#4a4d04', 'MSP': '#054521', 'MHP': '#954B00', 'other': '#a0a0a0', 'sapd': '#c40000'},
             {'chp': 'CHP', 'TIP': 'TIP', 'CGP': Q.CGP_name, 'AP': 'AP', 'DP': 'DP', 'MSP': 'MSP', 'MHP': 'MHP', 'other': 'Others', 'sapd': 'SAPD'});
         lines_2.width(width).height(400);
         d3.select("#party_support_history").datum(Q.party_support_records).call(lines_2);
@@ -732,11 +732,11 @@ if (d3 && window) {
 
 {!<tr><td><div class="box" style='background-color:#8B0000'> </div></td> <td>!}TIP: {!</td><td>!} [+ TIP_r +]% {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#DCCA4A'> </div></td><td>!} [+ CGP_name +]: {!</td><td>!} [+ CGP_r +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#5a5f63'> </div></td><td>!} [+ CGP_name +]: {!</td><td>!} [+ CGP_r +]% {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#000'> </div></td><td>!} AP: {!</td><td>!} [+z_r +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#750a6f'> </div></td><td>!} AP: {!</td><td>!} [+z_r +]% {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#750a6f'> </div></td><td>!} DP: {!</td><td>!} [+ DP_r +]% {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#4a4d04'> </div></td><td>!} DP: {!</td><td>!} [+ DP_r +]% {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#a0a0a0'> </div></td><td>!} Other parties: {!</td><td>!} [+ other_r +] % {!</td></tr>!}
 
