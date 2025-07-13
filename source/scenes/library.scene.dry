@@ -15,6 +15,7 @@ Herein contains relevant information about the government and politics of the Tu
 - @curr_gov: Current government details
 - @demographics: Demographics
 - @parties: Parties
+- @party_leaders: Party leaders
 - @public_opinion: Public opinion (and projected election results)
 - @paramilitaries: Paramilitary groups
 - @factions: Internal factions
@@ -761,3 +762,44 @@ if (d3 && window) {
 
 {!<svg id="economic_history" style="width: 500px; height: 300px;"> </svg>!}
 # TODO: maybe add textual histories too? some accessibility stuff as well...
+
+@party_leaders
+title: Current Party Leaders
+go-to: menu
+
+= Party Leadership
+
+Here are the current leaders of Turkey's major political parties:
+
+**CHP (Republican People's Party)** - *Our Party*
+Leader: [+ CHP_party_leader +]
+[? if CHP_party_leader == "İnönü" : İsmet İnönü, the veteran statesman and former President, continues to guide the party with his experienced hand. ?]
+[? if CHP_party_leader == "Ecevit" : Bülent Ecevit represents a more progressive wing of the party, advocating for democratic socialism and modernization. ?]
+
+**AP (Justice Party)**
+Leader: [+ AP_party_leader +]
+[? if AP_party_leader == "Demirel" : Süleyman Demirel, known for his pragmatic approach and economic focus, leads the center-right Justice Party. ?]
+
+**TIP (Workers' Party of Turkey)**
+Leader: [+ TIP_party_leader +]
+[? if TIP_party_leader == "Behice Boran" : Behice Boran, a prominent socialist intellectual and advocate for workers' rights, leads the leftist opposition. ?]
+[? if TIP_party_leader == "Mehmet Ali Aybar" : Mehmet Ali Aybar, a charismatic socialist leader, represents the democratic left alternative. ?]
+
+**DP (Democratic Party)**
+Leader: [+ DP_party_leader +]
+[? if DP_party_leader == "Bozbeyli" : Ferruh Bozbeyli leads this liberal democratic party, emphasizing constitutional democracy and civil liberties. ?]
+
+**CGP (Republican Reliance Party)**
+Leader: [+ CGP_party_leader +]
+[? if CGP_party_leader == "Feyzioğlu" : Turhan Feyzioğlu, former CHP member, leads this centrist party focused on democratic principles and social liberalism. ?]
+
+**MSP (National Salvation Party)**
+Leader: [+ MSP_party_leader +]
+[? if MSP_party_leader == "Süleyman Arif" : Süleyman Arif Emre leads the conservative religious party, advocating for traditional values and Islamic principles. ?]
+[? if MSP_party_leader == "Erbakan" : Necmettin Erbakan, the founding father of political Islam in Turkey, leads this conservative religious movement. ?]
+
+**MHP (Nationalist Movement Party)**
+Leader: [+ MHP_leader +]
+The ultra-nationalist party continues under Alparslan Türkeş, promoting Turkish nationalism and conservative values.
+
+*Leadership changes can occur through party congresses, internal coups, or major political events that reshape party dynamics.*

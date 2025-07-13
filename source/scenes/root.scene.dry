@@ -104,13 +104,23 @@ Q.DP_relation = 35;
 Q.MSP_relation = 10;
 Q.MHP_relation = 0;
 
-Q.TIP_leader = "Thälmann";
-// alternative is the Conciliators as party leader
-Q.TIP_party_leader = "Thälmann";
-Q.AP_leader = "Brüning";
-// party leader - can be Ludwig Kaas, Joseph Joos, or Adam Stegerwald after the 1928 December conference. Joos will be most friendly to the CHP.
-Q.AP_party_leader = "Marx";
-Q.MHP_leader = "Hitler";
+Q.TIP_leader = "Behice Boran";
+// alternative TIP leader: Mehmet Ali Aybar
+Q.TIP_party_leader = "Behice Boran";
+Q.AP_leader = "Demirel";
+// AP party leader - can change through events to affect relations with CHP
+Q.AP_party_leader = "Demirel";
+Q.MHP_leader = "Alparslan Türkeş";
+Q.DP_leader = "Bozbeyli";
+Q.DP_party_leader = "Bozbeyli";
+Q.CGP_leader = "Feyzioğlu";
+Q.CGP_party_leader = "Feyzioğlu";
+Q.MSP_leader = "Süleyman Arif";
+// alternative MSP leader: Erbakan
+Q.MSP_party_leader = "Süleyman Arif";
+Q.CHP_leader = "İnönü";
+// alternative CHP leader: Ecevit
+Q.CHP_party_leader = "İnönü";
 
 // hmm... maybe we can play nice with Hindenburg???
 Q.hindenburg_relation = 25;
