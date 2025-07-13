@@ -116,7 +116,6 @@ Are you sure about this? The Weimar Coalition had an agreement to not touch reli
 
 @secularize_2
 on-arrival: secularized = 1; catholics_CHP -= 15;AP_relation -= 15; DP_relation += 6*(1-dissent); CGP_relation += 6*(1-dissent); TIP_relation += 6*(1-dissent); new_middle_CHP += 3*(1-dissent); workers_CHP += 3*(1-dissent); education_science += 0.5; new_middle_CGP += 4; new_middle_DP += 4
-go-to: vote_of_no_confidence.vonc_menu if in_weimar_coalition or in_grand_coalition or in_popular_front or in_emergency_government
 
 # instant VONC from zentrum
 
