@@ -35,7 +35,7 @@ A constitutional reform requires either a two-thirds supermajority in the Reichs
 subtitle: Change the vote threshold to 5% for parties to be represented in the Reichstag.
 on-arrival: {!
 Q.reform_support = Q.CHP_normalized;
-if (Q.z_relation > 30) {
+if (Q.AP_relation > 30) {
     Q.reform_support += Q.z_normalized - 0.03;
 }
 if (Q.TIP_relation > 50 && Q.TIP_normalized >= 0.1) {
@@ -75,7 +75,7 @@ We have passed a constitutional amendment to increase the electoral threshold to
 subtitle: Votes of no confidence can only be called if an alternative plan for government formation can be passed, greatly reducing their incidence.
 on-arrival: {!
 Q.reform_support = Q.CHP_normalized + Q.CGP_normalized;
-if (Q.z_relation >= 30) {
+if (Q.AP_relation >= 30) {
     Q.reform_support += Q.z_normalized - 0.03;
 }
 if (!Q.stresemann_dead) {
@@ -101,7 +101,7 @@ We have successfully passed a constitutional amendment to ban votes of no confid
 subtitle: The president can no longer dissolve the Reichstag at will, or call a *Reichsexekution* on state governments.
 on-arrival: {!
 Q.reform_support = Q.CHP_normalized + Q.CGP_normalized + Q.TIP_normalized;
-if (Q.z_relation > 49 && (Q.president == "Hindenburg" || Q.president == "Eckener")) {
+if (Q.AP_relation > 49 && (Q.president == "Hindenburg" || Q.president == "Eckener")) {
     Q.reform_support += Q.z_normalized;
 } else if (Q.president == "Braun") {
     Q.reform_support += Q.z_normalized - 0.03;

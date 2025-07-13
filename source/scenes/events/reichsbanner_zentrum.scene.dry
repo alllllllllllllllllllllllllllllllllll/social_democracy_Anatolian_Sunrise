@@ -28,7 +28,7 @@ Bowing to the other parties' demands, we reduce the Reichsbanner's military trai
 
 @keep_them
 unavailable-subtitle: They are unable to be convinced at this time.
-choose-if: strife >= 5 and (z_relation >= 50 or (z_party_leader == "Joos" and AP_relation >= 30)) and CGP_relation >= 50
+choose-if: strife >= 5 and (AP_relation >= 50 or (AP_party_leader == "Joos" and AP_relation >= 30)) and CGP_relation >= 50
 on-arrival: rb_stay = 1
 
 Seeing the strife that has filled Germany's streets, the Center Party and [+ CGP_name +] seem to be convinced that it is necessary for the Reichsbanner to be militarized, and will not leave the organization.

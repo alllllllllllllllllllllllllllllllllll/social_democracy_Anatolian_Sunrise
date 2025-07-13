@@ -168,7 +168,7 @@ Q.reichswehr_goal_completed = 0;
 
 Q.strike_term_seen = 0;
 
-Q.z_minus_bvp_r = Q.z_r - 3;
+Q.AP_minus_bvp_r = Q.z_r - 3;
 
 // understanding the enemy
 if (Q.MHP_r >= 15) {
@@ -213,9 +213,9 @@ data = data.concat([
         "seats": Math.round(Q.CGP_r*5),
     },
     {
-        "id": "AP",
-        "legend": "Center",
-        "name": "Center",
+        "id": "z",
+        "legend": "AP",
+        "name": "AP",
         "seats": Math.round((Q.z_r - 3)*5),
     },
     {
@@ -332,9 +332,9 @@ There are some potential coalition arrangements.
 @popular_front_coalition
 title: A new "Popular Front" coalition?
 subtitle: CHP + TIP + Z + [+ CGP_name +]  [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +]%)
-unavailable-subtitle: CHP + TIP + Z + [+ CGP_name +] [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +]%) - [? if ((TIP_relation < 65 and TIP_party_leader == "Thälmann") or (TIP_relation < 45 and TIP_party_leader == "Conciliators")): We do not have good enough relations with the TIP. ?][? if (z_relation < 45 and AP_party_leader == "Joos") or (z_relation < 65 and AP_party_leader != "Joos" and TIP_party_leader != "Conciliators") or (z_relation < 55 and AP_party_leader != "Joos" and TIP_party_leader == "Conciliators"): We do not have good enough relations with the Center Party. ?][? if communist_coalition < 3 : The Communists are unwilling to compromise at all. ?]
+unavailable-subtitle: CHP + TIP + Z + [+ CGP_name +] [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +]%) - [? if ((TIP_relation < 65 and TIP_party_leader == "Thälmann") or (TIP_relation < 45 and TIP_party_leader == "Conciliators")): We do not have good enough relations with the TIP. ?][? if (AP_relation < 45 and AP_party_leader == "Joos") or (AP_relation < 65 and AP_party_leader != "Joos" and TIP_party_leader != "Conciliators") or (AP_relation < 55 and AP_party_leader != "Joos" and TIP_party_leader == "Conciliators"): We do not have good enough relations with the Center Party. ?][? if communist_coalition < 3 : The Communists are unwilling to compromise at all. ?]
 view-if: popular_front_coalition >= 50
-choose-if: (((TIP_relation >= 65 and TIP_party_leader == "Thälmann") or (TIP_relation >= 45 and TIP_party_leader == "Conciliators")) and ((z_relation >= 45 and AP_party_leader == "Joos") or (z_relation >= 65 and AP_party_leader != "Joos" and TIP_party_leader != "Conciliators") or (z_relation >= 55 and AP_party_leader != "Joos" and TIP_party_leader == "Conciliators")) and CGP_relation >= 50 and communist_coalition >= 3) or (z_party_leader == "Joos" and TIP_party_leader == "Conciliators" and AP_relation >= 30 and TIP_relation >= 30)
+choose-if: (((TIP_relation >= 65 and TIP_party_leader == "Thälmann") or (TIP_relation >= 45 and TIP_party_leader == "Conciliators")) and ((AP_relation >= 45 and AP_party_leader == "Joos") or (AP_relation >= 65 and AP_party_leader != "Joos" and TIP_party_leader != "Conciliators") or (AP_relation >= 55 and AP_party_leader != "Joos" and TIP_party_leader == "Conciliators")) and CGP_relation >= 50 and communist_coalition >= 3) or (AP_party_leader == "Joos" and TIP_party_leader == "Conciliators" and AP_relation >= 30 and TIP_relation >= 30)
 
 Could we really form a coalition that included both the Center and the Communists? It seems like an absurd concept, but given our good relationships with both sides, it is not an impossibility.
 
@@ -856,7 +856,7 @@ Their numbers are bolstered by the many government workers who are against the p
 @emergency_no_confidence
 title: The Nazis immediately call a no-confidence vote against us...
 view-if: far_right_coalition < 45
-on-arrival: AP_no_confidence = 1 if AP_relation < 45; TIP_no_confidence = 1 if TIP_relation < 45; other_no_confidence = 1 if (z_relation + DP_relation)/2 < 45; DP_no_confidence = 1 if DP_relation < 45; sa_strength += 200; sh_strength += 200; no_confidence_votes = MHP_r + MSP_r; no_confidence_votes += AP_r if AP_no_confidence; no_confidence_votes += DP_r if DP_no_confidence; no_confidence_votes += TIP_r if TIP_no_confidence; no_confidence_votes += other_r if other_no_confidence; no_confidence_succeeds = 1 if no_confidence_votes > 50
+on-arrival: AP_no_confidence = 1 if AP_relation < 45; TIP_no_confidence = 1 if TIP_relation < 45; other_no_confidence = 1 if (AP_relation + DP_relation)/2 < 45; DP_no_confidence = 1 if DP_relation < 45; sa_strength += 200; sh_strength += 200; no_confidence_votes = MHP_r + MSP_r; no_confidence_votes += AP_r if AP_no_confidence; no_confidence_votes += DP_r if DP_no_confidence; no_confidence_votes += TIP_r if TIP_no_confidence; no_confidence_votes += other_r if other_no_confidence; no_confidence_succeeds = 1 if no_confidence_votes > 50
 
 The MHP and MSP will vote against us, of course. The other parties vote their conscience. [? if AP_no_confidence: The Center Party is voting against us. ?] [? if TIP_no_confidence: The TIP votes against us. ?] [? if other_no_confidence: The assortment of minor parties are voting against us. ?]
 
@@ -933,8 +933,8 @@ Who should be the chancellor?
 - @braun
 - @breitscheid_coalition_chancellor
 - @wels
-- @z_chancellor
-- @z_chancellor_wirth
+- @AP_chancellor
+- @AP_chancellor_wirth
 
 @breitscheid_coalition_chancellor
 title: Rudolf Breitscheid for Chancellor
@@ -951,19 +951,19 @@ title: We can form a Grand Coalition.
 view-if: grand_coalition >= 50 and grand_coalition_failed == 0
 subtitle: CHP + Z + BVP + [+ CGP_name +] + DP ([+ grand_coalition +]%)
 on-arrival: in_grand_coalition = 1; in_popular_front = 0; in_left_front = 0
-go-to: grand_coalition_CHP_lead if (n_elections <= 1 and largest_party == "CHP") or (largest_party == "CHP" and CHP_r >= 30) or president = "Braun"; grand_coalition_z_lead if president != "Braun" and ((n_elections > 1 and CHP_r < 30) or (n_elections <= 1 and largest_party != "CHP"))
+go-to: grand_coalition_CHP_lead if (n_elections <= 1 and largest_party == "CHP") or (largest_party == "CHP" and CHP_r >= 30) or president = "Braun"; grand_coalition_AP_lead if president != "Braun" and ((n_elections > 1 and CHP_r < 30) or (n_elections <= 1 and largest_party != "CHP"))
 
 # TODO: if there are enough votes to form a grand coalition, who leads? Does the CHP lead or does Brüning (Z) lead? In reality this depended on Hindenburg's will, basically, which in turn depended on what his camarilla supported.
 # In the first election, CHP always leads. In subsequent elections, if CHP_r >= 29 then CHP leads, otherwise Z leads?
 
-@grand_coalition_z_lead
-go-to: grand_coalition_z_lead_2 if DP_relation >= 30; grand_coalition_fail if DP_relation < 30
+@grand_coalition_AP_lead
+go-to: grand_coalition_AP_lead_2 if DP_relation >= 30; grand_coalition_fail if DP_relation < 30
 
 There are enough votes to form a majority coalition consisting of the CHP, Center (Z), Bavarian People's (BVP), Democratic ([+ CGP_name +]), and People's (DP) parties. Given our rather weak electoral performance, [? if CHP_no_confidence = 1 : and our previous vote of no confidence against the government, ?][? if no_confidence_against_CHP = 1 : and the vote of no confidence against us, ?] President Hindenburg has asked the Center Party to take the lead role in forming a government.
 
 # TODO: if the CHP participated in bringing down the previous government via a vote-of-no-confidence, or if we were essentially removed from government by our coalition partners, we should be more reluctant to participate in a new government.
 
-@grand_coalition_z_lead_2
+@grand_coalition_AP_lead_2
 
 The Center chancellor is likely to be Heinrich Brüning of the Center Party [? if chancellor = "Brüning" : again. ?][? if chancellor != "Brüning": . ?] He is known for his conservatism and sympathy for monarchism, being on the right wing of the Center. [? if austerity >= 2 : Due to the government's austerity policies, many of our members are reluctant to participate in this coalition again. Some support a "toleration" arrangement in which we will provide outside support to prevent the far-right from either entering government or calling a successful no-confidence vote. Others support entering into pure opposition, and letting the right do what it wishes. ?]
 
@@ -1005,7 +1005,7 @@ if (Q.next_election_month > 12) {
     Q.next_election_year = Q.year;
 }
 if (Q.chancellor == "Brüning") {
-    Q.z_relation -= 5;
+    Q.AP_relation -= 5;
     Q.DP_relation -= 5;
 }
 Q.pro_republic -= 8;
@@ -1030,7 +1030,7 @@ if (Q.pro_republic < 45 && Q.pro_republic >= 36) {
 }
 if (Q.pro_republic < 36) {
     // TODO: if you pursue a consistently revolutionary course, you might avoid this? But you might also cause a coalition between Hitler and the Center.
-    Q.z_relation -= 5;
+    Q.AP_relation -= 5;
     Q.DP_relation -= 5;
     Q.workers_CHP *= 0.85;
     Q.unemployed_CHP -= 2;
@@ -1126,8 +1126,8 @@ Who should be the chancellor?
 - @muller
 - @braun
 - @wels
-- @z_chancellor
-- @z_chancellor_wirth
+- @AP_chancellor
+- @AP_chancellor_wirth
 - @no_govt
 
 
@@ -1169,7 +1169,7 @@ go-to: ministries
 We have promised to let the Center have more influence in the government in response to the appointment of Braun as chancellor.
 
 
-@z_chancellor
+@AP_chancellor
 title: Let the Center Party have their chancellor.
 subtitle: Heinrich Brüning will be chancellor. This is unexpected and will cause internal dissent, but may give us a better position in negotiating for other cabinet positions.
 on-arrival: left_dissent += 5; center_dissent += 5; labor_dissent += 5;AP_relation += 10; DP_relation += 5; TIP_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Brüning"; chancellor_party = "AP"; CHP_in_government = 1; leverage += 5
@@ -1180,7 +1180,7 @@ This is highly unexpected, and many in the left and center of our party are crit
 [? if year == 1928 : Since Wilhelm Marx resigned, Heinrich Brüning has been appointed chancellor. ?]
 [? if year > 1928: Heinrich Brüning of the Center Party has been appointed chancellor. ?]
 
-@z_chancellor_wirth
+@AP_chancellor_wirth
 title: Let Joseph Wirth of the Center Party be chancellor.
 view-if:AP_party_leader == "Joos"
 subtitle: Wirth is on the left wing of the Center Party. This may give us a better position in negotiating for other cabinet positions.
@@ -1199,7 +1199,7 @@ Are we sure about not participating in government? This will cause significant i
 
 - @muller
 - @braun
-- @z_chancellor
+- @AP_chancellor
 - @no_govt_goals: Yes, we're sure.
 
 @no_govt_goals

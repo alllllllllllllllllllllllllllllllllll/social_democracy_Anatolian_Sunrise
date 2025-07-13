@@ -75,9 +75,9 @@ choose-if: CHP_votes >= AP_votes
 unavailable-subtitle: The Center knows that they are more popular than us; they do not see a reason to support our candidate.
 on-arrival: {!
 Q.z_support_braun = 0;
-if (Q.z_relation >= 55 || (Q.z_relation > 35 && Q.z_party_leader == "Joos")) {
+if (Q.AP_relation >= 55 || (Q.AP_relation > 35 && Q.AP_party_leader == "Joos")) {
     Q.z_support_braun = 1;
-} else if (Q.z_relation <= 35) {
+} else if (Q.AP_relation <= 35) {
     Q.z_support_braun = 0;
 } else {
     Q.AP_support_braun = 2;
@@ -298,15 +298,15 @@ on-arrival: {!
 Q.z_support_braun = 0;
 // if Hindenburg support is greater than Hitler and Braun support, this should be much harder
 
-if ((Q.z_relation >= 55 && Q.braun_votes >= Q.hindenburg_votes) || (Q.z_relation > 35 && Q.z_party_leader == "Joos")) {
+if ((Q.AP_relation >= 55 && Q.braun_votes >= Q.hindenburg_votes) || (Q.AP_relation > 35 && Q.AP_party_leader == "Joos")) {
     Q.z_support_braun = 1;
     if (Q.hitler_support_hindenburg) {
         Q.hindenburg_to_braun_bonus += Q.other_normalized/2;
     }
-} else if (Q.z_relation >= 50 && Q.hitler_support_hindenburg) {
+} else if (Q.AP_relation >= 50 && Q.hitler_support_hindenburg) {
     Q.z_support_braun = 1;
     Q.hindenburg_to_braun_bonus += Q.other_normalized/2;
-} else if (Q.z_relation <= 35 || (Q.z_relation <= 45 && Q.braun_votes < Q.hindenburg_votes && Q.hindenburg_votes > Q.hitler_votes && Q.difficulty >= 0)) {
+} else if (Q.AP_relation <= 35 || (Q.AP_relation <= 45 && Q.braun_votes < Q.hindenburg_votes && Q.hindenburg_votes > Q.hitler_votes && Q.difficulty >= 0)) {
     Q.AP_support_braun = 0;
 } else {
     Q.AP_support_braun = 2;

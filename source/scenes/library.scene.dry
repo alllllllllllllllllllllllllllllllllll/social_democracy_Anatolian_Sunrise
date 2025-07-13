@@ -478,17 +478,17 @@ Others: [+ other_votes +]%
 
 **Detailed results for each demographic**
 
-Workers: CHP: [+ workers_CHP_display +]%, AP: [+ workers_z_display +]%, TIP: [+ workers_TIP_display +]%, [+ CGP_name +]: [+ workers_CGP_display +]%, DP: [+ workers_DP_display +]%; MSP: [+ workers_MSP_display +]%, MHP: [+ workers_MHP_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
+Workers: CHP: [+ workers_CHP_display +]%, AP: [+ workers_AP_display +]%, TIP: [+ workers_TIP_display +]%, [+ CGP_name +]: [+ workers_CGP_display +]%, DP: [+ workers_DP_display +]%; MSP: [+ workers_MSP_display +]%, MHP: [+ workers_MHP_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
 
-New Middle Class: CHP: [+ new_middle_CHP_display +]%, AP: [+ new_middle_z_display +]%, TIP: [+ new_middle_TIP_display +]%, [+ CGP_name +]: [+ new_middle_CGP_display +]%, DP: [+ new_middle_DP_display +]%; MSP: [+ new_middle_MSP_display +]%, MHP: [+ new_middle_MHP_display +]%, Others: [+ new_middle_other_display +]% [? if sapd_formed: SAPD: [+ new_middle_sapd_display +]% ?]
+New Middle Class: CHP: [+ new_middle_CHP_display +]%, AP: [+ new_middle_AP_display +]%, TIP: [+ new_middle_TIP_display +]%, [+ CGP_name +]: [+ new_middle_CGP_display +]%, DP: [+ new_middle_DP_display +]%; MSP: [+ new_middle_MSP_display +]%, MHP: [+ new_middle_MHP_display +]%, Others: [+ new_middle_other_display +]% [? if sapd_formed: SAPD: [+ new_middle_sapd_display +]% ?]
 
-Old Middle Class: CHP: [+ old_middle_CHP_display +]%, AP: [+ old_middle_z_display +]%, TIP: [+ old_middle_TIP_display +]%, [+ CGP_name +]: [+ old_middle_CGP_display +]%, DP: [+ old_middle_DP_display +]%; MSP: [+ old_middle_MSP_display +]%, MHP: [+ old_middle_MHP_display +]%, Others: [+ old_middle_other_display +]% [? if sapd_formed: SAPD: [+ old_middle_sapd_display +]% ?]
+Old Middle Class: CHP: [+ old_middle_CHP_display +]%, AP: [+ old_middle_AP_display +]%, TIP: [+ old_middle_TIP_display +]%, [+ CGP_name +]: [+ old_middle_CGP_display +]%, DP: [+ old_middle_DP_display +]%; MSP: [+ old_middle_MSP_display +]%, MHP: [+ old_middle_MHP_display +]%, Others: [+ old_middle_other_display +]% [? if sapd_formed: SAPD: [+ old_middle_sapd_display +]% ?]
 
-Rural: CHP: [+ rural_CHP_display +]%, AP: [+ rural_z_display +]%, TIP: [+ rural_TIP_display +]%, [+ CGP_name +]: [+ rural_CGP_display +]%, DP: [+ rural_DP_display +]%; MSP: [+ rural_MSP_display +]%, MHP: [+ rural_MHP_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
+Rural: CHP: [+ rural_CHP_display +]%, AP: [+ rural_AP_display +]%, TIP: [+ rural_TIP_display +]%, [+ CGP_name +]: [+ rural_CGP_display +]%, DP: [+ rural_DP_display +]%; MSP: [+ rural_MSP_display +]%, MHP: [+ rural_MHP_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
 
-Unemployed: CHP: [+ unemployed_CHP_display +]%, AP: [+ unemployed_z_display +]%, TIP: [+ unemployed_TIP_display +]%, [+ CGP_name +]: [+ unemployed_CGP_display +]%, DP: [+ unemployed_DP_display +]%; MSP: [+ unemployed_MSP_display +]%, MHP: [+ unemployed_MHP_display +]%, Others: [+ unemployed_other_display +]% [? if sapd_formed: SAPD: [+ unemployed_sapd_display +]% ?]
+Unemployed: CHP: [+ unemployed_CHP_display +]%, AP: [+ unemployed_AP_display +]%, TIP: [+ unemployed_TIP_display +]%, [+ CGP_name +]: [+ unemployed_CGP_display +]%, DP: [+ unemployed_DP_display +]%; MSP: [+ unemployed_MSP_display +]%, MHP: [+ unemployed_MHP_display +]%, Others: [+ unemployed_other_display +]% [? if sapd_formed: SAPD: [+ unemployed_sapd_display +]% ?]
 
-Catholics: CHP: [+ catholics_CHP_display +]%, AP: [+ catholics_z_display +]%, TIP: [+ catholics_TIP_display +]%, [+ CGP_name +]: [+ catholics_CGP_display +]%, DP: [+ catholics_DP_display +]%; MSP: [+ catholics_MSP_display +]%, MHP: [+ catholics_MHP_display +]%, Others: [+ catholics_other_display +]% [? if sapd_formed: SAPD: [+ catholics_sapd_display +]% ?]
+Catholics: CHP: [+ catholics_CHP_display +]%, AP: [+ catholics_AP_display +]%, TIP: [+ catholics_TIP_display +]%, [+ CGP_name +]: [+ catholics_CGP_display +]%, DP: [+ catholics_DP_display +]%; MSP: [+ catholics_MSP_display +]%, MHP: [+ catholics_MHP_display +]%, Others: [+ catholics_other_display +]% [? if sapd_formed: SAPD: [+ catholics_sapd_display +]% ?]
 
 @parties
 go-to: menu
