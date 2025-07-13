@@ -88,6 +88,23 @@ Economic growth: [+ economic_growth_2 +]%
 
 {!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">MHP</span>!}: [+ MHP_relation : relationships +]
 
+= Party Leaderships
+
+TIP: [? if TIP_party_leader == "Behice Boran" : Marxism-Leninism ?][? if TIP_party_leader == "Mehmet Ali Aybar" : Democratic Socialism ?]
+
+CHP: [? if CHP_party_leader == "İnönü" : Kemalism ?][? if CHP_party_leader == "Ecevit" : Left Kemalism ?]
+
+CGP: [? if CGP_party_leader == "Feyzioğlu" : Right Kemalism ?]
+
+AP:  [? if AP_party_leader == "Demirel" : Conservative Liberalism ?]
+
+DP:  [? if DP_party_leader == "Bozbeyli" : Conservative Populism ?]
+
+MSP:  [? if MSP_party_leader == "Süleyman Arif" : Islamic Conservatism ?][? if MSP_party_leader == "Erbakan" : Social Islamism ?]
+
+MHP:  [? if MHP_party_leader == "Türkeş" : Turkic-Islamic Synthesis ?]
+
+
 = Internal Factions of the CHP
 
 {!<span class="tooltip-text" title="Marxists within the party desire a realignment of the party alongside Socialist elements. Even though many intellectuals such as Tevfik Rüştü Aras and Doğan Avcıoğlu subscribe to this faction, there is no central organization nor a figure that leads the Marxist camp, largely due to ideological differences.">Kemalist Marxists</span>!} strength: [+ kemalist_marxists_strength : strength +], dissent: [+ kemalist_marxists_dissent : dissent +]
