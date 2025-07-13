@@ -90,19 +90,19 @@ Economic growth: [+ economic_growth_2 +]%
 
 = Party Leaderships
 
-TIP: [? if TIP_party_leader == "Behice Boran" : Marxism-Leninism ?][? if TIP_party_leader == "Mehmet Ali Aybar" : Democratic Socialism ?]
+TIP: [? if TIP_party_leader == "Behice Boran" : Marxism-Leninism (Behice Boran) ?][? if TIP_party_leader == "Mehmet Ali Aybar" : Democratic Socialism (Aybar) ?]
 
-CHP: [? if CHP_party_leader == "İnönü" : Kemalism ?][? if CHP_party_leader == "Ecevit" : Left Kemalism ?]
+CHP: [? if CHP_party_leader == "İnönü" : Kemalism (İnönü) ?][? if CHP_party_leader == "Ecevit" : Left Kemalism (Ecevit) ?]
 
-CGP: [? if CGP_party_leader == "Feyzioğlu" : Right Kemalism ?]
+CGP: [? if CGP_party_leader == "Feyzioğlu" : Right Kemalism (Feyzioğlu) ?]
 
-AP:  [? if AP_party_leader == "Demirel" : Conservative Liberalism ?]
+AP:  [? if AP_party_leader == "Demirel" : Conservative Liberalism (Demirel) ?]
 
-DP:  [? if DP_party_leader == "Bozbeyli" : Conservative Populism ?]
+DP:  [? if DP_party_leader == "Bozbeyli" : Conservative Populism (Bozbeyli) ?]
 
-MSP:  [? if MSP_party_leader == "Süleyman Arif" : Islamic Conservatism ?][? if MSP_party_leader == "Erbakan" : Social Islamism ?]
+MSP:  [? if MSP_party_leader == "Süleyman Arif" : Islamic Conservatism (Süleyman Arif) ?][? if MSP_party_leader == "Erbakan" : Social Islamism (Erbakan) ?]
 
-MHP:  [? if MHP_party_leader == "Türkeş" : Turkic-Islamic Synthesis ?]
+MHP:  [? if MHP_party_leader == "Alparslan Türkeş" : Turkic-Islamic Synthesis (Türkeş) ?]
 
 
 = Internal Factions of the CHP
