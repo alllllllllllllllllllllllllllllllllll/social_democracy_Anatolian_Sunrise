@@ -179,7 +179,7 @@ CHP: [+ chp_votes +]%
 
 [? if sapd_formed: SAPD: [+ sapd_votes +]% ?]
 
-AP: [+AP_votes +]%
+AP: [+ AP_votes +]%
 
 TIP: [+ TIP_votes +]%
 
