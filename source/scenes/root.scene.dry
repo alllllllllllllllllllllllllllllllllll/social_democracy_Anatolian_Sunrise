@@ -95,21 +95,19 @@ Q.moderate_plan_adopted = 0;
 // organizations
 
 // inter-party relations
-Q.AP_relation = 50;
-Q.TIP_relation = 25;
-Q.CGP_relation = 60;
-Q.DP_relation = 35;
+Q.TIP_relation = 40;
+Q.CGP_relation = 35;
+Q.AP_relation = 30;
+Q.DP_relation = 20;
 // MSP and MHP are invariably hostile
-Q.MSP_relation = 10;
-Q.MHP_relation = 0;
+Q.MSP_relation = 5;
+Q.MHP_relation = 10;
 
 Q.TIP_leader = "Behice Boran";
 // alternative TIP leader: Mehmet Ali Aybar
 Q.TIP_party_leader = "Behice Boran";
 Q.AP_leader = "Demirel";
-// AP party leader - can change through events to affect relations with CHP
 Q.AP_party_leader = "Demirel";
-Q.MHP_leader = "Alparslan Türkeş";
 Q.DP_leader = "Bozbeyli";
 Q.DP_party_leader = "Bozbeyli";
 Q.CGP_leader = "Feyzioğlu";
@@ -120,6 +118,8 @@ Q.MSP_party_leader = "Süleyman Arif";
 Q.CHP_leader = "İnönü";
 // alternative CHP leader: Ecevit
 Q.CHP_party_leader = "İnönü";
+Q.MHP_leader = "Alparslan Türkeş"
+Q.MHP_party_leader = "Alparslan Türkeş"
 
 // hmm... maybe we can play nice with Hindenburg???
 Q.hindenburg_relation = 25;

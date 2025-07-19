@@ -76,17 +76,34 @@ Economic growth: [+ economic_growth_2 +]%
 = Inter-party Relations
 
 
+{!<span class="tooltip-text" title="Turkish Worker's Party">TIP</span>!}: [+ TIP_relation : relationships +]
+
+{!<span class="tooltip-text" title="Republican Trust Party">!}[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]{!</span>!}: [+ CGP_relation : relationships +]
+
 {!<span class="tooltip-text" title="Justice Party">AP</span>!}: [+AP_relation : relationships +]
 
-{!<span class="tooltip-text" title="German Democratic Party">!}[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]{!</span>!}: [+ CGP_relation : relationships +]
+{!<span class="tooltip-text" title="Democratic Party">DP</span>!}: [+ DP_relation : relationships +]
 
-{!<span class="tooltip-text" title="German People's Party">DP</span>!}: [+ DP_relation : relationships +]
+{!<span class="tooltip-text" title="National Salvation Party">MSP</span>!}: [+ MSP_relation : relationships +]
 
-{!<span class="tooltip-text" title="Communist Party of Germany">TIP</span>!}: [+ TIP_relation : relationships +]
+{!<span class="tooltip-text" title="Nationalist Movement Party">MHP</span>!}: [+ MHP_relation : relationships +]
 
-{!<span class="tooltip-text" title="German National People's Party">MSP</span>!}: [+ MSP_relation : relationships +]
+= Party Leaderships
 
-{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">MHP</span>!}: [+ MHP_relation : relationships +]
+TIP: [? if TIP_party_leader == "Behice Boran" : Marxism-Leninism (Behice Boran) ?][? if TIP_party_leader == "Mehmet Ali Aybar" : Democratic Socialism (Aybar) ?]
+
+CHP: [? if CHP_party_leader == "İnönü" : Kemalism (İnönü) ?][? if CHP_party_leader == "Ecevit" : Left Kemalism (Ecevit) ?]
+
+CGP: [? if CGP_party_leader == "Feyzioğlu" : Right Kemalism (Feyzioğlu) ?]
+
+AP:  [? if AP_party_leader == "Demirel" : Conservative Liberalism (Demirel) ?]
+
+DP:  [? if DP_party_leader == "Bozbeyli" : Conservative Populism (Bozbeyli) ?]
+
+MSP:  [? if MSP_party_leader == "Süleyman Arif" : Islamic Conservatism (Süleyman Arif) ?][? if MSP_party_leader == "Erbakan" : Social Islamism (Erbakan) ?]
+
+MHP:  [? if MHP_party_leader == "Alparslan Türkeş" : Turkic-Islamic Synthesis (Türkeş) ?]
+
 
 = Internal Factions of the CHP
 
