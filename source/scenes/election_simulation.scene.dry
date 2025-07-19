@@ -8,237 +8,264 @@ set-jump: post_election
 
 @1928
 on-arrival: {!
-Q.workers = 46; // industry and trade
-Q.old_middle = 13; // "old mittelstand"
-// 16.4 trade & commerce, 6.6 public and private services, 4.4 domestic help
-Q.new_middle = 14; // "new mittelstand"
-Q.rural = 25; // agriculture and forestry employment... but many of those are proletarians so...
-// source: https://surface.syr.edu/cgi/viewcontent.cgi?filename=3&article=1016&context=books&type=additional page 43, table 3.3
-Q.unemployed = 8.6;
-Q.catholics = 30;
+// Turkish demographic groups with accurate percentages
+Q.rural = 45; // Rural population
+Q.workers = 15; // Industrial workers  
+Q.petty_bourgeoisie = 15; // Small business owners, artisans
+Q.state_employees = 7; // State employees and bureaucrats
+Q.capitalists = 3; // Capitalists and land owners
+Q.alevis = 10; // Alevi religious minority
+Q.kurds = 5; // Kurdish political movement
 
-Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
+Q.classes = ['rural', 'workers', 'petty_bourgeoisie', 'state_employees', 'capitalists', 'alevis', 'kurds'];
 Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
 
-// Support for party by social group
-// they don't have to sum to 100 since the electoral calculations will be normalized.
-Q.workers_chp = 65;
-Q.workers_TIP = 20;
-Q.workers_z = 5;
-Q.workers_CGP = 0;
-Q.workers_DP = 0;
-Q.workers_MSP = 5;
-Q.workers_MHP = 0;
-Q.workers_other = 10;
-
-Q.old_middle_chp = 5;
-Q.old_middle_TIP = 0;
-Q.old_middle_z = 5;
-Q.old_middle_CGP= 10;
-Q.old_middle_DP = 25;
-Q.old_middle_MSP = 25;
-Q.old_middle_MHP = 10;
-Q.old_middle_other = 10;
-
-Q.new_middle_chp = 5;
-Q.new_middle_TIP = 0;
-Q.new_middle_z = 10;
-Q.new_middle_CGP= 25;
-Q.new_middle_DP = 25;
-Q.new_middle_MSP = 10;
-Q.new_middle_MHP = 5;
-Q.new_middle_other = 15;
-
-Q.rural_chp = 10;
-Q.rural_TIP = 0;
-Q.rural_z = 5;
-Q.rural_CGP= 5;
+// Support for party by social group - Turkish political alignment
+// Rural (45% of population)
+Q.rural_TIP = 0.4;
+Q.rural_chp = 17;
+Q.rural_z = 46; // AP uses 'z' variable
+Q.rural_CGP = 3;
 Q.rural_DP = 15;
-Q.rural_MSP = 45;
-Q.rural_MHP = 5;
-Q.rural_other = 10;
+Q.rural_MSP = 12.6;
+Q.rural_MHP = 3;
+Q.rural_other = 3;
 
-Q.unemployed_chp = 25;
-Q.unemployed_TIP = 55;
-Q.unemployed_z = 1;
-Q.unemployed_CGP = 0;
-Q.unemployed_DP = 0;
-Q.unemployed_MSP = 5;
-Q.unemployed_MHP = 15;
-Q.unemployed_other = 9;
+// Workers (15% of population)
+Q.workers_TIP = 14;
+Q.workers_chp = 43;
+Q.workers_z = 18; // AP
+Q.workers_CGP = 2;
+Q.workers_DP = 5;
+Q.workers_MSP = 12;
+Q.workers_MHP = 3;
+Q.workers_other = 3;
 
-Q.catholics_chp = 15;
-Q.catholics_TIP = 5;
-Q.catholics_z = 50;
-Q.catholics_CGP = 0;
-Q.catholics_DP = 5;
-Q.catholics_MSP = 5;
-Q.catholics_MHP = 0;
-Q.catholics_other = 10;
+// Petty Bourgeoisie (15% of population)
+Q.petty_bourgeoisie_TIP = 0;
+Q.petty_bourgeoisie_chp = 19;
+Q.petty_bourgeoisie_z = 36; // AP
+Q.petty_bourgeoisie_CGP = 7;
+Q.petty_bourgeoisie_DP = 13;
+Q.petty_bourgeoisie_MSP = 18;
+Q.petty_bourgeoisie_MHP = 5;
+Q.petty_bourgeoisie_other = 2;
+
+// State Employees (7% of population)
+Q.state_employees_TIP = 0;
+Q.state_employees_chp = 47;
+Q.state_employees_z = 18; // AP
+Q.state_employees_CGP = 23;
+Q.state_employees_DP = 5;
+Q.state_employees_MSP = 0;
+Q.state_employees_MHP = 4;
+Q.state_employees_other = 3;
+
+// Capitalists and Land Owners (3% of population)
+Q.capitalists_TIP = 0;
+Q.capitalists_chp = 7;
+Q.capitalists_z = 55; // AP
+Q.capitalists_CGP = 8;
+Q.capitalists_DP = 25;
+Q.capitalists_MSP = 5;
+Q.capitalists_MHP = 0;
+Q.capitalists_other = 0;
+
+// Alevis (10% of population)
+Q.alevis_TIP = 8;
+Q.alevis_chp = 64;
+Q.alevis_z = 8; // AP
+Q.alevis_CGP = 0;
+Q.alevis_DP = 1;
+Q.alevis_MSP = 0;
+Q.alevis_MHP = 1;
+Q.alevis_other = 18;
+
+// Kurdish Political Movement (5% of population)
+Q.kurds_TIP = 8;
+Q.kurds_chp = 33;
+Q.kurds_z = 32; // AP
+Q.kurds_CGP = 3;
+Q.kurds_DP = 2;
+Q.kurds_MSP = 3;
+Q.kurds_MHP = 0;
+Q.kurds_other = 19;
 !}
 go-to: election_algorithm
 set-jump: post_election
 
 @1930
 on-arrival: {!
-Q.workers = 46; // industry and trade
-Q.old_middle = 13; // "old mittelstand"
-// 16.4 trade & commerce, 6.6 public and private services, 4.4 domestic help
-Q.new_middle = 14; // "new mittelstand"
-Q.rural = 25; // agriculture and forestry employment... but many of those are proletarians so...
-// source: https://surface.syr.edu/cgi/viewcontent.cgi?filename=3&article=1016&context=books&type=additional page 43, table 3.3
-Q.unemployed = 20;
-Q.catholics = 30;
+// Turkish demographic groups with accurate percentages - 1930 variation
+Q.rural = 45; // Rural population
+Q.workers = 15; // Industrial workers  
+Q.petty_bourgeoisie = 15; // Small business owners, artisans
+Q.state_employees = 7; // State employees and bureaucrats
+Q.capitalists = 3; // Capitalists and land owners
+Q.alevis = 10; // Alevi religious minority
+Q.kurds = 5; // Kurdish political movement
 
-Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
+Q.classes = ['rural', 'workers', 'petty_bourgeoisie', 'state_employees', 'capitalists', 'alevis', 'kurds'];
 Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
 
-// Support for party by social group
-// they don't have to sum to 100 since the electoral calculations will be normalized.
-Q.workers_chp = 60;
-Q.workers_TIP = 20;
-Q.workers_z = 5;
-Q.workers_CGP = 0;
-Q.workers_DP = 0;
-Q.workers_MSP = 0;
-Q.workers_MHP = 10;
-Q.workers_other = 15;
+// Support for party by social group - slight variations for 1930 economic changes
+// Rural (45% of population) - slight increase in MHP due to rising nationalism
+Q.rural_TIP = 0.3;
+Q.rural_chp = 15;
+Q.rural_z = 44; // AP slightly down
+Q.rural_CGP = 3;
+Q.rural_DP = 14;
+Q.rural_MSP = 13;
+Q.rural_MHP = 7; // increased nationalism
+Q.rural_other = 3.7;
 
-Q.old_middle_chp = 5;
-Q.old_middle_TIP = 0;
-Q.old_middle_z = 5;
-Q.old_middle_CGP= 5;
-Q.old_middle_DP = 10;
-Q.old_middle_MSP = 20;
-Q.old_middle_MHP = 30;
-Q.old_middle_other = 15;
+// Workers (15% of population) - more polarized in 1930
+Q.workers_TIP = 18; // increased left support
+Q.workers_chp = 40;
+Q.workers_z = 16; // AP slightly down
+Q.workers_CGP = 2;
+Q.workers_DP = 4;
+Q.workers_MSP = 10;
+Q.workers_MHP = 6; // some nationalist drift
+Q.workers_other = 4;
 
-Q.new_middle_chp = 5;
-Q.new_middle_TIP = 0;
-Q.new_middle_z = 5;
-Q.new_middle_CGP = 10;
-Q.new_middle_DP = 20;
-Q.new_middle_MSP = 10;
-Q.new_middle_MHP = 25;
-Q.new_middle_other = 15;
+// Petty Bourgeoisie (15% of population) - economic pressures
+Q.petty_bourgeoisie_TIP = 0;
+Q.petty_bourgeoisie_chp = 17;
+Q.petty_bourgeoisie_z = 33; // economic concerns hurt AP
+Q.petty_bourgeoisie_CGP = 8;
+Q.petty_bourgeoisie_DP = 15;
+Q.petty_bourgeoisie_MSP = 19;
+Q.petty_bourgeoisie_MHP = 7; // nationalist appeal
+Q.petty_bourgeoisie_other = 1;
 
-Q.rural_chp = 5;
-Q.rural_TIP = 0;
-Q.rural_z = 5;
-Q.rural_CGP= 5;
-Q.rural_DP = 10;
-Q.rural_MSP = 20;
-Q.rural_MHP = 25;
-Q.rural_other = 15;
+// State Employees (7% of population) - similar to 1928
+Q.state_employees_TIP = 0;
+Q.state_employees_chp = 45;
+Q.state_employees_z = 19;
+Q.state_employees_CGP = 24;
+Q.state_employees_DP = 5;
+Q.state_employees_MSP = 0;
+Q.state_employees_MHP = 4;
+Q.state_employees_other = 3;
 
-Q.unemployed_chp = 20;
-Q.unemployed_TIP = 50;
-Q.unemployed_z = 0;
-Q.unemployed_CGP = 0;
-Q.unemployed_DP = 0;
-Q.unemployed_MSP = 5;
-Q.unemployed_MHP = 25;
-Q.unemployed_other = 5;
+// Capitalists (3% of population) - similar to 1928
+Q.capitalists_TIP = 0;
+Q.capitalists_chp = 6;
+Q.capitalists_z = 56;
+Q.capitalists_CGP = 9;
+Q.capitalists_DP = 24;
+Q.capitalists_MSP = 5;
+Q.capitalists_MHP = 0;
+Q.capitalists_other = 0;
 
-Q.catholics_chp = 10;
-Q.catholics_TIP = 5;
-Q.catholics_z = 50;
-Q.catholics_CGP = 0;
-Q.catholics_DP = 5;
-Q.catholics_MSP = 5;
-Q.catholics_MHP = 10;
-Q.catholics_other = 5;
+// Alevis (10% of population) - similar to 1928
+Q.alevis_TIP = 9;
+Q.alevis_chp = 63;
+Q.alevis_z = 7;
+Q.alevis_CGP = 0;
+Q.alevis_DP = 1;
+Q.alevis_MSP = 0;
+Q.alevis_MHP = 2;
+Q.alevis_other = 18;
 
-Q.chp_r = 25;
-Q.TIP_r = 10;
-Q.z_r = 15;
-Q.CGP_r = 10;
-Q.DP_r = 10;
-Q.MSP_r = 14;
-Q.MHP_r = 10;
-Q.other_r = 5;
+// Kurdish Political Movement (5% of population) - similar to 1928
+Q.kurds_TIP = 9;
+Q.kurds_chp = 32;
+Q.kurds_z = 31;
+Q.kurds_CGP = 3;
+Q.kurds_DP = 2;
+Q.kurds_MSP = 4;
+Q.kurds_MHP = 0;
+Q.kurds_other = 19;
 !}
 go-to: election_algorithm
 set-jump: post_election
 
 @1932
 on-arrival: {!
-Q.workers = 46; // industry and trade
-Q.old_middle = 13; // "old mittelstand"
-// 16.4 trade & commerce, 6.6 public and private services, 4.4 domestic help
-Q.new_middle = 14; // "new mittelstand"
-Q.rural = 25; // agriculture and forestry employment... but many of those are proletarians so...
-// source: https://surface.syr.edu/cgi/viewcontent.cgi?filename=3&article=1016&context=books&type=additional page 43, table 3.3
-Q.unemployed = 33;
-Q.catholics = 30;
+// Turkish demographic groups with accurate percentages - 1932 crisis scenario
+Q.rural = 45; // Rural population
+Q.workers = 15; // Industrial workers  
+Q.petty_bourgeoisie = 15; // Small business owners, artisans
+Q.state_employees = 7; // State employees and bureaucrats
+Q.capitalists = 3; // Capitalists and land owners
+Q.alevis = 10; // Alevi religious minority
+Q.kurds = 5; // Kurdish political movement
 
-Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
+Q.classes = ['rural', 'workers', 'petty_bourgeoisie', 'state_employees', 'capitalists', 'alevis', 'kurds'];
 Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
 
-// Support for party by social group
-// they don't have to sum to 100 since the electoral calculations will be normalized.
-Q.workers_chp = 55;
-Q.workers_TIP = 20;
-Q.workers_z = 5;
-Q.workers_CGP = 0;
-Q.workers_DP = 0;
-Q.workers_MSP = 0;
-Q.workers_MHP = 15;
-Q.workers_other = 5;
+// Support for party by social group - 1932 crisis increases polarization
+// Rural (45% of population) - further drift to extreme parties
+Q.rural_TIP = 0.2;
+Q.rural_chp = 12;
+Q.rural_z = 40; // AP hurt by economic crisis
+Q.rural_CGP = 2;
+Q.rural_DP = 12;
+Q.rural_MSP = 16; // religious conservatism rises
+Q.rural_MHP = 12; // nationalism increases
+Q.rural_other = 5.8;
 
-Q.old_middle_chp = 0;
-Q.old_middle_TIP = 0;
-Q.old_middle_z = 5;
-Q.old_middle_CGP = 4;
-Q.old_middle_DP = 4;
-Q.old_middle_MSP = 15;
-Q.old_middle_MHP = 70;
-Q.old_middle_other = 5;
+// Workers (15% of population) - crisis increases left and extreme support
+Q.workers_TIP = 22; // increased left support
+Q.workers_chp = 35;
+Q.workers_z = 12; // AP loses worker support
+Q.workers_CGP = 1;
+Q.workers_DP = 3;
+Q.workers_MSP = 8;
+Q.workers_MHP = 12; // economic crisis drives some to extremes
+Q.workers_other = 7;
 
-Q.new_middle_chp = 5;
-Q.new_middle_TIP = 0;
-Q.new_middle_z = 5;
-Q.new_middle_CGP = 10;
-Q.new_middle_DP = 10;
-Q.new_middle_MSP = 10;
-Q.new_middle_MHP = 60;
-Q.new_middle_other = 5;
+// Petty Bourgeoisie (15% of population) - crisis hits hard, extremism rises
+Q.petty_bourgeoisie_TIP = 0;
+Q.petty_bourgeoisie_chp = 14;
+Q.petty_bourgeoisie_z = 28; // economic crisis hurts AP more
+Q.petty_bourgeoisie_CGP = 9;
+Q.petty_bourgeoisie_DP = 17;
+Q.petty_bourgeoisie_MSP = 22; // turn to religious parties
+Q.petty_bourgeoisie_MHP = 10; // nationalist appeal increases
+Q.petty_bourgeoisie_other = 0;
 
-Q.rural_chp = 0;
-Q.rural_TIP = 0;
-Q.rural_z = 5;
-Q.rural_CGP = 0;
-Q.rural_DP = 5;
-Q.rural_MSP = 15;
-Q.rural_MHP = 65;
-Q.rural_other = 5;
+// State Employees (7% of population) - still relatively stable
+Q.state_employees_TIP = 0;
+Q.state_employees_chp = 42;
+Q.state_employees_z = 20;
+Q.state_employees_CGP = 25;
+Q.state_employees_DP = 5;
+Q.state_employees_MSP = 0;
+Q.state_employees_MHP = 5;
+Q.state_employees_other = 3;
 
-Q.unemployed_chp = 20;
-Q.unemployed_TIP = 40;
-Q.unemployed_z = 0;
-Q.unemployed_CGP = 0;
-Q.unemployed_DP = 0;
-Q.unemployed_MSP = 0;
-Q.unemployed_MHP = 50;
-Q.unemployed_other = 5;
+// Capitalists (3% of population) - seek stability
+Q.capitalists_TIP = 0;
+Q.capitalists_chp = 5;
+Q.capitalists_z = 58; // still prefer AP despite crisis
+Q.capitalists_CGP = 10;
+Q.capitalists_DP = 22;
+Q.capitalists_MSP = 5;
+Q.capitalists_MHP = 0;
+Q.capitalists_other = 0;
 
-Q.catholics_chp = 10;
-Q.catholics_TIP = 5;
-Q.catholics_z = 60;
-Q.catholics_CGP = 0;
-Q.catholics_DP = 5;
-Q.catholics_MSP = 5;
-Q.catholics_MHP = 10;
-Q.catholics_other = 5;
+// Alevis (10% of population) - remain stable 
+Q.alevis_TIP = 10;
+Q.alevis_chp = 61;
+Q.alevis_z = 6;
+Q.alevis_CGP = 0;
+Q.alevis_DP = 1;
+Q.alevis_MSP = 0;
+Q.alevis_MHP = 4; // some nationalist drift
+Q.alevis_other = 18;
 
-Q.chp_r = 25;
-Q.TIP_r = 10;
-Q.z_r = 15;
-Q.CGP_r = 10;
-Q.DP_r = 10;
-Q.MSP_r = 14;
-Q.MHP_r = 10;
-Q.other_r = 5;
+// Kurdish Political Movement (5% of population) - remain stable
+Q.kurds_TIP = 10;
+Q.kurds_chp = 30;
+Q.kurds_z = 29;
+Q.kurds_CGP = 3;
+Q.kurds_DP = 2;
+Q.kurds_MSP = 5;
+Q.kurds_MHP = 0;
+Q.kurds_other = 21;
 !}
 go-to: election_algorithm
 set-jump: post_election
@@ -248,6 +275,7 @@ on-arrival: {!
 // set congress proportion to votes
 Q.chp_r = Q.chp_votes;
 Q.z_r = Q.z_votes;
+Q.AP_r = Q.z_votes; // AP display variable matches z_votes
 Q.TIP_r = Q.TIP_votes;
 Q.CGP_r = Q.CGP_votes;
 Q.DP_r = Q.DP_votes;
@@ -279,41 +307,37 @@ Q.anti_democratic_coalition = Q.TIP_r + Q.MHP_r;
 Q.neo_weimar_coalition = Q.chp_r + Q.CGP_r + Q.z_r + Q.DP_r + Q.other_r;
 !}
 
-The electoral system is essentially proportional, with the proportion of Reichstag seats roughly equal to the proportion of votes.
+The electoral system is essentially proportional, with the proportion of parliament seats roughly equal to the proportion of votes.
  
 **Election results:**
 
-# 1928: 30, 1930: 25, 1932: 22
-CHP: [+ chp_r +]
+**CHP (Cumhuriyet Halk Partisi):** [+ chp_r +]%
 
-# 1928: 15, 1930: 15, 1932: 
-AP: [+AP_r +]
+**AP (Adalet Partisi):** [+ AP_r +]%
 
-# 1928: 10, 1930: 13
-TIP: [+ TIP_r +]
+**TİP (Türkiye İşçi Partisi):** [+ TIP_r +]%
 
-# 1928: 5, 1930: 4 (as DstP)
-CGP: [+ CGP_r +]
+**CGP (Cumhuriyetçi Güven Partisi):** [+ CGP_r +]%
 
-# 1928: 9, 1930: 5
-DP: [+ DP_r +]
+**DP (Demokrat Parti):** [+ DP_r +]%
 
-# 1928: 14, 1930: 7
-MSP: [+ MSP_r +]
+**MSP (Milli Selamet Partisi):** [+ MSP_r +]%
 
-# 1928: 3, 1930: 18
-MHP: [+ MHP_r +]
+**MHP (Milliyetçi Hareket Partisi):** [+ MHP_r +]%
 
-# 1928: 9, 1930: 10
-Other: [+ other_r +]
+**Other parties:** [+ other_r +]%
 
 **Potential coalitions:**
 
-Weimar Coalition (CHP + Z + CGP): [+ weimar_coalition +]
+**Left Alliance** (CHP + TİP): [+ left_coalition +]%
 
-Grand Coalition (CHP + Z + CGP + DP): [+ grand_coalition +]
+**Center Coalition** (CHP + AP + CGP): [+ weimar_coalition +]%
 
-Bourgeois Coalition (Z + CGP + DP + Others): [+ bourgeois_coalition +]
+**Grand Coalition** (CHP + AP + CGP + DP): [+ grand_coalition +]%
 
-Right-wing Coalition (Z + DP + Others + MSP): [+ right_coalition +]
+**Conservative Alliance** (AP + CGP + DP + Others): [+ bourgeois_coalition +]%
+
+**Right-wing Coalition** (AP + DP + Others + MSP): [+ right_coalition +]%
+
+**Far-right Coalition** (MSP + MHP): [+ far_right_coalition +]%
 

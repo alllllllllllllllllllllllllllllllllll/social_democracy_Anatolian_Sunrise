@@ -32,8 +32,7 @@ Q.historical_mode = 0;
 // old demographics
 Q.old_demographics = 0;
 // use decimals for reichstag seats
-// TODO: not yet implemented
-Q.use_decimals = 0;
+Q.use_decimals = 1; // Enable decimal display for Turkish election results
 
 // party resources
 Q.resources = 2;
@@ -197,126 +196,134 @@ Q.capital_strike_progress = 0;
 
 Q.budget = 4;
 
-// Proportion of different social groups
-// source: https://surface.syr.edu/cgi/viewcontent.cgi?filename=3&article=1016&context=books&type=additional page 45, table 3.4 - using 1925 figures
-Q.workers = 48; // industry and trade
-Q.old_middle = 13; // "old mittelstand"
-// 16.4 trade & commerce, 6.6 public and private services, 4.4 domestic help
-Q.new_middle = 14; // "new mittelstand"
-Q.rural = 25; // agriculture and forestry employment... but many of those are proletarians so...
-// source: https://surface.syr.edu/cgi/viewcontent.cgi?filename=3&article=1016&context=books&type=additional page 43, table 3.3
-Q.unemployed = 8.6;
-Q.catholics = 30;
+// Proportion of different social groups - Turkish demographics circa 1972-1977
+Q.rural = 45; // Rural population
+Q.workers = 15; // Industrial workers  
+Q.petty_bourgeoisie = 15; // Small business owners, artisans
+Q.state_employees = 7; // State employees and bureaucrats
+Q.capitalists = 3; // Capitalists and land owners
+Q.alevis = 10; // Alevi religious minority
+Q.kurds = 5; // Kurdish political movement
 
-// unemployment: 1929 - 13.3, 1930 - 22.7, 1931 - 34.3, 1932 - 43.8 (same source as above)
-
-// income for industrial workers in reichsmarks/year - 1928 = 1600 Reichsmarks/year; 1931 = 1440 Reichsmarks/year; 1933 = 1138 Reichsmarks/year - source: https://babel.hathitrust.org/cgi/pt?id=uiug.30112104147985&seq=50
+// income for industrial workers 
 Q.income = 1600;
-// what about incomes for different classes? rural workers? middle-class workers?
 
-// inflation (in %; 1928: 2.9; 1929: 0; 1930: -5%; 1931: -10%; 1932: -10%) - source: https://en.wikipedia.org/wiki/File:BCHPRWeltkriseEngl.PNG, derived from https://www.destatis.de/DE/Methoden/WISTA-Wirtschaft-und-Statistik/2009/03/rezession-betrachtung-032009.pdf?__blob=publicationFile
+// inflation (in %; Turkish context)
 Q.inflation = 2.9;
 
-// economic growth - same source as above, Table 2 (preisbereinigt) - this is also the source for the yearly changes in the great depression.
+// economic growth
 Q.economic_growth = 4.4;
 
 // economic expansion timer
 Q.economic_expansion = 0;
 
-// quality of life (as % of 1928 - currently unused - should be welfare-adjusted.)
-Q.workers_qol = 100;
+// quality of life (as % of base year - currently unused)
 Q.rural_qol = 100;
-Q.unemployed_qol = 100;
-Q.old_middle_qol = 100;
-Q.new_middle_qol = 100;
+Q.workers_qol = 100;
+Q.petty_bourgeoisie_qol = 100;
+Q.state_employees_qol = 100;
+Q.capitalists_qol = 100;
+Q.alevis_qol = 100;
+Q.kurds_qol = 100;
 
-Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
+Q.classes = ['rural', 'workers', 'petty_bourgeoisie', 'state_employees', 'capitalists', 'alevis', 'kurds'];
 Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
 
 // TODO: add 'sapd' later on
 Q.sapd_formed = 0;
 
-// Support for party by social group
-// they don't have to sum to 100 since the electoral calculations will be normalized.
-Q.workers_chp = 60;
-Q.workers_TIP = 20;
-Q.workers_z = 5;
-Q.workers_CGP = 0;
-Q.workers_DP = 0;
-Q.workers_MSP = 5;
-Q.workers_MHP = 0;
-Q.workers_other = 10;
-
-Q.old_middle_chp = 5;
-Q.old_middle_TIP = 0;
-Q.old_middle_z = 5;
-Q.old_middle_CGP= 10;
-Q.old_middle_DP = 25;
-Q.old_middle_MSP = 25;
-Q.old_middle_MHP = 10;
-Q.old_middle_other = 10;
-
-Q.new_middle_chp = 5;
-Q.new_middle_TIP = 1;
-Q.new_middle_z = 10;
-Q.new_middle_CGP= 25;
-Q.new_middle_DP = 25;
-Q.new_middle_MSP = 10;
-Q.new_middle_MHP = 5;
-Q.new_middle_other = 15;
-
-Q.rural_chp = 10;
-Q.rural_TIP = 0;
-Q.rural_z = 5;
-Q.rural_CGP= 5;
+// Support for party by social group - Turkish political alignment baseline (1972)
+// Rural (45% of population)
+Q.rural_TIP = 0.4;
+Q.rural_chp = 17;
+Q.rural_z = 46; // AP uses 'z' variable
+Q.rural_CGP = 3;
 Q.rural_DP = 15;
-Q.rural_MSP = 45;
-Q.rural_MHP = 5;
-Q.rural_other = 10;
+Q.rural_MSP = 12.6;
+Q.rural_MHP = 3;
+Q.rural_other = 3;
 
-Q.unemployed_chp = 25;
-Q.unemployed_TIP = 55;
-Q.unemployed_z = 1;
-Q.unemployed_CGP = 0;
-Q.unemployed_DP = 0;
-Q.unemployed_MSP = 5;
-Q.unemployed_MHP = 15;
-Q.unemployed_other = 9;
+// Workers (15% of population)
+Q.workers_TIP = 14;
+Q.workers_chp = 43;
+Q.workers_z = 18; // AP
+Q.workers_CGP = 2;
+Q.workers_DP = 5;
+Q.workers_MSP = 12;
+Q.workers_MHP = 3;
+Q.workers_other = 3;
 
-Q.catholics_chp = 15;
-Q.catholics_TIP = 2;
-Q.catholics_z = 50;
-Q.catholics_CGP = 0;
-Q.catholics_DP = 5;
-Q.catholics_MSP = 5;
-Q.catholics_MHP = 0;
-Q.catholics_other = 12;
+// Petty Bourgeoisie (15% of population)
+Q.petty_bourgeoisie_TIP = 0;
+Q.petty_bourgeoisie_chp = 19;
+Q.petty_bourgeoisie_z = 36; // AP
+Q.petty_bourgeoisie_CGP = 7;
+Q.petty_bourgeoisie_DP = 13;
+Q.petty_bourgeoisie_MSP = 18;
+Q.petty_bourgeoisie_MHP = 5;
+Q.petty_bourgeoisie_other = 2;
+
+// State Employees (7% of population)
+Q.state_employees_TIP = 0;
+Q.state_employees_chp = 47;
+Q.state_employees_z = 18; // AP
+Q.state_employees_CGP = 23;
+Q.state_employees_DP = 5;
+Q.state_employees_MSP = 0;
+Q.state_employees_MHP = 4;
+Q.state_employees_other = 3;
+
+// Capitalists and Land Owners (3% of population)
+Q.capitalists_TIP = 0;
+Q.capitalists_chp = 7;
+Q.capitalists_z = 55; // AP
+Q.capitalists_CGP = 8;
+Q.capitalists_DP = 25;
+Q.capitalists_MSP = 5;
+Q.capitalists_MHP = 0;
+Q.capitalists_other = 0;
+
+// Alevis (10% of population)
+Q.alevis_TIP = 8;
+Q.alevis_chp = 64;
+Q.alevis_z = 8; // AP
+Q.alevis_CGP = 0;
+Q.alevis_DP = 1;
+Q.alevis_MSP = 0;
+Q.alevis_MHP = 1;
+Q.alevis_other = 18;
+
+// Kurdish Political Movement (5% of population)
+Q.kurds_TIP = 8;
+Q.kurds_chp = 33;
+Q.kurds_z = 32; // AP
+Q.kurds_CGP = 3;
+Q.kurds_DP = 2;
+Q.kurds_MSP = 3;
+Q.kurds_MHP = 0;
+Q.kurds_other = 19;
 
 
-// Current Reichstag composition
-// % of Reichstag in Jan 1928
-// source: wikipedia
-// note: the Z figures represent the AP (Justice Party)
-// since they were ideologically similar, but they were separate parties.
-// They did not have a CDU/CSU-style relationship.
-Q.chp_r = 26;
-Q.TIP_r = 9;
-Q.z_r = 17;
-Q.CGP_r = 6;
-Q.DP_r = 10;
-Q.MSP_r = 20;
-Q.MHP_r = 3;
-Q.other_r = 9;
+// Current Parliament composition - Turkish baseline (1972)
+// Based on weighted demographic calculations
+Q.chp_r = 23.7;
+Q.TIP_r = 2.1;
+Q.z_r = 35.8; // AP (Justice Party)  
+Q.CGP_r = 5.2;
+Q.DP_r = 12.6;
+Q.MSP_r = 11.9;
+Q.MHP_r = 3.2;
+Q.other_r = 5.5;
 
 // diff from prev
-Q.old_chp_r = 26;
-Q.old_TIP_r = 9;
-Q.old_z_r = 17;
-Q.old_CGP_r = 6;
-Q.old_DP_r = 10;
-Q.old_MSP_r = 20;
-Q.old_MHP_r = 3;
-Q.old_other_r = 9;
+Q.old_chp_r = 23.7;
+Q.old_TIP_r = 2.1;
+Q.old_z_r = 35.8; // AP
+Q.old_CGP_r = 5.2;
+Q.old_DP_r = 12.6;
+Q.old_MSP_r = 11.9;
+Q.old_MHP_r = 3.2;
+Q.old_other_r = 5.5;
 
 // sapd isn't formed yet, but it may be formed
 Q.sapd_r = 0;
