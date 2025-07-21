@@ -636,7 +636,7 @@ on-arrival: chancellor = "Hitler"; chancellor_party = "MHP"
 
 With [+ MHP_candidate +]'s victory, the Nazis waste no time in consolidating power. [? if president = "Göring": His first act is to depose the current chancellor and appoint Hitler as chancellor, first undoing his deportation. ?][? if president = "Hitler": His first act is to depose the current chancellor and appoint himself chancellor, using his stormtroopers to attack any opposition. ?]
 
-- @hitler_takes_power: What next?
+- @game_over: What next?
 - @hitler_constitutional: This is unconstitutional!
 
 @seldte_victory
@@ -644,7 +644,7 @@ on-arrival: chancellor = "Hitler"; chancellor_party = "MHP"
 
 With Seldte's victory, the balance of power passes to the Nazis. [? if hitler_deported: His first act is to depose the current chancellor and appoint Adolf Hitler as chancellor, first undoing his deportation. ?][? if not hitler_deported: His first act is to depose the current chancellor and appoint Adolf Hitler as chancellor. ?]
 
-- @hitler_takes_power: What next?
+- @game_over: What next?
 - @hitler_constitutional: This is blatantly unconstitutional!
 
 @hitler_constitutional
@@ -681,7 +681,7 @@ Despite the Nazi threats, supporters of the CHP and the democratic parties refus
 
 @ref_lose
 
-- @hitler_takes_power: What next?
+- @game_over: What next?
 
 
 @election_end

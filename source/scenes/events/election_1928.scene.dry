@@ -422,7 +422,7 @@ on-arrival: chancellor = MHP_leader; chancellor_party = "MHP"
 - @hitler_redirect: What do we do now?
 
 @hitler_redirect
-go-to: hitler_takes_power
+go-to: game_over
 
 
 @far_right_fail
@@ -732,7 +732,7 @@ There is no path to a majority government for now. The scheming around President
 - @hitler_redirect2: What now?
 
 @hitler_redirect2
-go-to: hitler_takes_power
+go-to: game_over
 
 # if MHP is largest party and Hindenburg is president, then Hindenburg appoints Hitler chancellor.
 

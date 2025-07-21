@@ -435,7 +435,7 @@ on-arrival: president = MHP_candidate; chancellor = "Hitler"; chancellor_party =
 [? if MHP_candidate == "Hitler" : Adolf Hitler of the MHP has won the presidency. He wastes no time in consolidating power. ?]
 [? if MHP_candidate != "Hitler" : The MHP candidate [+ president +] has won. The first action President [+ president +] takes is inviting Hitler back into Germany, and appointing him chancellor. The Nazis waste no time in consolidating power. ?]
 
-- @hitler_takes_power: What do we do now?
+- @game_over: What do we do now?
 
 
 @braun_wins

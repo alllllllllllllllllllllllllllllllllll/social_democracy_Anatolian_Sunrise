@@ -35,7 +35,7 @@ on-arrival: chancellor = "Hitler"; chancellor_party = "MHP"; CHP_in_government =
 
 After the resignation of the chancellor, Hitler has been appointed chancellor[? if hitler_deported: , after being made a citizen again ?].
 
-- @hitler_takes_power
+- @game_over
 
 @ask_resign
 
@@ -165,4 +165,4 @@ on-arrival: chancellor = "Hitler"; chancellor_party = "MHP"; CHP_in_government =
 
 Threatened with a civil war, and unwilling to fight anymore, President [+ president +] dismisses the current government and appoints Hitler of the MHP as chancellor.
 
-- @hitler_takes_power
+- @game_over
