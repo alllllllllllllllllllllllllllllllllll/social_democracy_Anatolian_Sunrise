@@ -162,11 +162,12 @@ Q.tit_strength = 0.5;
 Q.tit_militancy = 0.9;
 Q.tit_banned = 0;
 
-Q.interior_police_strength = 50;
+// Keep these for compatibility with existing events, but set to 0 for Turkish context
+Q.interior_police_strength = 0;
 Q.interior_police_militancy = 1;
 Q.interior_police_loyalty = 0.45;
 
-Q.prussian_police_strength = 90;
+Q.prussian_police_strength = 0;
 Q.prussian_police_militancy = 1;
 Q.prussian_police_loyalty = 0.5;
 
@@ -208,12 +209,10 @@ Q.far_right_force += Q.tit_force;
 
 // State forces calculation (strength × militancy)
 Q.police_force = Q.police_strength * Q.police_militancy;
-Q.interior_police_force = Q.interior_police_strength * Q.interior_police_militancy;
-Q.prussian_police_force = Q.prussian_police_strength * Q.prussian_police_militancy;
+Q.interior_police_force = Q.interior_police_strength * Q.interior_police_militancy; // 0 for Turkish context
+Q.prussian_police_force = Q.prussian_police_strength * Q.prussian_police_militancy; // 0 for Turkish context
 
-Q.state_force += Q.police_force;
-Q.state_force += Q.interior_police_force;
-Q.state_force += Q.prussian_police_force;
+Q.state_force = Q.police_force + Q.interior_police_force + Q.prussian_police_force;
 
 // Democratic forces (state forces when not controlled by extremists)
 Q.democracy_force = Q.state_force;

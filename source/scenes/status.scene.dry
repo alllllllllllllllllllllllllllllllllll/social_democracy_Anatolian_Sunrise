@@ -141,11 +141,13 @@ if (Q.tit_strength) {
 
 // Convert army strength values (0-1) to descriptive text
 function getStrengthDescription(value) {
-    if (value >= 0.9) return "Excellent";
-    else if (value >= 0.7) return "Good";
-    else if (value >= 0.5) return "Adequate";
-    else if (value >= 0.3) return "Poor";
-    else return "Very Poor";
+    if (value >= 0.8) return "Excellent";
+    else if (value >= 0.6) return "Good";
+    else if (value >= 0.5) return "Sufficient";
+    else if (value >= 0.4) return "Adequate";
+    else if (value >= 0.2) return "Poor";
+    else if (value >= 0.1) return "Decrepit";
+    else return "Horrible";
 }
 
 Q.army_land_desc = getStrengthDescription(Q.army_land_strength);
@@ -171,6 +173,8 @@ Q.army_aerial_desc = getStrengthDescription(Q.army_aerial_strength);
 
 Police Militarization: [+ police_militancy : militancy +]
 
+Police Loyalty: [+ police_loyalty : loyalty +]
+
 **Far Right**
 
 {!<span class="tooltip-text" title="Grey Wolves (Bozkurtlar) are the militant wing of the Nationalist Movement Party.">Grey Wolves</span>!} Strength: [+ grey_wolves_strength_2 +] thousand
@@ -189,25 +193,21 @@ TİT Militarization: [+ tit_militancy : militancy +]
 
 [? if year >= 1930 and not streetfighting_joever: <h4>Democratic strength: [+ democracy_force_percent +]%</h4>?]
 
-[? if year >= 1930 and not streetfighting_joever: <span style="color: #0066CC;">**Police Forces**</span>: [+ police_force_percent +]%?]
+[? if year >= 1930 and not streetfighting_joever: <span style="color: #0066CC;">**State Forces**</span>: [+ state_force_percent +]%?]
 
 [? if year >= 1930 and not streetfighting_joever: <h4><span style="color: #8B0000;">Far</span>-<span style="color: #FF0000;">left</span> strength: [+ far_left_force_percent +]%</h4>?]
 
-[? if year >= 1930 and not streetfighting_joever and not thkpc_destroyed: <span style="color: #8B0000;">**THKP-C**</span>: [+ thkpc_force_percent +]%?]
+[? if year >= 1930 and not streetfighting_joever and not thkpc_destroyed: **THKP-C**: [+ thkpc_force_percent +]%?]
 
-[? if year >= 1930 and not streetfighting_joever and devyol_formed: <span style="color: #8B0000;">**DEV-YOL**</span>: [+ devyol_force_percent +]%?]
+[? if year >= 1930 and not streetfighting_joever and devyol_formed: **DEV-YOL**: [+ devyol_force_percent +]%?]
 
 [? if year >= 1930 and not streetfighting_joever: <h4><span style="color: #7A3C00;">Far</span>-<span style="color: #CC6600;">right</span> strength: [+ far_right_force_percent +]%</h4>?]
 
-[? if year >= 1930 and not streetfighting_joever: <span style="color: #CC6600;">**Grey Wolves**</span>: [+ grey_wolves_force_percent +]%?]
+[? if year >= 1930 and not streetfighting_joever: **Grey Wolves**: [+ grey_wolves_force_percent +]%?]
 
-[? if year >= 1930 and not streetfighting_joever and raiders_formed: <span style="color: #7A3C00;">**Raiders**</span>: [+ raiders_force_percent +]%?]
+[? if year >= 1930 and not streetfighting_joever and raiders_formed: **Raiders**: [+ raiders_force_percent +]%?]
 
-[? if year >= 1930 and not streetfighting_joever: <span style="color: #990000;">**TİT**</span>: [+ tit_force_percent +]%?]
-
-[? if year >= 1930 and not streetfighting_joever: <h4><span style="color: #0066CC;">**State**</span> strength: [+ state_force_percent +]%</h4>?]
-
-[? if year >= 1930 and not streetfighting_joever: <b>Police Forces: [+ police_force_percent +]%</b>?]
+[? if year >= 1930 and not streetfighting_joever: <span style="color: #663399;">**TİT**</span>: [+ tit_force_percent +]%?]
 
 [? if year >= 1930 and not streetfighting_joever: Currently, the streets are [? if far_right_paramilitary and far_left_force_percent < far_right_force_percent:[? if far_right_paramilitary_highest: fully controlled by the <span style="color: #7A3C00;">far</span>-<span style="color: #CC6600;">right</span>?][? if far_right_paramilitary_high: dominated by the <span style="color: #7A3C00;">far</span>-<span style="color: #CC6600;">right</span>?][? if far_right_paramilitary_med: controlled by the <span style="color: #7A3C00;">far</span>-<span style="color: #CC6600;">right</span>?][? if far_right_paramilitary_low: in the slight control of the <span style="color: #7A3C00;">far</span>-<span style="color: #CC6600;">right</span>?]?][? if far_left_force_percent >= far_right_force_percent and far_right_paramilitary: controlled by the <span style="color: #8B0000;">**far-left**</span>?][? if democracy_paramilitary and far_left_force_percent < democracy_force_percent:[? if democracy_paramilitary_highest: fully controlled by the <span style="color: #0066CC;">democratic forces</span>?][? if democracy_paramilitary_high: dominated by the <span style="color: #0066CC;">democratic forces</span>?][? if democracy_paramilitary_med: controlled by the <span style="color: #0066CC;">democratic forces</span>?][? if democracy_paramilitary_low: in the slight control of the <span style="color: #0066CC;">democratic forces</span>?]?][? if far_left_force_percent >= democracy_force_percent and democracy_paramilitary: controlled by the <span style="color: #8B0000;">**far-left**</span>?][? if state_paramilitary:[? if state_paramilitary_highest: fully controlled by the <span style="color: #0066CC;">**State**</span>?][? if state_paramilitary_high: dominated by the <span style="color: #0066CC;">**State**</span>?][? if state_paramilitary_med: controlled by the <span style="color: #0066CC;">**State**</span>?][? if state_paramilitary_low: in the slight control of the <span style="color: #0066CC;">**State**</span>?]?].?]
 
@@ -218,8 +218,6 @@ Land Strength: [+ army_land_desc +] ([+ army_land_strength +])
 Naval Strength: [+ army_naval_desc +] ([+ army_naval_strength +])
 
 Aerial Strength: [+ army_aerial_desc +] ([+ army_aerial_strength +])
-
-Police Loyalty: [+ police_loyalty : loyalty +]
 
 @polls
 on-arrival: {!
