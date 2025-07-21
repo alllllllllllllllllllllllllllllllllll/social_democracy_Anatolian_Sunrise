@@ -150,7 +150,7 @@ Q.police_loyalty = 0.65; // Mostly loyal (0.54-0.71 range)
 
 // Far Right organizations  
 Q.grey_wolves_strength = 70;
-Q.grey_wolves_militancy = 0.5;
+Q.grey_wolves_militancy = 0.2;
 Q.grey_wolves_banned = 0;
 
 Q.raiders_strength = 30;
