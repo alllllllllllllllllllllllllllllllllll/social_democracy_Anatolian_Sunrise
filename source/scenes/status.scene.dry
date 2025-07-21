@@ -120,37 +120,83 @@ MHP:  [? if MHP_party_leader == "Alparslan Türkeş" : Turkic-Islamic Synthesis 
 
 @paramilitaries
 on-arrival: {!
-if (Q.rb_strength) {
-    Q.rb_strength_2 = Q.rb_strength.toFixed(1);
+if (Q.thkpc_strength) {
+    Q.thkpc_strength_2 = Q.thkpc_strength.toFixed(1);
 }
-if (Q.rfb_strength) {
-    Q.rfb_strength_2 = Q.rfb_strength.toFixed(1);
+if (Q.devyol_strength) {
+    Q.devyol_strength_2 = Q.devyol_strength.toFixed(1);
 }
-if (Q.sh_strength) {
-    Q.sh_strength_2 = Q.sh_strength.toFixed(1);
+if (Q.police_strength) {
+    Q.police_strength_2 = Q.police_strength.toFixed(1);
 }
-if (Q.sa_strength) {
-    Q.sa_strength_2 = Q.sa_strength.toFixed(1);
+if (Q.grey_wolves_strength) {
+    Q.grey_wolves_strength_2 = Q.grey_wolves_strength.toFixed(1);
+}
+if (Q.raiders_strength) {
+    Q.raiders_strength_2 = Q.raiders_strength.toFixed(1);
+}
+if (Q.tit_strength) {
+    Q.tit_strength_2 = Q.tit_strength.toFixed(1);
 }
 !}
 
 = Paramilitaries
 
-{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the CHP.">Reichsbanner</span>!} Strength: [+ rb_strength_2 +] thousand
+**Far Left**
 
-Reichsbanner Militarization: [+ rb_militancy : militancy +]
+[? if not thkpc_destroyed: {!<span class="tooltip-text" title="THKP-C (People's Liberation Party-Front of Turkey) is a far-left revolutionary organization.">THKP-C</span>!} Strength: [+ thkpc_strength_2 +] thousand ?]
 
-{!<span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the TIP.">RFB</span>!} Strength: [+ rfb_strength_2 +] thousand
+[? if not thkpc_destroyed: THKP-C Militarization: [+ thkpc_militancy : militancy +] ?]
 
-RFB Militarization: [+ rfb_militancy : militancy +]
+[? if devyol_formed: {!<span class="tooltip-text" title="DEV-YOL (Revolutionary Path) is a left-wing militant organization.">DEV-YOL</span>!} Strength: [+ devyol_strength_2 +] thousand ?]
 
-{!<span class="tooltip-text" title="The Stahlhelm is a right-wing organization of war veterans associated with the MSP.">Stahlhelm</span>!} Strength: [+ sh_strength_2 +] thousand
+[? if devyol_formed: DEV-YOL Militarization: [+ devyol_militancy : militancy +] ?]
 
-Stahlhelm Militarization: [+ sh_militancy : militancy +]
+**State**
 
-{!<span class="tooltip-text" title="The SA (Sturmabteilung) is the Nazi paramilitary.">SA</span>!} Strength: [+ sa_strength_2 +] thousand
+{!<span class="tooltip-text" title="Police forces maintain order and state security.">Police Forces</span>!} Strength: [+ police_strength_2 +] thousand
 
-SA Militarization: [+ sa_militancy : militancy +]
+Police Militarization: [+ police_militancy : militancy +]
+
+**Far Right**
+
+{!<span class="tooltip-text" title="Grey Wolves (Bozkurtlar) are the militant wing of the Nationalist Movement Party.">Grey Wolves</span>!} Strength: [+ grey_wolves_strength_2 +] thousand
+
+Grey Wolves Militarization: [+ grey_wolves_militancy : militancy +]
+
+[? if raiders_formed: {!<span class="tooltip-text" title="Raiders are a far-right paramilitary organization.">Raiders</span>!} Strength: [+ raiders_strength_2 +] thousand ?]
+
+[? if raiders_formed: Raiders Militarization: [+ raiders_militancy : militancy +] ?]
+
+{!<span class="tooltip-text" title="Turkish Revenge Brigade (TİT) is a highly militant far-right organization.">Turkish Revenge Brigade (TİT)</span>!} Strength: [+ tit_strength_2 +] thousand
+
+TİT Militarization: [+ tit_militancy : militancy +]
+
+[? if year >= 1930 and not streetfighting_joever: <h1>Distribution of Power</h1> ?]
+
+[? if year >= 1930 and not streetfighting_joever: <h4>Democratic strength: [+ democracy_force_percent +]%</h4>?]
+
+[? if year >= 1930 and not streetfighting_joever: <span style="color: #0066CC;">**Police Forces**</span>: [+ state_force_percent +]%?]
+
+[? if year >= 1930 and not streetfighting_joever: <h4><span style="color: #8B0000;">Far</span>-<span style="color: #FF0000;">left</span> strength: [+ far_left_force_percent +]%</h4>?]
+
+[? if year >= 1930 and not streetfighting_joever and not thkpc_destroyed: <span style="color: #8B0000;">**THKP-C**</span>: [+ thkpc_strength +] thousand?]
+
+[? if year >= 1930 and not streetfighting_joever and devyol_formed: <span style="color: #8B0000;">**DEV-YOL**</span>: [+ devyol_strength +] thousand?]
+
+[? if year >= 1930 and not streetfighting_joever: <h4><span style="color: #7A3C00;">Far</span>-<span style="color: #CC6600;">right</span> strength: [+ far_right_force_percent +]%</h4>?]
+
+[? if year >= 1930 and not streetfighting_joever: <span style="color: #CC6600;">**Grey Wolves**</span>: [+ grey_wolves_strength +] thousand?]
+
+[? if year >= 1930 and not streetfighting_joever and raiders_formed: <span style="color: #7A3C00;">**Raiders**</span>: [+ raiders_strength +] thousand?]
+
+[? if year >= 1930 and not streetfighting_joever: <span style="color: #990000;">**TİT**</span>: [+ tit_strength +] thousand?]
+
+[? if year >= 1930 and not streetfighting_joever: <h4><span style="color: #0066CC;">**State**</span> strength: [+ state_force_percent +]%</h4>?]
+
+[? if year >= 1930 and not streetfighting_joever: <b>Police Forces: [+ police_strength +] thousand</b>?]
+
+[? if year >= 1930 and not streetfighting_joever: Currently, the streets are [? if far_right_paramilitary and far_left_force_percent < far_right_force_percent:[? if far_right_paramilitary_highest: fully controlled by the <span style="color: #7A3C00;">far</span>-<span style="color: #CC6600;">right</span>?][? if far_right_paramilitary_high: dominated by the <span style="color: #7A3C00;">far</span>-<span style="color: #CC6600;">right</span>?][? if far_right_paramilitary_med: controlled by the <span style="color: #7A3C00;">far</span>-<span style="color: #CC6600;">right</span>?][? if far_right_paramilitary_low: in the slight control of the <span style="color: #7A3C00;">far</span>-<span style="color: #CC6600;">right</span>?]?][? if far_left_force_percent >= far_right_force_percent and far_right_paramilitary: controlled by the <span style="color: #8B0000;">**far-left**</span>?][? if democracy_paramilitary and far_left_force_percent < democracy_force_percent:[? if democracy_paramilitary_highest: fully controlled by the <span style="color: #0066CC;">democratic forces</span>?][? if democracy_paramilitary_high: dominated by the <span style="color: #0066CC;">democratic forces</span>?][? if democracy_paramilitary_med: controlled by the <span style="color: #0066CC;">democratic forces</span>?][? if democracy_paramilitary_low: in the slight control of the <span style="color: #0066CC;">democratic forces</span>?]?][? if far_left_force_percent >= democracy_force_percent and democracy_paramilitary: controlled by the <span style="color: #8B0000;">**far-left**</span>?][? if state_paramilitary:[? if state_paramilitary_highest: fully controlled by the <span style="color: #0066CC;">**State**</span>?][? if state_paramilitary_high: dominated by the <span style="color: #0066CC;">**State**</span>?][? if state_paramilitary_med: controlled by the <span style="color: #0066CC;">**State**</span>?][? if state_paramilitary_low: in the slight control of the <span style="color: #0066CC;">**State**</span>?]?].?]
 
 = Official military/paramilitaries
 
