@@ -146,7 +146,7 @@ Q.devyol_banned = 0;
 // State forces
 Q.police_strength = 45;
 Q.police_militancy = 0.8;
-Q.police_loyalty = 0.6;
+Q.police_loyalty = 0.65; // Mostly loyal (0.54-0.71 range)
 
 // Far Right organizations  
 Q.grey_wolves_strength = 70;
@@ -169,6 +169,11 @@ Q.interior_police_loyalty = 0.45;
 Q.prussian_police_strength = 90;
 Q.prussian_police_militancy = 1;
 Q.prussian_police_loyalty = 0.5;
+
+// Turkish Army Strength (0-1 scale, starting at 0.4 = Adequate)
+Q.army_land_strength = 0.4;
+Q.army_naval_strength = 0.4;
+Q.army_aerial_strength = 0.4;
 
 // Political Violence Calculation System
 Q.streetfighting_joever = 0;
@@ -222,6 +227,24 @@ if (Q.total_forces > 0) {
     Q.far_right_force_percent = Math.round((Q.far_right_force / Q.total_forces) * 100);
     Q.state_force_percent = Math.round((Q.state_force / Q.total_forces) * 100);
     Q.democracy_force_percent = Q.state_force_percent;
+    
+    // Individual organization force percentages
+    if (!Q.thkpc_destroyed) {
+        Q.thkpc_force_percent = Math.round((Q.thkpc_force / Q.total_forces) * 100);
+    }
+    if (Q.devyol_formed) {
+        Q.devyol_force_percent = Math.round((Q.devyol_force / Q.total_forces) * 100);
+    }
+    
+    Q.grey_wolves_force_percent = Math.round((Q.grey_wolves_force / Q.total_forces) * 100);
+    if (Q.raiders_formed) {
+        Q.raiders_force_percent = Math.round((Q.raiders_force / Q.total_forces) * 100);
+    }
+    Q.tit_force_percent = Math.round((Q.tit_force / Q.total_forces) * 100);
+    
+    Q.police_force_percent = Math.round((Q.police_force / Q.total_forces) * 100);
+    Q.interior_police_force_percent = Math.round((Q.interior_police_force / Q.total_forces) * 100);
+    Q.prussian_police_force_percent = Math.round((Q.prussian_police_force / Q.total_forces) * 100);
 }
 
 // Determine street control levels
