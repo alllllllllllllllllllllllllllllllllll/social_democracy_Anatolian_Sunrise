@@ -213,11 +213,11 @@ TİT Militarization: [+ tit_militancy : militancy +]
 
 = Army
 
-Land Strength: [+ army_land_desc +] ([+ army_land_strength +])
+Land Strength: [+ army_land_desc +]
 
-Naval Strength: [+ army_naval_desc +] ([+ army_naval_strength +])
+Naval Strength: [+ army_naval_desc +]
 
-Aerial Strength: [+ army_aerial_desc +] ([+ army_aerial_strength +])
+Aerial Strength: [+ army_aerial_desc +]
 
 @polls
 on-arrival: {!
