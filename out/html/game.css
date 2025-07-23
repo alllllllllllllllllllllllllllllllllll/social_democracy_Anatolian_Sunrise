@@ -569,13 +569,9 @@ table {
     text-decoration-style: dotted;
 }
 
-/* Make the economy tab wider to fill more of the row */
-#economy_tab {
-    width: 180px;
-    min-width: 180px;
-}
-
+/* Make both tabs equal in size */
+#economy_tab,
 #exterior_affairs_tab {
-    width: 140px;
-    min-width: 140px;
+    width: 150px;
+    min-width: 150px;
 }
