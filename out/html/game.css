@@ -570,8 +570,12 @@ table {
 }
 
 /* Make both tabs equal in size */
-#economy_tab,
+#economy_tab {
+    width: 103px;
+    min-width: 103px;
+}
+
 #exterior_affairs_tab {
-    width: 150px;
-    min-width: 150px;
+    width: 102px;
+    min-width: 102px;
 }
