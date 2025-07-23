@@ -568,3 +568,14 @@ table {
     text-decoration: underline;
     text-decoration-style: dotted;
 }
+
+/* Make the economy tab wider to fill more of the row */
+#economy_tab {
+    width: 180px;
+    min-width: 180px;
+}
+
+#exterior_affairs_tab {
+    width: 140px;
+    min-width: 140px;
+}
