@@ -193,7 +193,7 @@ TİT Militarization: [+ tit_militancy : militancy +]
 
 [? if year >= 1930 and not streetfighting_joever: <h4>Democratic strength: [+ democracy_force_percent +]%</h4>?]
 
-[? if year >= 1930 and not streetfighting_joever: <span style="color: #0066CC;">**State Forces**</span>: [+ state_force_percent +]%?]
+[? if year >= 1930 and not streetfighting_joever: **State Forces**: [+ state_force_percent +]%?]
 
 [? if year >= 1930 and not streetfighting_joever: <h4><span style="color: #8B0000;">Far</span>-<span style="color: #FF0000;">left</span> strength: [+ far_left_force_percent +]%</h4>?]
 
@@ -207,9 +207,9 @@ TİT Militarization: [+ tit_militancy : militancy +]
 
 [? if year >= 1930 and not streetfighting_joever and raiders_formed: **Raiders**: [+ raiders_force_percent +]%?]
 
-[? if year >= 1930 and not streetfighting_joever: <span style="color: #663399;">**TİT**</span>: [+ tit_force_percent +]%?]
+[? if year >= 1930 and not streetfighting_joever: <span style="color: #4B0082;">**TİT**</span>: [+ tit_force_percent +]%?]
 
-[? if year >= 1930 and not streetfighting_joever: Currently, the streets are [? if far_right_paramilitary and far_left_force_percent < far_right_force_percent:[? if far_right_paramilitary_highest: fully controlled by the <span style="color: #7A3C00;">far</span>-<span style="color: #CC6600;">right</span>?][? if far_right_paramilitary_high: dominated by the <span style="color: #7A3C00;">far</span>-<span style="color: #CC6600;">right</span>?][? if far_right_paramilitary_med: controlled by the <span style="color: #7A3C00;">far</span>-<span style="color: #CC6600;">right</span>?][? if far_right_paramilitary_low: in the slight control of the <span style="color: #7A3C00;">far</span>-<span style="color: #CC6600;">right</span>?]?][? if far_left_force_percent >= far_right_force_percent and far_right_paramilitary: controlled by the <span style="color: #8B0000;">**far-left**</span>?][? if democracy_paramilitary and far_left_force_percent < democracy_force_percent:[? if democracy_paramilitary_highest: fully controlled by the <span style="color: #0066CC;">democratic forces</span>?][? if democracy_paramilitary_high: dominated by the <span style="color: #0066CC;">democratic forces</span>?][? if democracy_paramilitary_med: controlled by the <span style="color: #0066CC;">democratic forces</span>?][? if democracy_paramilitary_low: in the slight control of the <span style="color: #0066CC;">democratic forces</span>?]?][? if far_left_force_percent >= democracy_force_percent and democracy_paramilitary: controlled by the <span style="color: #8B0000;">**far-left**</span>?][? if state_paramilitary:[? if state_paramilitary_highest: fully controlled by the <span style="color: #0066CC;">**State**</span>?][? if state_paramilitary_high: dominated by the <span style="color: #0066CC;">**State**</span>?][? if state_paramilitary_med: controlled by the <span style="color: #0066CC;">**State**</span>?][? if state_paramilitary_low: in the slight control of the <span style="color: #0066CC;">**State**</span>?]?].?]
+[? if year >= 1930 and not streetfighting_joever: Currently, [? if state_force_percent > 80: street fightings are scarce?][? if state_force_percent >= 70 and state_force_percent <= 80: street fightings are under control?][? if state_force_percent >= 60 and state_force_percent < 70: street fightings are increasing?][? if state_force_percent >= 50 and state_force_percent < 60: street fightings are slipping out of the state's control?][? if state_force_percent >= 30 and state_force_percent < 50: street fightings have split neighborhoods into two?][? if state_force_percent >= 20 and state_force_percent < 30: street fightings have reached critical levels?][? if state_force_percent < 20: <span style="color: #8B0000;">street fightings are Anarchic</span>?][? if far_left_force_percent > state_force_percent and far_left_force_percent > far_right_force_percent: and the streets are under Far Left control?][? if far_right_force_percent > state_force_percent and far_right_force_percent > far_left_force_percent: and the streets are under Far Right control?].?]
 
 = Army
 

@@ -133,7 +133,7 @@ Q.prussian_government = "CHP";
 // The array of forces - Turkish paramilitary groups
 // Number of members (in thousands)
 // Far Left organizations
-Q.thkpc_strength = 15;
+Q.thkpc_strength = 2;
 Q.thkpc_militancy = 0.5;
 Q.thkpc_destroyed = 0;
 Q.thkpc_banned = 0;
@@ -144,7 +144,7 @@ Q.devyol_formed = 0;
 Q.devyol_banned = 0;
 
 // State forces
-Q.police_strength = 45;
+Q.police_strength = 60;
 Q.police_militancy = 0.8;
 Q.police_loyalty = 0.65; // Mostly loyal (0.54-0.71 range)
 
@@ -272,6 +272,16 @@ if (Q.state_paramilitary) {
     else if (Q.state_force_percent >= 60) Q.state_paramilitary_high = 1;
     else if (Q.state_force_percent >= 50) Q.state_paramilitary_med = 1;
     else Q.state_paramilitary_low = 1;
+}
+
+// Grey Wolves street control vote bonus for middle class (petty bourgeoisie)
+if (Q.grey_wolves_force_percent > Q.state_force_percent && Q.grey_wolves_force_percent > Q.far_left_force_percent && Q.grey_wolves_force_percent > 30) {
+    Q.grey_wolves_control_bonus = Math.floor((Q.grey_wolves_force_percent - 30) / 10) * 4;
+    Q.petty_bourgeoisie_MHP += Q.grey_wolves_control_bonus;
+    // Ensure we don't exceed 100% and redistribute proportionally if needed
+    if (Q.petty_bourgeoisie_MHP > 100) {
+        Q.petty_bourgeoisie_MHP = 100;
+    }
 }
 
 // strength includes actual military and de facto reserves?
