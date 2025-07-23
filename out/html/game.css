@@ -568,14 +568,3 @@ table {
     text-decoration: underline;
     text-decoration-style: dotted;
 }
-
-/* Make both tabs equal in size */
-#economy_tab {
-    width: 103px;
-    min-width: 103px;
-}
-
-#exterior_affairs_tab {
-    width: 102px;
-    min-width: 102px;
-}
