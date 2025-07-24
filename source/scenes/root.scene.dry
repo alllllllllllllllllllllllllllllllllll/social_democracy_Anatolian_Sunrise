@@ -432,24 +432,24 @@ Q.kurds_other = 19;
 
 // Current Parliament composition - Turkish baseline (1972)
 // Based on weighted demographic calculations
-Q.chp_r = 23.7;
-Q.TIP_r = 2.1;
-Q.z_r = 35.8; // AP (Justice Party)  
-Q.CGP_r = 5.2;
-Q.DP_r = 12.6;
-Q.MSP_r = 11.9;
-Q.MHP_r = 3.2;
-Q.other_r = 5.5;
+Q.chp_r = 27.3;
+Q.TIP_r = 2.6;
+Q.z_r = 46.5; // AP (Justice Party)  
+Q.CGP_r = 6.5;
+Q.DP_r = 0;
+Q.MSP_r = 0;
+Q.MHP_r = 3.0;
+Q.other_r = 14.1;
 
 // diff from prev
-Q.old_chp_r = 23.7;
-Q.old_TIP_r = 2.1;
-Q.old_z_r = 35.8; // AP
-Q.old_CGP_r = 5.2;
-Q.old_DP_r = 12.6;
-Q.old_MSP_r = 11.9;
-Q.old_MHP_r = 3.2;
-Q.old_other_r = 5.5;
+Q.old_chp_r = 27.3;
+Q.old_TIP_r = 2.6;
+Q.old_z_r = 46.5; // AP
+Q.old_CGP_r = 6.5;
+Q.old_DP_r = 0;
+Q.old_MSP_r = 0;
+Q.old_MHP_r = 3.0;
+Q.old_other_r = 14.1;
 
 // sapd isn't formed yet, but it may be formed
 Q.sapd_r = 0;
@@ -467,15 +467,15 @@ Q.economic_records = [];
 
 
 // State of the government
-Q.president = "Hindenburg";
-// starting chancellor: Wilhelm Marx
-Q.chancellor = "Marx";
-Q.chancellor_party = 'AP';
+Q.president = "Cevdet Sunay";
+// starting chancellor: Nihat Erim
+Q.chancellor = "Nihat Erim";
+Q.chancellor_party = 'I';
 Q.CHP_in_government = 0;
-Q.AP_in_government = 1;
+Q.AP_in_government = 0;
 Q.CGP_in_government = 0;
-Q.DP_in_government = 1;
-Q.MSP_in_government = 1;
+Q.DP_in_government = 0;
+Q.MSP_in_government = 0;
 Q.TIP_in_government = 0;
 Q.MHP_in_government = 0;
 
