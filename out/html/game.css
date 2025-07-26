@@ -578,6 +578,6 @@ table {
 }
 
 #economy_tab {
-    width: 120px; /* Same size as Exterior Affairs */
-    min-width: 120px;
+    width: 110px; /* Reduced from 120px */
+    min-width: 110px;
 }
