@@ -35,6 +35,8 @@ President: [+ president +]
 
 Chancellor: [+ chancellor +] ([+ chancellor_party +])
 
+TSK is currently [? if army_in_government: **in government** ?][? if not army_in_government and tsk_pacified: **pacified** ?][? if not army_in_government and not tsk_pacified and coup_timer <= 3: **hopeful** ?][? if not army_in_government and not tsk_pacified and coup_timer >= 4 and coup_timer <= 6: **observing the political situation** ?][? if not army_in_government and not tsk_pacified and coup_timer >= 7 and coup_timer <= 9: **irritated** ?][? if not army_in_government and not tsk_pacified and coup_timer == 10: **agitated** ?][? if not army_in_government and not tsk_pacified and coup_timer >= 11 and coup_timer <= 12: **alarmed** ?][? if not army_in_government and not tsk_pacified and coup_timer >= 13 and coup_timer <= 14: {!<span style="color: darkred;">**mutinous**</span>!} ?][? if not army_in_government and not tsk_pacified and coup_timer >= 15: {!<span style="color: darkred;">**mutinous** and acting</span>!} ?]
+
 Reichstag composition:
 
 # 1928: 30, 1930: 25, 1932: 22

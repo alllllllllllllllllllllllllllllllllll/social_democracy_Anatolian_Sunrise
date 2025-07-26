@@ -320,6 +320,20 @@ Q.MHP_banned = 0;
 Q.coup_progress = 0;
 Q.capital_strike_progress = 0;
 
+// TSK (Turkish Armed Forces) coup timer system (0-15)
+Q.coup_timer = 0;
+
+// TSK status tracking
+Q.army_in_government = 1; // Starting with Nihat Erim military government
+Q.tsk_pacified = 0;
+
+// Update army_in_government based on chancellor_party
+if (Q.chancellor_party == 'I') {
+    Q.army_in_government = 1;
+} else {
+    Q.army_in_government = 0;
+}
+
 Q.budget = 4;
 
 // Proportion of different social groups - Turkish demographics circa 1972-1977
