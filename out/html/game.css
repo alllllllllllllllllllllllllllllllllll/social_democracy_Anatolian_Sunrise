@@ -568,3 +568,16 @@ table {
     text-decoration: underline;
     text-decoration-style: dotted;
 }
+
+/* Custom tab sizing - Exterior Affairs = Main + Politics, Economy = Defense + Polls */
+/* Main and Politics keep their natural sizes, Defense and Polls keep theirs */
+
+#exterior_affairs_tab {
+    width: 120px; /* Approximately Main (~45px) + Politics (~55px) */
+    min-width: 120px;
+}
+
+#economy_tab {
+    width: 90px; /* Approximately Defense (~45px) + Polls (~35px) */
+    min-width: 90px;
+}
