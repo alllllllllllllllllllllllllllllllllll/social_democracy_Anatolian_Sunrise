@@ -327,6 +327,10 @@ Q.coup_timer = 0;
 Q.army_in_government = 1; // Starting with Nihat Erim military government
 Q.tsk_pacified = 0;
 
+// Kurdish Nationalism system
+Q.kurdish_political_consciousness = 0.20; // Starting position: Low (0.14-0.24)
+Q.kurdish_radicalism = 0.25; // Starting position: Medium-low (0.24-0.44)
+
 // Update army_in_government based on chancellor_party
 if (Q.chancellor_party == 'I') {
     Q.army_in_government = 1;
