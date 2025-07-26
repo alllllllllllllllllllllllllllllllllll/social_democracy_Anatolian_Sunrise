@@ -578,6 +578,6 @@ table {
 }
 
 #economy_tab {
-    width: 90px; /* Approximately Defense (~45px) + Polls (~35px) */
-    min-width: 90px;
+    width: 120px; /* Same size as Exterior Affairs */
+    min-width: 120px;
 }
