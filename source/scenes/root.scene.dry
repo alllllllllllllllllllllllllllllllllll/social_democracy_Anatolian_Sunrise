@@ -347,7 +347,23 @@ Q.petty_bourgeoisie = 15; // Small business owners, artisans
 Q.state_employees = 7; // State employees and bureaucrats
 Q.capitalists = 3; // Capitalists and land owners
 Q.alevis = 10; // Alevi religious minority
-Q.kurds = 5; // Kurdish political movement
+
+// Kurdish demographic percentage based on political consciousness level
+if (Q.kurdish_political_consciousness < 0.05) {
+    Q.kurds = 0; // Nonexistent - 0%
+} else if (Q.kurdish_political_consciousness >= 0.05 && Q.kurdish_political_consciousness < 0.14) {
+    Q.kurds = 3; // Very low - 3%
+} else if (Q.kurdish_political_consciousness >= 0.14 && Q.kurdish_political_consciousness < 0.24) {
+    Q.kurds = 5; // Low - 5%
+} else if (Q.kurdish_political_consciousness >= 0.24 && Q.kurdish_political_consciousness < 0.44) {
+    Q.kurds = 7; // Medium-low - 7%
+} else if (Q.kurdish_political_consciousness >= 0.44 && Q.kurdish_political_consciousness < 0.69) {
+    Q.kurds = 9; // Medium - 9%
+} else if (Q.kurdish_political_consciousness >= 0.69 && Q.kurdish_political_consciousness < 0.89) {
+    Q.kurds = 11; // High - 11%
+} else {
+    Q.kurds = 15; // Very high - 15%
+}
 
 // income for industrial workers 
 Q.income = 1600;
