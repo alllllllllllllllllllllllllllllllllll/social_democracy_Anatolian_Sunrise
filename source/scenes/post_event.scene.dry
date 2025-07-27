@@ -116,6 +116,82 @@ if (Q.month_actions >= 1) {
             Q[timer+'_timer'] -= 1;
         }
     }
+    
+    // Cyprus Problem effects
+    // Check if Cyprus status has changed and apply immediate effects
+    if (Q.cyprus_problem != Q.cyprus_last_status) {
+        // Remove previous positive effects if any
+        if (Q.cyprus_confederation_timer > 0) {
+            Q.cyprus_confederation_timer = 0;
+        }
+        if (Q.cyprus_divided_timer > 0) {
+            Q.cyprus_divided_timer = 0;
+        }
+        
+        // Apply new effects based on current status
+        if (Q.cyprus_problem == 1) { // Status Quo
+            // -3% votershare drop in all demographics except Kurds and Capitalists
+            Q.rural_chp -= 3;
+            Q.workers_chp -= 3;
+            Q.state_employees_chp -= 3;
+            Q.alevis_chp -= 3;
+            // -7% among petty bourgeoisie (total -10% for petty bourgeoisie)
+            Q.petty_bourgeoisie_chp -= 10;
+            // Coup timer goes up by 1
+            Q.coup_timer += 1;
+        } else if (Q.cyprus_problem == 2) { // Confederation
+            // +2% votershare increase in all demographics except Kurds and Capitalists
+            Q.rural_chp += 2;
+            Q.workers_chp += 2;
+            Q.petty_bourgeoisie_chp += 2;
+            Q.state_employees_chp += 2;
+            Q.alevis_chp += 2;
+            // Start 5-year timer for effects to wane
+            Q.cyprus_confederation_timer = 60; // 5 years = 60 months
+        } else if (Q.cyprus_problem == 3) { // Divided
+            // +10% votershare increase among all demographics except Kurds and Capitalists
+            Q.rural_chp += 10;
+            Q.workers_chp += 10;
+            Q.petty_bourgeoisie_chp += 10;
+            Q.state_employees_chp += 10;
+            Q.alevis_chp += 10;
+            // Relations penalties
+            Q.us_relation -= 30;
+            Q.west_relation -= 20;
+            // Coup timer goes down by 1
+            Q.coup_timer -= 1;
+            if (Q.coup_timer < 0) Q.coup_timer = 0;
+            // Start 5-year timer for positive effects to wane
+            Q.cyprus_divided_timer = 60; // 5 years = 60 months
+        }
+        
+        Q.cyprus_last_status = Q.cyprus_problem;
+    }
+    
+    // Handle gradual waning of Cyprus positive effects over 5 years
+    if (Q.cyprus_confederation_timer > 0) {
+        Q.cyprus_confederation_timer -= 1;
+        if (Q.cyprus_confederation_timer == 0) {
+            // Remove confederation bonuses gradually
+            Q.rural_chp -= 2;
+            Q.workers_chp -= 2;
+            Q.petty_bourgeoisie_chp -= 2;
+            Q.state_employees_chp -= 2;
+            Q.alevis_chp -= 2;
+        }
+    }
+    
+    if (Q.cyprus_divided_timer > 0) {
+        Q.cyprus_divided_timer -= 1;
+        if (Q.cyprus_divided_timer == 0) {
+            // Remove divided bonuses gradually
+            Q.rural_chp -= 10;
+            Q.workers_chp -= 10;
+            Q.petty_bourgeoisie_chp -= 10;
+            Q.state_employees_chp -= 10;
+            Q.alevis_chp -= 10;
+        }
+    }
     // append to historical party support records
     var party_support_results = {'date': new Date(Q.year, Q.month - 1)};
     for (var party of Q.parties) {

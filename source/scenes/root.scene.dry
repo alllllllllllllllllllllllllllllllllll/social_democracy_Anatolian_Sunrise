@@ -596,6 +596,10 @@ Q.us_relation = 45;
 Q.middle_east_relation = 45;
 // Cyprus Problem status: 0 = Unresolved, 1 = Status Quo, 2 = Confederation, 3 = Divided
 Q.cyprus_problem = 0;
+// Cyprus effects tracking
+Q.cyprus_last_status = 0; // Track previous status to detect changes
+Q.cyprus_confederation_timer = 0; // Timer for confederation positive effects (60 months = 5 years)
+Q.cyprus_divided_timer = 0; // Timer for divided positive effects (60 months = 5 years)
 // How much have we exposed the secret rearmament programs?
 Q.rearmament_exposed = 0;
 // reparations vs baseline: young plan is -1.
