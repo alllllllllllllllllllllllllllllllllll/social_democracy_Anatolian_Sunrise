@@ -284,3 +284,7 @@ Western Europe: [+ west_relation : relationships +]
 Soviet Union: [+ soviet_relation : relationships +]
 
 Middle East: [+ middle_east_relation : relationships +]
+
+= The Cyprus Problem
+
+Cyprus Problem: [? if cyprus_problem == 0: Unresolved ?][? if cyprus_problem == 1: Status Quo ?][? if cyprus_problem == 2: Confederation ?][? if cyprus_problem == 3: Divided ?]

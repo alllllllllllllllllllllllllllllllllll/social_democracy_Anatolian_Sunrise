@@ -594,6 +594,8 @@ Q.soviet_relation = 20;
 Q.us_relation = 45;
 // Relations with the Middle East countries
 Q.middle_east_relation = 45;
+// Cyprus Problem status: 0 = Unresolved, 1 = Status Quo, 2 = Confederation, 3 = Divided
+Q.cyprus_problem = 0;
 // How much have we exposed the secret rearmament programs?
 Q.rearmament_exposed = 0;
 // reparations vs baseline: young plan is -1.
