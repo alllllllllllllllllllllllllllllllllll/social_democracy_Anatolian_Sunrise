@@ -277,10 +277,10 @@ Support for the Republic: [+ pro_republic_disp +]%
 
 = Foreign Relations
 
-{!<u>United States</u>!}: [+ us_relation : relationships +]
+United States: [+ us_relation : relationships +]
 
-{!<u>Western Europe</u>!}: [+ west_relation : relationships +]
+Western Europe: [+ west_relation : relationships +]
 
-{!<u>Soviet Union</u>!}: [+ soviet_relation : relationships +]
+Soviet Union: [+ soviet_relation : relationships +]
 
-{!<u>Middle East</u>!}: [+ middle_east_relation : relationships +]
+Middle East: [+ middle_east_relation : relationships +]
