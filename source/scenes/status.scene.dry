@@ -112,18 +112,6 @@ Political Consciousness: [? if kurdish_political_consciousness < 0.05: Nonexista
 
 Radicalism: [? if kurdish_radicalism < 0.05: Nonexistant ?][? if kurdish_radicalism >= 0.05 and kurdish_radicalism < 0.14: Very low ?][? if kurdish_radicalism >= 0.14 and kurdish_radicalism < 0.24: Low ?][? if kurdish_radicalism >= 0.24 and kurdish_radicalism < 0.44: Medium-low ?][? if kurdish_radicalism >= 0.44 and kurdish_radicalism < 0.69: Medium ?][? if kurdish_radicalism >= 0.69 and kurdish_radicalism < 0.89: High ?][? if kurdish_radicalism >= 0.89: Very high ?]
 
-# = Exterior Affairs
-
-= Foreign Relations
-
-United States: [+ us_relation : relationships +]
-
-Western Europe: [+ west_relation : relationships +]
-
-Soviet Union: [+ soviet_relation : relationships +]
-
-Middle East: [+ middle_east_relation : relationships +]
-
 = Internal Factions of the CHP
 
 {!<span class="tooltip-text" title="Marxists within the party desire a realignment of the party alongside Socialist elements. Even though many intellectuals such as Tevfik Rüştü Aras and Doğan Avcıoğlu subscribe to this faction, there is no central organization nor a figure that leads the Marxist camp, largely due to ideological differences.">Kemalist Marxists</span>!} strength: [+ kemalist_marxists_strength : strength +], dissent: [+ kemalist_marxists_dissent : dissent +]
@@ -284,3 +272,15 @@ Alevis: CHP: [+ alevis_chp_display +]%, AP: [+ alevis_z_display +]%, TIP: [+ ale
 Kurds: CHP: [+ kurds_chp_display +]%, AP: [+ kurds_z_display +]%, TIP: [+ kurds_TIP_display +]%, [? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ kurds_CGP_display +]%, DP: [+ kurds_DP_display +]%; MSP: [+ kurds_MSP_display +]%, MHP: [+ kurds_MHP_display +]%, Others: [+ kurds_other_display +]% [? if sapd_formed: SAPD: [+ kurds_sapd_display +]% ?]
 
 Support for the Republic: [+ pro_republic_disp +]%
+
+@exterior_affairs
+
+= Foreign Relations
+
+United States: [+ us_relation : relationships +]
+
+Western Europe: [+ west_relation : relationships +]
+
+Soviet Union: [+ soviet_relation : relationships +]
+
+Middle East: [+ middle_east_relation : relationships +]
