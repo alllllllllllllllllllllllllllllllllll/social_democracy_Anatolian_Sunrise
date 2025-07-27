@@ -585,11 +585,15 @@ Q.land_reform = 0;
 Q.works_program = 0;
 Q.wtb_implemented = 0;
 // Relations with the Western countries (France, UK).
-Q.west_relation = 0;
+Q.west_relation = 45;
 // Relations with the Eastern countries (Poland, Czechoslovakia)
 Q.east_relation = 0;
 // Relations with the Soviet Union
-Q.soviet_relation = 0;
+Q.soviet_relation = 20;
+// Relations with the United States
+Q.us_relation = 45;
+// Relations with the Middle East countries
+Q.middle_east_relation = 45;
 // How much have we exposed the secret rearmament programs?
 Q.rearmament_exposed = 0;
 // reparations vs baseline: young plan is -1.
