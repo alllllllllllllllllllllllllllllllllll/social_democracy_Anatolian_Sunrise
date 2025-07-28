@@ -368,11 +368,44 @@ if (Q.kurdish_political_consciousness < 0.05) {
 // income for industrial workers 
 Q.income = 1600;
 
-// inflation (in %; Turkish context)
-Q.inflation = 2.9;
+// Historical economic baseline data by year (Turkish context)
+Q.historical_inflation = {
+    1972: 15.3,
+    1973: 15.8,
+    1974: 15.4,
+    1975: 19.0,
+    1976: 16.4,
+    1977: 22.5,
+    1978: 53.3,
+    1979: 62.0
+};
 
-// economic growth
-Q.economic_growth = 4.4;
+Q.historical_gdp_growth = {
+    1972: 9.2,
+    1973: 4.9,
+    1974: 3.3,
+    1975: 6.1,
+    1976: 9.0,
+    1977: 3.0,
+    1978: 1.2,
+    1979: -0.5
+};
+
+Q.historical_unemployment = {
+    1972: 4.6,
+    1973: 6.5,
+    1974: 8.0,
+    1975: 7.5,
+    1976: 8.5,
+    1977: 9.7,
+    1978: 10.1,
+    1979: 8.9
+};
+
+// Set initial economic values based on starting year (1972)
+Q.inflation = Q.historical_inflation[Q.year] || 15.3;
+Q.economic_growth = Q.historical_gdp_growth[Q.year] || 9.2;
+Q.unemployed = Q.historical_unemployment[Q.year] || 4.6;
 
 // economic expansion timer
 Q.economic_expansion = 0;

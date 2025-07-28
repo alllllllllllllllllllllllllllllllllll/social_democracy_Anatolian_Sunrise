@@ -71,8 +71,9 @@ for (var c of Q.factions) {
     }
 }
 
-if (Q.unemployed <= 1) {
-    Q.unemployed = 1;
+// Ensure unemployment doesn't go below minimum threshold
+if (Q.unemployed <= 0.5) {
+    Q.unemployed = 0.5;
 }
 
 // re-calculate dissent.
@@ -192,6 +193,30 @@ if (Q.month_actions >= 1) {
             Q.alevis_chp -= 10;
         }
     }
+    
+    // Historical economic baseline adjustments
+    // Gradually move economic indicators toward historical baselines each year
+    if (Q.historical_inflation[Q.year] !== undefined) {
+        var target_inflation = Q.historical_inflation[Q.year];
+        var inflation_diff = target_inflation - Q.inflation;
+        // Adjust toward baseline by 1/12th of the difference each month
+        Q.inflation += inflation_diff / 12;
+    }
+    
+    if (Q.historical_gdp_growth[Q.year] !== undefined) {
+        var target_growth = Q.historical_gdp_growth[Q.year];
+        var growth_diff = target_growth - Q.economic_growth;
+        // Adjust toward baseline by 1/12th of the difference each month
+        Q.economic_growth += growth_diff / 12;
+    }
+    
+    if (Q.historical_unemployment[Q.year] !== undefined) {
+        var target_unemployment = Q.historical_unemployment[Q.year];
+        var unemployment_diff = target_unemployment - Q.unemployed;
+        // Adjust toward baseline by 1/12th of the difference each month
+        Q.unemployed += unemployment_diff / 12;
+    }
+    
     // append to historical party support records
     var party_support_results = {'date': new Date(Q.year, Q.month - 1)};
     for (var party of Q.parties) {
