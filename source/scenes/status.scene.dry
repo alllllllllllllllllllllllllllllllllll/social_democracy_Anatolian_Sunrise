@@ -2,16 +2,10 @@ title: Status
 new-page: true
 is-special: true
 on-arrival: {!
-if (Q.unemployed) {
-    Q.unemployed_2 = Q.unemployed.toFixed(1);
-}
-if (Q.inflation) {
-    Q.inflation_2 = Q.inflation.toFixed(1);
-}
-Q.economic_growth_2 = '0';
-if (Q.economic_growth) {
-    Q.economic_growth_2 = Q.economic_growth.toFixed(1);
-}
+// Format economic indicators with proper fallbacks
+Q.unemployed_2 = Q.unemployed ? Q.unemployed.toFixed(1) : '0.0';
+Q.inflation_2 = Q.inflation ? Q.inflation.toFixed(1) : '0.0';
+Q.economic_growth_2 = Q.economic_growth ? Q.economic_growth.toFixed(1) : '0.0';
 !}
 
 = Status
@@ -65,9 +59,14 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 Inflation: [+ inflation_2 +]%
 
-[? if black_thursday_seen = 1 : Unemployment: [+ unemployed_2 +]% ?]
+Unemployment: [+ unemployed_2 +]%
 
 Economic growth: [+ economic_growth_2 +]%
+
+**Raw Values (Debug):**
+Raw Inflation: [+ inflation +]
+Raw Unemployment: [+ unemployed +] 
+Raw Growth: [+ economic_growth +]
 
 
 
