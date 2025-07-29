@@ -56,6 +56,9 @@ Others: [+ other_r +]%
 Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 @economy
+on-arrival: {!
+// Economy tab activated
+!}
 
 = Economics
 
