@@ -55,24 +55,6 @@ Others: [+ other_r +]%
 
 Next election: [+ next_election_month : month +] [+ next_election_year +]
 
-@economy
-on-arrival: {!
-// Economy tab activated
-!}
-
-= Economics
-
-Inflation: [+ inflation_2 +]%
-
-Unemployment: [+ unemployed_2 +]%
-
-Economic growth: [+ economic_growth_2 +]%
-
-**Raw Values (Debug):**
-Raw Inflation: [+ inflation +]
-Raw Unemployment: [+ unemployed +] 
-Raw Growth: [+ economic_growth +]
-
 @politics
 
 = Inter-party Relations
@@ -288,3 +270,21 @@ Middle East: [+ middle_east_relation : relationships +]
 = The Cyprus Problem
 
 Cyprus Problem: [? if cyprus_problem == 0: Unresolved ?][? if cyprus_problem == 1: Status Quo ?][? if cyprus_problem == 2: Confederation ?][? if cyprus_problem == 3: Divided ?]
+
+@economy
+on-arrival: {!
+// Economy tab activated
+!}
+
+= Economics
+
+Inflation: [+ inflation_2 +]%
+
+Unemployment: [+ unemployed_2 +]%
+
+Economic growth: [+ economic_growth_2 +]%
+
+**Raw Values (Debug):**
+Raw Inflation: [+ inflation +]
+Raw Unemployment: [+ unemployed +] 
+Raw Growth: [+ economic_growth +]
