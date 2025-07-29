@@ -2,10 +2,21 @@ title: Status
 new-page: true
 is-special: true
 on-arrival: {!
+// Ensure economic variables exist with fallbacks
+if (!Q.inflation) Q.inflation = 15.3;
+if (!Q.unemployed) Q.unemployed = 4.6;
+if (!Q.economic_growth) Q.economic_growth = 9.2;
+
 // Format economic indicators with proper fallbacks
-Q.unemployed_2 = Q.unemployed ? Q.unemployed.toFixed(1) : '0.0';
-Q.inflation_2 = Q.inflation ? Q.inflation.toFixed(1) : '0.0';
-Q.economic_growth_2 = Q.economic_growth ? Q.economic_growth.toFixed(1) : '0.0';
+Q.unemployed_2 = Q.unemployed ? Q.unemployed.toFixed(1) : '4.6';
+Q.inflation_2 = Q.inflation ? Q.inflation.toFixed(1) : '15.3';
+Q.economic_growth_2 = Q.economic_growth ? Q.economic_growth.toFixed(1) : '9.2';
+
+// Debug: Log the actual values
+console.log("Inflation raw:", Q.inflation, "formatted:", Q.inflation_2);
+console.log("Unemployment raw:", Q.unemployed, "formatted:", Q.unemployed_2);
+console.log("Growth raw:", Q.economic_growth, "formatted:", Q.economic_growth_2);
+console.log("Current year:", Q.year);
 !}
 
 = Status
@@ -279,9 +290,4 @@ Inflation: [+ inflation_2 +]%
 
 Unemployment: [+ unemployed_2 +]%
 
-Economic growth: [+ economic_growth_2 +]%
-
-**Raw Values (Debug):**
-Raw Inflation: [+ inflation +]
-Raw Unemployment: [+ unemployed +] 
-Raw Growth: [+ economic_growth +]
+GDP Growth: [+ economic_growth_2 +]%
