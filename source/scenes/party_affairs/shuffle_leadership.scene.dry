@@ -327,6 +327,18 @@ tags: kemalist_marxist_advisor
 
 İlhan Selçuk is now an advisor.
 
+@add_belli
+title: Mihri Belli
+subtitle: Mihri Belli, the original conceptualizer of National Democratic Revolution, is a Socialist revolutionary that has strong ties with the far left movements.
+is-card: true
+card-image: img/portraits/MihriBelli.jpg
+views-if: belli_advisor = 0 and n_adviors < 3
+on-arrival: belli_advisor = 1; n_advisors += 1; kemalists_marxists_strength += 5
+go-to: advisor_menu
+tags: kemalist_marxist_advisor
+
+Mihri Belli is now a contact.
+
 @add_levi
 title: Paul Levi
 subtitle: Paul Levi is a former TIP leader who was purged for criticizing Communist policies. {!<br><br>!}[? if difficulty < 0 : Actions - Building the Left, Cooperation with the TIP ?]
