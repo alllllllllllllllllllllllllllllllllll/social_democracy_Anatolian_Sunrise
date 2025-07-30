@@ -21,7 +21,7 @@ Removing advisors will increase dissent from their faction of the party, while s
 
 @rm_main
 title: Remove advisors.
-tags: center_advisor, left_advisor, reformist_advisor, labor_advisor, neorev_advisor, nonfactional_advisor 
+tags: orthodox_kemalist_advisor, left_kemalist_advisor, kemalist_marxist_advisor, right_kemalist_advisor, labor_advisor, nonfactional_advisor 
 frequency: 1
 
 - #remove_advisor
@@ -36,78 +36,78 @@ tags: remove_advisor
 @remove_hilferding
 title: Remove Hilferding
 view-if: hilferding_advisor = 1
-on-arrival: hilferding_advisor = 0; center_dissent += 5; n_advisors -= 1
+on-arrival: hilferding_advisor = 0; orthodox_kemalists_dissent += 5; n_advisors -= 1
 tags: remove_advisor
 go-to: rm_main
 
-Hilferding has been removed as an advisor. The Centrist faction disapproves.
+Hilferding has been removed as an advisor. The Orthodox Kemalist faction disapproves.
 
 @remove_wels
 title: Remove Wels
 view-if: wels_advisor = 1
 tags: remove_advisor
-on-arrival: wels_advisor = 0; center_dissent += 5; n_advisors -= 1
+on-arrival: wels_advisor = 0; orthodox_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Wels has been removed as an advisor. The Centrist faction disapproves.
+Wels has been removed as an advisor. The Orthodox Kemalist faction disapproves.
 
 @remove_muller
 title: Remove Müller
 view-if: muller_advisor = 1
 tags: remove_advisor
-on-arrival: muller_advisor = 0; center_dissent += 5; n_advisors -= 1
+on-arrival: muller_advisor = 0; orthodox_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Müller has been removed as an advisor. The Centrist faction disapproves.
+Müller has been removed as an advisor. The Orthodox Kemalist faction disapproves.
 
 
 @remove_breitscheid
 title: Remove Breitscheid
 view-if: breitscheid_advisor = 1
 tags: remove_advisor
-on-arrival: breitscheid_advisor = 0; center_dissent += 5; n_advisors -= 1
+on-arrival: breitscheid_advisor = 0; orthodox_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Breitscheid has been removed as an advisor. The Centrist faction disapproves.
+Breitscheid has been removed as an advisor. The Orthodox Kemalist faction disapproves.
 
-# reformists
+# left kemalists
 
 
 @remove_severing
 title: Remove Severing
 view-if: severing_advisor = 1
 tags: remove_advisor
-on-arrival: severing_advisor = 0; reformist_dissent += 5; n_advisors -= 1
+on-arrival: severing_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Severing has been removed as an advisor. The Reformist faction disapproves.
+Severing has been removed as an advisor. The Left Kemalist faction disapproves.
 
 @remove_braun
 title: Remove Braun
 view-if: braun_advisor = 1
 tags: remove_advisor
-on-arrival: braun_advisor = 0; reformist_dissent += 5; n_advisors -= 1
+on-arrival: braun_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Braun has been removed as an advisor. The Reformist faction disapproves.
+Braun has been removed as an advisor. The Left Kemalist faction disapproves.
 
 @remove_juchacz
 title: Remove Juchacz
 view-if: juchacz_advisor = 1
 tags: remove_advisor
-on-arrival: juchacz_advisor = 0; reformist_dissent += 5; n_advisors -= 1
+on-arrival: juchacz_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Juchacz has been removed as an advisor. The Reformist faction disapproves.
+Juchacz has been removed as an advisor. The Left Kemalist faction disapproves.
 
 @remove_pfulf
 title: Remove Pfülf
 view-if: pfulf_advisor = 1
 tags: remove_advisor
-on-arrival: pfulf_advisor = 0; reformist_dissent += 5; n_advisors -= 1
+on-arrival: pfulf_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Pfülf has been removed as an advisor. The Reformist faction disapproves.
+Pfülf has been removed as an advisor. The Left Kemalist faction disapproves.
 
 
 # labor
@@ -149,84 +149,84 @@ go-to: rm_main
 
 Woytinsky has been removed as an advisor. The Labor faction disapproves.
 
-# left
+# kemalist marxists
 
 @remove_levi
 title: Remove Levi
 view-if: levi_advisor = 1
 tags: remove_advisor
-on-arrival: levi_advisor = 0; left_dissent += 5; n_advisors -= 1
+on-arrival: levi_advisor = 0; kemalist_marxists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Levi has been removed as an advisor. The Leftist faction disapproves.
+Levi has been removed as an advisor. The Kemalist Marxist faction disapproves.
 
 @remove_sender
 title: Remove Sender
 view-if: sender_advisor = 1
 tags: remove_advisor
-on-arrival: sender_advisor = 0; left_dissent += 3; n_advisors -= 1
+on-arrival: sender_advisor = 0; kemalist_marxists_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
-Sender has been removed as an advisor. The Leftist faction disapproves.
+Sender has been removed as an advisor. The Kemalist Marxist faction disapproves.
 
 @remove_rosenfeld
 title: Remove Rosenfeld
 view-if: rosenfeld_advisor = 1
 tags: remove_advisor
-on-arrival: rosenfeld_advisor = 0; left_dissent += 3; n_advisors -= 1
+on-arrival: rosenfeld_advisor = 0; kemalist_marxists_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
-Rosenfeld has been removed as an advisor. The Leftist faction disapproves.
+Rosenfeld has been removed as an advisor. The Kemalist Marxist faction disapproves.
 
 @remove_seydewitz
 title: Remove Seydewitz
 view-if: seydewitz_advisor = 1
 tags: remove_advisor
-on-arrival: seydewitz_advisor = 0; left_dissent += 3; n_advisors -= 1
+on-arrival: seydewitz_advisor = 0; kemalist_marxists_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
-Seydewitz has been removed as an advisor. The Leftist faction disapproves.
+Seydewitz has been removed as an advisor. The Kemalist Marxist faction disapproves.
 
 @remove_siemsen
 title: Remove Siemsen
 view-if: siemsen_advisor = 1
 tags: remove_advisor
-on-arrival: siemsen_advisor = 0; left_dissent += 3; n_advisors -= 1
+on-arrival: siemsen_advisor = 0; kemalist_marxists_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
-Siemsen has been removed as an advisor. The Leftist faction disapproves.
+Siemsen has been removed as an advisor. The Kemalist Marxist faction disapproves.
 
 
 
 
-# neorevisionists
+# right kemalists
 
 @remove_mierendorff
 title: Remove Mierendorff
 view-if: mierendorff_advisor = 1
 tags: remove_advisor
-on-arrival: mierendorff_advisor = 0; neorevisionist_dissent += 5; n_advisors -= 1
+on-arrival: mierendorff_advisor = 0; right_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Mierendorff has been removed as an advisor. The Neorevisionist faction disapproves.
+Mierendorff has been removed as an advisor. The Right Kemalist faction disapproves.
 
 @remove_leber
 title: Remove Leber
 view-if: leber_advisor = 1
 tags: remove_advisor
-on-arrival: leber_advisor = 0; neorevisionist_dissent += 3; n_advisors -= 1
+on-arrival: leber_advisor = 0; right_kemalists_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
-Leber has been removed as an advisor. The Neorevisionist faction disapproves.
+Leber has been removed as an advisor. The Right Kemalist faction disapproves.
 
 @remove_schumacher
 title: Remove Schumacher
 view-if: schumacher_advisor = 1
 tags: remove_advisor
-on-arrival: schumacher_advisor = 0; neorevisionist_dissent += 3; n_advisors -= 1
+on-arrival: schumacher_advisor = 0; right_kemalists_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
-Schumacher has been removed as an advisor. The Neorevisionist faction disapproves.
+Schumacher has been removed as an advisor. The Right Kemalist faction disapproves.
 
 
 ## nonfactional
@@ -286,43 +286,43 @@ go-to: advisor_menu
 
 @advisor_menu
 title: Add other advisors.
-tags: center_advisor, left_advisor, reformist_advisor, labor_advisor, neorev_advisor, nonfactional_advisor
+tags: orthodox_kemalist_advisor, kemalist_marxist_advisor, left_kemalist_advisor, labor_advisor, right_kemalist_advisor, nonfactional_advisor
 frequency: 1
 
 
-- @centrist: Add Centrists
-- @left: Add Leftists
-- @reformist: Add Reformists
+- @orthodox_kemalist: Add Orthodox Kemalists
+- @kemalist_marxist: Add Kemalist Marxists
+- @left_kemalist: Add Left Kemalists
 - @labor: Add Labor
-- @neorev: Add Neorevisionists
+- @right_kemalist: Add Right Kemalists
 - @nonfactional: Add non-factional advisors
 - @rm_main: Remove advisors instead.
 - @remove_none: Stop changing advisors.
 
-@centrist
+@orthodox_kemalist
 view-if: n_advisors < 3
 
-- #center_advisor
+- #orthodox_kemalist_advisor
 
-@reformist
+@left_kemalist
 view-if: n_advisors < 3
 
-- #reformist_advisor
+- #left_kemalist_advisor
 
-@left
+@kemalist_marxist
 view-if: n_advisors < 3
 
-- #left_advisor
+- #kemalist_marxist_advisor
 
 @labor
 view-if: n_advisors < 3
 
 - #labor_advisor
 
-@neorev
-view-if: neorevisionism > 0 and n_advisors < 3
+@right_kemalist
+view-if: right_kemalists_strength > 0 and n_advisors < 3
 
-- #neorev_advisor
+- #right_kemalist_advisor
 
 @nonfactional
 view-if: n_advisors < 3
@@ -334,7 +334,7 @@ title: Rudolf Hilferding
 subtitle: Rudolf Hilferding is an economist and one of our chief Marxist theoreticians. {!<br><br>!}[? if difficulty < 0 : Actions - Against Right and Left, Defending Toleration, Fiscal Policy, Economic Democracy ?]
 is-card: true
 card-image: img/portraits/HilferdingRudolf.jpg
-tags: center_advisor
+tags: orthodox_kemalist_advisor
 view-if: hilferding_advisor = 0 and n_advisors < 3 and centrists_resign = 0
 on-arrival: hilferding_advisor = 1; n_advisors += 1
 go-to: advisor_menu
@@ -346,7 +346,7 @@ title: Otto Wels
 subtitle: Otto Wels is a long-time party organizer and member of the leadership, serving under Friedrich Ebert. {!<br><br>!}[? if difficulty < 0 : Actions -  Clear the Agenda, Party Discipline, Emergency Fundraising ?]
 is-card: true
 card-image: img/portraits/WelsRudolf.jpg
-tags: center_advisor
+tags: orthodox_kemalist_advisor
 view-if: wels_advisor = 0 and n_advisors < 3 and centrists_resign = 0
 on-arrival: wels_advisor = 1; n_advisors += 1
 go-to: advisor_menu
@@ -358,7 +358,7 @@ title: Hermann Müller
 subtitle: Hermann Müller is the last Social Democratic Chancellor. {!<br><br>!}[? if difficulty < 0 : Actions - Negotiating with the Coalition, Defending Toleration ?]
 is-card: true
 card-image: img/portraits/MüllerHermann.jpg
-tags: center_advisor
+tags: orthodox_kemalist_advisor
 view-if: muller_advisor = 0 and muller_dead = 0 and n_advisors < 3 and centrists_resign = 0
 on-arrival: muller_advisor = 1; n_advisors += 1
 go-to: advisor_menu
@@ -373,11 +373,11 @@ card-image: img/portraits/BreitscheidRudolf.jpg
 view-if: breitscheid_advisor = 0 and n_advisors < 3
 on-arrival: breitscheid_advisor = 1; n_advisors += 1
 go-to: advisor_menu
-tags: center_advisor
+tags: orthodox_kemalist_advisor
 
 Rudolf Breitscheid is now an advisor.
 
-# reformist
+# left kemalist
 
 
 @add_severing
@@ -385,9 +385,9 @@ title: Carl Severing
 subtitle: Carl Severing is a one-time Prussian interior minister and police reformer. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Police Affairs ?]
 is-card: true
 card-image: img/portraits/SeveringCarl.jpg
-tags: reformist_advisor
+tags: left_kemalist_advisor
 view-if: severing_advisor = 0 and n_advisors < 3
-on-arrival: severing_advisor = 1; n_advisors += 1; reformist_strength += 5
+on-arrival: severing_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
 go-to: advisor_menu
 
 Carl Severing is now an advisor.
@@ -397,9 +397,9 @@ title: Otto Braun
 subtitle: Otto Braun is the Minister-President of Prussia, and one of the most recognizable and well-known Social Democratic leaders. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Negotiating with the Coalition ?]
 is-card: true
 card-image: img/portraits/BraunOtto.jpg
-tags: reformist_advisor
+tags: left_kemalist_advisor
 view-if: braun_advisor = 0 and n_advisors < 3
-on-arrival: braun_advisor = 1; n_advisors += 1; reformist_strength += 5
+on-arrival: braun_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
 go-to: advisor_menu
 
 Otto Braun is now an advisor.
@@ -410,9 +410,9 @@ subtitle: Marie Juchacz is the founder of Worker's Welfare, a mutual-aid organiz
 is-card: true
 card-image: img/portraits/JuchaczMarie.jpg
 view-if: juchacz_advisor = 0 and n_advisors < 3
-on-arrival: juchacz_advisor = 1; n_advisors += 1; reformist_strength += 5
+on-arrival: juchacz_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
 go-to: advisor_menu
-tags: reformist_advisor
+tags: left_kemalist_advisor
 
 Marie Juchacz is now an advisor.
 
@@ -424,13 +424,13 @@ card-image: img/portraits/PfülfAntonie.jpg
 view-if: pfulf_advisor = 0 and n_advisors < 3
 on-arrival: pfulf_advisor = 1; n_advisors += 1
 go-to: advisor_menu
-tags: reformist_advisor
+tags: left_kemalist_advisor
 
 Antonie Pfülf is now an advisor.
 
 
 
-# left
+# kemalist marxist
 
 @add_levi
 title: Paul Levi
@@ -438,9 +438,9 @@ subtitle: Paul Levi is a former TIP leader who was purged for criticizing Commun
 is-card: true
 card-image: img/portraits/LeviPaul.jpg
 view-if: levi_advisor = 0 and levi_dead = 0 and n_advisors < 3 and left_split = 0
-on-arrival: levi_advisor = 1; n_advisors += 1; left_strength += 5
+on-arrival: levi_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
 go-to: advisor_menu
-tags: left_advisor
+tags: kemalist_marxist_advisor
 
 Paul Levi is now an advisor.
 
@@ -450,9 +450,9 @@ subtitle: Toni Sender is an anti-war and womens' rights advocate, and Reichstag 
 is-card: true
 card-image: img/portraits/SenderToni.jpg
 view-if: sender_advisor = 0 and n_advisors < 3
-on-arrival: sender_advisor = 1; n_advisors += 1; left_strength += 5
+on-arrival: sender_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
 go-to: advisor_menu
-tags: left_advisor
+tags: kemalist_marxist_advisor
 
 Toni Sender is now an advisor.
 
@@ -462,9 +462,9 @@ subtitle: Kurt Rosenfeld is a lawyer, anti-militarist activist, and Reichstag me
 is-card: true
 card-image: img/portraits/RosenfeldKurt.jpg
 view-if: rosenfeld_advisor = 0 and n_advisors < 3 and left_split = 0
-on-arrival: rosenfeld_advisor = 1; n_advisors += 1; left_strength += 5
+on-arrival: rosenfeld_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
 go-to: advisor_menu
-tags: left_advisor
+tags: kemalist_marxist_advisor
 
 Kurt Rosenfeld is now an advisor.
 
@@ -474,9 +474,9 @@ subtitle: Max Seydewitz is a former leader of the youth wing, current supporter 
 is-card: true
 card-image: img/portraits/SeydewitzMax.jpg
 view-if: seydewitz_advisor = 0 and n_advisors < 3 and left_split = 0
-on-arrival: seydewitz_advisor = 1; n_advisors += 1; left_strength += 5
+on-arrival: seydewitz_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
 go-to: advisor_menu
-tags: left_advisor
+tags: kemalist_marxist_advisor
 
 Max Seydewitz is now an advisor.
 
@@ -486,9 +486,9 @@ subtitle: Anna Siemsen is an and educational reform advocate and pacifist, who w
 is-card: true
 card-image: img/portraits/SiemsenAnna.jpg
 view-if: siemsen_advisor = 0 and n_advisors < 3 and left_split = 0
-on-arrival: siemsen_advisor = 1; n_advisors += 1; left_strength += 5
+on-arrival: siemsen_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
 go-to: advisor_menu
-tags: left_advisor
+tags: kemalist_marxist_advisor
 
 Anna Siemsen is now an advisor.
 
@@ -546,17 +546,17 @@ go-to: advisor_menu
 Wladimir Woytinsky is now an advisor.
 
 
-# neorevisionist leaders
+# right kemalist leaders
 
 @add_mierendorff
 title: Carlo Mierendorff
-subtitle: Carlo Mierendorff is one of the youngest members of the Reichstag, and the originator of the "Neo-Revisionist" movement. He is an anti-Nazi strategist. {!<br><br>!}[? if difficulty < 0 : Actions - Build the Iron Front, Warning About the Nazis ?]
+subtitle: Carlo Mierendorff is one of the youngest members of the Reichstag, and the originator of the "Right Kemalist" movement. He is an anti-Nazi strategist. {!<br><br>!}[? if difficulty < 0 : Actions - Build the Iron Front, Warning About the Nazis ?]
 is-card: true
 card-image: img/portraits/MierendorffCarlo.jpg
 view-if: mierendorff_advisor = 0 and n_advisors < 3
-on-arrival: mierendorff_advisor = 1; n_advisors += 1; neorevisionist_strength += 5
+on-arrival: mierendorff_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
 go-to: advisor_menu
-tags: neorev_advisor
+tags: right_kemalist_advisor
 
 Carlo Mierendorff is now an advisor.
 
@@ -565,9 +565,9 @@ title: Kurt Schumacher
 subtitle: Kurt Schumacher is a Great War veteran and energetic speaker for the social-democratic cause, and favors reformist policies. {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising, Building the Reichsbanner, Addressing the Economic Crisis ?]
 is-card: true
 card-image: img/portraits/SchumacherKurt.jpg
-tags: neorev_advisor
+tags: right_kemalist_advisor
 view-if: schumacher_advisor = 0 and n_advisors < 3
-on-arrival: schumacher_advisor = 1; n_advisors += 1; neorevisionist_strength += 5
+on-arrival: schumacher_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
 go-to: advisor_menu
 
 Kurt Schumacher is now an advisor.
@@ -578,9 +578,9 @@ subtitle: Julius Leber is a former Reichswehr officer who resigned in opposition
 is-card: true
 card-image: img/portraits/LeberJulius.jpg
 view-if: leber_advisor = 0 and n_advisors < 3
-on-arrival: leber_advisor = 1; n_advisors += 1; neorevisionist_strength += 5
+on-arrival: leber_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
 go-to: advisor_menu
-tags: neorev_advisor
+tags: right_kemalist_advisor
 
 Julius Leber is now an advisor.
 
