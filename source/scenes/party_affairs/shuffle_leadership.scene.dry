@@ -321,7 +321,7 @@ subtitle: İlhan Selçuk is a journalist and author for the Cumhuriyet newspaper
 is-card: true
 card-image: img/portraits/IlhanSelcuk.jpg
 view-if: selcuk_advisor = 0 and n_advisors < 3
-on-arrival: selcuk_advisor = 1: n_advisors += 1; kemalist_marxists_strength += 5
+on-arrival: selcuk_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
 go-to: advisor_menu
 tags: kemalist_marxist_advisor
 
