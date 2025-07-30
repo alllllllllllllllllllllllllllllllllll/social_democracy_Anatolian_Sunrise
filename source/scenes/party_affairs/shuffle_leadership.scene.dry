@@ -125,9 +125,17 @@ Avcıoğlu has been removed as an advisor. The Kemalist Marxist faction disappro
 title: Remove Selçuk
 view-if: selcuk_advisor = 1
 tags: remove_advisor
-on-arrival: avcioglu_advisor = 0; kemalist_marxists_dissent += 5; n_advisors -= 1
+on-arrival: selcuk_advisor = 0; kemalist_marxists_dissent += 5; n_advisors -= 1
 
 Selçuk has been removed as an advisor. The Kemalist Marxist faction disapproves.
+
+@remove_belli
+title: Remove Belli
+view-if: belli_advisor = 1
+tags: remove_advisor
+on-arrival: belli_advisor = 0; kemalist_marxists_dissent += 2: n_advisors -= 1
+
+Belli has been removed from our list of contacts. The Kemalist Marxist faction slightly disapproves.
 
 @remove_levi
 title: Remove Levi
