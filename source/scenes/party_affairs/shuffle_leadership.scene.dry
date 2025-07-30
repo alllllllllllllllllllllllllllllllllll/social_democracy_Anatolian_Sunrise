@@ -21,7 +21,7 @@ Removing advisors will increase dissent from their faction of the party, while s
 
 @rm_main
 title: Remove advisors.
-tags: orthodox_kemalist_advisor, left_kemalist_advisor, kemalist_marxist_advisor, right_kemalist_advisor, labor_advisor, nonfactional_advisor 
+tags: kemalist_marxist_advisor, left_kemalist_advisor, orthodox_kemalist_advisor, right_kemalist_advisor, nonfactional_advisor 
 frequency: 1
 
 - #remove_advisor
@@ -110,46 +110,16 @@ go-to: rm_main
 Pfülf has been removed as an advisor. The Left Kemalist faction disapproves.
 
 
-# labor
-
-@remove_leipart
-title: Remove Leipart
-view-if: leipart_advisor = 1
-tags: remove_advisor
-on-arrival: leipart_advisor = 0; labor_dissent += 5; n_advisors -= 1
-go-to: rm_main
-
-Leipart has been removed as an advisor. The Labor faction disapproves.
-
-@remove_aufhauser
-title: Remove Aufhäuser
-view-if: aufhauser_advisor = 1
-tags: remove_advisor
-on-arrival: aufhauser_advisor = 0; labor_dissent += 5; n_advisors -= 1
-go-to: rm_main
-
-Aufhäuser has been removed as an advisor. The Labor faction disapproves.
-
-@remove_wissell
-title: Remove Wissell
-view-if: wissell_advisor = 1
-tags: remove_advisor
-on-arrival: wissell_advisor = 0; labor_dissent += 3; n_advisors -= 1
-go-to: rm_main
-
-Wissell has been removed as an advisor. The Labor faction disapproves.
-
-
-@remove_woytinsky
-title: Remove Woytinsky
-view-if: woytinsky_advisor = 1
-tags: remove_advisor
-on-arrival: woytinsky_advisor = 0; labor_dissent += 3; n_advisors -= 1
-go-to: rm_main
-
-Woytinsky has been removed as an advisor. The Labor faction disapproves.
-
 # kemalist marxists
+
+@remove_avcioglu
+title: Remove Avcıoğlu
+view-if: avcioglu_advisor = 1
+tags: remove_advisor
+on-arrival: avcioglu_advisor = 0; kemalist_marxists_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Avcıoğlu has been removed as an advisor. The Kemalist Marxist faction disapproves.
 
 @remove_levi
 title: Remove Levi
@@ -286,38 +256,32 @@ go-to: advisor_menu
 
 @advisor_menu
 title: Add other advisors.
-tags: orthodox_kemalist_advisor, kemalist_marxist_advisor, left_kemalist_advisor, labor_advisor, right_kemalist_advisor, nonfactional_advisor
+tags: kemalist_marxist_advisor, left_kemalist_advisor, orthodox_kemalist_advisor, right_kemalist_advisor, nonfactional_advisor
 frequency: 1
 
 
-- @orthodox_kemalist: Add Orthodox Kemalists
 - @kemalist_marxist: Add Kemalist Marxists
 - @left_kemalist: Add Left Kemalists
-- @labor: Add Labor
+- @orthodox_kemalist: Add Orthodox Kemalists
 - @right_kemalist: Add Right Kemalists
 - @nonfactional: Add non-factional advisors
 - @rm_main: Remove advisors instead.
 - @remove_none: Stop changing advisors.
-
-@orthodox_kemalist
-view-if: n_advisors < 3
-
-- #orthodox_kemalist_advisor
-
-@left_kemalist
-view-if: n_advisors < 3
-
-- #left_kemalist_advisor
 
 @kemalist_marxist
 view-if: n_advisors < 3
 
 - #kemalist_marxist_advisor
 
-@labor
+@left_kemalist
 view-if: n_advisors < 3
 
-- #labor_advisor
+- #left_kemalist_advisor
+
+@orthodox_kemalist
+view-if: n_advisors < 3
+
+- #orthodox_kemalist_advisor
 
 @right_kemalist
 view-if: right_kemalists_strength > 0 and n_advisors < 3
@@ -329,108 +293,19 @@ view-if: n_advisors < 3
 
 - #nonfactional_advisor
 
-@add_hilferding
-title: Rudolf Hilferding
-subtitle: Rudolf Hilferding is an economist and one of our chief Marxist theoreticians. {!<br><br>!}[? if difficulty < 0 : Actions - Against Right and Left, Defending Toleration, Fiscal Policy, Economic Democracy ?]
-is-card: true
-card-image: img/portraits/HilferdingRudolf.jpg
-tags: orthodox_kemalist_advisor
-view-if: hilferding_advisor = 0 and n_advisors < 3 and centrists_resign = 0
-on-arrival: hilferding_advisor = 1; n_advisors += 1
-go-to: advisor_menu
-
-Rudolf Hilferding is now an advisor.
-
-@add_wels
-title: Otto Wels
-subtitle: Otto Wels is a long-time party organizer and member of the leadership, serving under Friedrich Ebert. {!<br><br>!}[? if difficulty < 0 : Actions -  Clear the Agenda, Party Discipline, Emergency Fundraising ?]
-is-card: true
-card-image: img/portraits/WelsRudolf.jpg
-tags: orthodox_kemalist_advisor
-view-if: wels_advisor = 0 and n_advisors < 3 and centrists_resign = 0
-on-arrival: wels_advisor = 1; n_advisors += 1
-go-to: advisor_menu
-
-Otto Wels is now an advisor.
-
-@add_muller
-title: Hermann Müller
-subtitle: Hermann Müller is the last Social Democratic Chancellor. {!<br><br>!}[? if difficulty < 0 : Actions - Negotiating with the Coalition, Defending Toleration ?]
-is-card: true
-card-image: img/portraits/MüllerHermann.jpg
-tags: orthodox_kemalist_advisor
-view-if: muller_advisor = 0 and muller_dead = 0 and n_advisors < 3 and centrists_resign = 0
-on-arrival: muller_advisor = 1; n_advisors += 1
-go-to: advisor_menu
-
-Hermann Müller is now an advisor.
-
-@add_breitscheid
-title: Rudolf Breitscheid
-subtitle: Rudolf Breitscheid comes from a well-educated background and is one of our foreign policy leaders. {!<br><br>!}[? if difficulty < 0 : Actions - International Relations, Foreign Policy, Party Discipline ?]
-is-card: true
-card-image: img/portraits/BreitscheidRudolf.jpg
-view-if: breitscheid_advisor = 0 and n_advisors < 3
-on-arrival: breitscheid_advisor = 1; n_advisors += 1
-go-to: advisor_menu
-tags: orthodox_kemalist_advisor
-
-Rudolf Breitscheid is now an advisor.
-
-# left kemalist
-
-
-@add_severing
-title: Carl Severing
-subtitle: Carl Severing is a one-time Prussian interior minister and police reformer. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Police Affairs ?]
-is-card: true
-card-image: img/portraits/SeveringCarl.jpg
-tags: left_kemalist_advisor
-view-if: severing_advisor = 0 and n_advisors < 3
-on-arrival: severing_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
-go-to: advisor_menu
-
-Carl Severing is now an advisor.
-
-@add_braun
-title: Otto Braun
-subtitle: Otto Braun is the Minister-President of Prussia, and one of the most recognizable and well-known Social Democratic leaders. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Negotiating with the Coalition ?]
-is-card: true
-card-image: img/portraits/BraunOtto.jpg
-tags: left_kemalist_advisor
-view-if: braun_advisor = 0 and n_advisors < 3
-on-arrival: braun_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
-go-to: advisor_menu
-
-Otto Braun is now an advisor.
-
-@add_juchacz
-title: Marie Juchacz
-subtitle: Marie Juchacz is the founder of Worker's Welfare, a mutual-aid organization. {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising, Worker's Welfare, Organizing Women ?]
-is-card: true
-card-image: img/portraits/JuchaczMarie.jpg
-view-if: juchacz_advisor = 0 and n_advisors < 3
-on-arrival: juchacz_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
-go-to: advisor_menu
-tags: left_kemalist_advisor
-
-Marie Juchacz is now an advisor.
-
-@add_pfulf
-title: Antonie Pfülf
-subtitle: Antonie Pfülf is a leader in social policy and women's rights. {!<br><br>!}[? if difficulty < 0 : Actions - Support a People's Party, Women's Rights ?]
-is-card: true
-card-image: img/portraits/PfülfAntonie.jpg
-view-if: pfulf_advisor = 0 and n_advisors < 3
-on-arrival: pfulf_advisor = 1; n_advisors += 1
-go-to: advisor_menu
-tags: left_kemalist_advisor
-
-Antonie Pfülf is now an advisor.
-
-
-
 # kemalist marxist
+
+@add_avcioglu
+title: Doğan Avcıoğlu
+subtitle: Doğan Avcıoğlu is a famous Marxist historian, economist, politician and an author. {!<br><br>!}[? if difficulty < 0 : Actions - TBD ?]
+is-card: true
+card-image: img/portraits/AvciogluDogan.jpg
+view-if: avcioglu_advisor = 0 and n_advisors < 3
+on-arrival: avcioglu_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 10
+go-to: advisor_menu
+tags: kemalist_marxist_advisor
+
+Doğan Avcıoğlu is now an advisor.
 
 @add_levi
 title: Paul Levi
@@ -492,59 +367,105 @@ tags: kemalist_marxist_advisor
 
 Anna Siemsen is now an advisor.
 
+# left kemalist
 
-
-# labor
-
-@add_leipart
-title: Theodor Leipart
-subtitle: Theodor Leipart is the leader of the ADGB, the German Trade Union Federation. {!<br><br>!}[? if difficulty < 0 : Actions - Organizing Workers, Addressing the Economic Crisis ?]
+@add_severing
+title: Carl Severing
+subtitle: Carl Severing is a one-time Prussian interior minister and police reformer. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Police Affairs ?]
 is-card: true
-card-image: img/portraits/LeipartTheodor.jpg
-tags: labor_advisor
-view-if: leipart_advisor = 0 and n_advisors < 3 and unions_independent = 0
-on-arrival: leipart_advisor = 1; n_advisors += 1; labor_strength += 5
+card-image: img/portraits/SeveringCarl.jpg
+tags: left_kemalist_advisor
+view-if: severing_advisor = 0 and n_advisors < 3
+on-arrival: severing_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
 go-to: advisor_menu
 
-Theodor Leipart is now an advisor.
+Carl Severing is now an advisor.
 
-@add_aufhauser
-title: Siegfried Aufhäuser
-subtitle: Siegfried Aufhäuser is the leader of the AfA-Bund, the white-collar trade union federation. {!<br><br>!}[? if difficulty < 0 : Actions - Organizing White-Collar Workers, Union-Party Coordination, Addressing the Economic Crisis ?]
+@add_braun
+title: Otto Braun
+subtitle: Otto Braun is the Minister-President of Prussia, and one of the most recognizable and well-known Social Democratic leaders. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Negotiating with the Coalition ?]
 is-card: true
-card-image: img/portraits/AufhäuserSiegfried.jpg
-tags: labor_advisor
-view-if: aufhauser_advisor = 0 and n_advisors < 3
-on-arrival: aufhauser_advisor = 1; n_advisors += 1; labor_strength += 5
+card-image: img/portraits/BraunOtto.jpg
+tags: left_kemalist_advisor
+view-if: braun_advisor = 0 and n_advisors < 3
+on-arrival: braun_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
 go-to: advisor_menu
 
-Siegfried Aufhäuser is now an advisor.
+Otto Braun is now an advisor.
 
-@add_wissell
-title: Rudolf Wissell
-subtitle: Rudolf Wissell is an economist who has been the Labor Minister, and is an advocate for the interests of labor within the government. {!<br><br>!}[? if difficulty < 0 : Actions - Union-Party Coordination, Labor Rights ?]
+@add_juchacz
+title: Marie Juchacz
+subtitle: Marie Juchacz is the founder of Worker's Welfare, a mutual-aid organization. {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising, Worker's Welfare, Organizing Women ?]
 is-card: true
-card-image: img/portraits/WissellRudolf.jpg
-tags: labor_advisor
-view-if: wissell_advisor = 0 and n_advisors < 3 and unions_independent = 0
-on-arrival: wissell_advisor = 1; n_advisors += 1; labor_strength += 3
+card-image: img/portraits/JuchaczMarie.jpg
+view-if: juchacz_advisor = 0 and n_advisors < 3
+on-arrival: juchacz_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+go-to: advisor_menu
+tags: left_kemalist_advisor
+
+Marie Juchacz is now an advisor.
+
+@add_pfulf
+title: Antonie Pfülf
+subtitle: Antonie Pfülf is a leader in social policy and women's rights. {!<br><br>!}[? if difficulty < 0 : Actions - Support a People's Party, Women's Rights ?]
+is-card: true
+card-image: img/portraits/PfülfAntonie.jpg
+view-if: pfulf_advisor = 0 and n_advisors < 3
+on-arrival: pfulf_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+tags: left_kemalist_advisor
+
+Antonie Pfülf is now an advisor.
+
+# orthodox kemalist
+
+@add_hilferding
+title: Rudolf Hilferding
+subtitle: Rudolf Hilferding is an economist and one of our chief Marxist theoreticians. {!<br><br>!}[? if difficulty < 0 : Actions - Against Right and Left, Defending Toleration, Fiscal Policy, Economic Democracy ?]
+is-card: true
+card-image: img/portraits/HilferdingRudolf.jpg
+tags: orthodox_kemalist_advisor
+view-if: hilferding_advisor = 0 and n_advisors < 3 and centrists_resign = 0
+on-arrival: hilferding_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-Rudolf Wissell is now an advisor.
+Rudolf Hilferding is now an advisor.
 
-
-@add_woytinsky
-title: Wladimir Woytinsky
-subtitle: Wladimir Woytinsky is a former Russian Menshevik who is now the lead trade union economist. {!<br><br>!}[? if difficulty < 0 : Actions - Addressing the Economic Crisis, Carrying Out the Economic Plan ?]
+@add_wels
+title: Otto Wels
+subtitle: Otto Wels is a long-time party organizer and member of the leadership, serving under Friedrich Ebert. {!<br><br>!}[? if difficulty < 0 : Actions -  Clear the Agenda, Party Discipline, Emergency Fundraising ?]
 is-card: true
-card-image: img/portraits/WoytinskyWladimir.jpg
-tags: labor_advisor
-view-if: woytinsky_advisor = 0 and n_advisors < 3 and unions_independent = 0
-on-arrival: woytinsky_advisor = 1; n_advisors += 1; labor_strength += 3
+card-image: img/portraits/WelsRudolf.jpg
+tags: orthodox_kemalist_advisor
+view-if: wels_advisor = 0 and n_advisors < 3 and centrists_resign = 0
+on-arrival: wels_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-Wladimir Woytinsky is now an advisor.
+Otto Wels is now an advisor.
 
+@add_muller
+title: Hermann Müller
+subtitle: Hermann Müller is the last Social Democratic Chancellor. {!<br><br>!}[? if difficulty < 0 : Actions - Negotiating with the Coalition, Defending Toleration ?]
+is-card: true
+card-image: img/portraits/MüllerHermann.jpg
+tags: orthodox_kemalist_advisor
+view-if: muller_advisor = 0 and muller_dead = 0 and n_advisors < 3 and centrists_resign = 0
+on-arrival: muller_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+
+Hermann Müller is now an advisor.
+
+@add_breitscheid
+title: Rudolf Breitscheid
+subtitle: Rudolf Breitscheid comes from a well-educated background and is one of our foreign policy leaders. {!<br><br>!}[? if difficulty < 0 : Actions - International Relations, Foreign Policy, Party Discipline ?]
+is-card: true
+card-image: img/portraits/BreitscheidRudolf.jpg
+view-if: breitscheid_advisor = 0 and n_advisors < 3
+on-arrival: breitscheid_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+tags: orthodox_kemalist_advisor
+
+Rudolf Breitscheid is now an advisor.
 
 # right kemalist leaders
 
