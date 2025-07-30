@@ -305,7 +305,7 @@ view-if: n_advisors < 3
 
 @add_avcioglu
 title: Doğan Avcıoğlu
-subtitle: Doğan Avcıoğlu is a famous Marxist historian, economist, politician and an author. {!<br><br>!}[? if difficulty < 0 : Actions - TBD ?]
+subtitle: Doğan Avcıoğlu is a famous Marxist historian, economist, politician and an author. He is the defacto theoretician behind the National Democratic Revolution movement. {!<br><br>!}[? if difficulty < 0 : Actions - TBD ?]
 is-card: true
 card-image: img/portraits/AvciogluDogan.jpg
 view-if: avcioglu_advisor = 0 and n_advisors < 3
@@ -314,6 +314,18 @@ go-to: advisor_menu
 tags: kemalist_marxist_advisor
 
 Doğan Avcıoğlu is now an advisor.
+
+@add_selcuk
+title: İlhan Selçuk
+subtitle: İlhan Selçuk is a journalist and author for the Cumhuriyet newspaper, affiliated with us. He has been imprisoned since the memorandum of 71' due to his affiliation with the National Democratic Revolution movement.
+is-card: true
+card-image: img/portraits/IlhanSelcuk.jpg
+view-if: selcuk_advisor = 0 and n_advisors < 3
+on-arrival: selcuk_advisor = 1: n_advisors += 1; kemalist_marxists_strength += 5
+go-to: advisor_menu
+tags: kemalist_marxist_advisor
+
+İlhan Selçuk is now an advisor.
 
 @add_levi
 title: Paul Levi
