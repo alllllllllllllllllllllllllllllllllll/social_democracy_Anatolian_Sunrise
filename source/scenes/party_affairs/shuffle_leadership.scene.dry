@@ -340,7 +340,7 @@ title: Mihri Belli
 subtitle: Mihri Belli, the original conceptualizer of National Democratic Revolution, is a Socialist revolutionary that has strong ties with the far left movements.
 is-card: true
 card-image: img/portraits/MihriBelli.jpg
-views-if: belli_advisor = 0 and n_adviors < 3
+view-if: belli_advisor = 0 and n_adviors < 3
 on-arrival: belli_advisor = 1; n_advisors += 1; kemalists_marxists_strength += 5
 go-to: advisor_menu
 tags: kemalist_marxist_advisor
