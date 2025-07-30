@@ -1,0 +1,14 @@
+title: Doğan Avcıoğlu
+is-pinned-card: true
+tags: advisor, kemalist_marxist
+card-image: img/portraits/AvciogluDogan.jpg
+view-if: avcioglu_advisor = 1
+new-page: true 
+
+= Doğan Avcıoğlu
+
+Doğan Avcıoğlu is a famous Marxist historian, economist, politician and author. He advocates for a synthesis of Kemalist nationalism with Marxist economic theory, representing the intellectual wing of Turkish socialist thought.
+
+**Actions:**
+
+- @easy_discard
