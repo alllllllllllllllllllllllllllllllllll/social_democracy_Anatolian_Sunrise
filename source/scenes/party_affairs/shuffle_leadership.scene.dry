@@ -121,6 +121,14 @@ go-to: rm_main
 
 Avcıoğlu has been removed as an advisor. The Kemalist Marxist faction disapproves.
 
+@remove_selcuk
+title: Remove Selçuk
+view-if: selcuk_advisor = 1
+tags: remove_advisor
+on-arrival: avcioglu_advisor = 0; kemalist_marxists_dissent += 5; n_advisors -= 1
+
+Selçuk has been removed as an advisor. The Kemalist Marxist faction disapproves.
+
 @remove_levi
 title: Remove Levi
 view-if: levi_advisor = 1
