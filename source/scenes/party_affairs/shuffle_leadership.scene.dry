@@ -33,6 +33,15 @@ go-to: root
 tags: remove_advisor
 
 
+@remove_inonu
+title: Remove İnönü
+view-if: inonu_advisor = 1
+on-arrival: inonu_advisor = 0; otrhodox_kemalists_dissent += 10; n_advisors -= 1
+tags: remove_advisor
+go-to: rm_main
+
+İnönü has been removed as an advisor. The Orthodox Kemalist faction deeply disapproves.
+
 @remove_hilferding
 title: Remove Hilferding
 view-if: hilferding_advisor = 1
@@ -520,6 +529,18 @@ tags: left_kemalist_advisor
 Antonie Pfülf is now an advisor.
 
 # orthodox kemalist
+
+@add_inonu
+title: İsmet İnönü
+subtitle: The hero of the republic, right hand man of the Atatürk and former prime minister. The illustrious old wolf has been the party leader since 1938.
+is-card: true
+card-image: img/portraits/IsmetInonu.jpg
+tags: orthodox_kemalist_advisor
+view-if: inonu_advisor = 0 and n_advisors < 3
+on-arrival: ismet_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+
+İsmet İnönü is now an advisor.
 
 @add_hilferding
 title: Rudolf Hilferding
