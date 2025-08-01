@@ -82,7 +82,7 @@ go-to: rm_main
 
 Ecevit has been removed as an advisor. The Left Kemalist faction deeply disapproves.
 
-remove_baykal
+@remove_baykal
 title: Remove Baykal
 view-if: baykal_advisor = 1
 tags: remove_advisor
@@ -90,6 +90,15 @@ on-arrival: ecevit_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 5
 go-to: rm_main
 
 Baykal has been removed as an advisor. The Left Kemalist faction disapproves.
+
+@remove_aksoy
+title: Remove Aksoy
+view-if: aksoy_advisor = 1
+tags: remove_advisor
+on-arrival: aksoy_advisor = 0; left_kemalists_dissent +=5; n_advisors -= 5
+go-to: rm_main
+
+Aksoy has been removed as an advisor. The Left Kemalist faction disapproves.
 
 @remove_severing
 title: Remove Severing
@@ -449,6 +458,18 @@ on-arrival: baykal_advisor = 1; n_advisors +=1; left_kemalists_strength += 5
 go-to: advisor_menu
 
 Deniz Baykal is now an advisor.
+
+@add_aksoy
+title: Muammer Aksoy
+subtitle: The chief of the delegation behind the progressive 1960 Constitution, Muammer Aksoy is a lawyer and author.
+is-card: true
+card-image: img/portraits/MuammerAksoy.jpg
+tags: left_kemalist_advisor
+view-if: aksoy_advisor = 0 and n_advisors < 3
+on-arrival: aksoy_advisor = 1; n_advisors +=1; left_kemalists_strength += 5
+go-to: advisor_menu
+
+Muammer Aksoy is now an advisor.
 
 @add_severing
 title: Carl Severing
