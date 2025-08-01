@@ -445,7 +445,7 @@ is-card: true
 card-image: img/portraits/DenizBaykal.jpg
 tags: left_kemalist_advisor
 view-if: baykal_advisor = 0 and n_advisors < 3
-on-arrival: baykal_advisor = "; n_advisors +=1; left_kemalists_strength += 5
+on-arrival: baykal_advisor = 1; n_advisors +=1; left_kemalists_strength += 5
 go-to: advisor_menu
 
 Deniz Baykal is now an advisor.
