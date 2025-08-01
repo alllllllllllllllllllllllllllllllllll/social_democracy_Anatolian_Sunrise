@@ -453,6 +453,8 @@ card-image: img/portraits/ecevit3.jpg
 tags: left_kemalist_advisor
 view-if: ecevit_advisor = 0 and n_advisors < 3
 on-arrival: ecevit_advisor = 1; n_advisors += 1; left_kemalists_strength += 10
+go-to: advisor_menu
+tags: left_kemalists_advisor
 
 Bülent Ecevit is now an advisor
 
@@ -463,7 +465,7 @@ is-card: true
 card-image: img/portraits/DenizBaykal.jpg
 tags: left_kemalist_advisor
 view-if: baykal_advisor = 0 and n_advisors < 3
-on-arrival: baykal_advisor = 1; n_advisors +=1; left_kemalists_strength += 5
+on-arrival: baykal_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
 go-to: advisor_menu
 
 Deniz Baykal is now an advisor.
@@ -537,7 +539,7 @@ is-card: true
 card-image: img/portraits/IsmetInonu.jpg
 tags: orthodox_kemalist_advisor
 view-if: inonu_advisor = 0 and n_advisors < 3
-on-arrival: ismet_advisor = 1; n_advisors += 1
+on-arrival: inonu_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
 İsmet İnönü is now an advisor.
