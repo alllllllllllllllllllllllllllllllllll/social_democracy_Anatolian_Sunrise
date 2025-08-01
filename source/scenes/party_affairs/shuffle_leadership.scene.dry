@@ -425,7 +425,7 @@ is-card: true
 card-image: img/portraits/ecevit3.jpg
 tags: left_kemalist_advisor
 view-if: ecevit_advisor = 0 and n_advisors < 3
-on-arrical: ecevit_advisor = 1; n_advisors += 1; left_kemalists_strength += 10
+on-arrival: ecevit_advisor = 1; n_advisors += 1; left_kemalists_strength += 10
 
 @add_severing
 title: Carl Severing
