@@ -36,7 +36,7 @@ tags: remove_advisor
 @remove_inonu
 title: Remove İnönü
 view-if: inonu_advisor = 1
-on-arrival: inonu_advisor = 0; otrhodox_kemalists_dissent += 10; n_advisors -= 1
+on-arrival: inonu_advisor = 0; orthodox_kemalists_dissent += 10; n_advisors -= 1
 tags: remove_advisor
 go-to: rm_main
 
