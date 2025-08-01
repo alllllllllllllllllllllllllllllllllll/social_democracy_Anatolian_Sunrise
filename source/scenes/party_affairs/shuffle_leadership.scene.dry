@@ -454,7 +454,6 @@ tags: left_kemalist_advisor
 view-if: ecevit_advisor = 0 and n_advisors < 3
 on-arrival: ecevit_advisor = 1; n_advisors += 1; left_kemalists_strength += 10
 go-to: advisor_menu
-tags: left_kemalists_advisor
 
 Bülent Ecevit is now an advisor
 
