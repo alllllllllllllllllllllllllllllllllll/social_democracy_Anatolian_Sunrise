@@ -76,7 +76,7 @@ Breitscheid has been removed as an advisor. The Orthodox Kemalist faction disapp
 @remove_ecevit
 title: Remove Ecevit
 view-if: ecevit_advisor = 1
-tags: remove:advisor
+tags: remove_advisor
 on-arrival: ecevit_advisor = 0; left_kemalists_dissent += 10; n_advisors -= 1
 go-to: rm_main
 
