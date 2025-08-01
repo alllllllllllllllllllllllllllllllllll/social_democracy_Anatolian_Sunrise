@@ -73,6 +73,15 @@ Breitscheid has been removed as an advisor. The Orthodox Kemalist faction disapp
 # left kemalists
 
 
+@remove_ecevit
+title: Remove Ecevit
+view-if: ecevit_advisor = 1
+tags: remove:advisor
+on-arrival: ecevit_advisor = 0; left_kemalists_dissent += 10; n_advisors -= 1
+go-to: rm_main
+
+Ecevit has been removed as an advisor. The Left Kemalist faction deeply disapproves.
+
 @remove_severing
 title: Remove Severing
 view-if: severing_advisor = 1
@@ -408,6 +417,15 @@ tags: kemalist_marxist_advisor
 Anna Siemsen is now an advisor.
 
 # left kemalist
+
+@add_ecevit
+title: Bülent Ecevit
+subtitle: Bülent Ecevit is the current speaker of our party and is the defacto leader of the Left of Center movement.
+is-card: true
+card-image: img/portraits/ecevit3.jpg
+tags: left_kemalist_advisor
+view-if: ecevit_advisor = 0 and n_advisors < 3
+on-arrical: ecevit_advisor = 1; n_advisors += 1; left_kemalists_strength += 10
 
 @add_severing
 title: Carl Severing
