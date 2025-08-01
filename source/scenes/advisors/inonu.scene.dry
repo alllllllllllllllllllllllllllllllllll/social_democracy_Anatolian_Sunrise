@@ -1,7 +1,7 @@
 title: İsmet İnönü
 is-pinned-card: true
 tags: advisor, orthodox_kemalist
-card-image: img/portraits/IsmetInonu.jpeg
+card-image: img/portraits/IsmetInonu.jpg
 view-if: inonu_advisor = 1
 new-page: true 
 
