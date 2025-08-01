@@ -82,6 +82,15 @@ go-to: rm_main
 
 Ecevit has been removed as an advisor. The Left Kemalist faction deeply disapproves.
 
+remove_baykal
+title: Remove Baykal
+view-if: baykal_advisor = 1
+tags: remove_advisor
+on-arrival: ecevit_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 5
+go-to: rm_main
+
+Baykal has been removed as an advisor. The Left Kemalist faction disapproves.
+
 @remove_severing
 title: Remove Severing
 view-if: severing_advisor = 1
@@ -426,6 +435,20 @@ card-image: img/portraits/ecevit3.jpg
 tags: left_kemalist_advisor
 view-if: ecevit_advisor = 0 and n_advisors < 3
 on-arrival: ecevit_advisor = 1; n_advisors += 1; left_kemalists_strength += 10
+
+Bülent Ecevit is now an advisor
+
+@add_baykal
+title: Deniz Baykal
+subtitle: A rising figure within the party partially due to his doctorate on the 1965 elections, Baykal is experienced in financial and international affairs.
+is-card: true
+card-image: img/portraits/DenizBaykal.jpg
+tags: left_kemalist_advisor
+view-if: baykal_advisor = 0 and n_advisors < 3
+on-arrival: baykal_advisor = "; n_advisors +=1; left_kemalists_strength += 5
+go-to: advisor_menu
+
+Deniz Baykal is now an advisor.
 
 @add_severing
 title: Carl Severing
