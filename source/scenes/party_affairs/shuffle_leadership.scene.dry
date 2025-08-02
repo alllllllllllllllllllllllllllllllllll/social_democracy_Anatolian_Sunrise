@@ -518,7 +518,7 @@ is-card: true
 card-image: img/portraits/RahsanEcevit.jpeg
 tags: left_kemalist_advisor
 view-if: rahsan_advisor = 0 and n_advisors < 3
-on-arrival: rahsan_advisor = 1; n_advisors += 1_ left_kemalists_strength += 5
+on-arrival: rahsan_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
 go-to: advisor_menu
 
 Rahşan Ecevit is now an advisor.
