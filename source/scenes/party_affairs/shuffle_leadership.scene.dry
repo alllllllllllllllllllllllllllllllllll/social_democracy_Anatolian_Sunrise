@@ -478,6 +478,18 @@ go-to: advisor_menu
 
 Deniz Baykal is now an advisor.
 
+@add_gunes
+title: Turan Güneş
+subtitle: Turan Güneş is a Social Democratic politician that expertises in international relations.
+is-card: true
+card-image: img/portraits/TuranGunes.jpg
+tags: left_kemalist_advisor
+view-if: gunes_advisor = 0 and n_advisors < 3
+on-arrival: gunes_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+go-to: advisor_menu
+
+Turan Güneş is now an advisor.
+
 @add_aksoy
 title: Muammer Aksoy
 subtitle: The chief of the delegation behind the progressive 1960 Constitution, Muammer Aksoy is a lawyer and author.
