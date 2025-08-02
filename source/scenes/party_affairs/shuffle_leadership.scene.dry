@@ -558,7 +558,7 @@ subtitle: Kemal Satır is a former doctor and one of the prominent names among t
 is-card: true
 card-image: img/portraits/KemalSatir.png
 tags: orthodox_kemalist_advisor
-view-if: satir_advisor 0 and n_advisors < 3
+view-if: satir_advisor = 0 and n_advisors < 3
 on-arrival: satir_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
