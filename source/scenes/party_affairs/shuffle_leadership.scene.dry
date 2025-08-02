@@ -42,6 +42,15 @@ go-to: rm_main
 
 İnönü has been removed as an advisor. The Orthodox Kemalist faction deeply disapproves.
 
+@remove_satir
+title: Remove Satır
+view-if: satir_advisor = 1
+on-arrival: satir_advisor = 0; orthodox_kemalists_dissent += 10; n_advisors -= 1
+tags: remove_advisor
+go-to: rm_main
+
+Satır has been removed as an advisor. The Orthodox Kemalist faction disapproves.
+
 @remove_hilferding
 title: Remove Hilferding
 view-if: hilferding_advisor = 1
@@ -542,6 +551,18 @@ on-arrival: inonu_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
 İsmet İnönü is now an advisor.
+
+@add_satir
+title: Kemal Satır
+subtitle: Kemal Satır is a former doctor and one of the prominent names among the Orthodoxs.
+is-card: true
+card-image: img/portraits/KemalSatir.png
+tags: orthodox_kemalist_advisor
+view-if: satir_advisor 0 and n_advisors < 3
+on-arrival: satir_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+
+Kemal Satır is now an advisor.
 
 @add_hilferding
 title: Rudolf Hilferding
