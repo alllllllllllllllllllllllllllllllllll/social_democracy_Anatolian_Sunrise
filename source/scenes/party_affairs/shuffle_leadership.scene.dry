@@ -51,6 +51,16 @@ go-to: rm_main
 
 Satır has been removed as an advisor. The Orthodox Kemalist faction disapproves.
 
+@remove_eyuboglu
+title: Remove Eyüboğlu
+view-if: eyuboglu_advisor = 1
+tags: remove_advisor
+on-arrival: eyuboglu_advisor = 0; orthodox_kemalists_dissent += 5; n_advisors -= 1
+tags: remove_advisor
+go-to: rm_main
+
+Eyüboğlu has been removed as an advisor. The Orthodox Kemalist faction disapproves.
+
 @remove_hilferding
 title: Remove Hilferding
 view-if: hilferding_advisor = 1
@@ -181,7 +191,7 @@ view-if: selcuk_advisor = 1
 tags: remove_advisor
 on-arrival: selcuk_advisor = 0; kemalist_marxists_dissent += 5; n_advisors -= 1
 
-Selçuk has been removed as an advisor. The Kemalist Marxist faction disapproves.
+Selçuk has been removed as an advisor. The Kemalist Marxist faction disapproves. 
 
 @remove_belli
 title: Remove Belli
@@ -605,6 +615,18 @@ on-arrival: satir_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
 Kemal Satır is now an advisor.
+
+@add_eyuboglu
+title: Orhan Eyüboğlu
+subtitle: Orhan Eyüboğlu is a lawyer and one of the supporters of İnönü
+is-card: true
+card-image: img/portraits/OrhanEyuboglu.jpeg
+tags: orthodox_kemalist_advisor
+view-if: eyuboglu_advisor = 0 and n_advisors < 3
+on-arrival: eyuboglu_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+
+Orhan Eyüboğlu is now an advisor.
 
 @add_hilferding
 title: Rudolf Hilferding
