@@ -748,12 +748,15 @@ Q.march_on_berlin_timer = 0;
 
 
 // all the initial advisors are centrists.
-Q.wels_advisor = 1; // Otto Wels
-Q.muller_advisor = 1; // Hermann Müller
+Q.inonu_advisor = 1; // İsmet İnönü 
+Q.ecevit_advisor = 1; // Bülent Ecevit 
+Q.satir_advisor = 1; // Kemal Satır 
+Q.wels_advisor = 0; // Otto Wels
+Q.muller_advisor = 0; // Hermann Müller
 Q.muller_dead = 0;
 // okay I know Arthur Crispien was a leader irl but i couldn't find much interesting about him...
 Q.crispien_advisor = 0; // Arthur Crispien
-Q.hilferding_advisor = 1; // Rudolf Hilferding
+Q.hilferding_advisor = 0; // Rudolf Hilferding
 
 // left advisors
 Q.sender_advisor = 0; // Toni Sender
@@ -806,7 +809,7 @@ For more information on the politics and government of the German Republic, see 
 - @1928_historical: Begin (historical mode)
 
 @1928_easy
-on-arrival: difficulty = -1; resources = 4; dues = 3; police_strength = 50; TIP_relation = 29;AP_relation = 54; DP_relation = 49; budget = 5;
+on-arrival: difficulty = -1; resources = 4; dues = 3; police_strength = 50; TIP_relation = 45;AP_relation = 54; DP_relation = 40; budget = 5;
 go-to: 1928_main
 
 @1928_hard
