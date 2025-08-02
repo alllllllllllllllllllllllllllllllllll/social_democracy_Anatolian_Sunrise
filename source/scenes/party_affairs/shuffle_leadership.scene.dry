@@ -54,7 +54,6 @@ Satır has been removed as an advisor. The Orthodox Kemalist faction disapproves
 @remove_eyuboglu
 title: Remove Eyüboğlu
 view-if: eyuboglu_advisor = 1
-tags: remove_advisor
 on-arrival: eyuboglu_advisor = 0; orthodox_kemalists_dissent += 5; n_advisors -= 1
 tags: remove_advisor
 go-to: rm_main
