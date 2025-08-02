@@ -1,0 +1,12 @@
+title: Turan Güneş
+is-pinned-card: true
+tags: advisor, left_kemalists
+card-image: img/portraits/TuranGunes.jpg
+view-if: gunes_advisor = 1
+new-page: true 
+
+= Turan Güneş
+
+Turan Güneş is a member of the left of center movement and expertises in international affairs.
+
+- @easy_discard
