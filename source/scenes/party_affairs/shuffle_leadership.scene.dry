@@ -241,6 +241,15 @@ Siemsen has been removed as an advisor. The Kemalist Marxist faction disapproves
 
 # right kemalists
 
+@remove_gogus
+title: Remove Ali İhsan Göğüs
+view-if: gogus_advisor = 1
+tags: remove_advisor
+on-arrival: gogus_advisor = 0; right_kemalists_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Ali İhsan Göğüs has been removed as an advisor. The Right Kemalist faction disapproves.
+
 @remove_mierendorff
 title: Remove Mierendorff
 view-if: mierendorff_advisor = 1
@@ -646,6 +655,18 @@ tags: orthodox_kemalist_advisor
 Rudolf Breitscheid is now an advisor.
 
 # right kemalist leaders
+
+@add_gogus
+title: Ali İhsan Göğüs
+subtitle: Ali İhsan Göğüs is a staunch opponent of the left of center movement and has served as the minister of tourism in the Nihat Erim cabinet.
+is-card: true
+card-image: img/portraits/AliIhsanGogus.jpg
+view-if: gogus_advisor = 0 and n_advisors < 3
+on-arrival: gogus_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
+go-to: advisor_menu
+tags: right_kemalist_advisor
+
+Ali İhsan Göğüs is now an advisor.
 
 @add_mierendorff
 title: Carlo Mierendorff
