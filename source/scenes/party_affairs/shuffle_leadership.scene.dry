@@ -145,6 +145,15 @@ go-to: rm_main
 
 Rahşan has been removed as an advisor.
 
+@remove_gunes
+title: Remove Güneş
+view-if: gunes_advisor = 1
+tags: remove_advisor
+on-arrival: gunes_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Turan Güneş has been removed as an advisor. The Left Kemalist faction disapproves.
+
 @remove_severing
 title: Remove Severing
 view-if: severing_advisor = 1
