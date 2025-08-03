@@ -105,6 +105,12 @@ Political Consciousness: [? if kurdish_political_consciousness < 0.05: Nonexista
 
 Radicalism: [? if kurdish_radicalism < 0.05: Nonexistant ?][? if kurdish_radicalism >= 0.05 and kurdish_radicalism < 0.14: Very low ?][? if kurdish_radicalism >= 0.14 and kurdish_radicalism < 0.24: Low ?][? if kurdish_radicalism >= 0.24 and kurdish_radicalism < 0.44: Medium-low ?][? if kurdish_radicalism >= 0.44 and kurdish_radicalism < 0.69: Medium ?][? if kurdish_radicalism >= 0.69 and kurdish_radicalism < 0.89: High ?][? if kurdish_radicalism >= 0.89: Very high ?]
 
+= Union Relations
+
+DİSK: [+ disk_relation : relationships +]
+
+DİSK - TÜRK-İŞ Conflict: [? if disk_turkis_conflict < 0.20: Total DİSK Dominance ?][? if disk_turkis_conflict >= 0.20 and disk_turkis_conflict < 0.40: DİSK leaning ?][? if disk_turkis_conflict >= 0.40 and disk_turkis_conflict < 0.60: Balanced ?][? if disk_turkis_conflict >= 0.60 and disk_turkis_conflict < 0.80: TÜRK-İŞ leaning ?][? if disk_turkis_conflict >= 0.80: Total TÜRK-İŞ Dominance ?]
+
 = Internal Factions of the CHP
 
 {!<span class="tooltip-text" title="Marxists within the party desire a realignment of the party alongside Socialist elements. Even though many intellectuals such as Tevfik Rüştü Aras and Doğan Avcıoğlu subscribe to this faction, there is no central organization nor a figure that leads the Marxist camp, largely due to ideological differences.">Kemalist Marxists</span>!} strength: [+ kemalist_marxists_strength : strength +], dissent: [+ kemalist_marxists_dissent : dissent +]

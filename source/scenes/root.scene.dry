@@ -331,6 +331,10 @@ Q.tsk_pacified = 0;
 Q.kurdish_political_consciousness = 0.20; // Starting position: Low (0.14-0.24)
 Q.kurdish_radicalism = 0.25; // Starting position: Medium-low (0.24-0.44)
 
+// Union Relations system
+Q.disk_relation = -15; // Starting at "cool" (same spectrum as party relations)
+Q.disk_turkis_conflict = 0.50; // Starting at "Balanced" (0.40-0.60)
+
 // Update army_in_government based on chancellor_party
 if (Q.chancellor_party == 'I') {
     Q.army_in_government = 1;
@@ -445,6 +449,15 @@ Q.workers_DP = 5;
 Q.workers_MSP = 12;
 Q.workers_MHP = 3;
 Q.workers_other = 3;
+
+// Apply union effects to worker support
+if (Q.disk_turkis_conflict >= 0.60 && Q.disk_turkis_conflict < 0.80) {
+    // TÜRK-İŞ leaning: Worker support AP +5%
+    Q.workers_z += 5;
+} else if (Q.disk_turkis_conflict >= 0.80) {
+    // Total TÜRK-İŞ Dominance: Worker support AP +10%
+    Q.workers_z += 10;
+}
 
 // Petty Bourgeoisie (15% of population)
 Q.petty_bourgeoisie_TIP = 0;
