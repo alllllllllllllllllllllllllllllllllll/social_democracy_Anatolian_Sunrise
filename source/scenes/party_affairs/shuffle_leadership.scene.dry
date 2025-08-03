@@ -329,6 +329,12 @@ Baade has been removed as an advisor.
 
 #The Reformist faction disapproves.
 
+@remove_akan
+title: Remove Akan
+view-if: akan_advisor = 1
+tags: remove_advisor
+on-arrival: akan_advisor = 0; n_advisors -= 1
+go-to: rm_main
 
 @remove_hirschfeld
 title: Remove Hirschfeld
@@ -802,6 +808,16 @@ go-to: advisor_menu
 tags: nonfactional_advisor
 
 Magnus Hirschfeld is now an advisor.
+
+@add_akan
+title: Tarık Akan
+subtitle: Tarık Akan is an actor from the Yeşilçam cinema and even though he seems unwilling to participate in active politics, he also seems sympathethic to the direction our party has taken..
+is-card: true
+card-image: img/portraits/TarikAkan.jpg
+view-if: akan_advisor = 0 and n_advisors < 3 and and CHP_party_leader == "Ecevit"
+on-arrival: akan_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+tags: nonfactional_advisor
 
 # TODO: add radbruch, stampfer
 
