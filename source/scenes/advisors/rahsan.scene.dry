@@ -2,7 +2,7 @@ title: Rahşan Ecevit
 is-pinned-card: true
 tags: advisor, left_kemalists
 card-image: img/portraits/RahsanEcevit.jpeg
-view-if: rahsan_advisor = 1
+view-if: rahsan_advisor = 1 and CHP_party_leader == "Ecevit"
 new-page: true 
 
 = Rahşan Ecevit

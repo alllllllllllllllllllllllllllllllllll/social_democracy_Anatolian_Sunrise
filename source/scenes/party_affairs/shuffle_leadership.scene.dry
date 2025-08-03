@@ -138,7 +138,7 @@ go-to: rm_main
 
 @remove_rahsan
 title: Remove Rahşan
-view-if: rahsan_advisor = 1
+view-if: rahsan_advisor = 1 and CHP_party_leader == "Ecevit"
 tags: remove_advisor
 on-arrival: rahsan_advisor = 0; n_advisors -= 1
 go-to: rm_main
@@ -574,7 +574,7 @@ subtitle: The wife of our new party leader, Bülent Ecevit. While she isnt a pol
 is-card: true
 card-image: img/portraits/RahsanEcevit.jpeg
 tags: left_kemalist_advisor
-view-if: rahsan_advisor = 0 and n_advisors < 3
+view-if: rahsan_advisor = 0 and n_advisors < 3 and CHP_party_leader == "Ecevit"
 on-arrival: rahsan_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
 go-to: advisor_menu
 
