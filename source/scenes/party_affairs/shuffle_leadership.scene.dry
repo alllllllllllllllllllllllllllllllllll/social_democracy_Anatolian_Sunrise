@@ -113,7 +113,7 @@ Ecevit has been removed as an advisor. The Left Kemalist faction deeply disappro
 title: Remove Baykal
 view-if: baykal_advisor = 1
 tags: remove_advisor
-on-arrival: ecevit_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 5
+on-arrival: baykal_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 5
 go-to: rm_main
 
 Baykal has been removed as an advisor. The Left Kemalist faction disapproves.
@@ -122,10 +122,19 @@ Baykal has been removed as an advisor. The Left Kemalist faction disapproves.
 title: Remove Aksoy
 view-if: aksoy_advisor = 1
 tags: remove_advisor
-on-arrival: aksoy_advisor = 0; left_kemalists_dissent +=5; n_advisors -= 1
+on-arrival: aksoy_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
 Aksoy has been removed as an advisor. The Left Kemalist faction disapproves.
+
+@remove_ustundag
+title: Remove Üstündağ
+view-if: ustundag_advisor = 1
+tags: remove_advisor
+on-arrival: ustundag_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Üstündağ has been removed as an advisor. The Left Kemalist faction disapproves.
 
 @remove_rahsan
 title: Remove Rahşan
@@ -251,7 +260,7 @@ Siemsen has been removed as an advisor. The Kemalist Marxist faction disapproves
 # right kemalists
 
 @remove_gogus
-title: Remove Ali İhsan Göğüs
+title: Remove Göğüş
 view-if: gogus_advisor = 1
 tags: remove_advisor
 on-arrival: gogus_advisor = 0; right_kemalists_dissent += 5; n_advisors -= 1
@@ -524,10 +533,22 @@ is-card: true
 card-image: img/portraits/MuammerAksoy.jpg
 tags: left_kemalist_advisor
 view-if: aksoy_advisor = 0 and n_advisors < 3
-on-arrival: aksoy_advisor = 1; n_advisors +=1; left_kemalists_strength += 5
+on-arrival: aksoy_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
 go-to: advisor_menu
 
 Muammer Aksoy is now an advisor.
+
+@add_ustundag
+title: Mustafa Üstündağ
+subtitle: Mustafa Üstündağ is a reformist pedagogue from our party.
+is-card: true
+card-image: img/portraits/MustafaUstundag.png
+tags: left_kemalist_advisor
+view-if: ustundag_advisor = 0 and n_advisors < 3
+on-arrival: ustundag_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+go-to: advisor_menu
+
+Mustafa Üstündağ is now an advisor.
 
 @add_rahsan
 title: Rahşan Ecevit
