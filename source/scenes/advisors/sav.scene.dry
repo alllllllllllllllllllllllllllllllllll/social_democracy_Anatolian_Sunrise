@@ -1,6 +1,6 @@
 title: Önder Sav
 is-pinned-card: true
-tags: advisor, left_kemalist
+tags: advisor, left_kemalists
 card-image: img/portraits/OnderSav.jpg
 view-if: sav_advisor = 1
 new-page: true 
