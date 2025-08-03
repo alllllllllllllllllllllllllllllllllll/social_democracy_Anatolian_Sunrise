@@ -1,0 +1,12 @@
+title: Önder Sav
+is-pinned-card: true
+tags: advisor, left_kemalist
+card-image: img/portraits/OnderSav.jpg
+view-if: sav_advisor = 1
+new-page: true 
+
+= Önder Sav
+
+Önder Sav is a prominent Social Democratic politician and trade union leader who advocates for workers' rights and social justice. As a dedicated member of the Left of Center movement, he brings valuable experience in labor relations and social policy to the party. His background in trade unionism makes him particularly effective in connecting with working-class voters and advancing progressive labor reforms.
+
+- @easy_discard
