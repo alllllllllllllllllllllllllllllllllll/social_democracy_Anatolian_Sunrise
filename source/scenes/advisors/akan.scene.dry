@@ -1,6 +1,6 @@
 title: Tarık Akan
 is-pinned-card: true
-tags: advisor
+tags: advisor, nonfactional_advisor
 card-image: img/portraits/TarikAkan.jpg
 view-if: akan_advisor = 1
 new-page: true 
