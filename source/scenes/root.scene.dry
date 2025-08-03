@@ -332,7 +332,7 @@ Q.kurdish_political_consciousness = 0.20; // Starting position: Low (0.14-0.24)
 Q.kurdish_radicalism = 0.25; // Starting position: Medium-low (0.24-0.44)
 
 // Union Relations system
-Q.disk_relation = -15; // Starting at "cool" (same spectrum as party relations)
+Q.disk_relation = 35; // Starting at "cool" (29.9-39.9 range)
 Q.disk_turkis_conflict = 0.50; // Starting at "Balanced" (0.40-0.60)
 
 // Update army_in_government based on chancellor_party
