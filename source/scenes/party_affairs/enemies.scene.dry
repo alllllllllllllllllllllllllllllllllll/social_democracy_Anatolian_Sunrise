@@ -24,6 +24,8 @@ In our media and campaign materials, who should we consider as our main opponent
 @military
 on-arrival: enemies = "military"; coup_timer += 1; left_kemalists_strength += 5; left_kemalists_dissent -= 5; orthodox_kemalists_dissent += 5; right_kemalists_dissent += 10; AP_relation += 5
 
+Targeting the military establishment appeals to the left wing of our party and aligns with democratic reform goals, but alienates our orthodox and right-wing factions who prefer stability. This stance may also increase coup risk and improve relations with the Justice Party.
+
 @anti_dem
 on-arrival: enemies = "radical organizations"; center_strength += 5; reformist_strength += 5; left_dissent += 5; workers_TIP -= 2; workers_MHP -= 2; workers_MSP -= 2; TIP_relation -= 10
 
