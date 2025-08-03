@@ -814,7 +814,7 @@ title: Tarık Akan
 subtitle: Tarık Akan is an actor from the Yeşilçam cinema and even though he seems unwilling to participate in active politics, he also seems sympathethic to the direction our party has taken..
 is-card: true
 card-image: img/portraits/TarikAkan.jpg
-view-if: akan_advisor = 0 and n_advisors < 3 and and CHP_party_leader == "Ecevit"
+view-if: akan_advisor = 0 and n_advisors < 3 and CHP_party_leader == "Ecevit"
 on-arrival: akan_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: nonfactional_advisor
