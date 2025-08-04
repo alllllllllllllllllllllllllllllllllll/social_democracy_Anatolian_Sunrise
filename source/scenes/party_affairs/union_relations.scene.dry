@@ -38,4 +38,5 @@ on-arrival: disk_relation += 2; AP_relation -= 2;
 We have paid a visit to the DİSK headquarters. If we want to improve our relations further, we will have to take solid action.
 
 @root
-on-arrival: @easy_discard
+
+We can't take any action regarding union relations right now.
