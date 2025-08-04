@@ -3,7 +3,7 @@ new-page: true
 on-arrival: month_actions += 1
 max-visits: 36
 is-card: true
-card-image: img/flags.jpg
+card-image: [? if CHP_party_leader == "İnönü" : img/inonu_campaigning.jpg ?][? if CHP_party_leader == "Ecevit" : img/ecevit_campaigning.jpg ?]
 frequency: 100
 tags: party_affairs
 
