@@ -13,7 +13,7 @@ In our media and campaign materials, who should we consider as our main opponent
 
 [? if enemies != 0 : Previously, we had considered the [+ enemies +] as our prior enemies. Is a change of direction necessary? ?]
 
-[? if CHP_party_leader == "Ecevit" : - @military: The military that is strangling our democracy ?]
+- @military: The military that is strangling our democracy
 - @anti_dem: The radical organizations to our left and right, THKPC, MHP and MSP
 - @far_right: The reactionaries - the MHP and MSP.
 - @MHP: The MHP alone.
@@ -22,6 +22,7 @@ In our media and campaign materials, who should we consider as our main opponent
 - @easy_discard
 
 @military
+view-if: CHP_party_leader == "Ecevit"
 on-arrival: enemies = "military"; coup_timer += 1; left_kemalists_strength += 5; left_kemalists_dissent -= 5; orthodox_kemalists_dissent += 5; right_kemalists_dissent += 10; AP_relation += 5
 
 Targeting the military establishment appeals to the left wing of our party and aligns with democratic reform goals, but alienates our orthodox and right-wing factions who prefer stability. This stance may also increase coup risk and improve relations with the Justice Party.
