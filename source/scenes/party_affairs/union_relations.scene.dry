@@ -3,7 +3,7 @@ new-page: true
 view-if: CHP_party_leader == "Ecevit"
 on-arrival: month_actions += 1
 is-card: true
-card-image: img/disk.jpeg
+card-image: img/disk.jpg
 tags: party_affairs
 
 = CHP has historically adopted the title of the "people's party", however such rhetoric has to be materialized with strong relations with the labour movement. The main left wing syndicate, DİSK, seems to have taken interest in the direction our party has taken, but how can we improve our relations?
