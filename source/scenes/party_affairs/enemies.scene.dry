@@ -13,8 +13,8 @@ In our media and campaign materials, who should we consider as our main opponent
 
 [? if enemies != 0 : Previously, we had considered the [+ enemies +] as our prior enemies. Is a change of direction necessary? ?]
 
-[? if CHP_party_leader == "Ecevit" : - @military: The military that is strangling our democracy ?]
-- @anti_dem: The radical organizations to our left and right, THKPC, MHP and MSP
+[? if CHP_party_leader == "Ecevit" : - @military: The military that is strangling our democracy
+?]- @anti_dem: The radical organizations to our left and right, THKPC, MHP and MSP
 - @far_right: The reactionaries - the MHP and MSP.
 - @MHP: The MHP alone.
 - @THKPC: Anti-parliamentary leftist groups, primarily THKPC
