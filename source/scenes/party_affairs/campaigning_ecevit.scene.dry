@@ -5,8 +5,8 @@ max-visits: 36
 is-card: true
 frequency: 100
 tags: party_affairs
-view-if: CHP_party_leader == "İnönü"
-card-image: img/inonu_campaigning.jpeg
+view-if: CHP_party_leader == "Ecevit"
+card-image: img/ecevit_campaigning.jpg
 
 = Campaigning
 
@@ -69,3 +69,7 @@ view-if: peoples_party == 1
 on-arrival: catholics_CHP += 6*(1-dissent); resources -= 1
 
 We have increased our campaigning among Catholics.
+
+@root
+
+We either don't want to or cannot campaign right now.
