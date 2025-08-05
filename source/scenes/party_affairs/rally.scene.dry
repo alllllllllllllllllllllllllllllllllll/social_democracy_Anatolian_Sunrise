@@ -4,7 +4,7 @@ is-card: true
 tags: party_affairs
 view-if: rally_timer <= 0
 on-arrival: month_actions += 1; rally_timer = 6
-card-image: img/protest.jpg
+card-image: img/ecevitmiting3.jpg
 go-to: main_rally; sa_disrupt if sa_strength > 180 and not sa_banned and not return_to_normalcy
 
 @sa_disrupt
@@ -70,33 +70,30 @@ The SA have won this show of strength.
 
 @main_rally
 
-Mass rallies are a common feature of social democratic life, especially in the lead-up to an election. What is the primary theme of this rally?
+Mass rallies are a common feature of multi party democracies, especially in the lead-up to an election. What is the primary theme of this rally?
 
 - @class_struggle: The class struggle of the proletariat against the bourgeoisie.
-- @welfare: Sozialpolitik - the maintenance and expansion of social welfare programs.
-- @democracy: Expanding our nascent democracy and defending it against dictatorship and fascism.
+- @kemalism: We inherit a great message, the message of modernity and progress, from our founder Atatürk. We are the party of Atatürk first and foremost.
+- @social_programs: Turkish society has historically always been one with great state presence, with the state taking care of many needs of its citizens. We can exploit this situation with our new social programs.
 - @pacifism: Opposing war, nationalism, and militarism at all costs.
-- @wtb: Support the WTB plan!
+- @land_reform: Support the land reform!
 - @local: A mixture of various local and national concerns that resonate most with the audience.
 - @easy_discard
 
 @class_struggle
-on-arrival: workers_CHP += 4*(1-dissent); unemployed_CHP += 3*(1-dissent) if left_strength > reformist_strength; workers_CHP += 4*(1-dissent) if nationalization_progress > 0; unemployed_CHP += 3*(1-dissent) if nationalization_progress > 0; left_strength += 5; left_dissent -= 5; old_middle_CHP -= 3; new_middle_CHP -= 2;
+on-arrival: workers_chp += 1*(1-dissent); state_employees_chp -= 5; rural_chp -= 3; petty_bourgeoisie_chp -= 5; capitalists_chp -= 10; kemalist_marxists_strength += 10; left_kemalists_dissent += 10; orthodox_kemalists_dissent += 20; right_kemalists_dissent += 30; disk_relation += 10; coup_timer += 3
 
-Our message of class struggle appeals to the left wing of the working class, while potentially alienating the middle class. [? if nationalization_progress > 0 : Our achievements in nationalization have assisted our messaging. ?]
+Even though CHP stands for the working class, it preaches for justice, not worker domination. The Marxist rhetoric usually fall on deaf ears and gathers serious backlash from even the Left Kemalists within the party. Our enemies are quick to capitalize on this, calling us "unnational" and "godless marxists".
 
-@welfare
-on-arrival: workers_CHP += 3*(1-dissent); workers_CHP += 3*(1-dissent) if welfare > 0; unemployed_CHP += 3*(1-dissent) if welfare > 0; unemployed_CHP += 4*(1-dissent) if welfare > 1; reformist_strength += 3; labor_strength += 4; reformist_dissent -= 3; labor_dissent -= 3;
+@kemalism
+on-arrival: workers_chp += 3*(1-dissent); state_employees_chp += 5*(1-dissent); rural_chp += 1*(1-dissent); petty_bourgeoisie_chp += 3*(1-dissent); alevis_chp += 4*(1-dissent); left_kemalists_dissent -= 5; orthodox_kemalists_dissent -= 10; right_kemalists_dissent -= 10;
 
-The reformist message appeals to the organized workers, whose benefits are the accomplishments of social democracy. [? if welfare > 1 : Our achievements in expanding welfare have made this message more effective. ?]
+The Turkish nation, except for some radicals in the far away sections of the political spectrum, unite in their love for Atatürk. We have been using this rhetoric for the last 50 years though, and we cant gather enough votes by simply recalling Atatürk, we need to follow in his footsteps through policy platforms and actions.
 
-@democracy
-on-arrival: democratization += 1; pro_republic += 2*(1 - dissent); workers_CHP += 4*(1-dissent) if democratization >= 3; unemployed_CHP += 3*(1-dissent) if democratization >= 3; pro_republic += 4*(1 - dissent) if democratization >= 3; new_middle_CHP += 4*(1-dissent) if democratization >= 3 
+@social_programs
+on-arrival: workers_chp += 4*(1-dissent); petty_bourgeoisie_chp += 3*(1-dissent)
 
-Our speakers defend the republican system and rail against the monarchists and authoritarians who threaten it.
-
-[? if democratization < 3 : Talk of democracy does not excite the workers as much as more practical issues. But that may change; part of our job is to provide political education to the proletariat. ?]
-[? if democratization >= 3 : Since we have consistently made democratization a theme of our campaign, the workers are enthusiastic about our message. ?]
+Social programs are one of our most popular policies and we make this fact very clear.
 
 @pacifism
 on-arrival: pacifism += 1; nationalism -= 2*(1 - dissent); workers_CHP += 4*(1 - dissent) if pacifism >= 3; unemployed_CHP += 3*(1-dissent) if pacifism >= 3; nationalism -= 3*(1-dissent) if pacifism >= 3; new_middle_CHP += 4*(1-dissent) if pacifism >= 3
