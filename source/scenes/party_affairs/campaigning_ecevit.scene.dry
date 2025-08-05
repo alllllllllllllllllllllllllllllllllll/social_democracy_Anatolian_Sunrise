@@ -57,7 +57,7 @@ We have increased our campaigning among farmers. [? if peoples_party == 0: We ha
 @alevis
 subtitle: -1 resources
 choose-if: resources >= 1
-unavaliable-subtitle: Not enough resources
+unavailable-subtitle: Not enough resources
 on-arrival: alevis_chp += 5; resources -= 1
 
 We have increased our campaigning among the Alevi minority
@@ -65,15 +65,15 @@ We have increased our campaigning among the Alevi minority
 @kurds
 subtitle: -1 resources
 choose-if: resources >= 1
-unavaliable-subtitle: Not enough resources
-on-arrival: kurds_chp += 3; kurdish_political_awareness += 0.05; state_employess_chp -= 1;  resources -= 1
+unavailable-subtitle: Not enough resources
+on-arrival: kurds_chp += 3; kurdish_political_awareness += 0.05; state_employees_chp -= 1; resources -= 1
 
 We have increased our campaigning among the Kurds.
 
 @capitalists
 subtitle: -1 resources
-chooise-if: resources >= 1
-unavaliable-subtitle: Not enough resources.
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
 on-arrival: left_kemalists_dissent += 5; kemalist_marxists_dissent += 10; capitalists_CHP += 1; resources -= 1
 
 Not only does trying to appease the capitalists as a leftist party fail horribly, the Marxist and Left Kemalists disapprove of this action greatly.
