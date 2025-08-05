@@ -11,6 +11,7 @@ Baade is one of the few agricultural experts in the CHP, and an unorthodox econo
 
 - @agriculture
 - @rural_campaign
+- @rural_land_reform_policy
 - @depression
 - @root: Return to main
 
@@ -40,4 +41,40 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; wtb_support += 2; center_dissent += 10; labor_strength += 1
 
 The WTB-Plan, standing for its primary supporters Woytinsky, Tarnow, and Baade, has been adopted as the unions' plan for getting us out of the depression. Baade canvasses in favor of this plan throughout the party.
+
+@rural_land_reform_policy
+title: Land Reform Policy
+subtitle: Develop policies for rural land distribution and agricultural modernization.
+choose-if: advisor_action_timer <= 0 and rural_land_reform_policy < 3
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if rural_land_reform_policy >= 3 : We have already developed comprehensive land reform policies. ?]
+
+Baade has experience with agricultural modernization and can help us develop policies for land distribution and rural development. What approach should we take?
+
+- @rural_land_reform_policy_cooperatives: Focus on agricultural cooperatives
+- @rural_land_reform_policy_distribution: Plan comprehensive land distribution  
+- @rural_land_reform_policy_koykent: Develop the Köykent village-city project
+- @rural_land_reform_policy_return: We should not focus on this right now.
+
+@rural_land_reform_policy_cooperatives
+title: Agricultural Cooperatives Policy
+choose-if: rural_land_reform_policy < 1
+on-arrival: advisor_action_timer = 6; rural_land_reform_policy = 1; rural_CHP += 2*(1-dissent); peoples_party_support += 1
+
+We have developed a policy framework supporting agricultural cooperatives to help small farmers access credit, equipment, and markets. This gives us a modest but safe platform for rural development. [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+
+@rural_land_reform_policy_distribution  
+title: Land Distribution Policy
+choose-if: rural_land_reform_policy < 2
+on-arrival: advisor_action_timer = 6; rural_land_reform_policy = 2; rural_CHP += 2*(1-dissent); left_kemalists_approval += 3; center_dissent += 3
+
+We have developed comprehensive land distribution policies, promising to break up large estates and redistribute land to small farmers. This substantial reform agenda will resonate with rural voters but may concern moderate elements in the party.
+
+@rural_land_reform_policy_koykent
+title: Köykent Project Policy  
+choose-if: rural_land_reform_policy < 3
+on-arrival: advisor_action_timer = 6; rural_land_reform_policy = 3; rural_CHP += 2*(1-dissent); left_kemalists_approval += 5; kemalist_marxists_approval += 5; center_dissent += 5
+
+We have developed the ambitious Köykent project - a revolutionary program to create planned village-cities that will modernize rural life while preserving agricultural productivity. This visionary approach demonstrates our commitment to transforming Turkey's countryside.
+
+@rural_land_reform_policy_return
 

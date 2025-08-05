@@ -25,7 +25,7 @@ Whether or not we are in an electoral campaign, the party is always trying to br
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: workers_CHP += 6*(1-dissent); workers_CHP -= 2 if unemployed >= 15; workers_CHP -= 2 if unemployed >= 25; workers_CHP += 6*(1-dissent) if wtb_adopted = 1; resources -= 1; workers_CHP += 3*(1-dissent) if nationalization_progress >= 1;
+on-arrival: workers_chp += 6*(1-dissent); workers_chp -= 2 if unemployed >= 15; workers_chp -= 2 if unemployed >= 25; workers_chp += 6*(1-dissent) if wtb_adopted = 1; resources -= 1; workers_chp += 3*(1-dissent) if nationalization_progress >= 1;
 
 We have increased our campaigning among the workers. [? if unemployed >= 15: The high levels of unemployment make our campaign more difficult. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract workers. ?]
 
@@ -33,7 +33,7 @@ We have increased our campaigning among the workers. [? if unemployed >= 15: The
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: new_middle_CHP += 6*(1-dissent); new_middle_CHP -= 4 if socialism <= 49 and peoples_party == 0; resources -= 1; peoples_party_support += 1;
+on-arrival: new_middle_chp += 6*(1-dissent); new_middle_chp -= 4 if socialism <= 49 and peoples_party == 0; resources -= 1; peoples_party_support += 1;
 
 We have increased our campaigning among the new middle class. [? if socialism <= 49 and peoples_party == 0: The popular antipathy towards socialism among this group makes our campaign more difficult. ?] [? if peoples_party > 0: As a people's party, we have an easier time increasing support among the middle class than before. ?]
 
@@ -41,7 +41,7 @@ We have increased our campaigning among the new middle class. [? if socialism <=
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: old_middle_CHP += 5*(1-dissent); resources -= 1; old_middle_CHP -= 3 if nationalism >= 51 and peoples_party == 0; peoples_party_support += 1
+on-arrival: old_middle_chp += 5*(1-dissent); resources -= 1; old_middle_chp -= 3 if nationalism >= 51 and peoples_party == 0; peoples_party_support += 1
 
 We have increased our campaigning among the old middle class. [? if nationalism >= 51 and peoples_party == 0: The high levels of nationalism among this group make our campaign more difficult. ?] [? if peoples_party > 0: As a people's party, we have an easier time increasing support among the middle class than before. ?]
 
@@ -49,15 +49,15 @@ We have increased our campaigning among the old middle class. [? if nationalism 
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: rural_CHP += 5*(1-dissent); rural_CHP -= 3*(1-dissent) if peoples_party == 0; resources -= 1; peoples_party_support += 1; rural_CHP += 3*(1-dissent) if rural_policy >= 2
+on-arrival: rural_chp += 5*(1-dissent); rural_chp -= 3*(1-dissent) if peoples_party == 0; resources -= 1; peoples_party_support += 1; rural_chp += 3*(1-dissent) if rural_policy >= 2; rural_chp += 2*(1-dissent) if rural_land_reform_policy >= 1; rural_chp += 2*(1-dissent) if land_reform == 1; rural_chp += 3*(1-dissent) if land_reform == 2; rural_chp += 5*(1-dissent) if land_reform == 3
 
-We have increased our campaigning among farmers. [? if peoples_party == 0: We have not historically campaigned much among the farmers, and they do not trust us. ?][? if peoples_party > 0: As a people's party, we have an easier time increasing support among farmers than before. ?][? if rural_policy >= 2 : Our rural policies have made it easier for us to build support among farmers. ?]
+We have increased our campaigning among farmers. [? if peoples_party == 0: We have not historically campaigned much among the farmers, and they do not trust us. ?][? if peoples_party > 0: As a people's party, we have an easier time increasing support among farmers than before. ?][? if rural_policy >= 2 : Our rural policies have made it easier for us to build support among farmers. ?][? if rural_land_reform_policy >= 1 : Our land reform policies give us additional credibility with rural voters. ?][? if land_reform == 1 : Our agricultural cooperatives law has improved our standing with farmers. ?][? if land_reform == 2 : Our land distribution law has significantly boosted our rural appeal. ?][? if land_reform == 3 : The enacted Köykent project has revolutionized our rural support. ?]
 
 @unemployed
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: unemployed_CHP += 6*(1-dissent); resources -= 1; unemployed_CHP -= 3 if welfare < 0; unemployed_CHP += 6*(1-dissent) if wtb_adopted = 1; unemployed_CHP += 3*(1-dissent) if welfare >= 2;
+on-arrival: unemployed_chp += 6*(1-dissent); resources -= 1; unemployed_chp -= 3 if welfare < 0; unemployed_chp += 6*(1-dissent) if wtb_adopted = 1; unemployed_chp += 3*(1-dissent) if welfare >= 2;
 
 We have increased our campaigning among the unemployed. [? if welfare < 0: The welfare cuts and resultant poverty make our campaign more difficult, since we are associated with the government that enacted these cuts, and our campaign may even backfire. ?][? if wtb_adopted = 1 : Adopting the WTB plan gives us a new rallying point around which to attract support from the unemployed. ?]
 
@@ -66,6 +66,6 @@ subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 view-if: peoples_party == 1
-on-arrival: catholics_CHP += 6*(1-dissent); resources -= 1
+on-arrival: catholics_chp += 6*(1-dissent); resources -= 1
 
 We have increased our campaigning among Catholics.
