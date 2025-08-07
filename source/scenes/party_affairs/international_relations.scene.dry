@@ -8,6 +8,8 @@ card-image: img/sosyalistenternasyonal.jpg
 max-visits: 4
 #subtitle: Building ties with our fraternal socialist parties.
 
+= International Relations
+
 Even though the "Left of Center" movement that is dominating our party is an indigenous left movement molded into existence to suit the needs of the Turkish nation, it still was influenced a lot by the Social Democratic movements of Europe.
 
 - @fr_uk: The Western European Social Democrats, SPD, Labour and many others, have inspired us in many ways. Stronger ties can both help our nation and our party.
@@ -34,7 +36,7 @@ unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; middle_eastern_relation += 10 if orthodox_kemalism_strength >= 49; left_kemalists_dissent += 5
 
 Even though we are opposed to undemocratic forms of socialism, we still took the pragmatic route of contacting our "allies" down South.
-{!if orthodox_kemalism_strength < 49: The Baath parties no longer view us as ideological allies, our efforts go in vain as our delegates are accused of being puppets of European "soft leftism".!}
+[? if orthodox_kemalism_strength < 49: The Baath parties no longer view us as ideological allies, our efforts go in vain as our delegates are accused of being puppets of European "soft leftism". ?]
 
 @international
 subtitle: -1 resources
@@ -50,7 +52,7 @@ choose-if: resources >= 1 and western_socialist_contacts >= 4
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; TIP_relation += 10*(1-dissent); left_kemalists_strength += 10; west_relation += 10; socialist_international_member = 1
 
-Our extensive diplomatic efforts have finally paid off! The Socialist International has formally accepted the CHP as a member party. This historic achievement strengthens our international standing and opens new avenues for cooperation with our European socialist comrades.
+Our extensive diplomatic efforts have finally paid off! The Socialist International has formally accepted the CHP as a member party. This historic achievement strengthens our international standing and creates new opportunities for cooperation with fellow Democratic Left parties.
 
 @america
 subtitle: -1 resources
