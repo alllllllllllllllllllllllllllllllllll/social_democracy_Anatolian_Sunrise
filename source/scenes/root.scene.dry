@@ -807,6 +807,15 @@ Q.schumacher_advisor = 0; // Kurt Schumacher (post-1930)
 Q.hirschfeld_advisor = 0; // Magnus Hirschfeld
 Q.radbruch_advisor = 0; // Gustav Radbruch
 Q.stampfer_advisor = 0; // Friedrich Stampfer
+
+// Turkish Right Kemalist advisors
+Q.gogus_advisor = 0; // Ali İhsan Göğüs (existing)
+Q.paksut_advisor = 0; // Emin Paksüt
+Q.celikbas_advisor = 0; // Fethi Çelikbaş
+
+// Turkish advisors - other factions
+Q.avcioglu_advisor = 0; // Doğan Avcıoğlu (Kemalist Marxist)
+Q.eyuboglu_advisor = 0; // Sabahattin Eyüboğlu (Orthodox Kemalist)
 !}
 set-bg: img/map_4.jpg
 new-page: true

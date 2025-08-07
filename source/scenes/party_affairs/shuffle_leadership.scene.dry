@@ -313,6 +313,24 @@ go-to: rm_main
 
 Schumacher has been removed as an advisor. The Right Kemalist faction disapproves.
 
+@remove_paksut
+title: Remove Paksüt
+view-if: paksut_advisor = 1
+tags: remove_advisor
+on-arrival: paksut_advisor = 0; right_kemalists_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Emin Paksüt has been removed as an advisor. The Right Kemalist faction disapproves.
+
+@remove_celikbas
+title: Remove Çelikbaş
+view-if: celikbas_advisor = 1
+tags: remove_advisor
+on-arrival: celikbas_advisor = 0; right_kemalists_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Fethi Çelikbaş has been removed as an advisor. The Right Kemalist faction disapproves.
+
 
 ## nonfactional
 
@@ -781,6 +799,30 @@ go-to: advisor_menu
 tags: right_kemalist_advisor
 
 Julius Leber is now an advisor.
+
+@add_paksut
+title: Emin Paksüt
+subtitle: Emin Paksüt is a Right Kemalist intellectual and former minister of public works.
+is-card: true
+card-image: img/portraits/Eminpaksut.jpeg
+view-if: paksut_advisor = 0 and n_advisors < 3
+on-arrival: paksut_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
+go-to: advisor_menu
+tags: right_kemalist_advisor
+
+Emin Paksüt is now an advisor.
+
+@add_celikbas
+title: Fethi Çelikbaş
+subtitle: Fethi Çelikbaş is a pragmatist Right Kemalist politician and former minister of Industry and economy.
+is-card: true
+card-image: img/portraits/FethiCelikbas.jpeg
+view-if: celikbas_advisor = 0 and n_advisors < 3
+on-arrival: celikbas_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
+go-to: advisor_menu
+tags: right_kemalist_advisor
+
+Fethi Çelikbaş is now an advisor.
 
 # Nonfactional advisors
 
