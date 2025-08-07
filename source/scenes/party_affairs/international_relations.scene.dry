@@ -13,6 +13,7 @@ Even though the "Left of Center" movement that is dominating our party is an ind
 - @fr_uk: The Western European Social Democrats, SPD, Labour and many others, have inspired us in many ways. Stronger ties can both help our nation and our party.
 - @baath: Even though we are firmly opposed to undemocratic forms of Socialism, Kemalism is still seen as a guide by many Baathists in the Arabian world. 
 - @international: The Socialist International is a wide organization of Democratic Left parties and stronger ties, perhaps even membership, can benefit our party.
+- @join_socialist_international: [? if western_socialist_contacts >= 4 : We have built enough contacts to formally join the Socialist International! ?]
 - @america: İnönü once called CHP the Democrats of Turkey, can we salvage our relations with our "allies" over in the United States?
 - @return: We do not need international contacts at the moment.
 - @easy_discard
@@ -22,26 +23,34 @@ Even though the "Left of Center" movement that is dominating our party is an ind
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; west_relation += 5; left_kemalists_strength += 5;
+on-arrival: resources -= 1; west_relation += 5; left_kemalists_strength += 5; western_socialist_contacts += 1
 
 We have improved our relations with our Western partners and albeit very slightly, seen a shift in their attitude.
 
 @baath
 subtitle: -1 resources
-choose-if: resources <= 1
-unavaliable-subtitle: Not enough resources
-on-arrival: resources -= 1; if orthodox_kemalism_strength => 49 (middle_eastern_relation += 10); left_kemalists_dissent += 5
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; middle_eastern_relation += 10 if orthodox_kemalism_strength >= 49; left_kemalists_dissent += 5
 
 Even though we are opposed to undemocratic forms of socialism, we still took the pragmatic route of contacting our "allies" down South.
-(if orthodox_kemalism_strength <49;) The Baath parties no longer view us as ideological allies, our efforts go in vain as our delegates are accused of being puppets of European "soft leftism".
+{!if orthodox_kemalism_strength < 49: The Baath parties no longer view us as ideological allies, our efforts go in vain as our delegates are accused of being puppets of European "soft leftism".!}
 
 @international
 subtitle: -1 resources
-choose-if: resources >= 1
-unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; TIP_relation += 5*(1-dissent); left_kemalists_strength += 5
+choose-if: resources >= 1 and western_socialist_contacts < 4
+unavailable-subtitle: [? if resources < 1 : Not enough resources. ?][? if western_socialist_contacts >= 4 : We have enough contacts to join the Socialist International. ?]
+on-arrival: resources -= 1; TIP_relation += 5*(1-dissent); left_kemalists_strength += 5; western_socialist_contacts += 1
 
 We have contacted the Socialist International. Even though the first remarks were positive, more work needs to be done.
+
+@join_socialist_international
+subtitle: -1 resources, Join the Socialist International!
+choose-if: resources >= 1 and western_socialist_contacts >= 4
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; TIP_relation += 10*(1-dissent); left_kemalists_strength += 10; west_relation += 10; socialist_international_member = 1
+
+Our extensive diplomatic efforts have finally paid off! The Socialist International has formally accepted the CHP as a member party. This historic achievement strengthens our international standing and opens new avenues for cooperation with our European socialist comrades.
 
 @america
 subtitle: -1 resources
@@ -51,6 +60,6 @@ on-arrival: resources -= 1
 
 Our attempts at fostering productive bonds with the Democrats fail as they are frustrated with our recent political moves.
 
-@reduce
+@return
 
 We do not need the international contacts at the moment.

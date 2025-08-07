@@ -279,6 +279,7 @@ Support for the Republic: [+ pro_republic_disp +]%
 United States: [+ us_relation : relationships +]
 
 Western Europe: [+ west_relation : relationships +]
+[? if socialist_international_member : **Member of the Socialist International** ?]
 
 Soviet Union: [+ soviet_relation : relationships +]
 
