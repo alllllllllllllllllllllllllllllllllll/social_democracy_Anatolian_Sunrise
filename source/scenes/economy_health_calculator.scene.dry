@@ -149,5 +149,4 @@ if (Q.apply_economy_effects == 1) {
     }
 }
 !}
-
-@return
+go-to: events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
