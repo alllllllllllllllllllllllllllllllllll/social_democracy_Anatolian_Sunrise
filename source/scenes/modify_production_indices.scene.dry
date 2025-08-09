@@ -1,0 +1,54 @@
+title: Modify Production Indices
+view-if: 0
+on-arrival: {!
+// This scene is used by government actions to modify production indices
+// Usage: set Q.industrial_change and/or Q.agricultural_change before calling this scene
+
+// Apply industrial production changes
+if (Q.industrial_change && Q.industrial_change !== 0) {
+    Q.industrial_player_modifier += Q.industrial_change;
+    
+    // Recalculate current industrial index
+    if (Q.historical_industrial_index[Q.year] !== undefined) {
+        Q.industrial_production_index = Q.historical_industrial_index[Q.year] + Q.industrial_player_modifier;
+    }
+    
+    // Reset the change variable
+    Q.industrial_change = 0;
+}
+
+// Apply agricultural production changes
+if (Q.agricultural_change && Q.agricultural_change !== 0) {
+    Q.agricultural_player_modifier += Q.agricultural_change;
+    
+    // Recalculate current agricultural index
+    if (Q.historical_agricultural_index[Q.year] !== undefined) {
+        Q.agricultural_production_index = Q.historical_agricultural_index[Q.year] + Q.agricultural_player_modifier;
+    }
+    
+    // Reset the change variable
+    Q.agricultural_change = 0;
+}
+
+// Recalculate GDP growth immediately after production changes
+if (Q.historical_gdp_growth[Q.year] !== undefined && Q.historical_industrial_index[Q.year] !== undefined && Q.historical_agricultural_index[Q.year] !== undefined) {
+    var base_gdp_growth = Q.historical_gdp_growth[Q.year];
+    
+    // Calculate industrial contribution to GDP growth
+    var industrial_baseline = Q.historical_industrial_index[Q.year];
+    var industrial_difference = Q.industrial_production_index - industrial_baseline;
+    var industrial_gdp_effect = (industrial_difference / industrial_baseline) * 100 * 0.2; // 20% of economy
+    
+    // Calculate agricultural contribution to GDP growth
+    var agricultural_baseline = Q.historical_agricultural_index[Q.year];
+    var agricultural_difference = Q.agricultural_production_index - agricultural_baseline;
+    var agricultural_gdp_effect = (agricultural_difference / agricultural_baseline) * 100 * 0.333; // 33.3% of economy
+    
+    // Apply production effects to GDP growth
+    Q.economic_growth = base_gdp_growth + industrial_gdp_effect + agricultural_gdp_effect;
+}
+!}
+
+This scene handles modifications to production indices from government actions.
+
+- @return: Continue

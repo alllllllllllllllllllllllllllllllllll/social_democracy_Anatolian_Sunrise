@@ -211,19 +211,17 @@ if (Q.month_actions >= 1) {
     }
     
     // Historical production index baseline adjustments
-    // Move production indices toward historical baselines when not affected by player actions
+    // Apply natural economic trends while preserving player modifications
     if (Q.historical_industrial_index[Q.year] !== undefined) {
-        var target_industrial = Q.historical_industrial_index[Q.year];
-        var industrial_diff = target_industrial - Q.industrial_production_index;
-        // Adjust toward baseline by 1/12th of the difference each month
-        Q.industrial_production_index += industrial_diff / 12;
+        var historical_baseline = Q.historical_industrial_index[Q.year];
+        // Final index = historical baseline + player modifications
+        Q.industrial_production_index = historical_baseline + Q.industrial_player_modifier;
     }
     
     if (Q.historical_agricultural_index[Q.year] !== undefined) {
-        var target_agricultural = Q.historical_agricultural_index[Q.year];
-        var agricultural_diff = target_agricultural - Q.agricultural_production_index;
-        // Adjust toward baseline by 1/12th of the difference each month
-        Q.agricultural_production_index += agricultural_diff / 12;
+        var agricultural_baseline = Q.historical_agricultural_index[Q.year];
+        // Final index = historical baseline + player modifications
+        Q.agricultural_production_index = agricultural_baseline + Q.agricultural_player_modifier;
     }
     
     // Calculate GDP growth based on production indices

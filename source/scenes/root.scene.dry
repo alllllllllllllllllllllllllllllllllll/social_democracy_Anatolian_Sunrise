@@ -439,6 +439,14 @@ Q.historical_agricultural_index = {
 Q.industrial_production_index = Q.historical_industrial_index[Q.year] || 100;
 Q.agricultural_production_index = Q.historical_agricultural_index[Q.year] || 100;
 
+// Player modifications to production indices (cumulative effects from player actions)
+Q.industrial_player_modifier = 0;
+Q.agricultural_player_modifier = 0;
+
+// Variables for making production changes (used by government actions)
+Q.industrial_change = 0;
+Q.agricultural_change = 0;
+
 // Economic Health System
 Q.economy_health = 0;
 Q.economy_health_timer = 0;
