@@ -149,7 +149,7 @@ Q.police_militancy = 0.8;
 Q.police_loyalty = 0.65; // Mostly loyal (0.54-0.71 range)
 
 // Far Right organizations  
-Q.grey_wolves_strength = 70;
+Q.grey_wolves_strength = 25;
 Q.grey_wolves_militancy = 0.2;
 Q.grey_wolves_banned = 0;
 
@@ -890,7 +890,7 @@ on-arrival: difficulty = -1; resources = 4; dues = 3; police_strength = 50; TIP_
 go-to: 1928_main
 
 @1928_hard
-on-arrival: difficulty = 1; resources = 0; dues = 1; police_strength = 40; reformist_dissent = 25; left_dissent = 30; labor_dissent = 25; center_dissent = 25;AP_relation = 41; TIP_relation = 16; DP_relation = 31; budget = 3; grey_wolves_strength = 85; tit_strength = 0.8;
+on-arrival: difficulty = 1; resources = 0; dues = 1; police_strength = 40; reformist_dissent = 25; left_dissent = 30; labor_dissent = 25; center_dissent = 25;AP_relation = 41; TIP_relation = 16; DP_relation = 31; budget = 3; grey_wolves_strength = 25; tit_strength = 0.8;
 go-to: 1928_main
 
 @1928_historical
