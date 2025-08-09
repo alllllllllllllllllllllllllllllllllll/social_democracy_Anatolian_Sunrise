@@ -1,0 +1,147 @@
+title: Economic Health Calculator
+view-if: 0
+on-arrival: {!
+// Calculate Economic Health based on Inflation, Unemployment, and GDP Growth
+
+// Calculate Inflation Score
+if (Q.inflation >= 0 && Q.inflation <= 10) {
+    Q.inflation_score = 1;
+} else if (Q.inflation > 10 && Q.inflation <= 20) {
+    Q.inflation_score = 0;
+} else if (Q.inflation > 20 && Q.inflation <= 30) {
+    Q.inflation_score = -1;
+} else if (Q.inflation > 30 && Q.inflation <= 40) {
+    Q.inflation_score = -2;
+} else if (Q.inflation > 40 && Q.inflation <= 60) {
+    Q.inflation_score = -4;
+} else if (Q.inflation > 60) {
+    Q.inflation_score = -6;
+}
+
+// Calculate Unemployment Score
+if (Q.unemployed >= 0 && Q.unemployed <= 3) {
+    Q.unemployment_score = 1;
+} else if (Q.unemployed > 3 && Q.unemployed <= 6) {
+    Q.unemployment_score = 0;
+} else if (Q.unemployed > 6 && Q.unemployed <= 10) {
+    Q.unemployment_score = -1;
+} else if (Q.unemployed > 10 && Q.unemployed <= 15) {
+    Q.unemployment_score = -2;
+} else if (Q.unemployed > 15 && Q.unemployed <= 20) {
+    Q.unemployment_score = -3;
+} else if (Q.unemployed > 20) {
+    Q.unemployment_score = -5;
+}
+
+// Calculate GDP Growth Score
+if (Q.economic_growth < 0) {
+    Q.growth_score = -5;
+} else if (Q.economic_growth >= 0 && Q.economic_growth <= 2) {
+    Q.growth_score = -2;
+} else if (Q.economic_growth > 2 && Q.economic_growth <= 4) {
+    Q.growth_score = -1;
+} else if (Q.economic_growth > 4 && Q.economic_growth <= 6) {
+    Q.growth_score = 0;
+} else if (Q.economic_growth > 6 && Q.economic_growth <= 8) {
+    Q.growth_score = 1;
+} else if (Q.economic_growth > 8) {
+    Q.growth_score = 2;
+}
+
+// Calculate total Economic Health
+Q.economy_health = Q.inflation_score + Q.unemployment_score + Q.growth_score;
+
+// Apply economic effects every 6 months
+if (Q.economy_health_timer >= 6) {
+    Q.economy_health_timer = 0;
+    
+    if (Q.economy_health > 3) {
+        // Booming Economy: +5% all demographics, +10% capitalists
+        if (Q.CHP_in_government) {
+            Q.rural_CHP += 5;
+            Q.workers_CHP += 5;
+            Q.petty_bourgeoisie_CHP += 5;
+            Q.state_employees_CHP += 5;
+            Q.capitalists_CHP += 10;
+            Q.alevis_CHP += 5;
+            Q.kurds_CHP += 5;
+        } else if (Q.AP_in_government) {
+            Q.rural_AP += 5;
+            Q.workers_AP += 5;
+            Q.petty_bourgeoisie_AP += 5;
+            Q.state_employees_AP += 5;
+            Q.capitalists_AP += 10;
+            Q.alevis_AP += 5;
+            Q.kurds_AP += 5;
+        } else if (Q.DP_in_government) {
+            Q.rural_DP += 5;
+            Q.workers_DP += 5;
+            Q.petty_bourgeoisie_DP += 5;
+            Q.state_employees_DP += 5;
+            Q.capitalists_DP += 10;
+            Q.alevis_DP += 5;
+            Q.kurds_DP += 5;
+        }
+    } else if (Q.economy_health >= -5 && Q.economy_health < 0) {
+        // Unhealthy Economy: -2% all demographics
+        if (Q.CHP_in_government) {
+            Q.rural_CHP -= 2;
+            Q.workers_CHP -= 2;
+            Q.petty_bourgeoisie_CHP -= 2;
+            Q.state_employees_CHP -= 2;
+            Q.capitalists_CHP -= 2;
+            Q.alevis_CHP -= 2;
+            Q.kurds_CHP -= 2;
+        } else if (Q.AP_in_government) {
+            Q.rural_AP -= 2;
+            Q.workers_AP -= 2;
+            Q.petty_bourgeoisie_AP -= 2;
+            Q.state_employees_AP -= 2;
+            Q.capitalists_AP -= 2;
+            Q.alevis_AP -= 2;
+            Q.kurds_AP -= 2;
+        } else if (Q.DP_in_government) {
+            Q.rural_DP -= 2;
+            Q.workers_DP -= 2;
+            Q.petty_bourgeoisie_DP -= 2;
+            Q.state_employees_DP -= 2;
+            Q.capitalists_DP -= 2;
+            Q.alevis_DP -= 2;
+            Q.kurds_DP -= 2;
+        }
+    } else if (Q.economy_health < -5) {
+        // Crisis Economy: -4% all demographics
+        if (Q.CHP_in_government) {
+            Q.rural_CHP -= 4;
+            Q.workers_CHP -= 4;
+            Q.petty_bourgeoisie_CHP -= 4;
+            Q.state_employees_CHP -= 4;
+            Q.capitalists_CHP -= 4;
+            Q.alevis_CHP -= 4;
+            Q.kurds_CHP -= 4;
+        } else if (Q.AP_in_government) {
+            Q.rural_AP -= 4;
+            Q.workers_AP -= 4;
+            Q.petty_bourgeoisie_AP -= 4;
+            Q.state_employees_AP -= 4;
+            Q.capitalists_AP -= 4;
+            Q.alevis_AP -= 4;
+            Q.kurds_AP -= 4;
+        } else if (Q.DP_in_government) {
+            Q.rural_DP -= 4;
+            Q.workers_DP -= 4;
+            Q.petty_bourgeoisie_DP -= 4;
+            Q.state_employees_DP -= 4;
+            Q.capitalists_DP -= 4;
+            Q.alevis_DP -= 4;
+            Q.kurds_DP -= 4;
+        }
+    }
+} else {
+    Q.economy_health_timer += 1;
+}
+!}
+
+This scene runs automatically to calculate economic health and apply its effects.
+
+- @return: Continue

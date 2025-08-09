@@ -346,6 +346,9 @@ if (Q.month_actions >= 1) {
     } else if (Q.economic_growth > 0 && Q.CHP_in_government) {
         Q.economic_expansion += Q.economic_growth/2;
     }
+    
+    // Calculate economy health effects on party support
+    go-to: economy_health_calculator if (Q.time % 6 == 0)
     /////////////////////////////// update opinions based on economy
     if (Q.unemployed > 15 && Q.pro_republic > 40) {
         Q.pro_republic -= 1;

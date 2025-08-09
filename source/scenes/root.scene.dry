@@ -411,6 +411,13 @@ Q.inflation = Q.historical_inflation[Q.year] || 15.3;
 Q.economic_growth = Q.historical_gdp_growth[Q.year] || 9.2;
 Q.unemployed = Q.historical_unemployment[Q.year] || 4.6;
 
+// Economic Health System
+Q.economy_health = 0;
+Q.economy_health_timer = 0;
+Q.inflation_score = 0;
+Q.unemployment_score = 0;
+Q.growth_score = 0;
+
 // economic expansion timer
 Q.economic_expansion = 0;
 

@@ -1,0 +1,9 @@
+{
+    "git.enableAutoFetch": true,
+    "git.autoStash": true,
+    "git.confirmSync": false,
+    "git.autofetchPeriod": 180,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "git.postCommitCommand": "push"
+}
