@@ -563,10 +563,12 @@ if (Q.month_actions >= 1) {
     }
 }
 Q.has_event = 0;
-Q.calculate_economy_health = 0;
-// Check if it's time to calculate economy health (every 6 months)
+Q.calculate_economy_health = 1; // Run economy health calculator every month
+// Check if it's time to apply economy health effects (every 6 months)
 if (Q.time % 6 == 0) {
-    Q.calculate_economy_health = 1;
+    Q.apply_economy_effects = 1;
+} else {
+    Q.apply_economy_effects = 0;
 }
 // check if there are any cards in #event, and then go to main if not.
 var scene = this.game.scenes['post_event.events_choice'];

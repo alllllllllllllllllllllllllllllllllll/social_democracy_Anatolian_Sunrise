@@ -62,9 +62,8 @@ if (Q.economy_health > 3) {
     Q.health_economy_status = "In Crisis";
 }
 
-// Apply economic effects every 6 months
-if (Q.economy_health_timer >= 6) {
-    Q.economy_health_timer = 0;
+// Apply economic effects only every 6 months when flag is set
+if (Q.apply_economy_effects == 1) {
     
     if (Q.economy_health > 3) {
         // Booming Economy: +5% all demographics, +10% capitalists
@@ -148,8 +147,6 @@ if (Q.economy_health_timer >= 6) {
             Q.kurds_DP -= 4;
         }
     }
-} else {
-    Q.economy_health_timer += 1;
 }
 !}
 
