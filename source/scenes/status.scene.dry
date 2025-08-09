@@ -293,10 +293,10 @@ Cyprus Problem: [? if cyprus_problem == 0: Unresolved ?][? if cyprus_problem == 
 
 = Economics
 
+[? if health_economy_status: Health of the Economy: [+ health_economy_status +] ?]
+
 Inflation: [+ inflation_2 +]%
 
 Unemployment: [+ unemployed_2 +]%
 
 GDP Growth: [+ economic_growth_2 +]%
-
-[? if health_economy_status: Health of the Economy: [+ health_economy_status +] ?]
