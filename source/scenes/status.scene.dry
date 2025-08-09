@@ -2,12 +2,7 @@ title: Status
 new-page: true
 is-special: true
 on-arrival: {!
-// Ensure economic variables exist with fallbacks
-if (Q.inflation === undefined || Q.inflation === null) Q.inflation = 15.3;
-if (Q.unemployed === undefined || Q.unemployed === null) Q.unemployed = 4.6;
-if (Q.economic_growth === undefined || Q.economic_growth === null) Q.economic_growth = 9.2;
-
-// Format economic indicators with proper fallbacks
+// Format economic indicators with proper fallbacks only for display
 Q.unemployed_2 = (Q.unemployed !== undefined && Q.unemployed !== null) ? Q.unemployed.toFixed(1) : '4.6';
 Q.inflation_2 = (Q.inflation !== undefined && Q.inflation !== null) ? Q.inflation.toFixed(1) : '15.3';
 Q.economic_growth_2 = (Q.economic_growth !== undefined && Q.economic_growth !== null) ? Q.economic_growth.toFixed(1) : '9.2';

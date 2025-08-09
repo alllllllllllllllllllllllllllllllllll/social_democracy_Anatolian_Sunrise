@@ -47,9 +47,9 @@ Q.dissent_percent = 5;
 // factions
 Q.factions = ['kemalist_marxists', 'left_kemalists', 'orthodox_kemalists', 'right_kemalists'];
 // should this be normalized to 100%?
-Q.kemalist_marxists_strength = 15;
+Q.kemalist_marxists_strength = 5;
 Q.kemalist_marxists_dissent = 20;
-Q.left_kemalists_strength = 30;
+Q.left_kemalists_strength = 35;
 Q.left_kemalists_dissent = 0;
 Q.orthodox_kemalists_strength = 25;
 Q.orthodox_kemalists_dissent = 5;
