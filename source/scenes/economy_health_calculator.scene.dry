@@ -150,6 +150,4 @@ if (Q.apply_economy_effects == 1) {
 }
 !}
 
-This scene runs automatically to calculate economic health and apply its effects.
-
-- @return: Continue
+@return

@@ -21,8 +21,6 @@ Q.industrial_change = 5; // Add 5 points to industrial production
 !}
 go-to: modify_production_indices
 
-The industrial development program is successfully implemented! New factories are built, existing ones are modernized, and productivity increases across the industrial sector.
-
-The Industrial Production Index has increased by 5 points.
+The industrial development program is successfully implemented! The Industrial Production Index has increased by 5 points.
 
 - @return: Continue
