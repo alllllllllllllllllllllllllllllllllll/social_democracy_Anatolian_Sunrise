@@ -52,16 +52,14 @@ if (Q.economic_growth < 0) {
 Q.economy_health = Q.inflation_score + Q.unemployment_score + Q.growth_score;
 
 // Set health status text for display
-if (Q.economy_health >= 4) {
+if (Q.economy_health > 3) {
     Q.health_economy_status = "Booming";
-} else if (Q.economy_health >= 1 && Q.economy_health <= 3) {
-    Q.health_economy_status = "Good";
-} else if (Q.economy_health == 0) {
+} else if (Q.economy_health >= 0 && Q.economy_health <= 3) {
     Q.health_economy_status = "Stable";
-} else if (Q.economy_health >= -4 && Q.economy_health <= -1) {
-    Q.health_economy_status = "Recession";
-} else if (Q.economy_health <= -5) {
-    Q.health_economy_status = "Crisis";
+} else if (Q.economy_health >= -5 && Q.economy_health < 0) {
+    Q.health_economy_status = "Unhealthy";
+} else if (Q.economy_health < -5) {
+    Q.health_economy_status = "In Crisis";
 }
 
 // Apply economic effects every 6 months

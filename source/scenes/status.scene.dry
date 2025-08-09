@@ -59,16 +59,14 @@ if (Q.economic_growth < 0) {
 }
 
 var current_economy_health = inflation_score + unemployment_score + growth_score;
-if (current_economy_health >= 4) {
+if (current_economy_health > 3) {
     Q.health_economy_status = "Booming";
-} else if (current_economy_health >= 1 && current_economy_health <= 3) {
-    Q.health_economy_status = "Good";
-} else if (current_economy_health == 0) {
+} else if (current_economy_health >= 0 && current_economy_health <= 3) {
     Q.health_economy_status = "Stable";
-} else if (current_economy_health >= -4 && current_economy_health <= -1) {
-    Q.health_economy_status = "Recession";
-} else if (current_economy_health <= -5) {
-    Q.health_economy_status = "Crisis";
+} else if (current_economy_health >= -5 && current_economy_health < 0) {
+    Q.health_economy_status = "Unhealthy";
+} else if (current_economy_health < -5) {
+    Q.health_economy_status = "In Crisis";
 }
 
 // Debug: Log the actual values
