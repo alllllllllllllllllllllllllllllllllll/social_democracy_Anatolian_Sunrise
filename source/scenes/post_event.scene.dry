@@ -224,6 +224,73 @@ if (Q.month_actions >= 1) {
         Q.agricultural_production_index = agricultural_baseline + Q.agricultural_player_modifier;
     }
     
+    // Calculate Agricultural Product Prices (Production/Consumption ratio)
+    Q.agricultural_product_prices = Q.agricultural_production_index / Q.agricultural_consumption;
+    
+    // Set agricultural price status text
+    if (Q.agricultural_product_prices > 1.20) {
+        Q.agricultural_price_status = "Very High";
+    } else if (Q.agricultural_product_prices >= 1.10) {
+        Q.agricultural_price_status = "High";
+    } else if (Q.agricultural_product_prices >= 0.90) {
+        Q.agricultural_price_status = "Sufficient";
+    } else if (Q.agricultural_product_prices >= 0.80) {
+        Q.agricultural_price_status = "Low";
+    } else {
+        Q.agricultural_price_status = "Very Low";
+    }
+    
+    // Increment agricultural price timer
+    Q.agricultural_price_timer += 1;
+    
+    // Apply agricultural price effects based on timer intervals
+    if (Q.agricultural_product_prices > 1.20 && Q.agricultural_price_timer >= 2) {
+        // Very High: -2% to workers, petty bourgeoisie, state employees every 2 months
+        Q.agricultural_price_timer = 0;
+        if (Q.CHP_in_government) {
+            Q.workers_CHP -= 2;
+            Q.petty_bourgeoisie_CHP -= 2;
+            Q.state_employees_CHP -= 2;
+        } else if (Q.AP_in_government) {
+            Q.workers_AP -= 2;
+            Q.petty_bourgeoisie_AP -= 2;
+            Q.state_employees_AP -= 2;
+        }
+    } else if (Q.agricultural_product_prices >= 1.10 && Q.agricultural_product_prices <= 1.20 && Q.agricultural_price_timer >= 3) {
+        // High: -1% to workers, petty bourgeoisie, state employees every 3 months
+        Q.agricultural_price_timer = 0;
+        if (Q.CHP_in_government) {
+            Q.workers_CHP -= 1;
+            Q.petty_bourgeoisie_CHP -= 1;
+            Q.state_employees_CHP -= 1;
+        } else if (Q.AP_in_government) {
+            Q.workers_AP -= 1;
+            Q.petty_bourgeoisie_AP -= 1;
+            Q.state_employees_AP -= 1;
+        }
+    } else if (Q.agricultural_product_prices >= 0.80 && Q.agricultural_product_prices < 0.90 && Q.agricultural_price_timer >= 3) {
+        // Low: -1% to rural every 3 months
+        Q.agricultural_price_timer = 0;
+        if (Q.CHP_in_government) {
+            Q.rural_CHP -= 1;
+        } else if (Q.AP_in_government) {
+            Q.rural_AP -= 1;
+        }
+    } else if (Q.agricultural_product_prices < 0.80 && Q.agricultural_price_timer >= 2) {
+        // Very Low: -2% to rural every 2 months
+        Q.agricultural_price_timer = 0;
+        if (Q.CHP_in_government) {
+            Q.rural_CHP -= 2;
+        } else if (Q.AP_in_government) {
+            Q.rural_AP -= 2;
+        }
+    }
+    
+    // Reset timer if prices are sufficient (no effects)
+    if (Q.agricultural_product_prices >= 0.90 && Q.agricultural_product_prices < 1.10) {
+        Q.agricultural_price_timer = 0;
+    }
+    
     // Calculate GDP growth based on production indices
     // Industrial production makes up 1/5 (20%) of economy, agriculture makes up 1/3 (33.3%)
     if (Q.historical_gdp_growth[Q.year] !== undefined && Q.historical_industrial_index[Q.year] !== undefined && Q.historical_agricultural_index[Q.year] !== undefined) {

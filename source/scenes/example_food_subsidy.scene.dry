@@ -1,0 +1,28 @@
+title: Food Subsidy Program
+subtitle: Subsidize food purchases to reduce agricultural product prices
+unavailable-subtitle: Not possible at this time
+view-if: CHP_in_government = 1 and resources >= 2
+on-arrival: {!
+Q.resources -= 2;
+!}
+
+The government implements a comprehensive food subsidy program, providing financial assistance to consumers for essential agricultural products. This increases effective agricultural consumption and reduces food prices.
+
+**Effects:**
+- Agricultural Consumption: +10 points (increases demand, lowers prices)
+- Cost: 2 resources
+
+- @implement_subsidies: Implement the program
+- @return: Cancel
+
+@implement_subsidies
+on-arrival: {!
+Q.agricultural_consumption_change = 10; // Increase agricultural consumption
+!}
+go-to: modify_production_indices
+
+The food subsidy program is successfully implemented! Consumers can now afford more agricultural products, increasing demand and helping to stabilize food prices.
+
+Agricultural consumption has increased by 10 points, which should help reduce agricultural product prices if production remains constant.
+
+- @return: Continue

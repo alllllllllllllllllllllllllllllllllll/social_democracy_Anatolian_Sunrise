@@ -446,6 +446,13 @@ Q.agricultural_player_modifier = 0;
 // Variables for making production changes (used by government actions)
 Q.industrial_change = 0;
 Q.agricultural_change = 0;
+Q.agricultural_consumption_change = 0;
+
+// Agricultural Product Prices System
+Q.agricultural_consumption = 100; // Base consumption level (can be modified by player actions)
+Q.agricultural_product_prices = 1.0; // Production/Consumption ratio
+Q.agricultural_price_status = "Sufficient"; // Text status for display
+Q.agricultural_price_timer = 0; // Timer for applying political effects
 
 // Economic Health System
 Q.economy_health = 0;

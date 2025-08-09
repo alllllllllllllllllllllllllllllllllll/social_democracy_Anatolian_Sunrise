@@ -2,7 +2,7 @@ title: Modify Production Indices
 view-if: 0
 on-arrival: {!
 // This scene is used by government actions to modify production indices
-// Usage: set Q.industrial_change and/or Q.agricultural_change before calling this scene
+// Usage: set Q.industrial_change and/or Q.agricultural_change and/or Q.agricultural_consumption_change before calling this scene
 
 // Apply industrial production changes
 if (Q.industrial_change && Q.industrial_change !== 0) {
@@ -30,6 +30,19 @@ if (Q.agricultural_change && Q.agricultural_change !== 0) {
     Q.agricultural_change = 0;
 }
 
+// Apply agricultural consumption changes
+if (Q.agricultural_consumption_change && Q.agricultural_consumption_change !== 0) {
+    Q.agricultural_consumption += Q.agricultural_consumption_change;
+    
+    // Ensure consumption doesn't go below 10 (to prevent division issues)
+    if (Q.agricultural_consumption < 10) {
+        Q.agricultural_consumption = 10;
+    }
+    
+    // Reset the change variable
+    Q.agricultural_consumption_change = 0;
+}
+
 // Recalculate GDP growth immediately after production changes
 if (Q.historical_gdp_growth[Q.year] !== undefined && Q.historical_industrial_index[Q.year] !== undefined && Q.historical_agricultural_index[Q.year] !== undefined) {
     var base_gdp_growth = Q.historical_gdp_growth[Q.year];
@@ -46,6 +59,22 @@ if (Q.historical_gdp_growth[Q.year] !== undefined && Q.historical_industrial_ind
     
     // Apply production effects to GDP growth
     Q.economic_growth = base_gdp_growth + industrial_gdp_effect + agricultural_gdp_effect;
+}
+
+// Recalculate Agricultural Product Prices after any changes
+Q.agricultural_product_prices = Q.agricultural_production_index / Q.agricultural_consumption;
+
+// Update agricultural price status text
+if (Q.agricultural_product_prices > 1.20) {
+    Q.agricultural_price_status = "Very High";
+} else if (Q.agricultural_product_prices >= 1.10) {
+    Q.agricultural_price_status = "High";
+} else if (Q.agricultural_product_prices >= 0.90) {
+    Q.agricultural_price_status = "Sufficient";
+} else if (Q.agricultural_product_prices >= 0.80) {
+    Q.agricultural_price_status = "Low";
+} else {
+    Q.agricultural_price_status = "Very Low";
 }
 !}
 
