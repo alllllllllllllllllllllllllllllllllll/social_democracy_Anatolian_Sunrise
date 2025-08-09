@@ -12,6 +12,10 @@ Q.unemployed_2 = Q.unemployed ? Q.unemployed.toFixed(1) : '4.6';
 Q.inflation_2 = Q.inflation ? Q.inflation.toFixed(1) : '15.3';
 Q.economic_growth_2 = Q.economic_growth ? Q.economic_growth.toFixed(1) : '9.2';
 
+// Format production indices
+Q.industrial_index_formatted = Q.industrial_production_index ? Q.industrial_production_index.toFixed(1) : '100.0';
+Q.agricultural_index_formatted = Q.agricultural_production_index ? Q.agricultural_production_index.toFixed(1) : '100.0';
+
 // Debug: Log the actual values
 console.log("Inflation raw:", Q.inflation, "formatted:", Q.inflation_2);
 console.log("Unemployment raw:", Q.unemployed, "formatted:", Q.unemployed_2);
@@ -300,3 +304,7 @@ Inflation: [+ inflation_2 +]%
 Unemployment: [+ unemployed_2 +]%
 
 GDP Growth: [+ economic_growth_2 +]%
+
+Industrial Production Index (1972=100): [+ industrial_index_formatted +]
+
+Agricultural Production Index (1972=100): [+ agricultural_index_formatted +]

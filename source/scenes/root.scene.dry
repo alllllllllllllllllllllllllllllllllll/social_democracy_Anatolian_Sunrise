@@ -411,6 +411,34 @@ Q.inflation = Q.historical_inflation[Q.year] || 15.3;
 Q.economic_growth = Q.historical_gdp_growth[Q.year] || 9.2;
 Q.unemployed = Q.historical_unemployment[Q.year] || 4.6;
 
+// Historical Industrial Production Index (base year 1972 = 100)
+Q.historical_industrial_index = {
+    1972: 100,
+    1973: 110,
+    1974: 120,
+    1975: 132,
+    1976: 145,
+    1977: 158,
+    1978: 150,
+    1979: 142
+};
+
+// Historical Agricultural Production Index (base year 1972 = 100)
+Q.historical_agricultural_index = {
+    1972: 100,
+    1973: 102,
+    1974: 105,
+    1975: 108,
+    1976: 111,
+    1977: 113,
+    1978: 115,
+    1979: 117
+};
+
+// Current Production Indices
+Q.industrial_production_index = Q.historical_industrial_index[Q.year] || 100;
+Q.agricultural_production_index = Q.historical_agricultural_index[Q.year] || 100;
+
 // Economic Health System
 Q.economy_health = 0;
 Q.economy_health_timer = 0;

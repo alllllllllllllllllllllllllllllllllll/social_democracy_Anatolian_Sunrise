@@ -203,18 +203,46 @@ if (Q.month_actions >= 1) {
         Q.inflation += inflation_diff / 12;
     }
     
-    if (Q.historical_gdp_growth[Q.year] !== undefined) {
-        var target_growth = Q.historical_gdp_growth[Q.year];
-        var growth_diff = target_growth - Q.economic_growth;
-        // Adjust toward baseline by 1/12th of the difference each month
-        Q.economic_growth += growth_diff / 12;
-    }
-    
     if (Q.historical_unemployment[Q.year] !== undefined) {
         var target_unemployment = Q.historical_unemployment[Q.year];
         var unemployment_diff = target_unemployment - Q.unemployed;
         // Adjust toward baseline by 1/12th of the difference each month
         Q.unemployed += unemployment_diff / 12;
+    }
+    
+    // Historical production index baseline adjustments
+    // Move production indices toward historical baselines when not affected by player actions
+    if (Q.historical_industrial_index[Q.year] !== undefined) {
+        var target_industrial = Q.historical_industrial_index[Q.year];
+        var industrial_diff = target_industrial - Q.industrial_production_index;
+        // Adjust toward baseline by 1/12th of the difference each month
+        Q.industrial_production_index += industrial_diff / 12;
+    }
+    
+    if (Q.historical_agricultural_index[Q.year] !== undefined) {
+        var target_agricultural = Q.historical_agricultural_index[Q.year];
+        var agricultural_diff = target_agricultural - Q.agricultural_production_index;
+        // Adjust toward baseline by 1/12th of the difference each month
+        Q.agricultural_production_index += agricultural_diff / 12;
+    }
+    
+    // Calculate GDP growth based on production indices
+    // Industrial production makes up 1/5 (20%) of economy, agriculture makes up 1/3 (33.3%)
+    if (Q.historical_gdp_growth[Q.year] !== undefined && Q.historical_industrial_index[Q.year] !== undefined && Q.historical_agricultural_index[Q.year] !== undefined) {
+        var base_gdp_growth = Q.historical_gdp_growth[Q.year];
+        
+        // Calculate industrial contribution to GDP growth
+        var industrial_baseline = Q.historical_industrial_index[Q.year];
+        var industrial_difference = Q.industrial_production_index - industrial_baseline;
+        var industrial_gdp_effect = (industrial_difference / industrial_baseline) * 100 * 0.2; // 20% of economy
+        
+        // Calculate agricultural contribution to GDP growth
+        var agricultural_baseline = Q.historical_agricultural_index[Q.year];
+        var agricultural_difference = Q.agricultural_production_index - agricultural_baseline;
+        var agricultural_gdp_effect = (agricultural_difference / agricultural_baseline) * 100 * 0.333; // 33.3% of economy
+        
+        // Apply production effects to GDP growth
+        Q.economic_growth = base_gdp_growth + industrial_gdp_effect + agricultural_gdp_effect;
     }
     
     // append to historical party support records
