@@ -417,6 +417,7 @@ Q.economy_health_timer = 0;
 Q.inflation_score = 0;
 Q.unemployment_score = 0;
 Q.growth_score = 0;
+Q.health_economy_status = "Stable";
 
 // economic expansion timer
 Q.economic_expansion = 0;

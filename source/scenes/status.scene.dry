@@ -12,6 +12,65 @@ Q.unemployed_2 = Q.unemployed ? Q.unemployed.toFixed(1) : '4.6';
 Q.inflation_2 = Q.inflation ? Q.inflation.toFixed(1) : '15.3';
 Q.economic_growth_2 = Q.economic_growth ? Q.economic_growth.toFixed(1) : '9.2';
 
+// Calculate current economic health for display
+var inflation_score = 0;
+if (Q.inflation >= 0 && Q.inflation <= 10) {
+    inflation_score = 1;
+} else if (Q.inflation > 10 && Q.inflation <= 20) {
+    inflation_score = 0;
+} else if (Q.inflation > 20 && Q.inflation <= 30) {
+    inflation_score = -1;
+} else if (Q.inflation > 30 && Q.inflation <= 40) {
+    inflation_score = -2;
+} else if (Q.inflation > 40 && Q.inflation <= 60) {
+    inflation_score = -4;
+} else if (Q.inflation > 60) {
+    inflation_score = -6;
+}
+
+var unemployment_score = 0;
+if (Q.unemployed >= 0 && Q.unemployed <= 3) {
+    unemployment_score = 1;
+} else if (Q.unemployed > 3 && Q.unemployed <= 6) {
+    unemployment_score = 0;
+} else if (Q.unemployed > 6 && Q.unemployed <= 10) {
+    unemployment_score = -1;
+} else if (Q.unemployed > 10 && Q.unemployed <= 15) {
+    unemployment_score = -2;
+} else if (Q.unemployed > 15 && Q.unemployed <= 20) {
+    unemployment_score = -3;
+} else if (Q.unemployed > 20) {
+    unemployment_score = -5;
+}
+
+var growth_score = 0;
+if (Q.economic_growth < 0) {
+    growth_score = -5;
+} else if (Q.economic_growth >= 0 && Q.economic_growth <= 2) {
+    growth_score = -2;
+} else if (Q.economic_growth > 2 && Q.economic_growth <= 4) {
+    growth_score = -1;
+} else if (Q.economic_growth > 4 && Q.economic_growth <= 6) {
+    growth_score = 0;
+} else if (Q.economic_growth > 6 && Q.economic_growth <= 8) {
+    growth_score = 1;
+} else if (Q.economic_growth > 8) {
+    growth_score = 2;
+}
+
+var current_economy_health = inflation_score + unemployment_score + growth_score;
+if (current_economy_health >= 4) {
+    Q.health_economy_status = "Booming";
+} else if (current_economy_health >= 1 && current_economy_health <= 3) {
+    Q.health_economy_status = "Good";
+} else if (current_economy_health == 0) {
+    Q.health_economy_status = "Stable";
+} else if (current_economy_health >= -4 && current_economy_health <= -1) {
+    Q.health_economy_status = "Recession";
+} else if (current_economy_health <= -5) {
+    Q.health_economy_status = "Crisis";
+}
+
 // Debug: Log the actual values
 console.log("Inflation raw:", Q.inflation, "formatted:", Q.inflation_2);
 console.log("Unemployment raw:", Q.unemployed, "formatted:", Q.unemployed_2);
