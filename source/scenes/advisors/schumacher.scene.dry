@@ -31,8 +31,9 @@ title: Reichsbanner
 subtitle: Schumacher supports providing more resources to the Reichsbanner.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6; reichsbanner_timer -= 6; last_advisor_action = 1
-go-to: reichsbanner
+on-arrival: advisor_action_timer = 6; rb_strength += 100; rb_militancy += 0.01; reichsbanner_timer = 0; funded_reichsbanner += 1
+
+We have increased recruiting to the Reichsbanner with Schumacher's support.
 
 @moderate_economic_plan
 title: Support the reformist economic plan

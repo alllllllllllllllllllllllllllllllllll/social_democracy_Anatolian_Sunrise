@@ -742,7 +742,7 @@ Q.timers = ['advisor_action', 'confronting_nazis', 'crisis_program',
             'fundraising', 'ideology',
             'inter_party_relationships', 'international_relations',
             'iron_front', 'media', 'enemies',
-            'party_organizations', 'rally', 'reichsbanner',
+            'party_organizations', 'rally',
             'shuffle_leadership', 'streetfighting', 'peoples_party',
             'party_disunity',
             // govt
