@@ -5,15 +5,36 @@ tags: party_affairs
 view-if: media_timer <= 0
 on-arrival: month_actions += 1; media_timer += 6;
 card-image: img/sangerbund.jpg
-#subtitle: Setting the direction for our newspapers and radio.
+#subtitle: Setting the direction for our newspapers and media outlets.
 
 = Media
 
-The CHP runs a veritable media empire, with many newspapers throughout every German city and region. We could use the media for various purposes...
+view-if: I_government
+The media is heavily restricted under the military appointed governments. 
+
+- @critique
+- @silence
+
+@silence
+title: National Chief İnönü doesnt want to go into a conflict with the junta. Perhaps we should keep our silence..
+view-if: CHP_party_leader == "İnönü"
+on-arrival: workers_chp -= 2; petty bourgeoisie_chp -= 2; rural_chp -= 1; left_kemalists_dissent += 5
+
+We keep our silence in the face of atrocities and injustice. The nation is overwhelmingly against the coup and Ecevit critiques the party attitude heavily, perhaps he has a good point..
+
+@critique
+title: The military government needs to go. Defy the laws and protest against the recent actions of the Junta.
+view-if: CHP_party_leader == "Ecevit"
+on-arrival: workers_chp += 2; petty_bourgeoisie_chp += 2; kemalist_marxists_dissent -= 5; coup_timer += 1; critique += 1
+
+We direct our media attention to the authoritarian actions of the junta governments, such as the banning of worker strikes and the torture of left wing intellectuals in prisons. We will not bow to the whims of the appointed.
+
+The CHP is affiliated with many progressive newspaper outlets. Perhaps we can use this to our advantage..
 
 - @commercial
 - @campaign
 - @ideological
+- @newideas
 - @radio
 - @radio_2
 - @radio_3
@@ -25,58 +46,27 @@ The CHP runs a veritable media empire, with many newspapers throughout every Ger
 @commercial
 title: Make our newspapers more commercialized by broadening their appeal beyond party supporters.
 subtitle: This might upset ideological purists, but it may bring in more funds and perhaps expose the middle class to socialist views.
-on-arrival: resources += 1; commercialized_media += 1; new_middle_CHP += 4*(1 - dissent); old_middle_CHP += 3*(1-dissent); left_dissent += 10; labor_dissent += 10
+on-arrival: resources += 1; commercialized_media += 1; petty_bourgeoisie += 3*(1 - dissent)
 
-Our commercialized newspapers are able to bring in more funds. However, the left and labor factions express their displeasure.
+Our commercialized newspapers are able to bring in more funds. However, this will limit our ability to influence the media.
 
 @campaign
-title: The purpose of our media is to elect more Social Democrats.
+title: The purpose of our media is to increase our election chances.
 subtitle: Our newspapers will focus on the electoral campaign.
-on-arrival: campaign_media += 1; workers_CHP += 4*(1 - dissent); unemployed_CHP += 2*(1-dissent);
+on-arrival: campaign_media += 1; workers_chp += 2*(1 - dissent); petty_bourgeoisie_chp += 2*(1 - dissent); state_employees_chp += 2*(1 - dissent)
 
-Our campaign media is mostly reaching the workers who are already saturated with Socialist propaganda, but it must be doing *something*, or at least that is what we hope.
+The outlets print out news about the problems the nation faces and how a left wing government be the solution our people have been waiting for so long.
+
+@newideas
+title: We will motivate our theoriticians and politicians to write about their new policy ideas. 
+subtitle: A party without a vision is not a party but a gathering
+on-arrival: marxist_kemalists_strength += 5; workers_chp += 1; newideas += 1
+
+We are happy to hear new voices raising their visions for a new Turkey.
 
 @ideological
 title: We will have vibrant ideological debate within our newspapers.
 subtitle: There will be space for all factions to air their views.
-on-arrival: left_dissent -= 6; labor_dissent -= 6; center_dissent -= 6; reformist_dissent -= 6; neorevisionist_dissent -= 6
+on-arrival: marxist_kemalists_dissent -= 6; left_kemalists_dissent -= 6; orthodox_kemalists_dissent -= 6; right_kemalists_dissent -= 6;
 
 This has been our media course historically, and it has successfully paved over the many tensions in our party.
-
-@radio
-title: Why not fund a radio station?
-subtitle: -2 resources
-choose-if: resources >= 2
-unavailable-subtitle: Not enough resources.
-view-if: radio = 0
-on-arrival: radio += 1; resources -= 2; new_middle_CHP += 4*(1 - dissent); old_middle_CHP += 3*(1 - dissent); workers_CHP += 2*(1 - dissent); labor_dissent += 5; socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent) if pacifism > 1; pro_republic += 3*(1-dissent) if democratization > 1
-
-Our new radio station allows us to connect to people in a more intimate setting than before, spreading the message of socialism along with music and other popular content. Since most proletarians cannot afford family radios right now, we are reaching the middle class, a fact of which our labor comrades are painfully aware.
-
-@radio_2
-title: We must keep on building up our radio network.
-subtitle: -1 resources
-choose-if: resources >= 1
-unavailable-subtitle: Not enough resources.
-view-if: radio > 0 and radio <= 3
-on-arrival: radio += 1; resources -= 1; new_middle_CHP += 5*(1 - dissent); old_middle_CHP += 3*(1 - dissent); workers_CHP += 3*(1 - dissent); socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent)*(pacifism-2) if pacifism > 2; pro_republic += 3*(1-dissent)*(democratization-2) if democratization > 2
-
-Our new radio network has a mix of popular and political programming, and is proving a success.
-
-@radio_3
-title: We must keep on building up our radio network.
-subtitle: It is now financially self-sufficient, and does not require any more resources.
-view-if: radio > 3 and radio <= 5 and year <= 1931
-on-arrival: radio += 1; new_middle_CHP += 5*(1 - dissent); old_middle_CHP += 4*(1 - dissent); workers_CHP += 4*(1 - dissent); rural_CHP += 3*(1 - dissent); unemployed_CHP += 2*(1-dissent); socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent)*(pacifism-2) if pacifism > 2; pro_republic += 3*(1-dissent)*(democratization-2) if democratization > 2
-
-Our radio network has become a successful tool for spreading our message.
-
-@radio_4
-title: We should keep on supporting our radio network.
-subtitle: As radio becomes more common, the novelty is beginning to wear off, and radio is becoming saturated in society. -1 resources
-choose-if: resources >= 1
-unavailable-subtitle: Not enough resources.
-view-if: radio > 3 and (radio >= 6 or year >= 1932) and radio <= 9
-on-arrival: radio += 1; resources -= 1; new_middle_CHP += 3*(1 - dissent); old_middle_CHP += 2*(1 - dissent); workers_CHP += 3*(1 - dissent); rural_CHP += 2*(1 - dissent); unemployed_CHP += 2*(1-dissent); socialism += 2*(1 - dissent); nationalism -= 2*(1 - dissent)*(pacifism-2) if pacifism > 2; pro_republic += 2*(1-dissent)*(democratization-2) if democratization > 2
-
-We are continuing to invest in our radio stations. Both commercial and political radio are becoming more prevalent, making it harder to spread our message amidst the competition.
