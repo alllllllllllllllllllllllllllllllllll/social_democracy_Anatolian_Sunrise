@@ -1,1 +1,53 @@
+title: Choosing Our Enemies
+new-page: true
+view-if: year <= 1980 and enemies_timer <= 0
+on-arrival: month_actions += 1; enemies_timer = 18
+max-visits: 3
+is-card: true
+card-image: img/ahtapot.jpg
+tags: party_affairs
 
+= Choosing our enemies
+
+In our media and campaign materials, who should we consider as our main opponents?
+
+[? if enemies != 0 : Previously, we had considered the [+ enemies +] as our prior enemies. Is a change of direction necessary? ?]
+
+- @military: The military that is strangling our democracy
+- @anti_dem: The radical organizations to our left and right, THKPC, MHP and MSP
+- @far_right: The reactionaries - the MHP and MSP.
+- @MHP: The MHP alone.
+- @THKPC: Anti-parliamentary leftist groups, primarily THKPC
+- @bourgeois: The bourgeois parties - the Center and DP.
+- @easy_discard
+
+@military
+view-if: CHP_party_leader == "Ecevit"
+on-arrival: enemies = "military"; coup_timer += 1; left_kemalists_strength += 5; left_kemalists_dissent -= 5; orthodox_kemalists_dissent += 5; right_kemalists_dissent += 10; AP_relation += 5
+
+Targeting the military establishment appeals to the left wing of our party and aligns with democratic reform goals, but alienates our orthodox and right-wing factions who prefer stability. This stance may also increase coup risk and improve relations with the Justice Party.
+
+@anti_dem
+on-arrival: enemies = "radical organizations"; center_strength += 5; reformist_strength += 5; left_dissent += 5; workers_TIP -= 2; workers_MHP -= 2; workers_MSP -= 2; TIP_relation -= 10
+
+Attacking the far right and left is popular among all but the left wing of our party, who would prefer to be fighting the bourgeois parties. This might also hamper our ability to reconcile with the TIP in the future.
+
+@far_right
+on-arrival: enemies = "far right"; left_strength += 5; left_dissent -= 5; workers_MHP -= 3; workers_MSP -= 3;
+
+Attacking the far right is popular among the entire party, although the left considers the bourgeois parties to be just as dangerous, while the right is critical of our lack of response to the TIP. Our bourgeois coalition partners are also skeptical of our lack of commitment to anti-communism.
+
+@MHP
+on-arrival: enemies = "MHP"; neorevisionist_strength += 5; nazi_urgency += 1; workers_MHP -= 4;
+
+[? if nazi_urgency == 0 or MHP_r < 10 : The MHP is a tiny party right now, with more bark than bite. Many in our party are questioning our choices. ?][? if nazi_urgency > 0 and MHP_r >= 10 : The Nazis are the most urgent problem for us to deal with. ?]
+
+@THKPC
+on-arrival: enemies = "THKPC"; left_kemalists_dissent += 5; orthodox_kemalists_dissent -= 5; right_kemalists_dissent -= 5; workers_TIP -= 3; TIP_relation -= 5;
+
+Attacking the far-left THKP-C and similar organizations appeals to our more moderate factions, but may alienate the left wing of our party and hurt relations with the TIP.
+
+@bourgeois
+on-arrival: enemies = "bourgeois parties"; left_strength += 8; left_dissent -= 5; DP_relation -= 5;AP_relation -= 5; TIP_relation += 5; reformist_dissent += 8; workers_z -= 3; coalition_dissent += 1
+
+Our anti-bourgeois rhetoric is popular among the left, but may make it harder to build the coalitions that are necessary for government in the future.
