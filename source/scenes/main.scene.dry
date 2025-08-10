@@ -40,6 +40,7 @@ max-cards: 4
 [? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
 
 - @party
+- @dovevsbayonet
 - @govt
 - #advisor
 - @shuffle_leadership_pinned
@@ -51,6 +52,15 @@ card-image: img/chp.jpeg
 is-deck: true
 
 - #party_affairs
+
+
+@dovevsbayonet
+title: Dove vs Bayonet
+card-image: img/dovevsbayonet.png
+view-if: chp_party_leader == "İnönü"
+is-deck: true
+
+- #dovevsbayonet
 
 @govt
 title: Government Affairs
