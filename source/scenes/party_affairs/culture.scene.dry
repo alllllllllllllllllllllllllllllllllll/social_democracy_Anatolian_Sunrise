@@ -29,7 +29,7 @@ choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; workers_chp += 3; petty_bourgeoisie_chp += 2
 
-The new genre spread like wildfire within the youth, bringing along with itself rebellious ideas that annoy the establishment.
+The new genre spread like wildfire within the youth, bringing along with itself progressive ideas that disrupt the status quo.
 
 @mobilecinemas
 subtitle: -2 resources
