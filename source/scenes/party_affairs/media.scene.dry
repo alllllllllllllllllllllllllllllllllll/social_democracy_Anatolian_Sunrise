@@ -9,11 +9,22 @@ card-image: img/cumhuriyet4.jpg
 
 = Media
 
-view-if: I_government
-The media is heavily restricted under the military appointed governments. 
+[? if I_government: The media is heavily restricted under the military appointed governments. ?]
 
+[? if I_government: ?]
 - @critique
 - @silence
+
+[? if I_government == 0: The CHP is affiliated with many progressive newspaper outlets. Perhaps we can use this to our advantage.. ?]
+
+[? if I_government == 0: ?]
+- @commercial
+- @campaign
+- @ideological
+- @newideas
+- @return: We should not do anything with media at the moment.
+- @easy_discard
+- @cancel_advisor_action
 
 @silence
 title: National Chief İnönü doesnt want to go into a conflict with the junta. Perhaps we should keep our silence..
@@ -28,19 +39,6 @@ view-if: CHP_party_leader == "Ecevit"
 on-arrival: workers_chp += 2; petty_bourgeoisie_chp += 2; kemalist_marxists_dissent -= 5; coup_timer += 1; critique += 1
 
 We direct our media attention to the authoritarian actions of the junta governments, such as the banning of worker strikes and the torture of left wing intellectuals in prisons. We will not bow to the whims of the appointed.
-
-= Media
-
-view-if: I_government == 0
-The CHP is affiliated with many progressive newspaper outlets. Perhaps we can use this to our advantage..
-
-- @commercial
-- @campaign
-- @ideological
-- @newideas
-- @return: We should not do anything with media at the moment.
-- @easy_discard
-- @cancel_advisor_action
 
 @commercial
 title: Make our newspapers more commercialized by broadening their appeal beyond party supporters.
