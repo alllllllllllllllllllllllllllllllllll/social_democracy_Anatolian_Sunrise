@@ -9,4 +9,32 @@ new-page: true
 
 Bülent Ecevit is the speaker of the party and the current ram of the reformist forces within the party. A poet, former labor minister and also an articulated orator, with his energy and social democratic idealism, he rivals the authoritarian and elitist stance of İsmet İnönü within the party. Opposed firmly to the CHP's indifference towards the 12 March memorandum last year, he has largely pivoted to act independently of the party and İnönü's diktats lately. Things may blow up very soon between the two.
 
+- @partydynamics
+- @partydissent
+- @meeting 
+- @partyorganizations
+
+@partydynamics
+subtitle: Can the Left of Center gain ground in the party?
+view-if: chp_party_leader == "İnönü"
+on-arrival: left_kemalists_strength += 5; orthodox_kemalists_strength -=5
+
+We emphasize the need for change and sway some delegates in the middle to our side.
+
+@partydissent
+subtitle: Ecevit is now the party leader and people have faith that he can be the one to finally break the glass ceiling and bring CHP to the government.
+view-if: chp_party_leader == "Ecevit"
+on-arrival: left_kemalists_dissent -= 10; kemalist_marxists_dissent -= 10; orthodox_kemalists_dissent -= 10
+
+The temporary disputes are put aside and the party unites behind Ecevit.
+
+@meeting
+subtitle: Ecevit is a potent orator and he can put his literary skills into work.
+go-to: rally
+
+@partyorganizations: 
+subtitle: As the party leader Ecevit has authority over the party organizations 
+view-if: chp_party_leader == "Ecevit"
+go-to: party_organizations
+
 - @easy_discard
