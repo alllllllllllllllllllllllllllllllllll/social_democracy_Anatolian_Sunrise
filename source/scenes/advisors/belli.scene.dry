@@ -15,7 +15,7 @@ Mihri Belli is the original theorist of the National Democratic Revolution and i
 
 @thkpc
 subtitle: They might be in serious trouble..
-view-if: current_year == 1972 and month >= 3
+view-if: current_year == 1972 and month <= 3
 
 Belli reports that THKP-C militants may be planning an attack to prevent the execution of Deniz Gezmiş.
 
