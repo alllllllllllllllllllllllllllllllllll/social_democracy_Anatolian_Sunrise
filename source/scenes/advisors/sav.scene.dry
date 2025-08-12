@@ -20,7 +20,7 @@ on-arrival: tip_relation += 5; disk_relation += 2; workers_chp += 3
 
 We present the benefits of the political freedom and university autonomy to the parliament against any attempts to alter it. Leftist organizations offer their gratitude for defending the laws that allow them to organize efficiently.
 
-@disk
+@diskrelation
 go-to: union_relations
 
 @bar
