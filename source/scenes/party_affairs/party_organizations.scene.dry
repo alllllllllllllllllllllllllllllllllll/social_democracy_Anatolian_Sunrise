@@ -13,10 +13,10 @@ max-visits: 5
 In addition to being a political party, the CHP is a social world onto itself, with a vast array of associated organizations which serve the social needs of their members from cradle to grave.
 
 - @newspapers: Fund more newspapers and journalists.
-- @welfare: Fund more mutual aid and welfare programs.
+- @workers: Fund the worker bureaus.
 - @culture: Fund sports leagues, educational, and cultural programs.
-- @rb: Fund the Reichsbanner, our self-defense organization.
-- @youth: We have the reputation of being a party for old men. Support the youth organizations.
+- @women: Increase funding to the women's branch of the party.
+- @youth: Increase funding to the youth branch of the party.
 - @nothing: Do not increase funding for any program.
 - @easy_discard
 
@@ -30,39 +30,39 @@ go-to: media
 # TODO: differing outcomes based on whether you've seen media, and what kind of media you've supported.
 
 
-@welfare
+@workers
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; workers_aid += 1; unemployed_CHP += 5*(1 - dissent);
-
-We have increased funding to Workers' Welfare. [? if black_thursday_seen > 0 : In an age of economic crisis, this will be helpful for improving our standing among the unemployed. ?]
+on-arrival: resources -= 1; workers_chp += 2; disk_timer = 0
+go-to: disk
 
 @culture
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; cultural_organizations += 1; left_dissent -= 6; center_dissent -= 6; labor_dissent -= 6; reformist_dissent -= 6; neorevisionist_dissent -= 6
+on-arrival: resources -= 1; culture_timer = 0
+go-to: culture
 
-It is not enough for the CHP to solely be a political party. The Worker Singer's League, Worker's Sports, and our schools and libraries are crucial to our members' lives. Funding these organizations makes our members more committed to the party, even when our policies might not be to their liking.
-
-[? if sa_strength > 500 : However, it feels frivolous to spend on sports and choirs when the fascists are murdering us in the streets. ?]
-
-@rb
+@women
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; rb_strength  += 100; rb_militancy += 0.01; reichsbanner_timer = 0; funded_reichsbanner += 1
+on-arrival: resources -= 1; women += 1; petty_bourgeoisie_chp += 2; workers_chp += 2; 
 
-We have increased recruiting to the Reichsbanner.
+"How can a half of society fly onto the skies when the other half is chained down?"
+
+We have increased funding to the women's branch of the party.
 
 @youth
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; rb_strength += 50; rb_militancy += 0.02; young_socialists += 1; left_strength += 5; neorevisionist_strength += 5; radicalization += 1;
+on-arrival: resources -= 1; youth += 1; workers_chp += 3; state_employees_chp += 2; petty_bourgeoisie += 2; kemalist_marxists_strength += 2; left_kemalists_strength += 3
 
-Our new youth members flock to the left or neorevisionist wings of the party, and also bring new radicalism to the Reichsbanner.
+"O Turkish Youth! Your first duty is ever to preserve and defend the National independence, the Turkish Republic".
+
+We have increased funding to the youth branch of the party.
 
 @nothing
 
