@@ -19,7 +19,7 @@ go-to: international_relations
 
 @economy
 choose-if: CHP_in_government = 1
-unavailable-subtitle: CHP not in government.
+unavailable-subtitle: CHP is not in government.
 
 @coalitiontalks
 subtitle: For better or worse..
