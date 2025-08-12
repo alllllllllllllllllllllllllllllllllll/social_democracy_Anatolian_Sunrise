@@ -16,7 +16,7 @@ new-page: true
 @campaign
 go-to: campaigning
 
-@stay 
+@stay
 subtitle: Even if he doesn't believe it to be a possibility..
 on-arrival: orthodox_kemalist_dissent -= 5; staying += 1
 
