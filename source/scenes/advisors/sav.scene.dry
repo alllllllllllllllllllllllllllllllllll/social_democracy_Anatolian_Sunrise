@@ -9,4 +9,21 @@ new-page: true
 
 Önder Sav is a prominent Social Democratic politician and legal expert who advocates for judicial reform and constitutional rights. As a dedicated member of the Left of Center movement, he brings valuable experience in legal affairs and constitutional law to the party. His background in judiciary matters makes him particularly effective in advancing progressive legal reforms and defending democratic institutions.
 
+- @constitution: The constitution of 1960 is the very document that has allowed new ideologies and movements to arise thanks to its liberality and emphasis on political freedom.
+- @diskrelation: Sav has associations with DİSK thanks to his experience in the job associations.
+- @bar: Sav is a rising star within the Turkish bar and can steer the bar in a progressive direction
 - @easy_discard
+
+@constitution
+subtitle: Sav can make convincing arguments against its alteration by the right wing parties if need arises.
+on-arrival: tip_relation += 5; disk_relation += 2; workers_chp += 3
+
+We present the benefits of the political freedom and university autonomy to the parliament against any attempts to alter it. Leftist organizations offer their gratitude for defending the laws that allow them to organize efficiently.
+
+@disk
+go-to: union_relations
+
+@bar
+on-arrival: state_employees_chp += 5; chp_law += 1
+
+The leftist presence in the bar is strengthened and we offer our support to the leftist president of the bar, Faruk Erem.
