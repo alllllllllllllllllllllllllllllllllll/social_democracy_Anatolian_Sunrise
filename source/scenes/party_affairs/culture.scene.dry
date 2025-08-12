@@ -3,7 +3,7 @@ new-page: true
 view-if: CHP_party_leader == "Ecevit"
 is-card: true
 card-image: img/semazen.jpg
-tags: party_affairs
+tags: culture
 
 = Culture and Arts
 
