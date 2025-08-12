@@ -57,7 +57,7 @@ is-deck: true
 @dovevsbayonet
 title: Dove vs Bayonet
 card-image: img/dovevsbayonet.png
-view-if: chp_party_leader == "İnönü"
+view-if: CHP_party_leader == "İnönü"
 is-deck: true
 
 - #dovevsbayonet
