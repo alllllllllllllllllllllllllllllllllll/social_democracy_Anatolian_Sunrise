@@ -14,7 +14,7 @@ In addition to being a political party, the CHP is a social world onto itself, w
 
 - @newspapers: Fund more newspapers and journalists.
 - @workers: Fund the worker bureaus.
-- @culture: Fund sports leagues, educational, and cultural programs.
+- @cultural: Fund sports leagues, educational, and cultural programs.
 - @women: Increase funding to the women's branch of the party.
 - @youth: Increase funding to the youth branch of the party.
 - @nothing: Do not increase funding for any program.
@@ -37,7 +37,7 @@ subtitle: -1 resources
 on-arrival: resources -= 1; workers_chp += 2; disk_timer = 0
 go-to: union_relations
 
-@culture
+@cultural
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
