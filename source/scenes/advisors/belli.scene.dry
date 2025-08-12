@@ -20,7 +20,7 @@ view-if: current_year == 1972 and month >= 3
 Belli reports that THKP-C militants may be planning an attack to prevent the execution of Deniz Gezmiş.
 
 @tip1
-view-if: view-if: year == 1972 or (year == 1973 and month <= 10)
+view-if: year == 1972 or (year == 1973 and month <= 10)
 
 Many Socialists report undergoing horrible tortures after being arrested. 
 
