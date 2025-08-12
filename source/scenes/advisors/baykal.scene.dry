@@ -23,4 +23,6 @@ unavailable-subtitle: CHP not in government.
 
 @coalitiontalks
 subtitle: For better or worse..
-on-arrival: workers_chp -= 2; state_employees_chp -= 2
+on-arrival: workers_chp -= 2; state_employees_chp -= 2; MSP_relation += 5
+
+Erbakan and his boys are surprisingly receptive of our calls, seems they want to break away from the fringes
