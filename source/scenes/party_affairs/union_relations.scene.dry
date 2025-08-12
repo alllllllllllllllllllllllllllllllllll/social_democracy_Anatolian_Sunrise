@@ -4,7 +4,7 @@ view-if: CHP_party_leader == "Ecevit"
 on-arrival: month_actions += 1
 is-card: true
 card-image: img/disk.jpg
-tags: party_affairs
+tags: disk
 
 = Union Relation
 
