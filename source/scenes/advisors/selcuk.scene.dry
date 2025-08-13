@@ -16,13 +16,13 @@ new-page: true
 - @easy_discard
 
 @organization
-view-if: year <= 1975; kemalist_marxist_dissent <= 25
+view-if: year <= 1975 and kemalist_marxist_dissent <= 25
 on-arrival: tip_relation += 6
 
 Since TIP has ceased to exist as a party, many socialists want to continue their struggle somewhere and our attempts are welcomed fondly.
 
 @organization1
-view-if: year >= 1974; kemalist_marxist_dissent <= 25
+view-if: year >= 1974 and kemalist_marxist_dissent <= 25
 on-arrival: tip_relation += 4
 
 With the reestablishment of TİP and other small leftist parties, there is less of an incentive for the socialist circles to cooperate with CHP directly. Still, our efforts are taken seriously and valued.
