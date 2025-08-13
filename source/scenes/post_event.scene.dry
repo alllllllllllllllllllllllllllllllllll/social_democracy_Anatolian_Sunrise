@@ -103,18 +103,30 @@ if (Q.dissent < 0) {
 if (Q.month_actions >= 1) {
     Q.time += 1;
     Q.month_actions = 0;
-    Q.month += 1;
-    if (Q.month >= 13) {
-        Q.month = 1;
-        Q.year += 1;
-        if (Q.historical_mode) {
-            Q.resources += 2;
+    
+    // Advance by 2 weeks (bi-weekly system)
+    if (Q.week == 1) {
+        // Move from week 1 to week 3 of same month
+        Q.week = 2;
+    } else {
+        // Move from week 3 to week 1 of next month
+        Q.week = 1;
+        Q.month += 1;
+        if (Q.month >= 13) {
+            Q.month = 1;
+            Q.year += 1;
+            if (Q.historical_mode) {
+                Q.resources += 2;
+            }
         }
     }
-    // decrement timers
-    for (timer of Q.timers) {
-        if (Q[timer+'_timer'] && Q[timer+'_timer'] > 0) {
-            Q[timer+'_timer'] -= 1;
+    
+    // decrement timers (only when month actually changes for monthly timers)
+    if (Q.week == 1) {
+        for (timer of Q.timers) {
+            if (Q[timer+'_timer'] && Q[timer+'_timer'] > 0) {
+                Q[timer+'_timer'] -= 1;
+            }
         }
     }
     

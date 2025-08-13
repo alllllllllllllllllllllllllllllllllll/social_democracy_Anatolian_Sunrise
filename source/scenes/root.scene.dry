@@ -19,11 +19,12 @@ go-to: start_menu_2
 @start
 on-arrival: {!
 Q.started = 1;
-// time elapsed (in months)
+// time elapsed (in half-months/bi-weekly periods)
 Q.time = 1;
 Q.year = 1972;
 Q.month = 1;
-// how many actions have been taken this month?
+Q.week = 1; // 1 = first half of month (week 1), 2 = second half of month (week 3)
+// how many actions have been taken this period?
 Q.month_actions = 0;
 
 // 0 = normal difficulty, 1 = hard mode, 2 = hard mode no saves

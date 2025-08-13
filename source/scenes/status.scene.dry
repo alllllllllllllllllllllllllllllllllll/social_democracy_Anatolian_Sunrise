@@ -16,7 +16,7 @@ Q.agricultural_prices_formatted = Q.agricultural_product_prices ? Q.agricultural
 
 // Debug: Log the actual values
 console.log("=== Economic Status Debug ===");
-console.log("Current year:", Q.year, "month:", Q.month);
+console.log("Current year:", Q.year, "month:", Q.month, "week:", Q.week);
 console.log("Inflation raw:", Q.inflation, "formatted:", Q.inflation_2);
 console.log("Unemployment raw:", Q.unemployed, "formatted:", Q.unemployed_2);
 console.log("Growth raw:", Q.economic_growth, "formatted:", Q.economic_growth_2);
@@ -29,7 +29,7 @@ console.log("==============================");
 
 = Status
 
-[+ month : month +] [+ year +]
+[? if week == 1: [+ month : month +] [+ year +] (Week 1) ?][? if week == 2: [+ month : month +] [+ year +] (Week 3) ?]
 
 Resources available: [+ resources +]
 
