@@ -22,7 +22,7 @@ go-to: land_reform
 choose-if: CHP_in_government = 1
 unavailable-subtitle: CHP is not in government.
 
-@devrim:
+@devrim
 choose-if: view-if: (year == 1973 and month >= 10) or year == 1974 or year == 1975
 unavailable-subtitle: Due to the tortures he had endured during the memorandum period, Avcıoğlu is fed up with writing.
 on-arrival: ihtilal += 1; state_employees_chp += 1
