@@ -9,4 +9,16 @@ new-page: true
 
 Kemal Satır is a prominent member of the Orthodox wing within the party. Once the leader of the Orthodox clique known as the "Satırcılar"(Satırists) he and his clique have been falling into irrelevance since the beginning of the 1970's.
 
+- @leave: Satır is one of the leading figures of the anti-left of center front. Perhaps we can convince them to not splinter the party after the congress?
+- @health: Satır is a former doctor and can serve as the minister of health in a potential government.
 - @easy_discard
+
+@leave
+on-arrival: rightstay += 1
+
+Satır's position and ours is inherently irreconcilable, and the right wing stands their ground. However, our offer seems to have intrigued the right and we may get an interesting proposal once the dust settles..
+
+@health
+subtitle: If he stays in the party of course..
+choose-if: CHP_in_government = 1
+unavailable-subtitle: CHP is not in government.
