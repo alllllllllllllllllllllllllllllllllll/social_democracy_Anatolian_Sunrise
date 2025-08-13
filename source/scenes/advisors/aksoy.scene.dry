@@ -9,4 +9,24 @@ new-page: true
 
 The chief of the technocratic delegation behind the 1960 Constitution, Aksoy is an author and lawyer. In favor of stronger ties with the Western Europe, he is in contact with the European Council, having served as its Turkish delegate in the past.
 
+- @internationalaffairs: Aksoy can manage our international relations with fellow social democratic parties.
+- @europe: Aksoy's delegation in the European Council can help us improve relations.
+- @AET: This seems like a long shot but we can attempt to join the AET(European Economic Community).
 - @easy_discard
+
+@internationalaffairs
+go-to: international_relations
+
+@europe
+on-arrival: if cyprus_problem == 1 or cyprus_problem == 2 (west_relation += 5); if cyprus_problem == 3 (west_relation += 0)
+
+ if cyprus problem == 1 or cyprus problem == 2 We have slightly improved our ties with the western partners.
+
+if cyprus problem == 3 The dispute over Cyprus and our operation has rendered any diplomatic breakthroughs improbable.
+
+@AET
+choose-if: CHP_in_government = 1
+unavailable-subtitle: CHP is not in government.
+view-if: west_relation > 80
+
+We submit our formal application. Joining AET will have great benefits but a lot of reforms are needed to be made.
