@@ -18,7 +18,7 @@ The chief of the technocratic delegation behind the 1960 Constitution, Aksoy is 
 go-to: international_relations
 
 @europe
-on-arrival: west_relation += (cyprus_problem == 0 or cyprus_problem == 1 or cyprus_problem == 2) ? 5 : 0
+on-arrival: if (cyprus_problem == 0 or cyprus_problem == 1 or cyprus_problem == 2) { west_relation += 5; }
 
 [? if cyprus_problem == 0 or cyprus_problem == 1 or cyprus_problem == 2 : We have slightly improved our ties with the western partners. ?]
 
