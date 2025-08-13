@@ -9,6 +9,22 @@ new-page: true
 
 Doğan Avcıoğlu is a famous Marxist historian, economist, politician and author. He advocates for a synthesis of Kemalist nationalism with Marxist economic theory, representing the intellectual wing of Turkish socialist thought.
 
-**Actions:**
-
+- @landreform: Avcıoğlu can help us determine the party policy regarding the much needed land reform.
+- @economicpolicy: If chosen the economy minister, Avcıoğlu will begin a transition towards a planned and socialist economy.
+- @devrim: Avcıoğlu is an impactful author who had been the editor of two socialist newspaper, YÖN and Devrim. We can ask him to start writing once again.
 - @easy_discard
+
+@landreform
+subtitle: Ataturk's unachieved final reform..
+go-to: land_reform
+
+@economicpolicy
+choose-if: CHP_in_government = 1
+unavailable-subtitle: CHP is not in government.
+
+@devrim:
+choose-if: view-if: (year == 1973 and month >= 10) or year == 1974 or year == 1975
+unavailable-subtitle: Due to the tortures he had endured during the memorandum period, Avcıoğlu is fed up with writing.
+on-arrival: ihtilal += 1; state_employees_chp += 1
+
+Avcıoğlu has begun the planning of a new newspaper called "İhtilal", meaning revolution.
