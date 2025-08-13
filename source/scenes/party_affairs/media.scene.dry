@@ -12,37 +12,28 @@ card-image: img/cumhuriyet4.jpg
 [? if I_government: The media is heavily restricted under the military appointed governments. ?]
 
 - @critique
-  view-if: I_government
 - @silence
-  view-if: I_government
 
 [? if I_government == 0: The CHP is affiliated with many progressive newspaper outlets. Perhaps we can use this to our advantage.. ?]
 
 - @commercial
-  view-if: I_government == 0
 - @campaign
-  view-if: I_government == 0
 - @ideological
-  view-if: I_government == 0
 - @newideas
-  view-if: I_government == 0
 - @return: We should not do anything with media at the moment.
-  view-if: I_government == 0
 - @easy_discard
-  view-if: I_government == 0
 - @cancel_advisor_action
-  view-if: I_government == 0
 
 @silence
 title: National Chief İnönü doesnt want to go into a conflict with the junta. Perhaps we should keep our silence..
-view-if: CHP_party_leader == "İnönü"
+view-if: CHP_party_leader == "İnönü" and I_government
 on-arrival: workers_chp -= 2; petty_bourgeoisie_chp -= 2; rural_chp -= 1; left_kemalists_dissent += 5
 
 We keep our silence in the face of atrocities and injustice. The nation is overwhelmingly against the coup and Ecevit critiques the party attitude heavily, perhaps he has a good point..
 
 @critique
 title: The military government needs to go. Defy the laws and protest against the recent actions of the Junta.
-view-if: CHP_party_leader == "Ecevit"
+view-if: CHP_party_leader == "Ecevit" and I_government
 on-arrival: workers_chp += 2; petty_bourgeoisie_chp += 2; kemalist_marxists_dissent -= 5; coup_timer += 1; critique += 1
 
 We direct our media attention to the authoritarian actions of the junta governments, such as the banning of worker strikes and the torture of left wing intellectuals in prisons. We will not bow to the whims of the appointed.
@@ -50,6 +41,7 @@ We direct our media attention to the authoritarian actions of the junta governme
 @commercial
 title: Make our newspapers more commercialized by broadening their appeal beyond party supporters.
 subtitle: This might upset ideological purists, but it may bring in more funds and perhaps expose the middle class to socialist views.
+view-if: I_government == 0
 on-arrival: resources += 1; commercialized_media += 1; petty_bourgeoisie_chp += 3*(1 - dissent)
 
 Our commercialized newspapers are able to bring in more funds. However, this will limit our ability to influence the media.
@@ -57,6 +49,7 @@ Our commercialized newspapers are able to bring in more funds. However, this wil
 @campaign
 title: The purpose of our media is to increase our election chances.
 subtitle: Our newspapers will focus on the electoral campaign.
+view-if: I_government == 0
 on-arrival: campaign_media += 1; workers_chp += 2*(1 - dissent); petty_bourgeoisie_chp += 2*(1 - dissent); state_employees_chp += 2*(1 - dissent)
 
 The outlets print out news about the problems the nation faces and how a left wing government be the solution our people have been waiting for so long.
@@ -64,6 +57,7 @@ The outlets print out news about the problems the nation faces and how a left wi
 @newideas
 title: We will motivate our theoriticians and politicians to write about their new policy ideas. 
 subtitle: A party without a vision is not a party but a gathering
+view-if: I_government == 0
 on-arrival: marxist_kemalists_strength += 5; workers_chp += 1; newideas += 1
 
 We are happy to hear new voices raising their visions for a new Turkey.
@@ -71,6 +65,7 @@ We are happy to hear new voices raising their visions for a new Turkey.
 @ideological
 title: We will have vibrant ideological debate within our newspapers.
 subtitle: There will be space for all factions to air their views.
+view-if: I_government == 0
 on-arrival: marxist_kemalists_dissent -= 6; left_kemalists_dissent -= 6; orthodox_kemalists_dissent -= 6; right_kemalists_dissent -= 6;
 
 This has been our media course historically, and it has successfully paved over the many tensions in our party.
