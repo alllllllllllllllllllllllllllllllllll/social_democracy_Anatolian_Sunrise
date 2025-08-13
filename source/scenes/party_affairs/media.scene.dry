@@ -11,20 +11,27 @@ card-image: img/cumhuriyet4.jpg
 
 [? if I_government: The media is heavily restricted under the military appointed governments. ?]
 
-[? if I_government: ?]
 - @critique
+  view-if: I_government
 - @silence
+  view-if: I_government
 
 [? if I_government == 0: The CHP is affiliated with many progressive newspaper outlets. Perhaps we can use this to our advantage.. ?]
 
-[? if I_government == 0: ?]
 - @commercial
+  view-if: I_government == 0
 - @campaign
+  view-if: I_government == 0
 - @ideological
+  view-if: I_government == 0
 - @newideas
+  view-if: I_government == 0
 - @return: We should not do anything with media at the moment.
+  view-if: I_government == 0
 - @easy_discard
+  view-if: I_government == 0
 - @cancel_advisor_action
+  view-if: I_government == 0
 
 @silence
 title: National Chief İnönü doesnt want to go into a conflict with the junta. Perhaps we should keep our silence..

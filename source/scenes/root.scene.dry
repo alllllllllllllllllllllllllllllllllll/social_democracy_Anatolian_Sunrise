@@ -874,24 +874,29 @@ Q.celikbas_advisor = 0; // Fethi Çelikbaş
 Q.avcioglu_advisor = 0; // Doğan Avcıoğlu (Kemalist Marxist)
 Q.eyuboglu_advisor = 0; // Sabahattin Eyüboğlu (Orthodox Kemalist)
 
-// Function to calculate municipality control level
-function updateMunicipalityControlLevel() {
+// Function to calculate municipality control level dynamically
+function getMunicipalityControlLevel() {
     var controlled = Q.municipalities_controlled;
     if (controlled <= 13) {
-        Q.municipality_control_level = 0; // Terrible
+        return 0; // Terrible
     } else if (controlled <= 26) {
-        Q.municipality_control_level = 1; // Poor
+        return 1; // Poor
     } else if (controlled <= 40) {
-        Q.municipality_control_level = 2; // Divided
+        return 2; // Divided
     } else if (controlled <= 50) {
-        Q.municipality_control_level = 3; // Satisfactory
+        return 3; // Satisfactory
     } else {
-        Q.municipality_control_level = 4; // Overwhelming
+        return 4; // Overwhelming
     }
 }
 
-// Initialize municipality control level
-updateMunicipalityControlLevel();
+// Set initial municipality control level
+Q.municipality_control_level = getMunicipalityControlLevel();
+
+// Function to update municipality control level (call this whenever municipalities_controlled changes)
+function updateMunicipalityControlLevel() {
+    Q.municipality_control_level = getMunicipalityControlLevel();
+}
 !}
 set-bg: img/map_4.jpg
 new-page: true
