@@ -9,4 +9,28 @@ new-page: true
 
 İlhan Selçuk is a Turkish journalist and author for the Cumhuriyet newspaper affiliated with our party. He has been imprisoned due to his writings in support of the "National Democratic Revolution" movement since 1971.
 
+- @organization: As a Socialist intellectual Selçuk is interconnected with many revolutionary circles to our left and we can make use of this fact.
+- @organization1: As a Socialist intellectual Selçuk is interconnected with many revolutionary circles to our left and we can make use of this fact.
+- @author: As a journalist Selçuk can support media efforts.
+- @marxistdissent: Even if he doesn't find it left wing enough, Selçuk is supportive of Ecevit's rise against the other party factions and can decrease Marxist dissent.
 - @easy_discard
+
+@organization
+view-if: year <= 1975; kemalist_marxist_dissent <= 25
+on-arrival: tip_relation += 6
+
+Since TIP has ceased to exist as a party, many socialists want to continue their struggle somewhere and our attempts are welcomed fondly.
+
+@organization
+view-if: year >= 1974; kemalist_marxist_dissent <= 25
+on-arrival: tip_relation += 4
+
+With the reestablishment of TİP and other small leftist parties, there is less of an incentive for the socialist circles to cooperate with CHP directly. Still, our efforts are taken seriously and valued.
+
+@author
+go-to: media
+
+@marxistdissent
+on-arrival: kemalist_marxists_dissent -= 10
+
+We can tolerate the marxists within the party as long as they dont resort to undemocratic tactics.
