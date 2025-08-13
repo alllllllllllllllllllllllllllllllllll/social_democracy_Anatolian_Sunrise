@@ -11,11 +11,10 @@ card-image: img/cumhuriyet4.jpg
 
 [? if I_government: The media is heavily restricted under the military appointed governments. ?]
 
-- @critique
-- @silence
-
 [? if I_government == 0: The CHP is affiliated with many progressive newspaper outlets. Perhaps we can use this to our advantage.. ?]
 
+- @critique
+- @silence
 - @commercial
 - @campaign
 - @ideological
