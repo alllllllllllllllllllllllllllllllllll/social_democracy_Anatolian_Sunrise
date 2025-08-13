@@ -119,6 +119,10 @@ DİSK: [+ disk_relation : relationships +]
 
 DİSK - TÜRK-İŞ Conflict: [? if disk_turkis_conflict < 0.20: Total DİSK Dominance ?][? if disk_turkis_conflict >= 0.20 and disk_turkis_conflict < 0.40: DİSK leaning ?][? if disk_turkis_conflict >= 0.40 and disk_turkis_conflict < 0.60: Balanced ?][? if disk_turkis_conflict >= 0.60 and disk_turkis_conflict < 0.80: TÜRK-İŞ leaning ?][? if disk_turkis_conflict >= 0.80: Total TÜRK-İŞ Dominance ?]
 
+= Municipality Control
+
+Municipality Control: [+ municipalities_controlled +]/[+ total_municipalities +] - [? if municipality_control_level == 0 : Terrible ?][? if municipality_control_level == 1 : Poor ?][? if municipality_control_level == 2 : Divided ?][? if municipality_control_level == 3 : Satisfactory ?][? if municipality_control_level == 4 : Overwhelming ?]
+
 = Internal Factions of the CHP
 
 {!<span class="tooltip-text" title="Marxists within the party desire a realignment of the party alongside Socialist elements. Even though many intellectuals such as Tevfik Rüştü Aras and Doğan Avcıoğlu subscribe to this faction, there is no central organization nor a figure that leads the Marxist camp, largely due to ideological differences.">Kemalist Marxists</span>!} strength: [+ kemalist_marxists_strength : strength +], dissent: [+ kemalist_marxists_dissent : dissent +]

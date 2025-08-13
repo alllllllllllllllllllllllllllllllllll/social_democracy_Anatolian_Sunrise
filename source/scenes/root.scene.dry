@@ -121,6 +121,11 @@ Q.CHP_party_leader = "İnönü";
 Q.MHP_leader = "Alparslan Türkeş"
 Q.MHP_party_leader = "Alparslan Türkeş"
 
+// Municipality control system
+Q.municipalities_controlled = 21;
+Q.total_municipalities = 67;
+Q.municipality_control_level = 1; // 0=Terrible, 1=Poor, 2=Divided, 3=Satisfactory, 4=Overwhelming
+
 // hmm... maybe we can play nice with Hindenburg???
 Q.hindenburg_relation = 25;
 
@@ -868,6 +873,25 @@ Q.celikbas_advisor = 0; // Fethi Çelikbaş
 // Turkish advisors - other factions
 Q.avcioglu_advisor = 0; // Doğan Avcıoğlu (Kemalist Marxist)
 Q.eyuboglu_advisor = 0; // Sabahattin Eyüboğlu (Orthodox Kemalist)
+
+// Function to calculate municipality control level
+function updateMunicipalityControlLevel() {
+    var controlled = Q.municipalities_controlled;
+    if (controlled <= 13) {
+        Q.municipality_control_level = 0; // Terrible
+    } else if (controlled <= 26) {
+        Q.municipality_control_level = 1; // Poor
+    } else if (controlled <= 40) {
+        Q.municipality_control_level = 2; // Divided
+    } else if (controlled <= 50) {
+        Q.municipality_control_level = 3; // Satisfactory
+    } else {
+        Q.municipality_control_level = 4; // Overwhelming
+    }
+}
+
+// Initialize municipality control level
+updateMunicipalityControlLevel();
 !}
 set-bg: img/map_4.jpg
 new-page: true
