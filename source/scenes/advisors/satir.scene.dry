@@ -19,6 +19,5 @@ on-arrival: rightstay += 1
 Satır's position and ours is inherently irreconcilable, and the right wing stands their ground. However, our offer seems to have intrigued the right and we may get an interesting proposal once the dust settles..
 
 @health
-subtitle: If he stays in the party of course..
 choose-if: CHP_in_government = 1
 unavailable-subtitle: CHP is not in government.
