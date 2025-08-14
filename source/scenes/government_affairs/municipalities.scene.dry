@@ -1,7 +1,7 @@
 title: Municipalities
 new-page: true
 is-card: true
-view-if: if municipality_control_level not 1
+view-if: municipality_control_level != 1
 on-arrival: month_actions += 1; municipality_timer += 6
 tags: govt_affairs
 card-image: img/belediye.jpg
@@ -53,7 +53,7 @@ The libraries we are building have already started attracting lots of students.
 subtitle: -2 resources
 choose-if: resources >= 2
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 2; workers_chp += 5; petty_bourgoeisie_chp += 3; state_employees_chp += 2; z_relation -= 5
+on-arrival: resources -= 2; workers_chp += 5; petty_bourgeoisie_chp += 3; state_employees_chp += 2; z_relation -= 5
 
 Many families are thankful at us for providing affordable bread. However the political Right accuses of "disrupting" the economy.
 
