@@ -1,0 +1,62 @@
+title: Municipalities
+new-page: true
+is-card: true
+view-if: if municipality_control_level not 1
+on-arrival: month_actions += 1; municipality_timer += 6
+tags: govt_affairs
+card-image: img/belediye.jpg
+#subtitle: The other branch of the government.
+
+= Municipalities and local governence
+
+In Turkey, the territories of the republic are divided among small municipalities which are firmly connected with the central government. Still, the municipalities are stil an integral part of Turkish politics and are useful for reaching out to demographics we normally aren't performing well through an example of our governence and services.
+
+- @governence: Municipalities are responsible for many local tasks in which we can improve our performance and show to the people how a CHP government would look like.
+- @politics: The municipalities not only allow us to offer a vision of our administration but also to perhaps improve our political standing through the usage of local resources.
+- @easy_discard
+
+@governence
+choose-if: party_dissent < 15
+unavailable-subtitle: The party dissent is too high! We are unable to influence our local governments to improve our efficiency.
+
+- @waterlines: Urban municipalities often struggle with sewage management and providing clean water. 
+- @publictransport: Public transport is a crucial part of urban life and most cities are lacking.
+- @libraries: City libraries can be built to support education and increase literature consumption.
+- @halkekmek: Municipal bakeries, organized under the programme "Halk Ekmek" can produce affordable bread to combat inflation and support worker families.
+- @easy_discard
+
+@waterlines
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; workers_chp += 1; petty_bourgeoisie_chp += 1; state_employees_chp += 1
+
+We have improved sewage management in our municipalities.
+
+@publictransport
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; workers_chp += 3; state_employees_chp += 1
+
+We have bought additional buses and started planning the construction of trams in city centers.
+
+@libraries
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; workers_chp += 2; state_employees_chp += 1; petty_bourgeoisie_chp += 1
+
+The libraries we are building have already started attracting lots of students.
+
+@halkekmek
+subtitle: -2 resources
+choose-if: resources >= 2
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 2; workers_chp += 5; petty_bourgoeisie_chp += 3; state_employees_chp += 2; z_relation -= 5
+
+Many families are thankful at us for providing affordable bread. However the political Right accuses of "disrupting" the economy.
+
+@politics
+choose-if: party_dissent < 15
+unavailable-subtitle: The party dissent is too high! We are unable to influence our local governments to improve our efficiency.
