@@ -619,14 +619,14 @@ data = [
         "id": "TIP",
         "legend": "TIP",
         "name": "TIP",
-        "seats": Q.TIP_r*5,
+        "seats": Q.TIP_r*4.5,
     }];
 if (Q.sapd_formed && Q.sapd_r) {
     data.push({
             "id": "sapd",
             "legend": "SAPD",
             "name": "SAPD",
-            "seats": Math.round(Q.sapd_r*5),
+            "seats": Math.round(Q.sapd_r*4.5),
             });
 }
 data = data.concat([
@@ -634,43 +634,43 @@ data = data.concat([
         "id": "chp",
         "legend": "CHP",
         "name": "CHP",
-        "seats": Q.chp_r*5,
+        "seats": Q.chp_r*4.5,
     },
     {
         "id": "CGP",
         "legend": "CGP",
         "name": "CGP",
-        "seats": Q.CGP_r*5,
+        "seats": Q.CGP_r*4.5,
     },
     {
         "id": "AP",
         "legend": "Center",
         "name": "Center",
-        "seats": Q.z_r*5,
+        "seats": Q.z_r*4.5,
     },
     {
         "id": "DP",
         "legend": "DP",
         "name": "DP",
-        "seats": Q.DP_r*5,
+        "seats": Q.DP_r*4.5,
     },
     {
         "id": "other",
         "legend": "Other",
         "name": "Other",
-        "seats": Q.other_r*5,
+        "seats": Q.other_r*4.5,
     },
     {
         "id": "MSP",
         "legend": "MSP",
         "name": "MSP",
-        "seats": Q.MSP_r*5,
+        "seats": Q.MSP_r*4.5,
     },
     {
         "id": "MHP",
         "legend": "MHP",
         "name": "MHP",
-        "seats": Q.MHP_r*5,
+        "seats": Q.MHP_r*4.5,
     },
 ]);
 if (d3 && window) {
