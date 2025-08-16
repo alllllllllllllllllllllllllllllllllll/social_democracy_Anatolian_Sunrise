@@ -195,6 +195,8 @@ Q.democracy_force = 0;
 if (!Q.thkpc_destroyed) {
     Q.thkpc_force = Q.thkpc_strength * Q.thkpc_militancy;
     Q.far_left_force += Q.thkpc_force;
+} else {
+    Q.thkpc_force = 0;
 }
 if (Q.devyol_formed) {
     Q.devyol_force = Q.devyol_strength * Q.devyol_militancy;
