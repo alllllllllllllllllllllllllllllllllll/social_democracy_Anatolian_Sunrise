@@ -320,4 +320,5 @@ Q.other_position = other_support > 0.5 ? "YES" : "NO";
 - @return_to_scene
 
 @return_to_scene
+title: Return
 go-to: main
