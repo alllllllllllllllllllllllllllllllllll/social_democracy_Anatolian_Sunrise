@@ -38,6 +38,7 @@ Shall the voting begin?
 <div id="content">
   <meta charset="UTF-8">
   <title>Parliament Vote Visualization</title>
+  <svg id="reichstag"></svg>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="out/html/d3-parliament.js"></script>
   <style>
