@@ -305,6 +305,4 @@ Q.other_position = other_support > 0.5 ? "YES" : "NO";
 - @return_to_scene
 
 @return_to_scene
-// This should be overridden by the calling scene
-// Default return to main
 go-to: main
