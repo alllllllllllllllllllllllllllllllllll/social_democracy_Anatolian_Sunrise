@@ -302,7 +302,7 @@ Q.other_position = other_support > 0.5 ? "YES" : "NO";
 
 [? if parliamentary_passes: **✅ RESOLUTION PASSED** ?]
 
-- Continue: @return_to_scene
+- @return_to_scene
 
 @return_to_scene
 // This should be overridden by the calling scene
