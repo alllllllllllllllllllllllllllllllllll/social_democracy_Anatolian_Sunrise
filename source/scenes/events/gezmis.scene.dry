@@ -77,6 +77,16 @@ if (screenWidth < width - 50) {
 const ayeSeats = data.filter(d => d.color === '#158e33').reduce((sum, d) => sum + d.seats, 0);
 const naySeats = data.filter(d => d.color === '#c51313').reduce((sum, d) => sum + d.seats, 0);
 
+// Show result based on comparison
+let resultText = '';
+if (ayeSeats > naySeats) {
+  resultText = 'The judicial decision is approved. Gezmiş and his friends will be executed by hanging.';
+} else if (naySeats > ayeSeats) {
+  resultText = 'The judicial decision is somehow rejected! With the next trail, its likely their punishment will be turned into a life sentence.';
+} else {
+  resultText = 'The vote is a TIE!';
+}
+
 // Insert result above the SVG
 const resultElem = document.createElement('h3');
 resultElem.textContent = resultText;
