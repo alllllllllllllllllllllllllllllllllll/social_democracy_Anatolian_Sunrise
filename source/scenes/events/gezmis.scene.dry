@@ -42,6 +42,8 @@ Shall the voting begin?
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="out/html/d3-parliament.js"></script>
 <script>
+console.log('Gezmis scene parliament voting script loaded');
+try {
 // Grouped seat data for d3-parliament (as in 1928 election scene)
 const data = [
   // All Nay (red) seats first (left)
@@ -58,6 +60,14 @@ const data = [
   { id: 'CHP-Absent', legend: 'CHP (Absent)', name: 'CHP', seats: 66, color: '#9e9e9e' },
   { id: 'AP-Absent', legend: 'AP (Absent)', name: 'AP', seats: 20, color: '#9e9e9e' }
 ];
+
+  console.log('Seat data:', data);
+  let reichstagElem = document.getElementById('reichstag');
+  if (!reichstagElem) {
+    console.error('SVG element with id "reichstag" not found!');
+  } else {
+    console.log('SVG element found:', reichstagElem);
+  }
 
 // Pad to 450 seats if needed
 let totalSeats = data.reduce((sum, d) => sum + d.seats, 0);
@@ -92,12 +102,23 @@ const resultElem = document.createElement('h3');
 resultElem.textContent = resultText;
 document.getElementById('content').insertBefore(resultElem, document.getElementById('reichstag'));
 
-if (window && d3) {
+if (typeof d3 === 'undefined') {
+  console.error('d3 is not loaded!');
+} else if (typeof d3.parliament === 'undefined') {
+  console.error('d3.parliament is not loaded!');
+} else if (!reichstagElem) {
+  console.error('Cannot render parliament: SVG element missing.');
+} else {
+  console.log('Rendering parliament with data:', data);
   var parliament = d3.parliament();
   parliament.width(width).height(height).innerRadiusCoef(0.4);
   parliament.enter.fromCenter(true).smallToBig(true);
   parliament.exit.toCenter(false).bigToSmall(true);
   d3.select("#reichstag").datum(data).call(parliament);
+  console.log('Parliament rendering complete.');
+}
+} catch (e) {
+  console.error('Error in parliament voting script:', e);
 }
 </script>
 !}
