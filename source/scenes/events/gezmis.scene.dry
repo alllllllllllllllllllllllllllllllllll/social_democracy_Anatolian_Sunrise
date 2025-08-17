@@ -1,6 +1,6 @@
 title: The THKO-1 Case
 subtitle: Gezmiş and his friends' fate at hand
-view-if: year == 1972 and month == 1 and week == 2
+view-if: year == 1972 and month = 5 and week = 1
 max-visits: 1
 tags: event
 new-page: true
