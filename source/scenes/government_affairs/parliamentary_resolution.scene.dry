@@ -302,9 +302,8 @@ Q.other_position = other_support > 0.5 ? "YES" : "NO";
 - **Required**: [+ supermajority_required ? 300 : 225 +] seats
 
 [? if parliamentary_passes: **✅ RESOLUTION PASSED** ?]
-[? if not parliamentary_passes: **❌ RESOLUTION FAILED** ?]
 
-- @return_to_scene: Continue
+- Continue: @return_to_scene
 
 @return_to_scene
 // This should be overridden by the calling scene
