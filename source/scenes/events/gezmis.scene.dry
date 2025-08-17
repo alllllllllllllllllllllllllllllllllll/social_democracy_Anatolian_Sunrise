@@ -29,10 +29,10 @@ Shall the voting begin?
 
 - @commence: Commence the voting.
 
+
 @commence
 
-{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
-{
+{!
 data = [
   { id: 'CHP-Nay', legend: 'CHP (Nay)', name: 'CHP', seats: 48, color: '#c51313' },
   { id: 'TIP-Nay', legend: 'TİP (Nay)', name: 'TİP', seats: 2, color: '#c51313' },
@@ -59,6 +59,7 @@ if (ayeSeats > naySeats) {
   resultText = 'The vote is a TIE!';
 }
 !}
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 {!<h3>[+ resultText +]</h3>!}
 data = [
   { id: 'CHP-Nay', legend: 'CHP (Nay)', name: 'CHP', seats: 48, color: '#c51313' },
