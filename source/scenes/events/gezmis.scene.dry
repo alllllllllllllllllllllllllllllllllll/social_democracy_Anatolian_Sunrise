@@ -37,7 +37,7 @@ Shall the voting begin?
 </style>
 <div id="content">
   <h2>Parliamentary Vote Visualization</h2>
-  <svg id="reichstag"></svg>
+  <svg id="reichstag" style="width: 500px; height: 350px;"></svg>
 </div>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="out/html/d3-parliament.js"></script>
