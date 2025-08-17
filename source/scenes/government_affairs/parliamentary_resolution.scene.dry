@@ -295,9 +295,9 @@ Q.other_position = other_support > 0.5 ? "YES" : "NO";
 - **MHP** ([+ mhp_seats +] seats): **[+ mhp_position +]** - <span style="color: #158e33;">[+ mhp_yes +] YES</span>, <span style="color: #c51313;">[+ mhp_no +] NO</span>[? if mhp_abstain_count > 0:, <span style="color: #9e9e9e;">[+ mhp_abstain_count +] ABSTAIN</span>?]
 - **Others** ([+ other_seats +] seats): **[+ other_position +]** - <span style="color: #158e33;">[+ other_yes +] YES</span>, <span style="color: #c51313;">[+ other_no +] NO</span>[? if other_abstain_count > 0:, <span style="color: #9e9e9e;">[+ other_abstain_count +] ABSTAIN</span>?]
 
+
 **Vote Results:**
 [? if parliamentary_abstain > 0:- **ABSTAIN**: [+ parliamentary_abstain +] seats?]
-
 
 [? if parliamentary_passes: **✅ RESOLUTION PASSED** ?]
 
