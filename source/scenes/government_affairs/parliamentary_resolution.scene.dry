@@ -24,7 +24,6 @@ Q.msp_position = msp_abstain > 0.3 ? "ABSTAIN" : (msp_support > 0.5 ? "YES" : "N
 Q.mhp_position = mhp_abstain > 0.3 ? "ABSTAIN" : (mhp_support > 0.5 ? "YES" : "NO");
 Q.other_position = other_abstain > 0.3 ? "ABSTAIN" : (other_support > 0.5 ? "YES" : "NO");
 
-// Store actual vote counts for each party
 Q.chp_yes = Math.round(Q.chp_seats * chp_support * (1 - chp_abstain));
 Q.chp_no = Math.round(Q.chp_seats * (1 - chp_support) * (1 - chp_abstain));
 Q.chp_abstain_count = Math.round(Q.chp_seats * chp_abstain);
@@ -58,6 +57,21 @@ Q.other_yes = Math.round(other_present * other_support);
 Q.other_no = Math.round(other_present * (1 - other_support));
 Q.other_abstain_count = Math.round(Q.other_seats * other_abstain);mentary_vote
 // Universal parliamentary voting function
+
+// Precompute seat color for each party
+function seatColor(yes, no) {
+    if (yes > 0) return '#158e33';
+    if (no > 0) return '#c51313';
+    return '#9e9e9e';
+}
+Q.chp_color = seatColor(Q.chp_yes, Q.chp_no);
+Q.tip_color = seatColor(Q.tip_yes, Q.tip_no);
+Q.center_color = seatColor(Q.center_yes, Q.center_no);
+Q.cgp_color = seatColor(Q.cgp_yes, Q.cgp_no);
+Q.dp_color = seatColor(Q.dp_yes, Q.dp_no);
+Q.msp_color = seatColor(Q.msp_yes, Q.msp_no);
+Q.mhp_color = seatColor(Q.mhp_yes, Q.mhp_no);
+Q.other_color = seatColor(Q.other_yes, Q.other_no);
 // Call this from other scenes with: go-to: parliamentary_vote if parliamentary_resolution.scene.dry
 // Set Q.vote_type before calling: "progressive", "constitutional", "economic", "conservative", "nationalist"
 // Set Q.vote_description before calling: description of what's being voted on
@@ -271,14 +285,15 @@ Q.other_position = other_support > 0.5 ? "YES" : "NO";
 
 **Parliament Visualization:**
 
-[? if chp_seats > 0 : <span style="color: [+ chp_yes > 0 ? '#158e33' : (chp_no > 0 ? '#c51313' : '#9e9e9e') +];">CHP: [+ chp_seats +] seats</span> ?]
-[? if tip_seats > 0 : <span style="color: [+ tip_yes > 0 ? '#158e33' : (tip_no > 0 ? '#c51313' : '#9e9e9e') +];">TIP: [+ tip_seats +] seats</span> ?]
-[? if z_seats > 0 : <span style="color: [+ center_yes > 0 ? '#158e33' : (center_no > 0 ? '#c51313' : '#9e9e9e') +];">AP: [+ z_seats +] seats</span> ?]
-[? if cgp_seats > 0 : <span style="color: [+ cgp_yes > 0 ? '#158e33' : (cgp_no > 0 ? '#c51313' : '#9e9e9e') +];">CGP: [+ cgp_seats +] seats</span> ?]
-[? if dp_seats > 0 : <span style="color: [+ dp_yes > 0 ? '#158e33' : (dp_no > 0 ? '#c51313' : '#9e9e9e') +];">DP: [+ dp_seats +] seats</span> ?]
-[? if msp_seats > 0 : <span style="color: [+ msp_yes > 0 ? '#158e33' : (msp_no > 0 ? '#c51313' : '#9e9e9e') +];">MSP: [+ msp_seats +] seats</span> ?]
-[? if mhp_seats > 0 : <span style="color: [+ mhp_yes > 0 ? '#158e33' : (mhp_no > 0 ? '#c51313' : '#9e9e9e') +];">MHP: [+ mhp_seats +] seats</span> ?]
-[? if other_seats > 0 : <span style="color: [+ other_yes > 0 ? '#158e33' : (other_no > 0 ? '#c51313' : '#9e9e9e') +];">Others: [+ other_seats +] seats</span> ?]
+
+[? if chp_seats > 0 : <span style="color: [+ chp_color +];">CHP: [+ chp_seats +] seats</span> ?]
+[? if tip_seats > 0 : <span style="color: [+ tip_color +];">TIP: [+ tip_seats +] seats</span> ?]
+[? if z_seats > 0 : <span style="color: [+ center_color +];">AP: [+ z_seats +] seats</span> ?]
+[? if cgp_seats > 0 : <span style="color: [+ cgp_color +];">CGP: [+ cgp_seats +] seats</span> ?]
+[? if dp_seats > 0 : <span style="color: [+ dp_color +];">DP: [+ dp_seats +] seats</span> ?]
+[? if msp_seats > 0 : <span style="color: [+ msp_color +];">MSP: [+ msp_seats +] seats</span> ?]
+[? if mhp_seats > 0 : <span style="color: [+ mhp_color +];">MHP: [+ mhp_seats +] seats</span> ?]
+[? if other_seats > 0 : <span style="color: [+ other_color +];">Others: [+ other_seats +] seats</span> ?]
 
 **Seat Distribution by Vote:**
 <span style="color: #158e33;">■</span> **YES**: [+ parliamentary_yes +] seats
