@@ -29,22 +29,17 @@ Shall the voting begin?
 - @commence: Commence the voting.
 
 @commence
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Parliament Vote Visualization</title>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="out/html/d3-parliament.js"></script>
-  <style>
-    #content { width: 100%; max-width: 700px; margin: auto; }
-    #reichstag { width: 100%; height: 350px; }
-  </style>
-</head>
-<body>
+{!
+<style>
+  #content { width: 100%; max-width: 700px; margin: auto; }
+  #reichstag { width: 100%; height: 350px; }
+</style>
 <div id="content">
   <h2>Parliamentary Vote Visualization</h2>
   <svg id="reichstag"></svg>
 </div>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="out/html/d3-parliament.js"></script>
 <script>
 // Grouped seat data for d3-parliament (as in 1928 election scene)
 const data = [
@@ -104,4 +99,4 @@ if (window && d3) {
   d3.select("#reichstag").datum(data).call(parliament);
 }
 </script>
-</body>
+!}
