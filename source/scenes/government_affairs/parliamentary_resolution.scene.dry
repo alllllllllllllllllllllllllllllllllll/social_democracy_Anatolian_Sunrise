@@ -298,17 +298,9 @@ Q.other_position = other_support > 0.5 ? "YES" : "NO";
 **Vote Results:**
 [? if parliamentary_abstain > 0:- **ABSTAIN**: [+ parliamentary_abstain +] seats?]
 
-[? if parliamentary_passes: **✅ RESOLUTION PASSED** ?]
-
-**Vote Results:**
-- **YES**: [+ parliamentary_yes +] seats
-- **NO**: [+ parliamentary_no +] seats
-[? if parliamentary_abstain > 0:- **ABSTAIN**: [+ parliamentary_abstain +] seats?]
-- **Required**: [+ supermajority_required ? 300 : 225 +] seats
 
 [? if parliamentary_passes: **✅ RESOLUTION PASSED** ?]
 
-- Continue: @return_to_scene
 - Continue: @return_to_scene
 
 @return_to_scene
