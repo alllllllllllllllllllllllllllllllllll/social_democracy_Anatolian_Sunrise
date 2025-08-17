@@ -29,7 +29,7 @@ Shall the voting begin?
 - @commence: Commence the voting.
 
 @commence
-{!
+on-arrival: {!
 <style>
   #content { width: 100%; max-width: 700px; margin: auto; }
   #reichstag { width: 100%; height: 350px; }
