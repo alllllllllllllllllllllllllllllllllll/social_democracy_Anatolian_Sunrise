@@ -36,10 +36,11 @@ Shall the voting begin?
   #reichstag { width: 100%; height: 350px; }
 </style>
 <div id="content">
-  <h2>Parliamentary Vote Visualization</h2>
-  <svg id="reichstag" style="width: 500px; height: 350px;"></svg>
-</div>
-<!-- Rely on global D3 and d3-parliament.js loaded in index.html -->
+  <meta charset="UTF-8">
+  <title>Parliament Vote Visualization</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="out/html/d3-parliament.js"></script>
+  <style>
 <script>
 console.log('Gezmis scene parliament voting script loaded');
 try {
