@@ -1,0 +1,107 @@
+title: The THKO-1 Case
+subtitle: Gezmiş and his friends' fate at hand
+view-if: year == 1972 and month = 1 and week = 2
+max-visits: 1
+tags: event
+new-page: true
+face-image: img/gezmis.jpg
+
+= The Trial of the Three Saplings
+
+"The Three Saplings" refers to the former leaders of the Marxist Leninist militant group, THKO, who were caught last year days after the 1971 Memorandum. The Judiciary already having decided on their execution, CHP has rejected the ruling and for a vote in the parliament over the decision of the courts.
+
+Gezmiş and his friends had begun their revolt with the purpose of "forming a new state" as they call it, and the expulsion of "American Imperialism" that they claim has infiltrated every branch of the state.
+
+TBMM is in a state of chaos. Delegates from AP shout from their chambers, "Three from us, three from them!" referring to the former Right wing prime minister Menderes and two of his ministers who were executed after the 1960 coup. CHP is divided on the issue, with the right preparing to vote for their execution while surprisingly İnönü has supported Ecevit's call for a cancel of the execution with the following statement;
+
+- "The penalty of the culprits should be turned to life sentence. These men, are younglings in essence and inexperienced. The state has already shown them and their alikes that their excesses will not give any results."
+
+Ecevit has risen up in his seat made these comments in response to the right winger calls for their immediate execution;
+
+- "I am against the death penalty as a principle. However today the reason I am calling for the spare of the lives of Deniz Gezmiş, Yusuf Asland and Hüseyin İnan is not my principal rejection of capital punishment. As long as the death sentence exists within the laws, I am aware that my rejection of it in the basis of principals will be futile.
+
+"My speech has no relation to having good emotions or having positive opinions for the young men. I dont know any of these men. I have never agreed with the opinions of any of them. I have never approved their actions. Leave approving it aside, I have always raised my voice consistently higher than anyone else against their beliefs and actions. My primary reason for calling for the sparing of the lives of these young men is this: No matter the severity of their crimes, there are different and bigger culprits of these crimes than them. These young men have been incited, played over with and pulled into various traps. Many of those who are behind these incitements, those who have prepared these games and traps are free and are seen of high status. There have been no searches towards them. Here their sins are desired to be buried with the lives of a few young men. That is injustice. History cant bear this great injustice, and one day shall remove the curtain..."
+
+As it stands, the judicial decision is likely to be approved as CHP stands divided and AP, except for a few deserters, is fully united before the execution.
+
+Shall the voting begin?
+
+- @commence: Commence the voting.
+
+@commence
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parliament Vote Visualization</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="out/html/d3-parliament.js"></script>
+  <style>
+    #content { width: 100%; max-width: 700px; margin: auto; }
+    #reichstag { width: 100%; height: 350px; }
+  </style>
+</head>
+<body>
+<div id="content">
+  <h2>Parliamentary Vote Visualization</h2>
+  <svg id="reichstag"></svg>
+</div>
+<script>
+// Grouped seat data for d3-parliament (as in 1928 election scene)
+const data = [
+  // All Nay (red) seats first (left)
+  { id: 'CHP-Nay', legend: 'CHP (Nay)', name: 'CHP', seats: 48, color: '#c51313' },
+  { id: 'TIP-Nay', legend: 'TİP (Nay)', name: 'TİP', seats: 2, color: '#c51313' },
+  { id: 'Others-Nay', legend: 'Others (Nay)', name: 'Others', seats: 8, color: '#c51313' },
+  // All Aye (green) seats (middle)
+  { id: 'CHP-Aye', legend: 'CHP (Aye)', name: 'CHP', seats: 29, color: '#158e33' },
+  { id: 'AP-Aye', legend: 'AP (Aye)', name: 'AP', seats: 236, color: '#158e33' },
+  { id: 'CGP-Aye', legend: 'CGP (Aye)', name: 'CGP', seats: 15, color: '#158e33' },
+  { id: 'Others-Aye', legend: 'Others (Aye)', name: 'Others', seats: 24, color: '#158e33' },
+  { id: 'MHP-Aye', legend: 'MHP (Aye)', name: 'MHP', seats: 1, color: '#158e33' },
+  // All Absent (grey) seats last (right)
+  { id: 'CHP-Absent', legend: 'CHP (Absent)', name: 'CHP', seats: 66, color: '#9e9e9e' },
+  { id: 'AP-Absent', legend: 'AP (Absent)', name: 'AP', seats: 20, color: '#9e9e9e' }
+];
+
+// Pad to 450 seats if needed
+let totalSeats = data.reduce((sum, d) => sum + d.seats, 0);
+if (totalSeats < 450) {
+  data.push({ id: 'Others-Aye2', legend: 'Others (Aye)', name: 'Others', seats: 450 - totalSeats, color: '#158e33' });
+}
+
+var width = 500;
+var height = 350;
+var screenWidth = document.getElementById('content').offsetWidth;
+if (screenWidth < width - 50) {
+  width = screenWidth - 50;
+  height = width * 0.7;
+  document.getElementById("reichstag").style.height = height + "px";
+}
+// Calculate Aye (green) and Nay (red) seat totals
+const ayeSeats = data.filter(d => d.color === '#158e33').reduce((sum, d) => sum + d.seats, 0);
+const naySeats = data.filter(d => d.color === '#c51313').reduce((sum, d) => sum + d.seats, 0);
+
+// Show result based on comparison
+let resultText = '';
+if (ayeSeats > naySeats) {
+  resultText = 'The judicial decision is approved. Gezmiş and his friends will be executed by hanging.';
+} else if (naySeats > ayeSeats) {
+  resultText = 'The judicial decision is somehow rejected! With the next trail, its likely their punishment will be turned into a life sentence.';
+} else {
+  resultText = 'The vote is a TIE!';
+}
+
+// Insert result above the SVG
+const resultElem = document.createElement('h3');
+resultElem.textContent = resultText;
+document.getElementById('content').insertBefore(resultElem, document.getElementById('reichstag'));
+
+if (window && d3) {
+  var parliament = d3.parliament();
+  parliament.width(width).height(height).innerRadiusCoef(0.4);
+  parliament.enter.fromCenter(true).smallToBig(true);
+  parliament.exit.toCenter(false).bigToSmall(true);
+  d3.select("#reichstag").datum(data).call(parliament);
+}
+</script>
+</body>
