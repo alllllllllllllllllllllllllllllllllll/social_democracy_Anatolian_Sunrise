@@ -913,7 +913,7 @@ new-page: true
 
 This is a game of alternate history. While historical accuracy is a major concern, keep in mind that this is a *game*, and that any divergence from actual events will necessarily have to involve some element of make-believe. Nevertheless, please let the author know if there are any glaring mistakes.
 
-For more information on the politics and government of the German Republic, see the "Library" page on the top left. If this is your first time playing the game, it is strongly recommended that you read at least some of this information.
+For more information on the politics and government of the Turkish Republic, see the "Library" page on the top left. If this is your first time playing the game, it is strongly recommended that you read the information presented there.
 
 - @1928_easy: Begin (easy difficulty)
 - @1928_main: Begin (normal difficulty)
@@ -940,9 +940,9 @@ Q.reformist_dissent = 25;
 Q.left_dissent = 30;
 Q.labor_dissent = 25;
 Q.center_dissent = 25;
-Q.AP_relation = 41;
-Q.TIP_relation = 16;
-Q.DP_relation = 31;
+Q.AP_relation = 35;
+Q.TIP_relation = 40;
+Q.DP_relation = 30;
 Q.budget = 2;
 this.state.disableSaves = true;
 !}
@@ -955,6 +955,10 @@ go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 
 = 1972
 
-It is a bright time for German democracy. After a period of struggle, inflation is finally under control, and the economy is expanding steadily. In foreign policy, we have reached agreements with the Western powers and the Soviet Union that might make genuine peace a reality. 
+Its a pretty bleak time for the Turkish Republic. In response to the AP government's inability to suppress the leftist movements within higher education and solve inter-class conflicts between the large industrialists and the petty bourgeoisie, the army had sent a memorandum to the AP Demirel government to resign and as we approach 1972, the "technocratic" Nihat Erim appointed by the military still holds on, though no one knows for how long more.
 
-Now, the task of Social Democracy is to prepare for the next election. The bourgeois-right government of Wilhelm Marx is unpopular, and we stand to gain. Perhaps the next government will have a socialist majority.
+The reformists within the party are increasingly getting frustrated at the party leader İnönü's unwillingness to speak up against the army and a showdown is seemingly beginning to take shape within the party, between the old and the new.
+
+The current problems of the republic doesn't end here however. If we want to once again become the governing party, CHP will have to reach a conclusion on its elitist stance, offer its solution to the vulnaribility of the economy and affirm its ability to end the political violence that is brewing underneath the eyes of the public.
+
+But, who knows? Perhaps the next government will be one of CHP majority..
