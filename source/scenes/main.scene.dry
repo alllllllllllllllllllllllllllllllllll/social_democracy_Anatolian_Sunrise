@@ -38,25 +38,7 @@ max-cards: 4
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
-{!<div class="scrollable-box">!}
-
-{!<p class="both">!}[? if year = 1972 and month = 1 and week = 1: Its a pretty bleak time for the Turkish Republic. In response to the AP government's inability to suppress the leftist movements within higher education and solve inter-class conflicts between the large industrialists and the petty bourgeoisie, the army had sent a memorandum to the AP Demirel government to resign and as we approach 1972, the "technocratic" Nihat Erim appointed by the military still holds on, though no one knows for how long more. ?]{!</p>!}
-
-{!<p class="both">!}[? if year = 1972 and month = 1 and week = 1: The reformists within the party are increasingly getting frustrated at the party leader İnönü's unwillingness to speak up against the army and a showdown is seemingly beginning to take shape within the party, between the old and the new. ?]{!</p>!}
-
-{!<p class="both">!}[? if year = 1972 and month = 1 and week = 1: The current problems of the republic doesn't end here however. If we want to once again become the governing party, CHP will have to reach a conclusion on its elitist stance, offer its solution to the vulnaribility of the economy and affirm its ability to end the political violence that is brewing underneath the eyes of the public. ?]{!</p>!}
-
-{!<p class="both">!}[? if year = 1972 and month = 1 and week = 1: But, who knows? Perhaps the next government will be one of CHP majority.. ?]{!</p>!}
-
-{!<p class="both">!}[? if year = 1928 and month = 2 : The current <span style="color: #000000;">bourgeois</span>-<span style="color: #3E88B3;">right</span> government has fallen. The next elections are slated for May of this year. ?]{!</p>!}
-
-{!<p class="dnvp">!}[? if year = 1928 and month = 3 : Special interest parties such as the <span style="color: #b8996f;">Reich Party of the Middle Class</span>—commonly referred to as the <span style="color: #b8996f;">Economic Party</span>(<span style="color: #b8996f;">**WP**</span>)—and the <span style="color: #7FCEB1;">Christian-National Peasants' and Farmers' Party</span>(<span style="color: #7FCEB1;">**CNBLP**</span>) are expected to gain a decent foothold in the Reichstag, due to the belief that the established political parties are neglecting their interests. This negatively impacts the <span style="color: #3E88B3;">**DNVP**</span>, having been part of the last government. ?]{!</p>!}
-
-{!<p class="other">!}[? if year = 1928 and month = 4 : The right-wing industrial forces in the <span style="color: #C0A054;">People's Party</span>(<span style="color: #C0A054;">**DVP**</span>) has been gaining considerable influence within the party due to party leader and Foreign Minister Gustav Stresemann's neglect of internal party affairs. The prospect of a Grand Coalition with the <span style="color: #C0A054;">**DVP**</span> is becoming increasingly difficult, especially with Stresemann's declining health. ?]{!</p>!}
-
 [? if year = 1928 and month = 2 : The current bourgeois-right government has fallen. The next elections are slated for May of this year. ?]
-
-{!</div>!}
 
 - @party
 - @dovevsbayonet
