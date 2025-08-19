@@ -207,7 +207,26 @@
   window.onDisplayContent = function() {
       window.updateSidebar();
   };
+};
+  window.toggleNews = function toggleNews() {
+      const elements = document.querySelectorAll('.dnvp');
+      const elements2 = document.querySelectorAll('.other');
+      const button = document.getElementById('news_tab');
 
+      if (!button) {
+          console.error('Button with id "news_tab" not found.');
+          return;
+      }
+
+      elements.forEach(function (element) {
+          if (element.style.display !== 'block') {
+              element.style.display = 'block';
+              button.innerHTML = "View Other News";
+          } else {
+              element.style.display = 'none';
+              button.innerHTML = "View Political News";
+          }
+      });
   /*
    * This function copied from the code for Infinite Space Battle Simulator
    *
