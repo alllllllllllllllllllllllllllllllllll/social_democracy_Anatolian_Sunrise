@@ -63,6 +63,9 @@ Q.centrists_resign = 0;
 Q.left_split = 0;
 Q.reformists_resigned = 0;
 
+// Whether İnönü stays (0 = undecided, 1 = stays, -1 = leaves)
+Q.inonu_stay = 0;
+
 // crisis_urgency indicates how seriously the CHP is taking the economic crisis - scale from 0 to 10.
 Q.crisis_urgency = 0;
 // nazi_urgency indicates how seriously the CHP takes the nazis - scale from 0 to 10.
