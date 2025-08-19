@@ -1,27 +1,65 @@
-title: The Fifth CHP Congress
+title: CHP Fifth Extraordinary Congress
 subtitle: The party stands at a crossroads.
-audio: music/Sev_Kardesim_Senay.mp3
-view-if: year = 1972 and month = 3
+view-if: year = 1972 and month = 5 and week = 2
 max-visits: 1
 tags: event
 new-page: true
 face-image: img/chp_congress.jpg
 
-= Fifth CHP Congress
+= Fifth Extraordinary CHP Congress
 
-The Republican People's Party stands at a historic crossroads. As the Fifth Congress begins, two main factions dominate the room: the Orthodox Kemalists led by the venerable İsmet İnönü, and the Reformist "Left of Center" movement backing the rising star, Bülent Ecevit.
+The day has come for the grand finale. With the years of struggle between the old guard and the reformists coming to a close, a grand showdown is set to take place this very congress on this very night.
 
-Today, delegates will vote for the party secretariat. While not the leadership itself, this vote is widely seen as a **proxy war** for the party’s future direction.
+This congress is not one for party leadership but rather for the president of the congress, basically a symbolic victory for either side. The victory here has great importance however, as it will reveal which side has the upper hand for the upcoming leadership congress next week.
 
-The Orthodoxs support **Hüdai Oral**, while the Reformists push for **Sırrı Atalay**. The stakes are immense — and the military, ever watchful, is surely paying close attention.
+The Ecevit camp has put forward Sırrı Atalay, a former justice minister. Opposing him is Hüdai Oral, a close associate of İnönü.
 
-- @oral: Support the Orthodox faction and back Hüdai Oral.
-- @atalay: Support the Reformists and vote for Sırrı Atalay.
-@oral
+İnönü have been able to come to the congress only with the permission of his doctor and despite his ill state, he still haven't hesitated from openly insulting Ecevit and the other reformist candidates.
 
-Hüdai Oral narrowly wins. The Orthodox camp celebrates a last-minute push, but murmurs grow — is this really what the people want?
+After calling Ecevit a "bandit", İnönü has shouted in the podium; "Its either me or Bülent", trying to use his persona to prevent a humiliating defeat. Ecevit, responded with a simple statement;
 
-@atalay
-on-arrival: CHP_party_leader = "Ecevit"
+"The issue at hand is actually further than that of placing CHP's trajectory on its former state or replacing it with something new. Moreover, its even further than the "Its either me, or Bülent" mindset. I am repeating once again, the primary thing that should be determined is this: will CHP be governed by command or law? This is what we will decide.
 
-Sırrı Atalay triumphs! The Reformist wave has begun to rise. The Left of Center camp is energized, while the old guard begins to waver.
+**"I am going to sat it more clearly, the decision at hand is this: Will we be the free and respectful members of a democratic party, or will we be its subjects? The decision is yours."**
+
+Shall we begin the voting?
+
+- @commence: Lets begin.
+
+@commence
+on-display: {!
+data = [
+  {
+      "id": "Ecevitists",
+      "legend": "Ecevitists",
+      "name": "Ecevit",
+      "seats": 714,
+      "color": "#ca1010",
+  },  
+  {
+      "id": "inonuists",
+      "legend": "inonuists",
+      "name": "inonu",
+      "seats": 507,
+      "color": "#9e9e9e",
+  },
+];
+if (window && d3) {
+    var width = 500; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
