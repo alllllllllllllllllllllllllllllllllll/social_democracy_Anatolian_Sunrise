@@ -1,0 +1,27 @@
+title: A Visit to Nazilli
+new-page: true
+on-arrival: month_actions += 1;
+max-visits: 1
+is-card: true
+card-image: img/ecevitnazilli.png
+face-image: img/ecevitveisci.png
+tags: dovevsbayonet
+
+= A Visit to Nazilli
+
+As a part of his visits to the party organizations across the nation in preparation for a grassroot movement, Ecevit has arrived to the town of Nazilli.
+
+During his speech, once he started stumbling among his words, a worker among the watching crowd went to him, took his microphone and asked Ecevit:
+
+"Ecevit, leave the rhetoric aside. Will you, for the sake of democracy, be ready to struggle against İnönü or not? Tell us this."
+
+After a long suspense, Ecevit answered:
+
+- @yes: Yes, I promise. I will risk it all.
+- @no: Uh, um, my purpose is -uh, not to tread on the values of our party
+
+@yes
+subtitle: The battle begins..
+
+@no
+on-arrival: inonu_stay += 1; left_kemalists_strength -= 5
