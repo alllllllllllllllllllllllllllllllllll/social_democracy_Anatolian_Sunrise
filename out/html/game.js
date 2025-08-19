@@ -209,24 +209,29 @@
   };
 };
   window.toggleNews = function toggleNews() {
-      const elements = document.querySelectorAll('.dnvp');
-      const elements2 = document.querySelectorAll('.other');
+      const dnvpElements = document.querySelectorAll('.dnvp');
+      const otherElements = document.querySelectorAll('.other');
       const button = document.getElementById('news_tab');
-
       if (!button) {
           console.error('Button with id "news_tab" not found.');
           return;
       }
-
-      elements.forEach(function (element) {
-          if (element.style.display !== 'block') {
-              element.style.display = 'block';
-              button.innerHTML = "View Other News";
-          } else {
-              element.style.display = 'none';
-              button.innerHTML = "View Political News";
-          }
+      // Determine which set is currently visible
+      let dnvpVisible = false;
+      dnvpElements.forEach(function (element) {
+          if (element.style.display !== 'none') dnvpVisible = true;
       });
+      if (dnvpVisible) {
+          // Hide dnvp, show other
+          dnvpElements.forEach(function (element) { element.style.display = 'none'; });
+          otherElements.forEach(function (element) { element.style.display = 'block'; });
+          button.innerHTML = "View Political News";
+      } else {
+          // Show dnvp, hide other
+          dnvpElements.forEach(function (element) { element.style.display = 'block'; });
+          otherElements.forEach(function (element) { element.style.display = 'none'; });
+          button.innerHTML = "View Other News";
+      }
   /*
    * This function copied from the code for Infinite Space Battle Simulator
    *
