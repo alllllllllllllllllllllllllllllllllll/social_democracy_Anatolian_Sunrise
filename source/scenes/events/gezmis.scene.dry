@@ -29,6 +29,7 @@ Shall the voting begin?
 - @commence: Commence the voting.
 
 @commence
+go-to: aftervote
 on-display: {! 
 data = [
   {
