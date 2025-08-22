@@ -124,8 +124,8 @@ if (window && d3) {
         if (d.color === "#158e33") greenVotes += d.seats;
         if (d.color === "#c51313") redVotes += d.seats;
     });
-    // Store result for Dendry
-    Q.gezmisVoteResult = (greenVotes > redVotes) ? "aye" : "nay";
+    // Store result for DendryNexus (global variable, no Q.)
+    gezmisVoteResult = (greenVotes > redVotes) ? "aye" : "nay";
 }
 !}
 
