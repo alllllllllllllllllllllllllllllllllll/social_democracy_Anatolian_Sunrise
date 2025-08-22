@@ -131,14 +131,12 @@ if (window && d3) {
 
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
-go-to: aftervote
-
-// After voting, show options based on result using view-if
-
 @aftervote
 view-if: true
 
 The voting has concluded. The fate of Gezmiş and his friends is now sealed by the will of the parliament.
+
+gezmisVoteResult value: {! gezmisVoteResult !}
 
 - @execution_result: The parliament has voted to ratify the death penalty.
 - @commuted_result: Perhaps through sheer miracle, the parliament has voted to cancel the death penalty! While they will be tried once again, it's made certain that they will not be executed.
