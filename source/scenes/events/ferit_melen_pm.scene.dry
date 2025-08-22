@@ -1,6 +1,6 @@
 title: Nihat Erim resigns from prime ministership!
 subtitle: 
-view-if: year == 1972 and month = 6 and week = 1 and Q.chancellor == "Nihat Erim"
+view-if: year = 1972 and month = 6 and week = 1 and chancellor = Nihat Erim
 max-visits: 1
 tags: event
 new-page: true
