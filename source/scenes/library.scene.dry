@@ -47,6 +47,8 @@ go-to: menu
 
 **1470~**: The Ottoman Empire is given its Absolutist system with the centralizing reforms of Mehmed II. These reforms consolidated power solely in the hands of the Sultan and made it impossible for a land owning class separate from the whims of the Padisah to arise. This act will turn the Ottomans into a conquest machine but the system lacks the necessary class divisions which would normally as society develops limit the power of the Monarch and foster social progression through the replacement of the monarch as the highest power with justice. However the centralization of power firmly stabilizes the Ottoman class affairs and renders the Ottomans deficient of social progression. 
 
+**1510~-1610~**: Due to the discovery of the Americas putting the Ottoman finances under pressure with the inflation of gold, the Ottoman quasi-feudality system under the name of "Tımar" begins to break down. As masses are pushed away from their villages and are unable to be integrated into urban life due to the lack of industrialized means of production, banditry and thuggery under small gangs spread significantly. The rejected masses find the solution to be raiding their former villages in search of wealth, causing the Turkish villagery to be pushed to remote places where agriculture is limited, firmly preventing any progression into the later stages of production.
+
 **1600~**: The Ottoman expansion which despite the defects of the governence system was able to continue with the help of the elite Janissary Corps and skilled Sultans comes to a halt. The lack of expansion and new tax revenue from new provinces starts to degrade the Ottoman system which depends on expanding to sponsor state governence. The coinage is degraded in value and the unrest among the Janisseries rise which would culminate in numerous coups against various sultans.
 
 **1699**: The disastrous treaty of Karlowitz is signed after defeat in the Great Turkish War. The need to reform gradually becomes apparent and the conflict between the reformist sultans and the conservative Ulema(the Islamic clergy) and the Janisseries starts to begin. After this period embassies to European states would be sent to find out why the Ottomans are not keeping up with the conditions of the era and a new group of reformists arise.
@@ -346,7 +348,17 @@ The president's palace was holding a conference which included the president Cem
 
 Aydemir was demoted but not trialed in accordance with the agreement. However, after another coup attempt next year he would be executed in 1964. In his memoirs he said that the reason he did not eliminate the administration was because "It surely would have led to the collapse of the central authority and a civil war, and I did not want that".
 
-**1965~** AP scores a major victory.
+**1965**: AP scores a major victory in the elections and forms a majority government.
+
+**1969**: The fragile coalition between the capitalists and the petty bourgeoisie under AP begins to break down, Islamist and Ultranationalist movements begin to carve a place for themselves amongst the abandoned petty bourgeoisie and peasantry.
+
+**1969**: The ultranationalist party CKMP reorganizes itself into MHP and begins a mass recruitment campaign for the paramilitary wing of the ultranationalists, the Grey Wolves.
+
+**March 9 1971**: Socialist officers within the ranks of the military attempt a coup which fails and causes a wave of oppression against Socialists and intellectuals.
+
+**March 12 1971**: Due to AP's inability to find a solution for the inter-class conflicts and put an end to the student movements, the military sends a memorandum to the Demirel government, calling it to resign in favor of a technocratic military directed government. The names behind the 9 March attempt have been jailed and no one exactly knows where they are, or what has happened to them exactly.
+
+
 
 @curr_gov
 go-to: cabinet if CHP_in_government; menu if not CHP_in_government
@@ -411,20 +423,19 @@ go-to: menu
 
 **Demographic Groups**
 
-**Rural**: Peasants who live in a semi-feudal state under the hegemony of the landlords and the local notables. Generally vote for reactionary parties such as AP or MSP. Makes up about 50% of the population, however 15% of that segment is comprised of Kurdish peasantry which currently lack the political consciousness to have a separate political agenda but one may arise depending on the political circumstances.
+**Rural**: Peasants who live in a semi-feudal state under the hegemony of the landlords and the local notables. Generally vote for reactionary parties such as AP or MSP. Makes up about 45% - 50% of the population.
 
-**Working Class**: The urban working class - blue-collar workers in factories, workshops, mines, and the like. A class created primarily in the last 50 years, the working class families live in ghettos near the industrial zones and support either TIP or CHP. 20% of the population. 4% of that population is comprised of Kurdish workers who have migrated to the cities. 
+**Working Class**: The urban working class - blue-collar workers in factories, workshops, mines, and the like. A class created primarily in the last 50 years, the working class families live in ghettos near the industrial zones and support either TIP or CHP. Makes up about 15% - 20% of the population.
 
-**Petty Bourgeoisie**: The urban middle class - shopkeepers, traders and alike. Traditionally one of the main bases of AP but since the party's decision to open up to the global market their alignment have shifted to MSP. 15% of the population.
+**Petty Bourgeoisie**: The urban middle class - shopkeepers, traders and alike. Traditionally one of the main bases of AP but since the party's decision to open up to the global market their alignment have slightly shifted to MSP. Makes up about 15% of the population.
 
-**State employees and bureaucrats**: Citizens employed by the state and the bureaucracy. Mostly supports CHP due to the Kemalist roots of the state aparatus. 7% of the population.
+**State employees and bureaucrats**: Citizens employed by the state and the bureaucracy. Mostly supports CHP due to the Kemalist roots of the state aparatus. Roughly around 7% of the population.
 
 **Capitalists/Land Owners**: The owners of capital and production, disproportionally support AP and its splinter party DP. 3% of the population.
 
-**Intelligentsia**: Academicians and university students. Support the progressive parties such as CHP and TİP. 1% of the population.
+**Alevis**: A Shiite minority within Central Anatolia. Overwhelmingly supports CHP and to a small degree the Alevi minority rights party, TBP. About 10% of the population.
 
-**Cults and Religious Organizations**: Deep inside Anatolia, far away from the eyes of the political elites lies the Religious groups, also called Tariqah, which hold immense power in the rural steppes. Roughly 2%-3% of the electorate moves accordingly with what their religious leaders dictate, which often happens to be the Islamist MSP.
-
+**Kurdish National Movement**: Even though the Kurds make up a significant portion of the population, only a minority of them have political consciousness and demands regarding their socioeconomic or cultural status. Even though the politically aware Kurdish population makes up about 5% of the population, that percentage can significantly rise in reaction to various events.
 
 @public_opinion
 on-arrival: {!
@@ -494,36 +505,36 @@ Catholics: CHP: [+ catholics_CHP_display +]%, AP: [+ catholics_AP_display +]%, T
 @parties
 go-to: menu
 
-**CHP** - *Cumhuriyet Halk Partisi* (Republican People's Party) - this is us. We are a socialist and democratic party of the working class. We are the heirs of the legacy of Marx and Engels, Lassalle and Bebel. We are the foremost defenders of the Republic. The modern CHP was formed from a merger of the "Majority" CHP, which supported the Great War, and the "Independent" CHP or UCHP, which opposed the war.
+**CHP** - *Cumhuriyet Halk Partisi* (Republican People's Party) - this is us. Although originally formed as an aparatus for our founding father Mustafa Kemal Atatürk to gain support and forward his progressive reforms, after his passing CHP has transformed itself into the defender of his values within the context of parliamentary democracy. Our party is currently in an identity crisis as it still haven't found a solid place for itself within the political spectrum. The reformists led by Bülent Ecevit emphasize the progressive and social aspect of Kemalism and want to pull the party into the direction of Social Democracy, or in their words "Democratic Left". The old guard however continue to resist the calls for reform and prefer the comfort of their ivory tower. Will the party of "for the people, in spite of the people" be able to transform into the one of "for the people, WITH the people"?
 
-**Z** - *Zentrumspartei* (Center Party) - a centrist to center-right Catholic party that supports the Republic, and has historically supported many of our labor, welfare, and anti-militarist priorities. They have often been in coalitions with us. [? if year >= 1930 or chancellor = "Brüning" : They have appeared to take a more conservative turn recently, with the rise of Brüning and the party leader, Ludwig Kaas. ?]
+**AP** - *Adalet Partisi* (Justice Party) - a center right party that considers itself the continuation of DP after it was banned. They are led by Süleyman Demirel, a former engineer who likely wouldn't have been involved with politics his whole life if it wasnt for the coup. They have been our primary opponent for the past two decades.
 
-Current relations: [+AP_relation : relationships +]
+Current relations: [+ z_relation : relationships +]
 
 # TODO: replace this with the german state party after 1930
-**CGP** - *Deutsche Demokratische Partei* (German Democratic Party) - a center-left liberal party, popular among the intelligensia and educated middle class. They have often been in coalitions with us. [? if year >= 1930 : They have recently reformed themselves as the German State Party (DStP). ?]
+**CGP** - *Cumhuriyetçi Güven Partisi* (Republican Trust Party) - a splinter party of CHP, led by Turhan Feyzioğlu. After the pivot of the party to the left of center, many of the right wing Kemalists have resigned from CHP and formed their own party.
 
 Current relations: [+ CGP_relation : relationships +]
 
-**DP** - *Deutsche Volkspartei* (German People's Party) - a conservative-liberal party, supported by the middle classes and bourgeoisie. We have occasionally been in coalitions.
+**DP** - *Demokrat Parti* (Democratic Party) - a populist conservative party formed by the right wing of AP as they claimed AP didnt properly represent the values of the former DP.
 
 Current relations: [+ DP_relation : relationships +]
 
-**MSP** - *Deutschnationale Volkspartei* (German National People's Party) - a right-wing nationalist-conservative party, with authoritarian, monarchist, and racist elements. It is supported by the former aristocracy, rural landowners, and conservative Lutherans.
+**MSP** - *Milli Selamet Partisi* (National Salvation Party) - an Islamist party that advocates for a mixed economy, the realignment of Turkish society along religious lines and increased emphasis on heavy industry. The party is currently led by Süleyman Arif Emre, an intellectual and former member of AP who was chosen to accelerate the formation of the party until the next election. However the more popular face of MSP and the Islamist politics is Necmettin Erbakan, who desires a break with the conservative tradition of AP and the flourishment of an Islamist political tradition that is "the viable alternative between Socialism and Capitalism".
 
 Current relations: [+ MSP_relation : relationships +]
 
-**TIP** - *Kommunistische Partei Deutschlands* (German Communist Party) - a radical left-wing offshoot of the CHP that emerged in the aftermath of the German Revolution of 1918, they follow the path of Moscow, opposing parliamentary democracy in favor of a Soviet-style revolution.
+**TIP** - *Türkiye İşçi Partisi* (Turkish Workers' Party) - a left wing party that was dissolved during the memorandum period and is being reorganized behind the scenes. Originally a proponent of Democratic Socialism under Mehmet Ali Aybar's leadership, the military's attempts at shutting down Socialist movements of all kinds have prompted many leftists to lose belief in the political system and support revoluionary means, and the new TİP may be swung in either direction of the pendulum.
 
 Current relations: [+ TIP_relation : relationships +]
 
 [? if sapd_formed: SAPD - Sozialistische Arbeiterpartei Deutschlands (Socialist Worker's Party of Germany) - a party recently formed in a split from the CHP, the SAPD is essentially an agglomeration of various left-wing splinter groups between the CHP and TIP. ?]
 
-**MHP** - *Nationalsozialistische Deutsche Arbeiterpartei* - (National Socialist German Worker's Party, or Nazis) - a far-right nationalist and antisemitic party. Led by Adolf Hitler, they attempted a coup in 1923, and were banned for it, but have since been legalized.
+**MHP** - *Milliyetçi Hareket Partisi* - (Nationalist Movement Party) - a far-right ultranationalist party. Born as a reformation of the old ultranationalist tradition along a synthesis of Turkic and Islamic elements, MHP is more of a paramilitary than it is a parliamentary party. Even though it was banned in the recent memorandum, its membership within the ranks of the Grey Wolves count in the tens of thousands and its rumored that more of them are being trained in the rural portions of Anatolia, commanded by Muzaffer Özdağ and Alparslan Türkeş as its "supreme leader" or "Başbuğ". 
 
 Current relations: [+ MHP_relation : relationships +]
 
-**Other parties** - there is a multitude of small, mostly conservative parties, such as the Economic Party of the German Middle Class, the Farmer's Party, the Agricultural League, and others. Their political position usually lies between the DP and MSP. 
+**Other parties** - there is a multitude of small, mostly local, such as the Turkish Unity party, New Turkey Party, Nation Party, and others.
 
 @paramilitaries
 on-arrival: {!
@@ -535,39 +546,33 @@ go-to: menu
 
 **Paramilitary groups:**
 
-**Reichsbanner Schwarz-Rot-Gold**: The Reichsbanner is an organization affiliated with all of the democratic parties - the CHP, Z, and CGP, but primarily with the CHP. Historically, this has been an unarmed organization.
+[? if not thkpc_destroyed: {!<span class="tooltip-text" title="THKP-C (People's Liberation Party-Front of Turkey) is a far-left revolutionary organization that advocates for a revolution led by the urban workers.">THKP-C</span>!} Strength: [+ thkpc_strength_2 +] thousand ?]
 
-Strength: [+ rb_strength +] thousand
+[? if not thkpc_destroyed: THKP-C Militarization: [+ thkpc_militancy : militancy +] ?]
 
-Militarization: [+ rb_militancy : militancy +]
+[? if devyol_formed: {!<span class="tooltip-text" title="DEV-YOL (Revolutionary Path) is a left-wing militant organization.">DEV-YOL</span>!} Strength: [+ devyol_strength_2 +] thousand ?]
 
-**Rotfrontkämpferbund (RFB)**: The "Red Front Fighter's League" is associated with the TIP.
+[? if devyol_formed: DEV-YOL Militarization: [+ devyol_militancy : militancy +] ?]
 
-Strength: [+ rfb_strength +] thousand
+!<span class="tooltip-text" title="Grey Wolves (Bozkurtlar) are the militant wing of the Nationalist Movement Party.">Grey Wolves</span>!} Strength: [+ grey_wolves_strength_2 +] thousand
 
-Militarization: [+ rfb_militancy : militancy +]
+Grey Wolves Militarization: [+ grey_wolves_militancy : militancy +]
 
-**Der Stahlhelm**: A right-wing nationalist organization of primarily Great War veterans, descended from the *Freikorps* that emerged after the war. Associated with the MSP.
+{!<span class="tooltip-text" title="Turkish Revenge Brigade (TİT) is a highly militant far-right organization.">Turkish Revenge Brigade (TİT)</span>!} Strength: [+ tit_strength_2 +] thousand
 
-Strength: [+ sh_strength +] thousand
+TİT Militarization: [+ tit_militancy : militancy +]
 
-Militarization: [+ sh_militancy : militancy +]
+[? if raiders_formed: {!<span class="tooltip-text" title="Raiders are a far-right paramilitary organization.">Raiders</span>!} Strength: [+ raiders_strength_2 +] thousand ?]
 
-**Sturmabteilung (SA)**: This is the nazi paramilitary group.
-
-Strength: [+ sa_strength +] thousand
-
-Militarization: [+ sa_militancy : militancy +]
+[? if raiders_formed: Raiders Militarization: [+ raiders_militancy : militancy +] ?]
 
 **Official military/paramilitary groups:**
 
-**Reichswehr**: [+ reichswehr_strength +] thousand troops. This is Germany's military.
+{!<span class="tooltip-text" title="Police forces maintain order and state security.">Police Forces</span>!} Strength: [+ police_strength_2 +] thousand
 
-Loyalty: [+ reichswehr_loyalty : loyalty +]
+Police Militarization: [+ police_militancy : militancy +]
 
-**Prussian police**: [+ prussian_police_strength +] thousand members.
-
-Loyalty: [+ prussian_police_loyalty : loyalty +]
+Police Loyalty: [+ police_loyalty : loyalty +]
 
 
 
@@ -579,7 +584,7 @@ Overall dissent: [+ dissent_percent : dissent +]
 
 **Marxist-Kemalists**
 
-Many leftists are former members of the UCHP (the left-wing, anti-war Independent Social Democratic Party), or are young radicals. Many are interested in closer cooperation with the TIP, and some support extraparliamentary action.
+Marixst Kemalists are a marginalized group with their idea of synthesis between Marxism and Kemalism being seen as treacherous by many. They view the Kemalist revolution as a step towards Socialism and in the case of MDD(National Democratic Revolution)'ers, want to complete it with another revolution that would come from the ranks of the military. Many of the Marxist Kemalists are prisoned right now due to their support of the 9 March coup attempt which was conducted by the Socialist members of the Turkish army.
 
 Strength: [+ kemalist_marxists_strength : strength +]
 
@@ -587,7 +592,7 @@ Dissent: [+ kemalist_marxists_dissent : dissent +]
 
 **Left Kemalists**
 
-Centrists in the CHP are followers of the doctrine of orthodox Marxism as expounded by Karl Kautsky and later Rudolf Hilferding. They seek a middle course between reform and revolution, while defending the democratic state.
+The Left Kemalists are a group of reformers who want to sway CHP from its authoritarian stance of "For the people, in spite of the people". Led by Bülent Ecevit, they have been gaining power within the party since 1965 and now seems to be overshadowing the old guard in strength and rhetoric. The Left Kemalists want to complete the Kemalist revolution through the spread of progressive values and the improvement of the lives of the labourers, so that Turkey can become the modern republic, in peace with the values of civilazition as Atatürk once envisioned.
 
 Strength: [+ left_kemalists_strength : strength +]
 
@@ -595,7 +600,7 @@ Dissent: [+ left_kemalists_dissent : dissent +]
 
 **Orthodox Kemalists**
 
-Many CHP members are also part of the ADGB, the federation of free trade unions. Their goal is economic reform and benefits for organized workers.
+The Orthodox Kemalists' perception of Atatürk and Kemalism is much more solid and impervious. Continuing the one party era ideology of "for the people, in spite of the people" Orthodox Kemalists keep advocating for a top-down modernization and reject any motion of class differences or conflict. 
 
 Strength: [+ orthodox_kemalists_strength : strength +]
 
@@ -603,7 +608,7 @@ Dissent: [+ orthodox_kemalists_dissent : dissent +]
 
 **Right Kemalists**
 
-Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy against the far right and left. [? if CHP_prussia : They are dominant in the state government of Prussia. ?]
+The Right Kemalists have an especially nationalistic perception of Atatürk, and perhaps share more in ideology with the counter revolutionaries than they do with the other Kemalists. They have increasingly been sidelined by the Left Kemalists during the last decade and even though they have split into a party of their own, CGP, sympathizers of Right Kemalism are still in CHP and search for any opportunity to prevent the rise of Ecevit.
 
 Strength: [+ right_kemalists_strength : strength +]
 
@@ -774,7 +779,7 @@ Here are the current leaders of Turkey's major political parties:
 **CHP (Republican People's Party)** - *Our Party*
 Leader: [+ CHP_party_leader +]
 [? if CHP_party_leader == "İnönü" : İsmet İnönü, the veteran statesman and former President, continues to guide the party with his experienced hand. ?]
-[? if CHP_party_leader == "Ecevit" : Bülent Ecevit represents a more progressive wing of the party, advocating for democratic socialism and modernization. ?]
+[? if CHP_party_leader == "Ecevit" : Bülent Ecevit represents a more progressive wing of the party, advocating for social democracy and populism. ?]
 
 **AP (Justice Party)**
 Leader: [+ AP_party_leader +]
@@ -782,16 +787,16 @@ Leader: [+ AP_party_leader +]
 
 **TIP (Workers' Party of Turkey)**
 Leader: [+ TIP_party_leader +]
-[? if TIP_party_leader == "Behice Boran" : Behice Boran, a prominent socialist intellectual and advocate for workers' rights, leads the leftist opposition. ?]
-[? if TIP_party_leader == "Mehmet Ali Aybar" : Mehmet Ali Aybar, a charismatic socialist leader, represents the democratic left alternative. ?]
+[? if TIP_party_leader == "Behice Boran" : Behice Boran, a prominent socialist intellectual who represents the revolutionary wing of the Socialist movement. ?]
+[? if TIP_party_leader == "Mehmet Ali Aybar" : Mehmet Ali Aybar, the original leader of TİP and a democratic socialist. ?]
 
 **DP (Democratic Party)**
 Leader: [+ DP_party_leader +]
-[? if DP_party_leader == "Bozbeyli" : Ferruh Bozbeyli leads this liberal democratic party, emphasizing constitutional democracy and civil liberties. ?]
+[? if DP_party_leader == "Bozbeyli" : Ferruh Bozbeyli leads this populist conservative party, emphasizing traditional values and economic liberalism  ?]
 
 **CGP (Republican Reliance Party)**
 Leader: [+ CGP_party_leader +]
-[? if CGP_party_leader == "Feyzioğlu" : Turhan Feyzioğlu, former CHP member, leads this centrist party focused on democratic principles and social liberalism. ?]
+[? if CGP_party_leader == "Feyzioğlu" : Turhan Feyzioğlu, former CHP member, leads this center right party advocating for nationalism and "incorrupt" Kemalism. ?]
 
 **MSP (National Salvation Party)**
 Leader: [+ MSP_party_leader +]
