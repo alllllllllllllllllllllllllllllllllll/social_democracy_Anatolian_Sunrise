@@ -130,6 +130,8 @@ if (window && d3) {
 
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
+go-to: aftervote
+
 // After voting, show options based on result using view-if
 
 @aftervote
