@@ -27,6 +27,7 @@ Shall we begin the voting?
 - @commence: Lets begin.
 
 @commence
+go-to: aftervote
 on-display: {!
 data = [
   {
@@ -59,7 +60,47 @@ if (window && d3) {
     parliament.enter.fromCenter(true).smallToBig(true);
     parliament.exit.toCenter(false).bigToSmall(true);
     d3.select("#reichstag").datum(data).call(parliament);
+ // --- Tally votes ---
+    var ecevitVotes = 0, inonuVotes = 0;
+    data.forEach(function(d) {
+        if (d.name === "Ecevit") ecevitVotes += d.seats;
+        if (d.name === "İnönü") inonuVotes += d.seats;
+    });
+
+    // Expose result
+    ecevitVictory = (ecevitVotes > inonuVotes);   // plain variable for view-if
+    try { if (typeof Q !== "undefined") Q.ecevitVictory = ecevitVictory; } catch(e) {}
 }
 !}
 
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
+@aftervote
+view-if: true
+
+The delegates have voted. The hall is filled with cheers and groans alike. The result is clear.
+
+- @ecevit_wins: Sırrı Atalay wins from the Reformist camp!
+- @inonu_wins: The old guard surprisingly hold on with Hüdai Oral, albeit barely.
+
+@ecevit_wins
+view-if: ecevitVictory
+on-arrival: reformist_support += 10
+
+The election of Sırrı Atalay has made the party's future direction clear. It won't be one of elitism but of idealism and populism. Now we must look forward to the grand congress next week- wait what?!
+
+- @inonu_resigns: Seeing the results of the preliminary congress, İnönü has resigned from the post of party leadership!
+
+@inonu_resigns
+on_arrival: CHP_party_leader == "Ecevit"
+go-to: shuffle_leadership
+
+This marks the end of an era. The old wolf who held firm control over his party for over 30 years is now leaving the leadership post undefeated but also in a state of surrender. Not many words are exchanged between İnönü and Ecevit, and İnönü just takes his coat, salutes the party for one last time and leaves the congress building. Whether he will leave the party completely or not is not known yet.
+
+Now its time for a reshufflement of the party advisorship. We will need a dynamic and competent team to lead our party to victory.
+
+@inonu_wins
+view-if: not ecevitVictory
+on-arrival: orthodox_kemalists_strength += 10
+
+The old guard has somehow managed to pull a victory with this vote. The Left is heavily demoralized over losing their intra-party majority and many of them focus their criticism on Ecevit, and his perceived romanticism.
