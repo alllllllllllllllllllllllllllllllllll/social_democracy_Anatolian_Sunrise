@@ -133,20 +133,25 @@ if (window && d3) {
 // After voting, show options based on result using view-if
 @aftervote
 view-if: true
-text: |
-    The voting has concluded. The fate of Gezmiş and his friends is now sealed by the will of the parliament.
 
-- @execution_result: The majority voted in favor of execution. The death sentences will be carried out.
-- @commuted_result: The majority voted against execution. The sentences will be commuted to life imprisonment.
+The voting has concluded. The fate of Gezmiş and his friends is now sealed by the will of the parliament.
+
+- @execution_result: The parliament has voted to ratify the death penalty.
+- @commuted_result: Perhaps through sheer miracle, the parliament has voted to cancel the death penalty! While they will be trailed once again, its made certain that they will not be executed.
 
 
 @execution_result
 view-if: {! (window && window.gezmisVoteResult === "aye") !}
 
-The majority voted in favor of execution. The death sentences will be carried out.
+Dad;
 
+By the time this letter reaches you, I will be dead. I know that you will be saddened no matter I would tell you to. However I want you to face this situation with fortitude. People are born, they live, and they die. What is important is not to live long, but to live meaningfully. For this reason I dont regret going away this quickly and my friends who have gone the same path before never feared death. You can be sure that I wont fear it either. Your son is not helpless or desparate in the face of death. He went through this path willingly and he knew that this would be his end. Our beliefs are different, however I think you will understand me. And not only you, I believe the entire Turkish and Kurdish peoples living in Turkey will do so too. I gave the necessary orders for my funeral to my lawyers. Also I will tell the prosecutor too. I want to be buried in Ankara alongside my friend Taylan Özgür who died in 1969. For this reason dont try to take my funeral to İstanbul. Its up to you now to comfort my mom. I am leaving my books to my little brother. Warn him especially, I want him to become a man of science. He shall work with science and should never forget, working for science is too in some way service for humanity. 
+
+I would like to express I have no regrets for what I did in the end, and I salute you, my mother, my older brother and younger brother with the burning passion of my revolutionarism.
+
+Your son Deniz Gezmiş - Central Prison
 
 @commuted_result
 view-if: {! (window && window.gezmisVoteResult === "nay") !}
-
-The majority voted against execution. The sentences will be commuted to life imprisonment.
+on-arrival: TIP_relation += 15
+The Socialists are grateful for us saving Gezmiş's life and many intellectuals visit Ecevit over the months for his support.
