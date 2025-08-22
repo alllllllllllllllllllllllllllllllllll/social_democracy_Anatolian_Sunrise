@@ -17,7 +17,7 @@ choose-if: CHP_party_leader == "Ecevit"
 unavailable-subtitle: İnönü seems willing to tolerate another technocratic government and has prevented us from taking action.
 
 @vote
-on-arrival: {
+on-arrival: {! 
   Q.chancellor = "Ferit Melen";
   Q.chancellor_party = "CGP";
-}
+!}
