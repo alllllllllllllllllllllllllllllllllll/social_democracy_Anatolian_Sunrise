@@ -1,9 +1,10 @@
 title: Nihat Erim resigns from prime ministership!
-subtitle: 
+subtitle: The first of the many?
 view-if: year = 1972 and month = 6 and week = 1 and chancellor = "Nihat Erim"
 max-visits: 1
 tags: event
 new-page: true
+face-image: img/Nihaterim.png
 
 = Nihat Erim Resigns!
 
@@ -21,3 +22,5 @@ on-arrival: {!
   Q.chancellor = "Ferit Melen";
   Q.chancellor_party = "CGP";
 !}
+
+Ferit Melen begins his govenment with the parliamentary support of CHP, CGP and AP.
