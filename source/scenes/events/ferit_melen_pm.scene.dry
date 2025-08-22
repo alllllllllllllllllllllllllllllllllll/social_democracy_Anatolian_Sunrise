@@ -1,0 +1,23 @@
+title: Nihat Erim resigns from prime ministership!
+subtitle: 
+view-if: year == 1972 and month = 6 and week = 1 and Q.chancellor == "Nihat Erim"
+max-visits: 1
+tags: event
+new-page: true
+
+= Nihat Erim Resigns!
+
+Nihat Erim's cabinet had inspired hope within the ranks of the military and the old guard of CHP for its "modernization" agenda. However due to its inability to bring the expected changes, Nihat Erim was cornered between the two major parties CHP and AP calling for calmness and the military aparatus advocating for rapid "reforms" to end political unstability. In this situation, Nihat Erim has chosen to resign from his post and Ferit Melen, the Minister of Defence within the Nihat Erim government seems the likeliest candidate to succeed him. Ferit Melen is a prominent member of CGP and its likely his appointment will entail the continuation of military control over the political affairs.
+
+- @reject: We have had enough of the technocratic governments, we will veto the new government!
+- @vote: We will tolerate the government, for there is no viable alternative.
+
+@reject
+choose-if: CHP_party_leader == "Ecevit"
+unavailable-subtitle: İnönü seems willing to tolerate another technocratic government and has prevented us from taking action.
+
+@vote
+on-arrival: {
+  Q.chancellor = "Ferit Melen";
+  Q.chancellor_party = "CGP";
+}
