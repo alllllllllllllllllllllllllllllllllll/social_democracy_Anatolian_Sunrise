@@ -612,6 +612,7 @@ Q.economic_records = [];
 // State of the government
 Q.president = "Cevdet Sunay";
 // starting chancellor: Nihat Erim
+// starting prime minister: Nihat Erim
 Q.chancellor = "Nihat Erim";
 Q.chancellor_party = 'I';
 Q.CHP_in_government = 0;
