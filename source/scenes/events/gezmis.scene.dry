@@ -139,16 +139,14 @@ text: |
 - @execution_result: The majority voted in favor of execution. The death sentences will be carried out.
 - @commuted_result: The majority voted against execution. The sentences will be commuted to life imprisonment.
 
+
 @execution_result
 view-if: {! (window && window.gezmisVoteResult === "aye") !}
-text: |
-    The majority voted in favor of execution. The death sentences will be carried out.
 
-    - [Accept the result](accept)
+The majority voted in favor of execution. The death sentences will be carried out.
+
 
 @commuted_result
 view-if: {! (window && window.gezmisVoteResult === "nay") !}
-text: |
-    The majority voted against execution. The sentences will be commuted to life imprisonment.
 
-    - [Accept the result](accept)
+The majority voted against execution. The sentences will be commuted to life imprisonment.
