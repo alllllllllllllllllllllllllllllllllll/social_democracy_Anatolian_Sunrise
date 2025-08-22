@@ -124,8 +124,8 @@ if (window && d3) {
         if (d.color === "#158e33") greenVotes += d.seats;
         if (d.color === "#c51313") redVotes += d.seats;
     });
-    // Store result for DendryNexus (global variable, no Q.)
-    gezmisVoteResult = (greenVotes > redVotes) ? "aye" : "nay";
+    // Store result for DendryNexus (must use Q. for persistent state)
+    Q.gezmisVoteResult = (greenVotes > redVotes) ? "aye" : "nay";
 }
 !}
 
@@ -136,14 +136,14 @@ view-if: true
 
 The voting has concluded. The fate of Gezmiş and his friends is now sealed by the will of the parliament.
 
-gezmisVoteResult value: {! gezmisVoteResult !}
+gezmisVoteResult value: {! Q.gezmisVoteResult !}
 
 - @execution_result: The parliament has voted to ratify the death penalty.
 - @commuted_result: Perhaps through sheer miracle, the parliament has voted to cancel the death penalty! While they will be tried once again, it's made certain that they will not be executed.
 
 
 @execution_result
-view-if: gezmisVoteResult = "aye"
+view-if: Q.gezmisVoteResult = "aye"
 
 Dad;
 
@@ -154,7 +154,7 @@ I would like to express I have no regrets for what I did in the end, and I salut
 Your son Deniz Gezmiş - Central Prison
 
 @commuted_result
-view-if: gezmisVoteResult = "nay"
+view-if: Q.gezmisVoteResult = "nay"
 on-arrival: TIP_relation += 15
 
 The Socialists are grateful for us saving Gezmiş's life and many intellectuals visit Ecevit's office over the weeks and months for his support.
