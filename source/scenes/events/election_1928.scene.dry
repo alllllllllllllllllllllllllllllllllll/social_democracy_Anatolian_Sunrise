@@ -371,14 +371,14 @@ on-arrival: CHP_in_government = 1; in_popular_front = 1; chancellor = "Breitsche
 achievement: grosse_volksfront
 go-to: popular_front_civil_war if coup_progress >= 10; popular_front_no_civil_war if coup_progress < 10
 
-Somehow, the coalition is successfully formed! The conciliatory leadership of the Center Party and TIP helped make the negotiations possible. We still need a chancellor; the only acceptable choice among the parties was Rudolf Breitscheid of the CHP, acceptable to the Center and TIP [? if president == "Hindenburg" : as well as President Hindenburg, albeit extremely reluctantly ?].
+Somehow, the coalition is successfully formed! The conciliatory leadership of the Center Party and TIP helped make the negotiations possible. We still need a prime minister; the only acceptable choice among the parties was Rudolf Breitscheid of the CHP, acceptable to the Center and TIP [? if president == "Hindenburg" : as well as President Hindenburg, albeit extremely reluctantly ?].
 
 @popular_front_success
 on-arrival: CHP_in_government = 1; in_popular_front = 1; chancellor = "Breitscheid"; chancellor_party = "CHP"; TIP_relation += 10; coup_progress += 2; in_left_front = 0; in_weimar_coalition = 0; in_grand_coalition = 0; coalition_dissent = 0;
 go-to: popular_front_civil_war if coup_progress >= 10; popular_front_no_civil_war if coup_progress < 10
 achievement: volksfront
 
-Somehow, surprisingly, the coalition is successfully formed! We still need a chancellor; the only acceptable choice among the parties was Rudolf Breitscheid of the CHP, acceptable to the Center and TIP [? if president == "Hindenburg" : as well as President Hindenburg, albeit extremely reluctantly ?].
+Somehow, surprisingly, the coalition is successfully formed! We still need a prime minister; the only acceptable choice among the parties was Rudolf Breitscheid of the CHP, acceptable to the Center and TIP [? if president == "Hindenburg" : as well as President Hindenburg, albeit extremely reluctantly ?].
 
 @popular_front_no_civil_war
 on-arrival: TIP_goals_seen = 0; finance_minister_party = "AP"; interior_minister_party = "AP"; economic_minister_party = "AP"; labor_minister_party = "AP"; foreign_minister_party = "AP"; agriculture_minister_party = "AP"; reichswehr_minister = "I"; leverage = CHP_r + TIP_r;
@@ -412,12 +412,12 @@ view-if: far_right_coalition >= 50
 go-to: far_right_win if (year >= 1932 or MHP_r >= 44) and president != "Braun"; far_right_fail if (year < 1932 and MHP_r < 44) and president != "Braun"; far_right_braun if president == "Braun"
 priority: 2
 
-There are enough votes for the Nazis and the MSP to form a coalition. [+ MHP_leader +] has made his participation in government contingent on being appointed chancellor. It is up to President [+ president +] to decide.
+There are enough votes for the Nazis and the MSP to form a coalition. [+ MHP_leader +] has made his participation in government contingent on being appointed prime minister. It is up to President [+ president +] to decide.
 
 @far_right_win
 on-arrival: chancellor = MHP_leader; chancellor_party = "MHP"
 
-[? if president == "Hindenburg" : President Hindenburg's camarilla ?][? if president == "Braun" : President Braun somehow ?] has decided that [+ MHP_leader +] must be chancellor [? if president == "Hindenburg": , and the aging president accepts their recommendations. ?][? if president == "Braun" : because it is what the constitution would stipulate. ?]
+[? if president == "Hindenburg" : President Hindenburg's camarilla ?][? if president == "Braun" : President Braun somehow ?] has decided that [+ MHP_leader +] must be prime minister [? if president == "Hindenburg": , and the aging president accepts their recommendations. ?][? if president == "Braun" : because it is what the constitution would stipulate. ?]
 
 - @hitler_redirect: What do we do now?
 
@@ -428,7 +428,7 @@ go-to: game_over
 @far_right_fail
 on-arrival: chancellor = "Schleicher"; chancellor_party = "I"; pro_republic -= 10; next_election_time = time+5; next_election_month = month + 5; next_election_year = year; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12;
 
-The reactionary establishment is still very skeptical of the Nazis, so instead, [+ president +] appoints Kurt von Schleicher, a former general, as chancellor, to try to "tame" the Nazis.
+The reactionary establishment is still very skeptical of the Nazis, so instead, [+ president +] appoints Kurt von Schleicher, a former general, as prime minister, to try to "tame" the Nazis.
 
 Schleicher's government is deeply unpopular among all parties of the Reichstag. Despite his support for a coalition with the MHP, the Nazis want power all to themselves, without Schleicher.
 
@@ -468,9 +468,9 @@ A far left coalition is impossible.
 
 @left_coalition_possible
 
-The TIP is still very reluctant to join a coalition, despite grassroots friendliness between our memberships. The Stalinist leadership is vehemently against such a thing. They demand the appointment of Ernst Thälmann as chancellor in exchange for a coalition. [? if president == "Hindenburg" : There is no chance whatsoever that President Hindenburg would approve of the appointment of a die-hard communist as chancellor. ?] Alternatively, if our relations with them are good enough, we could convince them to support the appointment of one of our centrist or left-leaning members as chancellor.
+The TIP is still very reluctant to join a coalition, despite grassroots friendliness between our memberships. The Stalinist leadership is vehemently against such a thing. They demand the appointment of Ernst Thälmann as prime minister in exchange for a coalition. [? if president == "Hindenburg" : There is no chance whatsoever that President Hindenburg would approve of the appointment of a die-hard communist as prime minister. ?] Alternatively, if our relations with them are good enough, we could convince them to support the appointment of one of our centrist or left-leaning members as prime minister.
 
-- @thalmann_chancellor: Appoint Thälmann as chancellor.
+- @thalmann_chancellor: Appoint Thälmann as prime minister.
 - @left_coalition_resources
 - @left_coalition_relations
 - @coalition_menu: Try a different governing arrangement.
@@ -480,11 +480,11 @@ choose-if: president == "Braun" and reformist_strength + neorevisionist_strength
 unavailable-subtitle: [? if president != "Braun": President [+ president +] would never allow such a thing. ?] [? if reformist_strength >= left_strength : Most in the parliamentary party would not support Thälmann as chancellor. ?]
 on-arrival: chancellor = "Thälmann"; chancellor_party = "TIP"; TIP_relation = 80; in_left_front = 1; CHP_in_government = 1 
 
-With great reluctance, President [+ president +] appoints [+ chancellor +] as chancellor.
+With great reluctance, President [+ president +] appoints [+ chancellor +] as prime minister.
 
 Immediately, [+ chancellor +] goes to work building a "Soviet Germany": consolidating as much power as possible in the TIP, purging state institutions of anti-communists, and sending street fighters against the "enemies of the people".
 
-In response to [+ chancellor +] being appointed Chancellor, the right-wing forces launches almost immediately launch an attempted coup. Troops of the Stahlhelm and Nazi SA enter Berlin and immediately begin clashing with our supporters! Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop the TIP from taking power. We are forced to be on the same side as the TIP, whether we want to or not.
+In response to [+ chancellor +] being appointed Prime Minister, the right-wing forces launches almost immediately launch an attempted coup. Troops of the Stahlhelm and Nazi SA enter Berlin and immediately begin clashing with our supporters! Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop the TIP from taking power. We are forced to be on the same side as the TIP, whether we want to or not.
 
 - @civil_war_redirect2: Begin the civil war.
 
@@ -512,7 +512,7 @@ on-arrival: CHP_in_government = 1; in_left_front = 1; chancellor = "Breitscheid"
 go-to: left_coalition_civil_war if coup_progress >= 10; left_coalition_no_civil_war if coup_progress < 10
 achievement: einheitsfront
 
-Somehow, surprisingly, the left coalition is successfully formed, without appointing Thälmann as chancellor. The consensus choice for chancellor, accepted by the CHP, TIP, and President [+ president +], is Rudolf Breitscheid, who belongs to the centrist faction of the CHP, but was acceptable to the left due to his previous membership in the left-wing anti-war UCHP.
+Somehow, surprisingly, the left coalition is successfully formed, without appointing Thälmann as prime minister. The consensus choice for prime minister, accepted by the CHP, TIP, and President [+ president +], is Rudolf Breitscheid, who belongs to the centrist faction of the CHP, but was acceptable to the left due to his previous membership in the left-wing anti-war UCHP.
 
 # just raise the coup limit, don't immediately go to civil war
 

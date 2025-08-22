@@ -367,7 +367,7 @@ go-to: cabinet if CHP_in_government; menu if not CHP_in_government
 
 President: [+ president +]
 
-Chancellor: [+ chancellor +] ([+ chancellor_party +])
+Prime Minister: [+ chancellor +] ([+ chancellor_party +])
 
 Reichstag composition:
 

@@ -9,7 +9,7 @@ tags: govt_affairs
 
 = Dealing with Toleration
 
-We are currently acting as external support to the government of Chancellor [+ chancellor +]. How should we use our position?
+We are currently acting as external support to the government of Prime Minister [+ chancellor +]. How should we use our position?
 
 - @break_toleration
 - @urge_against_austerity
@@ -30,7 +30,7 @@ Are we sure about this? A vote of no confidence would trigger new elections, and
 @vonc
 on-arrival: CHP_in_government = 0; CHP_toleration = 0; in_grand_coalition = 0; chancellor = "Brüning"; chancellor_party = "AP"; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time+3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; CHP_toleration = 0; left_strength += 8; pro_republic -= 5; new_middle_CHP -= 3; rural_CHP -= 3; old_middle_CHP -= 3; catholics_CHP -= 3; reformist_dissent += 5; left_dissent -= 5
 
-We have called for a vote of no confidence, and have brought down this government. Chancellor [+ chancellor +] currently rules as acting chancellor.
+We have called for a vote of no confidence, and have brought down this government. Prime Minister [+ chancellor +] currently rules as acting prime minister.
 
 New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
 
@@ -73,7 +73,7 @@ achievement: constitutional_coalition
 
 Our negotiations have succeeded, and the Center Party and DP have agreed to form a new coalition government with us!
 
-We are now part of a "constitutional coalition" government that includes all parties except the extremists of the TIP, MSP, and MHP. [+ chancellor +] will remain as chancellor. Leftists in our party are skeptical of this arrangement.
+We are now part of a "constitutional coalition" government that includes all parties except the extremists of the TIP, MSP, and MHP. [+ chancellor +] will remain as prime minister. Leftists in our party are skeptical of this arrangement.
 
 - @election_1928.ministries: Now, we must select our ministries.
 

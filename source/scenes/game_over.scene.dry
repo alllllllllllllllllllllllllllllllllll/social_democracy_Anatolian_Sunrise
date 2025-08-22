@@ -8,7 +8,7 @@ Q.game_over = 1;
 // Eiserne Front - Form the Iron Front.
 this.achieve('game_completed');
 
-// Roter Zar von Preußen - At the end of the game, Otto Braun is president, chancellor, and minister-president of prussia at the same time.
+// Roter Zar von Preußen - At the end of the game, Otto Braun is president, prime minister, and minister-president of prussia at the same time.
 if (Q.president == 'Braun' && Q.chancellor == 'Braun' && Q.CHP_prussia) {
     this.achieve('red_tzar_of_prussia');
 }
@@ -50,7 +50,7 @@ if ((Q.womens_work && Q.womens_rights >= 5) || (Q.abortion_rights && Q.womens_ri
     this.achieve('equality');
 }
 
-// Sohn seiner Klasse - elect Ernst Thälmann as president or chancellor.
+// Sohn seiner Klasse - elect Ernst Thälmann as president or prime minister.
 if (Q.chancellor == "Thälmann" || Q.president == "Thälmann") {
     this.achieve('sohn_seiner_klasse');
 }
@@ -148,7 +148,7 @@ title: Hitler does not yet control Germany...
 tags: endings
 go-to: eg_menu
 
-Hitler does not yet control Germany. [? if chancellor == "Papen" : However, Chancellor Papen's authoritarianism and far-right politics are paving the way for Hitler, or someone like him, to take power. ?] [? if chancellor == "Schleicher" : However, Chancellor Schleicher's authoritarianism and scheming is paving the way for Hitler, or someone like him, to take power. ?][? if resist_coup == 1 and republic_victory == 0 and long_war == 0 and coup_victory == 0 : Given our defeat in the Prussian coup, the far-right appears to be ascendant. ?][? if chancellor == "Brüning" : However, Chancellor Brüning's austerity policies and the continuation of the depression are paving the way for Hitler, or someone like him, to take power. ?]
+Hitler does not yet control Germany. [? if chancellor == "Papen" : However, Prime Minister Papen's authoritarianism and far-right politics are paving the way for Hitler, or someone like him, to take power. ?] [? if chancellor == "Schleicher" : However, Prime Minister Schleicher's authoritarianism and scheming is paving the way for Hitler, or someone like him, to take power. ?][? if resist_coup == 1 and republic_victory == 0 and long_war == 0 and coup_victory == 0 : Given our defeat in the Prussian coup, the far-right appears to be ascendant. ?][? if chancellor == "Brüning" : However, Prime Minister Brüning's austerity policies and the continuation of the depression are paving the way for Hitler, or someone like him, to take power. ?]
 
 [? if hitler_deported == 1 : We have deported Hitler back to Austria. Hopefully he will never return. ?]
 
@@ -228,7 +228,7 @@ view-if: CHP_in_government == 1 and chancellor_party == "CHP" and total_defeat =
 tags: endings
 go-to: eg_menu
 
-The CHP is still in government, under Chancellor [+ chancellor +]. Given the circumstances, this is a substantial accomplishment.
+The CHP is still in government, under Prime Minister [+ chancellor +]. Given the circumstances, this is a substantial accomplishment.
 
 @communist_victory
 title: Communist victory
@@ -279,7 +279,7 @@ view-if: in_emergency_government == 1
 tags: endings
 go-to: eg_menu
 
-The CHP is ruling as part of an emergency minority government, led by President [+ president +] and Chancellor [+ chancellor +]. This is a temporary and unstable arrangement, leaving the door open to further authoritarianism.
+The CHP is ruling as part of an emergency minority government, led by President [+ president +] and Prime Minister [+ chancellor +]. This is a temporary and unstable arrangement, leaving the door open to further authoritarianism.
 
 @peoples_party_achieved
 title: The CHP is a "People's Party".
@@ -338,7 +338,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_bollwerk_der_demokratie: **Bollwerk der Demokratie** - Resist the Prussian Coup and win. ?]
 
-[? if game_achievement_red_tzar_of_prussia : **Roter Zar von Preußen** - Otto Braun is President, Chancellor, and Minister-President. ?]
+[? if game_achievement_red_tzar_of_prussia : **Roter Zar von Preußen** - Otto Braun is President, Prime Minister, and Minister-President. ?]
 
 [? if game_achievement_einheitsfront: **Einheitsfront** - Form a government consisting of the CHP and TIP. ?]
 
@@ -360,7 +360,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if game_achievement_volkspartei: **Volkspartei** - the CHP is a People's Party. ?]
 
-[? if game_achievement_sohn_seiner_klasse: **Sohn seiner Klasse** - Ernst Thälmann is either president or chancellor. ?]
+[? if game_achievement_sohn_seiner_klasse: **Sohn seiner Klasse** - Ernst Thälmann is either president or prime minister. ?]
 
 [? if game_achievement_rote_millionar: **Der rote Millionär** - Willi Münzenberg is president. ?]
 
@@ -445,7 +445,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_bollwerk_der_demokratie: **Bollwerk der Demokratie** - Resist the Prussian Coup and win. ?]
 
-[? if achievement_red_tzar_of_prussia : **Roter Zar von Preußen** - Otto Braun is President, Chancellor, and Minister-President. ?]
+[? if achievement_red_tzar_of_prussia : **Roter Zar von Preußen** - Otto Braun is President, Prime Minister, and Minister-President. ?]
 
 [? if achievement_einheitsfront: **Einheitsfront** - Form a government consisting of the CHP and TIP. ?]
 
@@ -467,7 +467,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if achievement_volkspartei: **Volkspartei** - the CHP is a People's Party. ?]
 
-[? if achievement_sohn_seiner_klasse: **Sohn seiner Klasse** - Ernst Thälmann is either president or chancellor. ?]
+[? if achievement_sohn_seiner_klasse: **Sohn seiner Klasse** - Ernst Thälmann is either president or prime minister. ?]
 
 [? if achievement_rote_millionar: **Der rote Millionär** - Willi Münzenberg is president. ?]
 
@@ -550,7 +550,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if not achievement_bollwerk_der_demokratie: **Bollwerk der Demokratie** - Resist the Prussian Coup and win. ?]
 
-[? if not achievement_red_tzar_of_prussia : **Roter Zar von Preußen** - Otto Braun is President, Chancellor, and Minister-President. ?]
+[? if not achievement_red_tzar_of_prussia : **Roter Zar von Preußen** - Otto Braun is President, Prime Minister, and Minister-President. ?]
 
 [? if not achievement_einheitsfront: **Einheitsfront** - Form a government consisting of the CHP and TIP. ?]
 
@@ -572,7 +572,7 @@ go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
 
 [? if not achievement_volkspartei: **Volkspartei** - the CHP is a People's Party. ?]
 
-[? if not achievement_sohn_seiner_klasse: **Sohn seiner Klasse** - Ernst Thälmann is either president or chancellor. ?]
+[? if not achievement_sohn_seiner_klasse: **Sohn seiner Klasse** - Ernst Thälmann is either president or prime minister. ?]
 
 [? if not achievement_rote_millionar: **Der rote Millionär** - Willi Münzenberg is president. ?]
 
