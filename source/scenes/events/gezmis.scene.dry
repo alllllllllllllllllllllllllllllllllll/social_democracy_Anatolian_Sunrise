@@ -126,6 +126,14 @@ if (window && d3) {
     });
     // Store result for DendryNexus (must use Q. for persistent state)
     Q.gezmisVoteAye = (greenVotes > redVotes);
+  // Boolean: true if green > red
+  var isAye = (greenVotes > redVotes);
+
+  // Expose to Dendry view-if:
+  gezmisVoteAye = isAye;                  
+
+  // Also persist if Q exists (won't break if it doesn't)
+  try { if (typeof Q !== "undefined") Q.gezmisVoteAye = isAye; } catch (e) {}
 }
 !}
 
@@ -141,7 +149,7 @@ The voting has concluded. The fate of Gezmiş and his friends is now sealed by t
 
 
 @execution_result
-view-if: Q.gezmisVoteAye
+view-if: gezmisVoteAye
 
 Dad;
 
@@ -152,7 +160,7 @@ I would like to express I have no regrets for what I did in the end, and I salut
 Your son Deniz Gezmiş - Central Prison
 
 @commuted_result
-view-if: !Q.gezmisVoteAye
+view-if: not gezmisVoteAye
 on-arrival: TIP_relation += 15
 
 The Socialists are grateful for us saving Gezmiş's life and many intellectuals visit Ecevit's office over the weeks and months for his support.
