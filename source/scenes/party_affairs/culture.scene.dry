@@ -1,6 +1,7 @@
 title: Culture and Arts
 new-page: true
 view-if: CHP_party_leader == "Ecevit"
+on-arrival: month_actions += 1
 is-card: true
 card-image: img/semazen.jpg
 tags: party_affairs, culture
