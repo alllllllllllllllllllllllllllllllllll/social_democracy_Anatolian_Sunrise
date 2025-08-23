@@ -14,8 +14,14 @@ Nihat Erim's cabinet had inspired hope within the ranks of the military and the 
 - @vote: We will tolerate the government, for there is no viable alternative.
 
 @reject
+subtitle: The alternative offered by the army may be more radical.
 choose-if: CHP_party_leader == "Ecevit"
 unavailable-subtitle: İnönü seems willing to tolerate another technocratic government and has prevented us from taking action.
+on-arrival: coup_timer += 5
+
+The masses applaud our choice. The Ferit Melen government, unable to have a parliamentary majority, falls quickly. The army is said to be furious however, as many report the lights of the army headquarters were on the whole night of the vote..
+
+We are now without a prime minister and we will see who the army will pick in the next few days.
 
 @vote
 on-arrival: {! 
