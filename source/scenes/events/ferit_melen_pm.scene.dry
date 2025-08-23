@@ -18,18 +18,7 @@ Nihat Erim's cabinet had inspired hope within the ranks of the military and the 
 subtitle: The alternative offered by the army may be more radical.
 choose-if: CHP_party_leader == "Ecevit"
 unavailable-subtitle: İnönü seems willing to tolerate another technocratic government and has prevented us from taking action.
-on-arrival: {
-  coup_timer += 5;
-  Q.rural_chp += 2;
-  Q.workers_chp += 2;
-  Q.petty_bourgeoisie_chp += 2;
-  Q.state_employees_chp += 2;
-  Q.capitalists_chp += 2;
-  Q.alevis_chp += 2;
-  Q.kurds_chp += 2;
-  Q.chancellor = "";
-  Q.chancellor_party = "";
-}
+on-arrival: coup_timer += 5; rural_chp += 2; workers_chp += 2; petty_bourgeoisie_chp += 2; state_employees_chp += 2; capitalists_chp -= 4; alevis_chp += 2; kurds_chp += 2; chancellor = ""; chancellor_party = ""
 
 The masses applaud our choice. The Ferit Melen government, unable to have a parliamentary majority, falls quickly. The army is said to be furious however, as many report the lights of the army headquarters were on the whole night of the vote..
 
