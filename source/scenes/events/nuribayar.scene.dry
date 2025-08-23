@@ -1,0 +1,19 @@
+title: The right parties reach an agreement!
+subtitle: Nuri Bayar is being proposed as an interim prime minister.
+view-if: year = 1972 and month = 6 and week = 2 and chancellor = ""
+max-visits: 1
+tags: event
+new-page: true
+face-image: img/NuriBayar.jpg
+
+After days of negotiation, CGP, AP and DP have come to an agreement about a possible government arrangement. In the negotiations supervised by the army, the three right wing parties have agreed on a more partisan cabinet and Nuri Bayar, the general secretary of AP as the prime minister. While being called "an interim government" until the elections, the right parties may try to achieve more than simply accelerating the return to democracy with this government.
+
+- @accept: Is there really anything we can do?
+
+@accept
+on-arrival: {! 
+  Q.chancellor = "Nuri Bayar";
+  Q.chancellor_party = "AP";
+!}
+
+The Nuri Bayar government has begun.
