@@ -1,0 +1,23 @@
+title: İnönü reads Ecevit's inauguration speech from his home
+view-if: year == 1972 and month = 6 and week = 1
+max-visits: 1
+face-image: img/inonuuu.png
+
+"By being elected as the chairman of CHP, I do not consider myself to have replaced İnönü. Bay İnönü's place is above all titles and is constant and unreachable"
+
+"Ingrate!" said İnönü's wife, Mehribe Hanım.
+
+After a short silence, İnönü called out to his visitors around him;
+
+- @resignation: "He is just like Menderes. Sensuality combined with ambition lead one to disaster. **May Allah protect our nation**"
+- @staying: Perhaps change is a nature of life. Even if I can not agree with his vision, I will not stand in his way. I hope his election proves beneficial for the nation.
+
+@resignation
+subtitle: İnönü has handed his resignation to the party and left the party he ruled over for more than 30 years.
+view-if: inonu_stay <= 1
+on-arrival: state_employees_chp -= 3; coup_timer += 1; inonu_dead = 1; n_advisors -= 1 if inonu_advisor == 1; inonu_advisor = 0
+
+@staying
+subtitle: İnönü has chosen to stay in the party.
+view-if: inonu_stay >= 2
+on-arrival: coup_timer -= 1
