@@ -36,5 +36,3 @@ go-to: rally
 @partyorganizations
 view-if: CHP_party_leader == "Ecevit"
 go-to: party_organizations
-
-- @easy_discard
