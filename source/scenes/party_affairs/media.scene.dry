@@ -25,21 +25,21 @@ card-image: img/cumhuriyet4.jpg
 
 @silence
 title: National Chief İnönü doesnt want to go into a conflict with the junta. Perhaps we should keep our silence..
-view-if: CHP_party_leader == "İnönü" and I_government
+view-if: CHP_party_leader == "İnönü"
 on-arrival: workers_chp -= 2; petty_bourgeoisie_chp -= 2; rural_chp -= 1; left_kemalists_dissent += 5
 
 We keep our silence in the face of atrocities and injustice. The nation is overwhelmingly against the coup and Ecevit critiques the party attitude heavily, perhaps he has a good point..
 
 @critique
 title: The military government needs to go. Defy the laws and protest against the recent actions of the Junta.
-view-if: CHP_party_leader == "Ecevit" and I_government
+view-if: CHP_party_leader == "Ecevit"
 on-arrival: workers_chp += 2; petty_bourgeoisie_chp += 2; kemalist_marxists_dissent -= 5; coup_timer += 1; critique += 1
 
 We direct our media attention to the authoritarian actions of the junta governments, such as the banning of worker strikes and the torture of left wing intellectuals in prisons. We will not bow to the whims of the appointed.
 
 @commercial
 title: Make our newspapers more commercialized by broadening their appeal beyond party supporters.
-subtitle: This might upset ideological purists, but it may bring in more funds and perhaps expose the middle class to socialist views.
+subtitle: This might upset the hardliners, but it may bring in more funds.
 view-if: I_government == 0
 on-arrival: resources += 1; commercialized_media += 1; petty_bourgeoisie_chp += 3*(1 - dissent)
 
@@ -56,6 +56,8 @@ The outlets print out news about the problems the nation faces and how a left wi
 @newideas
 title: We will motivate our theoriticians and politicians to write about their new policy ideas. 
 subtitle: A party without a vision is not a party but a gathering
+choose-if: CHP_party_leader == "Ecevit"
+unavailable-subtitle: The old guard is opposed to the spread of unorthodox ideas.
 view-if: I_government == 0
 on-arrival: marxist_kemalists_strength += 5; workers_chp += 1; newideas += 1
 
