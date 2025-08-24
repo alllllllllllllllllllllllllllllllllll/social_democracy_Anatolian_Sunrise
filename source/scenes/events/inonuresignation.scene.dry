@@ -1,6 +1,8 @@
 title: İnönü reads Ecevit's inauguration speech from his home
 view-if: year == 1972 and month = 6 and week = 1
 max-visits: 1
+tags: event
+new-page: true
 face-image: img/inonuuu.png
 
 "By being elected as the chairman of CHP, I do not consider myself to have replaced İnönü. Bay İnönü's place is above all titles and is constant and unreachable"
