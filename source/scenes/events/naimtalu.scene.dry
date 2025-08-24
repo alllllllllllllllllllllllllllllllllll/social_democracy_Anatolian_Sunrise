@@ -1,6 +1,6 @@
 title: Ferit Melen resigns from prime ministership!
 subtitle: Another cabinet to the dustbin of history.
-view-if: year = 1972 and month = 6 and week = 1 and chancellor = "Ferit Melen"
+view-if: year = 1973 and month = 4 and week = 2 and chancellor = "Ferit Melen"
 max-visits: 1
 tags: event
 new-page: true
