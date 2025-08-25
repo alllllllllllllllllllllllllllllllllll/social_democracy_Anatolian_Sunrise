@@ -16,15 +16,19 @@ Doğan Avcıoğlu is a famous Marxist historian, economist, politician and autho
 
 @landreform
 subtitle: Ataturk's unachieved final reform..
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3
 go-to: land_reform
 
 @economicpolicy
-choose-if: CHP_in_government = 1
-unavailable-subtitle: CHP is not in government.
+choose-if: CHP_in_government = 1 and advisor_action_timer = 0
+unavailable-subtitle: CHP is not in government. [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3
 
 @devrim
-choose-if: (year == 1973 and month >= 10) or year == 1974 or year == 1975
+choose-if: (year == 1973 and month >= 10) or year == 1974 or year == 1975 and advisor_action_timer = 0
 unavailable-subtitle: Due to the tortures he had endured during the memorandum period, Avcıoğlu is fed up with writing.
-on-arrival: ihtilal += 1; state_employees_chp += 1
+on-arrival: advisor_action_timer = 3; ihtilal += 1; state_employees_chp += 1
 
 Avcıoğlu has begun the planning of a new newspaper called "İhtilal", meaning revolution.
