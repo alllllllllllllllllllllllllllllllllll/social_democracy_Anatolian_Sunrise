@@ -17,11 +17,17 @@ Mihri Belli is the original theorist of the National Democratic Revolution and i
 @thkpc
 subtitle: They might be in serious trouble..
 view-if: year == 1972 and month <= 3
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3
 
 Belli reports that THKP-C militants may be planning an attack to prevent the execution of Deniz Gezmiş.
 
 @tip1
 view-if: year == 1972 or (year == 1973 and month <= 10)
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3
 
 Many Socialists report undergoing horrible tortures after being arrested. 
 
@@ -31,7 +37,9 @@ Many Socialists report undergoing horrible tortures after being arrested.
 
 @tip
 view-if: (year == 1973 and month >= 10) or year == 1974
-on-arrival: tip_relations += 2
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3; tip_relations += 2
 
 With the army pressure lessening, it seems many Socialist intellectuals are preparing to create a renewed TİP.
 
