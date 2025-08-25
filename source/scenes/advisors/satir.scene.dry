@@ -14,10 +14,14 @@ Kemal Satır is a prominent member of the Orthodox wing within the party. Once t
 - @easy_discard
 
 @leave
-on-arrival: rightstay += 1
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3; rightstay += 1
 
 Satır's position and ours is inherently irreconcilable, and the right wing stands their ground. However, our offer seems to have intrigued the right and we may get an interesting proposal once the dust settles..
 
 @health
-choose-if: CHP_in_government = 1
-unavailable-subtitle: CHP is not in government.
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3
+choose-if: CHP_in_government = 1 and  advisor_action_timer = 0
+unavailable-subtitle: CHP is not in government. [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
