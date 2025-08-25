@@ -15,11 +15,20 @@ Orhan Eyüboğlu is the vice secretary of the CHP and is in support of İnönü.
 - @easy_discard
 
 @orthodoxdissent
-on-arrival: orthodox_kemalist_dissent -= 7
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3; orthodox_kemalist_dissent -= 7
 
 Eyüboğlu assures key Orthodox figures and decreases dissent.
 
 @partyorganization
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3
 go-to: party_organizations
 
 @localgovernence
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3
+go-to: municipalities
