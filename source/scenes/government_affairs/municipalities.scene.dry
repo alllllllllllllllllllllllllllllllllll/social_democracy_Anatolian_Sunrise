@@ -59,8 +59,4 @@ Many families are thankful at us for providing affordable bread. However the pol
 
 @politics
 choose-if: party_dissent < 15
-unavailable-subtitle: The party dissent is too high! We are unable to influence our local governments to improve our efficiency.
-
-@politics
-choose-if: party_dissent < 15
 unavaliable-subtitle:  The party dissent is too high! We are unable to influence our local governments.
