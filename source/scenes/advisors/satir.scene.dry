@@ -21,7 +21,6 @@ on-arrival: advisor_action_timer = 3; rightstay += 1
 Satır's position and ours is inherently irreconcilable, and the right wing stands their ground. However, our offer seems to have intrigued the right and we may get an interesting proposal once the dust settles..
 
 @health
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 3
-choose-if: CHP_in_government = 1 and  advisor_action_timer = 0
+choose-if: CHP_in_government = 1 and advisor_action_timer = 0
 unavailable-subtitle: CHP is not in government. [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
