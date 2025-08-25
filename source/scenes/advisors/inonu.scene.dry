@@ -15,9 +15,14 @@ new-page: true
 
 @campaign
 go-to: campaigning
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3;
 
 @stay
 subtitle: Even if he doesn't believe it to be a possibility..
-on-arrival: orthodox_kemalist_dissent -= 5; inonu_stay += 1
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3; orthodox_kemalist_dissent -= 5; inonu_stay += 1
 
 İnönü is an ambitious man, however he still does what he does with the good of the party and the nation in mind. He once said about losing the presidency to DP in the first free elections in 1950 "My biggest defeat is my biggest victory." Perhaps it can again be such a case here..
