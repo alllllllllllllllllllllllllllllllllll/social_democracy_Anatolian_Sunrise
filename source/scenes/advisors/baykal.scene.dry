@@ -15,14 +15,20 @@ A young and energetic figure within the party, Baykal can use his expertise in f
 - @easy_discard
 
 @internationalaffairs
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3
 go-to: international_relations
 
 @economy
-choose-if: CHP_in_government = 1
-unavailable-subtitle: CHP is not in government.
+choose-if: CHP_in_government = 1 and advisor_action_timer = 0
+unavailable-subtitle: CHP is not in government [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3
 
 @coalitiontalks
 subtitle: For better or worse..
-on-arrival: workers_chp -= 2; state_employees_chp -= 2; MSP_relation += 5
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3; workers_chp -= 2; state_employees_chp -= 2; MSP_relation += 5
 
 Erbakan and his boys are surprisingly receptive of our calls, seems they want to break away from the fringes
