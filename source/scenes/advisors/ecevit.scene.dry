@@ -18,21 +18,31 @@ Bülent Ecevit is the speaker of the party and the current ram of the reformist 
 @partydynamics
 subtitle: Can the Left of Center gain ground in the party?
 view-if: CHP_party_leader == "İnönü"
-on-arrival: left_kemalists_strength += 5; orthodox_kemalists_strength -=5
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer = 0
+on-arrival: advisor_action_timer = 6; left_kemalists_strength += 5; orthodox_kemalists_strength -=5
 
 We emphasize the need for change and sway some delegates in the middle to our side.
 
 @partydissent
 subtitle: Ecevit is now the party leader and people have faith that he can be the one to finally break the glass ceiling and bring CHP to the government.
 view-if: CHP_party_leader == "Ecevit"
-on-arrival: left_kemalists_dissent -= 10; kemalist_marxists_dissent -= 10; orthodox_kemalists_dissent -= 10
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer = 0
+on-arrival: advisor_action_timer = 6; left_kemalists_dissent -= 10; kemalist_marxists_dissent -= 10; orthodox_kemalists_dissent -= 10
 
 The temporary disputes are put aside and the party unites behind Ecevit.
 
 @meeting
 subtitle: Ecevit is a potent orator and he can put his literary skills into work in the mass rallies.
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer = 0
+on-arrival: advisor_action_timer = 6;
 go-to: rally
 
 @partyorganizations
 view-if: CHP_party_leader == "Ecevit"
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer = 0
+on-arrival: advisor_action_timer = 6;
 go-to: party_organizations
