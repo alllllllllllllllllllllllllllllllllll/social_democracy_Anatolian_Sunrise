@@ -15,10 +15,15 @@ The chief of the technocratic delegation behind the 1960 Constitution, Aksoy is 
 - @easy_discard
 
 @internationalaffairs
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3;
 go-to: international_relations
 
 @europe
-on-arrival: {!
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3; {!
 if (Q.cyprus_problem == 0 || Q.cyprus_problem == 1 || Q.cyprus_problem == 2) {
     Q.west_relation += 5;
 }
@@ -29,8 +34,9 @@ if (Q.cyprus_problem == 0 || Q.cyprus_problem == 1 || Q.cyprus_problem == 2) {
 [? if cyprus_problem == 3 : The dispute over Cyprus and our operation has rendered any diplomatic breakthroughs improbable. ?]
 
 @AET
-choose-if: CHP_in_government = 1
-unavailable-subtitle: CHP is not in government.
+choose-if: CHP_in_government = 1 and advisor_action_timer = 0
+unavailable-subtitle: CHP is not in government. [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3;
 view-if: west_relation > 80
 
 We submit our formal application. Joining AET will have great benefits but a lot of reforms are needed to be made.
