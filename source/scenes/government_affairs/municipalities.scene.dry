@@ -1,7 +1,7 @@
 title: Municipalities
 new-page: true
 is-card: true
-view-if: municipality_control_level != 0
+view-if: municipality_control_level != 0 and municipality_timer <= 0
 on-arrival: month_actions += 1; municipality_timer += 6
 tags: govt_affairs
 card-image: img/belediye.jpg
@@ -60,3 +60,7 @@ Many families are thankful at us for providing affordable bread. However the pol
 @politics
 choose-if: party_dissent < 15
 unavailable-subtitle: The party dissent is too high! We are unable to influence our local governments to improve our efficiency.
+
+@politics
+choose-if: party_dissent < 15
+unavaliable-subtitle:  The party dissent is too high! We are unable to influence our local governments.
