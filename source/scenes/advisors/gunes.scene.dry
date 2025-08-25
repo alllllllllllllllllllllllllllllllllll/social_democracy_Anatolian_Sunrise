@@ -15,13 +15,19 @@ Turan Güneş is a member of the left of center movement and expertises in inter
 - @easy_discard
 
 @internationalaffairs
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3
 go-to: international_relations
 
 @foreignministry
-choose-if: CHP_in_government = 1
-unavailable-subtitle: CHP is not in government.
+choose-if: CHP_in_government = 1 and advisor_action_timer = 0
+unavailable-subtitle: CHP is not in government [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3
 
 @theory
-on-arrival: left_kemalists_strength += 5
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3; left_kemalists_strength += 5
 
 With his plain oratory that anyone in the party can comprehend, Güneş is an important asset.
