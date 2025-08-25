@@ -40,6 +40,6 @@ go-to: media
 @marxistdissent
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 3; on-arrival: kemalist_marxists_dissent -= 10
+on-arrival: advisor_action_timer = 3; kemalist_marxists_dissent -= 10
 
 We can tolerate the marxists within the party as long as they dont resort to undemocratic tactics.
