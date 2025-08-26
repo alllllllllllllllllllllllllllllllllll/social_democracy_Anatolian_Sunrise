@@ -11,7 +11,8 @@ Herein contains relevant information about the government and politics of the Tu
 
 - @government: Turkey's system of government
 - @kemalism: Kemalist Revolution and CHP
-- @weimar_timeline: Timeline of the Ottoman Empire and the Turkish Republic before 1972
+- @weimar_timeline: Timeline of the Ottoman Empire and the Turkish Republic before 1972	
+- @12march: 12 March Memorandum and Modern Turkish Politics
 - @curr_gov: Current government details
 - @demographics: Demographics
 - @parties: Parties
@@ -358,7 +359,21 @@ Aydemir was demoted but not trialed in accordance with the agreement. However, a
 
 **March 12 1971**: Due to AP's inability to find a solution for the inter-class conflicts and put an end to the student movements, the military sends a memorandum to the Demirel government, calling it to resign in favor of a technocratic military directed government. The names behind the 9 March attempt have been jailed and no one exactly knows where they are, or what has happened to them exactly.
 
+@12march	
 
+The current state of Turkish politics is shaped by the Memorandum of March 12 1971 and the ensuing military-dictated technocratic governments.		
+
+After the 60 coup and the constitution of 61, Turkish Republic entered a state of liberalization and democratization. With a constitution that can set an example 'even for Western Europe' as Ertuğrul Soymaz, the spokesman of the industrialists of Istanbul, left wing ideas started to appear in public life for the fırst time in the young republic's life. As the AP governments of the 60's opened up the Turkish market and many state corporations were privatized, With the effect of unregulated labour conditions and the rise of the working class, socialist and left wing ideas quickly spread through the unions and the now autonomous higher education. With the formation of TİP which managed to get a significant 3% of the vote in a nation where politics is dominated by the progressive and conservative camps, TİP and the Socialist movement set the first example of labour politics.	
+
+However these event worried the political right and the Kemalist military greatly and many from these camps began to argue that 'the constitution was too liberal for a nation as economically backward as ours'. In the late 1960's, a splinter party of the ultranational CKMP, MHP formed a militia called 'Ülkü Ocakları' otherwise known as the 'Grey wolves' and started to terrorize the Socialist intelligentsia without state interference. Admist rising political violence, between the Grey Wolves and DEV-GENÇ(a socialist student movement) and worsening economically conditions, after the failed coup attempt of the Socialist Kemalists within the army, the general command launched its own semi-coup on March 12 1971.	
+
+Forcing the AP government of Süleyman Demirel to resign, the military offered the CHP delegate Nihat Erim to form the government, with the condition of leaving his party. Nihat Erim, already sympathetic to the cause of the military accepted the offer and formed his government, which despite collapsing once in late 1971 still holds on.	
+	
+Despite İnönü's silence and the view of the coup as a means for finally bringing CHP to government, not all of CHP approves the coup, and certainly not Bülent Ecevit.	
+
+Some in CHP began to see the necessity of adapting to the times, including the young labour minister Bülent Ecevit. Arguing that Atatürk's vision for Turkey isn't inherently conflicted with Social Democracy, they began advocating for a synthesis of Kemalism and Social Democracy, one that accepts and approves all of the targets of Kemalism but rejects the notion of top-down revolutionarism and the forceful implementation of it. Leading a largely populist movement, Ecevit first rose to the rank of the party secretary and then set his eyes on the party leadership.
+
+Under the junta media and the education have severely been restricted and masses now look up to Ecevit and his rising left of center movement within CHP. Viewing the coup as an attempt to strangle the democratic left, Ecevit has defied the orders of İsmet İnönü and began leading a grassroots movement to first change CHP and then the whole nation.
 
 @curr_gov
 go-to: cabinet if CHP_in_government; menu if not CHP_in_government
