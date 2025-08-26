@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 tags: party_affairs
 view-if: rally_timer <= 0
-on-arrival: month_actions += 1; rally_timer = 6
+on-arrival: month_actions += 1; rally_timer = 8
 card-image: img/ecevitmiting3.jpg
 go-to: main_rally; sa_disrupt if sa_strength > 180 and not sa_banned and not return_to_normalcy
 
@@ -72,7 +72,8 @@ The SA have won this show of strength.
 
 Mass rallies are a common feature of multi party democracies, especially in the lead-up to an election. What is the primary theme of this rally?
 
-- @class_struggle: The class struggle of the proletariat against the bourgeoisie.
+- @class_struggle: The class struggle of the proletariat against the bourgeoisie.	
+- @leftofcenter: With the new direction our party has taken, economic inequality and social justice have become a rallying point for the labourers of this nation.
 - @kemalism: We inherit a great message, the message of modernity and progress, from our founder Atatürk. We are the party of Atatürk first and foremost.
 - @social_programs: Turkish society has historically always been one with great state presence, with the state taking care of many needs of its citizens. We can exploit this situation with our new social programs.
 - @pacifism: Opposing war, nationalism, and militarism at all costs.
@@ -80,13 +81,20 @@ Mass rallies are a common feature of multi party democracies, especially in the 
 - @local: A mixture of various local and national concerns that resonate most with the audience.
 - @easy_discard
 
-@class_struggle
+@class_struggle	
+view-if: kemalist_marxists_strength >= 25
 on-arrival: workers_chp += 1*(1-dissent); state_employees_chp -= 5; rural_chp -= 3; petty_bourgeoisie_chp -= 5; capitalists_chp -= 10; kemalist_marxists_strength += 10; left_kemalists_dissent += 10; orthodox_kemalists_dissent += 20; right_kemalists_dissent += 30; disk_relation += 10; coup_timer += 3
 
-Even though CHP stands for the working class, it preaches for justice, not worker domination. The Marxist rhetoric usually fall on deaf ears and gathers serious backlash from even the Left Kemalists within the party. Our enemies are quick to capitalize on this, calling us "unnational" and "godless marxists".
+Even though CHP stands for the working class, it preaches for justice, not worker domination. The Marxist rhetoric generally fall on deaf ears and gathers serious backlash from even the Left Kemalists within the party. Our enemies are quick to capitalize on this, calling us "unnational" and "godless marxists".
+	
+@leftofcenter	
+view-if: chp_party_leader == "Ecevit"
+on-arrival: workers_chp += 3*(1-dissent); rural_chp += 1*(1-dissent); state_employees_chp += 2*(1-dissent); left_kemalists_strength += 3
+	
+We emphasize our social democratic ideals.
 
 @kemalism
-on-arrival: workers_chp += 3*(1-dissent); state_employees_chp += 5*(1-dissent); rural_chp += 1*(1-dissent); petty_bourgeoisie_chp += 3*(1-dissent); alevis_chp += 4*(1-dissent); left_kemalists_dissent -= 5; orthodox_kemalists_dissent -= 10; right_kemalists_dissent -= 10;
+on-arrival: workers_chp += 2*(1-dissent); state_employees_chp += 3*(1-dissent); rural_chp += 1*(1-dissent); petty_bourgeoisie_chp += 3*(1-dissent); alevis_chp += 4*(1-dissent); left_kemalists_dissent -= 5; orthodox_kemalists_dissent -= 5; orthodox_kemalists_strength += 3
 
 The Turkish nation, except for some radicals in the far away sections of the political spectrum, unite in their love for Atatürk. We have been using this rhetoric for the last 50 years though, and we cant gather enough votes by simply recalling Atatürk, we need to follow in his footsteps through policy platforms and actions.
 
