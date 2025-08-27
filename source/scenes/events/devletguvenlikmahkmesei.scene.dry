@@ -1,0 +1,12 @@
+title: State Security Courts
+view-if: year == 1973 and month = 3 and week = 1
+max-visits: 1
+tags: event
+new-page: true
+
+Under the orders of the prime minister, special courts concerning 'affairs involving the security of the state' have been formed.
+
+- @worry: Worrying news..
+
+@worry
+
