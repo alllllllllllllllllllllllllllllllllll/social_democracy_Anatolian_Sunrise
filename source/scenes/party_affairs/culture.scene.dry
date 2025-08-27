@@ -41,7 +41,6 @@ on-arrival: resources -= 2; rural_chp += 4;
 The first stations are employed and satisfying results arrive from the test rounds. However more work needs to be done.
 
 @literature
-
 on-arrival: petty_bourgeoisie_chp += 1; state_employees_chp += 1
 
 Literature is always influential in shaping opinions, however most of the population lack either access or interest in literary sources.
