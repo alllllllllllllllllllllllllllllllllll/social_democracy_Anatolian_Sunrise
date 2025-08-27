@@ -28,7 +28,64 @@ choose-if: z_relations >= 40
 unavailable-subtitle: No, that didn't happen. AP doesn't trust us enough and we never get the expected cooperation message.	
 on-arrival: z_relations += 3; cgp_relations += 3; {!
 Q.president = "Fahri Korutürk";
-!}	
+!}
+on-display: {!
+data = [
+  {
+      "id": "Koruturk",
+      "legend": "Koruturk",
+      "name": "Koruturk",
+      "seats": 365,
+      "color": "#aeaeae",
+  },  
+  {
+      "id": "Gurler",
+      "legend": "Gurler",
+      "name": "Gurler",
+      "seats": 87,
+      "color": "#8b0000",
+  },
+  {
+      "id": "Ariburun",
+      "legend": "Ariburun",
+      "name": "Ariburun",
+      "seats": 17,
+      "color": "#750a6f",
+  },
+  {
+      "id": "Bozbeyli",
+      "legend": "Bozbeyli",
+      "name": "Bozbeyli",
+      "seats": 51,
+      "color": "#4a4d04",
+  },
+  {
+      "id": "Abstain",
+      "legend": "Abstain",
+      "name": "Abstain",
+      "seats": 78,
+      "color": "#201919",
+  },
+];
+if (window && d3) {
+    var width = 500; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
 With the support of CHP, CGP and AP; Korutürk has begun his presidency. While he is generally viewed as a mediating force, we will see how his presidency will go.	
 
@@ -37,10 +94,60 @@ choose-if: left_kemalists_strength <= 40
 unavailable-subtitle: Our reformist delegates are against serving the desires of the military and prevent us from taking such an action!	
 on-arrival: z_relations -= 10; workers_chp -= 5; rural_chp -= 4; state_employees_chp -= 2; alevis_chp -= 3; kurds_chp -= 3; coup_timer -= 3; left_kemalists_dissent += 15; {!	
 Q.president = "Faruk Gürler"	
-!}	
+!}
 	
 After a meeting with the pazartesi prime minister and the generals, CHP announces its support for Faruk Gürler. The news of the military and CHP agreeing on the Gürler presidency comes as a major shock to many of our supporters and we are accused of hypocracy. 	
 
+on-display: {!
+data = [
+  {
+      "id": "Gurler",
+      "legend": "Gurler",
+      "name": "Gurler",
+      "seats": 321,
+      "color": "#8b0000",
+  },
+  {
+      "id": "Ariburun",
+      "legend": "Ariburun",
+      "name": "Ariburun",
+      "seats": 137,
+      "color": "#750a6f",
+  },
+  {
+      "id": "Bozbeyli",
+      "legend": "Bozbeyli",
+      "name": "Bozbeyli",
+      "seats": 51,
+      "color": "#4a4d04",
+  },
+  {
+      "id": "Abstain",
+      "legend": "Abstain",
+      "name": "Abstain",
+      "seats": 136,
+      "color": "#201919",
+  },
+];
+if (window && d3) {
+    var width = 500; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 After a number of failed rounds, the military surrounded the lower chamber. Under pressure from all sides, some AP delegates have accepted to vote for Gürler and now he is announced to be the president of Turkey for the next 7 years. While Gürler is known for his left wing tendencies, this maneuver will pay us a lot and Demirel will not forget this. 
 
 @ariburun	
@@ -49,6 +156,50 @@ on-arrival: {!
 Q.president = "Tekin Arıburun"	
 !}	
 
+on-display: {!
+data = [
+  {
+      "id": "Gurler",
+      "legend": "Gurler",
+      "name": "Gurler",
+      "seats": 165,
+      "color": "#8b0000",
+  },
+  {
+      "id": "Ariburun",
+      "legend": "Ariburun",
+      "name": "Ariburun",
+      "seats": 340,
+      "color": "#750a6f",
+  },
+  {
+      "id": "Abstain",
+      "legend": "Abstain",
+      "name": "Abstain",
+      "seats": 110,
+      "color": "#201919",
+  },
+];
+if (window && d3) {
+    var width = 500; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
 After a number of failed rounds, Bozbeyli has accepted to withdraw his candidacy in favor of Arıburun in light of recent cooperation and participation in government between the two parties. While Arıburun has resigned from his party symbolically, it is obvious he is not going to be neutral and will favor the right greatly.
 
 @celalbayar	
@@ -56,9 +207,51 @@ view-if: not chancellor == "Nuri Bayar"
 on-arrival: {!	
 Q.president = "Celal Bayar"	
 !}	
-	
+
 After length negotiations between AP and DP and the rejection of the either candidate from either side, the right seems to have agreed on the legendary liberal figure Celal Bayar, who served as prime minister under Atatürk, served as president under Menderes and was one of the names behind the formation of the original Democratic Party. While pretty old, he is still the liberal conservative figure he always was.		
 
+on-display: {!
+data = [
+  {
+      "id": "Gurler",
+      "legend": "Gurler",
+      "name": "Gurler",
+      "seats": 165,
+      "color": "#8b0000",
+  },
+  {
+      "id": "Bayar",
+      "legend": "Bayar",
+      "name": "Bayar",
+      "seats": 340,
+      "color": "#1436cb",
+  },
+  {
+      "id": "Abstain",
+      "legend": "Abstain",
+      "name": "Abstain",
+      "seats": 110,
+      "color": "#201919",
+  },
+];
+if (window && d3) {
+    var width = 500; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
 Celal Bayar has begun his presidency, for likely the last time.  
-
-
