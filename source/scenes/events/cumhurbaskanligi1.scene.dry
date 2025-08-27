@@ -5,6 +5,8 @@ max-visits: 1
 tags: event
 new-page: true
 
+= Presidential Election of 1973
+
 The 7 year term of president Cevdet Sunay is finally coming to a close and now a new obvious question that is arising is, who is going to replace him? 	
 	
 In the election where both the upper chamber, Senate and the lower chamber, TBMM will participate, a majority of 318 out of the 635 total members is needed to elect the new president; which none of the camps below were able to reach as of yet.
@@ -155,7 +157,6 @@ view-if: chancellor == "Nuri Bayar"
 on-arrival: {!	
 Q.president = "Tekin Arıburun"	
 !}	
-
 on-display: {!
 data = [
   {
