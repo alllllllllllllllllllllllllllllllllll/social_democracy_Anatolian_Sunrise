@@ -5,9 +5,9 @@ on-arrival: {!
 if (Q.advisor_action_timer <= 0) {
     Q.pinnedCardsDescription = 'Advisors - an action is available.';
 } else if (Q.advisor_action_timer == 1) {
-    Q.pinnedCardsDescription = 'Advisors - next action available in 2 weeks.';
+    Q.pinnedCardsDescription = 'Advisors - next action available in a month.';
 } else {
-    Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer * 2 + 'weeks.';
+    Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer * ' month.';
 }
 !}
 max-cards: 3
