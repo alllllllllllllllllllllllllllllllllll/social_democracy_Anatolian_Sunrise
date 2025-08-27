@@ -18,14 +18,14 @@ The only candidate with a civil background, Ferruh Bozbeyli has repeatedly stole
 Our party has up until now refused to participate in the elections. However time is coming to a close and we will need to make a choice. AP seems uncomfortable with another military-appointed candidate for the next 7 years just like us, and if our relations are good enough we might be able to agree on a more neutral candidate.	It is likely if Faruk Gürler is unable to be elected, the Ferit Melen government will resign in retaliation.
 
 - @fahrikoruturk: In a secret message sent from the AP headquarters, Süleyman Demirel has put forward three names; Naim Talu, Sabahattin Özbek and Fahri Korutürk. While the first two are unacceptable, we may be able to reach an agreement on Korutürk.
-- @farukgurler	: While the military option is not our ideal one, as it stands our of the possible candidates Faruk Gürler is ideologically the closest one to us. Perhaps we can put our weight behind him and expect the military to put an end to the ensuing parliamentary gridlock. 	
+- @farukgurler: While the military option is not our ideal one, as it stands our of the possible candidates Faruk Gürler is ideologically the closest one to us. Perhaps we can put our weight behind him and expect the military to put an end to the ensuing parliamentary gridlock. 	
 - @ariburun: We wont accept any of these options.		
 - @celalbayar: We wont accept any of these options.														
 	
-@fahrikoruturk			
+@fahrikoruturk	
 subtitle: Korutürk is also a former soldier, however he is seen as much of a neutral and unifying candidate.	
 choose-if: z_relations >= 40	
-unavaliable-subtitle: No, that didn't happen. AP doesn't trust us enough and we never get the expected cooperation message.	
+unavailable-subtitle: No, that didn't happen. AP doesn't trust us enough and we never get the expected cooperation message.	
 on-arrival: z_relations += 3; cgp_relations += 3; {!
 Q.president = "Fahri Korutürk";
 !}	
@@ -34,7 +34,7 @@ With the support of CHP, CGP and AP; Korutürk has begun his presidency. While h
 
 @farukgurler
 choose-if: left_kemalists_strength <= 40	
-unavaliable-subtitle: Our reformist delegates are against serving the desires of the military and prevent us from taking such an action!	
+unavailable-subtitle: Our reformist delegates are against serving the desires of the military and prevent us from taking such an action!	
 on-arrival: z_relations -= 10; workers_chp -= 5; rural_chp -= 4; state_employees_chp -= 2; alevis_chp -= 3; kurds_chp -= 3; coup_timer -= 3; left_kemalists_dissent += 15; {!	
 Q.president = "Faruk Gürler"	
 !}	
