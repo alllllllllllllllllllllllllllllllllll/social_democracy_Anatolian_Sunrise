@@ -13,6 +13,6 @@ Association of Struggle against Communism(Komünizmle Mücadele Derneği, KMD) i
 - @debuff: There is nothing we can do until we curb their influence.	
 
 @debuff	
-on-arrival: rural_chp -= 2; rural_z += 2; petty_bourgeoisie_chp -= 3; petty_bourgeoisie_z += 1; petty_bourgeoisie_mhp += 1; petty_bourgeoisie_msp += 1	
+on-arrival: rural_chp -= 2; rural_z += 2; petty_bourgeoisie_chp -= 3; petty_bourgeoisie_z += 1; petty_bourgeoisie_mhp += 1; petty_bourgeoisie_msp += 1; grey_wolves_strength += 1.5
 
 Spreading misinformation about our political standing and ideology, KMD hurt our attempts at reaching out to the previously conservative demographics.
