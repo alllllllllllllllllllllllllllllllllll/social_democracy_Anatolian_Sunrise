@@ -145,7 +145,12 @@ Q.prussian_government = "CHP";
 Q.thkpc_strength = 2;
 Q.thkpc_militancy = 0.5;
 Q.thkpc_destroyed = 0;
-Q.thkpc_banned = 0;
+Q.thkpc_banned = 0;	
+
+Q.tkpml_strength = 0.5;
+Q.thkpc_militancy = 0.8;	
+Q.tkpml_destroyed = 0;	
+Q.tkpml_banned = 0;
 
 Q.devyol_strength = 55;
 Q.devyol_militancy = 0.3;
@@ -240,12 +245,14 @@ if (Q.total_forces > 0) {
     
     // Individual organization force percentages
     if (!Q.thkpc_destroyed) {
-        Q.thkpc_force_percent = Math.round((Q.thkpc_force / Q.total_forces) * 100);
+        Q.thkpc_force_percent = Math.round((Q.thkpc_force / Q.total_forces) * 0);
     }
     if (Q.devyol_formed) {
         Q.devyol_force_percent = Math.round((Q.devyol_force / Q.total_forces) * 100);
+    }	
+    if (Q.tkpml_formed) {
+        Q.tkpml_force_percent = Math.round((Q.tkpml_force / Q.total_forces) * 100);
     }
-    
     Q.grey_wolves_force_percent = Math.round((Q.grey_wolves_force / Q.total_forces) * 100);
     if (Q.raiders_formed) {
         Q.raiders_force_percent = Math.round((Q.raiders_force / Q.total_forces) * 100);
@@ -305,9 +312,9 @@ Q.reichswehr_loyalty = 0.2;
 // popular opinion
 // national ideology - on a binary scale
 // nationalism vs internationalism or pacifism or non-nationalism
-Q.nationalism = 60;
+Q.nationalism = 80;
 // socialism vs capitalism
-Q.socialism = 40;
+Q.socialism = 6;
 // pro-republic vs anti-republic
 Q.pro_republic = 86;
 
@@ -323,7 +330,7 @@ Q.constructive_vonc = 0;
 Q.presidential_powers = 0;
 // allows banning of non-constitutional parties
 Q.constitutional_protection = 0;
-Q.TIP_banned = 0;
+Q.TIP_banned = 1;
 Q.MHP_banned = 0;
 
 // coups and capital strikes happen when you upset the right or the capitalists too much with your policies. they're an additional check on your policies, when purely electoral checks don't suffice.
