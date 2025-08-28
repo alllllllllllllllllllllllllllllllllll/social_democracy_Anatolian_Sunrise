@@ -672,7 +672,7 @@ subtitle: The hero of the republic, right hand man of the Atatürk and former pr
 is-card: true
 card-image: img/portraits/IsmetInonu.jpg
 tags: orthodox_kemalist_advisor
-view-if: inonu_advisor = 0 and n_advisors < 3
+view-if: inonu_dead = 0 and inonu_advisor = 0 and n_advisors < 3
 on-arrival: inonu_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
@@ -684,7 +684,7 @@ subtitle: Kemal Satır is a former doctor and one of the prominent names among t
 is-card: true
 card-image: img/portraits/KemalSatir.png
 tags: orthodox_kemalist_advisor
-view-if: satir_advisor = 0 and n_advisors < 3
+view-if: chp_party_leader == "İnönü" and satir_advisor = 0 and n_advisors < 3
 on-arrival: satir_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
@@ -757,7 +757,7 @@ title: Ali İhsan Göğüs
 subtitle: Ali İhsan Göğüs is a staunch opponent of the left of center movement and has served as the minister of tourism in the Nihat Erim cabinet.
 is-card: true
 card-image: img/portraits/AliIhsanGogus.jpg
-view-if: gogus_advisor = 0 and n_advisors < 3
+view-if: chp_party_leader == "İnönü" and gogus_advisor = 0 and n_advisors < 3
 on-arrival: gogus_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
 go-to: advisor_menu
 tags: right_kemalist_advisor
@@ -769,7 +769,7 @@ title: Carlo Mierendorff
 subtitle: Carlo Mierendorff is one of the youngest members of the Reichstag, and the originator of the "Right Kemalist" movement. He is an anti-Nazi strategist. {!<br><br>!}[? if difficulty < 0 : Actions - Build the Iron Front, Warning About the Nazis ?]
 is-card: true
 card-image: img/portraits/MierendorffCarlo.jpg
-view-if: mierendorff_advisor = 0 and n_advisors < 3
+view-if: chp_party_leader == "İnönü" and mierendorff_advisor = 0 and n_advisors < 3
 on-arrival: mierendorff_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
 go-to: advisor_menu
 tags: right_kemalist_advisor
@@ -805,7 +805,7 @@ title: Emin Paksüt
 subtitle: Emin Paksüt is a Right Kemalist intellectual and former minister of public works.
 is-card: true
 card-image: img/portraits/Eminpaksut.jpeg
-view-if: paksut_advisor = 0 and n_advisors < 3
+view-if: chp_party_leader == "İnönü" and paksut_advisor = 0 and n_advisors < 3
 on-arrival: paksut_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
 go-to: advisor_menu
 tags: right_kemalist_advisor
@@ -817,7 +817,7 @@ title: Fethi Çelikbaş
 subtitle: Fethi Çelikbaş is a pragmatist Right Kemalist politician and former minister of Industry and economy.
 is-card: true
 card-image: img/portraits/FethiCelikbas.jpeg
-view-if: celikbas_advisor = 0 and n_advisors < 3
+view-if: chp_party_leader == "İnönü" and celikbas_advisor = 0 and n_advisors < 3
 on-arrival: celikbas_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
 go-to: advisor_menu
 tags: right_kemalist_advisor
@@ -856,7 +856,7 @@ title: Tarık Akan
 subtitle: Tarık Akan is an actor from the Yeşilçam cinema and even though he seems unwilling to participate in active politics, he also seems sympathethic to the direction our party has taken..
 is-card: true
 card-image: img/portraits/TarikAkan.jpg
-view-if: akan_advisor = 0 and n_advisors < 3 and CHP_party_leader == "Ecevit"
+view-if: akan_advisor = 0 and n_advisors < 3 and CHP_party_leader == "Ecevit" and year >= 1975
 on-arrival: akan_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: nonfactional_advisor
