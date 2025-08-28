@@ -140,6 +140,9 @@ Municipality Control: [+ municipalities_controlled +]/[+ total_municipalities +]
 on-arrival: {!
 if (Q.thkpc_strength) {
     Q.thkpc_strength_2 = Q.thkpc_strength.toFixed(1);
+}	
+if (Q.tkpml_strength) {
+    Q.tkpml_strength_2 = Q.tkpml_strength.toFixed(1);
 }
 if (Q.devyol_strength) {
     Q.devyol_strength_2 = Q.devyol_strength.toFixed(1);
@@ -183,7 +186,11 @@ Q.army_aerial_desc = getStrengthDescription(Q.army_aerial_strength);
 
 [? if devyol_formed: {!<span class="tooltip-text" title="DEV-YOL (Revolutionary Path) is a left-wing militant organization.">DEV-YOL</span>!} Strength: [+ devyol_strength_2 +] thousand ?]
 
-[? if devyol_formed: DEV-YOL Militarization: [+ devyol_militancy : militancy +] ?]
+[? if devyol_formed: DEV-YOL Militarization: [+ devyol_militancy : militancy +] ?]		
+
+[? if tkpml_formed: {!<span class="tooltip-text" title="TKP/ML TKP'ML is a Maoist terrorist group formed by İbrahim Kaypakkaya.">TKP/ML</span>!} Strength: [+ tkpml_strength_2 +] thousand ?]
+
+[? if tkpml_formed: TKP/ML Militarization: [+ tkpml_militancy : militancy +] ?] 
 
 **State**
 
