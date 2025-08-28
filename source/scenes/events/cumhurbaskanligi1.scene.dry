@@ -22,8 +22,8 @@ Our party has up until now refused to participate in the elections. However time
 
 - @fahrikoruturk: In a secret message sent from the AP headquarters, Süleyman Demirel has put forward three names; Naim Talu, Sabahattin Özbek and Fahri Korutürk. While the first two are unacceptable, we may be able to reach an agreement on Korutürk.
 - @farukgurler: While the military option is not our ideal one, as it stands our of the possible candidates Faruk Gürler is ideologically the closest one to us. Perhaps we can put our weight behind him and expect the military to put an end to the ensuing parliamentary gridlock. 	
-- @ariburun: We wont accept any of these options.		
-- @celalbayar: We wont accept any of these options.														
+- @ariburun: We are unable to take action to solve the crisis.	
+- @sunay: We are unable to take action to solve the crisis.													
 	
 @fahrikoruturk	
 subtitle: Korutürk is also a former soldier, however he is seen as much of a neutral and unifying candidate.	
@@ -204,36 +204,36 @@ if (window && d3) {
 
 After a number of failed rounds, Bozbeyli has accepted to withdraw his candidacy in favor of Arıburun in light of recent cooperation and participation in government between the two parties. While Arıburun has resigned from his party symbolically, it is obvious he is not going to be neutral and will favor the right greatly.
 
-@celalbayar	
+@sunay	
 view-if: not chancellor == "Nuri Bayar"	
-on-arrival: {!	
-Q.president = "Celal Bayar"	
-!}	
+on-arrival: coup_timer += 1
+	
+After 34 rounds of failed votes, the pressure by the military mounts and CHP, CGP and AP are forced to negotiate an end to the crisis. The option of giving Sunay another term, which lacked the necessary support before, now seems to be the only way out of the crisis without an intervention.	
 
-After length negotiations between AP and DP and the rejection of the either candidate from either side, the right seems to have agreed on the legendary liberal figure Celal Bayar, who served as prime minister under Atatürk, served as president under Menderes and was one of the names behind the formation of the original Democratic Party. While pretty old, he is still the liberal conservative figure he always was.		
+Sunay who was preparing to retire is called and barely convinced to serve another term, for the sake of political stability.
 
 on-display: {!
 data = [
   {
-      "id": "Gurler",
-      "legend": "Gurler",
-      "name": "Gurler",
-      "seats": 165,
-      "color": "#8b0000",
+      "id": "Nay",
+      "legend": "Nay",
+      "name": "Nay",
+      "seats": 143,
+      "color": "#c51313",
   },
   {
-      "id": "Bayar",
-      "legend": "Bayar",
-      "name": "Bayar",
-      "seats": 340,
-      "color": "#1436cb",
+      "id": "Aye",
+      "legend": "Aye",
+      "name": "Aye",
+      "seats": 372,
+      "color": "#158e33",
   },
   {
       "id": "Abstain",
       "legend": "Abstain",
       "name": "Abstain",
       "seats": 110,
-      "color": "#201919",
+      "color": "#9e9e9e",
   },
 ];
 if (window && d3) {
@@ -256,4 +256,4 @@ if (window && d3) {
 
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
-Celal Bayar has begun his presidency, for likely the last time.  
+The political gridlock has been solved with the continuation of the Sunay presidency, even though TBMM's slowness and inaction have been noted by many and especially the military. 
