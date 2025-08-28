@@ -3,18 +3,18 @@ new-page: true
 view-if: inter_party_relationships_timer <= 0
 tags: party_affairs
 is-card: true
-on-arrival: month_actions += 1; inter_party_relationships_timer = 6;
-card-image: img/weimar_coalition_2.jpg
-max-visits: 12
+on-arrival: month_actions += 1; inter_party_relationships_timer = 8;
+card-image: img/partilerarasi.jpg
+max-visits: 24
 #subtitle: Building relations with the other political parties of Germany.
 
 = Inter-Party Relationships
 
 The CHP cannot govern by itself yet. Because we do not have an electoral majority, we need the support of other parties. Recently, our governments have consisted of the Weimar Coalition of the CHP, Center, and Democratic parties. We can reach out and build additional connections with these parties, or perhaps we can stand alone.
-
-- @liberals: Strengthen our bonds with the left-liberal German Democratic Party and conservative-liberal German People's Party.
-- @center: Strengthen our bonds with the Catholic Center Party.
-- @TIP: Work towards improving relations with the Socialist movement.
+- @liberals: Strengthen our bonds with our splinter party CGP
+- @center: Strengthen our bonds with the AP
+- @TIP: Work towards improving relations with the Socialist movement
+- @MSP: Perhaps we can try contacting MSP?
 - @CHP_alone: The CHP can stand alone for now.
 - @easy_discard
 
@@ -32,57 +32,62 @@ on-arrival: TIP_relation += 6*(1 - dissent)
 Since TIP is currently banned, many Socialists welcome our attempts to create a political platform for them.
 
 @demsoc
-on-arrival: TIP_relation += 8
+on-arrival: TIP_relation += 8*(1 - dissent)	
+
+Mehmet Ali Aybar's TIP is ideologically close with us and its only natural that we improve our relations.
+	
+@commie	
+on-arrival: TIP_relation += 4*(1 - dissent)
+	
+The ideological turn TIPO has taken is incompatible with ours and this makes attempts at improving our relations less efficient.
 
 @center
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; AP_relation += 2 if AP_party_leader == "Joos"
-go-to: center_op if AP_in_government = 1 and CHP_in_government = 0 and chancellor != "Brüning"; center_coalition if CHP_in_government = 1 and AP_in_government = 1; center_bruning if chancellor = "Brüning"
+on-arrival: resources -= 1; AP_relation += 5*(1 - dissent)
+go-to: @antimilitary if year <= 1974; @enemies if year >= 1973	
 
-@center_op
-on-arrival: z_relation += 5*(1 - dissent)
+@antimilitary	
+on-arrival: z_relation += 6*(1 - dissent)	
+	
+Even though we have our political differences, both of our party leaderships want to get rid of the military influence and our commitment to race in fair terms is what unites us.	
 
-We are currently in opposition to the Center-led government, but that does not preclude the general building of feelings of good will.
+@enemies	
+on-arrival: z_relation += 3*(1 - dissent)
 
-@center_coalition
-on-arrival: z_relation += 8*(1 - dissent)
-
-We are currently coalition partners with them, so improving relations comes naturally.
-
-@center_bruning
-on-arrival: z_relation += 5*(1 - dissent)
-
-The Brüning semi-autocratic regime makes building friendly relations difficult, but not impossible.
+Since the common enemy that used to unite us went into the shadows, we now have no reason to cooperate as the polar opposites of the Turkish politics. However, we can still try fostering connections.
 
 @liberals
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; CGP_relation += 5*(1 - dissent)
-go-to: DP_stresemann if stresemann_dead = 0; DP_loss if stresemann_dead = 1 and year <= 1930; DP_moribound if year > 1930
+	
+Though they seem uninterested in cooperation, they are still the closest party to us ideologically on the right. 
+	
+@MSP	
+subtitle: -1 resources	
+choose-if: resources >= 1	
+unavailable-subtitle: Not enough resources.	
+view-if: CHP_party_leader == "Ecevit"
+on-arrival: resources -= 1	
+go-to: @surprising if year <= 1974; @coalition if year >= 1973 and MSP_in_government == 1 and CHP_in_government == 1; @hellnah if year >= 1973 and not MSP_in_government == 1 and CHP_in_government == 1	
 
-The [+ CGP_name +] has been one of our closest allies through the course of the Republic.
+@surprising	
+on-arrival: MSP_relation += 4*(1 - dissent)	
 
-@DP_stresemann
-on-arrival: DP_relation += 8*(1 - dissent)
+Despite the fact that Islamists are normally our arch enemies, MSP in a strange position where they are rejected by both the liberals of the right and the Kemalist establishment. For this reason, we have managed to form some connections that normally wouldn't be thought of as feasible. 	
 
-Gustav Stresemann, the leader of the DP is the best foreign policy leaders of the republic, and while he has previously expressed monarchist tendencies, he has been friendly towards us.
+@coalition	
+on-arrival: MSP_relation += 5*(1 - dissent)	
 
-@DP_loss
-on-arrival: DP_relation += 5*(1 - dissent)
+We are stuck in a coalition with them, and it may be the best choice to maintain cordial relations.	
 
-With the death of Gustav Stresemann, the DP is much less likely to be accommodating of us. In addition, the liberal parties are electorally in decline, so perhaps our efforts are best spent elsewhere.
+@hellnah	
+on-arrival: MSP_relation += 2*(1 - dissent)	
 
-However, given the influence of the DP among the other right-leaning parties [? if president == "Hindenburg": and with President Hindenburg ?], it can still be helpful to influence them.
-
-@DP_moribound
-on-arrival: DP_relation += 5*(1 - dissent)
-
-The liberal parties (both the [+ CGP_name +] and DP) are electorally moribund, so perhaps our efforts are best spent elsewhere.
-
-However, given the influence of the DP among the other right-leaning parties[? if president == "Hindenburg": and with President Hindenburg ?], it can still be helpful to influence them.
+Currently there is little incentive for stronger ties between the two parties.
 
 @CHP_alone
 
