@@ -210,7 +210,10 @@ if (Q.devyol_formed) {
     Q.devyol_force = Q.devyol_strength * Q.devyol_militancy;
     Q.far_left_force += Q.devyol_force;
 }
-
+if (Q.tkpml_formed) {
+    Q.tkpml_force = Q.tkpml_strength * Q.tkpml_militancy;
+    Q.far_left_force += Q.tkpml_force;
+}
 // Far right forces calculation (strength × militancy)
 Q.grey_wolves_force = Q.grey_wolves_strength * Q.grey_wolves_militancy;
 Q.far_right_force += Q.grey_wolves_force;
