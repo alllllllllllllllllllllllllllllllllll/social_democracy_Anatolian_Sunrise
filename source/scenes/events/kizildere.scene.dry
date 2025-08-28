@@ -21,4 +21,4 @@ With this skirmish, THKP-C has begun disintegrating and likely won't be able to 
 - @dust: Another one bites the dust.
 
 @dust
-on-arrival: thkpc_destroyed = 1; thkpc_strength_2 = 0; thkpc_militancy = 0
+on-arrival: thkpc_destroyed = 1; thkpc_strength = 0; thkpc_militancy = 0
