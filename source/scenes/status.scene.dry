@@ -179,7 +179,7 @@ Q.army_aerial_desc = getStrengthDescription(Q.army_aerial_strength);
 
 [? if not thkpc_destroyed: {!<span class="tooltip-text" title="THKP-C (People's Liberation Party-Front of Turkey) is a far-left revolutionary organization.">THKP-C</span>!} Strength: [+ thkpc_strength_2 +] thousand ?]
 
-[? if not thkpc_destroyed: THKP-C Militarization: [+ thkpc_militancy : militancy +] ?]
+[? if not thkpc_destroyed: THKP-C Militarization: [+ thkpc_militancy : militancy +] ?]	
 
 [? if devyol_formed: {!<span class="tooltip-text" title="DEV-YOL (Revolutionary Path) is a left-wing militant organization.">DEV-YOL</span>!} Strength: [+ devyol_strength_2 +] thousand ?]
 
@@ -280,7 +280,7 @@ Capitalists: CHP: [+ capitalists_chp_display +]%, AP: [+ capitalists_z_display +
 
 Alevis: CHP: [+ alevis_chp_display +]%, AP: [+ alevis_z_display +]%, TIP: [+ alevis_TIP_display +]%, [? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ alevis_CGP_display +]%, DP: [+ alevis_DP_display +]%; MSP: [+ alevis_MSP_display +]%, MHP: [+ alevis_MHP_display +]%, Others: [+ alevis_other_display +]% [? if sapd_formed: SAPD: [+ alevis_sapd_display +]% ?]
 
-Kurds: CHP: [+ kurds_chp_display +]%, AP: [+ kurds_z_display +]%, TIP: [+ kurds_TIP_display +]%, [? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ kurds_CGP_display +]%, DP: [+ kurds_DP_display +]%; MSP: [+ kurds_MSP_display +]%, MHP: [+ kurds_MHP_display +]%, Others: [+ kurds_other_display +]% [? if sapd_formed: SAPD: [+ kurds_sapd_display +]% ?]
+Kurdish National Movement: CHP: [+ kurds_chp_display +]%, AP: [+ kurds_z_display +]%, TIP: [+ kurds_TIP_display +]%, [? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ kurds_CGP_display +]%, DP: [+ kurds_DP_display +]%; MSP: [+ kurds_MSP_display +]%, MHP: [+ kurds_MHP_display +]%, Others: [+ kurds_other_display +]% [? if sapd_formed: SAPD: [+ kurds_sapd_display +]% ?]
 
 Support for the Republic: [+ pro_republic_disp +]%
 
