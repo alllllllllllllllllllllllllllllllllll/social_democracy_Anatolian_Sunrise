@@ -24,7 +24,7 @@ subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; TIP_inter_party_seen += 1
-go-to: @grassroots if TIP_banned == 1; @demsoc if TIP_banned == 0 and TIP_leader == "Mehmet Ali Aybar"; @commie if TIP_banned 0 and TIP_leader == "Behice Boran"  
+go-to: @grassroots if TIP_banned == 1; @demsoc if TIP_banned == 0 and TIP_leader == "Mehmet Ali Aybar"; @commie if TIP_banned == 0 and TIP_leader == "Behice Boran"  
 
 @grassroots
 on-arrival: TIP_relation += 6*(1 - dissent)  
