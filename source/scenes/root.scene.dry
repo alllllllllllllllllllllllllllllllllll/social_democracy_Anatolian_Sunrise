@@ -55,7 +55,7 @@ Q.left_kemalists_dissent = 20;
 Q.orthodox_kemalists_strength = 25;
 Q.orthodox_kemalists_dissent = 5;
 Q.right_kemalists_strength = 25;
-Q.right_kemalists_dissent = 5;
+Q.right_kemalists_dissent = 10;
 
 // secret events...
 Q.unions_independent = 0;
