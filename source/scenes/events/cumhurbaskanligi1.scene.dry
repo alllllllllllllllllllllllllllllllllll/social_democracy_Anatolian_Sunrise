@@ -207,11 +207,6 @@ After a number of failed rounds, Bozbeyli has accepted to withdraw his candidacy
 @sunay	
 view-if: not chancellor == "Nuri Bayar"	
 on-arrival: coup_timer += 1
-	
-After 34 rounds of failed votes, the pressure by the military mounts and CHP, CGP and AP are forced to negotiate an end to the crisis. The option of giving Sunay another term, which lacked the necessary support before, now seems to be the only way out of the crisis without an intervention.	
-
-Sunay who was preparing to retire is called and barely convinced to serve another term, for the sake of political stability.
-
 on-display: {!
 data = [
   {
@@ -254,6 +249,10 @@ if (window && d3) {
 }
 !}
 
-{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}	
+
+After 34 rounds of failed votes, the pressure by the military mounts and CHP, CGP and AP are forced to negotiate an end to the crisis. The option of giving Sunay another term, which lacked the necessary support before, now seems to be the only way out of the crisis without an intervention.	
+
+Sunay who was preparing to retire is called and barely convinced to serve another term, for the sake of political stability.
 
 The political gridlock has been solved with the continuation of the Sunay presidency, even though TBMM's slowness and inaction have been noted by many and especially the military. 
