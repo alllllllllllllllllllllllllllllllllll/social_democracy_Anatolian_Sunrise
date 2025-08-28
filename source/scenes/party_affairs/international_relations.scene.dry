@@ -25,7 +25,7 @@ Even though the "Left of Center" movement that is dominating our party is an ind
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; west_relation += 5; left_kemalists_strength += 5; western_socialist_contacts += 1
+on-arrival: resources -= 1; west_relation += 3; left_kemalists_strength += 5; western_socialist_contacts += 1
 
 We have improved our relations with our Western partners and albeit very slightly, seen a shift in their attitude.
 
