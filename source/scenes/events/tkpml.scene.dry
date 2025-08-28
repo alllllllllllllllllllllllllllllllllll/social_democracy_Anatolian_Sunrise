@@ -1,0 +1,20 @@
+title: TKP/ML is formed!
+view-if: year == 1972 and month = 5 and week = 1
+max-visits: 1
+tags: event
+new-page: true	
+
+= TKP/ML is formed!
+
+Marxism in Turkey is largely acceptive of the achievements of the Kemalist Revolution, which is viewed as a Bourgeoisie progressive revolution led by a benevolent figure and needs to be completed with a transformation into Socialism. One man within the Marxist community stayed away from this analysis, and this was İbrahim Kaypakkaya. Seeing Atatürk and his actions as tyrannical and oppressive despite its claims of being the representative of the Enlightenment, Kaypakkaya has long advocated for a Socialist movement that opposes the Kemalist establishment just as much it does with the reactionaries.	
+
+Kaypakkaya's dream might come to reality.	
+
+With the void within Socialism militancy due to the annihilation of THKO led by Deniz Gezmiş and the weakening of THKP-C led by Mahir Çayan, both having a positive opinion of Atatürk and Kemalism, Kaypakkaya has moved on to fill in the void with his alike minded men and formed TKP/ML.
+
+Endoring the Maoist doctrine of revolution from the countryside, many reports of Kaypakkaya and his men robbing caravans and trucks along the mountains and the plains have started coming to Ankara. While TKP/ML remains a minor organization for now, a lot depends on whether Kaypakkaya will be able to reorganize his group into a so called 'people's army' in the future.	
+
+- @tkpml: Is this seriously how they plan to achieve Socialism?	
+
+@tkpml	
+on-arrival:	tkpml_formed = 1
