@@ -3,7 +3,8 @@ subtitle: The creation of a legendary title
 view-if: year == 1972 and month = 8 and week = 1
 max-visits: 1
 tags: event
-new-page: true	
+new-page: true
+face-image: img/karaoglanecevit.jpg
 
 =”Ay bizi bu kara günlerden kurtar Karaoğlan!“
 	
