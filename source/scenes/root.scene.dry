@@ -248,7 +248,7 @@ if (Q.total_forces > 0) {
     
     // Individual organization force percentages
     if (!Q.thkpc_destroyed) {
-        Q.thkpc_force_percent = Math.round((Q.thkpc_force / Q.total_forces) * 0);
+        Q.thkpc_force_percent = Math.round((Q.thkpc_force / Q.total_forces) * 100);
     }
     if (Q.devyol_formed) {
         Q.devyol_force_percent = Math.round((Q.devyol_force / Q.total_forces) * 100);
