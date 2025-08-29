@@ -932,7 +932,7 @@ For more information on the politics and government of the Turkish Republic, see
 - @1928_historical: Begin (historical mode)
 
 @1928_easy
-on-arrival: difficulty = -1; resources = 4; dues = 3; police_strength = 50; TIP_relation = 45;z_relation = 54; DP_relation = 40; budget = 5;
+on-arrival: difficulty = -1; resources = 4; dues = 3; police_strength = 50; TIP_relation = 40;z_relation = 40; DP_relation = 40; budget = 5;
 go-to: 1928_main
 
 @1928_hard
@@ -952,7 +952,7 @@ Q.left_dissent = 30;
 Q.labor_dissent = 25;
 Q.center_dissent = 25;
 Q.z_relation = 35;
-Q.TIP_relation = 40;
+Q.TIP_relation = 35;
 Q.DP_relation = 30;
 Q.budget = 2;
 this.state.disableSaves = true;
