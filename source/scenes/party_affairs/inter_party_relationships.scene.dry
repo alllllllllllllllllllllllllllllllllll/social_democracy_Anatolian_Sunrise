@@ -11,13 +11,13 @@ max-visits: 24
 = Inter-Party Relationships
 
 The CHP cannot govern by itself yet. Because we do not have an electoral majority, we need the support of other parties. Recently, our governments have consisted of the Weimar Coalition of the CHP, Center, and Democratic parties. We can reach out and build additional connections with these parties, or perhaps we can stand alone.
+	
 - @liberals: Strengthen our bonds with our splinter party CGP
 - @center: Strengthen our bonds with the AP
 - @TIP: Work towards improving relations with the Socialist movement
 - @MSP: Perhaps we can try contacting MSP?
 - @CHP_alone: The CHP can stand alone for now.
 - @easy_discard
-
 
 @TIP
 subtitle: -1 resources
