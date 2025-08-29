@@ -23,7 +23,7 @@ In our media and campaign materials, who should we consider as our main opponent
 
 @military
 view-if: CHP_party_leader == "Ecevit"
-on-arrival: enemies = "military"; coup_timer += 1; left_kemalists_strength += 5; left_kemalists_dissent -= 5; orthodox_kemalists_dissent += 5; right_kemalists_dissent += 10;z_relation += 5
+on-arrival: enemies = "military"; coup_timer += 1; left_kemalists_strength += 5; left_kemalists_dissent -= 5; orthodox_kemalists_dissent += 5; right_kemalists_dissent += 10; z_relation += 5
 
 Targeting the military establishment appeals to the left wing of our party and aligns with democratic reform goals, but alienates our orthodox and right-wing factions who prefer stability. This stance may also increase coup risk and improve relations with the Justice Party.
 
@@ -48,6 +48,6 @@ on-arrival: enemies = "THKPC"; left_kemalists_dissent += 5; orthodox_kemalists_d
 Attacking the far-left THKP-C and similar organizations appeals to our more moderate factions, but may alienate the left wing of our party and hurt relations with the TIP.
 
 @bourgeois
-on-arrival: enemies = "bourgeois parties"; left_strength += 8; left_dissent -= 5; DP_relation -= 5;AP_relation -= 5; TIP_relation += 5; reformist_dissent += 8; workers_z -= 3; coalition_dissent += 1
+on-arrival: enemies = "bourgeois parties"; left_strength += 8; left_dissent -= 5; DP_relation -= 5;z_relation -= 5; TIP_relation += 5; reformist_dissent += 8; workers_z -= 3; coalition_dissent += 1
 
 Our anti-bourgeois rhetoric is popular among the left, but may make it harder to build the coalitions that are necessary for government in the future.

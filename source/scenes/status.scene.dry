@@ -83,7 +83,7 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 {!<span class="tooltip-text" title="Republican Trust Party">!}[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]{!</span>!}: [+ CGP_relation : relationships +]
 
-{!<span class="tooltip-text" title="Justice Party">AP</span>!}: [+AP_relation : relationships +]
+{!<span class="tooltip-text" title="Justice Party">AP</span>!}: [+z_relation : relationships +]
 
 {!<span class="tooltip-text" title="Democratic Party">DP</span>!}: [+ DP_relation : relationships +]
 
@@ -99,7 +99,7 @@ CHP: [? if CHP_party_leader == "İnönü" : Kemalism (İnönü) ?][? if CHP_part
 
 CGP: [? if CGP_party_leader == "Feyzioğlu" : Right Kemalism (Feyzioğlu) ?]
 
-AP:  [? ifz_party_leader == "Demirel" : Conservative Liberalism (Demirel) ?]
+AP:  [? if z_party_leader == "Demirel" : Conservative Liberalism (Demirel) ?]
 
 DP:  [? if DP_party_leader == "Bozbeyli" : Conservative Populism (Bozbeyli) ?]
 

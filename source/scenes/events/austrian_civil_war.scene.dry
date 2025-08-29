@@ -73,7 +73,7 @@ Given the SDAPÖ's starting position, this is treated as a victory. Now begins t
 
 @long_war_2
 title: There is nothing we can do.
-on-arrival:z_relation -= 6; DP_relation -= 6; CGP_relation -= 3; catholics_CHP -= 5; old_middle_CHP -= 5; coalition_dissent += 1; economic_growth -= 0.5
+on-arrival: z_relation -= 6; DP_relation -= 6; CGP_relation -= 3; catholics_CHP -= 5; old_middle_CHP -= 5; coalition_dissent += 1; economic_growth -= 0.5
 
 No matter our efforts, the war continues. Too many lives are extinguished. Refugees begin to flow into Germany, and trade suffers. Many are calling our Austrian interference a mistake.
 

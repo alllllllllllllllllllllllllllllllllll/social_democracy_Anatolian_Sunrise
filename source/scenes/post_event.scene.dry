@@ -263,7 +263,7 @@ if (Q.month_actions >= 1) {
             Q.workers_CHP -= 2;
             Q.petty_bourgeoisie_CHP -= 2;
             Q.state_employees_CHP -= 2;
-        } else if (Q.AP_in_government) {
+        } else if (Q.z_in_government) {
             Q.workers_AP -= 2;
             Q.petty_bourgeoisie_AP -= 2;
             Q.state_employees_AP -= 2;
@@ -275,7 +275,7 @@ if (Q.month_actions >= 1) {
             Q.workers_CHP -= 1;
             Q.petty_bourgeoisie_CHP -= 1;
             Q.state_employees_CHP -= 1;
-        } else if (Q.AP_in_government) {
+        } else if (Q.z_in_government) {
             Q.workers_AP -= 1;
             Q.petty_bourgeoisie_AP -= 1;
             Q.state_employees_AP -= 1;
@@ -285,7 +285,7 @@ if (Q.month_actions >= 1) {
         Q.agricultural_price_timer = 0;
         if (Q.CHP_in_government) {
             Q.rural_CHP -= 1;
-        } else if (Q.AP_in_government) {
+        } else if (Q.z_in_government) {
             Q.rural_AP -= 1;
         }
     } else if (Q.agricultural_product_prices < 0.80 && Q.agricultural_price_timer >= 2) {
@@ -293,7 +293,7 @@ if (Q.month_actions >= 1) {
         Q.agricultural_price_timer = 0;
         if (Q.CHP_in_government) {
             Q.rural_CHP -= 2;
-        } else if (Q.AP_in_government) {
+        } else if (Q.z_in_government) {
             Q.rural_AP -= 2;
         }
     }

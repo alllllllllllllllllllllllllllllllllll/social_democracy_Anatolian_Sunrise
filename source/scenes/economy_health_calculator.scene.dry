@@ -75,7 +75,7 @@ if (Q.apply_economy_effects == 1) {
             Q.capitalists_CHP += 10;
             Q.alevis_CHP += 5;
             Q.kurds_CHP += 5;
-        } else if (Q.AP_in_government) {
+        } else if (Q.z_in_government) {
             Q.rural_AP += 5;
             Q.workers_AP += 5;
             Q.petty_bourgeoisie_AP += 5;
@@ -102,7 +102,7 @@ if (Q.apply_economy_effects == 1) {
             Q.capitalists_CHP -= 2;
             Q.alevis_CHP -= 2;
             Q.kurds_CHP -= 2;
-        } else if (Q.AP_in_government) {
+        } else if (Q.z_in_government) {
             Q.rural_AP -= 2;
             Q.workers_AP -= 2;
             Q.petty_bourgeoisie_AP -= 2;
@@ -129,7 +129,7 @@ if (Q.apply_economy_effects == 1) {
             Q.capitalists_CHP -= 4;
             Q.alevis_CHP -= 4;
             Q.kurds_CHP -= 4;
-        } else if (Q.AP_in_government) {
+        } else if (Q.z_in_government) {
             Q.rural_AP -= 4;
             Q.workers_AP -= 4;
             Q.petty_bourgeoisie_AP -= 4;

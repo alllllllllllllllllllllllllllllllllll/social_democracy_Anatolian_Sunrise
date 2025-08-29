@@ -275,7 +275,7 @@ on-arrival: {!
 // set congress proportion to votes
 Q.chp_r = Q.chp_votes;
 Q.z_r = Q.z_votes;
-Q.AP_r = Q.z_votes; // AP display variable matches z_votes
+Q.z_r = Q.z_votes; // AP display variable matches z_votes
 Q.TIP_r = Q.TIP_votes;
 Q.CGP_r = Q.CGP_votes;
 Q.DP_r = Q.DP_votes;
@@ -313,7 +313,7 @@ The electoral system is essentially proportional, with the proportion of parliam
 
 **CHP (Cumhuriyet Halk Partisi):** [+ chp_r +]%
 
-**AP (Adalet Partisi):** [+z_r +]%
+**AP (Adalet Partisi):** [+ z_r +]%
 
 **TİP (Türkiye İşçi Partisi):** [+ TIP_r +]%
 
