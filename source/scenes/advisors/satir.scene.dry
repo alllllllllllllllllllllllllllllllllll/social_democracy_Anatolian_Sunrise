@@ -11,7 +11,7 @@ Kemal Satır is a prominent member of the Orthodox wing within the party. Once t
 
 - @leave: Satır is one of the leading figures of the anti-left of center front. Perhaps we can convince them to not splinter the party after the congress?
 - @health: Satır is a former doctor and can serve as the minister of health in a potential government.
-- @easy_discard
+- @root: Return to main
 
 @leave
 choose-if: advisor_action_timer = 0

@@ -11,7 +11,7 @@ new-page: true
 
 - @campaign: İnönü can continue to campaign as if nothing is happening inside the party. However its doubtful how much that can help him..
 - @stay: Can we convince İnönü to stay in the party even if he loses the leadership?
-- @easy_discard
+- @root: Return to main
 
 @campaign
 go-to: campaigning

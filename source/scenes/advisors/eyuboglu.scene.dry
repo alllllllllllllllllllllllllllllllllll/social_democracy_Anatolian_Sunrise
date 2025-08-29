@@ -12,7 +12,7 @@ Orhan Eyüboğlu is the vice secretary of the CHP and is in support of İnönü.
 - @orthodoxdissent: Even though favoring İnönü, Eyüboğlu isn't inherently against Ecevit's position and prioritizes party stability over petty ideological differences. 
 - @partyorganization: Having served as the vice speaker of the party, Eyüboğlu can help manage the party organizations.
 - @localgovernence: Eyüboğlu has served as the governor of İstanbul between 1963 and 1968. His experience can prove beneficial for managing our municipalities efficiently.
-- @easy_discard
+- @root: Return to main
 
 @orthodoxdissent
 choose-if: advisor_action_timer = 0

@@ -10,7 +10,7 @@ new-page: true
 Mustafa Üstündağ is a reformist pedagogue within CHP and is responsible for managing the educational platform and policies of our party	
 
 - @ministry: Üstündağ can take part in reforming the educational system		
-- @easy_discard	
+- @root: Return to main	
 
 @ministry	
 choose-if: advisor_action_timer = 0 and chp_in_government = 1

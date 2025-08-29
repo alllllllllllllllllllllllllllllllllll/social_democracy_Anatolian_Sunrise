@@ -12,7 +12,7 @@ The chief of the technocratic delegation behind the 1960 Constitution, Aksoy is 
 - @internationalaffairs: Aksoy can manage our international relations with fellow social democratic parties.
 - @europe: Aksoy's delegation in the European Council can help us improve relations.
 - @AET: This seems like a long shot but we can attempt to join the AET(European Economic Community).
-- @easy_discard
+- @root: Return to main
 
 @internationalaffairs
 choose-if: advisor_action_timer = 0

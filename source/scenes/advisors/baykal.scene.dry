@@ -12,7 +12,7 @@ A young and energetic figure within the party, Baykal can use his expertise in f
 - @internationalaffairs: Baykal can help with our international contacts.
 - @economy: Baykal supports planned industrialization and mixed economics.
 - @coalitiontalks: Baykal can help create or sustain coalitions with parties that would normally be unthinkable.
-- @easy_discard
+- @root: Return to main
 
 @internationalaffairs
 choose-if: advisor_action_timer = 0

@@ -13,7 +13,7 @@ new-page: true
 - @organization1: As a Socialist intellectual Selçuk is interconnected with many revolutionary circles to our left and we can make use of this fact.
 - @author: As a journalist Selçuk can support media efforts.
 - @marxistdissent: Even if he doesn't find it left wing enough, Selçuk is supportive of Ecevit's rise against the other party factions and can decrease Marxist dissent.
-- @easy_discard
+- @root: Return to main
 
 @organization
 view-if: year <= 1975 and kemalist_marxist_dissent <= 25

@@ -10,7 +10,7 @@ new-page: true
 he wife of our new party leader, Bülent Ecevit. While she isnt a politician herself, the party can still benefit from her personality.
 
 - @resource: She can help the party organizations with collecting dues.
-- @easy_discard
+- @root: Return to main
 
 @resource
 choose-if: advisor_action_timer = 0
