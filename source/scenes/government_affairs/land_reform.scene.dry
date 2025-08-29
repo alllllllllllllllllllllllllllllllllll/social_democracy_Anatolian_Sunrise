@@ -22,14 +22,14 @@ Current status: [? if land_reform == 0 : No concrete land reform policy has been
 @koykent
 view-if: land_reform < 3
 subtitle: Revolutionary reform
-on-arrival: land_reform = 3; rural_CHP += 15; MSP_relation -= 20; AP_relation -= 15; left_kemalists_approval += 10; kemalist_marxists_approval += 15
+on-arrival: land_reform = 3; rural_CHP += 15; MSP_relation -= 20; z_relation -= 15; left_kemalists_approval += 10; kemalist_marxists_approval += 15
 
 We have announced the Köykent project - a revolutionary program to create planned village-cities that will modernize rural life while preserving agricultural productivity. This ambitious vision promises to transform the countryside and has energized our rural supporters, though it has alarmed conservative parties.
 
 @land_distribution
 view-if: land_reform < 2
 subtitle: Significant reform
-on-arrival: land_reform = 2; rural_CHP += 10; MSP_relation -= 10; AP_relation -= 8; left_kemalists_approval += 5; kemalist_marxists_approval += 8
+on-arrival: land_reform = 2; rural_CHP += 10; MSP_relation -= 10; z_relation -= 8; left_kemalists_approval += 5; kemalist_marxists_approval += 8
 
 We have committed to comprehensive land distribution, promising to break up large estates and redistribute land to small farmers. This substantial reform agenda has boosted our rural support while drawing criticism from conservative parties.
 

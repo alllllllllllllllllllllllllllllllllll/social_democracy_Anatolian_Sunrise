@@ -13,7 +13,7 @@ The Reichsbanner has become increasingly militarized as of late, with ever-great
 - @keep_them: Can we convince them that a militant Reichsbanner is necessary for defending the Republic?
 
 @let_go
-on-arrival: rb_strength *= 0.9;AP_relation -= 5; CGP_relation -= 5; rb_exit = 1; left_strength += 5*(1-dissent)
+on-arrival: rb_strength *= 0.9;z_relation -= 5; CGP_relation -= 5; rb_exit = 1; left_strength += 5*(1-dissent)
 
 We have judged that the Reichsbanner's militancy is more important than maintaining a coalition with the Center Party and [+ CGP_name +]. The Reichsbanner members affiliated with these parties leave, while the left of the CHP is strengthened.
 
@@ -28,7 +28,7 @@ Bowing to the other parties' demands, we reduce the Reichsbanner's military trai
 
 @keep_them
 unavailable-subtitle: They are unable to be convinced at this time.
-choose-if: strife >= 5 and (AP_relation >= 50 or (AP_party_leader == "Joos" and AP_relation >= 30)) and CGP_relation >= 50
+choose-if: strife >= 5 and (z_relation >= 50 or (z_party_leader == "Joos" and z_relation >= 30)) and CGP_relation >= 50
 on-arrival: rb_stay = 1
 
 Seeing the strife that has filled Germany's streets, the Center Party and [+ CGP_name +] seem to be convinced that it is necessary for the Reichsbanner to be militarized, and will not leave the organization.

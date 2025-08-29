@@ -31,7 +31,7 @@ These policies mean that our party is increasing in popularity among the "new wo
 
 @family
 subtitle: Change family and inheritance law to treat women more equally.
-on-arrival: family_law += 1; womens_rights += 1; new_middle_CHP += 2*(1-dissent); workers_CHP += 3*(1-dissent); old_middle_CHP -= 2; rural_CHP -= 2; catholics_CHP -= 4; coalition_dissent += 1;AP_relation -= 4;
+on-arrival: family_law += 1; womens_rights += 1; new_middle_CHP += 2*(1-dissent); workers_CHP += 3*(1-dissent); old_middle_CHP -= 2; rural_CHP -= 2; catholics_CHP -= 4; coalition_dissent += 1;z_relation -= 4;
 max-visits: 2
 
 These policies aim to ensure that women have equal rights within a marriage, including the right to divorce. The more conservative segments of society treat our reforms as deleterious to the social fabric.
@@ -51,11 +51,11 @@ subtitle: [? if progressive_coalition < 50 : This is unlikely to succeed; we do 
 go-to: liberalize_fail if progressive_coalition < 50; liberalize_success if progressive_coalition >= 50
 
 @liberalize_fail
-on-arrival: AP_relation -= 5; coalition_dissent += 1; workers_CHP += 3*(1-dissent); catholics_CHP -= 5;
+on-arrival: z_relation -= 5; coalition_dissent += 1; workers_CHP += 3*(1-dissent); catholics_CHP -= 5;
 
 Unfortunately, our proposal is voted down in the Reichstag, with the Catholic Center party (our long-time partners) speaking in particularly vehement opposition, and some of our own members breaking party discipline. The activists, feeling demoralized from this attempt, have decided to bide their time.
 
 @liberalize_success
-on-arrival: abortion_rights += 1; womens_rights += 1; coalition_dissent += 1;AP_relation -= 8; catholics_CHP -= 10; DP_relation -= 5; workers_CHP += 3*(1-dissent); new_middle_CHP += 3*(1-dissent); workers_z += 3; new_middle_z += 3; old_middle_z += 3; old_middle_MSP += 3; rural_MSP += 3; workers_MHP -= 3; new_middle_MHP -= 3; old_middle_MHP -= 2; rural_MHP -= 2; unemployed_MHP -= 2; unemployed_z += 3; unemployed_CHP += 3*(1-dissent)
+on-arrival: abortion_rights += 1; womens_rights += 1; coalition_dissent += 1;z_relation -= 8; catholics_CHP -= 10; DP_relation -= 5; workers_CHP += 3*(1-dissent); new_middle_CHP += 3*(1-dissent); workers_z += 3; new_middle_z += 3; old_middle_z += 3; old_middle_MSP += 3; rural_MSP += 3; workers_MHP -= 3; new_middle_MHP -= 3; old_middle_MHP -= 2; rural_MHP -= 2; unemployed_MHP -= 2; unemployed_z += 3; unemployed_CHP += 3*(1-dissent)
 
 With the support of a "progressive coalition" including the TIP and [+ CGP_name +], we have successfully passed a bill to legalize abortion in Germany! This has heartened our more progressive supporters, while hurting our relations with the Center Party. With the increasing political discourse around abortion, the religiously-oriented Center Party and MSP have gained conservative votes at the expense of the MHP.

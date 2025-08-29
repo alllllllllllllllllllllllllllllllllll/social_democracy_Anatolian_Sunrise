@@ -101,7 +101,7 @@ Q.moderate_plan_adopted = 0;
 // inter-party relations
 Q.TIP_relation = 40;
 Q.CGP_relation = 35;
-Q.AP_relation = 30;
+Q.z_relation = 30;
 Q.DP_relation = 20;
 // MSP and MHP are invariably hostile
 Q.MSP_relation = 5;
@@ -110,8 +110,8 @@ Q.MHP_relation = 10;
 Q.TIP_leader = "Behice Boran";
 // alternative TIP leader: Mehmet Ali Aybar
 Q.TIP_party_leader = "Behice Boran";
-Q.AP_leader = "Demirel";
-Q.AP_party_leader = "Demirel";
+Q.z_leader = "Demirel";
+Q.z_party_leader = "Demirel";
 Q.DP_leader = "Bozbeyli";
 Q.DP_party_leader = "Bozbeyli";
 Q.CGP_leader = "Feyzioğlu";
@@ -626,7 +626,7 @@ Q.president = "Cevdet Sunay";
 Q.chancellor = "Nihat Erim";
 Q.chancellor_party = 'I';
 Q.CHP_in_government = 0;
-Q.AP_in_government = 0;
+Q.z_in_government = 0;
 Q.CGP_in_government = 0;
 Q.DP_in_government = 0;
 Q.MSP_in_government = 0;
@@ -932,11 +932,11 @@ For more information on the politics and government of the Turkish Republic, see
 - @1928_historical: Begin (historical mode)
 
 @1928_easy
-on-arrival: difficulty = -1; resources = 4; dues = 3; police_strength = 50; TIP_relation = 45;AP_relation = 54; DP_relation = 40; budget = 5;
+on-arrival: difficulty = -1; resources = 4; dues = 3; police_strength = 50; TIP_relation = 45;z_relation = 54; DP_relation = 40; budget = 5;
 go-to: 1928_main
 
 @1928_hard
-on-arrival: difficulty = 1; resources = 0; dues = 1; police_strength = 40; reformist_dissent = 25; left_dissent = 30; labor_dissent = 25; center_dissent = 25;AP_relation = 41; TIP_relation = 16; DP_relation = 31; budget = 3; grey_wolves_strength = 25; tit_strength = 0.8;
+on-arrival: difficulty = 1; resources = 0; dues = 1; police_strength = 40; reformist_dissent = 25; left_dissent = 30; labor_dissent = 25; center_dissent = 25;z_relation = 41; TIP_relation = 16; DP_relation = 31; budget = 3; grey_wolves_strength = 25; tit_strength = 0.8;
 go-to: 1928_main
 
 @1928_historical
@@ -951,7 +951,7 @@ Q.reformist_dissent = 25;
 Q.left_dissent = 30;
 Q.labor_dissent = 25;
 Q.center_dissent = 25;
-Q.AP_relation = 35;
+Q.z_relation = 35;
 Q.TIP_relation = 40;
 Q.DP_relation = 30;
 Q.budget = 2;

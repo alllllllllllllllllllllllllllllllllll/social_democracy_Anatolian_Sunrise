@@ -19,12 +19,12 @@ CHP has historically adopted the title of the "people's party", however such rhe
 @municipalities
 choose-if: municipality_control_level == 3 or municipality_control_level == 4
 unavailable-subtitle: Our control over the municipalities is not sufficient enough!
-on-arrival: disk_relation += 5; disk_turkis_conflict -= 0.05; AP_relation -= 0.05; DP_relation -= 0.05
+on-arrival: disk_relation += 5; disk_turkis_conflict -= 0.05; z_relation -= 0.05; DP_relation -= 0.05
 
 We have empowered DİSK in our municipalities.
 
 @reform
-on-arrival: disk_relation += 10; AP_relation -= 0.05; DP_relation -= 0.05
+on-arrival: disk_relation += 10; z_relation -= 0.05; DP_relation -= 0.05
 
 We have promised extensive labour reforms. We have to keep our promise.
 
@@ -37,7 +37,7 @@ on-arrival: resources -= 1; disk_relation += 5; CHP_workers += 3
 We have transferred some of our resources to DİSK.
 
 @meeting
-on-arrival: disk_relation += 2; AP_relation -= 2;
+on-arrival: disk_relation += 2; z_relation -= 2;
 
 We have paid a visit to the DİSK headquarters. If we want to improve our relations further, we will have to take solid action.
 
