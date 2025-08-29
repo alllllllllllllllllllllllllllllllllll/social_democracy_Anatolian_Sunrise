@@ -99,7 +99,7 @@ CHP: [? if CHP_party_leader == "İnönü" : Kemalism (İnönü) ?][? if CHP_part
 
 CGP: [? if CGP_party_leader == "Feyzioğlu" : Right Kemalism (Feyzioğlu) ?]
 
-AP:  [? if AP_party_leader == "Demirel" : Conservative Liberalism (Demirel) ?]
+AP:  [? ifz_party_leader == "Demirel" : Conservative Liberalism (Demirel) ?]
 
 DP:  [? if DP_party_leader == "Bozbeyli" : Conservative Populism (Bozbeyli) ?]
 

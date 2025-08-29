@@ -632,7 +632,7 @@ Dissent: [+ right_kemalists_dissent : dissent +]
 @figures
 title: Figures and Charts
 go-to: menu
-on-arrival: AP_minus_bvp_r = z_r;
+on-arrival:z_minus_bvp_r = z_r;
 on-display: {!
 data = [
     {
@@ -797,8 +797,8 @@ Leader: [+ CHP_party_leader +]
 [? if CHP_party_leader == "Ecevit" : Bülent Ecevit represents a more progressive wing of the party, advocating for social democracy and populism. ?]
 
 **AP (Justice Party)**
-Leader: [+ AP_party_leader +]
-[? if AP_party_leader == "Demirel" : Süleyman Demirel, known for his pragmatic approach and economic focus, leads the center-right Justice Party. ?]
+Leader: [+z_party_leader +]
+[? ifz_party_leader == "Demirel" : Süleyman Demirel, known for his pragmatic approach and economic focus, leads the center-right Justice Party. ?]
 
 **TIP (Workers' Party of Turkey)**
 Leader: [+ TIP_party_leader +]

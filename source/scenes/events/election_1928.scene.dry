@@ -324,9 +324,9 @@ There are some potential coalition arrangements.
 @popular_front_coalition
 title: A new "Popular Front" coalition?
 subtitle: CHP + TIP + Z + [+ CGP_name +]  [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +]%)
-unavailable-subtitle: CHP + TIP + Z + [+ CGP_name +] [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +]%) - [? if ((TIP_relation < 65 and TIP_party_leader == "Thälmann") or (TIP_relation < 45 and TIP_party_leader == "Conciliators")): We do not have good enough relations with the TIP. ?][? if (AP_relation < 45 and AP_party_leader == "Joos") or (AP_relation < 65 and AP_party_leader != "Joos" and TIP_party_leader != "Conciliators") or (AP_relation < 55 and AP_party_leader != "Joos" and TIP_party_leader == "Conciliators"): We do not have good enough relations with the Center Party. ?][? if communist_coalition < 3 : The Communists are unwilling to compromise at all. ?]
+unavailable-subtitle: CHP + TIP + Z + [+ CGP_name +] [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +]%) - [? if ((TIP_relation < 65 and TIP_party_leader == "Thälmann") or (TIP_relation < 45 and TIP_party_leader == "Conciliators")): We do not have good enough relations with the TIP. ?][? if (AP_relation < 45 andz_party_leader == "Joos") or (AP_relation < 65 andz_party_leader != "Joos" and TIP_party_leader != "Conciliators") or (AP_relation < 55 andz_party_leader != "Joos" and TIP_party_leader == "Conciliators"): We do not have good enough relations with the Center Party. ?][? if communist_coalition < 3 : The Communists are unwilling to compromise at all. ?]
 view-if: popular_front_coalition >= 50
-choose-if: (((TIP_relation >= 65 and TIP_party_leader == "Thälmann") or (TIP_relation >= 45 and TIP_party_leader == "Conciliators")) and ((AP_relation >= 45 and AP_party_leader == "Joos") or (AP_relation >= 65 and AP_party_leader != "Joos" and TIP_party_leader != "Conciliators") or (AP_relation >= 55 and AP_party_leader != "Joos" and TIP_party_leader == "Conciliators")) and CGP_relation >= 50 and communist_coalition >= 3) or (AP_party_leader == "Joos" and TIP_party_leader == "Conciliators" and AP_relation >= 30 and TIP_relation >= 30)
+choose-if: (((TIP_relation >= 65 and TIP_party_leader == "Thälmann") or (TIP_relation >= 45 and TIP_party_leader == "Conciliators")) and ((AP_relation >= 45 andz_party_leader == "Joos") or (AP_relation >= 65 andz_party_leader != "Joos" and TIP_party_leader != "Conciliators") or (AP_relation >= 55 andz_party_leader != "Joos" and TIP_party_leader == "Conciliators")) and CGP_relation >= 50 and communist_coalition >= 3) or (AP_party_leader == "Joos" and TIP_party_leader == "Conciliators" andz_relation >= 30 and TIP_relation >= 30)
 
 Could we really form a coalition that included both the Center and the Communists? It seems like an absurd concept, but given our good relationships with both sides, it is not an impossibility.
 
@@ -623,8 +623,8 @@ The third option is to have new elections.
 title: A "New Grand Coalition" of all the constitutional parties?
 subtitle: CHP + AP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +]%)
 view-if: neo_weimar_coalition >= 50 and grand_coalition < 50
-choose-if: AP_relation >= 50 and DP_relation >= 30
-unavailable-subtitle: CHP + AP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +]%) - [? if AP_relation < 50 : We do not have adequate relations with the Center Party. ?][? if DP_relation < 30 : We do not have adequate relations with the DP. ?]
+choose-if:z_relation >= 50 and DP_relation >= 30
+unavailable-subtitle: CHP + AP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +]%) - [? ifz_relation < 50 : We do not have adequate relations with the Center Party. ?][? if DP_relation < 30 : We do not have adequate relations with the DP. ?]
 
 How do we convince vehemently anti-socialist parties to allow us to form a majority coalition? Our largely benevolent relations with the Center and DP may allow us some leverage.
 
@@ -663,7 +663,7 @@ We have assembled a new coalition under Otto Braun.
 @unity_government
 title: The Center Party offers a "Government of National Unity" under Chancellor Joseph Wirth.
 subtitle: CHP + AP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +]%)
-view-if: AP_party_leader == "Joos" and neo_weimar_coalition >= 50 and weimar_coalition < 50 and AP_relation >= 10
+view-if:z_party_leader == "Joos" and neo_weimar_coalition >= 50 and weimar_coalition < 50 andz_relation >= 10
 
 The Center Party leader, Joseph Joos, clearly sees the threat from the ascension of the anti-democratic extremist parties, and thus tries to negotiate a "Government of National Unity" to save the republic. This coalition would be led by Joseph Wirth, a left-leaning member of the Center Party and former chancellor, and would encompass all of the constitutional parties. Our role in this government might be limited, however.
 
@@ -680,7 +680,7 @@ We have formed a new unity government of all the constitutional parties! We have
 
 
 @reject_unity_government
-on-arrival: AP_relation -= 8; CGP_relation -= 5; DP_relation -= 5
+on-arrival:z_relation -= 8; CGP_relation -= 5; DP_relation -= 5
 
 Our rejection of the unity government has hurt our relations with the bourgeois and center-right parties.
 
@@ -866,9 +866,9 @@ go-to: civil_war
 @emergency_no_confidence
 title: The Nazis immediately call a no-confidence vote against us...
 view-if: far_right_coalition < 45
-on-arrival: AP_no_confidence = 1 if AP_relation < 45; TIP_no_confidence = 1 if TIP_relation < 45; other_no_confidence = 1 if (AP_relation + DP_relation)/2 < 45; DP_no_confidence = 1 if DP_relation < 45; sa_strength += 200; sh_strength += 200; no_confidence_votes = MHP_r + MSP_r; no_confidence_votes += AP_r if AP_no_confidence; no_confidence_votes += DP_r if DP_no_confidence; no_confidence_votes += TIP_r if TIP_no_confidence; no_confidence_votes += other_r if other_no_confidence; no_confidence_succeeds = 1 if no_confidence_votes > 50
+on-arrival:z_no_confidence = 1 ifz_relation < 45; TIP_no_confidence = 1 if TIP_relation < 45; other_no_confidence = 1 if (AP_relation + DP_relation)/2 < 45; DP_no_confidence = 1 if DP_relation < 45; sa_strength += 200; sh_strength += 200; no_confidence_votes = MHP_r + MSP_r; no_confidence_votes +=z_r ifz_no_confidence; no_confidence_votes += DP_r if DP_no_confidence; no_confidence_votes += TIP_r if TIP_no_confidence; no_confidence_votes += other_r if other_no_confidence; no_confidence_succeeds = 1 if no_confidence_votes > 50
 
-The MHP and MSP will vote against us, of course. The other parties vote their conscience. [? if AP_no_confidence: The Center Party is voting against us. ?] [? if TIP_no_confidence: The TIP votes against us. ?] [? if other_no_confidence: The assortment of minor parties are voting against us. ?]
+The MHP and MSP will vote against us, of course. The other parties vote their conscience. [? ifz_no_confidence: The Center Party is voting against us. ?] [? if TIP_no_confidence: The TIP votes against us. ?] [? if other_no_confidence: The assortment of minor parties are voting against us. ?]
 
 In total, [+ no_confidence_votes +]% of the Reichstag is against us. [? if no_confidence_succeeds : We have lost the vote of no confidence. ?]
 
@@ -932,7 +932,7 @@ We have won the vote of no confidence, and are currently ruling under an CHP min
 title: We can form a Weimar Coalition.
 subtitle: CHP + Z + [+ CGP_name +] [? if sapd_formed and TIP_relation >= 30 : + SAPD toleration ?] ([+ weimar_coalition +]%)
 view-if: weimar_coalition >= 50
-on-arrival: leverage += 5; leverage += 5 if AP_party_leader == "Joos"; in_weimar_coalition = 1; CHP_in_government = 1; in_popular_front = 0; in_left_front = 0; foreign_minister_party = "AP"; interior_minister_party = "AP"; justice_minister_party = CGP_name; labor_minister_party = "AP"; reichswehr_minister_party = "I"; economic_minister_party = CGP_name; finance_minister_party = "AP"; agriculture_minister_party = "AP"; foreign_minister = "Wirth"; interior_minister = "Wirth"; justice_minister = "Koch-Weser"; labor_minister = "Stegerwald"; reichswehr_minister = "Groener"; economic_minister = "Dietrich"; finance_minister = "Köhler"; agriculture_minister = "Hermes";
+on-arrival: leverage += 5; leverage += 5 ifz_party_leader == "Joos"; in_weimar_coalition = 1; CHP_in_government = 1; in_popular_front = 0; in_left_front = 0; foreign_minister_party = "AP"; interior_minister_party = "AP"; justice_minister_party = CGP_name; labor_minister_party = "AP"; reichswehr_minister_party = "I"; economic_minister_party = CGP_name; finance_minister_party = "AP"; agriculture_minister_party = "AP"; foreign_minister = "Wirth"; interior_minister = "Wirth"; justice_minister = "Koch-Weser"; labor_minister = "Stegerwald"; reichswehr_minister = "Groener"; economic_minister = "Dietrich"; finance_minister = "Köhler"; agriculture_minister = "Hermes";
 achievement: weimar_coalition
 
 We have enough votes to form a "Weimar Coalition" government consisting of the CHP, Center (Z) and Democratic ([+ CGP_name +]) parties! This has been our preferred governing coalition since 1919.

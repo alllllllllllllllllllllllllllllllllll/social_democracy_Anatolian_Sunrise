@@ -45,7 +45,7 @@ The ideological turn TIPO has taken is incompatible with ours and this makes att
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; AP_relation += 5*(1 - dissent)
+on-arrival: resources -= 1;z_relation += 5*(1 - dissent)
 go-to: @antimilitary if year <= 1974; @enemies if year >= 1973	
 
 @antimilitary	

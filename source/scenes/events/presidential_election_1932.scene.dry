@@ -71,7 +71,7 @@ Fine. We have thrown our support to Chairman Thälmann of the TIP.
 - @final_election: The final vote...
 
 @convince_z
-choose-if: CHP_votes >= AP_votes
+choose-if: CHP_votes >=z_votes
 unavailable-subtitle: The Center knows that they are more popular than us; they do not see a reason to support our candidate.
 on-arrival: {!
 Q.z_support_braun = 0;
@@ -83,7 +83,7 @@ if (Q.AP_relation >= 55 || (Q.AP_relation > 35 && Q.AP_party_leader == "Joos")) 
     Q.AP_support_braun = 2;
 }
 !}
-go-to: AP_failed if AP_support_braun == 0 or (AP_support_braun == 2 and historical_mode); AP_success if AP_support_braun == 1; AP_partial if AP_support_braun == 2 and not historical_mode
+go-to:z_failed ifz_support_braun == 0 or (AP_support_braun == 2 and historical_mode);z_success ifz_support_braun == 1;z_partial ifz_support_braun == 2 and not historical_mode
 max-visits: 1
 
 We remind the Center leaders of Hindenburg's anti-Catholicism, and try to convince them that Hindenburg's path will eventually lead to Hitler. We also remind them of the successes they've had as part of the Weimar coalition in Prussia with Otto Braun, and our support for the Center candidate Wilhelm Marx in the 1925 presidential election.
@@ -291,8 +291,8 @@ There is no majority in this round. In the second round, any candidate who wins 
 
 
 @round2_convince_z
-view-if: braun_campaign > 0 and AP_support_braun != 1
-choose-if: CHP_votes >= AP_votes
+view-if: braun_campaign > 0 andz_support_braun != 1
+choose-if: CHP_votes >=z_votes
 unavailable-subtitle: The Center knows that they are more popular than us; they do not see a reason to support our candidate.
 on-arrival: {!
 Q.z_support_braun = 0;
@@ -312,7 +312,7 @@ if ((Q.AP_relation >= 55 && Q.braun_votes >= Q.hindenburg_votes) || (Q.AP_relati
     Q.AP_support_braun = 2;
 }
 !}
-go-to: r2_AP_failed if AP_support_braun == 0 or (AP_support_braun == 2 and historical_mode); r2_AP_success if AP_support_braun == 1; r2_AP_partial if AP_support_braun == 2 and not historical_mode
+go-to: r2_AP_failed ifz_support_braun == 0 or (AP_support_braun == 2 and historical_mode); r2_AP_success ifz_support_braun == 1; r2_AP_partial ifz_support_braun == 2 and not historical_mode
 max-visits: 1
 
 @r2_AP_success
@@ -397,7 +397,7 @@ on-departure:AP_support_braun = 0; TIP_support_braun = 0;
 
 Fine. We have thrown our support to Chairman Thälmann of the TIP.
 
-[? if AP_support_braun : The Center Party is confused at our capricious behavior, and have switched their support to Hindenburg. ?]
+[? ifz_support_braun : The Center Party is confused at our capricious behavior, and have switched their support to Hindenburg. ?]
 
 - @round2_vote: Let the second round voting begin.
 

@@ -1,6 +1,6 @@
 title: Center Party Conference
 subtitle: The Center Party chooses their new leader...
-view-if: year = 1928 and month = 12 and AP_party_leader = "Marx"
+view-if: year = 1928 and month = 12 andz_party_leader = "Marx"
 max-visits: 1
 tags: event
 new-page: true
@@ -18,22 +18,22 @@ The consensus candidate on the right is Ludwig Kaas, a Catholic priest who repre
 - @joos_campaign: We must hold a campaign in support of Joseph Joos as party chair.
 
 @kaas
-on-arrival: AP_party_leader = "Kaas"; AP_relation -= 5
+on-arrival:z_party_leader = "Kaas";z_relation -= 5
 
 Ludwig Kaas has been selected as the chairman of the Center Party. He seems to represent a rightward turn from Marx, and will preside over a Center Party less inclined to compromise with the left.
 
 @joos
 unavailable-subtitle: Our relations are not good enough.
 subtitle: Joos is likely to be friendlier to us than Kaas.
-choose-if: AP_relation >= 70
-on-arrival: AP_party_leader = "Joos"; catholics_CHP += 5; workers_z += 3
+choose-if:z_relation >= 70
+on-arrival:z_party_leader = "Joos"; catholics_CHP += 5; workers_z += 3
 
 With our grassroots connections, we have been able to influence the Center delegates to support Joseph Joos as the new Center chairman. He has long been a friend of the CHP, and will be more inclined to collaborate with us compared to Kaas. He also increases the appeal of the Center Party to the working class.
 
 @joos_campaign
-choose-if: AP_relation >= 62 and resources >= 1 
+choose-if:z_relation >= 62 and resources >= 1 
 view-if:AP_relation < 70
-unavailable-subtitle: [? if AP_relation <= 62 : Our relations are not good enough. ?] [? if resources < 1 : We do not have enough resources. ?]
+unavailable-subtitle: [? ifz_relation <= 62 : Our relations are not good enough. ?] [? if resources < 1 : We do not have enough resources. ?]
 subtitle: -1 resource. Joos is likely to be friendlier to us than Kaas.
 on-arrival: resources -= 1;AP_party_leader = "Joos"; catholics_CHP += 5; workers_z += 3
 

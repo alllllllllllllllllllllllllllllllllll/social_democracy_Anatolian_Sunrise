@@ -51,7 +51,7 @@ subtitle: [? if progressive_coalition < 50 : This is unlikely to succeed; we do 
 go-to: liberalize_fail if progressive_coalition < 50; liberalize_success if progressive_coalition >= 50
 
 @liberalize_fail
-on-arrival: AP_relation -= 5; coalition_dissent += 1; workers_CHP += 3*(1-dissent); catholics_CHP -= 5;
+on-arrival:z_relation -= 5; coalition_dissent += 1; workers_CHP += 3*(1-dissent); catholics_CHP -= 5;
 
 Unfortunately, our proposal is voted down in the Reichstag, with the Catholic Center party (our long-time partners) speaking in particularly vehement opposition, and some of our own members breaking party discipline. The activists, feeling demoralized from this attempt, have decided to bide their time.
 
