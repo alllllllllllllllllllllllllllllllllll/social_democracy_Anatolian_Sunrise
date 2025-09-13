@@ -8,7 +8,8 @@ go-to: menu
 Herein contains relevant information about the government and politics of the Turkish republic.
 
 @menu
-
+	
+- @howtoplay: Mechanics and how to play
 - @government: Turkey's system of government
 - @kemalism: Kemalist Revolution and CHP
 - @weimar_timeline: Timeline of the Ottoman Empire and the Turkish Republic before 1972	
@@ -22,6 +23,27 @@ Herein contains relevant information about the government and politics of the Tu
 - @factions: Internal factions
 - @figures: Figures and charts
 - @backSpecialScene: Exit library.
+	
+@howtoplay	
+go-to: menu	
+
+'Anatolian Dawn' is a text-based political simulator about a significant period marked by political instability and violence in Turkish history, the 1970's. Just like in the original 'Social Democracy, An Alternate History' game that this simulator is based on, the game moves forward through turns that last for two weeks and the turns progress with cards that can be selected from the various decks that one will encounter through their playtime. As the turns progress, the players will encounter events that they will have to maneuver through. Designed to be a both complex and enjoyable simulation of the 1970's, various mechanics and features the players will get to experience are displayed down below.	
+
+To start off, on the left side of the screen, one will encounter various tabs that will display information about the political, social and economic situation of the nation. 	
+
+The 'Main' tab is the basic one that shows the rough outline of the general situation within the country, such as the date, who is the president, who is the prime minister and so on. One crucial value shown in this tab is the attitude of TSK(acronym for the Turkish Armed Forces) towards the general status of the nation and their belief in the democratic framework. Turkey's 1970's in real life ended with a bloody coup in 1980 and such a scenario may repeat itself if the army loses belief in the ability of the current system to effectively rule the nation, and if the root causes that carried the nation to such a terrible outcome aren't resolved. Thats where you, the player need to take action and both prevent the nation from following such a path and remove the systematic issues that would carry the nation towards that path in the first place.	
+
+The 'Politics' tab shows the general political situation in the nation. The key parameters displayed here are the inter-party relations which affect all aspects of the game, the party leaderships which display the ideologies that direct the decisions and attitudes of the various political parties, Kurdish nationalism which shows both how widespread Kurdish nationalism is among the Kurdish population and how violent it is against the state framework, union relations which shows how close our ties are with the labour movement and what whether left wing(DİSK) or right wing(TÜRK-İŞ) syndicates are more influential, municipalities control which shows how many provinces are governed by our mayors and the intra-party cliques within the party. All of these parameters need to be observed and managed carefully. 	
+
+The 'Defense' tab shows the status of the paramilitary organizations that hold influence over the streets and the level of political violence, decided upon by the percentage of the state control over the streets compared to those of the far right and the far left groups. The objective of the player is not to empower either the far right or the far left but to resolve the political violence that if unsolved may be a huge milestone towards a military intervention. The police forces aren't immune to politics neither and their loyalty to the parliamentary and republican framework will need to be kept in check. If the street fightings become unmanagable, it will damage both our party and the rest of the parliamentary framework greatly and may prevent many of our political capabilities. This tab also shows the strength of the three branches of the armed forces, land, sea and the air which has the potential to influence the outcome of many of the inter-national situations that the nation will face throughout the 1970's.	
+
+The 'Polls' tab shows the vote percentage of the various parties around the nation and how popular they are in specific demographics. The National Kurdish Movement has the potential to spread and increase its demographic percentage if Kurdish Nationalism manages to reach a breakthrough among the previously politically inactive Kurds.	
+
+The 'Exterior Affairs' tab shows the international relations of our nation and the status of the various diplomatic crises that the nation will encounter. 	
+
+The 'Economics' tab is one of the most striking points of the game and presents a complex economic simulation that will need to be managed by the players. The general health of the economy is a parameter affected by the other variables that affects everything ranging from party popularity to political violence. The Turkish economy is very vulnerable to the possible turbulances in the world economy and the fundamental issues that cause this weakness need to be resolved before another crisis hits and wracks the nation like a train.	
+
+Advisors are the influential politicians aligned with the party that take part in its governance and are able to take unique actions that varies from advisor to advisor. With actions being able to be taken one in specific periods of time, the players need to make the best of the actions that their advisors can provide, and create the suitable combination that will help them forward their cause and the party.
 
 @government
 go-to: menu
