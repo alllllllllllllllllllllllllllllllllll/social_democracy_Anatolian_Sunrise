@@ -137,9 +137,9 @@
         $('#backgrounds_yes')[0].checked = true;
     }
     if (animate) {
-        $('#animate_yes')[0].checked = true;
-    } else {
         $('#animate_no')[0].checked = true;
+    } else {
+        $('#animate_yes')[0].checked = true;
     }
     if (disable_audio) {
         $('#audio_no')[0].checked = true;
@@ -147,9 +147,9 @@
         $('#audio_yes')[0].checked = true;
     }
     if (show_portraits) {
-        $('#images_yes')[0].checked = true;
-    } else {
         $('#images_no')[0].checked = true;
+    } else {
+        $('#images_yes')[0].checked = true;
     }
     if (window.dendryUI.dark_mode) {
         $('#dark_mode')[0].checked = true;
