@@ -147,7 +147,7 @@ Q.thkpc_militancy = 0.5;
 Q.thkpc_destroyed = 0;
 Q.thkpc_banned = 0;	
 
-Q.tkpml_strength = 0.5;
+Q.tkpml_strength = 0.1;
 Q.tkpml_militancy = 0.8;	
 Q.tkpml_formed = 0;	
 Q.tkpml_banned = 0;
