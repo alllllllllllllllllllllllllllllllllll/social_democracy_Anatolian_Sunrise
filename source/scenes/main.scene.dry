@@ -7,7 +7,7 @@ if (Q.advisor_action_timer <= 0) {
 } else if (Q.advisor_action_timer == 1) {
     Q.pinnedCardsDescription = 'Advisors - next action available in a month.';
 } else {
-    Q.pinnedCardsDescription = [? Advisors - next action available in [+ advisor_action_timer +] months.';?]
+    Q.pinnedCardsDescription = 'Advisors - next action available in + Q.advisor_action_timer + months.';
 }
 !}
 max-cards: 3
@@ -31,7 +31,7 @@ if (Q.advisor_action_timer <= 0) {
 } else if (Q.advisor_action_timer == 1) {
     Q.pinnedCardsDescription = 'Advisors - next action available in a month.';
 } else {
-    Q.pinnedCardsDescription = 'Advisors - next action available in [+ advisor_action_timer +] months.';
+    Q.pinnedCardsDescription = 'Advisors - next action available in ' + Q.advisor_action_timer + ' months.';
 }
 !}
 max-cards: 4
