@@ -1,11 +1,11 @@
 title: Campaigning
 new-page: true
-on-arrival: month_actions += 1
+on-arrival: month_actions += 1; campaign_timer = 3
 max-visits: 36
 is-card: true
 frequency: 100
 tags: party_affairs
-view-if: CHP_party_leader == "Ecevit"
+view-if: CHP_party_leader == "Ecevit" and campaign_timer == 0
 card-image: img/ecevit_campaigning.jpg
 
 = Campaigning
