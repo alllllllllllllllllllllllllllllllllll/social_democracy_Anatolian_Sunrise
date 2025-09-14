@@ -23,8 +23,9 @@ on-arrival: disk_relation += 5; disk_turkis_conflict -= 0.05; z_relation -= 0.05
 
 We have empowered DİSK in our municipalities.
 
-@reform
-on-arrival: disk_relation += 10; z_relation -= 0.05; DP_relation -= 0.05
+@reform	
+choose-if: not union_reform == yes
+on-arrival: disk_relation += 10; z_relation -= 0.05; DP_relation -= 0.05; union_reform = yes
 
 We have promised extensive labour reforms. We have to keep our promise.
 
@@ -36,8 +37,10 @@ on-arrival: resources -= 1; disk_relation += 5; CHP_workers += 3
 
 We have transferred some of our resources to DİSK.
 
-@meeting
-on-arrival: disk_relation += 2; z_relation -= 2;
+@meeting	
+choose-if: union_visit_timer <= 0	
+unavailable-subtitle: We have already visited the DİSK headquarters this year. Simply visiting them again will not improve our relations.
+on-arrival: disk_relation += 2; z_relation -= 2; union_visit_timer = 12
 
 We have paid a visit to the DİSK headquarters. If we want to improve our relations further, we will have to take solid action.
 
