@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 tags: party_affairs
 view-if: international_relations_timer <= 0
-on-arrival: month_actions += 1; international_relations_timer += 12;
+on-arrival: month_actions += 1; international_relations_timer += 8;
 card-image: img/sosyalistenternasyonal.jpg
 max-visits: 4
 #subtitle: Building ties with our fraternal socialist parties.
