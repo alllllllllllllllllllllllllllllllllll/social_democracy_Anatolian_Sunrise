@@ -38,7 +38,9 @@ on-arrival: workers_chp += 2; petty_bourgeoisie_chp += 2; kemalist_marxists_diss
 We direct our media attention to the authoritarian actions of the junta governments, such as the banning of worker strikes and the torture of left wing intellectuals in prisons. We will not bow to the whims of the appointed.
 
 @commercial
-title: Make our newspapers more commercialized by broadening their appeal beyond party supporters.
+title: Make our newspapers more commercialized by broadening their appeal beyond party supporters.	
+choose-if: CHP_party_leader == "Ecevit"	
+unavailable-subtitle: Our media outlets are paralyzed by the intra-party crisis!
 subtitle: This might upset the hardliners, but it may bring in more funds.
 view-if: I_government == 0
 on-arrival: resources += 1; commercialized_media += 1; petty_bourgeoisie_chp += 3*(1 - dissent)
@@ -46,7 +48,9 @@ on-arrival: resources += 1; commercialized_media += 1; petty_bourgeoisie_chp += 
 Our commercialized newspapers are able to bring in more funds. However, this will limit our ability to influence the media.
 
 @campaign
-title: The purpose of our media is to increase our election chances.
+title: The purpose of our media is to increase our election chances.	
+choose-if: CHP_party_leader == "Ecevit"	
+unavailable-subtitle: Our media outlets are paralyzed by the intra-party crisis!
 subtitle: Our newspapers will focus on the electoral campaign.
 view-if: I_government == 0
 on-arrival: campaign_media += 1; workers_chp += 2*(1 - dissent); petty_bourgeoisie_chp += 2*(1 - dissent); state_employees_chp += 2*(1 - dissent)
@@ -57,7 +61,7 @@ The outlets print out news about the problems the nation faces and how a left wi
 title: We will motivate our theoriticians and politicians to write about their new policy ideas. 
 subtitle: A party without a vision is not a party but a gathering
 choose-if: CHP_party_leader == "Ecevit"
-unavailable-subtitle: The old guard is opposed to the spread of unorthodox ideas.
+unavailable-subtitle: Our media outlets are paralyzed by the intra-party crisis! The old guard is opposed to the spread of unorthodox ideas.
 view-if: I_government == 0
 on-arrival: marxist_kemalists_strength += 5; workers_chp += 1; newideas += 1
 
@@ -65,7 +69,9 @@ We are happy to hear new voices raising their visions for a new Turkey.
 
 @ideological
 title: We will have vibrant ideological debate within our newspapers.
-subtitle: There will be space for all factions to air their views.
+subtitle: There will be space for all factions to air their views.	
+choose-if: CHP_party_leader == "Ecevit"	
+unavailable-subtitle: Our media outlets are paralyzed by the intra-party crisis! The old guard is opposed to the different interpretations of Atatürk's path.
 view-if: I_government == 0
 on-arrival: marxist_kemalists_dissent -= 6; left_kemalists_dissent -= 6; orthodox_kemalists_dissent -= 6; right_kemalists_dissent -= 6;
 
