@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 view-if: municipality_control_level != 0 and municipality_timer <= 0
 on-arrival: month_actions += 1; municipality_timer += 6	
-frequency = 500
+frequency: 500
 tags: govt_affairs
 card-image: img/belediye.jpg
 #subtitle: The other branch of the government.
