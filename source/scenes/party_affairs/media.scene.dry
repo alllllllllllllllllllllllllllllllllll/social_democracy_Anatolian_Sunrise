@@ -26,7 +26,7 @@ card-image: img/cumhuriyet4.jpg
 @silence
 title: National Chief İnönü doesnt want to go into a conflict with the junta. Perhaps we should keep our silence..
 view-if: CHP_party_leader == "İnönü"
-on-arrival: workers_chp -= 2; petty_bourgeoisie_chp -= 2; rural_chp -= 1; left_kemalists_dissent += 5
+on-arrival: workers_chp -= 2; petty_bourgeoisie_chp -= 2; rural_chp -= 1; left_kemalists_dissent += 5; coup_timer -= 1
 
 We keep our silence in the face of atrocities and injustice. The nation is overwhelmingly against the coup and Ecevit critiques the party attitude heavily, perhaps he has a good point..
 
@@ -75,4 +75,8 @@ unavailable-subtitle: Our media outlets are paralyzed by the intra-party crisis!
 view-if: I_government == 0
 on-arrival: marxist_kemalists_dissent -= 6; left_kemalists_dissent -= 6; orthodox_kemalists_dissent -= 6; right_kemalists_dissent -= 6;
 
-This has been our media course historically, and it has successfully paved over the many tensions in our party.
+This has been our media course historically, and it has successfully paved over the many tensions in our party.	
+	
+@return	
+choose-if: CHP_party_leader == "Ecevit"	
+unavailable-subtitle: Inaction in the face of atrocities equals silence.
