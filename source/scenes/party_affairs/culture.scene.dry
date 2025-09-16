@@ -10,9 +10,9 @@ tags: party_affairs, culture
 
 We are the self proclaimed party of positivism, the party of science and arts. However the recent attitude of our party towards new movements of art and indifference towards state pressure on free art has gathered doubts about this claim. Now it may be a good time to change this attitude.
 
-- @theaters: The epic theatre culture had been flourishing before the Memorandum of 12 March. Even though a small assistance may be needed to revitalize it, these stages can once again be a voice for progressive ideas and democratic culture.
-- @anatolianrock: Even though Rock music's entrance to the Turkish culture was slow, through the translation of English songs into Turkish through "aranjmans" or covers, Turkish Rock is gradually becoming a genre of its own, blending with local Turkish instruments and cultural tenets to create the "Anatolian Rock" genre. Supporting this genre will help us connect with the urban youth, and it may also have surprising consequences along the road.
-- @mobilecinemas: Currently our rural areas lack access to most forms of art and an interesting idea brought up within the party was the employment of "mobile cinemas" to bring a previously nonexistant form of culture to the countryside.Showcasing films ranging from socially conscious dramas to educational documentaries, these mobile cinemas can be useful for many purposes. However sustained investments will be needed.
+- @theaters: Diverting some of our resources to the theaters may be a worthy investment.
+- @anatolianrock: A new music genre, blending anatolian culture with western rock music, Anatolian Rock is rising in popularity and many of their artists are sympathethic to the progressive ideals. Why couldn't we support these artists?
+- @mobilecinemas: Our rural regions lack access to many of the modern forms of art and a new interesting idea that has been proposed in the party has been to recruit mobile cinemas to reach out to our rural citizens.
 - @literature: Many literature circles are sympathethic to the democratic left and with an already thriving tradition, literature can become a front for advancing social ideas.
 - @easy_discard
 
@@ -21,6 +21,8 @@ subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; west_relation += 2; state_employees_chp += 3; state_employees_tip += 1; petty_bourgeoisie_chp += 3
+	
+The epic theatre culture had been flourishing before the Memorandum of 12 March. Even though a small assistance may be needed to revitalize it, these stages can once again be a voice for progressive ideas and democratic culture.
 
 Pains endured during the memorandum lead to new creations and art as always survives.
 
@@ -29,16 +31,28 @@ subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; workers_chp += 3; petty_bourgeoisie_chp += 2
+	
+Even though Rock music's entrance to the Turkish culture was slow, through the translation of English songs into Turkish through "aranjmans" or covers, Turkish Rock is gradually becoming a genre of its own, blending with local Turkish instruments and cultural tenets to create the "Anatolian Rock" genre. Supporting this genre will help us connect with the urban youth, and it may also have surprising consequences along the road.
 
 The new genre spread like wildfire within the youth, bringing along with itself progressive ideas that disrupt the status quo.
 
 @mobilecinemas
 subtitle: -2 resources
-choose-if: resources >= 2
+choose-if: resources >= 2 and cinemavalue <= 2
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 2; rural_chp += 4;
+on-arrival: resources -= 2; rural_chp += 1; cinemavalue += 1
+	
+Currently our rural areas lack access to most forms of art and an interesting idea brought up within the party was the employment of "mobile cinemas" to bring a previously nonexistant form of culture to the countryside.Showcasing films ranging from socially conscious dramas to educational documentaries, these mobile cinemas can be useful for many purposes. However sustained investments will be needed.
 
-The first stations are employed and satisfying results arrive from the test rounds. However more work needs to be done.
+The first stations are employed and satisfying results arrive from the test rounds. However more work needs to be done.	
+
+@mobilecinemas2
+subtitle: -1 resources
+choose-if: resources >= 1 and cinemavalue >= 2
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; rural_chp += 3; cinemavalue += 1
+
+Our investments in the cinema sector have paid off and now CHP has a significant tool to reach out to the rural electorate.
 
 @literature
 on-arrival: petty_bourgeoisie_chp += 1; state_employees_chp += 1
