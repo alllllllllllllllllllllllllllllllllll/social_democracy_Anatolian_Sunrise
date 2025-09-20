@@ -66,17 +66,17 @@ Q.reformists_resigned = 0;
 // Whether İnönü stays (0 = initial, 1 = undecided, 2 = stays, -1 = leaves)
 Q.inonu_stay = 0;
 
-// crisis_urgency indicates how seriously the CHP is taking the economic crisis - scale from 0 to 10.
+// crisis_urgency indicates how seriously the <span style="color: #E3000F;">**CHP**</span>is taking the economic crisis - scale from 0 to 10.
 Q.crisis_urgency = 0;
-// nazi_urgency indicates how seriously the CHP takes the nazis - scale from 0 to 10.
+// nazi_urgency indicates how seriously the <span style="color: #E3000F;">**CHP**</span>takes the nazis - scale from 0 to 10.
 Q.nazi_urgency = 0;
 // radicalization indicates how radical the CHP's rhetoric is - scale from 0 to 10.
 Q.radicalization = 0;
 // Support for the WTB plan and proto-Keynesian works creation plans in general
 Q.wtb_support = 0;
-// Support for Pacifism within the CHP relative to 1928
+// Support for Pacifism within the <span style="color: #E3000F;">**CHP**</span>relative to 1928
 Q.pacifism = 0;
-// Support for democratic reform within the CHP relative to 1928
+// Support for democratic reform within the <span style="color: #E3000F;">**CHP**</span>relative to 1928
 Q.democratization = 0;
 // Support for a communist coalition relative to 1928
 Q.communist_coalition = 0;
@@ -120,7 +120,7 @@ Q.MSP_leader = "Süleyman Arif";
 // alternative MSP leader: Erbakan
 Q.MSP_party_leader = "Süleyman Arif";
 Q.CHP_leader = "İnönü";
-// alternative CHP leader: Ecevit
+// alternative <span style="color: #E3000F;">**CHP**</span>leader: Ecevit
 Q.CHP_party_leader = "İnönü";
 Q.MHP_leader = "Alparslan Türkeş"
 Q.MHP_party_leader = "Alparslan Türkeş"
@@ -134,7 +134,7 @@ Q.municipality_control_level = 1; // 0=Terrible, 1=Poor, 2=Divided, 3=Satisfacto
 Q.hindenburg_relation = 25;
 
 
-// Does the CHP lead in Prussia?
+// Does the <span style="color: #E3000F;">**CHP**</span>lead in Prussia?
 Q.CHP_prussia = 1;
 // Options: CHP, z, MSP, papen, MHP
 Q.prussian_government = "CHP";
@@ -634,20 +634,20 @@ Q.TIP_in_government = 0;
 Q.MHP_in_government = 0;
 
 Q.in_right_coalition = 0;
-// Weimar coalition = CHP + Z + CGP
+// Weimar coalition = <span style="color: #E3000F;">**CHP**</span>+ Z + CGP
 Q.in_weimar_coalition = 0;
-// Grand coalition = CHP + Z + CGP + DP
-// also includes the "new grand coalition" of CHP + Z + CGP + DP + Others
+// Grand coalition = <span style="color: #E3000F;">**CHP**</span>+ Z + CGP + DP
+// also includes the "new grand coalition" of <span style="color: #E3000F;">**CHP**</span>+ Z + CGP + DP + Others
 Q.in_grand_coalition = 0;
-// Popular front = CHP + TIP + Z + CGP
+// Popular front = <span style="color: #E3000F;">**CHP**</span>+ TIP + Z + CGP
 Q.in_popular_front = 0;
-// left coalition = CHP + TIP + left-splinters
+// left coalition = <span style="color: #E3000F;">**CHP**</span>+ TIP + left-splinters
 Q.in_left_front = 0;
 // emergency government containing the CHP: only president Braun can do this.
 Q.in_emergency_government = 0;
 Q.in_CHP_majority = 0;
 Q.grand_coalition_failed = 0;
-// if the CHP is ruling as part of a minority government
+// if the <span style="color: #E3000F;">**CHP**</span>is ruling as part of a minority government
 Q.in_minority_government = 0;
 // national unity governmet
 
@@ -656,7 +656,7 @@ Q.coalition_dissent = 0;
 // dissent from the TIP, in a popular front or left front government
 Q.TIP_coalition_dissent = 0;
 
-// does the CHP tolerate the government even if it is not a participant?
+// does the <span style="color: #E3000F;">**CHP**</span>tolerate the government even if it is not a participant?
 Q.CHP_toleration = 0;
 
 // is the current government a presidential minority government?
@@ -750,9 +750,9 @@ Q.tariffs = 0;
 Q.electoral_threshold = 0;
 
 // our conduct in the government, and the conduct of our coalition opponents.
-// did the CHP vote against the previous government in a vote of no confidence?
+// did the <span style="color: #E3000F;">**CHP**</span>vote against the previous government in a vote of no confidence?
 Q.CHP_no_confidence = 0;
-// was the last CHP government taken down in a vote of no confidence by right-wing coalition partners?
+// was the last <span style="color: #E3000F;">**CHP**</span>government taken down in a vote of no confidence by right-wing coalition partners?
 Q.no_confidence_against_CHP = 0;
 
 // Advisors/Leaders

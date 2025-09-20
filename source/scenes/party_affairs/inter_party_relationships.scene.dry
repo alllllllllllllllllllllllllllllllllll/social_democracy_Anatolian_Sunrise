@@ -10,13 +10,13 @@ max-visits: 24
 
 = Inter-Party Relationships
 
-The CHP cannot govern by itself yet. Because we do not have an electoral majority, we need the support of other parties. Even though we are somewhat isolated from the other political parties, inter-party dialogue is still important for the democratic framework. We can reach out and build additional connections with these other parties, or perhaps we can stand alone.
+The <span style="color: #E3000F;">**CHP**</span>cannot govern by itself yet. Because we do not have an electoral majority, we need the support of other parties. Even though we are somewhat isolated from the other political parties, inter-party dialogue is still important for the democratic framework. We can reach out and build additional connections with these other parties, or perhaps we can stand alone.
 	
 - @liberals: Strengthen our bonds with our splinter party CGP
 - @center: Strengthen our bonds with the AP
 - @TIP: Work towards improving relations with the Socialist movement
 - @MSP: Perhaps we can try contacting MSP?
-- @CHP_alone: The CHP can stand alone for now.
+- @chp_alone: The <span style="color: #E3000F;">**CHP**</span>can stand alone for now.
 - @easy_discard
 
 @TIP
@@ -89,7 +89,7 @@ on-arrival: MSP_relation += 2*(1 - dissent)
 
 Currently there is little incentive for stronger ties between the two parties.
 
-@CHP_alone
+@chp_alone
 
 Whether it is because we *cannot* or *will not*, we do not make ties with other parties at this moment.
 

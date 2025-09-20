@@ -11,7 +11,7 @@ card-image: img/cumhuriyet4.jpg
 
 [? if I_government: The media is heavily restricted under the military appointed governments. ?]
 
-[? if I_government == 0: The CHP is affiliated with many progressive newspaper outlets. Perhaps we can use this to our advantage.. ?]
+[? if I_government == 0: The <span style="color: #E3000F;">**CHP**</span>is affiliated with many progressive newspaper outlets. Perhaps we can use this to our advantage.. ?]
 
 - @critique
 - @silence

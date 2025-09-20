@@ -6,11 +6,11 @@ view-if: party_organizations_timer <= 0
 on-arrival: month_actions += 1; party_organizations_timer = 6;
 card-image: img/turkiyeziraatbankasi.png
 max-visits: 5
-#subtitle: Outside of electoral politics, the CHP runs a social world onto itself.
+#subtitle: Outside of electoral politics, the <span style="color: #E3000F;">**CHP**</span>runs a social world onto itself.
 
 = Party Organizations
 
-In addition to being a political party, the CHP is a social world onto itself, with a vast array of associated organizations which serve the social needs of their members from cradle to grave.
+In addition to being a political party, the <span style="color: #E3000F;">**CHP**</span>is a social world onto itself, with a vast array of associated organizations which serve the social needs of their members from cradle to grave.
 
 - @newspapers: Fund more newspapers and journalists.
 - @workers: Fund the worker bureaus.

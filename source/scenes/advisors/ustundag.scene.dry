@@ -7,12 +7,12 @@ new-page: true
 
 = Mustafa Üstündağ
 
-Mustafa Üstündağ is a reformist pedagogue within CHP and is responsible for managing the educational platform and policies of our party	
+Mustafa Üstündağ is a reformist pedagogue within <span style="color: #E3000F;">**CHP**</span>and is responsible for managing the educational platform and policies of our party	
 
 - @ministry: Üstündağ can take part in reforming the educational system		
 - @root: Return to main	
 
 @ministry	
 choose-if: advisor_action_timer = 0 and chp_in_government = 1
-unavailable-subtitle: CHP is not in government. [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+unavailable-subtitle: <span style="color: #E3000F;">**CHP**</span>is not in government. [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 3

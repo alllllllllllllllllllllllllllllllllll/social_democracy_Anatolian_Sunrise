@@ -25,7 +25,7 @@ on-arrival: advisor_action_timer = 3; left_kemalists_strength += 5; orthodox_kem
 We emphasize the need for change and sway some delegates in the middle to our side.
 
 @partydissent
-subtitle: Ecevit is now the party leader and people have faith that he can be the one to finally break the glass ceiling and bring CHP to the government.
+subtitle: Ecevit is now the party leader and people have faith that he can be the one to finally break the glass ceiling and bring <span style="color: #E3000F;">**CHP**</span>to the government.
 view-if: CHP_party_leader == "Ecevit"
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 choose-if: advisor_action_timer = 0
