@@ -25,6 +25,7 @@ We have empowered DİSK in our municipalities.
 
 @reform	
 choose-if: not union_reform == yes
+unavailable-subtitle: We have already promised extensive labour reforms. Now is the time to enact them.
 on-arrival: disk_relation += 10; z_relation -= 0.05; DP_relation -= 0.05; union_reform = yes
 
 We have promised extensive labour reforms. We have to keep our promise.
@@ -33,7 +34,7 @@ We have promised extensive labour reforms. We have to keep our promise.
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.,
-on-arrival: resources -= 1; disk_relation += 5; CHP_workers += 3
+on-arrival: resources -= 1; disk_relation += 5; chp_workers += 3
 
 We have transferred some of our resources to DİSK.
 

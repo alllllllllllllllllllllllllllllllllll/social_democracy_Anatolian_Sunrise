@@ -106,7 +106,10 @@ on-arrival: workers_chp += 4*(1-dissent); petty_bourgeoisie_chp += 3*(1-dissent)
 Social programs are one of our most popular policies and we make this fact very clear.
 
 @pacifism
-on-arrival: ; z_relation += 2; nationalism -= 2*(1 - dissent); workers_CHP += 4*(1 - dissent) if pacifism >= 3; unemployed_CHP += 3*(1-dissent) if pacifism >= 3; nationalism -= 3*(1-dissent) if pacifism >= 3; new_middle_CHP += 4*(1-dissent) if pacifism >= 3
+view-if: chp_party_leader == "Ecevit" 
+choose-if: chancellor_party == I
+unavailable-subtitle: The army has withdrawn their hand over the fragile democracy, for now.
+on-arrival: z_relation += 2; nationalism -= 2*(1 - dissent); workers_CHP += 4*(1 - dissent) if pacifism >= 3; unemployed_CHP += 3*(1-dissent) if pacifism >= 3; nationalism -= 3*(1-dissent) if pacifism >= 3; new_middle_CHP += 4*(1-dissent) if pacifism >= 3
 
 Our speakers denounce the military establishment and all their hegemony over the political affairs. Opposition to the military establishment is one of the few ideas we share with AP.
 
