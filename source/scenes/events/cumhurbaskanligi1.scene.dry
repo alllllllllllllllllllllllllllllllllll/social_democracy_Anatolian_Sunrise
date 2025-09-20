@@ -27,9 +27,9 @@ Our party has up until now refused to participate in the elections. However time
 	
 @fahrikoruturk	
 subtitle: Korutürk is also a former soldier, however he is seen as much of a neutral and unifying candidate.	
-choose-if: z_relations >= 40	
+choose-if: z_relation >= 40	
 unavailable-subtitle: No, that didn't happen. AP doesn't trust us enough and we never get the expected cooperation message.	
-on-arrival: z_relations += 3; cgp_relations += 3; {!
+on-arrival: z_relation += 3; cgp_relation += 3; {!
 Q.president = "Fahri Korutürk";
 !}
 on-display: {!
@@ -95,7 +95,7 @@ With the support of CHP, CGP and AP; Korutürk has begun his presidency. While h
 @farukgurler
 choose-if: left_kemalists_strength <= 40	
 unavailable-subtitle: Our reformist delegates are against serving the desires of the military and prevent us from taking such an action!	
-on-arrival: z_relations -= 10; workers_chp -= 5; rural_chp -= 4; state_employees_chp -= 2; alevis_chp -= 3; kurds_chp -= 3; coup_timer -= 3; left_kemalists_dissent += 15; {!	
+on-arrival: z_relation -= 10; workers_chp -= 5; rural_chp -= 4; state_employees_chp -= 2; alevis_chp -= 3; kurds_chp -= 3; coup_timer -= 3; left_kemalists_dissent += 15; {!	
 Q.president = "Faruk Gürler"
 !}
 on-display: {!
