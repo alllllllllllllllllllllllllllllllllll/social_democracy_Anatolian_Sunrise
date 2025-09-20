@@ -105,7 +105,7 @@ Q.z_relation = 30;
 Q.DP_relation = 20;
 // MSP and MHP are invariably hostile
 Q.MSP_relation = 10;
-Q.MHP_relation = 5;
+Q.MHP_relation = 10;
 
 Q.TIP_leader = "Behice Boran";
 // alternative TIP leader: Mehmet Ali Aybar

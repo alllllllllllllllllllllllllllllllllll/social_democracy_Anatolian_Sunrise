@@ -91,7 +91,7 @@ The election of Sırrı Atalay has made the party's future direction clear. It w
 - @inonu_resigns: Seeing the results of the preliminary congress, İnönü has resigned from the post of party leadership!
 
 @inonu_resigns
-on-arrival: CHP_party_leader = "Ecevit"; left_kemalists_dissent -= 20; kemalist_marxists_dissent -= 10; disk_relation += 10; TIP_relation += 10
+on-arrival: CHP_party_leader = "Ecevit"; left_kemalists_dissent -= 20; kemalist_marxists_dissent -= 10; disk_relation += 10; TIP_relation += 10; MHP_relation -= 5
 
 This marks the end of an era. The old wolf who held firm control over his party for over 30 years is now leaving the leadership post undefeated but also in a state of surrender. Not many words are exchanged between İnönü and Ecevit, and İnönü just takes his coat, salutes the party for one last time and leaves the congress building. Whether he will leave the party completely or not is not known yet.
 
