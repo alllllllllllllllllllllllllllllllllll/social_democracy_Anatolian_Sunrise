@@ -285,11 +285,11 @@ Q.other_r = Q.other_votes;
 
 // The largest party can only be the MHP or the CHP.
 Q.largest_party = 'CHP';
-if (Q.MHP_r >= Q.chp_r && Q.MHP_r >= Q.TIP_r) {
-    Q.largest_party = 'MHP';
+if (Q.z_r >= Q.chp_r && Q.z_r >= Q.TIP_r) {
+    Q.largest_party = 'Z';
 }
-if (Q.TIP_r >= Q.CHP_r && Q.TIP_r >= Q.MHP_r) {
-    Q.largest_party = 'TIP';
+if (Q.chp_r >= Q.z_r) {
+    Q.largest_party = 'CHP';
 }
 
 // coalitions
