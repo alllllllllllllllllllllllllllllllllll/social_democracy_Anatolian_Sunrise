@@ -2,9 +2,9 @@ title: Election Simulation
 set-jump: post_election
 
 
-- @1928: 1928 historical scenario
-- @1930: 1930 historical scenario
-- @1932: 1932 (July) historical scenario
+- @1928: 1973 historical scenario
+- @1930: 1977 historical scenario
+- @1932: 1979 historical scenario
 
 @1928
 on-arrival: {!
@@ -23,8 +23,8 @@ Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
 // Support for party by social group - Turkish political alignment
 // Rural (45% of population)
 Q.rural_TIP = 0;
-Q.rural_chp = 17;
-Q.rural_z = 46; // AP uses 'z' variable
+Q.rural_chp = 21;
+Q.rural_z = 42; // AP uses 'z' variable
 Q.rural_CGP = 3;
 Q.rural_DP = 15;
 Q.rural_MSP = 13;
@@ -32,8 +32,8 @@ Q.rural_MHP = 3;
 Q.rural_other = 3;
 
 // Workers (15% of population)
-Q.workers_TIP = 14;
-Q.workers_chp = 43;
+Q.workers_TIP = 0;
+Q.workers_chp = 50;
 Q.workers_z = 18; // AP
 Q.workers_CGP = 2;
 Q.workers_DP = 5;
@@ -72,17 +72,17 @@ Q.capitalists_MHP = 0;
 Q.capitalists_other = 0;
 
 // Alevis (10% of population)
-Q.alevis_TIP = 8;
-Q.alevis_chp = 64;
+Q.alevis_TIP = 0;
+Q.alevis_chp = 66;
 Q.alevis_z = 8; // AP
 Q.alevis_CGP = 0;
 Q.alevis_DP = 1;
 Q.alevis_MSP = 0;
 Q.alevis_MHP = 1;
-Q.alevis_other = 18;
+Q.alevis_other = 24;
 
 // Kurdish Political Movement (5% of population)
-Q.kurds_TIP = 8;
+Q.kurds_TIP = 0;
 Q.kurds_chp = 33;
 Q.kurds_z = 32; // AP
 Q.kurds_CGP = 3;
