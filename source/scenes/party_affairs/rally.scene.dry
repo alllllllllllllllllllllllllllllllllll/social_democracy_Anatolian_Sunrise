@@ -76,13 +76,13 @@ Mass rallies are a common feature of multi party democracies, especially in the 
 - @leftofcenter: With the new direction our party has taken, economic inequality and social justice have become a rallying point for the labourers of this nation.
 - @kemalism: We inherit a great message, the message of modernity and progress, from our founder Atatürk. We are the party of Atatürk first and foremost.
 - @social_programs: Turkish society has historically always been one with great state presence, with the state taking care of many needs of its citizens. We can exploit this situation with our new social programs.
-- @pacifism: Opposing war, nationalism, and militarism at all costs.
+- @pacifism: The military oversight over our democracy is nothing less of a tyranny.
 - @land_reform: Support the land reform!
 - @local: A mixture of various local and national concerns that resonate most with the audience.
 - @easy_discard
 
 @class_struggle	
-view-if: kemalist_marxists_strength >= 25
+view-if: kemalist_marxists_strength >= 25 and chp_party_leader == "Ecevit" 
 on-arrival: workers_chp += 1*(1-dissent); state_employees_chp -= 5; rural_chp -= 3; petty_bourgeoisie_chp -= 5; capitalists_chp -= 10; kemalist_marxists_strength += 10; left_kemalists_dissent += 10; orthodox_kemalists_dissent += 20; right_kemalists_dissent += 30; disk_relation += 10; coup_timer += 3
 
 Even though <span style="color: #E3000F;">**CHP**</span> stands for the working class, it preaches for justice, not worker domination. The Marxist rhetoric generally fall on deaf ears and gathers serious backlash from even the Left Kemalists within the party. Our enemies are quick to capitalize on this, calling us "unnational" and "godless marxists".
@@ -94,7 +94,9 @@ on-arrival: workers_chp += 3*(1-dissent); rural_chp += 1*(1-dissent); state_empl
 We emphasize our social democratic ideals.
 
 @kemalism
-on-arrival: workers_chp += 2*(1-dissent); state_employees_chp += 3*(1-dissent); rural_chp += 1*(1-dissent); petty_bourgeoisie_chp += 3*(1-dissent); alevis_chp += 4*(1-dissent); left_kemalists_dissent -= 5; orthodox_kemalists_dissent -= 5; orthodox_kemalists_strength += 3
+choose-if: kemalizm_timer <= 0
+unavailable-subtitle: We cant rely on Kemalist rhetoric only, people expect us to bring real change! 
+on-arrival: workers_chp += 2*(1-dissent); state_employees_chp += 3*(1-dissent); rural_chp += 1*(1-dissent); petty_bourgeoisie_chp += 3*(1-dissent); alevis_chp += 2*(1-dissent); left_kemalists_dissent -= 5; orthodox_kemalists_dissent -= 5; orthodox_kemalists_strength += 3; kemalizm_timer = 6
 
 The Turkish nation, except for some radicals in the far away sections of the political spectrum, unite in their love for Atatürk. We have been using this rhetoric for the last 50 years though, and we cant gather enough votes by simply recalling Atatürk, we need to follow in his footsteps through policy platforms and actions.
 
@@ -104,9 +106,9 @@ on-arrival: workers_chp += 4*(1-dissent); petty_bourgeoisie_chp += 3*(1-dissent)
 Social programs are one of our most popular policies and we make this fact very clear.
 
 @pacifism
-on-arrival: pacifism += 1; nationalism -= 2*(1 - dissent); workers_CHP += 4*(1 - dissent) if pacifism >= 3; unemployed_CHP += 3*(1-dissent) if pacifism >= 3; nationalism -= 3*(1-dissent) if pacifism >= 3; new_middle_CHP += 4*(1-dissent) if pacifism >= 3
+on-arrival: ; z_relation += 2; nationalism -= 2*(1 - dissent); workers_CHP += 4*(1 - dissent) if pacifism >= 3; unemployed_CHP += 3*(1-dissent) if pacifism >= 3; nationalism -= 3*(1-dissent) if pacifism >= 3; new_middle_CHP += 4*(1-dissent) if pacifism >= 3
 
-Our speakers denounce the military establishment and all the spending entering that black hole. Some adventurous speakers question the responsibility of the military elites in organizing the Great War.
+Our speakers denounce the military establishment and all their hegemony over the political affairs. Opposition to the military establishment is one of the few ideas we share with AP.
 
 [? if pacifism < 3 : Given the volume of nationalist indoctrination in our society, it is difficult to argue so vehemently against the military. ?]
 [? if pacifism >= 3 : Since we have consistently made pacifism a theme of our campaign, the workers are enthusiastic about our message. ?]
