@@ -23,4 +23,4 @@ Satır's position and ours is inherently irreconcilable, and the right wing stan
 @health
 on-arrival: advisor_action_timer = 3
 choose-if: CHP_in_government = 1 and advisor_action_timer = 0
-unavailable-subtitle: <span style="color: #E3000F;">**CHP**</span>is not in government. [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+unavailable-subtitle: <span style="color: #E3000F;">**CHP**</span> is not in government. [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]

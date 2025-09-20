@@ -52,7 +52,7 @@ choose-if: resources >= 1 and cinemavalue >= 2
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; rural_chp += 3; cinemavalue += 1
 
-Our investments in the cinema sector have paid off and now <span style="color: #E3000F;">**CHP**</span>has a significant tool to reach out to the rural electorate.
+Our investments in the cinema sector have paid off and now <span style="color: #E3000F;">**CHP**</span> has a significant tool to reach out to the rural electorate.
 
 @literature
 on-arrival: petty_bourgeoisie_chp += 1; state_employees_chp += 1

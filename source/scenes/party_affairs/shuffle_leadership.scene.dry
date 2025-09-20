@@ -865,7 +865,7 @@ tags: nonfactional_advisor
 
 @add_radbruch
 title: Gustav Radbruch
-subtitle: Gustav Radbruch is a renowned legal scholar and long-time <span style="color: #E3000F;">**CHP**</span>justice minister. {!<br><br>!}[? if difficulty < 0 : Actions - Judicial Affairs, Constitutional Reform ?]
+subtitle: Gustav Radbruch is a renowned legal scholar and long-time <span style="color: #E3000F;">**CHP**</span> justice minister. {!<br><br>!}[? if difficulty < 0 : Actions - Judicial Affairs, Constitutional Reform ?]
 is-card: true
 card-image: img/portraits/RadbruchGustav.jpg
 view-if: radbruch_advisor = 0 and n_advisors < 3
