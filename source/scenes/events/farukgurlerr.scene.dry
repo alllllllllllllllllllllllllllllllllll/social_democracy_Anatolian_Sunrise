@@ -1,0 +1,18 @@
+title: Mehduh Tağmaç resigns from the post of the chief of the Turkish Armed Forces. 
+view-if: year = 1972 and month = 9 and week = 1
+max-visits: 1
+tags: event
+new-page: true
+face-image: img/portraits/FarukGurler.png
+
+= Memduh Tağmaç's Resignation
+
+Tağmaç was a loyal member of the Turkish Army throughout his career. How fate happened to carry him to the one of the most powerful posts within the nation is unknown but its universally known that he was one of the men who prevented a Baath-style junta that would have come with the March 9 putsch. As his 4 year term has approched its end, he beforehand announced his desire to resign and leave the armed forces. 
+
+His immediate successor is expected to be General Faruk Gürler, a normally left wing member of the army who despite his ideological tendencies stood against the 9 March attempt and led the army into another intervention against the ever unstable state of the republic. Despite what one might expect, Gürler's rise is unlikely to change the dynamics between the armed forces and the political establishment, and Gürler is known for his ambitiousness.
+
+- @gurler: Another flavour of more of the same.
+
+@gurler
+on-arrival: Q.generalstaff = "Faruk Gürler"
+
