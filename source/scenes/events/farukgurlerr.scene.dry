@@ -14,5 +14,5 @@ His immediate successor is expected to be General Faruk Gürler, a normally left
 - @gurler: Another flavour of more of the same.
 
 @gurler
-on-arrival: Q.generalstaff = "Faruk Gürler"
+on-arrival: {! Q.generalstaff = "Faruk Gürler" !}
 
