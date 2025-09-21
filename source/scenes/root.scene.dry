@@ -632,6 +632,7 @@ Q.DP_in_government = 0;
 Q.MSP_in_government = 0;
 Q.TIP_in_government = 0;
 Q.MHP_in_government = 0;
+Q.generalstaff = "Memduh Tağmaç";
 
 Q.in_right_coalition = 0;
 // Weimar coalition = <span style="color: #E3000F;">**CHP**</span> + Z + CGP
