@@ -1,0 +1,17 @@
+title: Faruk Gürler resigns from the post of the chief of the Turkish Armed Forces. 
+view-if: year = 1972 and month = 9 and week = 1
+max-visits: 1
+tags: event
+new-page: true
+face-image: img/portraits/FarukGurler.png
+
+= Faruk Gürler's Resignation
+
+In a surprising twist of events, the new chief of the general staff, Faruk Gürler, has voluntarily resigned from his post. Even though not much is known about the motive behind such an action, some within our party ranks speculate it may be because Gürler is preparing to run as a candidate in the presidential election next month, which has a tradition of electing high ranking officers.
+
+His replacement, General Semih Sencer is a well-known figure within the military establishment and even though he seems willing to work with the future democratic governments, that doesn't mean the military oversight over our democracy is any less powerful.
+
+- @sencer: The shadow of the army lingers over the nation.
+
+@sencer
+on-arrival: {! Q.generalstaff = "Semih Sencer" !}
