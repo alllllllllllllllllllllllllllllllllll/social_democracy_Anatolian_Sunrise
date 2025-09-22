@@ -48,9 +48,9 @@ President: [+ president +]
 
 Prime Minister: [+ chancellor +] ([+ chancellor_party +])
 
-[? if army_in_government: TSK is currently in government ?][? if not army_in_government and tsk_pacified: TSK is currently pacified ?][? if not army_in_government and not tsk_pacified and coup_timer <= 3: TSK is currently hopeful ?][? if not army_in_government and not tsk_pacified and coup_timer >= 4 and coup_timer <= 6: TSK is currently observing the political situation ?][? if not army_in_government and not tsk_pacified and coup_timer >= 7 and coup_timer <= 9: TSK is currently irritated ?][? if not army_in_government and not tsk_pacified and coup_timer == 10: TSK is currently agitated ?][? if not army_in_government and not tsk_pacified and coup_timer >= 11 and coup_timer <= 12: TSK is currently alarmed ?][? if not army_in_government and not tsk_pacified and coup_timer >= 13 and coup_timer <= 14: TSK is currently {!<span style="color: darkred;">mutinous</span>!} ?][? if not army_in_government and not tsk_pacified and coup_timer >= 15: TSK is currently {!<span style="color: darkred;">mutinous and acting</span>!} ?]
-
 Head of the General Staff: [+ generalstaff +]
+
+[? if army_in_government: TSK is currently in government ?][? if not army_in_government and tsk_pacified: TSK is currently pacified ?][? if not army_in_government and not tsk_pacified and coup_timer <= 3: TSK is currently hopeful ?][? if not army_in_government and not tsk_pacified and coup_timer >= 4 and coup_timer <= 6: TSK is currently observing the political situation ?][? if not army_in_government and not tsk_pacified and coup_timer >= 7 and coup_timer <= 9: TSK is currently irritated ?][? if not army_in_government and not tsk_pacified and coup_timer == 10: TSK is currently agitated ?][? if not army_in_government and not tsk_pacified and coup_timer >= 11 and coup_timer <= 12: TSK is currently alarmed ?][? if not army_in_government and not tsk_pacified and coup_timer >= 13 and coup_timer <= 14: TSK is currently {!<span style="color: darkred;">mutinous</span>!} ?][? if not army_in_government and not tsk_pacified and coup_timer >= 15: TSK is currently {!<span style="color: darkred;">mutinous and acting</span>!} ?]
 
 TBMM composition:
 
