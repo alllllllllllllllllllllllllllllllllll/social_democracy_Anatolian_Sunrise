@@ -458,7 +458,7 @@ if (Q.month_actions >= 1) {
     if (Q.unemployed > 30 && Q.pro_republic > 20) {
         Q.pro_republic -= 1;
     }
-    if (Q.inflation >= 8 && Q.pro_republic > 40) {
+    if (Q.inflation >= 30 && Q.pro_republic > 40) {
         Q.pro_republic -= 1;
     }
 
