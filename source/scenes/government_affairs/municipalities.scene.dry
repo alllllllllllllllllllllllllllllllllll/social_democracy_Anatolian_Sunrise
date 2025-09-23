@@ -15,6 +15,7 @@ In Turkey, the territories of the republic are divided among small municipalitie
 - @governence: Municipalities are responsible for many local tasks in which we can improve our performance and show to the people how a <span style="color: #E3000F;">**CHP**</span> government would look like.
 - @politics: The municipalities not only allow us to offer a vision of our administration but also to perhaps improve our political standing through the usage of local resources.
 - @easy_discard
+- @no: We either won't or can't focus on the municipalities at this time.
 
 @governence
 choose-if: party_dissent < 15
@@ -61,3 +62,5 @@ Many families are thankful at us for providing affordable bread. However the pol
 @politics
 choose-if: party_dissent < 15
 unavailable-subtitle: The party dissent is too high! We are unable to influence our local governments.
+
+@no

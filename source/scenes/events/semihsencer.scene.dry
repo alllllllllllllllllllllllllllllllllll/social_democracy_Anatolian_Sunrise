@@ -14,4 +14,4 @@ His replacement, General Semih Sencer is a well-known figure within the military
 - @sencer: The shadow of the army lingers over the nation.
 
 @sencer
-on-arrival: {! Q.generalstaff = "Semih Sencer" !}
+on-arrival: {! Q.generalstaff = "Semih Sancar" !}

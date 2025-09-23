@@ -33,7 +33,7 @@ We have improved our relations with our Western partners and albeit very slightl
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; middle_eastern_relation += 10 if orthodox_kemalism_strength >= 49; left_kemalists_dissent += 5
+on-arrival: resources -= 1; middle_eastern_relation += 10 if orthodox_kemalism_strength >= 24; left_kemalists_dissent += 5
 
 Even though we are opposed to undemocratic forms of socialism, we still took the pragmatic route of contacting our "allies" down South.
 [? if orthodox_kemalism_strength < 49: The Baath parties no longer view us as ideological allies, our efforts go in vain as our delegates are accused of being puppets of European "soft leftism". ?]
