@@ -216,6 +216,7 @@ title: Remove Selçuk
 view-if: selcuk_advisor = 1
 tags: remove_advisor
 on-arrival: selcuk_advisor = 0; kemalist_marxists_dissent += 5; n_advisors -= 1
+go-to: rm_main
 
 Selçuk has been removed as an advisor. The Kemalist Marxist faction disapproves. 
 
@@ -224,6 +225,7 @@ title: Remove Belli
 view-if: belli_advisor = 1
 tags: remove_advisor
 on-arrival: belli_advisor = 0; kemalist_marxists_dissent += 2; n_advisors -= 1
+go-to: rm_main
 
 Belli has been removed from our list of contacts. The Kemalist Marxist faction slightly disapproves.
 

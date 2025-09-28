@@ -76,13 +76,13 @@ if (Q.apply_economy_effects == 1) {
             Q.alevis_chp += 5;
             Q.kurds_chp += 5;
         } else if (Q.z_in_government) {
-            Q.rural_AP += 5;
-            Q.workers_AP += 5;
-            Q.petty_bourgeoisie_AP += 5;
-            Q.state_employees_AP += 5;
-            Q.capitalists_AP += 10;
-            Q.alevis_AP += 5;
-            Q.kurds_AP += 5;
+            Q.rural_z += 5;
+            Q.workers_z += 5;
+            Q.petty_bourgeoisie_z += 5;
+            Q.state_employees_z += 5;
+            Q.capitalists_z += 10;
+            Q.alevis_z += 5;
+            Q.kurds_z += 5;
         } else if (Q.DP_in_government) {
             Q.rural_DP += 5;
             Q.workers_DP += 5;
@@ -103,13 +103,13 @@ if (Q.apply_economy_effects == 1) {
             Q.alevis_chp -= 2;
             Q.kurds_chp -= 2;
         } else if (Q.z_in_government) {
-            Q.rural_AP -= 2;
-            Q.workers_AP -= 2;
-            Q.petty_bourgeoisie_AP -= 2;
-            Q.state_employees_AP -= 2;
-            Q.capitalists_AP -= 2;
-            Q.alevis_AP -= 2;
-            Q.kurds_AP -= 2;
+            Q.rural_z -= 2;
+            Q.workers_z -= 2;
+            Q.petty_bourgeoisie_z -= 2;
+            Q.state_employees_z -= 2;
+            Q.capitalists_z -= 2;
+            Q.alevis_z -= 2;
+            Q.kurds_z -= 2;
         } else if (Q.DP_in_government) {
             Q.rural_DP -= 2;
             Q.workers_DP -= 2;
@@ -130,13 +130,13 @@ if (Q.apply_economy_effects == 1) {
             Q.alevis_chp -= 4;
             Q.kurds_chp -= 4;
         } else if (Q.z_in_government) {
-            Q.rural_AP -= 4;
-            Q.workers_AP -= 4;
-            Q.petty_bourgeoisie_AP -= 4;
-            Q.state_employees_AP -= 4;
-            Q.capitalists_AP -= 4;
-            Q.alevis_AP -= 4;
-            Q.kurds_AP -= 4;
+            Q.rural_z -= 4;
+            Q.workers_z -= 4;
+            Q.petty_bourgeoisie_z -= 4;
+            Q.state_employees_z -= 4;
+            Q.capitalists_z -= 4;
+            Q.alevis_z -= 4;
+            Q.kurds_z -= 4;
         } else if (Q.DP_in_government) {
             Q.rural_DP -= 4;
             Q.workers_DP -= 4;
