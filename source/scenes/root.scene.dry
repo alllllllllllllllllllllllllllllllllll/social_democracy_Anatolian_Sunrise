@@ -767,7 +767,7 @@ Q.timers = ['advisor_action', 'confronting_nazis', 'crisis_program',
             'iron_front', 'media', 'enemies',
             'party_organizations', 'rally',
             'shuffle_leadership', 'streetfighting', 'peoples_party',
-            'party_disunity', 'union', 'union_visit', 'campaign', 'campaigning', 'kmd', 'culture',
+            'party_disunity', 'union', 'union_visit', 'campaign', 'campaigning', 'kmd', 'culture', 'municipality', 'kemalizm',
             // govt
             'agricultural_policy', 'domestic_enemies', 'fiscal_policy',
             'foreign_policy', 'judiciary', 'labor_affairs', 'military_policy',
@@ -798,6 +798,7 @@ Q.media_timer = 0;
 Q.enemies_timer = 0;
 Q.party_organizations_timer =  0;
 Q.rally_timer = 0;
+Q.kemalizm_timer = 0;
 Q.reichsbanner_timer = 0;
 Q.shuffle_leadership_timer = 0;
 Q.streetfighting_timer = 0;
@@ -827,6 +828,7 @@ Q.social_welfare_timer = 0;
 Q.war_guilt_timer = 0;
 Q.womens_rights_timer = 0;
 Q.homosexual_rights_timer = 0;
+Q.municipality_timer = 0;
 Q.economic_democracy_timer = 0;
 Q.coalition_affairs_timer = 0;
 // event timers
