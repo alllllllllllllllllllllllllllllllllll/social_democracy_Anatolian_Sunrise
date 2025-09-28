@@ -767,7 +767,7 @@ Q.timers = ['advisor_action', 'confronting_nazis', 'crisis_program',
             'iron_front', 'media', 'enemies',
             'party_organizations', 'rally',
             'shuffle_leadership', 'streetfighting', 'peoples_party',
-            'party_disunity',
+            'party_disunity', 'union', 'union_visit', 'campaign', 'campaigning', 'kmd', 'culture',
             // govt
             'agricultural_policy', 'domestic_enemies', 'fiscal_policy',
             'foreign_policy', 'judiciary', 'labor_affairs', 'military_policy',
