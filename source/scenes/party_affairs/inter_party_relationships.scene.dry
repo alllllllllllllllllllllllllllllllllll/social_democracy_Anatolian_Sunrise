@@ -23,13 +23,13 @@ The <span style="color: #E3000F;">**CHP**</span> cannot govern by itself yet. Be
 subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; TIP_inter_party_seen += 1
+on-arrival: resources -= 1; left_kemalists_strength += 2; kemalist_marxist_strength += 2; TIP_inter_party_seen += 1
 go-to: @grassroots if TIP_banned == 1; @demsoc if TIP_banned == 0 and TIP_leader == "Mehmet Ali Aybar"; @commie if TIP_banned == 0 and TIP_leader == "Behice Boran"  
 
 @grassroots
 on-arrival: TIP_relation += 6*(1 - dissent)  
 
-Since TIP is currently banned, many Socialists welcome our attempts to create a political platform for them.
+Since TIP is currently banned, many Socialists welcome our attempts to create a political platform for them. Grassroot connections also expose our party to the socialist ideals..
 
 @demsoc
 on-arrival: TIP_relation += 8*(1 - dissent)	
