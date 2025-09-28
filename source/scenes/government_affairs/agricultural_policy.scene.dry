@@ -9,7 +9,7 @@ tags: govt_affairs, cabinet
 
 = Agricultural Policy
 
-While agricultural policy has historically not been the domain of the CHP, there is much need for policy in this area. Our urban constituencies hope for cheaper and more stable food supplies, while small farmers need economic relief. There is also the movement for land reform, to break up the large aristocratic estates and redistribute land to peasants.
+Turkey is largely a rural nation that depends on agricultural production. Even though we historically have had problems with connecting with our rural provinces, as a governing party we must address the needs of our farmers. Feudalism still persists in the countryside which has to be dealt with.[? if rural_policy = 0 : We have yet not agreed on a party policy on agriculture. ?]
 
 - @land_reform
 - @agricultural_finance
@@ -21,8 +21,8 @@ While agricultural policy has historically not been the domain of the CHP, there
 
 @land_reform
 title: Land Reform
-subtitle: -1 budget - Break up the large aristocratic estates and give land to landless workers.
-unavailable-subtitle: [? if budget <= 0 : Requires 1 budget. ?] [? if judicial_reform < 2 : The judiciary would never allow this. ?]
+subtitle: -1 budget - Break up the large aristocratic estates and give land to landless peasants.
+unavailable-subtitle: [? if budget <= 0 : Requires 1 budget. ?] [? if rural_policy = 0 : We have not yet agreed on a land reform programme. ?]
 choose-if: judicial_reform >= 2 and budget > 0
 on-arrival: budget -= 1; land_reform += 1; coalition_dissent += 1; rural_CHP += 5*(1-dissent); rural_MHP -= 4*(1-dissent); unemployed -= 1 if unemployed >= 5; DP_relation -= 5;z_relation -= 4; left_strength += 8; left_dissent -= 5; rural_sol += 3; rural_policy += 1; coup_progress += 1; agriculture_goal_completed += 1;
 max-visits: 4
@@ -31,19 +31,19 @@ With our policy of land reform, we are acquiring farmland from large estates, an
 
 
 @agricultural_finance
-title: Agricultural Financing
+title: Agricultural Subsidies
 subtitle: -1 budget - Increase financing for agricultural credit and insurance.
 choose-if: budget >= 1
-on-arrival: budget -= 1; agricultural_finance += 1; rural_CHP += 5*(1-dissent); rural_MHP -= 3*(1-dissent); peoples_party_support += 1; center_dissent += 5; left_dissent += 4; rural_sol += 4; rural_policy += 1; economic_growth += 0.2;
+on-arrival: budget -= 1; agricultural_finance += 1; rural_chp += 4*(1-dissent); agricultural_production_index += 4
 
-We have increased financial support for small farmers, providing access to credit and insurance, saving them from privation. The left and center of our party are opposed to our rural policy, seeing these policies as giveaways to petit-bourgeois farmers.
+We have increased financial support for small farmers, providing access to credit and insurance, saving them from privation and slightly increasing agricultural production.
 
 
 @pro_consumer
 title: Food Procurement
 subtitle: -1 budget - Provide inexpensive food for workers.
 choose-if: budget >= 1
-on-arrival: budget -= 1; pro_consumer += 1; workers_CHP += 4*(1-dissent); unemployed_CHP += 4*(1-dissent); workers_sol += 4; coalition_dissent += 1 if black_thursday_seen; economic_growth += 0.2;
+on-arrival: budget -= 1; pro_consumer += 1; workers_chp += 4*(1-dissent); coalition_dissent += 1
 
 We have increased state purchasing of food staples to provide to urban workers and the poor. This benefits workers more than it benefits farmers, as we are negotiating for lower purchase prices. [? if black_thursday_seen and (in_weimar_coalition or in_grand_coalition) : Our coalition partners consider this policy to be a wasteful handout. ?]
 

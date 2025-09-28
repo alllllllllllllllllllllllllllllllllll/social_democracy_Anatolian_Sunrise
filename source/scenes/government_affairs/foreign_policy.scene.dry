@@ -32,10 +32,10 @@ What should our foreign policy priority be?
 - @cancel_advisor_action
 
 @improve_west
-title: Improve our relations with the Western Allies.
-on-arrival: west_relation += 2; reparations_negotiation += 1
+title: Improve our relations with the Western Europe.
+on-arrival: west_relation += 4;
 
-The key to peace in Europe is a rapproachment between France and Germany. We are taking steps towards that rapproachment. [? if young_plan_seen == 0 : This is difficult to do when France is occupying a major portion of Germany's territory, but we are working on that part. ?]
+Turkey has a lot to gain from decent relations with the west. [? if cyprus_problem == 3 : However the prospect of such decent relations have been erased with the division of Cyprus. ?]
 
 @improve_east
 title: Improve our relations with our eastern neighbors.

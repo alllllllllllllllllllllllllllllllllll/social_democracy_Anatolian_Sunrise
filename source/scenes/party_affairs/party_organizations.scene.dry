@@ -3,7 +3,7 @@ new-page: true
 is-card: true
 tags: party_affairs
 view-if: party_organizations_timer <= 0
-on-arrival: month_actions += 1; party_organizations_timer = 6;
+on-arrival: month_actions += 1; party_organizations_timer = 4;
 card-image: img/turkiyeziraatbankasi.png
 max-visits: 5
 #subtitle: Outside of electoral politics, the <span style="color: #E3000F;">**CHP**</span> runs a social world onto itself.
