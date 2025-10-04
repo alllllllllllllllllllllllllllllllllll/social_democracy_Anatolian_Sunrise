@@ -604,6 +604,36 @@ Q.old_MSP_r = 0;
 Q.old_MHP_r = 3.0;
 Q.old_other_r = 14.1;
 
+// Parliament seat distribution (initial TBMM composition, updates via elections)
+Q.total_seats = 450;
+Q.chp_seats = 143;
+Q.z_seats = 256;
+Q.TIP_seats = 2;
+Q.CGP_seats = 15;
+Q.DP_seats = 0;
+Q.MSP_seats = 0;
+Q.MHP_seats = 1;
+Q.other_seats = 33;
+Q.sapd_seats = 0;
+Q.majority_threshold = 225;
+Q.largest_party_key = 'z';
+Q.largest_party = 'AP';
+
+var sapdSeats = Q.sapd_seats || 0;
+Q.weimar_coalition = Q.chp_seats + Q.CGP_seats + Q.z_seats;
+Q.grand_coalition = Q.weimar_coalition + Q.DP_seats;
+Q.bourgeois_coalition = Q.CGP_seats + Q.z_seats + Q.DP_seats + Q.other_seats;
+Q.center_right_coalition = Q.z_seats + Q.CGP_seats + Q.DP_seats + Q.other_seats + Q.MSP_seats;
+Q.right_coalition = Q.z_seats + Q.DP_seats + Q.other_seats + Q.MSP_seats;
+Q.far_right_coalition = Q.MSP_seats + Q.MHP_seats;
+Q.left_coalition = Q.chp_seats + Q.TIP_seats + sapdSeats;
+Q.popular_front_coalition = Q.chp_seats + Q.TIP_seats + Q.z_seats + Q.CGP_seats + sapdSeats;
+Q.anti_democratic_coalition = Q.TIP_seats + Q.MHP_seats + Q.MSP_seats;
+Q.neo_weimar_coalition = Q.chp_seats + Q.CGP_seats + Q.z_seats + Q.DP_seats + Q.other_seats;
+Q.hitler_right_coalition = Q.z_seats + Q.MSP_seats + Q.MHP_seats;
+Q.progressive_coalition = Q.chp_seats + Q.TIP_seats + Q.CGP_seats + sapdSeats;
+Q.leverage = Q.chp_seats;
+
 // sapd isn't formed yet, but it may be formed
 Q.sapd_r = 0;
 Q.old_sapd_r = 0;

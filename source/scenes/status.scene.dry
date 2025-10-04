@@ -25,6 +25,22 @@ console.log("Agricultural Index:", Q.agricultural_production_index);
 console.log("Agricultural Prices:", Q.agricultural_product_prices, "Status:", Q.agricultural_price_status);
 console.log("Historical targets - Inflation:", Q.historical_inflation[Q.year], "Unemployment:", Q.historical_unemployment[Q.year], "GDP:", Q.historical_gdp_growth[Q.year]);
 console.log("==============================");
+if (typeof Q.chp_seats === 'undefined') {
+    Q.chp_seats = 143;
+    Q.z_seats = 256;
+    Q.TIP_seats = 2;
+    Q.CGP_seats = 15;
+    Q.DP_seats = 0;
+    Q.MSP_seats = 0;
+    Q.MHP_seats = 1;
+    Q.other_seats = 33;
+}
+if (typeof Q.sapd_seats === 'undefined') {
+    Q.sapd_seats = 0;
+}
+if (typeof Q.majority_threshold === 'undefined') {
+    Q.majority_threshold = 225;
+}
 !}
 
 = Status
@@ -52,24 +68,29 @@ Head of the General Staff: [+ generalstaff +]
 
 [? if army_in_government: TSK is currently in government ?][? if not army_in_government and tsk_pacified: TSK is currently pacified ?][? if not army_in_government and not tsk_pacified and coup_timer <= 3: TSK is currently hopeful ?][? if not army_in_government and not tsk_pacified and coup_timer >= 4 and coup_timer <= 6: TSK is currently observing the political situation ?][? if not army_in_government and not tsk_pacified and coup_timer >= 7 and coup_timer <= 9: TSK is currently irritated ?][? if not army_in_government and not tsk_pacified and coup_timer == 10: TSK is currently agitated ?][? if not army_in_government and not tsk_pacified and coup_timer >= 11 and coup_timer <= 12: TSK is currently alarmed ?][? if not army_in_government and not tsk_pacified and coup_timer >= 13 and coup_timer <= 14: TSK is currently {!<span style="color: darkred;">mutinous</span>!} ?][? if not army_in_government and not tsk_pacified and coup_timer >= 15: TSK is currently {!<span style="color: darkred;">mutinous and acting</span>!} ?]
 
-TBMM composition:
+TBMM composition (seats):
 
-# 1928: 30, 1930: 25, 1932: 22
+{!<span class="tooltip-text" title="Republican People's Party">CHP</span>!}: [+ chp_seats +]
+[? if sapd_formed and sapd_seats > 0: SAPD: [+ sapd_seats +] ?]
+{!<span class="tooltip-text" title="Justice Party">AP</span>!}: [+ z_seats +]
+{!<span class="tooltip-text" title="Turkish Worker's Party">TIP</span>!}: [+ TIP_seats +]
+{!<span class="tooltip-text" title="Republican Trust Party">!}[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]{!</span>!}: [+ CGP_seats +]
+{!<span class="tooltip-text" title="Democratic Party">DP</span>!}: [+ DP_seats +]
+{!<span class="tooltip-text" title="National Salvation Party">MSP</span>!}: [+ MSP_seats +]
+{!<span class="tooltip-text" title="Nationalist Movement Party">MHP</span>!}: [+ MHP_seats +]
+Others: [+ other_seats +]
+[? if majority_threshold: Majority required: [+ majority_threshold +] seats ?]
+
+Last election vote share:
+
 {!<span class="tooltip-text" title="Republican People's Party">CHP</span>!}: [+ chp_r +]%
 [? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
-# 1928: 15, 1930: 15, 1932: 
 {!<span class="tooltip-text" title="Justice Party">AP</span>!}: [+ z_r +]%
-# 1928: 10, 1930: 13
-{!<span class="tooltip-text" title="Communist Party of Germany">TIP</span>!}: [+ TIP_r +]%
-# 1928: 5, 1930: 4 (as DstP)
-{!<span class="tooltip-text" title="German Democratic Party">!}[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]{!</span>!}: [+ CGP_r +]%
-# 1928: 9, 1930: 5
-{!<span class="tooltip-text" title="German People's Party">DP</span>!}: [+ DP_r +]%
-# 1928: 14, 1930: 7
-{!<span class="tooltip-text" title="German National People's Party">MSP</span>!}: [+ MSP_r +]%
-# 1928: 3, 1930: 18
-{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">MHP</span>!}: [+ MHP_r +]%
-# 1928: 9, 1930: 10
+{!<span class="tooltip-text" title="Turkish Worker's Party">TIP</span>!}: [+ TIP_r +]%
+{!<span class="tooltip-text" title="Republican Trust Party">!}[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]{!</span>!}: [+ CGP_r +]%
+{!<span class="tooltip-text" title="Democratic Party">DP</span>!}: [+ DP_r +]%
+{!<span class="tooltip-text" title="National Salvation Party">MSP</span>!}: [+ MSP_r +]%
+{!<span class="tooltip-text" title="Nationalist Movement Party">MHP</span>!}: [+ MHP_r +]%
 Others: [+ other_r +]%
 
 [? if CHP_in_government = 1 : Budget: [+ budget +] ?]
