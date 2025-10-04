@@ -24,7 +24,7 @@ unavailable-subtitle: The party dissent is too high! We are unable to influence 
 - @publictransport: Public transport is a crucial part of urban life and most cities are lacking.
 - @libraries: City libraries can be built to support education and increase literature consumption.
 - @halkekmek: Municipal bakeries, organized under the programme "Halk Ekmek" can produce affordable bread to combat inflation and support worker families.
-- @easy_discard
+- @cancel_advisor_action
 
 @waterlines
 subtitle: -1 resources
@@ -60,6 +60,8 @@ Many families are thankful at us for providing affordable bread. However the pol
 
 @politics
 choose-if: party_dissent < 15
-unavailable-subtitle: The party dissent is too high! We are unable to influence our local governments.
+unavailable-subtitle: The party dissent is too high! We are unable to influence our local governments.	
+	
+- @cancel_advisor_action
 
 @no
