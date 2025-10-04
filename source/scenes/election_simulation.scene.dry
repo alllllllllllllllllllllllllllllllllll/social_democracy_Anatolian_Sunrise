@@ -283,31 +283,60 @@ Q.MSP_r = Q.MSP_votes;
 Q.MHP_r = Q.MHP_votes;
 Q.other_r = Q.other_votes;
 
-// The largest party can only be the MHP or the CHP.
-Q.largest_party = 'CHP';
-if (Q.z_r >= Q.chp_r && Q.z_r >= Q.TIP_r) {
-    Q.largest_party = 'Z';
+var seatMultiplier = 4.2;
+var seatBonus = 30;
+var majorityThreshold = 225;
+Q.majority_threshold = majorityThreshold;
+Q.total_seats = 0;
+Q.largest_party_key = null;
+var largestShare = -1;
+for (var party of Q.parties) {
+    var share = Q[party + '_r'] || 0;
+    var seats = Math.max(0, Math.round(share * seatMultiplier));
+    Q[party + '_seats'] = seats;
+    Q.total_seats += seats;
+    if (share > largestShare || (share === largestShare && !Q.largest_party_key)) {
+        largestShare = share;
+        Q.largest_party_key = party;
+    }
 }
-if (Q.chp_r >= Q.z_r) {
+Q.sapd_seats = 0;
+if (Q.largest_party_key) {
+    Q[Q.largest_party_key + '_seats'] += seatBonus;
+    Q.total_seats += seatBonus;
+}
+var partyDisplayNames = {
+    'chp': 'CHP',
+    'TIP': 'TIP',
+    'z': 'AP',
+    'CGP': 'CGP',
+    'DP': 'DP',
+    'MSP': 'MSP',
+    'MHP': 'MHP',
+    'other': 'Other'
+};
+if (Q.largest_party_key) {
+    Q.largest_party = partyDisplayNames[Q.largest_party_key] || Q.largest_party_key.toUpperCase();
+} else {
     Q.largest_party = 'CHP';
 }
 
-// coalitions
-Q.weimar_coalition = Q.chp_r + Q.CGP_r + Q.z_r - 3;
-Q.grand_coalition = Q.chp_r + Q.CGP_r + Q.z_r + Q.DP_r;
-Q.bourgeois_coalition = Q.CGP_r + Q.z_r + Q.DP_r + Q.other_r;
-Q.center_right_coalition = Q.z_r + Q.CGP_r + Q.DP_r + Q.other_r + Q.MSP_r;
-Q.right_coalition = Q.z_r + Q.DP_r + Q.other_r + Q.MSP_r;
-Q.far_right_coalition = Q.MSP_r + Q.MHP_r;
-Q.left_coalition = Q.chp_r + Q.TIP_r;
+Q.weimar_coalition = Q.chp_seats + Q.CGP_seats + Q.z_seats;
+Q.grand_coalition = Q.chp_seats + Q.CGP_seats + Q.z_seats + Q.DP_seats;
+Q.bourgeois_coalition = Q.CGP_seats + Q.z_seats + Q.DP_seats + Q.other_seats;
+Q.center_right_coalition = Q.z_seats + Q.CGP_seats + Q.DP_seats + Q.other_seats + Q.MSP_seats;
+Q.right_coalition = Q.z_seats + Q.DP_seats + Q.other_seats + Q.MSP_seats;
+Q.far_right_coalition = Q.MSP_seats + Q.MHP_seats;
+Q.left_coalition = Q.chp_seats + Q.TIP_seats;
 // this is an absurd concept lol
-Q.united_front_coalition = Q.chp_r + Q.TIP_r + Q.z_r + Q.CGP_r - 3;
-Q.anti_democratic_coalition = Q.TIP_r + Q.MHP_r;
+Q.united_front_coalition = Q.chp_seats + Q.TIP_seats + Q.z_seats + Q.CGP_seats;
+Q.anti_democratic_coalition = Q.TIP_seats + Q.MHP_seats + Q.MSP_seats;
 // aka everyone except nazi, TIP, MSP
-Q.neo_weimar_coalition = Q.chp_r + Q.CGP_r + Q.z_r + Q.DP_r + Q.other_r;
+Q.neo_weimar_coalition = Q.chp_seats + Q.CGP_seats + Q.z_seats + Q.DP_seats + Q.other_seats;
 !}
 
 The electoral system is essentially proportional, with the proportion of parliament seats roughly equal to the proportion of votes.
+A working majority in this simulation requires 225 seats, reflecting the +30 seat bonus granted to the largest party.
  
 **Election results:**
 
@@ -329,15 +358,15 @@ The electoral system is essentially proportional, with the proportion of parliam
 
 **Potential coalitions:**
 
-**Left Alliance** (CHP + TİP): [+ left_coalition +]%
+**Left Alliance** (CHP + TİP): [+ left_coalition +] seats
 
-**Center Coalition** (CHP + AP + CGP): [+ weimar_coalition +]%
+**Center Coalition** (CHP + AP + CGP): [+ weimar_coalition +] seats
 
-**Grand Coalition** (CHP + AP + CGP + DP): [+ grand_coalition +]%
+**Grand Coalition** (CHP + AP + CGP + DP): [+ grand_coalition +] seats
 
-**Conservative Alliance** (AP + CGP + DP + Others): [+ bourgeois_coalition +]%
+**Conservative Alliance** (AP + CGP + DP + Others): [+ bourgeois_coalition +] seats
 
-**Right-wing Coalition** (AP + DP + Others + MSP): [+ right_coalition +]%
+**Right-wing Coalition** (AP + DP + Others + MSP): [+ right_coalition +] seats
 
-**Far-right Coalition** (MSP + MHP): [+ far_right_coalition +]%
+**Far-right Coalition** (MSP + MHP): [+ far_right_coalition +] seats
 

@@ -88,39 +88,71 @@ if (Q.electoral_threshold && Q.electoral_threshold > 0) {
 // get change arrows and signs
 
 
-// The largest party can only be the MHP or the CHP.
-Q.largest_party = 'CHP';
-if (Q.MHP_r >= Q.chp_r && Q.MHP_r >= Q.TIP_r) {
-    Q.largest_party = 'MHP';
+var seatMultiplier = 4.2;
+var seatBonus = 30;
+var majorityThreshold = 225;
+Q.majority_threshold = majorityThreshold;
+Q.total_seats = 0;
+Q.largest_party_key = null;
+var largestShare = -1;
+for (var party of Q.parties) {
+    var share = Q[party + '_r'] || 0;
+    var seats = Math.max(0, Math.round(share * seatMultiplier));
+    Q[party + '_seats'] = seats;
+    Q.total_seats += seats;
+    if (share > largestShare || (share === largestShare && !Q.largest_party_key)) {
+        largestShare = share;
+        Q.largest_party_key = party;
+    }
+}
+Q.sapd_seats = 0;
+if (Q.sapd_formed && Q.sapd_r) {
+    Q.sapd_seats = Math.max(0, Math.round(Q.sapd_r * seatMultiplier));
+    Q.total_seats += Q.sapd_seats;
+}
+if (Q.largest_party_key) {
+    Q[Q.largest_party_key + '_seats'] += seatBonus;
+    Q.total_seats += seatBonus;
+}
+var partyDisplayNames = {
+    'chp': 'CHP',
+    'TIP': 'TIP',
+    'z': 'AP',
+    'CGP': Q.CGP_name,
+    'DP': 'DP',
+    'MSP': 'MSP',
+    'MHP': 'MHP',
+    'other': 'Other'
+};
+if (Q.largest_party_key) {
+    var displayName = partyDisplayNames[Q.largest_party_key] || Q.largest_party_key.toUpperCase();
+    Q.largest_party = displayName;
+} else {
+    Q.largest_party = 'CHP';
 }
 
-if (Q.TIP_r >= Q.chp_r && Q.TIP_r >= Q.MHP_r) {
-    Q.largest_party = 'TIP';
-}
-
-// coalitions
-Q.weimar_coalition = Q.chp_r + Q.CGP_r + Q.z_r;
-Q.grand_coalition = Q.chp_r + Q.CGP_r + Q.z_r + Q.DP_r;
-Q.bourgeois_coalition = Q.CGP_r + Q.z_r + Q.DP_r + Q.other_r;
-Q.center_right_coalition = Q.z_r + Q.CGP_r + Q.DP_r + Q.other_r + Q.MSP_r;
-Q.right_coalition = Q.z_r + Q.DP_r + Q.other_r + Q.MSP_r;
-Q.far_right_coalition = Q.MSP_r + Q.MHP_r;
-Q.left_coalition = Q.CHP_r + Q.TIP_r + Q.sapd_r;
-// this is an absurd concept lol
-Q.popular_front_coalition = Q.CHP_r + Q.TIP_r + Q.z_r + Q.CGP_r + Q.sapd_r;
-Q.anti_democratic_coalition = Q.TIP_r + Q.MHP_r + Q.MSP_r;
-// aka everyone except nazi, TIP, MSP
-Q.neo_weimar_coalition = Q.CHP_r + Q.CGP_r + Q.z_r + Q.DP_r + Q.other_r;
-// Hitler + Right-wing parties (only comes into effect if you've alienated Z too badly)
-Q.hitler_right_coalition = Q.z_r + Q.MSP_r + Q.MHP_r;
-// Progressive coalition isn't going to be implemented as a distinct coalition but it's the coalition that lets you pass improved women's rights/gay rights
-Q.progressive_coalition = Q.CHP_r + Q.TIP_r + Q.CGP_r + Q.sapd_r;
-
+var sapdSeats = Q.sapd_seats || 0;
+Q.weimar_coalition = Q.chp_seats + Q.CGP_seats + Q.z_seats;
 if (Q.TIP_relation >= 30) {
-    Q.weimar_coalition += Q.sapd_r;
+    Q.weimar_coalition += sapdSeats;
 }
+Q.grand_coalition = Q.chp_seats + Q.CGP_seats + Q.z_seats + Q.DP_seats;
+Q.bourgeois_coalition = Q.CGP_seats + Q.z_seats + Q.DP_seats + Q.other_seats;
+Q.center_right_coalition = Q.z_seats + Q.CGP_seats + Q.DP_seats + Q.other_seats + Q.MSP_seats;
+Q.right_coalition = Q.z_seats + Q.DP_seats + Q.other_seats + Q.MSP_seats;
+Q.far_right_coalition = Q.MSP_seats + Q.MHP_seats;
+Q.left_coalition = Q.chp_seats + Q.TIP_seats + sapdSeats;
+// this is an absurd concept lol
+Q.popular_front_coalition = Q.chp_seats + Q.TIP_seats + Q.z_seats + Q.CGP_seats + sapdSeats;
+Q.anti_democratic_coalition = Q.TIP_seats + Q.MHP_seats + Q.MSP_seats;
+// aka everyone except nazi, TIP, MSP
+Q.neo_weimar_coalition = Q.chp_seats + Q.CGP_seats + Q.z_seats + Q.DP_seats + Q.other_seats;
+// Hitler + Right-wing parties (only comes into effect if you've alienated Z too badly)
+Q.hitler_right_coalition = Q.z_seats + Q.MSP_seats + Q.MHP_seats;
+// Progressive coalition isn't going to be implemented as a distinct coalition but it's the coalition that lets you pass improved women's rights/gay rights
+Q.progressive_coalition = Q.chp_seats + Q.TIP_seats + Q.CGP_seats + sapdSeats;
 
-Q.leverage = Q.chp_r;
+Q.leverage = Q.chp_seats;
 
 Q.grand_coalition_failed = 0;
 // Reset government and ministers... Based on Brüning's 1930 govt
@@ -188,7 +220,7 @@ data = [
         "id": "TIP",
         "legend": "TIP",
         "name": "TIP",
-        "seats": Math.round(Q.TIP_r*5),
+        "seats": Q.TIP_seats,
     }
 ];
 if (Q.sapd_formed && Q.sapd_r) {
@@ -196,7 +228,7 @@ if (Q.sapd_formed && Q.sapd_r) {
             "id": "sapd",
             "legend": "SAPD",
             "name": "SAPD",
-            "seats": Math.round(Q.sapd_r*5),
+            "seats": Q.sapd_seats,
             });
 }
 data = data.concat([
@@ -204,46 +236,45 @@ data = data.concat([
         "id": "chp",
         "legend": "CHP",
         "name": "CHP",
-        "seats": Math.round(Q.chp_r*5),
+        "seats": Q.chp_seats,
     },
     {
         "id": "CGP",
         "legend": Q.CGP_name,
         "name": Q.CGP_name,
-        "seats": Math.round(Q.CGP_r*5),
+        "seats": Q.CGP_seats,
     },
     {
         "id": "z",
         "legend": "AP",
         "name": "AP",
-        "seats": Math.round(Q.z_r*5),
+        "seats": Q.z_seats,
     },
     {
         "id": "DP",
         "legend": "DP",
         "name": "DP",
-        "seats": Math.round(Q.DP_r*5),
+        "seats": Q.DP_seats,
     },
     {
         "id": "other",
         "legend": "Other",
         "name": "Other",
-        "seats": Math.round(Q.other_r*5),
+        "seats": Q.other_seats,
     },
     {
         "id": "MSP",
         "legend": "MSP",
         "name": "MSP",
-        "seats": Math.round(Q.MSP_r*5),
+        "seats": Q.MSP_seats,
     },
     {
         "id": "MHP",
         "legend": "MHP",
         "name": "MHP",
-        "seats": Math.round(Q.MHP_r*5),
+        "seats": Q.MHP_seats,
     },
 ]);
-
 if (window && d3) {
     var width = 500; 
     var height = 500;
@@ -288,19 +319,19 @@ go-to: coalition_menu
 {!<tr><td><div class="box" style='background-color:#954B00'> </div> !} MHP: {!</td><td>!} [+ MHP_r +]% {!</td><td>!} [+ str_change_MHP +] {!</td></tr>!}
 {!</table>!}
 
-**Potential coalitions:**
+**Potential coalitions** *(225 seats needed for a majority)*
 
-Weimar Coalition (CHP + Z + [+ CGP_name +]): [+ weimar_coalition +]%
+Weimar Coalition (CHP + Z + [+ CGP_name +]): [+ weimar_coalition +] seats
 
-Grand Coalition (CHP + AP + [+ CGP_name +] + DP): [+ grand_coalition +]%
+Grand Coalition (CHP + AP + [+ CGP_name +] + DP): [+ grand_coalition +] seats
 
-Bourgeois Coalition (AP + [+ CGP_name +] + DP + Others): [+ bourgeois_coalition +]%
+Bourgeois Coalition (AP + [+ CGP_name +] + DP + Others): [+ bourgeois_coalition +] seats
 
-Right-wing Coalition (AP + DP + Others + MSP): [+ right_coalition +]%
+Right-wing Coalition (AP + DP + Others + MSP): [+ right_coalition +] seats
 
 [? if nazi_urgency <= 1 and MHP_r >= 15 : The rapid rise in MHP votes is extremely worrying. Many had believed that the party was moribound; now, some of us consider it to be the greatest threat to democracy in Germany. ?]
 
-[? if anti_democratic_coalition >= 50 : Together, the anti-democratic TIP, MSP, and MHP have a majority in the Reichstag. A stable governing majority will be almost impossible. ?]
+[? if anti_democratic_coalition >= 225 : Together, the anti-democratic TIP, MSP, and MHP have a majority in the Reichstag. A stable governing majority will be almost impossible. ?]
 
 There are some potential coalition arrangements.
 
@@ -323,9 +354,9 @@ There are some potential coalition arrangements.
 
 @popular_front_coalition
 title: A new "Popular Front" coalition?
-subtitle: CHP + TIP + Z + [+ CGP_name +]  [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +]%)
-unavailable-subtitle: CHP + TIP + Z + [+ CGP_name +] [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +]%) - [? if ((TIP_relation < 65 and TIP_party_leader == "Thälmann") or (TIP_relation < 45 and TIP_party_leader == "Conciliators")): We do not have good enough relations with the TIP. ?][? if (z_relation < 45 and z_party_leader == "Joos") or (z_relation < 65 and z_party_leader != "Joos" and TIP_party_leader != "Conciliators") or (z_relation < 55 and z_party_leader != "Joos" and TIP_party_leader == "Conciliators"): We do not have good enough relations with the Center Party. ?][? if communist_coalition < 3 : The Communists are unwilling to compromise at all. ?]
-view-if: popular_front_coalition >= 50
+subtitle: CHP + TIP + Z + [+ CGP_name +]  [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +] seats)
+unavailable-subtitle: CHP + TIP + Z + [+ CGP_name +] [? if sapd_formed: + SAPD ?]([+ popular_front_coalition +] seats) - [? if ((TIP_relation < 65 and TIP_party_leader == "Thälmann") or (TIP_relation < 45 and TIP_party_leader == "Conciliators")): We do not have good enough relations with the TIP. ?][? if (z_relation < 45 and z_party_leader == "Joos") or (z_relation < 65 and z_party_leader != "Joos" and TIP_party_leader != "Conciliators") or (z_relation < 55 and z_party_leader != "Joos" and TIP_party_leader == "Conciliators"): We do not have good enough relations with the Center Party. ?][? if communist_coalition < 3 : The Communists are unwilling to compromise at all. ?]
+view-if: popular_front_coalition >= 225
 choose-if: (((TIP_relation >= 65 and TIP_party_leader == "Thälmann") or (TIP_relation >= 45 and TIP_party_leader == "Conciliators")) and ((z_relation >= 45 and z_party_leader == "Joos") or (z_relation >= 65 and z_party_leader != "Joos" and TIP_party_leader != "Conciliators") or (z_relation >= 55 and z_party_leader != "Joos" and TIP_party_leader == "Conciliators")) and CGP_relation >= 50 and communist_coalition >= 3) or (z_party_leader == "Joos" and TIP_party_leader == "Conciliators" and z_relation >= 30 and TIP_relation >= 30)
 
 Could we really form a coalition that included both the Center and the Communists? It seems like an absurd concept, but given our good relationships with both sides, it is not an impossibility.
@@ -406,9 +437,9 @@ go-to: civil_war
 
 
 @far_right_coalition
-title: Far-right coalition
-subtitle: MHP + MSP ([+ far_right_coalition +]%)
-view-if: far_right_coalition >= 50
+title: Far-right coalition?
+subtitle: MHP + MSP ([+ far_right_coalition +] seats)
+view-if: far_right_coalition >= 225
 go-to: far_right_win if (year >= 1932 or MHP_r >= 44) and president != "Braun"; far_right_fail if (year < 1932 and MHP_r < 44) and president != "Braun"; far_right_braun if president == "Braun"
 priority: 2
 
@@ -448,9 +479,9 @@ Alternatively, Braun could use the emergency powers of the presidency. Article 4
 
 @left_coalition
 title: Is a United Left coalition possible?
-subtitle: CHP + TIP [? if sapd_formed: + SAPD ?] ([+ left_coalition +]%)
-unavailable-subtitle: CHP + TIP [? if sapd_formed: + SAPD ?] ([+ left_coalition +]%). [? if TIP_relation < 50 : We do not have adequate relations with the TIP. ?][? if communist_coalition < 3 : The Communists are too committed to their radical ways to partake in government. ?]
-view-if: left_coalition >= 50
+subtitle: CHP + TIP [? if sapd_formed: + SAPD ?] ([+ left_coalition +] seats)
+unavailable-subtitle: CHP + TIP [? if sapd_formed: + SAPD ?] ([+ left_coalition +] seats). [? if TIP_relation < 50 : We do not have adequate relations with the TIP. ?][? if communist_coalition < 3 : The Communists are too committed to their radical ways to partake in government. ?]
+view-if: left_coalition >= 225
 choose-if: (TIP_relation >= 50 or (TIP_party_leader == "Conciliators" and TIP_relation >= 40)) and communist_coalition >= 3
 
 There are enough votes for a CHP + TIP coalition government, if such a thing were actually possible.
@@ -484,7 +515,7 @@ With great reluctance, President [+ president +] appoints [+ chancellor +] as pr
 
 Immediately, [+ chancellor +] goes to work building a "Soviet Germany": consolidating as much power as possible in the TIP, purging state institutions of anti-communists, and sending street fighters against the "enemies of the people".
 
-In response to [+ chancellor +] being appointed Prime Minister, the right-wing forces launches almost immediately launch an attempted coup. Troops of the Stahlhelm and Nazi SA enter Berlin and immediately begin clashing with our supporters! Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined them with the Stahlhelm to stop the TIP from taking power. We are forced to be on the same side as the TIP, whether we want to or not.
+In response to [+ chancellor +] being appointed Prime Minister, the right-wing forces launches almost immediately launch an attempted coup. Troops of the Stahlhelm and Nazi SA enter Berlin and immediately begin clashing with our supporters! Reactionary officers within the Reichswehr have taken their troops out of the barracks and joined the Stahlhelm to stop the TIP from taking power. We are forced to be on the same side as the TIP, whether we want to or not.
 
 - @civil_war_redirect2: Begin the civil war.
 
@@ -539,9 +570,9 @@ go-to: civil_war
 
 @right_coalition
 title: Refuse to form a government, so that a right-wing coalition may be formed.
-subtitle: AP + DP + MSP + Others ([+ right_coalition +]%)
+subtitle: AP + DP + MSP + Others ([+ right_coalition +] seats)
 unavailable-subtitle: The MSP is not interested in a coalition with the Center.
-view-if: right_coalition >= 50
+view-if: right_coalition >= 225
 choose-if: year < 1929
 
 There are enough votes for a right-wing coalition of the Center Party, DP, MSP, and minor conservative parties. [? if largest_party == "CHP": However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
@@ -562,7 +593,7 @@ go-to: right_coalition_2
 
 @right_coalition_2
 unavailable-subtitle: The MSP is not interested in a coalition with the Center.
-view-if: right_coalition >= 50
+view-if: right_coalition >= 225
 choose-if: year < 1929
 on-arrival: CHP_in_government = 0; CHP_toleration = 0; chancellor = "Brüning"; chancellor_party = "AP"; foreign_minister_party = "DP"; interior_minister_party = "MSP"; justice_minister_party = "MSP"; labor_minister_party = "AP"; reichswehr_minister_party = "I"; economic_minister_party = "DP"; finance_minister_party = "AP"; agriculture_minister_party = "MSP"; in_right_coalition = 1;
 
@@ -572,7 +603,7 @@ Even though the MSP is very reluctant to participate in such a coalition, they s
 
 @no_majority
 title: There is no clear governing majority.
-view-if: weimar_coalition < 50 and (grand_coalition < 50 or grand_coalition_failed == 1) and president = "Hindenburg" and far_right_coalition < 50
+view-if: weimar_coalition < 225 and (grand_coalition < 225 or grand_coalition_failed == 1) and president = "Hindenburg" and far_right_coalition < 225
 on-arrival: no_majority_elections += 1
 go-to: no_majority_bruning if chancellor = "Brüning" or chancellor = "Wirth"; no_majority_papen if chancellor = "Papen" and no_majority_papen_elections == 0; no_majority_papen_2 if chancellor == "Papen" and no_majority_papen_elections > 0; no_majority_schleicher if chancellor = "Schleicher"; no_majority_CHP if chancellor_party = "CHP" or chancellor == "Marx"
 
@@ -621,10 +652,10 @@ The third option is to have new elections.
 
 @new_grand_coalition
 title: A "New Grand Coalition" of all the constitutional parties?
-subtitle: CHP + AP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +]%)
-view-if: neo_weimar_coalition >= 50 and grand_coalition < 50
+subtitle: CHP + AP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +] seats)
+view-if: neo_weimar_coalition >= 225 and grand_coalition < 225
 choose-if: z_relation >= 50 and DP_relation >= 30
-unavailable-subtitle: CHP + AP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +]%) - [? if z_relation < 50 : We do not have adequate relations with the Center Party. ?][? if DP_relation < 30 : We do not have adequate relations with the DP. ?]
+unavailable-subtitle: CHP + AP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +] seats) - [? if z_relation < 50 : We do not have adequate relations with the Center Party. ?][? if DP_relation < 30 : We do not have adequate relations with the DP. ?]
 
 How do we convince vehemently anti-socialist parties to allow us to form a majority coalition? Our largely benevolent relations with the Center and DP may allow us some leverage.
 
@@ -662,8 +693,8 @@ We have assembled a new coalition under Otto Braun.
 
 @unity_government
 title: The Center Party offers a "Government of National Unity" under Chancellor Joseph Wirth.
-subtitle: CHP + AP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +]%)
-view-if: z_party_leader == "Joos" and neo_weimar_coalition >= 50 and weimar_coalition < 50 and z_relation >= 10
+subtitle: CHP + AP + [+ CGP_name +] + DP + Others ([+ neo_weimar_coalition +] seats)
+view-if: z_party_leader == "Joos" and neo_weimar_coalition >= 225 and weimar_coalition < 225 and z_relation >= 10
 
 The Center Party leader, Joseph Joos, clearly sees the threat from the ascension of the anti-democratic extremist parties, and thus tries to negotiate a "Government of National Unity" to save the republic. This coalition would be led by Joseph Wirth, a left-leaning member of the Center Party and former chancellor, and would encompass all of the constitutional parties. Our role in this government might be limited, however.
 
@@ -738,8 +769,8 @@ go-to: game_over
 
 @CHP_majority
 title: CHP majority alone
-subtitle: CHP: [+ CHP_r +]%
-view-if: CHP_r >= 50
+subtitle: CHP: [+ chp_r +]% ([+ chp_seats +] seats)
+view-if: chp_seats >= 225
 on-arrival: chancellor = "Empty"; chancellor_party = "CHP"; CHP_in_government = 1; in_CHP_majority = 1; pro_republic += 5; foreign_minister_party = "CHP"; foreign_minister = "Breitscheid"; interior_minister_party = "CHP"; interior_minister = "Severing"; justice_minister_party = "CHP"; justice_minister = "Radbruch"; labor_minister_party = "CHP"; labor_minister = "Wissell"; reichswehr_minister_party = "CHP"; reichswehr_minister = "Leber"; economic_minister_party = "CHP"; economic_minister = "Schmidt"; finance_minister_party = "CHP"; finance_minister = "Hilferding"; agriculture_minister_party = "CHP"; agriculture_minister = "Baade"; reichswehr_loyalty -= 0.05; 
 achievement: majority_party
 
@@ -782,7 +813,7 @@ Otto Wels has become chancellor of the CHP majority.
 @brauns_dilemma
 title: There is no clear governing majority.
 subtitle: President Braun faces a dilemma.
-view-if: president == "Braun" and (grand_coalition < 50 or grand_coalition_failed == 1)
+view-if: president == "Braun" and (grand_coalition < 225 or grand_coalition_failed == 1)
 
 President Braun faces a dilemma. He desperately desires a socialist or at least democratic government, but the electoral results are not there for such. Article 48 has been used by Hindenburg to promulgate anti-democratic and anti-worker policies; can Article 48 be used for good as well as evil?
 
@@ -930,8 +961,8 @@ We have won the vote of no confidence, and are currently ruling under an CHP min
 
 @weimar_coalition
 title: We can form a Weimar Coalition.
-subtitle: CHP + Z + [+ CGP_name +] [? if sapd_formed and TIP_relation >= 30 : + SAPD toleration ?] ([+ weimar_coalition +]%)
-view-if: weimar_coalition >= 50
+subtitle: CHP + Z + [+ CGP_name +] [? if sapd_formed and TIP_relation >= 30 : + SAPD toleration ?] ([+ weimar_coalition +] seats)
+view-if: weimar_coalition >= 225
 on-arrival: leverage += 5; leverage += 5 if z_party_leader == "Joos"; in_weimar_coalition = 1; CHP_in_government = 1; in_popular_front = 0; in_left_front = 0; foreign_minister_party = "AP"; interior_minister_party = "AP"; justice_minister_party = CGP_name; labor_minister_party = "AP"; reichswehr_minister_party = "I"; economic_minister_party = CGP_name; finance_minister_party = "AP"; agriculture_minister_party = "AP"; foreign_minister = "Wirth"; interior_minister = "Wirth"; justice_minister = "Koch-Weser"; labor_minister = "Stegerwald"; reichswehr_minister = "Groener"; economic_minister = "Dietrich"; finance_minister = "Köhler"; agriculture_minister = "Hermes";
 achievement: weimar_coalition
 
@@ -958,8 +989,8 @@ Rudolf Breitscheid has been appointed chancellor.
 
 @grand_coalition
 title: We can form a Grand Coalition.
-view-if: grand_coalition >= 50 and grand_coalition_failed == 0
-subtitle: CHP + Z + [+ CGP_name +] + DP ([+ grand_coalition +]%)
+view-if: grand_coalition >= 225 and grand_coalition_failed == 0
+subtitle: CHP + Z + [+ CGP_name +] + DP ([+ grand_coalition +] seats)
 on-arrival: in_grand_coalition = 1; in_popular_front = 0; in_left_front = 0
 go-to: grand_coalition_CHP_lead if (n_elections <= 1 and largest_party == "CHP") or (largest_party == "CHP" and CHP_r >= 30) or president = "Braun"; grand_coalition_z_lead if president != "Braun" and ((n_elections > 1 and CHP_r < 30) or (n_elections <= 1 and largest_party != "CHP"))
 
@@ -975,7 +1006,7 @@ There are enough votes to form a majority coalition consisting of the CHP, Cente
 
 @grand_coalition_z_lead_2
 
-The Center chancellor is likely to be Heinrich Brüning of the Center Party [? if chancellor = "Brüning" : again. ?][? if chancellor != "Brüning": . ?] He is known for his conservatism and sympathy for monarchism, being on the right wing of the Center. [? if austerity >= 2 : Due to the government's austerity policies, many of our members are reluctant to participate in this coalition again. Some support a "toleration" arrangement in which we will provide outside support to prevent the far-right from either entering government or calling a successful no-confidence vote. Others support entering into pure opposition, and letting the right do what it wishes. ?]
+The Center chancellor is likely to be Heinrich Brüning of the Center Party [? if chancellor = "Brüning" : again. ?][? if chancellor != "Brüning": . ?] He is known for his conservatism and sympathy for monarchism, being on the right wing of the Center. [? if austerity >= 2 : Due to the government's austerity policies, many of our members are reluctant to participate in this coalition. Some support a "toleration" arrangement in which we will provide outside support to prevent the far-right from either entering government or calling a successful no-confidence vote. Others support entering into pure opposition, and letting the right do what it wishes. ?]
 
 Brüning is not opposed to a coalition with us. Alternatively, we could enter a "toleration" agreement.
 
@@ -985,7 +1016,7 @@ Brüning is not opposed to a coalition with us. Alternatively, we could enter a 
 - @unity_government
 
 @join_bruning
-view-if: grand_coalition >= 50 or neo_weimar_coalition >= 50
+view-if: grand_coalition >= 225 or neo_weimar_coalition >= 225
 on-arrival: CHP_in_government = 1; CHP_toleration = 0; in_grand_coalition = 1; chancellor = "Brüning"; chancellor_party = "AP"; foreign_minister_party = "DP"; interior_minister_party = "AP"; justice_minister_party = "AP"; labor_minister_party = "AP"; reichswehr_minister_party = "I"; economic_minister_party = "AP"; finance_minister_party = "AP"; agriculture_minister_party = "AP"; leverage = 25 if leverage >= 25;
 go-to: ministries
 
@@ -994,7 +1025,7 @@ Heinrich Brüning welcomes us into his new cabinet. Now, we have our pick of min
 @bruning_oppo
 on-arrival: CHP_in_government = 0; CHP_toleration = 0; chancellor = "Brüning"; chancellor_party = "AP"; foreign_minister_party = "DP"; interior_minister_party = "AP"; justice_minister_party = "AP"; labor_minister_party = "AP"; reichswehr_minister_party = "I"; economic_minister_party = "AP"; finance_minister_party = "AP"; agriculture_minister_party = "AP"; grand_coalition_failed = 1
 
-By refusing to join the grand coalition or tolerating it, we essentially throw the balance of government to the right wing. [? if right_coalition >= 50 : There are enough votes to form a right-wing coalition that includes the MSP. However, the MSP leader, Hugenberg, is opposed to a coalition with the "November criminals" of the Center Party. And of course, the MHP is not interested in coalition government. This means that there will not be enough votes to form a majority coalition. ?][? if right_coalition < 50 : There are not enough votes to form a right-wing coalition that includes the MSP, and they are not interested in joining in a coalition with the "November criminals" of the Center Party, anyhow. And of course, the MHP is not interested in coalition government. This means that there is no route to a majority coalition. ?]
+By refusing to join the grand coalition or tolerating it, we essentially throw the balance of government to the right wing. [? if right_coalition >= 225 : There are enough seats to form a right-wing coalition that includes the MSP. However, the MSP leader, Hugenberg, is opposed to a coalition with the "November criminals" of the Center Party. And of course, the MHP is not interested in coalition government. This means that there will not be enough votes to form a majority coalition. ?][? if right_coalition < 225 : There are not enough seats to form a right-wing coalition that includes the MSP, and they are not interested in joining in a coalition with the "November criminals" of the Center Party, anyhow. And of course, the MHP is not interested in coalition government. This means that there is no route to a majority coalition. ?]
 
 If we do not at least "tolerate" the government, there will be new elections in a few months. In the meantime, the President and Chancellor may use the emergency powers granted by Article 48 of the constitution to essentially govern by decree. And it is not at all clear that we will do any better in the next election.
 
@@ -1054,7 +1085,7 @@ if (Q.pro_republic < 36) {
     Q.rural_MHP += 8;
     Q.unemployed_MHP += 8;   
 }
-if (Q.far_right_coalition >= 50) {
+if (Q.far_right_coalition >= 225) {
     Q.sa_strength += 100;
     Q.sh_strength += 100;
     Q.coup_progress += 3;
@@ -1067,7 +1098,7 @@ The people's faith in democracy is shaken by this ordeal. Of course, the Nazis a
 
 
 @toleration_bruning
-choose-if: neo_weimar_coalition >= 50
+choose-if: neo_weimar_coalition >= 225
 unavailable-subtitle: The parties supporting Brüning do not have a majority.
 on-arrival: CHP_in_government = 0; CHP_toleration = 1; minority_government = 1; chancellor = "Brüning"; chancellor_party = "AP"; foreign_minister_party = "DP"; interior_minister_party = "AP"; justice_minister_party = "I"; labor_minister_party = "AP"; reichswehr_minister_party = "I"; economic_minister_party = CGP_name; finance_minister_party = "DP"; agriculture_minister_party = "AP"; pro_republic -= 4; new_middle_DP -= 5; new_middle_CGP -= 5; old_middle_DP -= 5; old_middle_CGP -= 5; old_middle_MHP += 5; new_middle_MHP += 5; rural_MSP -= 5;
 
@@ -1233,7 +1264,7 @@ go-to: no_govt_2
 
 @no_govt_2
 on-arrival: reformist_dissent += 25; center_dissent += 10; labor_dissent += 25; neorevisionist_dissent += 25; in_weimar_coalition = 0; in_grand_coalition = 0; chancellor = "Brüning" if chancellor == "Marx"; CHP_in_government = 0; grand_coalition_failed = 1
-go-to: right_coalition_post_CHP if right_coalition >= 50 and president != "Braun" and year < 1929; new_elections_CHP if (right_coalition < 50 or year >= 1929) and president != "Braun"; brauns_dilemma if president == "Braun"
+go-to: right_coalition_post_CHP if right_coalition >= 225 and president != "Braun" and year < 1929; new_elections_CHP if (right_coalition < 225 or year >= 1929) and president != "Braun"; brauns_dilemma if president == "Braun"
 
 
 @right_coalition_post_CHP

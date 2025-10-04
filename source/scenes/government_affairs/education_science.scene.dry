@@ -105,7 +105,7 @@ Education in Germany has traditionally been organized on religious and class lin
 title: Support secular schools to end the religious dominance in education.
 subtitle: -1 budget
 unavailable-subtitle: -1 budget - requres a majority of parties to support secular schools.
-choose-if: budget >= 1 and (progressive_coalition + DP_r >= 50)
+choose-if: budget >= 1 and (progressive_coalition + DP_seats >= 225)
 view-if: secularized = 0
 
 Are you sure about this? The Weimar Coalition had an agreement to not touch religious schools; the Catholic Center Party will revolt.

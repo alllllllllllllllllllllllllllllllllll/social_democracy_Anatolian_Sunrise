@@ -47,8 +47,8 @@ We have increased welfare spending on women and children. [? if welfare >= 1 and
 
 @liberalize
 max-visits: 1
-subtitle: [? if progressive_coalition < 50 : This is unlikely to succeed; we do not have majority support. ?]
-go-to: liberalize_fail if progressive_coalition < 50; liberalize_success if progressive_coalition >= 50
+subtitle: [? if progressive_coalition < 225 : This is unlikely to succeed; we do not have majority support. ?]
+go-to: liberalize_fail if progressive_coalition < 225; liberalize_success if progressive_coalition >= 225
 
 @liberalize_fail
 on-arrival: z_relation -= 5; coalition_dissent += 1; workers_CHP += 3*(1-dissent); catholics_CHP -= 5;
