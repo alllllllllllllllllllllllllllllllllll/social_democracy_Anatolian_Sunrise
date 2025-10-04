@@ -82,7 +82,7 @@ Others: [+ other_seats +]
 
 [? if majority_threshold: Majority required: [+ majority_threshold +] seats ?]
 
-Last Election Voteshare:
+Last election vote share:
 
 {!<span class="tooltip-text" title="Republican People's Party">CHP</span>!}: [+ chp_r +]%
 [? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
