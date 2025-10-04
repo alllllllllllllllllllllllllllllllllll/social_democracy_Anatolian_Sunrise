@@ -17,6 +17,5 @@ on-arrival: {!
     Q.CHP_in_government = 0;
     Q.time_to_election = 3;
 !}
-go-to: main
 
 The vote succeeds and our government falls. New elections will be held soon.
