@@ -79,9 +79,10 @@ TBMM composition (seats):
 {!<span class="tooltip-text" title="National Salvation Party">MSP</span>!}: [+ MSP_seats +]
 {!<span class="tooltip-text" title="Nationalist Movement Party">MHP</span>!}: [+ MHP_seats +]
 Others: [+ other_seats +]
+
 [? if majority_threshold: Majority required: [+ majority_threshold +] seats ?]
 
-Last election vote share:
+Last Election Voteshare:
 
 {!<span class="tooltip-text" title="Republican People's Party">CHP</span>!}: [+ chp_r +]%
 [? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
