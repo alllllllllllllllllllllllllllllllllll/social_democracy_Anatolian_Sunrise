@@ -28,7 +28,6 @@ unavailable-subtitle: The party dissent is too high! We are unable to influence 
 - @libraries: City libraries can be built to support education and increase literature consumption.
 - @halkekmek: Municipal bakeries, organized under the programme "Halk Ekmek" can produce affordable bread to combat inflation and support worker families.
 - @municipalities_menu: Return to municipal planning.
-- @cancel_advisor_action
 
 @waterlines
 subtitle: -1 resources
@@ -69,12 +68,8 @@ unavailable-subtitle: The party dissent is too high! We are unable to influence 
 Our municipal offices can host community events and strengthen our alliances, but we first need a clear plan on how to spend the limited funds and volunteers available.
 	
 - @municipalities_menu: Return to municipal planning.
-- @cancel_advisor_action
 
 @no
 subtitle: Hold off on municipal initiatives.
-on-arrival: last_advisor_action = 1
 
 For now we will not expand our municipal efforts. We'll return to these proposals once the party is ready to commit resources.
-
-- @cancel_advisor_action
