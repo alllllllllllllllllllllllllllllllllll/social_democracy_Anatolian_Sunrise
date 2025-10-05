@@ -4,21 +4,22 @@ is-card: true
 view-if: municipality_control_level != 0 and municipality_timer == 0
 on-arrival: month_actions += 1; municipality_timer = 6
 frequency: 5000
-tags: govt_affairs
 card-image: img/belediye.jpg
 go-to: municipalities_menu
+tags: govt_affairs
 #subtitle: The other branch of the government.
 
+= Municipalities and local governance
+
+In Turkey, the territories of the republic are divided among small municipalities which are firmly connected with the central government. Still, the municipalities are still an integral part of Turkish politics and are useful for reaching out to demographics we normally aren't performing well with through an example of our governance and services.
+
 @municipalities_menu
-= Municipalities and local governence
 
-In Turkey, the territories of the republic are divided among small municipalities which are firmly connected with the central government. Still, the municipalities are stil an integral part of Turkish politics and are useful for reaching out to demographics we normally aren't performing well through an example of our governence and services.
-
-- @governence: Municipalities are responsible for many local tasks in which we can improve our performance and show to the people how a <span style="color: #E3000F;">**CHP**</span> government would look like.
+- @governance: Municipalities are responsible for many local tasks in which we can improve our performance and show to the people how a <span style="color: #E3000F;">**CHP**</span> government would look like.
 - @politics: The municipalities not only allow us to offer a vision of our administration but also to perhaps improve our political standing through the usage of local resources.
 - @no: We either won't or can't focus on the municipalities at this time.
 
-@governence
+@governance
 choose-if: party_dissent < 15
 unavailable-subtitle: The party dissent is too high! We are unable to influence our local governments to improve our efficiency.
 
@@ -64,8 +65,16 @@ Many families are thankful at us for providing affordable bread. However the pol
 @politics
 choose-if: party_dissent < 15
 unavailable-subtitle: The party dissent is too high! We are unable to influence our local governments.	
+
+Our municipal offices can host community events and strengthen our alliances, but we first need a clear plan on how to spend the limited funds and volunteers available.
 	
 - @municipalities_menu: Return to municipal planning.
 - @cancel_advisor_action
 
 @no
+subtitle: Hold off on municipal initiatives.
+on-arrival: last_advisor_action = 1
+
+For now we will not expand our municipal efforts. We'll return to these proposals once the party is ready to commit resources.
+
+- @cancel_advisor_action
