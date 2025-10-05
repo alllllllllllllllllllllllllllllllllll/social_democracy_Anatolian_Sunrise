@@ -136,10 +136,13 @@ Q.weimar_coalition = Q.chp_seats + Q.CGP_seats + Q.z_seats;
 if (Q.TIP_relation >= 30) {
     Q.weimar_coalition += sapdSeats;
 }
-Q.grand_coalition = Q.chp_seats + Q.CGP_seats + Q.z_seats + Q.DP_seats;
-Q.bourgeois_coalition = Q.CGP_seats + Q.z_seats + Q.DP_seats + Q.other_seats;
+Q.grand_coalition = Q.chp_seats + Q.z_seats;
+Q.kemalist_coalition = Q.chp_seats + Q.CGP_seats;
+Q.bourgeois_coalition = Q.CGP_seats + Q.z_seats + Q.DP_seats;
+Q.unholy_coalition = Q.chp_seats + Q.MSP_seats;
 Q.center_right_coalition = Q.z_seats + Q.CGP_seats + Q.DP_seats + Q.other_seats + Q.MSP_seats;
 Q.right_coalition = Q.z_seats + Q.DP_seats + Q.other_seats + Q.MSP_seats;
+Q.nationalist_front_coalition = Q.z_seats + DP_seats + MSP_seats + MHP_seats;
 Q.far_right_coalition = Q.MSP_seats + Q.MHP_seats;
 Q.left_coalition = Q.chp_seats + Q.TIP_seats + sapdSeats;
 // this is an absurd concept lol
@@ -321,13 +324,17 @@ go-to: coalition_menu
 
 **Potential coalitions** *(225 seats needed for a majority)*
 
-Weimar Coalition (CHP + Z + [+ CGP_name +]): [+ weimar_coalition +] seats
+Left Coalition (CHP + TİP): [+ left_coalition +] seats
 
-Grand Coalition (CHP + AP + [+ CGP_name +] + DP): [+ grand_coalition +] seats
+Kemalist Coalition (CHP + [+ CGP_name +]): [+ kemalist_coalition +] seats
 
-Bourgeois Coalition (AP + [+ CGP_name +] + DP + Others): [+ bourgeois_coalition +] seats
+Grand Coalition (CHP + AP): [+ grand_coalition +] seats
 
-Right-wing Coalition (AP + DP + Others + MSP): [+ right_coalition +] seats
+Unholy Coalition (CHP + MSP): [+ unholy_coalition +] seats
+
+Bourgeois Coalition (AP + [+ CGP_name +] + DP): [+ bourgeois_coalition +] seats
+
+Nationalist Front Coalition (AP + DP + MSP + MHP): [+ nationalist_front_coalition +] seats
 
 [? if nazi_urgency <= 1 and MHP_r >= 15 : The rapid rise in MHP votes is extremely worrying. Many had believed that the party was moribound; now, some of us consider it to be the greatest threat to democracy in Germany. ?]
 
@@ -338,6 +345,7 @@ There are some potential coalition arrangements.
 @coalition_menu
 
 - @CHP_majority
+- @kemalist_coalition
 - @weimar_coalition
 - @grand_coalition
 - @new_grand_coalition
@@ -434,7 +442,14 @@ The Center manages to diffuse some of the hostility from the Reichswehr and the 
 @civil_war_redirect
 go-to: civil_war
 
+@kemalist_coalition
+title: We can form a Kemalist coalition.
+subtitle: CHP + CGP ([+ kemalist_coalition +] seats)
+view-if: kemalist_coalition >= 225
 
+We have the numbers to enter into coalition with the ideologically closest party to our right, CGP!
+
+- @ministries: First, we must select our ministries.
 
 @far_right_coalition
 title: Far-right coalition?
@@ -443,7 +458,7 @@ view-if: far_right_coalition >= 225
 go-to: far_right_win if (year >= 1932 or MHP_r >= 44) and president != "Braun"; far_right_fail if (year < 1932 and MHP_r < 44) and president != "Braun"; far_right_braun if president == "Braun"
 priority: 2
 
-There are enough votes for the Nazis and the MSP to form a coalition. [+ MHP_leader +] has made his participation in government contingent on being appointed prime minister. It is up to President [+ president +] to decide.
+There are enough votes for the MHP and the MSP to form a coalition. [+ MHP_leader +] has made his participation in government contingent on being appointed prime minister. It is up to President [+ president +] to decide.
 
 @far_right_win
 on-arrival: chancellor = MHP_leader; chancellor_party = "MHP"
