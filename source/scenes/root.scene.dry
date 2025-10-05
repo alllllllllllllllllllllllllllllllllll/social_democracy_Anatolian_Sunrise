@@ -56,6 +56,9 @@ Q.orthodox_kemalists_strength = 25;
 Q.orthodox_kemalists_dissent = 5;
 Q.right_kemalists_strength = 25;
 Q.right_kemalists_dissent = 10;
+Q.right_kemalist_deal = 0;
+Q.right_kemalists_resign = 0;
+Q.right_kemalist_split = 0;
 
 // secret events...
 Q.unions_independent = 0;
@@ -122,6 +125,7 @@ Q.MSP_party_leader = "Süleyman Arif";
 Q.CHP_leader = "İnönü";
 // alternative <span style="color: #E3000F;">**CHP**</span> leader: Ecevit
 Q.CHP_party_leader = "İnönü";
+Q.chp_party_leader = "İnönü";
 Q.MHP_leader = "Alparslan Türkeş"
 Q.MHP_party_leader = "Alparslan Türkeş"
 

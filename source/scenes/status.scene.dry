@@ -41,6 +41,15 @@ if (typeof Q.sapd_seats === 'undefined') {
 if (typeof Q.majority_threshold === 'undefined') {
     Q.majority_threshold = 225;
 }
+if (typeof Q.right_kemalist_split === 'undefined') {
+    Q.right_kemalist_split = 0;
+}
+if (typeof Q.right_kemalist_deal === 'undefined') {
+    Q.right_kemalist_deal = 0;
+}
+if (typeof Q.right_kemalists_resign === 'undefined') {
+    Q.right_kemalists_resign = 0;
+}
 !}
 
 = Status
@@ -155,7 +164,9 @@ Municipality Control: [+ municipalities_controlled +]/[+ total_municipalities +]
 
 {!<span class="tooltip-text" title="CHP was created as a middle class party to reinforce the Kemalist and the semi-bourgeoisie revolution of the military intelligentsia. Mostly the remnants of the one party era and lead by the illustrious right-man in command of Ataturk, İsmet İnönü, the Orthodox Kemalists reject any intrusion into the Left in fears of CHP losing its identity as the party that gave birth to the Turkish Republic, as a nation-state found on Corporatist principles.">Orthodox Kemalists</span>!} strength: [+ orthodox_kemalists_strength : strength +], dissent: [+ orthodox_kemalists_dissent : dissent +]
 
-{!<span class="tooltip-text" title="Seeing the rising Left of Center movement as a pivot to Socialism and Communism, the Right Kemalists advocate for an increased emphasis on Kemalist Nationalism and Corporatism which would serve as a third and moderate alternative to the two wings of Turkish politics, the "unnational" left and the "backward" right. Even though Right Kemalists have formed a party led by Turhan Feyzioğlu, they still have many sympathizers within the party.>Right Kemalists</span>!} strength: [+ right_kemalists_strength : strength +], dissent: [+ right_kemalists_dissent : dissent +]
+{!<span class="tooltip-text" title="Seeing the rising Left of Center movement as a pivot to Socialism and Communism, the Right Kemalists advocate for an increased emphasis on Kemalist Nationalism and Corporatism which would serve as a third and moderate alternative to the two wings of Turkish politics, the &quot;unnational&quot; left and the &quot;backward&quot; right. Even though Right Kemalists have formed a party led by Turhan Feyzioğlu, they still have many sympathizers within the party.">Right Kemalists</span>!} strength: [+ right_kemalists_strength : strength +], dissent: [+ right_kemalists_dissent : dissent +]
+[? if right_kemalist_split : {!<span style="color: #7A3C00;">Following Ecevit's ascension, the Right Kemalist faction has left the party to join the non-socialist opposition.</span>!} ?]
+[? if not right_kemalist_split and right_kemalist_deal : {!<span style="color: #7A3C00;">Satır's compromise keeps the Right Kemalists inside the CHP—at least for now.</span>!} ?]
 
 [? if neorevisionism > 0 : Neorevisionist strength: [+ neorevisionist_strength : strength +], dissent: [+ neorevisionist_dissent : dissent +] ?]
 

@@ -16,9 +16,11 @@ Kemal Satır is a prominent member of the Orthodox wing within the party. Once t
 @leave
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 3; rightstay += 1
+on-arrival: advisor_action_timer = 3; right_kemalist_deal = 1
 
 Satır's position and ours is inherently irreconcilable, and the right wing stands their ground. However, our offer seems to have intrigued the right and we may get an interesting proposal once the dust settles..
+
+We have promised the orthodox right a say in future appointments in exchange for their cooperation. They will hold their fire—for now.
 
 @health
 on-arrival: advisor_action_timer = 3

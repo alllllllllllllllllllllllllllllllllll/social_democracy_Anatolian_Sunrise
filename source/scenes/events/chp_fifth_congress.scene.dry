@@ -91,9 +91,39 @@ The election of Sırrı Atalay has made the party's future direction clear. It w
 - @inonu_resigns: Seeing the results of the preliminary congress, İnönü has resigned from the post of party leadership!
 
 @inonu_resigns
-on-arrival: CHP_party_leader = "Ecevit"; left_kemalists_dissent -= 20; kemalist_marxists_dissent -= 10; disk_relation += 10; TIP_relation += 10; MHP_relation -= 5
+on-arrival: {! 
+Q.CHP_party_leader = "Ecevit";
+Q.chp_party_leader = "Ecevit";
+Q.left_kemalists_dissent -= 20;
+Q.kemalist_marxists_dissent -= 10;
+Q.disk_relation += 10;
+Q.TIP_relation += 10;
+Q.MHP_relation -= 5;
+if (!Q.right_kemalist_deal) {
+    if (typeof Q.right_kemalists_strength !== "undefined") {
+        Q.right_kemalists_strength = 0;
+    }
+    if (typeof Q.right_kemalists_dissent !== "undefined") {
+        Q.right_kemalists_dissent = 0;
+    }
+    Q.right_kemalists_resign = 1;
+    Q.right_kemalist_split = 1;
+    if (Q.satir_advisor) {
+        Q.satir_advisor = 0;
+        if (typeof Q.n_advisors !== "undefined" && Q.n_advisors > 0) {
+            Q.n_advisors -= 1;
+        }
+    }
+} else {
+    Q.right_kemalists_resign = 0;
+    Q.right_kemalist_split = 0;
+}
+!}
 
 This marks the end of an era. The old wolf who held firm control over his party for over 30 years is now leaving the leadership post undefeated but also in a state of surrender. Not many words are exchanged between İnönü and Ecevit, and İnönü just takes his coat, salutes the party for one last time and leaves the congress building. Whether he will leave the party completely or not is not known yet.
+
+[? if right_kemalist_split : The Right Kemalist faction refuses to accept Ecevit's victory and walks out of the congress hall. Their cadres disperse towards the CGP and other right-wing groupings, leaving our party firmly in the hands of the reformists. ?]
+[? if not right_kemalist_split and right_kemalist_deal : Thanks to the understanding we struck with Satır before the vote, the Right Kemalists grit their teeth and remain within the party—at least for the moment. ?]
 
 - @shufflement: Now its time for a reshufflement of the party advisorship. We will need a dynamic and competent team to lead our party to victory.
 
