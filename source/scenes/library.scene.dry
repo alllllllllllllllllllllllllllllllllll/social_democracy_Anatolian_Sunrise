@@ -824,6 +824,7 @@ Leader: [+ z_party_leader +]
 
 **TIP (Workers' Party of Turkey)**
 Leader: [+ TIP_party_leader +]
+[? if TIP_party_leader == "Unorganized" : The party is currently banned and lacks a central organization. ?]
 [? if TIP_party_leader == "Behice Boran" : Behice Boran, a prominent socialist intellectual who represents the revolutionary wing of the Socialist movement. ?]
 [? if TIP_party_leader == "Mehmet Ali Aybar" : Mehmet Ali Aybar, the original leader of TİP and a democratic socialist. ?]
 

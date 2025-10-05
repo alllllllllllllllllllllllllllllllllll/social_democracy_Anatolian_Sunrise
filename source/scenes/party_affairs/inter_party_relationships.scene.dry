@@ -35,7 +35,7 @@ Since TIP is currently banned, many Socialists welcome our attempts to create a 
 on-arrival: TIP_relation += 8*(1 - dissent)	
 
 Mehmet Ali Aybar's TIP is ideologically close with us and its only natural that we improve our relations.
-	
+
 @commie	
 on-arrival: TIP_relation += 4*(1 - dissent)
 	

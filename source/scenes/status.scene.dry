@@ -117,7 +117,7 @@ Next election: [+ next_election_month : month +] [+ next_election_year +]
 
 = Party Leaderships
 
-TIP: [? if TIP_party_leader == "Behice Boran" : Marxism-Leninism (Behice Boran) ?][? if TIP_party_leader == "Mehmet Ali Aybar" : Democratic Socialism (Aybar) ?]
+TIP: [? if TIP_party_leader == "Unorganized" : Unorganized (Factional Committees) ?][? if TIP_party_leader == "Behice Boran" : Marxism-Leninism (Behice Boran) ?][? if TIP_party_leader == "Mehmet Ali Aybar" : Democratic Socialism (Aybar) ?]
 
 CHP: [? if CHP_party_leader == "İnönü" : Kemalism (İnönü) ?][? if CHP_party_leader == "Ecevit" : Left Kemalism (Ecevit) ?]
 
