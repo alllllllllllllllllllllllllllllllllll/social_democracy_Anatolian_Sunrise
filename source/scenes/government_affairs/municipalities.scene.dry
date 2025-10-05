@@ -6,9 +6,8 @@ on-arrival: month_actions += 1; municipality_timer = 6
 frequency: 5000
 tags: govt_affairs
 card-image: img/belediye.jpg
-#subtitle: The other branch of the government.
-
 go-to: municipalities_menu
+#subtitle: The other branch of the government.
 
 @municipalities_menu
 = Municipalities and local governence
