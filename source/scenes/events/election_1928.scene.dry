@@ -391,14 +391,6 @@ We offer one of the hailing politicians of the Marxist left in our party, Kamil 
 
 - @ministries: First, we must select our ministries.
 
-@grand_coalition
-title: Can a coalition with AP be the answer to the political instability?
-subtitle: CHP + AP ([+ grand_coalition +] seats)
-choose-if: z_relation >= 65
-unavailable-subtitle: Our relations are not good enough for a grand coalition.
-view-if: grand_coalition >= 225
-
-
 @unholy_coalition
 title: Can we form a coalition with Islamist MSP?
 subtitle: CHP + MSP ([+ unholy_coalition +] seats)
