@@ -335,11 +335,9 @@ There are some potential coalition arrangements.
 - @kemalist_coalition
 - @unholy_coalition
 - @grand_coalition
-- @far_right_coalition
 - @no_majority
 - @brauns_dilemma
 - @left_coalition
-- @popular_front_coalition
 - @right_coalition
 
 # TODO: black-brown coalition
@@ -495,8 +493,6 @@ President Braun faces a dilemma. He desperately desires a socialist or at least 
 - @new_elections: We will have new elections.
 - @new_grand_coalition
 - @left_coalition
-- @popular_front_coalition
-- @far_right_coalition
 
 
 
