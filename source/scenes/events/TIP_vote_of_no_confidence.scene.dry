@@ -54,8 +54,8 @@ unavailable-subtitle: [? if grand_coalition < 225 : This would not give us a maj
 
 We could try to boot the TIP from our governing coalition, and form a new government with the bourgeois parties.
 
-- @election_1928.weimar_coalition: Form a Weimar Coalition?
 - @election_1928.grand_coalition: Form a Grand Coalition?
+- @election_1928.coalition_menu: Review the other coalition possibilities.
 - @let_it_happen: There is nothing we can do.
 
 

@@ -333,7 +333,6 @@ There are some potential coalition arrangements.
 
 - @CHP_majority
 - @kemalist_coalition
-- @weimar_coalition
 - @unholy_coalition
 - @grand_coalition
 - @no_majority
@@ -439,19 +438,48 @@ go-to: no_majority_bruning if chancellor = "Brüning" or chancellor = "Wirth"; n
 
 # either new elections, or Hindenburg appoints either Brüning, Papen, Schleicher, or Hitler.
 
+@no_majority_papen
+title: President Hindenburg turns to Papen.
+on-arrival: no_majority_papen_elections = 1
+
+President Hindenburg has decided that Franz von Papen will continue as chancellor while the Reichstag remains deadlocked. Papen proposes to govern by decree until new elections can be held.
+
+- @hindenburg_appoints_papen: Allow Papen to run a caretaker cabinet.
+- @new_elections: Force immediate elections instead.
+
+
+@no_majority_papen_2
+title: Papen clings to power.
+on-arrival: no_majority_papen_elections += 1
+
+Despite the clear lack of parliamentary support, Hindenburg is still relying on Papen. His authoritarian instincts are becoming more obvious, and the far right celebrates the paralysis of Parliament.
+
+- @hindenburg_appoints_papen: Endure another Papen caretaker period.
+- @new_elections: Demand fresh elections once again.
+
+
+@no_majority_schleicher
+title: Schleicher seeks a new path.
+on-arrival: no_majority_schleicher_seen = 1
+
+General Kurt von Schleicher claims he can stabilize the Republic with a technocratic cabinet backed by presidential powers. Many democrats fear that this is merely another step toward dictatorship.
+
+- @new_elections: Insist on returning to the voters.
+- @coalition_menu: Explore any remaining parliamentary options.
+
 @no_majority_CHP
 on-arrival: chancellor = "Brüning"; chancellor_party = "AP"
 
 There is no path to an obviously workable majority. Since President Hindenburg is unwilling to work with a minority or caretaker CHP government, his preferred chancellor is Heinrich Brüning of the Center Party, who could lead a "presidential" government.
 
 - @toleration_bruning: We will tolerate Brüning.
-- @new_grand_coalition: We will try to form a new grand coalition.
+- @grand_coalition: We will try to form a new grand coalition.
 - @new_elections: We will have new elections.
 
 # - if MHP is the largest party and the 
 
 @no_majority_bruning
-go-to: no_majority_bruning_toleration if (no_majority_elections <= 3 and anti_democratic_coalition <= 50); hindenburg_appoints_papen if no_majority_elections > 3 or anti_democratic_coalition > 50
+go-to: toleration_bruning if (no_majority_elections <= 3 and anti_democratic_coalition <= 50); hindenburg_appoints_papen if no_majority_elections > 3 or anti_democratic_coalition > 50
 
 
 @hindenburg_appoints_papen
@@ -492,7 +520,7 @@ President Braun faces a dilemma. He desperately desires a socialist or at least 
 
 - @emergency_braun: We will form an emergency government with Braun's support.
 - @new_elections: We will have new elections.
-- @new_grand_coalition
+- @grand_coalition
 - @left_coalition
 
 
@@ -630,31 +658,20 @@ achievement: minderheitsregierung
 We have won the vote of no confidence, and are currently ruling under an CHP minority government. Now our task is to fix the country.
 
 
-@weimar_coalition
-title: We can reform the Weimar Coalition.
-subtitle: CHP + AP + [+ CGP_name +] ([+ weimar_coalition +] seats)
-view-if: weimar_coalition >= 225 and year <= 1930
-on-arrival: in_weimar_coalition = 1; in_grand_coalition = 0; in_popular_front = 0; in_left_front = 0; CHP_toleration = 0; grand_coalition_failed = 0
-
-We have the numbers to recreate the republican alliance between the CHP, the Center Party, and [+ CGP_name +]. President [+ president +] urges us to cooperate with the democratic parties to keep the far right out of government.
-
-go-to: grand_coalition_CHP_lead if (n_elections <= 1 and largest_party == "CHP") or (largest_party == "CHP" and CHP_r >= 30) or president = "Braun"; grand_coalition_z_lead if president != "Braun" and ((n_elections > 1 and CHP_r < 30) or (n_elections <= 1 and largest_party != "CHP"))
-
-
 @grand_coalition
 title: We can form a Grand Coalition between CHP and AP.
 view-if: grand_coalition >= 225 and grand_coalition_failed == 0
 subtitle: CHP + AP ([+ grand_coalition +] seats)
-on-arrival: in_grand_coalition = 1; in_popular_front = 0; in_left_front = 0; in_weimar_coalition = 0
+on-arrival: in_grand_coalition = 1; in_popular_front = 0; in_left_front = 0
 go-to: grand_coalition_CHP_lead if (n_elections <= 1 and largest_party == "CHP") or (largest_party == "CHP" and CHP_r >= 30) or president = "Braun"; grand_coalition_z_lead if president != "Braun" and ((n_elections > 1 and CHP_r < 30) or (n_elections <= 1 and largest_party != "CHP"))
 
 # TODO: if there are enough votes to form a grand coalition, who leads? Does the CHP lead or does Brüning (Z) lead? In reality this depended on Hindenburg's will, basically, which in turn depended on what his camarilla supported.
 # In the first election, CHP always leads. In subsequent elections, if CHP_r >= 29 then CHP leads, otherwise Z leads?
 
 @grand_coalition_z_lead
-go-to: grand_coalition_z_lead_2 if in_weimar_coalition == 1 or DP_relation >= 30; grand_coalition_fail if in_weimar_coalition == 0 and DP_relation < 30
+go-to: grand_coalition_z_lead_2 if DP_relation >= 30; grand_coalition_fail if DP_relation < 30
 
-There are enough votes to form a majority coalition consisting of the CHP, Center (Z), and Democratic ([+ CGP_name +]) parties.[? if in_weimar_coalition == 0 : The People's (DP) party would also be part of this arrangement. ?] Given our rather weak electoral performance, [? if CHP_no_confidence = 1 : and our previous vote of no confidence against the government, ?][? if no_confidence_against_CHP = 1 : and the vote of no confidence against us, ?] President Hindenburg has asked the Center Party to take the lead role in forming a government.
+There are enough votes to form a majority coalition consisting of the CHP, Center (Z), Democratic ([+ CGP_name +]), and People's (DP) parties. Given our rather weak electoral performance, [? if CHP_no_confidence = 1 : and our previous vote of no confidence against the government, ?][? if no_confidence_against_CHP = 1 : and the vote of no confidence against us, ?] President Hindenburg has asked the Center Party to take the lead role in forming a government.
 
 # TODO: if the CHP participated in bringing down the previous government via a vote-of-no-confidence, or if we were essentially removed from government by our coalition partners, we should be more reluctant to participate in a new government.
 
@@ -667,11 +684,11 @@ Brüning is not opposed to a coalition with us. Alternatively, we could enter a 
 - @join_bruning: Join the Brüning coalition.
 - @bruning_oppo: Join the opposition.
 - @toleration_bruning: We will "tolerate" a minority Brüning government.
-- @unity_government
+- @coalition_menu: Reconsider the other governing arrangements.
 
 @join_bruning
 view-if: grand_coalition >= 225 or neo_weimar_coalition >= 225
-on-arrival: CHP_in_government = 1; CHP_toleration = 0; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Brüning"; chancellor_party = "AP"; foreign_minister_party = "DP"; interior_minister_party = "AP"; justice_minister_party = "AP"; labor_minister_party = "AP"; reichswehr_minister_party = "I"; economic_minister_party = "AP"; finance_minister_party = "AP"; agriculture_minister_party = "AP"; leverage = 25 if leverage >= 25;
+on-arrival: CHP_in_government = 1; CHP_toleration = 0; in_grand_coalition = 1; chancellor = "Brüning"; chancellor_party = "AP"; foreign_minister_party = "DP"; interior_minister_party = "AP"; justice_minister_party = "AP"; labor_minister_party = "AP"; reichswehr_minister_party = "I"; economic_minister_party = "AP"; finance_minister_party = "AP"; agriculture_minister_party = "AP"; leverage = 25 if leverage >= 25;
 go-to: ministries
 
 Heinrich Brüning welcomes us into his new cabinet. Now, we have our pick of ministries.
@@ -767,7 +784,7 @@ Unfortunately, the DP is unwilling to enter into another coalition with the CHP,
 - @brauns_dilemma
 - @right_coalition_2: Perhaps a right-wing coalition may form.
 - @beg_DP: Perhaps we could ask the DP to change their minds?
-- @unity_government
+- @emergency_braun: Attempt to form an emergency unity government.
 - @coalition_menu: What are the other governing arrangements?
 
 
@@ -810,12 +827,11 @@ As expected, the DP is too set in their anti-democratic ways.
 
 
 @grand_coalition_CHP_lead
-on-arrival: leverage -= 15 if DP_relation < 20 and in_weimar_coalition == 0
+on-arrival: leverage -= 15 if DP_relation < 20
 
-As expected, the CHP is the largest party, and this time, we are expected to take the lead role in the formation of the next government, including selecting the chancellor. President [+ president +] has asked us to form a majority coalition with the Center (Z) and Democratic ([+ CGP_name +]) parties.
-[? if in_weimar_coalition == 0 : The People's (DP) party is also expected to participate. ?]
+As expected, the CHP is the largest party, and this time, we are expected to take the lead role in the formation of the next government, including selecting the chancellor. President [+ president +] has asked us to form a majority coalition with the Center (Z), Democratic ([+ CGP_name +]), and People's (DP) parties.
 
-[? if in_weimar_coalition == 0 and DP_relation < 20 : As our relation with the DP is poor, they are demanding more minister posts in order to remain part of the coalition. ?]
+[? if DP_relation < 20 : As our relation with the DP is poor, they are demanding more minister posts in order to remain part of the coalition. ?]
 
 Who should be the chancellor?
 
@@ -831,7 +847,7 @@ Who should be the chancellor?
 title: Hermann Müller for Chancellor
 view-if: muller_dead = 0
 subtitle: Müller is popular within the party, and is the preferred candidate of the Center and other parties.
-on-arrival: CHP_in_government = 1; chancellor = "Müller"; chancellor_party = "CHP"; in_grand_coalition = 1 if in_weimar_coalition == 0
+on-arrival: CHP_in_government = 1; chancellor = "Müller"; chancellor_party = "CHP"; in_grand_coalition = 1
 go-to: ministries
 
 Müller's appointment as chancellor is approved by all our potential allies.
@@ -840,7 +856,7 @@ Müller's appointment as chancellor is approved by all our potential allies.
 title: Otto Wels for Chancellor
 view-if: muller_dead = 1
 subtitle: Otto Wels is a party leader, but can he also be chancellor?
-on-arrival: CHP_in_government = 1; chancellor = "Wels"; chancellor_party = "CHP"; in_grand_coalition = 1 if in_weimar_coalition == 0
+on-arrival: CHP_in_government = 1; chancellor = "Wels"; chancellor_party = "CHP"; in_grand_coalition = 1
 go-to: ministries
 
 Otto Wels's appointment as chancellor is approved by our potential allies.
@@ -859,7 +875,7 @@ The Center party has significant qualms about appointing Braun as chancellor, gi
 @braun_2
 subtitle: Otto Braun will be Chancellor.
 view-if: not historical_mode
-on-arrival: CHP_in_government = 1; chancellor = "Braun"; chancellor_party = "CHP"; leverage -= 10; in_grand_coalition = 1 if in_weimar_coalition == 0
+on-arrival: CHP_in_government = 1; chancellor = "Braun"; chancellor_party = "CHP"; leverage -= 10; in_grand_coalition = 1
 go-to: ministries
 
 We have promised to let the Center have more influence in the government in response to the appointment of Braun as chancellor.
@@ -868,7 +884,7 @@ We have promised to let the Center have more influence in the government in resp
 @z_chancellor
 title: Let the Center Party have their chancellor.
 subtitle: Heinrich Brüning will be chancellor. This is unexpected and will cause internal dissent, but may give us a better position in negotiating for other cabinet positions.
-on-arrival: left_dissent += 5; center_dissent += 5; labor_dissent += 5;z_relation += 10; DP_relation += 5; TIP_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Brüning"; chancellor_party = "AP"; CHP_in_government = 1; leverage += 5
+on-arrival: left_dissent += 5; center_dissent += 5; labor_dissent += 5;z_relation += 10; DP_relation += 5; TIP_relation -= 5; in_grand_coalition = 1; chancellor = "Brüning"; chancellor_party = "AP"; CHP_in_government = 1; leverage += 5
 go-to: ministries
 
 This is highly unexpected, and many in the left and center of our party are criticizing this decision.
@@ -880,7 +896,7 @@ This is highly unexpected, and many in the left and center of our party are crit
 title: Let Joseph Wirth of the Center Party be chancellor.
 view-if:z_party_leader == "Joos"
 subtitle: Wirth is on the left wing of the Center Party. This may give us a better position in negotiating for other cabinet positions.
-on-arrival: left_dissent += 2;z_relation += 6; CGP_relation += 3; TIP_relation -= 5; in_grand_coalition = 1 if in_weimar_coalition == 0; chancellor = "Wirth"; chancellor_party = "AP"; CHP_in_government = 1; leverage += 5
+on-arrival: left_dissent += 2;z_relation += 6; CGP_relation += 3; TIP_relation -= 5; in_grand_coalition = 1; chancellor = "Wirth"; chancellor_party = "AP"; CHP_in_government = 1; leverage += 5
 go-to: ministries
 
 
