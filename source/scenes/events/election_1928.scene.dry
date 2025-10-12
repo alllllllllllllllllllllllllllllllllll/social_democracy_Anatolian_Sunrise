@@ -472,7 +472,6 @@ on-arrival: chancellor = "Brüning"; chancellor_party = "AP"
 
 There is no path to an obviously workable majority. Since President Hindenburg is unwilling to work with a minority or caretaker CHP government, his preferred chancellor is Heinrich Brüning of the Center Party, who could lead a "presidential" government.
 
-- @toleration_bruning: We will tolerate Brüning.
 - @grand_coalition: We will try to form a new grand coalition.
 - @new_elections: We will have new elections.
 
