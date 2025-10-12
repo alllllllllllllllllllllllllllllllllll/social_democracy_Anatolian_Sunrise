@@ -15,6 +15,7 @@ tags: party_affairs, disk
 - @funding: We can transfer some of our party resources to DİSK, lets hope they dont disappear within the syndicate bureaucracy..
 - @meeting: Perhaps we can pay a visit to the chairman of DİSK, Kemal Türkler, and show our good intentions?
 - @root: We cant take any action right now.
+- @easy_discard
 
 @municipalities
 choose-if: municipality_control_level == 3 or municipality_control_level == 4
