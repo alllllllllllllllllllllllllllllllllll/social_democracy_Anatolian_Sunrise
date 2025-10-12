@@ -432,7 +432,7 @@ Even though the MSP is very reluctant to participate in such a coalition, they s
 title: There is no clear governing majority.
 view-if: weimar_coalition < 225 and (grand_coalition < 225 or grand_coalition_failed == 1) and president = "Hindenburg" and far_right_coalition < 225
 on-arrival: no_majority_elections += 1
-go-to: no_majority_bruning if chancellor = "Brüning" or chancellor = "Wirth"; no_majority_papen if chancellor = "Papen" and no_majority_papen_elections == 0; no_majority_papen_2 if chancellor == "Papen" and no_majority_papen_elections > 0; no_majority_schleicher if chancellor = "Schleicher"; no_majority_CHP if chancellor_party = "CHP" or chancellor == "Marx"
+go-to: no_majority_papen if chancellor = "Papen" and no_majority_papen_elections == 0; no_majority_papen_2 if chancellor == "Papen" and no_majority_papen_elections > 0; no_majority_schleicher if chancellor = "Schleicher"; no_majority_CHP if chancellor_party = "CHP" or chancellor == "Marx"
 
 # TODO: if there is an anti-democratic coalition majority, you should appoint Papen.
 
@@ -476,10 +476,6 @@ There is no path to an obviously workable majority. Since President Hindenburg i
 - @new_elections: We will have new elections.
 
 # - if MHP is the largest party and the 
-
-@no_majority_bruning
-go-to: toleration_bruning if (no_majority_elections <= 3 and anti_democratic_coalition <= 50); hindenburg_appoints_papen if no_majority_elections > 3 or anti_democratic_coalition > 50
-
 
 @hindenburg_appoints_papen
 on-arrival: chancellor = "Papen"; chancellor_party = "I"; next_election_time = time+3; next_election_month = month + 3; next_election_year = year; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; sa_banned = 0; pro_republic -= 8; finance_minister_party = "I"; interior_minister_party = "I"; economic_minister_party = "I"; labor_minister_party = "I"; foreign_minister_party = "I"; agriculture_minister_party = "I"; reichswehr_minister = "I";
@@ -623,9 +619,6 @@ on-arrival: reformist_dissent += 5; center_dissent += 5; labor_dissent += 5; neo
 
 Are we sure about not participating in government? This will cause significant internal dissent, and will lead to increased distrust from the bourgeois parties. Even debating this option causes internal backlash. In addition, it is possible that the bourgeois and right-wing parties will also be unable to form a coalition government, leading to a regime appointed by President [+ president +].
 
-- @muller
-- @braun
-- @z_chancellor
 - @no_govt_goals: Yes, we're sure.
 
 @no_govt_goals
