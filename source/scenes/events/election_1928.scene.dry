@@ -642,7 +642,7 @@ go-to: no_govt_2
 
 @no_govt_2
 on-arrival: reformist_dissent += 25; center_dissent += 10; labor_dissent += 25; neorevisionist_dissent += 25; in_weimar_coalition = 0; in_grand_coalition = 0; chancellor = "Brüning" if chancellor == "Marx"; CHP_in_government = 0; grand_coalition_failed = 1
-go-to: right_coalition_post_CHP if right_coalition >= 225 and president != "Braun" and year < 1929; new_elections_CHP if (right_coalition < 225 or year >= 1929) and president != "Braun"; brauns_dilemma if president == "Braun"
+go-to: right_coalition_post_CHP if right_coalition >= 225 and president != "Braun" and year < 1929; new_elections_CHP if (right_coalition < 225 or year >= 1929) and president != "Braun"
 
 
 @right_coalition_post_CHP
