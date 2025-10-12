@@ -3,6 +3,7 @@ subtitle: Our coalition partners call for our removal
 new-page: true
 view-if: CHP_in_government = 1 and (in_weimar_coalition = 1 or in_grand_coalition = 1 or in_popular_front = 1) and coalition_dissent >= 3 and chp_votes < 50 and not constructive_vonc
 tags: event
+on-arrival: coalition_dissent = 2 if coalition_dissent > 2
 
 = Vote of No Confidence
 
