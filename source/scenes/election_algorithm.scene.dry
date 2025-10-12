@@ -1,5 +1,11 @@
 title: Election
 on-arrival: {!
+if (typeof Q.tip_participates === 'undefined') {
+    Q.tip_participates = true;
+}
+if (typeof Q.disk_endorsement === 'undefined') {
+    Q.disk_endorsement = false;
+}
 // calculate normalized class voting amounts (0 to 100)
 for (var c of Q.classes) {
     var class_votes = 0;
@@ -17,6 +23,7 @@ for (var c of Q.classes) {
 
 // 1. calculate support for each of the parties
 var total_support = 0;
+var tipSupport = 0;
 for (var party of Q.parties) {
     var party_support = 0;
     for (var c of Q.classes) {
@@ -34,13 +41,36 @@ for (var party of Q.parties) {
     }
     Q[party + '_support'] = party_support;
     total_support += party_support;
+    if (party === 'TIP') {
+        tipSupport = party_support;
+    }
 }
 // 2. normalize support (fraction)
 // 3. Round to integers
 // TODO: round to 1 decimal instead of rounding to integers
 // to do that, we multiply party_normalized*1000 and divide the rounded number by 10.
+var normalization_total = total_support;
+var tip_transfer_support = 0;
+if (!Q.tip_participates && tipSupport > 0) {
+    if (Q.disk_endorsement) {
+        tip_transfer_support = tipSupport / 2;
+    }
+    Q.chp_support = (Q.chp_support || 0) + tip_transfer_support;
+    Q.TIP_support = 0;
+    normalization_total = total_support - tipSupport + tip_transfer_support;
+}
+if (normalization_total <= 0) {
+    normalization_total = 1;
+}
 for (var party of Q.parties) {
-    Q[party+'_normalized'] = Q[party + '_support']/total_support;
+    if (!Q.tip_participates && party === 'TIP') {
+        Q[party+'_normalized'] = 0;
+        Q[party+'_votes_dec'] = 0;
+        Q[party+'_votes'] = 0;
+        Q[party + '_votes_disp'] = Q.use_decimals ? 0 : '0.0';
+        continue;
+    }
+    Q[party+'_normalized'] = Q[party + '_support']/normalization_total;
     Q[party+'_votes_dec'] = Math.round(Q[party+'_normalized']*1000)/10;
     if (Q.use_decimals) {
         Q[party+'_votes'] = Q[party+'_votes_dec'];
@@ -49,8 +79,6 @@ for (var party of Q.parties) {
         Q[party+'_votes'] = Math.round(Q[party+'_normalized']*100);
         Q[party + '_votes_disp'] = Q[party+'_votes_dec'].toFixed(1);
     }
-    //Q[party+'_votes'] = Q[party+'_votes_dec'];
-    // display
 }
 !}
 go-to: jumpScene

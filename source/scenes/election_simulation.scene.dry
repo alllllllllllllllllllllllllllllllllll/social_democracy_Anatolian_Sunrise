@@ -19,6 +19,10 @@ Q.kurds = 5; // Kurdish political movement
 
 Q.classes = ['rural', 'workers', 'petty_bourgeoisie', 'state_employees', 'capitalists', 'alevis', 'kurds'];
 Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
+Q.tip_participates = false;
+if (typeof Q.disk_endorsement === 'undefined') {
+    Q.disk_endorsement = false;
+}
 
 // Support for party by social group - Turkish political alignment
 // Rural (45% of population)
@@ -107,6 +111,10 @@ Q.kurds = 5; // Kurdish political movement
 
 Q.classes = ['rural', 'workers', 'petty_bourgeoisie', 'state_employees', 'capitalists', 'alevis', 'kurds'];
 Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
+Q.tip_participates = true;
+if (typeof Q.disk_endorsement === 'undefined') {
+    Q.disk_endorsement = false;
+}
 
 // Support for party by social group - slight variations for 1930 economic changes
 // Rural (45% of population) - slight increase in MHP due to rising nationalism
@@ -195,6 +203,10 @@ Q.kurds = 5; // Kurdish political movement
 
 Q.classes = ['rural', 'workers', 'petty_bourgeoisie', 'state_employees', 'capitalists', 'alevis', 'kurds'];
 Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
+Q.tip_participates = true;
+if (typeof Q.disk_endorsement === 'undefined') {
+    Q.disk_endorsement = false;
+}
 
 // Support for party by social group - 1932 crisis increases polarization
 // Rural (45% of population) - further drift to extreme parties
