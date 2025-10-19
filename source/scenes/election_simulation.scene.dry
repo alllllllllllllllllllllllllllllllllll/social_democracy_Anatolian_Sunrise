@@ -349,6 +349,7 @@ Q.center_right_coalition = Q.z_seats + Q.CGP_seats + Q.DP_seats + Q.other_seats 
 Q.right_coalition = Q.z_seats + Q.DP_seats + Q.other_seats + Q.MSP_seats;
 Q.far_right_coalition = Q.MSP_seats + Q.MHP_seats;
 Q.left_coalition = Q.chp_seats + Q.TIP_seats;
+Q.nationalist_front_coalition = (Q.z_seats || 0) + (Q.CGP_seats || 0) + (Q.MSP_seats || 0) + (Q.MHP_seats || 0);
 // this is an absurd concept lol
 Q.united_front_coalition = Q.chp_seats + Q.TIP_seats + Q.z_seats + Q.CGP_seats;
 Q.anti_democratic_coalition = Q.TIP_seats + Q.MHP_seats + Q.MSP_seats;
@@ -390,4 +391,6 @@ A working majority in this simulation requires 225 seats, reflecting the +30 sea
 **Right-wing Coalition** (AP + DP + Others + MSP): [+ right_coalition +] seats
 
 **Far-right Coalition** (MSP + MHP): [+ far_right_coalition +] seats
+
+**Nationalist Front** (AP + CGP + MSP + MHP): [+ nationalist_front_coalition +] seats
 
