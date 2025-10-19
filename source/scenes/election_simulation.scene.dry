@@ -19,7 +19,6 @@ Q.kurds = 5; // Kurdish political movement
 
 Q.classes = ['rural', 'workers', 'petty_bourgeoisie', 'state_employees', 'capitalists', 'alevis', 'kurds'];
 Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
-Q.tip_participates = false;
 if (typeof Q.disk_endorsement === 'undefined') {
     Q.disk_endorsement = false;
 }
@@ -111,7 +110,6 @@ Q.kurds = 5; // Kurdish political movement
 
 Q.classes = ['rural', 'workers', 'petty_bourgeoisie', 'state_employees', 'capitalists', 'alevis', 'kurds'];
 Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
-Q.tip_participates = true;
 if (typeof Q.disk_endorsement === 'undefined') {
     Q.disk_endorsement = false;
 }
@@ -203,7 +201,6 @@ Q.kurds = 5; // Kurdish political movement
 
 Q.classes = ['rural', 'workers', 'petty_bourgeoisie', 'state_employees', 'capitalists', 'alevis', 'kurds'];
 Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
-Q.tip_participates = true;
 if (typeof Q.disk_endorsement === 'undefined') {
     Q.disk_endorsement = false;
 }
@@ -295,27 +292,39 @@ Q.MSP_r = Q.MSP_votes;
 Q.MHP_r = Q.MHP_votes;
 Q.other_r = Q.other_votes;
 
-var seatMultiplier = 4.2;
-var seatBonus = 30;
+var seatMultiplier = 4;
+var firstSeatBonus = 40;
+var secondSeatBonus = 10;
 var majorityThreshold = 225;
 Q.majority_threshold = majorityThreshold;
 Q.total_seats = 0;
 Q.largest_party_key = null;
+Q.second_party_key = null;
 var largestShare = -1;
+var secondShare = -1;
 for (var party of Q.parties) {
     var share = Q[party + '_r'] || 0;
     var seats = Math.max(0, Math.round(share * seatMultiplier));
     Q[party + '_seats'] = seats;
     Q.total_seats += seats;
     if (share > largestShare || (share === largestShare && !Q.largest_party_key)) {
+        secondShare = largestShare;
+        Q.second_party_key = Q.largest_party_key;
         largestShare = share;
         Q.largest_party_key = party;
+    } else if (share > secondShare || (share === secondShare && !Q.second_party_key)) {
+        secondShare = share;
+        Q.second_party_key = party;
     }
 }
 Q.sapd_seats = 0;
 if (Q.largest_party_key) {
-    Q[Q.largest_party_key + '_seats'] += seatBonus;
-    Q.total_seats += seatBonus;
+    Q[Q.largest_party_key + '_seats'] += firstSeatBonus;
+    Q.total_seats += firstSeatBonus;
+}
+if (Q.second_party_key) {
+    Q[Q.second_party_key + '_seats'] += secondSeatBonus;
+    Q.total_seats += secondSeatBonus;
 }
 var partyDisplayNames = {
     'chp': 'CHP',

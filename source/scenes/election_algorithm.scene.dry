@@ -1,7 +1,7 @@
 title: Election
-on-arrival: {!
-if (typeof Q.tip_participates === 'undefined') {
-    Q.tip_participates = true;
+on-arrival: {! 
+if (typeof Q.TIP_banned === 'undefined') {
+    Q.TIP_banned = 1;
 }
 if (typeof Q.disk_endorsement === 'undefined') {
     Q.disk_endorsement = false;
@@ -51,7 +51,7 @@ for (var party of Q.parties) {
 // to do that, we multiply party_normalized*1000 and divide the rounded number by 10.
 var normalization_total = total_support;
 var tip_transfer_support = 0;
-if (!Q.tip_participates && tipSupport > 0) {
+if (Q.TIP_banned && tipSupport > 0) {
     if (Q.disk_endorsement) {
         tip_transfer_support = tipSupport / 2;
     }
@@ -63,7 +63,7 @@ if (normalization_total <= 0) {
     normalization_total = 1;
 }
 for (var party of Q.parties) {
-    if (!Q.tip_participates && party === 'TIP') {
+    if (Q.TIP_banned && party === 'TIP') {
         Q[party+'_normalized'] = 0;
         Q[party+'_votes_dec'] = 0;
         Q[party+'_votes'] = 0;
