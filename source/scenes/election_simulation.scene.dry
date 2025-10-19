@@ -27,10 +27,10 @@ if (typeof Q.disk_endorsement === 'undefined') {
 // Rural (45% of population)
 Q.rural_TIP = 0;
 Q.rural_chp = 21;
-Q.rural_z = 42; // AP uses 'z' variable
+Q.rural_z = 40; // AP uses 'z' variable
 Q.rural_CGP = 3;
 Q.rural_DP = 15;
-Q.rural_MSP = 13;
+Q.rural_MSP = 15;
 Q.rural_MHP = 3;
 Q.rural_other = 3;
 
