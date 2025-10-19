@@ -275,6 +275,16 @@ go-to: rm_main
 Siemsen has been removed as an advisor. The Kemalist Marxist faction disapproves.
 
 
+@remove_kirikoglu
+title: Remove Kırıkoğlu
+view-if: kirikoglu_advisor = 1
+tags: remove_advisor
+on-arrival: kirikoglu_advisor = 0; kemalist_marxists_dissent += 3; n_advisors -= 1
+go-to: rm_main
+
+Kamil Kırıkoğlu has been removed as an advisor. The Kemalist Marxist faction disapproves.
+
+
 
 
 # right kemalists
@@ -531,6 +541,18 @@ go-to: advisor_menu
 tags: kemalist_marxist_advisor
 
 Anna Siemsen is now an advisor.
+
+@add_kirikoglu
+title: Kamil Kırıkoğlu
+subtitle: Kamil Kırıkoğlu is the general secretary of the party and a respected member of the Marxist clique.
+is-card: true
+card-image: img/portraits/KamilKirikoglu.jpg
+view-if: kirikoglu_advisor = 0 and n_advisors < 3
+on-arrival: kirikoglu_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
+go-to: advisor_menu
+tags: kemalist_marxist_advisor
+
+Kamil Kırıkoğlu is now an advisor.
 
 # left kemalist
 
