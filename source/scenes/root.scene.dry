@@ -848,11 +848,21 @@ Q.in_election = 1;
 Q.next_election_year = 1973;
 Q.next_election_month = 10;
 Q.next_election_time = 22;
-Q.local_elections_held = 0;
-Q.next_local_election_year = 1973;
-Q.next_local_election_month = 12;
-Q.next_local_election_week = 2;
-Q.next_local_election_time = 0;
+if (typeof Q.local_elections_held === 'undefined') {
+    Q.local_elections_held = 0;
+}
+if (typeof Q.next_local_election_year === 'undefined') {
+    Q.next_local_election_year = 1973;
+}
+if (typeof Q.next_local_election_month === 'undefined') {
+    Q.next_local_election_month = 12;
+}
+if (typeof Q.next_local_election_week === 'undefined') {
+    Q.next_local_election_week = 2;
+}
+if (typeof Q.next_local_election_time === 'undefined') {
+    Q.next_local_election_time = 0;
+}
 // government affairs timers
 Q.agricultural_policy_timer = 0;
 Q.domestic_enemies_timer = 0;
