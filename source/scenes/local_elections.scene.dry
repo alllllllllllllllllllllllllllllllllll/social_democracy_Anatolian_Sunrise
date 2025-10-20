@@ -52,6 +52,9 @@ for (var party of parties) {
 	});
 }
 Q.local_results_lines = lines;
+Q.local_results_lines_text = lines.map(function(entry) {
+	return '**' + entry.name + ':** ' + entry.votes + '% — ' + entry.seats + ' provinces';
+}).join('\n');
 Q.local_largest_party_display = (partyDisplayNames[Q.local_largest_party_key] || (Q.local_largest_party_key ? Q.local_largest_party_key.toUpperCase() : 'N/A'));
 Q.local_second_party_display = (partyDisplayNames[Q.local_second_party_key] || (Q.local_second_party_key ? Q.local_second_party_key.toUpperCase() : 'N/A'));
 Q.local_chp_seats_display = Q.chp_local_seats || 0;
@@ -66,12 +69,11 @@ The municipal elections are complete. Control of the provinces now stands at [+ 
 
 **Party standings** (threshold 8%, 67 provinces)
 
-[? for line in local_results_lines : **[+ line.name +]:** [+ line.votes +]% — [+ line.seats +] provinces
-?]
+[+ local_results_lines_text +]
 
 [? if local_largest_party_display : Largest bloc: [+ local_largest_party_display +] ?][? if local_second_party_display : ; Runner-up: [+ local_second_party_display +] ?]
 
-- @return
+- @back_to_root: Return to other affairs.
 
-@return
+@back_to_root
 go-to: root
