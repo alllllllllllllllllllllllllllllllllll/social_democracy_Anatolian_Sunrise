@@ -7,19 +7,19 @@ new-page: true
 
 = DİSK Endorsement
 
-With only one month left until the general elections, the leftist syndicates, especially DİSK have been left in a strange dilemma. While their electoral allegiance normally lied with the Turkish Workers' Party, TİP, since they have been banned during the memorandum, DİSK has been put into a position where it will either boycott the election or endorse another party, likeliest being us, <span_style="color: #E3000F;">**CHP**</span>. DİSK has control over many of the industrial workers affiliated with TİP and in their absence, they can rally roughly half of the former TİP voters, depending on their course of action.
+With only one month left until the general elections, the leftist syndicates, especially DİSK have been left in a strange dilemma. While their electoral allegiance normally lied with the Turkish Workers' Party, TİP, since they have been banned during the memorandum, DİSK has been put into a position where it will either boycott the election or endorse another party, likeliest being us, <span style="color: #E3000F;">**CHP**</span>. DİSK has control over many of the industrial workers affiliated with TİP and in their absence, they can rally roughly half of the former TİP voters, depending on their course of action.
 
 Kemal Türkler, the head of DİSK knew this especially well. A labourer all his life, he knew how much the representation of the rights and the ideals of the workers meant. They needed to raise their voice against the crushing waves of both the capital and the army, uniting in their desire to suffocate and rid the workers of the fruits of their labour.
 
-The rise of the left of center movement in <span_style="color: #E3000F;">**CHP**</span> intrigued him in that sense. Perhaps with their shift to the left, they can provide the platform for the workers to continue their political struggle, until the repressions easen and an alternative can be found.
+The rise of the left of center movement in <span style="color: #E3000F;">**CHP**</span> intrigued him in that sense. Perhaps with their shift to the left, they can provide the platform for the workers to continue their political struggle, until the repressions easen and an alternative can be found.
 
-However, endorsing <span_style="color: #E3000F;">**CHP**</span> would also mean the acceptance of the unjust ban of TİP, and if they can't be too sure about whether <span_style="color: #E3000F;">**CHP**</span> would keep their side of the deal, as they are not true adherents of Socialism which will bring humanity to its salvation, they may entirely lose their credibility as the syndicate of the workers by failing to uphold the interests of the workers.
+However, endorsing <span style="color: #E3000F;">**CHP**</span> would also mean the acceptance of the unjust ban of TİP, and if they can't be too sure about whether <span style="color: #E3000F;">**CHP**</span> would keep their side of the deal, as they are not true adherents of Socialism which will bring humanity to its salvation, they may entirely lose their credibility as the syndicate of the workers by failing to uphold the interests of the workers.
 
 Türkler had to make a decision, and he had to make it fast.
 
-He opened up the phone and dialed [disk_relation >= 49; Bay Ecevit's personal number.][disk_relation <= 49; the number of the <span_style="color: #E3000F;">**CHP**</span> headquarters.] His voice ringed through the deprecit telephone;
+He opened up the phone and dialed [? if disk_relation >= 49 : Bay Ecevit's personal number. ?][? if disk_relation < 49 : the number of the <span style="color: #E3000F;">**CHP**</span> headquarters. ?] His voice ringed through the deprecit telephone;
                              
-- @endorse: "Hello, Ecevit Bey. We are ready to endorse <span_style="color: #E3000F;">**CHP**</span> in the upcoming general elections."
+- @endorse: "Hello, Ecevit Bey. We are ready to endorse <span style="color: #E3000F;">**CHP**</span> in the upcoming general elections."
 - @refuse: "Hello, I have called you to let you know that DİSK is not planning to endorse any parties in the upcoming general elections."
 
 @endorse
