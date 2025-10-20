@@ -99,12 +99,13 @@ if (totalSeatsInt <= 0) {
 }
 Q.local_total_seats = totalSeatsInt;
 var thresholdValue = (typeof threshold !== 'undefined' && threshold !== null) ? threshold : 8;
+var distributionSeats = Math.max(0, totalSeatsInt - 5);
 
 var allocated = 0;
 for (var entry of partyData) {
     if (entry.votesPercent >= thresholdValue) {
         entry.eligible = true;
-        var exactSeats = entry.normalized * totalSeatsInt;
+        var exactSeats = entry.normalized * distributionSeats;
         if (entry.votesPercent < 20) {
             exactSeats = exactSeats / 2;
         }
@@ -122,7 +123,7 @@ for (var entry of partyData) {
     allocated += entry.seats;
 }
 
-var remaining = totalSeatsInt - allocated;
+var remaining = distributionSeats - allocated;
 
 function awardSeat(target) {
     if (!target) {
@@ -169,6 +170,17 @@ if (remaining > 0) {
 }
 
 Q.local_seats_unallocated = Math.max(0, remaining);
+
+var bonusTarget = null;
+for (var entry of partyData) {
+    if (!bonusTarget || entry.normalized > bonusTarget.normalized) {
+        bonusTarget = entry;
+    }
+}
+if (bonusTarget) {
+    bonusTarget.seats += 5;
+    Q[bonusTarget.party + '_local_seats'] = bonusTarget.seats;
+}
 
 var largestKey = null;
 var secondKey = null;
