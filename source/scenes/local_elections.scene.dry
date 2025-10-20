@@ -1,7 +1,77 @@
-title: Municipal Elections (Legacy Redirect)
-view-if: false
+title: Municipal Elections
+new-page: true
+tags: event
+priority: -1
+view-if: (year > next_local_election_year) or (year = next_local_election_year and month > next_local_election_month) or (year = next_local_election_year and month = next_local_election_month and week >= next_local_election_week)
+on-departure: month_actions += 1; local_elections_held += 1; next_local_election_year += 4; next_local_election_month = 12; next_local_election_week = 2; next_local_election_time = time + 48;
+set-jump: local_results
 
-- @redirect: Updated municipal election event
+= Municipal Elections, [+ month : month +] [+ year +]
 
-@redirect
-go-to: events/local_elections
+The municipal contests are upon us. Control of the provinces—and the services they provide—will shift in accordance with tonight's results.
+
+- @start: Tally the municipal vote.
+
+@start
+on-arrival: {! 
+Q.local_total_seats = Q.local_total_seats || 67;
+Q.local_election_threshold = (typeof Q.local_election_threshold !== 'undefined') ? Q.local_election_threshold : 8;
+!}
+go-to: local_election_algorithm
+set-jump: local_results
+
+@local_results
+on-arrival: {! 
+var partyDisplayNames = {
+	'chp': 'CHP',
+	'TIP': 'TİP',
+	'z': 'AP',
+	'CGP': Q.CGP_name || 'CGP',
+	'DP': 'DP',
+	'MSP': 'MSP',
+	'MHP': 'MHP',
+	'other': 'Other'
+};
+var parties = Array.isArray(Q.parties) ? Q.parties.slice() : ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
+var lines = [];
+for (var party of parties) {
+	var displayName = partyDisplayNames[party] || party.toUpperCase();
+	var votes = Q[party + '_local_votes_disp'];
+	if (typeof votes === 'undefined') {
+		var vDec = Q[party + '_local_votes_dec'];
+		votes = (typeof vDec !== 'undefined') ? Number(vDec).toFixed(1) : '0.0';
+	}
+	var seats = Q[party + '_local_seats'];
+	if (typeof seats === 'undefined') {
+		seats = 0;
+	}
+	lines.push({
+		name: displayName,
+		votes: votes,
+		seats: seats
+	});
+}
+Q.local_results_lines = lines;
+Q.local_largest_party_display = (partyDisplayNames[Q.local_largest_party_key] || (Q.local_largest_party_key ? Q.local_largest_party_key.toUpperCase() : 'N/A'));
+Q.local_second_party_display = (partyDisplayNames[Q.local_second_party_key] || (Q.local_second_party_key ? Q.local_second_party_key.toUpperCase() : 'N/A'));
+Q.local_chp_seats_display = Q.chp_local_seats || 0;
+Q.local_total_municipalities_display = Q.total_municipalities || Q.local_total_seats || 67;
+!}
+
+= Municipal Election Results
+
+The municipal elections are complete. Control of the provinces now stands at [+ municipalities_controlled +]/[+ total_municipalities +] for <span style="color: #E3000F;">**CHP**</span>.
+
+[? if local_seats_unallocated > 0 : [+ local_seats_unallocated +] seat(s) remain unallocated due to the electoral threshold. ?]
+
+**Party standings** (threshold 8%, 67 provinces)
+
+[? for line in local_results_lines : **[+ line.name +]:** [+ line.votes +]% — [+ line.seats +] provinces
+?]
+
+[? if local_largest_party_display : Largest bloc: [+ local_largest_party_display +] ?][? if local_second_party_display : ; Runner-up: [+ local_second_party_display +] ?]
+
+- @return
+
+@return
+go-to: root
