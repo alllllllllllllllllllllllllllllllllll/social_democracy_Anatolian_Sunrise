@@ -1,0 +1,7 @@
+title: Municipal Elections (Legacy Redirect)
+view-if: false
+
+- @redirect: Updated municipal election event
+
+@redirect
+go-to: events/local_elections

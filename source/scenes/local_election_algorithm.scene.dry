@@ -1,0 +1,214 @@
+title: Local Election Algorithm
+on-arrival: {!
+var parties = Array.isArray(Q.parties) ? Q.parties.slice() : ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
+var classes = Array.isArray(Q.classes) ? Q.classes.slice() : ['rural', 'workers', 'petty_bourgeoisie', 'state_employees', 'capitalists', 'alevis', 'kurds'];
+var totalSeats = Q.local_total_seats || Q.total_municipalities || 67;
+var threshold = (typeof Q.local_election_threshold !== 'undefined') ? Q.local_election_threshold : (Q.local_threshold || 8);
+if (typeof Q.TIP_banned === 'undefined') {
+    Q.TIP_banned = 1;
+}
+if (typeof Q.disk_endorsement === 'undefined') {
+    Q.disk_endorsement = false;
+}
+
+for (var c of classes) {
+    var class_votes = 0;
+    for (var party of parties) {
+        var key = c + '_' + party;
+        if (typeof Q[key] === 'undefined') {
+            Q[key] = 0;
+        }
+        if (Q[key] < 0) {
+            Q[key] = 0;
+        }
+        class_votes += Q[key];
+    }
+    if (class_votes <= 0) {
+        class_votes = 1;
+    }
+    for (var party of parties) {
+        var normalized = 100 * (Q[c + '_' + party] || 0) / class_votes;
+        Q[c + '_' + party + '_normalized'] = normalized;
+        Q[c + '_' + party + '_display'] = Math.round(normalized);
+    }
+}
+
+var partySupports = {};
+var total_support = 0;
+var tipSupport = 0;
+
+for (var party of parties) {
+    var party_support = 0;
+    for (var c of classes) {
+        if (Q.old_demographics) {
+            party_support += (Q[c] || 0) * (Q[c + '_' + party] || 0);
+        } else {
+            party_support += (Q[c] || 0) * (Q[c + '_' + party + '_normalized'] || 0);
+        }
+    }
+    partySupports[party] = party_support;
+    Q[party + '_local_support'] = party_support;
+    total_support += party_support;
+    if (party === 'TIP') {
+        tipSupport = party_support;
+    }
+}
+
+var normalization_total = total_support;
+if (Q.TIP_banned && tipSupport > 0) {
+    var tip_transfer_support = 0;
+    if (Q.disk_endorsement) {
+        tip_transfer_support = tipSupport / 2;
+    }
+    partySupports['chp'] = (partySupports['chp'] || 0) + tip_transfer_support;
+    partySupports['TIP'] = 0;
+    normalization_total = total_support - tipSupport + tip_transfer_support;
+}
+if (normalization_total <= 0) {
+    normalization_total = 1;
+}
+
+var partyData = [];
+for (var party of parties) {
+    var support = partySupports[party] || 0;
+    var normalized = support / normalization_total;
+    if (!isFinite(normalized) || normalized < 0) {
+        normalized = 0;
+    }
+    Q[party + '_local_normalized'] = normalized;
+    var votes_dec = Math.round(normalized * 1000) / 10;
+    if (!isFinite(votes_dec) || votes_dec < 0) {
+        votes_dec = 0;
+    }
+    Q[party + '_local_votes_dec'] = votes_dec;
+    Q[party + '_local_votes'] = Q.use_decimals ? votes_dec : Math.round(normalized * 100);
+    Q[party + '_local_votes_disp'] = votes_dec.toFixed(1);
+    partyData.push({
+        party: party,
+        normalized: normalized,
+        votesPercent: votes_dec,
+        seats: 0,
+        remainder: 0,
+        eligible: false
+    });
+}
+
+var totalSeatsInt = Math.max(0, Math.round(totalSeats));
+if (totalSeatsInt <= 0) {
+    totalSeatsInt = 67;
+}
+Q.local_total_seats = totalSeatsInt;
+var thresholdValue = (typeof threshold !== 'undefined' && threshold !== null) ? threshold : 8;
+
+var allocated = 0;
+for (var entry of partyData) {
+    if (entry.votesPercent >= thresholdValue) {
+        entry.eligible = true;
+        var exactSeats = entry.normalized * totalSeatsInt;
+        if (entry.votesPercent < 20) {
+            exactSeats = exactSeats / 2;
+        }
+        if (!isFinite(exactSeats) || exactSeats < 0) {
+            exactSeats = 0;
+        }
+        entry.seats = Math.floor(exactSeats);
+        entry.remainder = exactSeats - entry.seats;
+    } else {
+        entry.eligible = false;
+        entry.seats = 0;
+        entry.remainder = 0;
+    }
+    Q[entry.party + '_local_seats'] = entry.seats;
+    allocated += entry.seats;
+}
+
+var remaining = totalSeatsInt - allocated;
+
+function awardSeat(target) {
+    if (!target) {
+        return false;
+    }
+    target.seats += 1;
+    target.remainder = Math.max(0, target.remainder - 1);
+    Q[target.party + '_local_seats'] = target.seats;
+    return true;
+}
+
+while (remaining > 0) {
+    var best = null;
+    for (var entry of partyData) {
+        if (!entry.eligible || entry.remainder <= 0) {
+            continue;
+        }
+        if (!best || entry.remainder > best.remainder + 1e-6 || (Math.abs(entry.remainder - best.remainder) <= 1e-6 && entry.normalized > best.normalized)) {
+            best = entry;
+        }
+    }
+    if (!best) {
+        break;
+    }
+    awardSeat(best);
+    remaining -= 1;
+}
+
+if (remaining > 0) {
+    var eligible = partyData.filter(function(entry) { return entry.eligible; });
+    eligible.sort(function(a, b) {
+        if (b.normalized !== a.normalized) {
+            return b.normalized - a.normalized;
+        }
+        return b.votesPercent - a.votesPercent;
+    });
+    var idx = 0;
+    while (remaining > 0 && eligible.length > 0) {
+        var target = eligible[idx % eligible.length];
+        awardSeat(target);
+        remaining -= 1;
+        idx += 1;
+    }
+}
+
+Q.local_seats_unallocated = Math.max(0, remaining);
+
+var largestKey = null;
+var secondKey = null;
+var largestSeats = -1;
+var secondSeats = -1;
+var largestShare = -1;
+var secondShare = -1;
+
+for (var entry of partyData) {
+    var seats = entry.seats;
+    var share = entry.normalized;
+    if (seats > largestSeats || (seats === largestSeats && share > largestShare)) {
+        secondSeats = largestSeats;
+        secondShare = largestShare;
+        secondKey = largestKey;
+        largestSeats = seats;
+        largestShare = share;
+        largestKey = entry.party;
+    } else if (seats > secondSeats || (seats === secondSeats && share > secondShare)) {
+        secondSeats = seats;
+        secondShare = share;
+        secondKey = entry.party;
+    }
+}
+
+Q.local_largest_party_key = largestKey;
+Q.local_second_party_key = secondKey;
+
+var chpSeats = Q.chp_local_seats || 0;
+Q.municipalities_controlled = chpSeats;
+Q.total_municipalities = totalSeatsInt;
+
+if (typeof updateMunicipalityControlLevel === 'function') {
+    updateMunicipalityControlLevel();
+} else if (typeof getMunicipalityControlLevel === 'function') {
+    Q.municipality_control_level = getMunicipalityControlLevel();
+}
+
+Q.last_local_election_year = Q.year;
+Q.last_local_election_month = Q.month;
+Q.last_local_election_week = Q.week;
+!}
+go-to: jumpScene
