@@ -106,6 +106,7 @@ Others: [+ other_r +]%
 [? if CHP_in_government = 1 : Budget: [+ budget +] ?]
 
 Next general election: [+ next_election_month : month +] [+ next_election_year +]
+
 [? if next_local_election_year : Next municipal election: [+ next_local_election_month : month +] [+ next_local_election_year +] ?]
 
 @politics
