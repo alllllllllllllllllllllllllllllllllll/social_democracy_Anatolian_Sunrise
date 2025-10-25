@@ -75,7 +75,10 @@ header {
   background-color: var(--bg-color);
 }
 #header-links a {
-  padding-right: 1em;
+  display: inline-block;
+  padding: 0.35em 1em;
+  margin-right: 0.4em;
+  border-radius: 4px;
 }
 #header-links a:first-of-type {
   background-color: #5C0000;
