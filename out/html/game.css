@@ -77,6 +77,18 @@ header {
 #header-links a {
   padding-right: 1em;
 }
+#header-links a:first-of-type {
+  background-color: #5C0000;
+  color: #ff4747;
+}
+#header-links a:nth-of-type(2) {
+  background-color: #035600;
+  color: #4dff47;
+}
+#header-links a:nth-of-type(3) {
+  background-color: #002D58;
+  color: #55adff;
+}
 header h1, header h2 {
   display: inline-block;
   font-weight: normal;
@@ -292,13 +304,6 @@ blockquote + blockquote.attribution {
 #bg1 {
     z-index: -99;
 }
-.b {
-}
-.save_button {
-}
-.delete_button {
-}
-
 /*
  * Card stuff for dendrynexus
  * 
@@ -307,18 +312,6 @@ blockquote + blockquote.attribution {
 ul.decks, ul.hand, ul.pinned-cards {
   list-style: none;
   padding-left: 0;
-}
-
-.hand {
-
-}
-
-.pinned-cards {
-
-}
-
-.deck {
-
 }
 
 a.card {
@@ -392,7 +385,6 @@ a.card:focus .card-tooltip, a.card:hover .card-tooltip {
 /* Unlike cards, face images can have different sizes. */
 .face-figure {
   /*vertical-align: top;*/
-  display: inline-block;
   border: 5px solid var(--card-border-color);
   float: left;
   max-width: 35%;
