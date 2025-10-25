@@ -71,7 +71,7 @@ header {
   margin-bottom: 0.5em;
   padding: 0;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
-  background-color: var(--bg-color);
+  background-color: transparent;
 }
 #header-links a {
   display: inline-block;
