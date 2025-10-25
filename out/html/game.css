@@ -79,6 +79,9 @@ header {
   margin-right: 0.4em;
   border-radius: 4px;
 }
+#header-links a:last-of-type {
+  margin-right: 0;
+}
 #header-links a:first-of-type {
   background-color: #5C0000;
   color: #ff4747;
