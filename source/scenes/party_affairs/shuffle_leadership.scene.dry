@@ -60,42 +60,6 @@ go-to: rm_main
 
 Eyüboğlu has been removed as an advisor. The Orthodox Kemalist faction disapproves.
 
-@remove_hilferding
-title: Remove Hilferding
-view-if: hilferding_advisor = 1
-on-arrival: hilferding_advisor = 0; orthodox_kemalists_dissent += 5; n_advisors -= 1
-tags: remove_advisor
-go-to: rm_main
-
-Hilferding has been removed as an advisor. The Orthodox Kemalist faction disapproves.
-
-@remove_wels
-title: Remove Wels
-view-if: wels_advisor = 1
-tags: remove_advisor
-on-arrival: wels_advisor = 0; orthodox_kemalists_dissent += 5; n_advisors -= 1
-go-to: rm_main
-
-Wels has been removed as an advisor. The Orthodox Kemalist faction disapproves.
-
-@remove_muller
-title: Remove Müller
-view-if: muller_advisor = 1
-tags: remove_advisor
-on-arrival: muller_advisor = 0; orthodox_kemalists_dissent += 5; n_advisors -= 1
-go-to: rm_main
-
-Müller has been removed as an advisor. The Orthodox Kemalist faction disapproves.
-
-
-@remove_breitscheid
-title: Remove Breitscheid
-view-if: breitscheid_advisor = 1
-tags: remove_advisor
-on-arrival: breitscheid_advisor = 0; orthodox_kemalists_dissent += 5; n_advisors -= 1
-go-to: rm_main
-
-Breitscheid has been removed as an advisor. The Orthodox Kemalist faction disapproves.
 
 # left kemalists
 
@@ -163,42 +127,6 @@ go-to: rm_main
 
 Önder Sav has been removed as an advisor. The Left Kemalist faction disapproves.
 
-@remove_severing
-title: Remove Severing
-view-if: severing_advisor = 1
-tags: remove_advisor
-on-arrival: severing_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
-go-to: rm_main
-
-Severing has been removed as an advisor. The Left Kemalist faction disapproves.
-
-@remove_braun
-title: Remove Braun
-view-if: braun_advisor = 1
-tags: remove_advisor
-on-arrival: braun_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
-go-to: rm_main
-
-Braun has been removed as an advisor. The Left Kemalist faction disapproves.
-
-@remove_juchacz
-title: Remove Juchacz
-view-if: juchacz_advisor = 1
-tags: remove_advisor
-on-arrival: juchacz_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
-go-to: rm_main
-
-Juchacz has been removed as an advisor. The Left Kemalist faction disapproves.
-
-@remove_pfulf
-title: Remove Pfülf
-view-if: pfulf_advisor = 1
-tags: remove_advisor
-on-arrival: pfulf_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
-go-to: rm_main
-
-Pfülf has been removed as an advisor. The Left Kemalist faction disapproves.
-
 
 # kemalist marxists
 
@@ -229,52 +157,6 @@ go-to: rm_main
 
 Belli has been removed from our list of contacts. The Kemalist Marxist faction slightly disapproves.
 
-@remove_levi
-title: Remove Levi
-view-if: levi_advisor = 1
-tags: remove_advisor
-on-arrival: levi_advisor = 0; kemalist_marxists_dissent += 5; n_advisors -= 1
-go-to: rm_main
-
-Levi has been removed as an advisor. The Kemalist Marxist faction disapproves.
-
-@remove_sender
-title: Remove Sender
-view-if: sender_advisor = 1
-tags: remove_advisor
-on-arrival: sender_advisor = 0; kemalist_marxists_dissent += 3; n_advisors -= 1
-go-to: rm_main
-
-Sender has been removed as an advisor. The Kemalist Marxist faction disapproves.
-
-@remove_rosenfeld
-title: Remove Rosenfeld
-view-if: rosenfeld_advisor = 1
-tags: remove_advisor
-on-arrival: rosenfeld_advisor = 0; kemalist_marxists_dissent += 3; n_advisors -= 1
-go-to: rm_main
-
-Rosenfeld has been removed as an advisor. The Kemalist Marxist faction disapproves.
-
-@remove_seydewitz
-title: Remove Seydewitz
-view-if: seydewitz_advisor = 1
-tags: remove_advisor
-on-arrival: seydewitz_advisor = 0; kemalist_marxists_dissent += 3; n_advisors -= 1
-go-to: rm_main
-
-Seydewitz has been removed as an advisor. The Kemalist Marxist faction disapproves.
-
-@remove_siemsen
-title: Remove Siemsen
-view-if: siemsen_advisor = 1
-tags: remove_advisor
-on-arrival: siemsen_advisor = 0; kemalist_marxists_dissent += 3; n_advisors -= 1
-go-to: rm_main
-
-Siemsen has been removed as an advisor. The Kemalist Marxist faction disapproves.
-
-
 @remove_kirikoglu
 title: Remove Kırıkoğlu
 view-if: kirikoglu_advisor = 1
@@ -283,8 +165,6 @@ on-arrival: kirikoglu_advisor = 0; kemalist_marxists_dissent += 3; n_advisors -=
 go-to: rm_main
 
 Kamil Kırıkoğlu has been removed as an advisor. The Kemalist Marxist faction disapproves.
-
-
 
 
 # right kemalists
@@ -297,33 +177,6 @@ on-arrival: gogus_advisor = 0; right_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
 Ali İhsan Göğüs has been removed as an advisor. The Right Kemalist faction disapproves.
-
-@remove_mierendorff
-title: Remove Mierendorff
-view-if: mierendorff_advisor = 1
-tags: remove_advisor
-on-arrival: mierendorff_advisor = 0; right_kemalists_dissent += 5; n_advisors -= 1
-go-to: rm_main
-
-Mierendorff has been removed as an advisor. The Right Kemalist faction disapproves.
-
-@remove_leber
-title: Remove Leber
-view-if: leber_advisor = 1
-tags: remove_advisor
-on-arrival: leber_advisor = 0; right_kemalists_dissent += 3; n_advisors -= 1
-go-to: rm_main
-
-Leber has been removed as an advisor. The Right Kemalist faction disapproves.
-
-@remove_schumacher
-title: Remove Schumacher
-view-if: schumacher_advisor = 1
-tags: remove_advisor
-on-arrival: schumacher_advisor = 0; right_kemalists_dissent += 3; n_advisors -= 1
-go-to: rm_main
-
-Schumacher has been removed as an advisor. The Right Kemalist faction disapproves.
 
 @remove_paksut
 title: Remove Paksüt
@@ -348,54 +201,12 @@ Fethi Çelikbaş has been removed as an advisor. The Right Kemalist faction disa
 
 # tbh I'm not sure if Baade should be a reformist or nonfactional. same for stampfer. they were vaguely reformist-aligned but had pretty different ideas from the other reformists here. so they're non-factional.
 
-@remove_baade
-title: Remove Baade
-view-if: baade_advisor = 1
-tags: remove_advisor
-on-arrival: baade_advisor = 0; n_advisors -= 1
-go-to: rm_main
-
-Baade has been removed as an advisor.
-
-#The Reformist faction disapproves.
-
 @remove_akan
 title: Remove Akan
 view-if: akan_advisor = 1
 tags: remove_advisor
 on-arrival: akan_advisor = 0; n_advisors -= 1
 go-to: rm_main
-
-@remove_hirschfeld
-title: Remove Hirschfeld
-view-if: hirschfeld_advisor = 1
-tags: remove_advisor
-on-arrival: hirschfeld_advisor = 0; n_advisors -= 1
-go-to: rm_main
-
-Hirschfeld has been removed as an advisor. 
-
-@remove_stampfer
-title: Remove Stampfer
-view-if: stampfer_advisor = 1
-tags: remove_advisor
-on-arrival: stampfer_advisor = 0; n_advisors -= 1
-go-to: rm_main
-
-Stampfer has been removed as an advisor. 
-
-@remove_radbruch
-title: Remove Radbruch
-view-if: radbruch_advisor = 1
-tags: remove_advisor
-on-arrival: radbruch_advisor = 0; n_advisors -= 1
-go-to: rm_main
-
-Radbruch has been removed as an advisor. 
-
-
-
-
 
 ####################### adding advisors
 
@@ -446,6 +257,18 @@ view-if: n_advisors < 3
 
 # kemalist marxist
 
+@add_kirikoglu
+title: Kamil Kırıkoğlu
+subtitle: Kamil Kırıkoğlu is the general secretary of the party and a respected member of the Marxist clique.
+is-card: true
+card-image: img/portraits/KamilKirikoglu.jpg
+view-if: kirikoglu_advisor = 0 and n_advisors < 3
+on-arrival: kirikoglu_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
+go-to: advisor_menu
+tags: kemalist_marxist_advisor
+
+Kamil Kırıkoğlu is now an advisor.
+
 @add_avcioglu
 title: Doğan Avcıoğlu
 subtitle: Doğan Avcıoğlu is a famous Marxist historian, economist, politician and an author. He is the defacto theoretician behind the National Democratic Revolution movement. {!<br><br>!}[? if difficulty < 0 : Actions - TBD ?]
@@ -482,77 +305,6 @@ tags: kemalist_marxist_advisor
 
 Mihri Belli is now a contact.
 
-@add_levi
-title: Paul Levi
-subtitle: Paul Levi is a former TIP leader who was purged for criticizing Communist policies. {!<br><br>!}[? if difficulty < 0 : Actions - Building the Left, Cooperation with the TIP ?]
-is-card: true
-card-image: img/portraits/LeviPaul.jpg
-view-if: levi_advisor = 0 and levi_dead = 0 and n_advisors < 3 and left_split = 0
-on-arrival: levi_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
-go-to: advisor_menu
-tags: kemalist_marxist_advisor
-
-Paul Levi is now an advisor.
-
-@add_sender
-title: Toni Sender
-subtitle: Toni Sender is an anti-war and womens' rights advocate, and Reichstag member. {!<br><br>!}[? if difficulty < 0 : Actions - Left-Center Unity, Organizing Women, Against Toleration, Addressing the Economic Crisis ?]
-is-card: true
-card-image: img/portraits/SenderToni.jpg
-view-if: sender_advisor = 0 and n_advisors < 3
-on-arrival: sender_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
-go-to: advisor_menu
-tags: kemalist_marxist_advisor
-
-Toni Sender is now an advisor.
-
-@add_rosenfeld
-title: Kurt Rosenfeld
-subtitle: Kurt Rosenfeld is a lawyer, anti-militarist activist, and Reichstag member. {!<br><br>!}[? if difficulty < 0 : Actions - Building the Left, Cooperation with the TIP, Against Toleration ?]
-is-card: true
-card-image: img/portraits/RosenfeldKurt.jpg
-view-if: rosenfeld_advisor = 0 and n_advisors < 3 and left_split = 0
-on-arrival: rosenfeld_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
-go-to: advisor_menu
-tags: kemalist_marxist_advisor
-
-Kurt Rosenfeld is now an advisor.
-
-@add_seydewitz
-title: Max Seydewitz
-subtitle: Max Seydewitz is a former leader of the youth wing, current supporter of the left wing of the CHP, and advocates for class struggle. {!<br><br>!}[? if difficulty < 0 : Actions - Rally for Class Struggle, Socialist Youth, Against Toleration ?]
-is-card: true
-card-image: img/portraits/SeydewitzMax.jpg
-view-if: seydewitz_advisor = 0 and n_advisors < 3 and left_split = 0
-on-arrival: seydewitz_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
-go-to: advisor_menu
-tags: kemalist_marxist_advisor
-
-Max Seydewitz is now an advisor.
-
-@add_siemsen
-title: Anna Siemsen
-subtitle: Anna Siemsen is an and educational reform advocate and pacifist, who was one of the few German women to receive a PhD in the pre-war period. {!<br><br>!}[? if difficulty < 0 : Actions - Rally for Pacifism, Educational Curriculum, Educational Structure ?]
-is-card: true
-card-image: img/portraits/SiemsenAnna.jpg
-view-if: siemsen_advisor = 0 and n_advisors < 3 and left_split = 0
-on-arrival: siemsen_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
-go-to: advisor_menu
-tags: kemalist_marxist_advisor
-
-Anna Siemsen is now an advisor.
-
-@add_kirikoglu
-title: Kamil Kırıkoğlu
-subtitle: Kamil Kırıkoğlu is the general secretary of the party and a respected member of the Marxist clique.
-is-card: true
-card-image: img/portraits/KamilKirikoglu.jpg
-view-if: kirikoglu_advisor = 0 and n_advisors < 3
-on-arrival: kirikoglu_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
-go-to: advisor_menu
-tags: kemalist_marxist_advisor
-
-Kamil Kırıkoğlu is now an advisor.
 
 # left kemalist
 
@@ -640,53 +392,6 @@ go-to: advisor_menu
 
 Önder Sav is now an advisor.
 
-@add_severing
-title: Carl Severing
-subtitle: Carl Severing is a one-time Prussian interior minister and police reformer. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Police Affairs ?]
-is-card: true
-card-image: img/portraits/SeveringCarl.jpg
-tags: left_kemalist_advisor
-view-if: severing_advisor = 0 and n_advisors < 3
-on-arrival: severing_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
-go-to: advisor_menu
-
-Carl Severing is now an advisor.
-
-@add_braun
-title: Otto Braun
-subtitle: Otto Braun is the Minister-President of Prussia, and one of the most recognizable and well-known Social Democratic leaders. {!<br><br>!}[? if difficulty < 0 : Actions - Prussian Bulwark, Negotiating with the Coalition ?]
-is-card: true
-card-image: img/portraits/BraunOtto.jpg
-tags: left_kemalist_advisor
-view-if: braun_advisor = 0 and n_advisors < 3
-on-arrival: braun_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
-go-to: advisor_menu
-
-Otto Braun is now an advisor.
-
-@add_juchacz
-title: Marie Juchacz
-subtitle: Marie Juchacz is the founder of Worker's Welfare, a mutual-aid organization. {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising, Worker's Welfare, Organizing Women ?]
-is-card: true
-card-image: img/portraits/JuchaczMarie.jpg
-view-if: juchacz_advisor = 0 and n_advisors < 3
-on-arrival: juchacz_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
-go-to: advisor_menu
-tags: left_kemalist_advisor
-
-Marie Juchacz is now an advisor.
-
-@add_pfulf
-title: Antonie Pfülf
-subtitle: Antonie Pfülf is a leader in social policy and women's rights. {!<br><br>!}[? if difficulty < 0 : Actions - Support a People's Party, Women's Rights ?]
-is-card: true
-card-image: img/portraits/PfülfAntonie.jpg
-view-if: pfulf_advisor = 0 and n_advisors < 3
-on-arrival: pfulf_advisor = 1; n_advisors += 1
-go-to: advisor_menu
-tags: left_kemalist_advisor
-
-Antonie Pfülf is now an advisor.
 
 # orthodox kemalist
 
@@ -726,53 +431,6 @@ go-to: advisor_menu
 
 Orhan Eyüboğlu is now an advisor.
 
-@add_hilferding
-title: Rudolf Hilferding
-subtitle: Rudolf Hilferding is an economist and one of our chief Marxist theoreticians. {!<br><br>!}[? if difficulty < 0 : Actions - Against Right and Left, Defending Toleration, Fiscal Policy, Economic Democracy ?]
-is-card: true
-card-image: img/portraits/HilferdingRudolf.jpg
-tags: orthodox_kemalist_advisor
-view-if: hilferding_advisor = 0 and n_advisors < 3 and centrists_resign = 0
-on-arrival: hilferding_advisor = 1; n_advisors += 1
-go-to: advisor_menu
-
-Rudolf Hilferding is now an advisor.
-
-@add_wels
-title: Otto Wels
-subtitle: Otto Wels is a long-time party organizer and member of the leadership, serving under Friedrich Ebert. {!<br><br>!}[? if difficulty < 0 : Actions -  Clear the Agenda, Party Discipline, Emergency Fundraising ?]
-is-card: true
-card-image: img/portraits/WelsRudolf.jpg
-tags: orthodox_kemalist_advisor
-view-if: wels_advisor = 0 and n_advisors < 3 and centrists_resign = 0
-on-arrival: wels_advisor = 1; n_advisors += 1
-go-to: advisor_menu
-
-Otto Wels is now an advisor.
-
-@add_muller
-title: Hermann Müller
-subtitle: Hermann Müller is the last Social Democratic Chancellor. {!<br><br>!}[? if difficulty < 0 : Actions - Negotiating with the Coalition, Defending Toleration ?]
-is-card: true
-card-image: img/portraits/MüllerHermann.jpg
-tags: orthodox_kemalist_advisor
-view-if: muller_advisor = 0 and muller_dead = 0 and n_advisors < 3 and centrists_resign = 0
-on-arrival: muller_advisor = 1; n_advisors += 1
-go-to: advisor_menu
-
-Hermann Müller is now an advisor.
-
-@add_breitscheid
-title: Rudolf Breitscheid
-subtitle: Rudolf Breitscheid comes from a well-educated background and is one of our foreign policy leaders. {!<br><br>!}[? if difficulty < 0 : Actions - International Relations, Foreign Policy, Party Discipline ?]
-is-card: true
-card-image: img/portraits/BreitscheidRudolf.jpg
-view-if: breitscheid_advisor = 0 and n_advisors < 3
-on-arrival: breitscheid_advisor = 1; n_advisors += 1
-go-to: advisor_menu
-tags: orthodox_kemalist_advisor
-
-Rudolf Breitscheid is now an advisor.
 
 # right kemalist leaders
 
@@ -787,42 +445,6 @@ go-to: advisor_menu
 tags: right_kemalist_advisor
 
 Ali İhsan Göğüs is now an advisor.
-
-@add_mierendorff
-title: Carlo Mierendorff
-subtitle: Carlo Mierendorff is one of the youngest members of the Reichstag, and the originator of the "Right Kemalist" movement. He is an anti-Nazi strategist. {!<br><br>!}[? if difficulty < 0 : Actions - Build the Iron Front, Warning About the Nazis ?]
-is-card: true
-card-image: img/portraits/MierendorffCarlo.jpg
-view-if: chp_party_leader == "İnönü" and mierendorff_advisor = 0 and n_advisors < 3
-on-arrival: mierendorff_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
-go-to: advisor_menu
-tags: right_kemalist_advisor
-
-Carlo Mierendorff is now an advisor.
-
-@add_schumacher
-title: Kurt Schumacher
-subtitle: Kurt Schumacher is a Great War veteran and energetic speaker for the social-democratic cause, and favors reformist policies. {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising, Building the Reichsbanner, Addressing the Economic Crisis ?]
-is-card: true
-card-image: img/portraits/SchumacherKurt.jpg
-tags: right_kemalist_advisor
-view-if: schumacher_advisor = 0 and n_advisors < 3
-on-arrival: schumacher_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
-go-to: advisor_menu
-
-Kurt Schumacher is now an advisor.
-
-@add_leber
-title: Julius Leber
-subtitle: Julius Leber is a former Reichswehr officer who resigned in opposition to the Kapp coup attempt. {!<br><br>!}[? if difficulty < 0 : Actions - Rally for Democracy, Military Affairs, Building a People's Party ?]
-is-card: true
-card-image: img/portraits/LeberJulius.jpg
-view-if: leber_advisor = 0 and n_advisors < 3
-on-arrival: leber_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
-go-to: advisor_menu
-tags: right_kemalist_advisor
-
-Julius Leber is now an advisor.
 
 @add_paksut
 title: Emin Paksüt
@@ -850,31 +472,6 @@ Fethi Çelikbaş is now an advisor.
 
 # Nonfactional advisors
 
-@add_baade
-title: Fritz Baade
-subtitle: Fritz Baade is one of the few agricultural policy experts in the CHP. {!<br><br>!}[? if difficulty < 0 : Actions - Agricultural Policy, Rural Campaigning, Addressing the Economic Crisis ?]
-is-card: true
-card-image: img/portraits/BaadeFritz.jpg
-view-if: baade_advisor = 0 and n_advisors < 3
-on-arrival: baade_advisor = 1; n_advisors += 1
-go-to: advisor_menu
-tags: nonfactional_advisor
-
-Fritz Baade is now an advisor.
-
-
-@add_hirschfeld
-title: Magnus Hirschfeld
-subtitle: Magnus Hirschfeld is the founder of the Institut für Sexualwissenschaft and an advocate for the rights of sexual minorities. {!<br><br>!}[? if difficulty < 0 : Actions - Homosexual Rights, Women's Rights, Science Funding ?]
-is-card: true
-card-image: img/portraits/HirschfeldMagnus.jpg
-view-if: hirschfeld_advisor = 0 and n_advisors < 3
-on-arrival: hirschfeld_advisor = 1; n_advisors += 1
-go-to: advisor_menu
-tags: nonfactional_advisor
-
-Magnus Hirschfeld is now an advisor.
-
 @add_akan
 title: Tarık Akan
 subtitle: Tarık Akan is an actor from the Yeşilçam cinema and even though he seems unwilling to participate in active politics, he also seems sympathethic to the direction our party has taken..
@@ -886,30 +483,3 @@ go-to: advisor_menu
 tags: nonfactional_advisor
 
 # TODO: add radbruch, stampfer
-
-@add_radbruch
-title: Gustav Radbruch
-subtitle: Gustav Radbruch is a renowned legal scholar and long-time <span style="color: #E3000F;">**CHP**</span> justice minister. {!<br><br>!}[? if difficulty < 0 : Actions - Judicial Affairs, Constitutional Reform ?]
-is-card: true
-card-image: img/portraits/RadbruchGustav.jpg
-view-if: radbruch_advisor = 0 and n_advisors < 3
-on-arrival: radbruch_advisor = 1; n_advisors += 1
-go-to: advisor_menu
-tags: nonfactional_advisor
-
-Gustav Radbruch is now an advisor.
-
-
-@add_stampfer
-title: Friedrich Stampfer
-subtitle: Friedrich Stampfer is the long-time editor-in-chief of Vorwärts, our party newspaper. {!<br><br>!}[? if difficulty < 0 : Actions - Media, Editorial Line, Cooperation with the TIP ?]
-is-card: true
-card-image: img/portraits/StampferFriedrich.jpg
-view-if: stampfer_advisor = 0 and n_advisors < 3
-on-arrival: stampfer_advisor = 1; n_advisors += 1
-go-to: advisor_menu
-tags: nonfactional_advisor
-
-Friedrich Stampfer is now an advisor.
-
-
