@@ -1,0 +1,18 @@
+title: Ali Topuz
+is-pinned-card: true
+tags: advisor, left_kemalists
+card-image: img/portraits/AliTopuz.jpeg
+view-if: topuz_advisor = 1
+new-page: true 
+
+= Ali Topuz
+
+Ali Topuz is an architect heavily involved in the civil society organizations and has expertise in the area of agriculture
+
+- @ministry: Müezzinoğlu can take actions as the minister of agriculture
+- @root: Return to main	
+
+@ministry	
+choose-if: advisor_action_timer = 0 and chp_in_government = 1
+unavailable-subtitle: <span style="color: #E3000F;">**CHP**</span> is not in government. [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3
