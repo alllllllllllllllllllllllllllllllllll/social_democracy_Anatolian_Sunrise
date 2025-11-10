@@ -97,7 +97,7 @@ Last election vote share:
 [? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
 <span class="tooltip-text" title="Justice Party" style="color: #750a6f;">**AP**</span>: [+ z_r +]%
 <span class="tooltip-text" title="Turkish Worker's Party" style="color: #8B0000;">**TIP**</span>: [+ TIP_r +]%
-<span class="tooltip-text" title="Republican Trust Party" style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span></span>!}: [+ CGP_r +]%
+<span class="tooltip-text" title="Republican Trust Party" style="color: #5a5f63;">**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span></span>!}: [+ CGP_r +]%
 <span class="tooltip-text" title="Democratic Party" style="color: #4a4d04;">**DP**</span>: [+ DP_r +]%
 <span class="tooltip-text" title="National Salvation Party" style="color: #054521;">**MSP**</span>: [+ MSP_r +]%
 <span class="tooltip-text" title="Nationalist Movement Party" style="color: #954B00;">**MHP**</span>: [+ MHP_r +]%
