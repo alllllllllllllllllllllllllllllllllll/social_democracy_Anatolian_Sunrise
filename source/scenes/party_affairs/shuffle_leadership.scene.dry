@@ -201,6 +201,13 @@ Fethi Çelikbaş has been removed as an advisor. The Right Kemalist faction disa
 
 # tbh I'm not sure if Baade should be a reformist or nonfactional. same for stampfer. they were vaguely reformist-aligned but had pretty different ideas from the other reformists here. so they're non-factional.
 
+@remove_muezzinoglu
+title: Remove Müezzinoğlu
+view-if: muezzinoglu_advisor = 1
+tags: remove_muezzinoglu
+on-arrival: muezzinoglu = 0; n_advisors -= 1
+go-to: rm_main
+
 @remove_akan
 title: Remove Akan
 view-if: akan_advisor = 1
@@ -471,6 +478,16 @@ tags: right_kemalist_advisor
 Fethi Çelikbaş is now an advisor.
 
 # Nonfactional advisors
+
+@add_muezzinoglu
+title: Ziya Müezzinoğlu
+subtitle: Ziya Müezzinoğlu is an experienced economist expertising in international trade.
+is-card: true
+card-image: img/portraits/Muezzinoglu.jpg
+view-if: muezzinoglu_advisor = 0 and n_advisors < 3
+on-arrival: muezzinoglu_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+tags: nonfactional advisor
 
 @add_akan
 title: Tarık Akan
