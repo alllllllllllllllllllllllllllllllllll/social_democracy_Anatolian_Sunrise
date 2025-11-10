@@ -82,8 +82,8 @@ TBMM composition (seats):
 <span class="tooltip-text" title="Republican People's Party" style="color: #E3000F;">**CHP**</span>: [+ chp_seats +]
 [? if sapd_formed and sapd_seats > 0: SAPD: [+ sapd_seats +] ?]
 <span class="tooltip-text" title="Justice Party" style="color: #750a6f;">**AP**</span>: [+ z_seats +]
-<span class="tooltip-text" title="Turkish Worker's Party" style="color: #8B0000;">**TIP**</span>}: [+ TIP_seats +]
-<span class="tooltip-text" title="Republican Trust Party" style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span></span>!}: [+ CGP_seats +]
+<span class="tooltip-text" title="Turkish Worker's Party" style="color: #8B0000;">**TIP**</span>: [+ TIP_seats +]
+<span class="tooltip-text" title="Republican Trust Party" style="color: #5a5f63;">**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span></span>!}: [+ CGP_seats +]
 <span class="tooltip-text" title="Democratic Party" style="color: #4a4d04;">**DP**</span>: [+ DP_seats +]
 <span class="tooltip-text" title="National Salvation Party" style="color: #054521;">**MSP**</span>: [+ MSP_seats +]
 <span class="tooltip-text" title="Nationalist Movement Party" style="color: #954B00;">**MHP**</span>: [+ MHP_seats +]
@@ -93,14 +93,14 @@ Others: [+ other_seats +]
 
 Last election vote share:
 
-<span class="tooltip-text" title="Republican People's Party"><span style="color: #E3000F;">**CHP**</span></span>!}: [+ chp_r +]%
+<span class="tooltip-text" title="Republican People's Party" style="color: #E3000F;">**CHP**</span>: [+ chp_r +]%
 [? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
-<span class="tooltip-text" title="Justice Party"><span style="color: #750a6f;">**AP**</span>: [+ z_r +]%
-<span class="tooltip-text" title="Turkish Worker's Party"><span style="color: #8B0000;">**TIP**</span>: [+ TIP_r +]%
-<span class="tooltip-text" title="Republican Trust Party"><span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span></span>!}: [+ CGP_r +]%
-<span class="tooltip-text" title="Democratic Party"><span style="color: #4a4d04;">**DP**</span>: [+ DP_r +]%
-<span class="tooltip-text" title="National Salvation Party"><span style="color: #054521;">**MSP**</span>: [+ MSP_r +]%
-<span class="tooltip-text" title="Nationalist Movement Party"><span style="color: #954B00;">**MHP**</span>: [+ MHP_r +]%
+<span class="tooltip-text" title="Justice Party" style="color: #750a6f;">**AP**</span>: [+ z_r +]%
+<span class="tooltip-text" title="Turkish Worker's Party" style="color: #8B0000;">**TIP**</span>: [+ TIP_r +]%
+<span class="tooltip-text" title="Republican Trust Party" style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span></span>!}: [+ CGP_r +]%
+<span class="tooltip-text" title="Democratic Party"> style="color: #4a4d04;">**DP**</span>: [+ DP_r +]%
+<span class="tooltip-text" title="National Salvation Party" style="color: #054521;">**MSP**</span>: [+ MSP_r +]%
+<span class="tooltip-text" title="Nationalist Movement Party" style="color: #954B00;">**MHP**</span>: [+ MHP_r +]%
 Others: [+ other_r +]%
 
 [? if CHP_in_government = 1 : Budget: [+ budget +] ?]
@@ -113,17 +113,17 @@ Next general election: [+ next_election_month : month +] [+ next_election_year +
 
 = Inter-party Relations
 
-<span class="tooltip-text" title="Turkish Worker's Party"><span style="color: #8B0000;">**TIP**</span>: [+ TIP_relation : relationships +]
+<span class="tooltip-text" title="Turkish Worker's Party" style="color: #8B0000;">**TIP**</span>: [+ TIP_relation : relationships +]
 
-<span class="tooltip-text" title="Republican Trust Party"><span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span></span>!}: [+ CGP_relation : relationships +]
+<span class="tooltip-text" title="Republican Trust Party" style="color: #5a5f63;">**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span></span>!}: [+ CGP_relation : relationships +]
 
-<span class="tooltip-text" title="Justice Party"><span style="color: #750a6f;">**AP**</span>: [+z_relation : relationships +]
+<span class="tooltip-text" title="Justice Party" style="color: #750a6f;">**AP**</span>: [+z_relation : relationships +]
 
-<span class="tooltip-text" title="Democratic Party"><span style="color: #4a4d04;">**DP**</span>: [+ DP_relation : relationships +]
+<span class="tooltip-text" title="Democratic Party" style="color: #4a4d04;">**DP**</span>: [+ DP_relation : relationships +]
 
-<span class="tooltip-text" title="National Salvation Party"><span style="color: #054521;">**MSP**</span>: [+ MSP_relation : relationships +]
+<span class="tooltip-text" title="National Salvation Party" style="color: #054521;">**MSP**</span>: [+ MSP_relation : relationships +]
 
-<span class="tooltip-text" title="Nationalist Movement Party"><span style="color: #954B00;">**MHP**</span>: [+ MHP_relation : relationships +]
+<span class="tooltip-text" title="Nationalist Movement Party" style="color: #954B00;">**MHP**</span>: [+ MHP_relation : relationships +]
 
 = Party Leaderships
 
