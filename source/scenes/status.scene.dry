@@ -69,7 +69,7 @@ Internal dissent: [+ dissent_percent : dissent +]
 
 = Government
 
-President: [+ president +]
+President: [? if president == "Cevdet Sunay": <span style="color: #808080;">[+ president +]</span> ?][? if president == "Fahri Korutürk": <span style="color: #929292;">[+ president +]</span> ?][? if president == "Tekin Arıburun": <span style="color: #70386D;">[+ president +]</span> ?][? if president == "Faruk Gürler": <span style="color: #584404;">[+ president +]</span> ?]
 
 Prime Minister: [+ chancellor +] ([+ chancellor_party +])
 
