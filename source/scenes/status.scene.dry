@@ -79,14 +79,14 @@ Head of the General Staff: [+ generalstaff +]
 
 TBMM composition (seats):
 
-<span class="tooltip-text" title="Republican People's Party"><span style="color: #E3000F;">**CHP**</span>: [+ chp_seats +]
+<span class="tooltip-text" title="Republican People's Party" span style="color: #E3000F;">**CHP**</span>: [+ chp_seats +]
 [? if sapd_formed and sapd_seats > 0: SAPD: [+ sapd_seats +] ?]
-<span class="tooltip-text" title="Justice Party"><span style="color: #750a6f;">**AP**</span>: [+ z_seats +]
-<span class="tooltip-text" title="Turkish Worker's Party"><span style="color: #8B0000;">**TIP**</span>}: [+ TIP_seats +]
-<span class="tooltip-text" title="Republican Trust Party"><span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span></span>!}: [+ CGP_seats +]
-<span class="tooltip-text" title="Democratic Party"><span style="color: #4a4d04;">**DP**</span>: [+ DP_seats +]
-<span class="tooltip-text" title="National Salvation Party"><span style="color: #054521;">**MSP**</span>: [+ MSP_seats +]
-<span class="tooltip-text" title="Nationalist Movement Party"><span style="color: #954B00;">**MHP**</span>: [+ MHP_seats +]
+<span class="tooltip-text" title="Justice Party" span style="color: #750a6f;">**AP**</span>: [+ z_seats +]
+<span class="tooltip-text" title="Turkish Worker's Party" span style="color: #8B0000;">**TIP**</span>}: [+ TIP_seats +]
+<span class="tooltip-text" title="Republican Trust Party" span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span></span>!}: [+ CGP_seats +]
+<span class="tooltip-text" title="Democratic Party" span style="color: #4a4d04;">**DP**</span>: [+ DP_seats +]
+<span class="tooltip-text" title="National Salvation Party" span style="color: #054521;">**MSP**</span>: [+ MSP_seats +]
+<span class="tooltip-text" title="Nationalist Movement Party" span style="color: #954B00;">**MHP**</span>: [+ MHP_seats +]
 Others: [+ other_seats +]
 
 [? if majority_threshold: Majority required: [+ majority_threshold +] seats ?]
