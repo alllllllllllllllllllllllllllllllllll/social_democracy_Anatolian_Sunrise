@@ -79,28 +79,28 @@ Head of the General Staff: [+ generalstaff +]
 
 TBMM composition (seats):
 
-{!<span class="tooltip-text" title="Republican People's Party">CHP</span>!}: [+ chp_seats +]
+{!<span class="tooltip-text" title="Republican People's Party"><span style="color: #E3000F;">**CHP**</span></span>!}: [+ chp_seats +]
 [? if sapd_formed and sapd_seats > 0: SAPD: [+ sapd_seats +] ?]
-{!<span class="tooltip-text" title="Justice Party">AP</span>!}: [+ z_seats +]
-{!<span class="tooltip-text" title="Turkish Worker's Party">TIP</span>!}: [+ TIP_seats +]
-{!<span class="tooltip-text" title="Republican Trust Party">!}[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]{!</span>!}: [+ CGP_seats +]
-{!<span class="tooltip-text" title="Democratic Party">DP</span>!}: [+ DP_seats +]
-{!<span class="tooltip-text" title="National Salvation Party">MSP</span>!}: [+ MSP_seats +]
-{!<span class="tooltip-text" title="Nationalist Movement Party">MHP</span>!}: [+ MHP_seats +]
+{!<span class="tooltip-text" title="Justice Party"><span style="color: #750a6f;">**AP**</span></span>!}: [+ z_seats +]
+{!<span class="tooltip-text" title="Turkish Worker's Party"><span style="color: #8B0000;">**TIP**</span></span>!}: [+ TIP_seats +]
+{!<span class="tooltip-text" title="Republican Trust Party"><span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span></span>!}: [+ CGP_seats +]
+{!<span class="tooltip-text" title="Democratic Party"><span style="color: #4a4d04;">**DP**</span></span>!}: [+ DP_seats +]
+{!<span class="tooltip-text" title="National Salvation Party"><span style="color: #054521;">**MSP**</span></span>!}: [+ MSP_seats +]
+{!<span class="tooltip-text" title="Nationalist Movement Party"><span style="color: #954B00;">**MHP**</span></span>!}: [+ MHP_seats +]
 Others: [+ other_seats +]
 
 [? if majority_threshold: Majority required: [+ majority_threshold +] seats ?]
 
 Last election vote share:
 
-{!<span class="tooltip-text" title="Republican People's Party">CHP</span>!}: [+ chp_r +]%
+{!<span class="tooltip-text" title="Republican People's Party"><span style="color: #E3000F;">**CHP**</span></span>!}: [+ chp_r +]%
 [? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
-{!<span class="tooltip-text" title="Justice Party">AP</span>!}: [+ z_r +]%
-{!<span class="tooltip-text" title="Turkish Worker's Party">TIP</span>!}: [+ TIP_r +]%
-{!<span class="tooltip-text" title="Republican Trust Party">!}[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]{!</span>!}: [+ CGP_r +]%
-{!<span class="tooltip-text" title="Democratic Party">DP</span>!}: [+ DP_r +]%
-{!<span class="tooltip-text" title="National Salvation Party">MSP</span>!}: [+ MSP_r +]%
-{!<span class="tooltip-text" title="Nationalist Movement Party">MHP</span>!}: [+ MHP_r +]%
+{!<span class="tooltip-text" title="Justice Party"><span style="color: #750a6f;">**AP**</span></span>!}: [+ z_r +]%
+{!<span class="tooltip-text" title="Turkish Worker's Party"><span style="color: #8B0000;">**TIP**</span></span>!}: [+ TIP_r +]%
+{!<span class="tooltip-text" title="Republican Trust Party"><span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span></span>!}: [+ CGP_r +]%
+{!<span class="tooltip-text" title="Democratic Party"><span style="color: #4a4d04;">**DP**</span></span>!}: [+ DP_r +]%
+{!<span class="tooltip-text" title="National Salvation Party"><span style="color: #054521;">**MSP**</span></span>!}: [+ MSP_r +]%
+{!<span class="tooltip-text" title="Nationalist Movement Party"><span style="color: #954B00;">**MHP**</span></span>!}: [+ MHP_r +]%
 Others: [+ other_r +]%
 
 [? if CHP_in_government = 1 : Budget: [+ budget +] ?]
@@ -113,34 +113,33 @@ Next general election: [+ next_election_month : month +] [+ next_election_year +
 
 = Inter-party Relations
 
+{!<span class="tooltip-text" title="Turkish Worker's Party"><span style="color: #8B0000;">**TIP**</span></span>!}: [+ TIP_relation : relationships +]
 
-{!<span class="tooltip-text" title="Turkish Worker's Party">TIP</span>!}: [+ TIP_relation : relationships +]
+{!<span class="tooltip-text" title="Republican Trust Party"><span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span></span>!}: [+ CGP_relation : relationships +]
 
-{!<span class="tooltip-text" title="Republican Trust Party">!}[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]{!</span>!}: [+ CGP_relation : relationships +]
+{!<span class="tooltip-text" title="Justice Party"><span style="color: #750a6f;">**AP**</span></span>!}: [+z_relation : relationships +]
 
-{!<span class="tooltip-text" title="Justice Party">AP</span>!}: [+z_relation : relationships +]
+{!<span class="tooltip-text" title="Democratic Party"><span style="color: #4a4d04;">**DP**</span></span>!}: [+ DP_relation : relationships +]
 
-{!<span class="tooltip-text" title="Democratic Party">DP</span>!}: [+ DP_relation : relationships +]
+{!<span class="tooltip-text" title="National Salvation Party"><span style="color: #054521;">**MSP**</span></span>!}: [+ MSP_relation : relationships +]
 
-{!<span class="tooltip-text" title="National Salvation Party">MSP</span>!}: [+ MSP_relation : relationships +]
-
-{!<span class="tooltip-text" title="Nationalist Movement Party">MHP</span>!}: [+ MHP_relation : relationships +]
+{!<span class="tooltip-text" title="Nationalist Movement Party"><span style="color: #954B00;">**MHP**</span></span>!}: [+ MHP_relation : relationships +]
 
 = Party Leaderships
 
-TIP: [? if TIP_party_leader == "Unorganized" : Unorganized (Factional Committees) ?][? if TIP_party_leader == "Behice Boran" : Marxism-Leninism (Behice Boran) ?][? if TIP_party_leader == "Mehmet Ali Aybar" : Democratic Socialism (Aybar) ?]
+{!<span style="color: #8B0000;">**TIP**</span>!}: [? if TIP_party_leader == "Unorganized" : Unorganized (Factional Committees) ?][? if TIP_party_leader == "Behice Boran" : Marxism-Leninism (Behice Boran) ?][? if TIP_party_leader == "Mehmet Ali Aybar" : Democratic Socialism (Aybar) ?]
 
-CHP: [? if CHP_party_leader == "İnönü" : Kemalism (İnönü) ?][? if CHP_party_leader == "Ecevit" : Left Kemalism (Ecevit) ?]
+{!<span style="color: #E3000F;">**CHP**</span>!}: [? if CHP_party_leader == "İnönü" : Kemalism (İnönü) ?][? if CHP_party_leader == "Ecevit" : Left Kemalism (Ecevit) ?]
 
-CGP: [? if CGP_party_leader == "Feyzioğlu" : Right Kemalism (Feyzioğlu) ?]
+{!<span style="color: #5a5f63;">**CGP**</span>!}: [? if CGP_party_leader == "Feyzioğlu" : Right Kemalism (Feyzioğlu) ?]
 
-AP:  [? if z_party_leader == "Demirel" : Conservative Liberalism (Demirel) ?]
+{!<span style="color: #750a6f;">**AP**</span>!}:  [? if z_party_leader == "Demirel" : Conservative Liberalism (Demirel) ?]
 
-DP:  [? if DP_party_leader == "Bozbeyli" : Conservative Populism (Bozbeyli) ?]
+{!<span style="color: #4a4d04;">**DP**</span>!}:  [? if DP_party_leader == "Bozbeyli" : Conservative Populism (Bozbeyli) ?]
 
-MSP:  [? if MSP_party_leader == "Süleyman Arif" : Islamic Conservatism (Süleyman Arif) ?][? if MSP_party_leader == "Erbakan" : Social Islamism (Erbakan) ?]
+{!<span style="color: #054521;">**MSP**</span>!}:  [? if MSP_party_leader == "Süleyman Arif" : Islamic Conservatism (Süleyman Arif) ?][? if MSP_party_leader == "Erbakan" : Social Islamism (Erbakan) ?]
 
-MHP:  [? if MHP_party_leader == "Alparslan Türkeş" : Turkic-Islamic Synthesis (Türkeş) ?]
+{!<span style="color: #954B00;">**MHP**</span>!}:  [? if MHP_party_leader == "Alparslan Türkeş" : Turkic-Islamic Synthesis (Türkeş) ?]
 
 = Kurdish Nationalism
 
@@ -292,39 +291,39 @@ Q.socialism_disp = Math.round(Q.socialism);
 
 (if the election were to be held now):
 
-CHP: [+ chp_votes +]%
+{!<span style="color: #E3000F;">**CHP**</span>!}: [+ chp_votes +]%
 
 [? if sapd_formed: SAPD: [+ sapd_votes +]% ?]
 
-AP: [+ z_votes +]%
+{!<span style="color: #750a6f;">**AP**</span>!}: [+ z_votes +]%
 
-TIP: [+ TIP_votes +]%
+{!<span style="color: #8B0000;">**TIP**</span>!}: [+ TIP_votes +]%
 
-[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ CGP_votes +]%
+{!<span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span>!}: [+ CGP_votes +]%
 
-DP: [+ DP_votes +]%
+{!<span style="color: #4a4d04;">**DP**</span>!}: [+ DP_votes +]%
 
-MSP: [+ MSP_votes +]%
+{!<span style="color: #054521;">**MSP**</span>!}: [+ MSP_votes +]%
 
-MHP: [+ MHP_votes +]%
+{!<span style="color: #954B00;">**MHP**</span>!}: [+ MHP_votes +]%
 
 Others: [+ other_votes +]%
 
 **Detailed results for each demographic**
 
-Rural: CHP: [+ rural_chp_display +]%, AP: [+ rural_z_display +]%, TIP: [+ rural_TIP_display +]%, [? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ rural_CGP_display +]%, DP: [+ rural_DP_display +]%; MSP: [+ rural_MSP_display +]%, MHP: [+ rural_MHP_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
+Rural: {!<span style="color: #E3000F;">**CHP**</span>!}: [+ rural_chp_display +]%, {!<span style="color: #750a6f;">**AP**</span>!}: [+ rural_z_display +]%, {!<span style="color: #8B0000;">**TIP**</span>!}: [+ rural_TIP_display +]%, {!<span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span>!}: [+ rural_CGP_display +]%, {!<span style="color: #4a4d04;">**DP**</span>!}: [+ rural_DP_display +]%; {!<span style="color: #054521;">**MSP**</span>!}: [+ rural_MSP_display +]%, {!<span style="color: #954B00;">**MHP**</span>!}: [+ rural_MHP_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
 
-Workers: CHP: [+ workers_chp_display +]%, AP: [+ workers_z_display +]%, TIP: [+ workers_TIP_display +]%, [? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ workers_CGP_display +]%, DP: [+ workers_DP_display +]%; MSP: [+ workers_MSP_display +]%, MHP: [+ workers_MHP_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
+Workers: {!<span style="color: #E3000F;">**CHP**</span>!}: [+ workers_chp_display +]%, {!<span style="color: #750a6f;">**AP**</span>!}: [+ workers_z_display +]%, {!<span style="color: #8B0000;">**TIP**</span>!}: [+ workers_TIP_display +]%, {!<span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span>!}: [+ workers_CGP_display +]%, {!<span style="color: #4a4d04;">**DP**</span>!}: [+ workers_DP_display +]%; {!<span style="color: #054521;">**MSP**</span>!}: [+ workers_MSP_display +]%, {!<span style="color: #954B00;">**MHP**</span>!}: [+ workers_MHP_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
 
-Petty Bourgeoisie: CHP: [+ petty_bourgeoisie_chp_display +]%, AP: [+ petty_bourgeoisie_z_display +]%, TIP: [+ petty_bourgeoisie_TIP_display +]%, [? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ petty_bourgeoisie_CGP_display +]%, DP: [+ petty_bourgeoisie_DP_display +]%; MSP: [+ petty_bourgeoisie_MSP_display +]%, MHP: [+ petty_bourgeoisie_MHP_display +]%, Others: [+ petty_bourgeoisie_other_display +]% [? if sapd_formed: SAPD: [+ petty_bourgeoisie_sapd_display +]% ?]
+Petty Bourgeoisie: {!<span style="color: #E3000F;">**CHP**</span>!}: [+ petty_bourgeoisie_chp_display +]%, {!<span style="color: #750a6f;">**AP**</span>!}: [+ petty_bourgeoisie_z_display +]%, {!<span style="color: #8B0000;">**TIP**</span>!}: [+ petty_bourgeoisie_TIP_display +]%, {!<span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span>!}: [+ petty_bourgeoisie_CGP_display +]%, {!<span style="color: #4a4d04;">**DP**</span>!}: [+ petty_bourgeoisie_DP_display +]%; {!<span style="color: #054521;">**MSP**</span>!}: [+ petty_bourgeoisie_MSP_display +]%, {!<span style="color: #954B00;">**MHP**</span>!}: [+ petty_bourgeoisie_MHP_display +]%, Others: [+ petty_bourgeoisie_other_display +]% [? if sapd_formed: SAPD: [+ petty_bourgeoisie_sapd_display +]% ?]
 
-State Employees: CHP: [+ state_employees_chp_display +]%, AP: [+ state_employees_z_display +]%, TIP: [+ state_employees_TIP_display +]%, [? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ state_employees_CGP_display +]%, DP: [+ state_employees_DP_display +]%; MSP: [+ state_employees_MSP_display +]%, MHP: [+ state_employees_MHP_display +]%, Others: [+ state_employees_other_display +]% [? if sapd_formed: SAPD: [+ state_employees_sapd_display +]% ?]
+State Employees: {!<span style="color: #E3000F;">**CHP**</span>!}: [+ state_employees_chp_display +]%, {!<span style="color: #750a6f;">**AP**</span>!}: [+ state_employees_z_display +]%, {!<span style="color: #8B0000;">**TIP**</span>!}: [+ state_employees_TIP_display +]%, {!<span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span>!}: [+ state_employees_CGP_display +]%, {!<span style="color: #4a4d04;">**DP**</span>!}: [+ state_employees_DP_display +]%; {!<span style="color: #054521;">**MSP**</span>!}: [+ state_employees_MSP_display +]%, {!<span style="color: #954B00;">**MHP**</span>!}: [+ state_employees_MHP_display +]%, Others: [+ state_employees_other_display +]% [? if sapd_formed: SAPD: [+ state_employees_sapd_display +]% ?]
 
-Capitalists: CHP: [+ capitalists_chp_display +]%, AP: [+ capitalists_z_display +]%, TIP: [+ capitalists_TIP_display +]%, [? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ capitalists_CGP_display +]%, DP: [+ capitalists_DP_display +]%; MSP: [+ capitalists_MSP_display +]%, MHP: [+ capitalists_MHP_display +]%, Others: [+ capitalists_other_display +]% [? if sapd_formed: SAPD: [+ capitalists_sapd_display +]% ?]
+Capitalists: {!<span style="color: #E3000F;">**CHP**</span>!}: [+ capitalists_chp_display +]%, {!<span style="color: #750a6f;">**AP**</span>!}: [+ capitalists_z_display +]%, {!<span style="color: #8B0000;">**TIP**</span>!}: [+ capitalists_TIP_display +]%, {!<span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span>!}: [+ capitalists_CGP_display +]%, {!<span style="color: #4a4d04;">**DP**</span>!}: [+ capitalists_DP_display +]%; {!<span style="color: #054521;">**MSP**</span>!}: [+ capitalists_MSP_display +]%, {!<span style="color: #954B00;">**MHP**</span>!}: [+ capitalists_MHP_display +]%, Others: [+ capitalists_other_display +]% [? if sapd_formed: SAPD: [+ capitalists_sapd_display +]% ?]
 
-Alevis: CHP: [+ alevis_chp_display +]%, AP: [+ alevis_z_display +]%, TIP: [+ alevis_TIP_display +]%, [? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ alevis_CGP_display +]%, DP: [+ alevis_DP_display +]%; MSP: [+ alevis_MSP_display +]%, MHP: [+ alevis_MHP_display +]%, Others: [+ alevis_other_display +]% [? if sapd_formed: SAPD: [+ alevis_sapd_display +]% ?]
+Alevis: {!<span style="color: #E3000F;">**CHP**</span>!}: [+ alevis_chp_display +]%, {!<span style="color: #750a6f;">**AP**</span>!}: [+ alevis_z_display +]%, {!<span style="color: #8B0000;">**TIP**</span>!}: [+ alevis_TIP_display +]%, {!<span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span>!}: [+ alevis_CGP_display +]%, {!<span style="color: #4a4d04;">**DP**</span>!}: [+ alevis_DP_display +]%; {!<span style="color: #054521;">**MSP**</span>!}: [+ alevis_MSP_display +]%, {!<span style="color: #954B00;">**MHP**</span>!}: [+ alevis_MHP_display +]%, Others: [+ alevis_other_display +]% [? if sapd_formed: SAPD: [+ alevis_sapd_display +]% ?]
 
-Kurdish National Movement: CHP: [+ kurds_chp_display +]%, AP: [+ kurds_z_display +]%, TIP: [+ kurds_TIP_display +]%, [? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]: [+ kurds_CGP_display +]%, DP: [+ kurds_DP_display +]%; MSP: [+ kurds_MSP_display +]%, MHP: [+ kurds_MHP_display +]%, Others: [+ kurds_other_display +]% [? if sapd_formed: SAPD: [+ kurds_sapd_display +]% ?]
+Kurdish National Movement: {!<span style="color: #E3000F;">**CHP**</span>!}: [+ kurds_chp_display +]%, {!<span style="color: #750a6f;">**AP**</span>!}: [+ kurds_z_display +]%, {!<span style="color: #8B0000;">**TIP**</span>!}: [+ kurds_TIP_display +]%, {!<span style="color: #5a5f63;">!}**[? if not CGP_name: CGP?][? if CGP_name != 0 : [+ CGP_name +]?]**{!</span>!}: [+ kurds_CGP_display +]%, {!<span style="color: #4a4d04;">**DP**</span>!}: [+ kurds_DP_display +]%; {!<span style="color: #054521;">**MSP**</span>!}: [+ kurds_MSP_display +]%, {!<span style="color: #954B00;">**MHP**</span>!}: [+ kurds_MHP_display +]%, Others: [+ kurds_other_display +]% [? if sapd_formed: SAPD: [+ kurds_sapd_display +]% ?]
 
 Support for the Republic: [+ pro_republic_disp +]%
 
