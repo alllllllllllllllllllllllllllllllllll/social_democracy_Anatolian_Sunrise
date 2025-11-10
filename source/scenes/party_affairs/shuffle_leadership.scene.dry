@@ -109,6 +109,15 @@ go-to: rm_main
 
 Rahşan has been removed as an advisor.
 
+@remove_topuz
+title: Remove Topuz
+view-if: topuz_advisor = 1
+tags: remove_advisor
+on-arrival: topuz_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
+go-to: rm_main
+
+Ali Topuz has been removed as an advisor. The Left Kemalist faction disapproves.
+
 @remove_gunes
 title: Remove Güneş
 view-if: gunes_advisor = 1
@@ -386,6 +395,18 @@ on-arrival: rahsan_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
 go-to: advisor_menu
 
 Rahşan Ecevit is now an advisor.
+
+@add_topuz
+title: Ali Topuz
+subtitle: Ali Topuz is an architect heavily involvedin the civil society organizations and expertises in agriculture and land reform.
+is-card: true
+card-image: img/portraits/AliTopuz.jpeg
+tags: left_kemalist_advisor
+view-if: topuz_advisor = 0 and n_advisors < 3
+on-arrival: topuz_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+go-to: advisor_menu
+
+Ali Topuz is now an advisor.
 
 @add_sav
 title: Önder Sav
