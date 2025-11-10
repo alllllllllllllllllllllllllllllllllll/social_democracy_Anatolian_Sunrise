@@ -1,0 +1,33 @@
+title: Ziya Müezzinoğlu
+is-pinned-card: true
+tags: advisor, nonfactional_advisor
+card-image: img/portraits/Muezzinoglu.jpg
+view-if: muezzinoglu_advisor = 1
+new-page: true 
+
+= Ziya Müezzinoğlu
+
+Mustafa Üstündağ is an experienced economist who has served as a member of economic planning agency and Turkish representative for the European Economic Community.<span style="color: #E3000F;">**CHP**</span>
+
+- @ministry: Müezzinoğlu can take actions as the minister of trade
+- @europe: Müezzinoğlu can help us improve relations with Europe
+- @root: Return to main	
+
+@ministry	
+choose-if: advisor_action_timer = 0 and chp_in_government = 1
+unavailable-subtitle: <span style="color: #E3000F;">**CHP**</span> is not in government. [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3
+
+@europe
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3; {!
+if (Q.cyprus_problem == 0 || Q.cyprus_problem == 1 || Q.cyprus_problem == 2) {
+    Q.west_relation += 5;
+}
+!}
+
+[? if cyprus_problem == 0 or cyprus_problem == 1 or cyprus_problem == 2 : We have slightly improved our ties with the western partners. ?]
+
+[? if cyprus_problem == 3 : The dispute over Cyprus and our operation has rendered any diplomatic breakthroughs improbable. ?]
+
