@@ -228,7 +228,7 @@ go-to: rm_main
 
 @add_advisors
 title: Add advisors
-choose-if: n_advisors <= 2
+choose-if: n_advisors < 2
 unavailable-subtitle: Maximum of 2 additional advisors.
 go-to: advisor_menu
 
@@ -247,27 +247,27 @@ frequency: 1
 - @remove_none: Stop changing advisors.
 
 @kemalist_marxist
-view-if: n_advisors <= 2
+view-if: n_advisors < 2
 
 - #kemalist_marxist_advisor
 
 @left_kemalist
-view-if: n_advisors <= 2
+view-if: n_advisors < 2
 
 - #left_kemalist_advisor
 
 @orthodox_kemalist
-view-if: n_advisors <= 2
+view-if: n_advisors < 2
 
 - #orthodox_kemalist_advisor
 
 @right_kemalist
-view-if: right_kemalists_strength > 0 and n_advisors <= 2
+view-if: right_kemalists_strength > 0 and n_advisors < 2
 
 - #right_kemalist_advisor
 
 @nonfactional
-view-if: n_advisors <= 2
+view-if: n_advisors < 2
 
 - #nonfactional_advisor
 
@@ -278,7 +278,7 @@ title: Kamil Kırıkoğlu
 subtitle: Kamil Kırıkoğlu is the general secretary of the party and a respected member of the Marxist clique.
 is-card: true
 card-image: img/portraits/KamilKirikoglu.jpg
-view-if: kirikoglu_advisor = 0 and n_advisors <= 2
+view-if: kirikoglu_advisor = 0 and n_advisors < 2
 on-arrival: kirikoglu_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
 go-to: advisor_menu
 tags: kemalist_marxist_advisor
@@ -290,7 +290,7 @@ title: Doğan Avcıoğlu
 subtitle: Doğan Avcıoğlu is a famous Marxist historian, economist, politician and an author. He is the defacto theoretician behind the National Democratic Revolution movement. {!<br><br>!}[? if difficulty < 0 : Actions - TBD ?]
 is-card: true
 card-image: img/portraits/AvciogluDogan.jpg
-view-if: avcioglu_advisor = 0 and n_advisors <= 2
+view-if: avcioglu_advisor = 0 and n_advisors < 2
 on-arrival: avcioglu_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 10
 go-to: advisor_menu
 tags: kemalist_marxist_advisor
@@ -302,7 +302,7 @@ title: İlhan Selçuk
 subtitle: İlhan Selçuk is a journalist and author for the Cumhuriyet newspaper, affiliated with us. He has been imprisoned since the memorandum of 71' due to his affiliation with the National Democratic Revolution movement.
 is-card: true
 card-image: img/portraits/IlhanSelcuk.jpg
-view-if: selcuk_advisor = 0 and n_advisors <= 2
+view-if: selcuk_advisor = 0 and n_advisors < 2
 on-arrival: selcuk_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
 go-to: advisor_menu
 tags: kemalist_marxist_advisor
@@ -330,7 +330,7 @@ subtitle: Bülent Ecevit is the current speaker of our party and is the defacto 
 is-card: true
 card-image: img/portraits/ecevit3.jpg
 tags: left_kemalist_advisor
-view-if: ecevit_advisor = 0 and n_advisors <= 2
+view-if: ecevit_advisor = 0 and n_advisors < 2
 on-arrival: ecevit_advisor = 1; n_advisors += 1; left_kemalists_strength += 10
 go-to: advisor_menu
 
@@ -342,7 +342,7 @@ subtitle: A rising figure within the party partially due to his doctorate on the
 is-card: true
 card-image: img/portraits/DenizBaykal.jpg
 tags: left_kemalist_advisor
-view-if: baykal_advisor = 0 and n_advisors <= 2
+view-if: baykal_advisor = 0 and n_advisors < 2
 on-arrival: baykal_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
 go-to: advisor_menu
 
@@ -354,7 +354,7 @@ subtitle: Turan Güneş is a Social Democratic politician that expertises in int
 is-card: true
 card-image: img/portraits/TuranGunes.jpg
 tags: left_kemalist_advisor
-view-if: gunes_advisor = 0 and n_advisors <= 2
+view-if: gunes_advisor = 0 and n_advisors < 2
 on-arrival: gunes_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
 go-to: advisor_menu
 
@@ -366,7 +366,7 @@ subtitle: The chief of the delegation behind the progressive 1960 Constitution, 
 is-card: true
 card-image: img/portraits/MuammerAksoy.jpg
 tags: left_kemalist_advisor
-view-if: aksoy_advisor = 0 and n_advisors <= 2
+view-if: aksoy_advisor = 0 and n_advisors < 2
 on-arrival: aksoy_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
 go-to: advisor_menu
 
@@ -378,7 +378,7 @@ subtitle: Mustafa Üstündağ is a reformist pedagogue from our party.
 is-card: true
 card-image: img/portraits/MustafaUstundag.png
 tags: left_kemalist_advisor
-view-if: ustundag_advisor = 0 and n_advisors <= 2
+view-if: ustundag_advisor = 0 and n_advisors < 2
 on-arrival: ustundag_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
 go-to: advisor_menu
 
@@ -390,7 +390,7 @@ subtitle: The wife of our new party leader, Bülent Ecevit. While she isnt a pol
 is-card: true
 card-image: img/portraits/RahsanEcevit.jpeg
 tags: left_kemalist_advisor
-view-if: rahsan_advisor = 0 and n_advisors <= 2 and CHP_party_leader == "Ecevit"
+view-if: rahsan_advisor = 0 and n_advisors < 2 and CHP_party_leader == "Ecevit"
 on-arrival: rahsan_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
 go-to: advisor_menu
 
@@ -402,7 +402,7 @@ subtitle: Ali Topuz is an architect heavily involvedin the civil society organiz
 is-card: true
 card-image: img/portraits/AliTopuz.jpeg
 tags: left_kemalist_advisor
-view-if: topuz_advisor = 0 and n_advisors <= 2
+view-if: topuz_advisor = 0 and n_advisors < 2
 on-arrival: topuz_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
 go-to: advisor_menu
 
@@ -414,7 +414,7 @@ subtitle: Önder Sav is a prominent Social Democratic politician and legal exper
 is-card: true
 card-image: img/portraits/OnderSav.jpg
 tags: left_kemalist_advisor
-view-if: sav_advisor = 0 and n_advisors <= 2
+view-if: sav_advisor = 0 and n_advisors < 2
 on-arrival: sav_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
 go-to: advisor_menu
 
@@ -429,7 +429,7 @@ subtitle: The hero of the republic, right hand man of the Atatürk and former pr
 is-card: true
 card-image: img/portraits/IsmetInonu.jpg
 tags: orthodox_kemalist_advisor
-view-if: inonu_dead = 0 and inonu_advisor = 0 and n_advisors <= 2
+view-if: inonu_dead = 0 and inonu_advisor = 0 and n_advisors < 2
 on-arrival: inonu_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
@@ -441,7 +441,7 @@ subtitle: Kemal Satır is a former doctor and one of the prominent names among t
 is-card: true
 card-image: img/portraits/KemalSatir.png
 tags: orthodox_kemalist_advisor
-view-if: chp_party_leader == "İnönü" and satir_advisor = 0 and n_advisors <= 2
+view-if: chp_party_leader == "İnönü" and satir_advisor = 0 and n_advisors < 2
 on-arrival: satir_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
@@ -453,7 +453,7 @@ subtitle: Orhan Eyüboğlu is a lawyer and one of the supporters of İnönü
 is-card: true
 card-image: img/portraits/OrhanEyuboglu.jpeg
 tags: orthodox_kemalist_advisor
-view-if: eyuboglu_advisor = 0 and n_advisors <= 2
+view-if: eyuboglu_advisor = 0 and n_advisors < 2
 on-arrival: eyuboglu_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
@@ -467,7 +467,7 @@ title: Ali İhsan Göğüs
 subtitle: Ali İhsan Göğüs is a staunch opponent of the left of center movement and has served as the minister of tourism in the Nihat Erim cabinet.
 is-card: true
 card-image: img/portraits/AliIhsanGogus.jpg
-view-if: chp_party_leader == "İnönü" and gogus_advisor = 0 and n_advisors <= 2
+view-if: chp_party_leader == "İnönü" and gogus_advisor = 0 and n_advisors < 2
 on-arrival: gogus_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
 go-to: advisor_menu
 tags: right_kemalist_advisor
@@ -479,7 +479,7 @@ title: Emin Paksüt
 subtitle: Emin Paksüt is a Right Kemalist intellectual and former minister of public works.
 is-card: true
 card-image: img/portraits/Eminpaksut.jpeg
-view-if: chp_party_leader == "İnönü" and paksut_advisor = 0 and n_advisors <= 2
+view-if: chp_party_leader == "İnönü" and paksut_advisor = 0 and n_advisors < 2
 on-arrival: paksut_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
 go-to: advisor_menu
 tags: right_kemalist_advisor
@@ -491,7 +491,7 @@ title: Fethi Çelikbaş
 subtitle: Fethi Çelikbaş is a pragmatist Right Kemalist politician and former minister of Industry and economy.
 is-card: true
 card-image: img/portraits/FethiCelikbas.jpeg
-view-if: chp_party_leader == "İnönü" and celikbas_advisor = 0 and n_advisors <= 2
+view-if: chp_party_leader == "İnönü" and celikbas_advisor = 0 and n_advisors < 2
 on-arrival: celikbas_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
 go-to: advisor_menu
 tags: right_kemalist_advisor
@@ -505,7 +505,7 @@ title: Ziya Müezzinoğlu
 subtitle: Ziya Müezzinoğlu is an experienced economist expertising in international trade.
 is-card: true
 card-image: img/portraits/Muezzinoglu.jpg
-view-if: muezzinoglu_advisor = 0 and n_advisors <= 2
+view-if: muezzinoglu_advisor = 0 and n_advisors < 2
 on-arrival: muezzinoglu_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: nonfactional advisor
@@ -515,7 +515,7 @@ title: Tarık Akan
 subtitle: Tarık Akan is an actor from the Yeşilçam cinema and even though he seems unwilling to participate in active politics, he also seems sympathethic to the direction our party has taken..
 is-card: true
 card-image: img/portraits/TarikAkan.jpg
-view-if: akan_advisor = 0 and n_advisors <= 2 and CHP_party_leader == "Ecevit" and year >= 1975
+view-if: akan_advisor = 0 and n_advisors < 2 and CHP_party_leader == "Ecevit" and year >= 1975
 on-arrival: akan_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: nonfactional_advisor
