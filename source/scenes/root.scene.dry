@@ -895,6 +895,7 @@ Q.march_on_berlin_timer = 0;
 Q.inonu_advisor = 1; // İsmet İnönü 
 Q.ecevit_advisor = 1; // Bülent Ecevit 
 Q.satir_advisor = 1; // Kemal Satır 
+Q.selcuk_advisor = 1; // test for 4 advisor (1 party leader + 1 secretary + 2 additional advisors) dont forget to remove this
 Q.wels_advisor = 0; // Otto Wels
 Q.muller_advisor = 0; // Hermann Müller
 Q.muller_dead = 0;
