@@ -210,7 +210,7 @@ if (!Q.thkpc_destroyed) {
     Q.thkpc_force = Q.thkpc_strength * Q.thkpc_militancy;
     Q.far_left_force += Q.thkpc_force;
 } else {
-    Q.thkpc_force = 0;
+    Q.thkpc_strength = 0;
 }
 if (Q.devyol_formed) {
     Q.devyol_force = Q.devyol_strength * Q.devyol_militancy;
@@ -613,10 +613,10 @@ Q.old_other_r = 14.1;
 // Parliament seat distribution (initial TBMM composition, updates via elections)
 Q.total_seats = 450;
 Q.chp_seats = 143;
-Q.z_seats = 256;
+Q.z_seats = 220;
 Q.TIP_seats = 2;
 Q.CGP_seats = 15;
-Q.DP_seats = 0;
+Q.DP_seats = 36;
 Q.MSP_seats = 0;
 Q.MHP_seats = 1;
 Q.other_seats = 33;
