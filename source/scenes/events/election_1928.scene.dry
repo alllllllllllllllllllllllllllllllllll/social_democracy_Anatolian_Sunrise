@@ -353,7 +353,7 @@ We have the numbers to enter into coalition with the ideologically closest party
 - @ministriesa: First, we must select our ministries.
 - @coalition_menu: Let us consider our other options.
 
-@ministriesa:
+@ministriesa
 on-arrival: CHP_in_government = 1; CGP_in_government = 1;
 go-to: ministries
 
@@ -391,7 +391,7 @@ on-arrival: chancellor = "Kamil Kırıkoğlu"; chancellor_party = "CHP"; TIP_rel
 
 We offer one of the hailing politicians of the Marxist left in our party, Kamil Kırıkoğlu, as the name from prime ministership. The army and the Orthodox Wing of our party are absolutely furious.
 
-- @ministriesa: First, we must select our ministries.
+- @ministries: First, we must select our ministries.
 
 @unholy_coalition
 title: Can we form a coalition with Islamist MSP?
