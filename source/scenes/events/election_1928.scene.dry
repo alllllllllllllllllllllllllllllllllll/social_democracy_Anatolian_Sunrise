@@ -437,6 +437,8 @@ Even though DP is unwilling to reconcile with Demirel and AP, an arrangement is 
 
 @bye: A house of cards..
 
+@bye
+
 @no_majority
 title: There is no clear governing majority.
 view-if: weimar_coalition < 225 and (grand_coalition < 225 or grand_coalition_failed == 1) and president = "Hindenburg" and far_right_coalition < 225
