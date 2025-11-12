@@ -5,7 +5,7 @@ priority: -1
 view-if: (year = next_election_year and month >= next_election_month) or (year > next_election_year)
 on-departure: month_actions += 1; in_election = 0; next_election_year = next_election_year + 4; n_elections += 1; next_election_time = time + 48; papen_chancellor_timer = 4;
 set-jump: post_election_1928
-face-image: img/Rothe_Wahlen_1903.jpg
+face-image: img/ataturkveinonu.jpg
 
 # TODO: should there be an image?
 
@@ -325,8 +325,6 @@ Nationalist Front Coalition (AP + CGP + MSP + MHP): [+ nationalist_front_coaliti
 
 [? if nazi_urgency <= 1 and MHP_r >= 15 : The rapid rise in MHP votes is extremely worrying. Many had believed that the party was moribound; now, some of us consider it to be the greatest threat to democracy in Germany. ?]
 
-[? if anti_democratic_coalition >= 225 : Together, the anti-democratic TIP, MSP, and MHP have a majority in the Reichstag. A stable governing majority will be almost impossible. ?]
-
 There are some potential coalition arrangements.
 
 @coalition_menu
@@ -347,11 +345,17 @@ There are some potential coalition arrangements.
 title: We can form a Kemalist coalition.
 subtitle: CHP + CGP ([+ kemalist_coalition +] seats)
 view-if: kemalist_coalition >= 225
+choose-if: CGP_relation >= 40
+unavailable-subtitle: Personal feuds between the members of CHP and CGP prevent a coalition arrangement!
 
 We have the numbers to enter into coalition with the ideologically closest party to our right, CGP!
 
-- @ministries: First, we must select our ministries.
+- @ministriesa: First, we must select our ministries.
 - @coalition_menu: Let us consider our other options.
+
+@ministriesa:
+on-arrival: CHP_in_government = 1; CGP_in_government = 1;
+go-to: ministries
 
 @left_coalition
 title: Is a United Left coalition possible?
@@ -376,18 +380,18 @@ There is a lot of qualm within TIP over their possible entry into government and
 - @coalition_menu: Try a different governing arrangement.
 
 @ecevitleft
-on-arrival: chancellor = "Bülent Ecevit"; chancellor_party = "CHP"; TIP_relation += 20; coup_timer += 5; orthodox_kemalists_dissent += 20; kemalist_marxists_dissent -= 20; kemalist_marxists_strength += 10
+on-arrival: chancellor = "Bülent Ecevit"; chancellor_party = "CHP"; TIP_relation += 20; coup_timer += 5; orthodox_kemalists_dissent += 20; kemalist_marxists_dissent -= 20; kemalist_marxists_strength += 10; CHP_in_government = 1; TIP_in_government = 1
 
 Bülent Ecevit has become the prime minister of a government led by us and TIP. The army and the Orthodox Wing of our party are furious.
 
 - @ministries: First, we must select our ministries.
 
 @kirikoglu
-on-arrival: chancellor = "Kamil Kırıkoğlu"; chancellor_party = "CHP"; TIP_relation += 20; coup_timer += 8; orthodox_kemalists_dissent += 20; kemalist_marxists_dissent -= 20; kemalist_marxists_strength += 20
+on-arrival: chancellor = "Kamil Kırıkoğlu"; chancellor_party = "CHP"; TIP_relation += 20; coup_timer += 8; orthodox_kemalists_dissent += 20; kemalist_marxists_dissent -= 20; kemalist_marxists_strength += 20; CHP_in_government = 1; TIP_in_government = 1
 
 We offer one of the hailing politicians of the Marxist left in our party, Kamil Kırıkoğlu, as the name from prime ministership. The army and the Orthodox Wing of our party are absolutely furious.
 
-- @ministries: First, we must select our ministries.
+- @ministriesa: First, we must select our ministries.
 
 @unholy_coalition
 title: Can we form a coalition with Islamist MSP?
@@ -395,7 +399,13 @@ subtitle: CHP + MSP ([+ unholy_coalition +] seats)
 unavailable-subtitle: Our relations with MSP make any coalition negotiation impossible.
 view-if: unholy_coalition >= 225
 
-- @ministries: First, we must select our ministries
+After lengthy negotiations, it appears as the overwhelmingly larger party, we can form a CHP-MSP government led by Ecevit. We should do our best to not lose the reins to the Islamists.
+
+- @ministriesb: First, we must select our ministries.
+- @coalition_menu: Try a different governing arrangement.
+
+@ministriesb
+on-arrival: CHP_in_government = 1; MSP_in_government = 1
 
 @right_coalition
 title: Refuse to form a government, so that a right-wing coalition may be formed.
@@ -403,10 +413,10 @@ subtitle: AP + DP + MSP + Others ([+ right_coalition +] seats)
 unavailable-subtitle: The MSP is not interested in a coalition with the Center.
 view-if: right_coalition >= 225
 
-There are enough votes for a right-wing coalition of the Center Party, DP, MSP, and minor conservative parties. [? if largest_party == "CHP": However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
+There are enough votes for a right-wing coalition of the AP, DP, MSP, and minor right wing parties. [? if largest_party == "CHP": However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
 - @right_coalition_sure: Yes, we will abdicate our responsibility for government formation, and let a right-wing coalition take power.
-- @grand_coalition: Actually, we wish to form a grand coalition after all.
+- @grand_coalition: Actually, we want to check out the other possibilities.
 
 @no_right_coalition
 go-to: no_majority
@@ -414,19 +424,18 @@ go-to: no_majority
 However, the MSP and its leader Hugenberg is refusing to partake in a coalition with the "November criminals" in the Center Party. Thus, there is no clear path towards a Reichstag majority.
 
 @right_coalition_sure
-subtitle: This will be extremely unpopular within our party.
-on-arrival: pro_republic -= 5; center_dissent += 15; left_dissent += 10; labor_dissent += 25; reformist_dissent += 25; neorevisionist_dissent += 15;z_relation -= 5; CGP_relation -= 5; DP_relation -= 5
+subtitle: This will be extremely unpopular within our party. [? if largest_party == "CHP": We are the largest party! Its our right to form the next government! ?]
+on-arrival: orthodox_kemalists_dissent += 15; kemalist_marxists_dissent += 15; left_kemalists_dissent += 15; right_kemalists_dissent += 15;
 go-to: right_coalition_2
 
 
 @right_coalition_2
-unavailable-subtitle: The MSP is not interested in a coalition with the Center.
 view-if: right_coalition >= 225
-on-arrival: CHP_in_government = 0; CHP_toleration = 0; chancellor = "Brüning"; chancellor_party = "AP"; foreign_minister_party = "DP"; interior_minister_party = "MSP"; justice_minister_party = "MSP"; labor_minister_party = "AP"; reichswehr_minister_party = "I"; economic_minister_party = "DP"; finance_minister_party = "AP"; agriculture_minister_party = "MSP"; in_right_coalition = 1;
+on-arrival: CHP_in_government = 0; CHP_toleration = 0; AP_in_government = 1; DP_in_government = 1; MSP_in_government = 1; chancellor = "Süleyman Demirel"; chancellor_party = "AP"; foreign_minister_party = "DP"; interior_minister_party = "MSP"; justice_minister_party = "MSP"; labor_minister_party = "AP"; reichswehr_minister_party = "I"; economic_minister_party = "DP"; finance_minister_party = "AP"; agriculture_minister_party = "MSP"; in_right_coalition = 1;
 
-Even though the MSP is very reluctant to participate in such a coalition, they still accede to President Hindenburg's wishes. Thus, a majority center-right coalition is formed, with Brüning as chancellor.
+Even though DP is unwilling to reconcile with Demirel and AP, an arrangement is created between AP, DP and MSP. [? if year < 1976: Our performance in the elections disappoint many in the party and doubts begin to emerge about the actual effectiveness of the Karaoğlan wave.. ?] [? if year >= 1976: Many in our party begin to think that the Karaoğlan wave is starting to crack and rumors of various unpleasant talks begin arriving to Ecevit's office in Ankara.. ?]
 
-
+@bye: A house of cards..
 
 @no_majority
 title: There is no clear governing majority.
