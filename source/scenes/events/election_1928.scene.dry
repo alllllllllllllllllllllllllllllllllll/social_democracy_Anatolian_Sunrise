@@ -435,7 +435,7 @@ on-arrival: CHP_in_government = 0; CHP_toleration = 0; AP_in_government = 1; DP_
 
 Even though DP is unwilling to reconcile with Demirel and AP, an arrangement is created between AP, DP and MSP. [? if year < 1976: Our performance in the elections disappoint many in the party and doubts begin to emerge about the actual effectiveness of the Karaoğlan wave.. ?] [? if year >= 1976: Many in our party begin to think that the Karaoğlan wave is starting to crack and rumors of various unpleasant talks begin arriving to Ecevit's office in Ankara.. ?]
 
-@bye: A house of cards..
+- @bye: A house of cards..
 
 @bye
 
