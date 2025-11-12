@@ -49,8 +49,8 @@ By transferring resources to our coalition partners, we can reduce their dissent
 
 
 @support_center
-choose-if: (weimar_coalition >= 225 and z_relation >= 40) or (grand_coalition >= 225 and z_relation >= 45 and DP_relation >= 30)
-unavailable-subtitle: [? if grand_coalition < 225 : This would not give us a majority. ?] [? if z_relation < 45 : After working with the Communists, the Center Party does not wish to form a coalition with us. ?] [? if DP_relation < 30 : The DP would rather see the government fall than rescue us from the Communists. ?]
+choose-if: (weimar_coalition >= 226 and z_relation >= 40) or (grand_coalition >= 226 and z_relation >= 45 and DP_relation >= 30)
+unavailable-subtitle: [? if grand_coalition < 226 : This would not give us a majority. ?] [? if z_relation < 45 : After working with the Communists, the Center Party does not wish to form a coalition with us. ?] [? if DP_relation < 30 : The DP would rather see the government fall than rescue us from the Communists. ?]
 
 We could try to boot the TIP from our governing coalition, and form a new government with the bourgeois parties.
 

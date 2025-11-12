@@ -90,7 +90,7 @@ if (Q.electoral_threshold && Q.electoral_threshold > 0) {
 
 var seatMultiplier = 4.2;
 var seatBonus = 30;
-var majorityThreshold = 225;
+var majorityThreshold = 226;
 Q.majority_threshold = majorityThreshold;
 Q.total_seats = 0;
 Q.largest_party_key = null;
@@ -309,7 +309,7 @@ go-to: coalition_menu
 {!<tr><td><div class="box" style='background-color:#954B00'> </div> !} MHP: {!</td><td>!} [+ MHP_r +]% {!</td><td>!} [+ str_change_MHP +] {!</td></tr>!}
 {!</table>!}
 
-**Potential coalitions** *(225 seats needed for a majority)*
+**Potential coalitions** *(226 seats needed for a majority)*
 
 Left Coalition (CHP + TİP): [+ left_coalition +] seats
 
@@ -344,7 +344,7 @@ There are some potential coalition arrangements.
 @kemalist_coalition
 title: We can form a Kemalist coalition.
 subtitle: CHP + CGP ([+ kemalist_coalition +] seats)
-view-if: kemalist_coalition >= 225
+view-if: kemalist_coalition >= 226
 choose-if: CGP_relation >= 40
 unavailable-subtitle: Personal feuds between the members of CHP and CGP prevent a coalition arrangement!
 
@@ -361,7 +361,7 @@ go-to: ministries
 title: Is a United Left coalition possible?
 subtitle: CHP + TIP [? if sapd_formed: + SAPD ?] ([+ left_coalition +] seats)
 unavailable-subtitle: CHP + TIP [? if sapd_formed: + SAPD ?] ([+ left_coalition +] seats). [? if TIP_relation < 50 : We do not have adequate relations with the TIP. ?] [? if TIP_party_leader != "Aybar" : The Leninists led by Behice Boran do not trust us.
-view-if: left_coalition >= 225 and year >= 1973
+view-if: left_coalition >= 226 and year >= 1973
 choose-if: TIP_relation >= 50 and TIP_party_leader == "Aybar"
 
 There are enough votes for a CHP + TIP coalition government.
@@ -397,7 +397,7 @@ We offer one of the hailing politicians of the Marxist left in our party, Kamil 
 title: Can we form a coalition with Islamist MSP?
 subtitle: CHP + MSP ([+ unholy_coalition +] seats)
 unavailable-subtitle: Our relations with MSP make any coalition negotiation impossible.
-view-if: unholy_coalition >= 225
+view-if: unholy_coalition >= 226
 
 After lengthy negotiations, it appears as the overwhelmingly larger party, we can form a CHP-MSP government led by Ecevit. We should do our best to not lose the reins to the Islamists.
 
@@ -411,7 +411,7 @@ on-arrival: CHP_in_government = 1; MSP_in_government = 1
 title: Refuse to form a government, so that a right-wing coalition may be formed.
 subtitle: AP + DP + MSP + Others ([+ right_coalition +] seats)
 unavailable-subtitle: The MSP is not interested in a coalition with the Center.
-view-if: right_coalition >= 225
+view-if: right_coalition >= 226
 
 There are enough votes for a right-wing coalition of the AP, DP, MSP, and minor right wing parties. [? if largest_party == "CHP": However, this will be seen as abdicating responsibility for government, as we are the largest party. ?]
 
@@ -430,7 +430,7 @@ go-to: right_coalition_2
 
 
 @right_coalition_2
-view-if: right_coalition >= 225
+view-if: right_coalition >= 226
 on-arrival: CHP_in_government = 0; CHP_toleration = 0; AP_in_government = 1; DP_in_government = 1; MSP_in_government = 1; chancellor = "Süleyman Demirel"; chancellor_party = "AP"; foreign_minister_party = "DP"; interior_minister_party = "MSP"; justice_minister_party = "MSP"; labor_minister_party = "AP"; reichswehr_minister_party = "I"; economic_minister_party = "DP"; finance_minister_party = "AP"; agriculture_minister_party = "MSP"; in_right_coalition = 1;
 
 Even though DP is unwilling to reconcile with Demirel and AP, an arrangement is created between AP, DP and MSP. [? if year < 1976: Our performance in the elections disappoint many in the party and doubts begin to emerge about the actual effectiveness of the Karaoğlan wave.. ?] [? if year >= 1976: Many in our party begin to think that the Karaoğlan wave is starting to crack and rumors of various unpleasant talks begin arriving to Ecevit's office in Ankara.. ?]
@@ -441,7 +441,7 @@ Even though DP is unwilling to reconcile with Demirel and AP, an arrangement is 
 
 @no_majority
 title: There is no clear governing majority.
-view-if: weimar_coalition < 225 and (grand_coalition < 225 or grand_coalition_failed == 1) and president = "Hindenburg" and far_right_coalition < 225
+view-if: weimar_coalition < 226 and (grand_coalition < 226 or grand_coalition_failed == 1) and president = "Hindenburg" and far_right_coalition < 226
 on-arrival: no_majority_elections += 1
 go-to: no_majority_papen if chancellor = "Papen" and no_majority_papen_elections == 0; no_majority_papen_2 if chancellor == "Papen" and no_majority_papen_elections > 0; no_majority_schleicher if chancellor = "Schleicher"; no_majority_CHP if chancellor_party = "CHP" or chancellor == "Marx"
 
@@ -500,7 +500,7 @@ New elections have been set for [+ next_election_month : month +] [+ next_electi
 @CHP_majority
 title: CHP majority alone
 subtitle: CHP: [+ chp_r +]% ([+ chp_seats +] seats)
-view-if: chp_seats >= 225
+view-if: chp_seats >= 226
 on-arrival: chancellor = "Empty"; chancellor_party = "CHP"; CHP_in_government = 1; in_CHP_majority = 1; pro_republic += 5; foreign_minister_party = "CHP"; foreign_minister = "Breitscheid"; interior_minister_party = "CHP"; interior_minister = "Severing"; justice_minister_party = "CHP"; justice_minister = "Radbruch"; labor_minister_party = "CHP"; labor_minister = "Wissell"; reichswehr_minister_party = "CHP"; reichswehr_minister = "Leber"; economic_minister_party = "CHP"; economic_minister = "Schmidt"; finance_minister_party = "CHP"; finance_minister = "Hilferding"; agriculture_minister_party = "CHP"; agriculture_minister = "Baade"; reichswehr_loyalty -= 0.05; 
 achievement: majority_party
 
@@ -517,7 +517,7 @@ The progressives, for the first time since the beginning of the free elections, 
 
 @grand_coalition
 title: We can form a Grand Coalition between CHP and AP.
-view-if: grand_coalition >= 225 and grand_coalition_failed == 0
+view-if: grand_coalition >= 226 and grand_coalition_failed == 0
 subtitle: CHP + AP ([+ grand_coalition +] seats)
 choose-if: z_relation >= 49
 unavailable-subtitle: Our relations with AP are not good enough for a grand coalition.
@@ -582,7 +582,7 @@ if (Q.pro_republic < 36) {
     Q.rural_MHP += 8;
     Q.unemployed_MHP += 8;   
 }
-if (Q.far_right_coalition >= 225) {
+if (Q.far_right_coalition >= 226) {
     Q.sa_strength += 100;
     Q.sh_strength += 100;
     Q.coup_progress += 3;
@@ -653,7 +653,7 @@ go-to: no_govt_2
 
 @no_govt_2
 on-arrival: reformist_dissent += 25; center_dissent += 10; labor_dissent += 25; neorevisionist_dissent += 25; in_weimar_coalition = 0; in_grand_coalition = 0; chancellor = "Brüning" if chancellor == "Marx"; CHP_in_government = 0; grand_coalition_failed = 1
-go-to: right_coalition_post_CHP if right_coalition >= 225 and president != "Braun" and year < 1929; new_elections_CHP if (right_coalition < 225 or year >= 1929) and president != "Braun"
+go-to: right_coalition_post_CHP if right_coalition >= 226 and president != "Braun" and year < 1929; new_elections_CHP if (right_coalition < 226 or year >= 1929) and president != "Braun"
 
 
 @right_coalition_post_CHP

@@ -39,7 +39,7 @@ if (typeof Q.sapd_seats === 'undefined') {
     Q.sapd_seats = 0;
 }
 if (typeof Q.majority_threshold === 'undefined') {
-    Q.majority_threshold = 225;
+    Q.majority_threshold = 226;
 }
 if (typeof Q.right_kemalist_split === 'undefined') {
     Q.right_kemalist_split = 0;

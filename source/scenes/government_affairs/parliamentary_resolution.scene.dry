@@ -9,9 +9,9 @@ Q.parliamentary_no = no_votes;
 Q.parliamentary_abstain = abstentions;
 Q.parliamentary_total = yes_votes + no_votes + abstentions;
 
-// Determine if vote passes (simple majority = 225+, supermajority = 300+)
+// Determine if vote passes (simple majority = 226+, supermajority = 300+)
 // Abstentions don't count toward the majority requirement
-var required_votes = Q.supermajority_required ? 300 : 225;
+var required_votes = Q.supermajority_required ? 300 : 226;
 Q.parliamentary_passes = yes_votes >= required_votes;
 
 // Store individual party positions for display
@@ -266,8 +266,8 @@ Q.parliamentary_yes = yes_votes;
 Q.parliamentary_no = no_votes;
 Q.parliamentary_total = yes_votes + no_votes;
 
-// Determine if vote passes (simple majority = 225+, supermajority = 300+)
-var required_votes = Q.supermajority_required ? 300 : 225;
+// Determine if vote passes (simple majority = 226+, supermajority = 300+)
+var required_votes = Q.supermajority_required ? 300 : 226;
 Q.parliamentary_passes = yes_votes >= required_votes;
 
 // Store individual party votes for display

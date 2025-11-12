@@ -621,7 +621,7 @@ Q.MSP_seats = 0;
 Q.MHP_seats = 1;
 Q.other_seats = 33;
 Q.sapd_seats = 0;
-Q.majority_threshold = 225;
+Q.majority_threshold = 226;
 Q.largest_party_key = 'z';
 Q.largest_party = 'AP';
 

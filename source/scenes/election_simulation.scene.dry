@@ -295,7 +295,7 @@ Q.other_r = Q.other_votes;
 var seatMultiplier = 4;
 var firstSeatBonus = 40;
 var secondSeatBonus = 10;
-var majorityThreshold = 225;
+var majorityThreshold = 226;
 Q.majority_threshold = majorityThreshold;
 Q.total_seats = 0;
 Q.largest_party_key = null;
@@ -358,7 +358,7 @@ Q.neo_weimar_coalition = Q.chp_seats + Q.CGP_seats + Q.z_seats + Q.DP_seats + Q.
 !}
 
 The electoral system is essentially proportional, with the proportion of parliament seats roughly equal to the proportion of votes.
-A working majority in this simulation requires 225 seats, reflecting the +30 seat bonus granted to the largest party.
+A working majority in this simulation requires 226 seats, reflecting the +30 seat bonus granted to the largest party.
  
 **Election results:**
 

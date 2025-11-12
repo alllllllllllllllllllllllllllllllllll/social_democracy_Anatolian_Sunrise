@@ -19,8 +19,8 @@ Magnus Hirschfeld is the founder of the Institut für Sexualwissenschaft and an 
 @homosexual_rights_
 title: Homosexual rights
 subtitle: Enact policy that supports homosexual rights.
-choose-if: advisor_action_timer = 0 and CHP_in_government and progressive_coalition >= 225
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not CHP_in_government : The CHP is not currently in government. ?][? if progressive_coalition < 225 : We do not have the seats to enact these policies. ?]
+choose-if: advisor_action_timer = 0 and CHP_in_government and progressive_coalition >= 226
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not CHP_in_government : The CHP is not currently in government. ?][? if progressive_coalition < 226 : We do not have the seats to enact these policies. ?]
 on-arrival: advisor_action_timer = 6; homosexual_rights_timer -= 11; last_advisor_action = 1
 go-to: homosexual_rights
 
