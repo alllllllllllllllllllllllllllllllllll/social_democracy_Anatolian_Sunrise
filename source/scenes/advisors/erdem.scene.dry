@@ -1,0 +1,17 @@
+title: Tarhan Erdem
+is-pinned-card: true
+tags: advisor
+card-image: img/portraits/TarhanErdem.jpg
+view-if: erdem_advisor = 1
+new-page: true 
+
+= Tarhan Erdem
+
+ Tarhan Erdem is an engineer who has previously proven his technocratic value with his successfully experiences in the National Sugar Factories.
+
+  - @industry: Erdem can take actions as the Minister of Industry.
+  
+@industry
+choose-if: CHP_in_government = 1 and advisor_action_timer = 0
+unavailable-subtitle: CHP is not in government [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3 
