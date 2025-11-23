@@ -224,6 +224,13 @@ tags: remove_advisor
 on-arrival: akan_advisor = 0; n_advisors -= 1
 go-to: rm_main
 
+@remove_erdem
+title: Remove Erdem
+view-if: erdem_advisor = 1
+tags: remove_advisor
+on-arrival: erdem_advisor = 0; n_advisors -= 1
+go-to: rm_main
+
 ####################### adding advisors
 
 @add_advisors
@@ -508,7 +515,17 @@ card-image: img/portraits/Muezzinoglu.jpg
 view-if: muezzinoglu_advisor = 0 and n_advisors < 3
 on-arrival: muezzinoglu_advisor = 1; n_advisors += 1
 go-to: advisor_menu
-tags: nonfactional advisor
+tags: nonfactional_advisor
+
+@add_erdem
+title: Tarhan Erdem
+subtitle: Tarhan Erdem is a technocratic engineer expertising in industrial development.
+is-card: true
+card-image: img/portraits/TarhanErdem.jpg
+view-if: erdem_advisor = 0 and n_advisors < 3
+on-arrival: erdem_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+tags: nonfactional_advisor
 
 @add_akan
 title: Tarık Akan
