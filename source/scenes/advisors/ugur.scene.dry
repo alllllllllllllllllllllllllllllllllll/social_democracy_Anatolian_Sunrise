@@ -1,0 +1,17 @@
+title: Mustafa Necdet Uğur
+is-pinned-card: true
+tags: advisor
+card-image: img/portraits/NecdetUgur.jpg
+view-if: ugur_advisor = 1
+new-page: true 
+
+= Mustafa Necdet Uğur
+
+Mustafa Necdet Uğur is the former head of the police department of İstanbul and its former mayor.
+
+- @interior: Necdet Uğur can take actions as the Interior Minister.
+
+@interior
+choose-if: CHP_in_government = 1 and advisor_action_timer = 0
+unavailable-subtitle: CHP is not in government [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 3 
