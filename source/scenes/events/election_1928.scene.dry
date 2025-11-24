@@ -142,7 +142,7 @@ Q.left_coalition = (Q.chp_seats || 0) + (Q.TIP_seats || 0);
 // Progressive coalition isn't going to be implemented as a distinct coalition but it's the coalition that lets you pass improved women's rights/gay rights
 Q.progressive_coalition = Q.chp_seats + Q.TIP_seats + Q.CGP_seats + sapdSeats;
 
-Q.leverage = Q.chp_seats;
+Q.leverage = Q.chp_seats/2;
 
 Q.grand_coalition_failed = 0;
 // Reset government and ministers... Based on Brüning's 1930 govt
@@ -679,45 +679,33 @@ title: Labor Ministry
 subtitle: Taking the Labor Ministry is expected of us.
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
-choose-if: leverage >= 5
+choose-if: leverage >= 10
 view-if: labor_minister_party != "CHP"
-on-arrival: leverage -= 5; labor_minister_party = "CHP"; labor_minister = "Wissell"
+on-arrival: leverage -= 10; labor_minister_party = "CHP"; labor_minister = "Sav"
 go-to: ministries
 
-Rudolf Wissell of the CHP has been appointed labor minister.
+Önder Sav of the CHP has been appointed labor minister.
 
 @interior
 title: Interior Ministry
-subtitle: Taking the Interior Ministry is expected of us. The Interior Ministry controls domestic security.
+subtitle: The Interior Ministry controls domestic security and manages the police forces
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
-choose-if: leverage >= 5
+choose-if: leverage >= 15
 view-if: interior_minister_party != "CHP"
-on-arrival: leverage -= 5; interior_minister_party = "CHP"; interior_minister = "Severing"
+on-arrival: leverage -= 15; interior_minister_party = "CHP"; interior_minister = "Ugur"
 go-to: ministries
 
-Carl Severing of the CHP has been appointed Interior Minister.
-
-@finance
-title: Finance Ministry
-subtitle: The Finance Ministry controls the government budget and taxes.
-unavailable-subtitle: We do not have enough leverage.
-tags: mins_1928
-choose-if: leverage >= 10 
-view-if: finance_minister_party != "CHP"
-on-arrival: leverage -= 10; finance_minister_party = "CHP"; finance_minister = "Hilferding"
-go-to: ministries
-
-Rudolf Hilferding of the CHP has been appointed Finance Minister.
+Mustafa Necdet Uğur of the CHP has been appointed Interior Minister.
 
 @economic
 title: Economic Ministry
-subtitle: The Economic Ministry controls broader economic policy.
+subtitle: The Economic Ministry controls the government budget and the broader economy.
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
-choose-if: leverage >= 10 
+choose-if: leverage >= 20 
 view-if: economic_minister_party != "CHP"
-on-arrival: leverage -= 10; economic_minister_party = "CHP"; economic_minister = "Schmidt"
+on-arrival: leverage -= 20; economic_minister_party = "CHP"; economic_minister = "Baykal"
 go-to: ministries
 
 Robert Schmidt of the CHP has been appointed Economic Minister.
@@ -729,35 +717,34 @@ unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 10 
 view-if: justice_minister_party != "CHP"
-on-arrival: leverage -= 10; justice_minister_party = "CHP"; justice_minister = "Radbruch"
+on-arrival: leverage -= 10; justice_minister_party = "CHP"; justice_minister = "Aksoy"
 go-to: ministries
 
-Gustav Radbruch of the CHP has been appointed Justice Minister.
+Muammer Aksoy of the CHP has been appointed Justice Minister.
 
 @foreign
 title: Foreign Ministry
-subtitle: This is usually the domain of Gustav Stresemann of the DP.
+subtitle: The Foreign Ministry manages the foreign relations of the Turkish Republic.
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 10 
 view-if: foreign_minister_party != "CHP"
-on-arrival: leverage -= 10; foreign_minister_party = "CHP"; foreign_minister = "Breitscheid"
+on-arrival: leverage -= 10; foreign_minister_party = "CHP"; foreign_minister = "Gunes"
 go-to: ministries
 
-Rudolf Breitscheid of the CHP has been appointed Foreign Minister.
-
+Turan Güneş of the CHP has been appointed Foreign Minister.
 
 @agriculture
 title: Agricultural Ministry
-subtitle: This is not our usual domain.
+subtitle: The Agriculture Ministry manages the agricultural production and the wellbeing of the rural settlements.
 unavailable-subtitle: We do not have enough leverage.
 choose-if: leverage >= 10 
 view-if: agriculture_minister_party != "CHP"
-on-arrival: leverage -= 10; agriculture_minister_party = "CHP"; agriculture_minister = "Baade"
+on-arrival: leverage -= 10; agriculture_minister_party = "CHP"; agriculture_minister = "Topuz"
 go-to: ministries
 tags: mins_1928
 
-Fritz Baade of the CHP has been appointed Agriculture Minister.
+Ali Topuz of the CHP has been appointed Agriculture Minister.
 
 @reichswehr
 title: Reichswehr Ministry
@@ -771,7 +758,27 @@ go-to: ministries
 
 Julius Leber of the CHP has been appointed Reichswehr Minister.
 
+@industry
+title: Industrial Ministry
+subtitle: The Industrial Ministry is responsible for managing and planning the expansion of the rapidly growing Industrial Production.
+unavailable-subtitle: We do not have enough leverage
+tags: mins_1928
+choose-if: leverage >= 10
+view-if: industrial_minister_party != "CHP"
+on-arrival: leverage -= 10; industrial_ministry_party = "CHP"; industrial_minister = "Erdem"
 
+Tarhan Erdem of the CHP has been appointed Industrial Minister.
+
+@education
+title: Education Ministry
+subtitle: The Education Ministry is responsible for managing the National Education.
+unavailable-subtitle: We do not have enough leverage
+tags: mins_1928
+choose-if: leverage >= 10
+view-if: education_minister_party != "CHP"
+on-arrival: leverage -= 10; education_ministry_party = "CHP"; education_minister = "Üstündağ"
+
+Mustafa Üstündağ of the CHP has been appointed Education Minister.
 
 @no_more
 title: No more ministries.
@@ -791,13 +798,6 @@ go-to: ministries
 title: Drop the Interior Ministry.
 view-if: interior_minister_party = "CHP"
 on-arrival: interior_minister_party = "AP"; interior_minister = "Wirth"; leverage += 5;
-tags: drop_mins_1928
-go-to: ministries
-
-@drop_finance
-title: Drop the Finance Ministry.
-view-if: finance_minister_party = "CHP"
-on-arrival: finance_minister_party = "DP"; finance_minister = "Moldenhauer"; leverage += 10; finance_minister_party = "AP" if in_weimar_coalition or in_popular_front; finance_minister = "Köhler" if in_weimar_coalition or in_popular_front
 tags: drop_mins_1928
 go-to: ministries
 
@@ -835,3 +835,19 @@ view-if: reichswehr_minister_party = "CHP"
 on-arrival: reichswehr_minister_party = "I"; reichswehr_minister = "Groener"; leverage += 15;
 tags: drop_mins_1928
 go-to: ministries
+
+@drop_education
+title: Drop the Education Ministry.
+view-if: education_minister_party = "CHP"
+on-arrival: education_minister_party = "I"; leverage += 10;
+tags: drop_mins_1928
+go-to: ministries
+
+@drop_industrial
+title: Drop the Industrial Ministry.
+view-if: industrial_minister_party = "CHP"
+on-arrival: industrial_minister_party = "I"; leverage += 10;
+tags: drop_mins_1928
+go-to: ministries
+
+
