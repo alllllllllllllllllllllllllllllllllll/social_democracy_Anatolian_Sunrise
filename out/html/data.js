@@ -6,7 +6,6 @@ const tooltipList = [{
 
 const colourList = [{
         word: "CHP",
-        style: "color: #E3000F; font-weight: bold;",
-        img: "x.png"
+        style: "color: #E3000F; font-weight: bold;"
     }
 ];
