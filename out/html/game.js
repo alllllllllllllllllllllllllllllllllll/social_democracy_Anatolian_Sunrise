@@ -165,9 +165,7 @@
     
 
   // This function allows you to do something in response to signals.
-  window.handleSignal = function(signal, event, scene_id) {
-  };
-        window.displayText = function (text) {
+    window.displayText = function (text) {
         return applyWholesome(text);
     };
 
@@ -204,7 +202,8 @@
         });
     }
 
-  
+  window.handleSignal = function (signal, event, scene_id) {};
+
   // This function runs on a new page. Right now, this auto-saves.
   window.onNewPage = function() {
     var scene = window.dendryUI.dendryEngine.state.sceneId;
