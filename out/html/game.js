@@ -162,7 +162,12 @@
   // This function allows you to modify the text before it's displayed.
   // E.g. wrapping chat-like messages in spans.
 
-    window.displayText = function (text) {
+    
+
+  // This function allows you to do something in response to signals.
+  window.handleSignal = function(signal, event, scene_id) {
+  };
+        window.displayText = function (text) {
         return applyWholesome(text);
     };
 
@@ -199,18 +204,15 @@
         });
     }
 
-  // This function allows you to do something in response to signals.
-  window.handleSignal = function(signal, event, scene_id) {
-  };
   
   // This function runs on a new page. Right now, this auto-saves.
   window.onNewPage = function() {
     var scene = window.dendryUI.dendryEngine.state.sceneId;
     if (scene != 'root' && !window.justLoaded) {
-        window.dendryUI.autosave();
+      window.dendryUI.autosave();
     }
     if (window.justLoaded) {
-        window.justLoaded = false;
+        window.justLoaded = false
     }
   };
 
