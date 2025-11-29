@@ -463,7 +463,7 @@ img {
   position: relative;
   cursor: pointer;
   background-color: transparent;
-  padding: 2px 5px;
+  padding: 2px 0;
 }
 .mytooltip:hover { background-color: rgb(100, 140, 220); }
 
