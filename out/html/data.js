@@ -4,7 +4,7 @@ const tooltipList = [{
 },
 {
     searchString: "AP",
-    explanationText: "<img src=img/AP.jpg> Justice Party, our primary adversary. Relations: [+z_relation : relationships +]"
+    explanationText: "<img src=img/AP.jpg> Justice Party, our primary adversary. Relations: [? z_relation : relationships ?]"
 }              
 ];
 
