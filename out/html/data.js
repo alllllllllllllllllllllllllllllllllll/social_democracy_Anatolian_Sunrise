@@ -20,7 +20,7 @@ const tooltipList = [{
 },
 {
     searchString: "MSP",
-    explanationText: "<img src=img/MSP.jpg> National Salvation Party"
+    explanationText: "<img src=img/MSP.png> National Salvation Party"
 },
 {
     searchString: "MHP",
