@@ -5,7 +5,27 @@ const tooltipList = [{
 {
     searchString: "AP",
     explanationText: "<img src=img/AP.jpg> Justice Party, our primary adversary. Relations: [? z_relation : relationships ?]"
-}              
+},
+{
+    searchString: "TIP",
+    explanationText: "<img src=img/TİP_1970'ler.png> Workers Party of Turkey"
+},
+{
+    searchString: "DP",
+    explanationText: "<img src=img/DP.png> Democratic Party"
+},
+ {
+    searchString: "CGP",
+    explanationText: "<img src=img/CGP.jpg> Republican Trust Party"
+},
+{
+    searchString: "MSP",
+    explanationText: "<img src=img/MSP.jpg> National Salvation Party"
+},
+{
+    searchString: "MHP",
+    explanationText: "<img src=img/MHP.png> Nationalist Movement Party"
+},                     
 ];
 
 
