@@ -227,17 +227,17 @@ window.displayText = function (text) {
         
         if (!Q) return baseTooltip.explanationText;
         
-        if (searchString === 'party-name' && Q.party-name_relation !== undefined) {
-            var relationText = getRelationshipText(Q.party-name_relation);
+        if (searchString === 'party-name' && Q['party-name_relation'] !== undefined) {
+            var relationText = getRelationshipText(Q['party-name_relation']);
             return baseTooltip.explanationText + '<br>Relation: ' + relationText;
         }
-        if (searchString === 'TIP' && Q.party-name_relation !== undefined) {
+        if (searchString === 'TIP' && Q['party-name_relation'] !== undefined) {
             var relationText = getRelationshipText(Q.TIP_relation);
             return baseTooltip.explanationText + '<br>Relation: ' + relationText;
         }
-        if (searchString === 'paramilitary-name' && Q.paramilitary-name_strength !== undefined) {
-            var strength = Q.paramilitary-name_strength ? Q.paramilitary-name_strength.toFixed(1) : '0';
-            var militancy = getMilitancyText(Q.paramilitary-name_militancy);
+        if (searchString === 'paramilitary-name' && Q['paramilitary-name_strength'] !== undefined) {
+            var strength = Q['paramilitary-name_strength'] ? Q['paramilitary-name_strength'].toFixed(1) : '0';
+            var militancy = getMilitancyText(Q['paramilitary-name_militancy']);
             return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Militarization: ' + militancy;
         }
         
