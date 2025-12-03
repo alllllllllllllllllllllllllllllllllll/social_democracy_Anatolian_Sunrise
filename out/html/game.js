@@ -231,10 +231,12 @@ window.displayText = function (text) {
             var relationText = getRelationshipText(Q['party-name_relation']);
             return baseTooltip.explanationText + '<br>Relation: ' + relationText;
         }
-        if (searchString === 'TIP' && Q.TIP_relation !== undefined) {
-            var relationText = getRelationshipText(Q.TIP_relation);
+        if (searchString === 'TIP' && Q['TIP_relation'] !== undefined) {
+            var relationText = getRelationshipText(Q['TIP_relation']);
             return baseTooltip.explanationText + '<br>Relation: ' + relationText;
         }
+}
+This should be the corrected format
         if (searchString === 'paramilitary-name' && Q['paramilitary-name_strength'] !== undefined) {
             var strength = Q['paramilitary-name_strength'] ? Q['paramilitary-name_strength'].toFixed(1) : '0';
             var militancy = getMilitancyText(Q['paramilitary-name_militancy']);
