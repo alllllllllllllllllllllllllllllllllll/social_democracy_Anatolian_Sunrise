@@ -231,7 +231,7 @@ window.displayText = function (text) {
             var relationText = getRelationshipText(Q['party-name_relation']);
             return baseTooltip.explanationText + '<br>Relation: ' + relationText;
         }
-        if (searchString === 'TIP' && Q['party-name_relation'] !== undefined) {
+        if (searchString === 'TIP' && Q.TIP_relation !== undefined) {
             var relationText = getRelationshipText(Q.TIP_relation);
             return baseTooltip.explanationText + '<br>Relation: ' + relationText;
         }
