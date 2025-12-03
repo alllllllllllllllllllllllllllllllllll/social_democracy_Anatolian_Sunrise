@@ -1,6 +1,6 @@
 const tooltipList = [{
     searchString: "CHP",
-    explanationText: "<img src=img/chp5_20251125_200815_0000.svg> Republican People's Party, our party. Politics: [? if CHP_party_leader = "İnönü" : Center-Center Left ?][? if CHP_party_leader = "Ecevit" : Center Left ?]"
+    explanationText: "<img src=img/chp5_20251125_200815_0000.svg> Republican People's Party, our party. Politics: [? if CHP_party_leader = "Inonu" : Center-Center Left ?][? if CHP_party_leader = "Ecevit" : Center Left ?]"
 },
 {
     searchString: "AP",
