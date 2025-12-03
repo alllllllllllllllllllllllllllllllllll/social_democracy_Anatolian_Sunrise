@@ -219,6 +219,41 @@ window.displayText = function (text) {
         if (value <= 0.95) return '<span style="color: #32CD32;">Generally loyal**</span>';
         return '<span style="color: #008000;">Completely loyal</span>';
     }
+  Yo it is doneish:
+
+function getPartyIdeology(party, Q) {
+    if (!Q) return 'Unknown';
+    
+    switch(party) {
+        case 'TIP':
+            if (Q.TIP_party_leader === "Unorganized") return 'Left Wing (Disorganized)';
+            if (Q.TIP_party_leader === "Behice Boran") return 'Far Left (Marxism-Leninism';
+            if (Q.TIP_party_leader === "Mehmet Ali Aybar") return ' Left Wing (Democratic Socialism)';
+            return 'Unknown';
+        case 'CGP':
+            if (Q.CGP_party_leader === "Feyzioğlu") return 'Center-Center Right (Right Kemalism)';
+            return 'Unknown';
+        case 'AP':
+            if (Q.z_party_leader === "Demirel") return 'Center Right-Right (Conservative Liberalism)';
+            return 'Unknown';
+        case 'CHP':
+            if (Q.CHP_party_leader === "İnönü") return 'Center-Center Left (Kemalism)';
+            if (Q.CHP_party_leader === "Ecevit") return 'Center Left (Left Kemalism)';
+            return 'Unknown';
+        case 'DP':
+            if (Q.DP_party_leader === "Bozbeyli") return 'Right Wing (Conservative Populism)';
+            return 'Unknown';
+        case 'MSP':
+            if (Q.MSP_party_leader === "Süleyman Arif") return 'Far Right (Islamic Conservatism)';
+            if (Q.MSP_party_leader === "Erbakan") return 'Far Right (Social Islamism)';
+            return 'Unknown';
+        case 'MHP':
+            if (Q.MHP_party_leader === "Alparslan Türkeş") return 'Far Right (Turkic-Islamic Synthesis)';
+            return 'Unknown';
+        default:
+            return 'Unknown';
+    }
+}
 
     //To check if extra dynamic or not
     function getDynamicTooltipContent(searchString, baseTooltip) {
@@ -233,27 +268,27 @@ window.displayText = function (text) {
         }
         if (searchString === 'TIP' && Q['TIP_relation'] !== undefined) {
             var relationText = getRelationshipText(Q['TIP_relation']);
-            return baseTooltip.explanationText + '<br>Relation: ' + relationText;
+            return baseTooltip.explanationText + '<br>Politics: ' + ideology + '<br>Relation: ' + relationText;
         }
         if (searchString === 'DP' && Q['DP_relation'] !== undefined) {
             var relationText = getRelationshipText(Q['DP_relation']);
-            return baseTooltip.explanationText + '<br>Relation: ' + relationText;
+            return baseTooltip.explanationText + '<br>Politics: ' + ideology + '<br>Relation: ' + relationText;
         }
         if (searchString === 'CGP' && Q['CGP_relation'] !== undefined) {
             var relationText = getRelationshipText(Q['CGP_relation']);
-            return baseTooltip.explanationText + '<br>Relation: ' + relationText;
+            return baseTooltip.explanationText + '<br>Politics: ' + ideology + '<br>Relation: ' + relationText;
         }
         if (searchString === 'AP' && Q['z_relation'] !== undefined) {
             var relationText = getRelationshipText(Q['z_relation']);
-            return baseTooltip.explanationText + '<br>Relation: ' + relationText;
+            return baseTooltip.explanationText + '<br>Politics: ' + ideology + '<br>Relation: ' + relationText;
         }
         if (searchString === 'MSP' && Q['MSP_relation'] !== undefined) {
             var relationText = getRelationshipText(Q['MSP_relation']);
-            return baseTooltip.explanationText + '<br>Relation: ' + relationText;
+            return baseTooltip.explanationText + '<br>Politics: ' + ideology + '<br>Relation: ' + relationText;
         }
         if (searchString === 'MHP' && Q['MHP_relation'] !== undefined) {
             var relationText = getRelationshipText(Q['MHP_relation']);
-            return baseTooltip.explanationText + '<br>Relation: ' + relationText;
+            return baseTooltip.explanationText + '<br>Politics: ' + ideology + '<br>Relation: ' + relationText;
         }
         if (searchString === 'paramilitary-name' && Q['paramilitary-name_strength'] !== undefined) {
             var strength = Q['paramilitary-name_strength'] ? Q['paramilitary-name_strength'].toFixed(1) : '0';
