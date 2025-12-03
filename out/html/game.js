@@ -165,10 +165,91 @@
     
 
   // This function allows you to do something in response to signals.
-    window.displayText = function (text) {
+    
+
+  window.handleSignal = function (signal, event, scene_id) {};
+
+  // This function runs on a new page. Right now, this auto-saves.
+  window.onNewPage = function() {
+    var scene = window.dendryUI.dendryEngine.state.sceneId;
+    if (scene != 'root' && !window.justLoaded) {
+      window.dendryUI.autosave();
+    }
+    if (window.justLoaded) {
+        window.justLoaded = false
+    }
+  };
+window.displayText = function (text) {
         return applyWholesome(text);
     };
+  
+    //To get a value 
+    function getRelationshipText(value) {
+        if (value === undefined || value === null) return '';
+        if (value <= 5) return '<span style="color: #FF0000;">Hostile</span>';
+        if (value <= 14.9) return '<span style="color: #FF4500;">Frigid</span>';
+        if (value <= 29.9) return '<span style="color: #FF8C00;">Cold</span>';
+        if (value <= 39.9) return '<span style="color: #FFA500;">Cool</span>';
+        if (value <= 54.9) return '<span style="color: #FFD700;">Neutral</span>';
+        if (value <= 64.9) return '<span style="color: #9ACD32;">Warm</span>';
+        if (value <= 74.9) return '<span style="color: #32CD32;">Friendly</span>';
+        return '<span style="color: #008000;">Very friendly</span>';
+    }
+  
+    function getMilitancyText(value) {
+        if (value === undefined || value === null) return 'Unknown';
+        if (value <= 0.05) return '<span style="color: #008000;">Nonexistent</span>';
+        if (value <= 0.14) return '<span style="color: #32CD32;">Very low</span>';
+        if (value <= 0.24) return '<span style="color: #9ACD32;">Low</span>';
+        if (value <= 0.44) return '<span style="color: #FFD700;">Medium-low</span>';
+        if (value <= 0.69) return '<span style="color: #FFA500;">Medium</span>';
+        if (value <= 1) return '<span style="color: #FF4500;">High</span>';
+        return '<span style="color: #FF0000;">Very high</span>';
+    }
+    
+    // Helper function to convert loyalty/morale number to text
+    function getLoyaltyText(value) {
+        if (value === undefined || value === null) return 'Unknown';
+        if (value <= 0.06) return '<span style="color: #FF0000;">Completely disloyal</span>';
+        if (value <= 0.19) return '<span style="color: #FF4500;">Very disloyal</span>';
+        if (value <= 0.31) return '<span style="color: #FF8C00;">Generally disloyal</span>';
+        if (value <= 0.41) return '<span style="color: #FFA500;">Mostly disloyal</span>';
+        if (value <= 0.54) return '<span style="color: #FFD700;">Divided</span>';
+        if (value <= 0.71) return '<span style="color: #9ACD32;">Mostly loyal**</span>';
+        if (value <= 0.95) return '<span style="color: #32CD32;">Generally loyal**</span>';
+        return '<span style="color: #008000;">Completely loyal</span>';
+    }
 
+    //To check if extra dynamic or not
+    function getDynamicTooltipContent(searchString, baseTooltip) {
+        var Q = window.dendryUI && window.dendryUI.dendryEngine && window.dendryUI.dendryEngine.state ? 
+                window.dendryUI.dendryEngine.state.qualities : null;
+        
+        if (!Q) return baseTooltip.explanationText;
+        
+        if (searchString === â€˜party-nameâ€™ && Q.party-name_relation !== undefined) {
+            var relationText = getRelationshipText(Q.party-name_relation);
+            return baseTooltip.explanationText + '<br>Relation: ' + relationText;
+        }
+        if (searchString === 'TIP' && Q.party-name_relation !== undefined) {
+            var relationText = getRelationshipText(Q.TIP_relation);
+            return baseTooltip.explanationText + '<br>Relation: ' + relationText;
+        }
+        if (searchString === â€˜paramilitary-nameâ€™ && Q.paramilitary-name_strength !== undefined) {
+            var strength = Q.paramilitary-name_strength ? Q.paramilitary-name_strength.toFixed(1) : '0';
+            var militancy = getMilitancyText(Q.paramilitary-name_militancy);
+            return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Militarization: ' + militancy;
+        }
+        
+        if (searchString === 'Sri Lanka Armed Forces' && Q.slaf_strength !== undefined) {
+            var strength = Q.slaf_strength ? Q.slaf_strength : '0';
+            var morale = getLoyaltyText(Q.slaf_morale);
+            return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Morale: ' + morale;
+        }
+      
+        return baseTooltip.explanationText;
+    }
+  
     function applyWholesome(str) {
         const allWords = new Set([
             ...tooltipList.map(t => t.searchString),
@@ -192,7 +273,8 @@
                 }
 
                 if (tooltip) {
-                    return `<span class='mytooltip' style='${style}'>${innerText}<span  class='mytooltiptext'>${tooltip.explanationText}</span></span>`;
+                    var tooltipContent = getDynamicTooltipContent(match, tooltip);
+                    return `<span class='mytooltip' style='${style}'>${innerText}<span  class='mytooltiptext'>${tooltipContent}</span></span>`;
                 } else if (colour) {
                     return `<span style='${style}'>${innerText}</span>`;
                 }
@@ -201,20 +283,6 @@
             });
         });
     }
-
-  window.handleSignal = function (signal, event, scene_id) {};
-
-  // This function runs on a new page. Right now, this auto-saves.
-  window.onNewPage = function() {
-    var scene = window.dendryUI.dendryEngine.state.sceneId;
-    if (scene != 'root' && !window.justLoaded) {
-      window.dendryUI.autosave();
-    }
-    if (window.justLoaded) {
-        window.justLoaded = false
-    }
-  };
-
   // TODO: have some code for tabbed sidebar browsing.
   window.updateSidebar = function() {
       $('#qualities').empty();
