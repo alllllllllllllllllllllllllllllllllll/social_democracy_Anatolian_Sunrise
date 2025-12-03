@@ -219,7 +219,6 @@ window.displayText = function (text) {
         if (value <= 0.95) return '<span style="color: #32CD32;">Generally loyal**</span>';
         return '<span style="color: #008000;">Completely loyal</span>';
     }
-  Yo it is doneish:
 
 function getPartyIdeology(party, Q) {
     if (!Q) return 'Unknown';
