@@ -235,6 +235,26 @@ window.displayText = function (text) {
             var relationText = getRelationshipText(Q['TIP_relation']);
             return baseTooltip.explanationText + '<br>Relation: ' + relationText;
         }
+        if (searchString === 'DP' && Q['DP_relation'] !== undefined) {
+            var relationText = getRelationshipText(Q['DP_relation']);
+            return baseTooltip.explanationText + '<br>Relation: ' + relationText;
+        }
+        if (searchString === 'CGP' && Q['CGP_relation'] !== undefined) {
+            var relationText = getRelationshipText(Q['CGP_relation']);
+            return baseTooltip.explanationText + '<br>Relation: ' + relationText;
+        }
+        if (searchString === 'AP' && Q['z_relation'] !== undefined) {
+            var relationText = getRelationshipText(Q['z_relation']);
+            return baseTooltip.explanationText + '<br>Relation: ' + relationText;
+        }
+        if (searchString === 'MSP' && Q['MSP_relation'] !== undefined) {
+            var relationText = getRelationshipText(Q['MSP_relation']);
+            return baseTooltip.explanationText + '<br>Relation: ' + relationText;
+        }
+        if (searchString === 'MHP' && Q['MHP_relation'] !== undefined) {
+            var relationText = getRelationshipText(Q['MHP_relation']);
+            return baseTooltip.explanationText + '<br>Relation: ' + relationText;
+        }
         if (searchString === 'paramilitary-name' && Q['paramilitary-name_strength'] !== undefined) {
             var strength = Q['paramilitary-name_strength'] ? Q['paramilitary-name_strength'].toFixed(1) : '0';
             var militancy = getMilitancyText(Q['paramilitary-name_militancy']);
