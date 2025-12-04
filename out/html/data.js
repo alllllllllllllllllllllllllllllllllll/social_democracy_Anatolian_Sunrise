@@ -46,6 +46,10 @@ const colourList = [{
         style: "color: #8B0000; font-weight: bold;"
 },
 {
+        word: "THKP-C",
+        style: "color: #76D248; font-weight: bold;"
+},
+{
         word: "DP",
         style: "color: #4a4d04; font-weight: bold;"
 },
