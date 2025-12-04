@@ -225,9 +225,9 @@ function getPartyIdeology(party, Q) {
     
     switch(party) {
         case 'TIP':
-            if (Q.TIP_party_leader === "Unorganized") return 'Left Wing (Disorganized)';
-            if (Q.TIP_party_leader === "Behice Boran") return 'Far Left (Marxism-Leninism';
-            if (Q.TIP_party_leader === "Mehmet Ali Aybar") return ' Left Wing (Democratic Socialism)';
+            if (Q.TIP_party_leader === "Unorganized") return '<span style="color: #C42424;">Left Wing</span> (Disorganized)';
+            if (Q.TIP_party_leader === "Behice Boran") return '<span style="color: #607808;">Far Left</span>  (Marxism-Leninism';
+            if (Q.TIP_party_leader === "Mehmet Ali Aybar") return '<span style="color: #C42424;">Left Wing</span> (Democratic Socialism)';
             return 'Unknown';
         case 'CGP':
             if (Q.CGP_party_leader === "Feyzioğlu") return 'Center-Center Right (Right Kemalism)';
@@ -237,7 +237,7 @@ function getPartyIdeology(party, Q) {
             return 'Unknown';
         case 'CHP':
             if (Q.CHP_party_leader === "İnönü") return 'Center-Center Left (Kemalism)';
-            if (Q.CHP_party_leader === "Ecevit") return 'Center Left (Left Kemalism)';
+            if (Q.CHP_party_leader === "Ecevit") return '<span style="color: #f46464;">Center Left</span> (Left Kemalism)';
             return 'Unknown';
         case 'DP':
             if (Q.DP_party_leader === "Bozbeyli") return 'Right Wing (Conservative Populism)';
