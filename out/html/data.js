@@ -14,6 +14,14 @@ const tooltipList = [{
     searchString: "DP",
     explanationText: "<img src=img/DP.png> Democratic Party"
 },
+{
+    searchString: "THKP-C",
+    explanationText: "<img src=img/THKP-C.png> A Marxist-Leninist terrorist group"
+},
+{
+    searchString: "TKP/ML",
+    explanationText: "<img src=img/TKPML.svg.png> A Marxist-Leninist-Maoist terrorist group"
+},                     
  {
     searchString: "CGP",
     explanationText: "<img src=img/CGP.jpg> Republican Trust Party"
