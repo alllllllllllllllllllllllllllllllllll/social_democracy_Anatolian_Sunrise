@@ -266,26 +266,32 @@ function getPartyIdeology(party, Q) {
             return baseTooltip.explanationText + '<br>Relation: ' + relationText;
         }
         if (searchString === 'TIP' && Q['TIP_relation'] !== undefined) {
+            var ideology = getPartyIdeology(searchString, Q);
             var relationText = getRelationshipText(Q['TIP_relation']);
             return baseTooltip.explanationText + '<br>Politics: ' + ideology + '<br>Relation: ' + relationText;
         }
         if (searchString === 'DP' && Q['DP_relation'] !== undefined) {
+            var ideology = getPartyIdeology(searchString, Q);
             var relationText = getRelationshipText(Q['DP_relation']);
             return baseTooltip.explanationText + '<br>Politics: ' + ideology + '<br>Relation: ' + relationText;
         }
         if (searchString === 'CGP' && Q['CGP_relation'] !== undefined) {
+            var ideology = getPartyIdeology(searchString, Q);
             var relationText = getRelationshipText(Q['CGP_relation']);
             return baseTooltip.explanationText + '<br>Politics: ' + ideology + '<br>Relation: ' + relationText;
         }
         if (searchString === 'AP' && Q['z_relation'] !== undefined) {
+            var ideology = getPartyIdeology(searchString, Q);
             var relationText = getRelationshipText(Q['z_relation']);
             return baseTooltip.explanationText + '<br>Politics: ' + ideology + '<br>Relation: ' + relationText;
         }
         if (searchString === 'MSP' && Q['MSP_relation'] !== undefined) {
+            var ideology = getPartyIdeology(searchString, Q);
             var relationText = getRelationshipText(Q['MSP_relation']);
             return baseTooltip.explanationText + '<br>Politics: ' + ideology + '<br>Relation: ' + relationText;
         }
         if (searchString === 'MHP' && Q['MHP_relation'] !== undefined) {
+            var ideology = getPartyIdeology(searchString, Q);
             var relationText = getRelationshipText(Q['MHP_relation']);
             return baseTooltip.explanationText + '<br>Politics: ' + ideology + '<br>Relation: ' + relationText;
         }
