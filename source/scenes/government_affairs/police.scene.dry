@@ -71,4 +71,4 @@ on-arrival: police_militancy -= 0.08; eastern_crime -= 1; kurds_chp += 3
 [? if eastern_crime = 3 : Continuous raids and operations in the East has begun waining the power of the local gangs! ?]
 [? if eastern_crime = 2 : The crime rates have been decreased significantly thanks to the determination of the security forces. ?]
 [? if eastern_crime = 1 : The region has largely been neutralized, with only isolated incidents remaining as remnants of past instability. ?]
-[? if eastern_crime = 0 : The region has been completely neutralized; the region at last enjoy lasting order and stability. Many are greatly at our party for ending the lawlessness which has persisted for centuries. ?]
+[? if eastern_crime = 0 : The region has been completely neutralized; the region at last enjoy lasting order and stability. Many are grateful at our party for ending the lawlessness which has persisted for centuries. ?]
