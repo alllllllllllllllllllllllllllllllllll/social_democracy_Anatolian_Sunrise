@@ -391,7 +391,81 @@ if (Q.month_actions >= 1) {
         Q.economic_growth -= 0.3;
     }
 
-    //////////////////////////////// Education & Science support/economic changes
+// Kurdish Nationalism
+// Political Consciousness
+// Eastern crime
+if (Q.eastern_crime = 5) {
+        Q.kurdish_political_consciousness  += 0.005;
+}
+if (Q.eastern_crime = 4) {
+        Q.kurdish_political_consciousness  += 0.004;
+}
+if (Q.eastern_crime = 3) {
+        Q.kurdish_political_consciousness  += 0.003;
+}
+if (Q.eastern_crime = 2) {
+        Q.kurdish_political_consciousness  += 0.002;
+}
+if (Q.eastern_crime = 1) {
+        Q.kurdish_political_consciousness  += 0.001;
+}
+if (Q.eastern_crime <= 0) {
+        Q.kurdish_political_consciousness  -= 0.002;
+}
+// CHP attitude
+if (Q.CHP_kurdish_attitude = 0) {
+        Q.kurdish_political_consciousness  -= 0.001;
+}
+if (Q.CHP_kurdish_attitude = 1) {
+        Q.kurdish_political_consciousness  += 0.001;
+}
+if (Q.CHP_kurdish_attitude = 2) {
+        Q.kurdish_political_consciousness  += 0.002;
+}
+//ddkd
+if (Q.ddkd_formed = 1) {
+        Q.kurdish_political_consciousness  += 0.001;
+}
+
+// Kurdish Radicalism
+// CHP attitude
+if (Q.CHP_kurdish_attitude = 0) {
+        Q.kurdish_radicalism  += 0.002;
+}
+if (Q.CHP_kurdish_attitude = 2) {
+        Q.kurdish_radicalism  -= 0.002;
+}
+// tip ban
+if (Q.tip_banned = 1) {
+        Q.kurdish_radicalism  += 0.001;
+}
+if (Q.tip_banned = 0) {
+        Q.kurdish_radicalism  -= 0.001;
+}
+// ddkd
+if (Q.ddkd_formed = 0) {
+        Q.kurdish_radicalism  += 0.003;
+}
+if (Q.ddkd_formed = 1) {
+        Q.kurdish_radicalism  -= 0.002;
+}
+// army in government
+if (Q.chancellor_party = "I") {
+        Q.kurdish_radicalism  += 0.002;
+}
+
+// Factors affecting Kurdish Nationalism
+// Consciousness
+// chp attitude
+// eastern crime
+// ddkd formed or not
+
+// Radicalism
+// CHP attitude here too
+// tip being banned
+// ddkd here too
+// army in government
+//////////////////////////////// Education & Science support/economic changes
     if (Q.major_curriculum && Q.major_curriculum == "democratic") {
         if (Q.pro_republic < 60) {
             Q.pro_republic += 0.5;
@@ -399,7 +473,7 @@ if (Q.month_actions >= 1) {
     }
     if (Q.minor_curriculum && Q.minor_curriculum == "democratic") {
         if (Q.pro_republic < 60) {
-            Q.pro_republic += 0.3;
+            Q.pro_republic += 0.3;//
         } 
     }
     // science bonus to economic growth
