@@ -358,6 +358,17 @@ Q.tsk_pacified = 0;
 Q.kurdish_political_consciousness = 0.20; // Starting position: Low (0.14-0.24)
 Q.kurdish_radicalism = 0.25; // Starting position: Medium-low (0.24-0.44)
 
+// Factors affecting Kurdish Nationalism
+// Consciousness
+Q.eastern_crime = 5
+Q.CHP_kurdish_attitude = 0
+Q.ddkd_formed = 0
+
+// Radicalism
+// CHP attitude here too
+// tip being banned
+// ddkd here too
+
 // Union Relations system
 Q.disk_relation = 35; // Starting at "cool" (29.9-39.9 range)
 Q.disk_turkis_conflict = 0.50; // Starting at "Balanced" (0.40-0.60)
