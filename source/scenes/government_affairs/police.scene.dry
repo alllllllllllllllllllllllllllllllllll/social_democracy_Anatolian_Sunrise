@@ -17,6 +17,7 @@ As with the state police units and the Reichswehr, the internal police tends to 
 - @investigate_far_right: Investigate illegal activity among the far right.
 - @domestic_enemies: Investigate or ban our domestic enemies.
 - @deport_hitler
+- @easterncrime: Strike against the drug smugglers and organized crime along the Southeastern Border
 - @root: Take no action for now.
 - @easy_discard
 - @cancel_advisor_action
@@ -59,3 +60,15 @@ on-arrival: investigate_far_right += 1; sa_strength -= 20; workers_MHP -= 3; new
 @investigate_far_right_failure
 
 Unfortunately, our investigations have failed to turn up anything. Rumors are that the targets of our investigation were tipped off by infiltrators within the police.
+
+@easterncrime
+choose-if: police_loyalty >= 0.50, police_force >= 55, eastern_crime >= 0
+subtitle: The economic problems, largely due to the huge rates of crime and smuggling, in the East constitute a significant factor in the rise of Kurdish Nationalism.
+unavailable-text: [? if police loyalty <= 0.49 : Our police forces are too disorganized and unloyal for such operations. ?][? if police_force <= 54 : Our police forces aren't strong enough to enforce the law against organized crime in the East! ?][? if eastern_crime < 0 : Large scale crime has already been exterminated in the East. ?]
+on-arrival: police_militancy -= 0.08; eastern_crime -= 1; kurds_chp += 3
+
+[? if eastern_crime >= 4 : We have raided some drug depots in the border regions, however more work is needed to solve the issue altogether. ?]
+[? if eastern_crime = 3 : Continuous raids and operations in the East has begun waining the power of the local gangs! ?]
+[? if eastern_crime = 2 : The crime rates have been decreased significantly thanks to the determination of the security forces. ?]
+[? if eastern_crime = 1 : The region has largely been neutralized, with only isolated incidents remaining as remnants of past instability. ?]
+[? if eastern_crime = 0 : The region has been completely neutralized; the region at last enjoy lasting order and stability. Many are greatly at our party for ending the lawlessness which has persisted for centuries. ?]
