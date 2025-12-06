@@ -64,7 +64,7 @@ Unfortunately, our investigations have failed to turn up anything. Rumors are th
 @easterncrime
 choose-if: police_loyalty >= 0.50 and police_force >= 55 and eastern_crime >= 0
 subtitle: The economic problems, largely due to the huge rates of crime and smuggling, in the East constitute a significant factor in the rise of Kurdish Nationalism.
-unavailable-text: [? if police loyalty <= 0.49 : Our police forces are too disorganized and unloyal for such operations. ?][? if police_force <= 54 : Our police forces aren't strong enough to enforce the law against organized crime in the East! ?][? if eastern_crime < 0 : Large scale crime has already been exterminated in the East. ?]
+unavailable-subtitle: [? if police loyalty <= 0.49 : Our police forces are too disorganized and unloyal for such operations. ?][? if police_force <= 54 : Our police forces aren't strong enough to enforce the law against organized crime in the East! ?][? if eastern_crime < 0 : Large scale crime has already been exterminated in the East. ?]
 on-arrival: police_militancy -= 0.08; eastern_crime -= 1; kurds_chp += 3
 
 [? if eastern_crime >= 4 : We have raided some drug depots in the border regions, however more work is needed to solve the issue altogether. ?]
