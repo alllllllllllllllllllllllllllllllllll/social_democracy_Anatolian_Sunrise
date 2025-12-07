@@ -622,16 +622,15 @@ Q.old_MHP_r = 3.0;
 Q.old_other_r = 14.1;
 
 // Parliament seat distribution (initial TBMM composition, updates via elections)
-Q.total_seats = 450;
+Q.total_seats = 450;   
 Q.chp_seats = 143;
-Q.z_seats = 220;
+Q.z_seats = 224;
 Q.TIP_seats = 2;
 Q.CGP_seats = 15;
 Q.DP_seats = 36;
 Q.MSP_seats = 0;
 Q.MHP_seats = 1;
-Q.other_seats = 33;
-Q.sapd_seats = 0;
+ Q.other_seats = 29;
 Q.majority_threshold = 226;
 Q.largest_party_key = 'z';
 Q.largest_party = 'AP';
