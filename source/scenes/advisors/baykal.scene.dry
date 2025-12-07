@@ -23,8 +23,8 @@ go-to: international_relations
 
 @economy
 subtitle: Baykal supports planned industrialization and mixed economics.
-choose-if: CHP_in_government = 1 and advisor_action_timer = 0
-unavailable-subtitle: CHP is not in government [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: CHP_in_government = 1 and (economic_minister_party = "CHP" or finance_minister_party = "CHP") and advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if CHP_in_government = 0 : CHP is not in government. ?][? if economic_minister_party != "CHP" and finance_minister_party != "CHP" : The CHP does not control the economic or finance ministry. ?]
 on-arrival: advisor_action_timer = 3
 
 @coalitiontalks
