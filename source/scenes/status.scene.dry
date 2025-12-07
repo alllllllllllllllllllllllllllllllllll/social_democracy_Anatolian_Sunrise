@@ -27,13 +27,13 @@ console.log("Historical targets - Inflation:", Q.historical_inflation[Q.year], "
 console.log("==============================");
 if (typeof Q.chp_seats === 'undefined') {
     Q.chp_seats = 143;
-    Q.z_seats = 256;
+    Q.z_seats = 224;
     Q.TIP_seats = 2;
     Q.CGP_seats = 15;
-    Q.DP_seats = 0;
+    Q.DP_seats = 36;
     Q.MSP_seats = 0;
     Q.MHP_seats = 1;
-    Q.other_seats = 33;
+    Q.other_seats = 29;
 }
 if (typeof Q.sapd_seats === 'undefined') {
     Q.sapd_seats = 0;
