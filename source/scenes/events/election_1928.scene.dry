@@ -521,7 +521,7 @@ view-if: grand_coalition >= 226 and grand_coalition_failed == 0
 subtitle: CHP + AP ([+ grand_coalition +] seats)
 choose-if: z_relation >= 49
 unavailable-subtitle: Our relations with AP are not good enough for a grand coalition.
-on-arrival: in_grand_coalition = 1; in_popular_front = 0; in_left_front = 0
+on-arrival: in_grand_coalition = 1; in_popular_front = 0; in_left_front = 0; leverage -= 40
 go-to: grand_coalition_CHP_lead if (n_elections <= 1 and largest_party == "CHP") or (largest_party == "CHP" and CHP_r >= 30) or president = "Braun"; grand_coalition_z_lead if president != "Braun" and ((n_elections > 1 and CHP_r < 30) or (n_elections <= 1 and largest_party != "CHP"))
 
 # TODO: if there are enough votes to form a grand coalition, who leads? Does the CHP lead or does Brüning (Z) lead? In reality this depended on Hindenburg's will, basically, which in turn depended on what his camarilla supported.
