@@ -13,6 +13,8 @@ The Interior Ministry controls internal security throughout the German Republic.
 As with the state police units and the Reichswehr, the internal police tends to be reactionary, and has serious issues with loyalty to the elected government of the Republic.
 
 - @loyalty: Improve the loyalty of the Interior Ministry forces.
+- @recruit: Recruit more police forces.
+- @weaponry: Supplement the weaponry and the strength of the police forces.
 - @investigate_corruption: Investigate corruption by big businesses.
 - @investigate_far_right: Investigate illegal activity among the far right.
 - @domestic_enemies: Investigate or ban our domestic enemies.
@@ -23,18 +25,30 @@ As with the state police units and the Reichswehr, the internal police tends to 
 - @cancel_advisor_action
 
 @loyalty
-on-arrival: interior_police_loyalty += 0.1
+on-arrival: police_loyalty += 0.1
 
-As with the Prussian state police, there are measures we can take to root out reactionary and anti-democratic sentiment in the police. We can improve training and recruiting procedures, and identify and remove known fascists and the like.
+There are measures we can take to unveil the ideological cliques, prioritizing the advancement of their ideology to the wellbeing of the state, within the police forces. We can improve training and recruiting procedures, and identify and remove known extremists and the like.
 
 Current interior police loyalty: [+ interior_police_loyalty : loyalty +]
 
+@recruit
+on-arrival: police_strength += 8; police_loyalty -= 0.05
+
+The new police regiments strengthen the state's hold over the streets, though we have been reported of a decrease in general loyalty.
+
+@weaponry
+subtitle: -1 budget
+unavailable-subtitle: Not enough budget.
+choose-if: budget >= 1
+on-arrival: police_militancy += 0.1
+
+The police forces have been supplemented with better weapons and trainings, improving their efficiency.
 
 @investigate_corruption
-go-to: investigate_corruption_success if interior_police_loyalty >= 0.5; investigate_corruption_failure if interior_police_loyalty < 0.5
+go-to: investigate_corruption_success if police_loyalty >= 0.5; investigate_corruption_failure if _police_loyalty < 0.5
 
 @investigate_corruption_success
-on-arrival: investigate_corruption += 1; workers_CHP += 5*(1-dissent); inflation -= 0.1 if inflation > 3; inflation -= 0.2 if inflation >= 8
+on-arrival: investigate_corruption += 1; workers_chp += 5*(1-dissent); inflation -= 0.1 if inflation > 3; inflation -= 0.2 if inflation >= 8
 
 Corruption in big business is rampant, of course. We have uncovered a number of scandals, and publicizing them brings new attention to the work of Interior Minister [+ interior_minister +], building up his popular appeal and that of the CHP.
 
