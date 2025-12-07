@@ -14,8 +14,8 @@ Ali Topuz is an architect heavily involved in the civil society organizations an
 - @root: Return to main	
 
 @ministry	
-choose-if: advisor_action_timer = 0 and chp_in_government = 1
-unavailable-subtitle: <span style="color: #E3000F;">**CHP**</span> is not in government. [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer = 0 and chp_in_government = 1 and agriculture_minister_party = "CHP"
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if chp_in_government = 0 : <span style="color: #E3000F;">**CHP**</span> is not in government. ?] [? if agriculture_minister_party != "CHP" : The CHP does not control the agriculture ministry. ?]
 on-arrival: advisor_action_timer = 3
 
 @land
