@@ -311,6 +311,17 @@ function getPartyIdeology(party, Q) {
             return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Morale: ' + morale;
         }
       
+        if (searchString === 'THKP-C' && Q.thkpc_strength !== undefined) {
+            var strength = Q.thkpc_strength ? Q.thkpc_strength : '0';
+            var morale = getLoyaltyText(Q.thkpc_morale);
+            return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Morale: ' + morale;
+        }
+       
+        if (searchString === 'TKP/ML' && Q.tkpml_strength !== undefined) {
+            var strength = Q.tkpml_strength ? Q.tkpml_strength : '0';
+            var morale = getLoyaltyText(Q.tkpml_morale);
+            return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Morale: ' + morale;
+        }
         return baseTooltip.explanationText;
     }
   
