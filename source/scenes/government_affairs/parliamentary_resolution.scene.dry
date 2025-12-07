@@ -123,7 +123,8 @@ if (Q.vote_type === "progressive") {
     other_abstain = 0.35;  // High abstention due to mixed positions
 } else if (Q.vote_type === "constitutional") {
     // Democratic constitutional reforms
-    tip_support = Q.reformist_strength > Q.left_strength ? 0.8 : 0.3; // Depends on TIP faction
+    // Check TIP's ideological position - if TIP_relation is high, they're more likely to support our democratic reforms
+    tip_support = Q.TIP_relation >= 50 ? 0.8 : 0.3; // Depends on TIP relationship
     center_support = 0.75; // Generally pro-democracy
     cgp_support = 0.85;    // Strongly pro-democracy
     dp_support = 0.4;      // Suspicious of changes
@@ -131,7 +132,7 @@ if (Q.vote_type === "progressive") {
     mhp_support = 0.1;     // Prefer strong executive
     other_support = 0.5;   // Mixed
     
-    tip_abstain = Q.reformist_strength > Q.left_strength ? 0.1 : 0.4; // Revolutionary faction may abstain
+    tip_abstain = Q.TIP_relation >= 50 ? 0.1 : 0.4; // Revolutionary faction may abstain if we have poor relations
     center_abstain = 0.1;  // Usually take clear positions on constitutional issues
     cgp_abstain = 0.05;    // Strong pro-democracy stance
     dp_abstain = 0.3;      // Often abstain on constitutional changes
