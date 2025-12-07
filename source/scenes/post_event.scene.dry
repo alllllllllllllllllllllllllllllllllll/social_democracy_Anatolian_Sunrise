@@ -97,7 +97,12 @@ if (!Q.right_kemalists_resign && !Q.right_kemalist_split) {
     total_dissent += Q.right_kemalists_strength*Q.right_kemalists_dissent;
 }
 
-Q.dissent = 0.01*total_dissent/total_strength;
+// Guard against division by zero
+if (total_strength > 0) {
+    Q.dissent = 0.01*total_dissent/total_strength;
+} else {
+    Q.dissent = 0;
+}
 Q.dissent_percent = Q.dissent*100;
 console.log('new dissent: ' + Q.dissent);
 
