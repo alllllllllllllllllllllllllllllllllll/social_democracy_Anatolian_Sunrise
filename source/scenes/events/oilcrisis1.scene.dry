@@ -1,0 +1,24 @@
+title: The Oil Crisis
+view-if: year = 1973 and month = 11 and week = 1
+max-visits: 1
+tags: event
+new-page: true
+face-image: img/petrol.jpg
+
+= The Oil Crisis
+
+Despite all of the advantages of industrialization, it has one caveat: its dependence on oil.
+  
+The oil prices have begun rising rapidly due to OPEC's decision to ban oil exports to the Western nations it accuses of supporting Israel against the Arabic states in the Yom Kippur War.
+
+The decision came after the American president Richard Nixon put forward a bill to supply Israel with 2.2 billion dollars in the congress against the invading Arabian armies.
+ 
+Shortly after the embargo, the price of oil spiked from 2$/barrel to 5$/barrel and immediately hit hard the developed and developing nations, one of which is us.
+
+[? if CHP_in_government == 1 : Overnight the already vulnerable Turkish economy has been hit hard by the rise in the price of oil. With both the nation and the industry struggling, we have to find a solution as soon as possible, or else our government may end earlier than we would like it to. ?][? if CHP_in_government == 0 : As overnight the economy crumbles, we will see whether Demirel can cope with the crisis or not ?]
+
+We are now in a crisis.                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                         
+- @petrol: Black Gold, Red Sand
+
+@petrol
