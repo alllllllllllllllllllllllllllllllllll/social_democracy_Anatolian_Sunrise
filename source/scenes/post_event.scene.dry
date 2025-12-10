@@ -447,10 +447,10 @@ if (Q.ddkd_formed = 1) {
 // Kurdish Radicalism
 // CHP attitude
 if (Q.CHP_kurdish_attitude = 0) {
-        Q.kurdish_radicalism  += 0.002;
+        Q.kurdish_radicalism  += 0.001;
 }
 if (Q.CHP_kurdish_attitude = 2) {
-        Q.kurdish_radicalism  -= 0.002;
+        Q.kurdish_radicalism  -= 0.001;
 }
 // tip ban
 if (Q.tip_banned = 1) {
@@ -461,10 +461,10 @@ if (Q.tip_banned = 0) {
 }
 // ddkd
 if (Q.ddkd_formed = 0) {
-        Q.kurdish_radicalism  += 0.003;
+        Q.kurdish_radicalism  += 0.002;
 }
 if (Q.ddkd_formed = 1) {
-        Q.kurdish_radicalism  -= 0.002;
+        Q.kurdish_radicalism  -= 0.001;
 }
 // army in government
 if (Q.chancellor_party = "I") {
