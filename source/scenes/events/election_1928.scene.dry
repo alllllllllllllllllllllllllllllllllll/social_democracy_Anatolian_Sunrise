@@ -594,7 +594,7 @@ There is no path to a workable Reichstag majority or minority government. The ne
 The people's faith in democracy is shaken by this ordeal. Of course, the Nazis are exploiting the instability to claim that democracy is unworkable, and that Germany needs a strong leader.
 
 @grand_coalition_CHP_lead
-on-arrival: leverage -= 15 if z_relation < 64
+on-arrival: leverage -= 25 if z_relation < 64
 
 A grand coalition between the left wing CHP and right wing AP would be unprecedended, however it may be the solution to the the political instability that has been ravaging our nation.
 
