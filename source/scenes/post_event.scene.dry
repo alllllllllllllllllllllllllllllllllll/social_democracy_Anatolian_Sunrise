@@ -223,6 +223,44 @@ if (Q.month_actions >= 1) {
         }
     }
     
+    // DP Collapse - if enabled, DP loses 80% of its support to AP between 1974 and 1977
+    if (Q.DP_collapse && Q.year >= 1974 && Q.year <= 1977) {
+        // Transfer 80% of DP support to AP (z) over 36 months (3 years)
+        // 80% / 36 months = 2.222% per month
+        var dp_transfer_rate = 0.80 / 36;
+        
+        // Calculate amount to transfer from each demographic
+        var rural_transfer = Q.rural_DP * dp_transfer_rate;
+        var workers_transfer = Q.workers_DP * dp_transfer_rate;
+        var petty_bourgeoisie_transfer = Q.petty_bourgeoisie_DP * dp_transfer_rate;
+        var state_employees_transfer = Q.state_employees_DP * dp_transfer_rate;
+        var capitalists_transfer = Q.capitalists_DP * dp_transfer_rate;
+        var alevis_transfer = Q.alevis_DP * dp_transfer_rate;
+        var kurds_transfer = Q.kurds_DP * dp_transfer_rate;
+        
+        // Transfer support from DP to AP (z)
+        Q.rural_DP -= rural_transfer;
+        Q.rural_z += rural_transfer;
+        
+        Q.workers_DP -= workers_transfer;
+        Q.workers_z += workers_transfer;
+        
+        Q.petty_bourgeoisie_DP -= petty_bourgeoisie_transfer;
+        Q.petty_bourgeoisie_z += petty_bourgeoisie_transfer;
+        
+        Q.state_employees_DP -= state_employees_transfer;
+        Q.state_employees_z += state_employees_transfer;
+        
+        Q.capitalists_DP -= capitalists_transfer;
+        Q.capitalists_z += capitalists_transfer;
+        
+        Q.alevis_DP -= alevis_transfer;
+        Q.alevis_z += alevis_transfer;
+        
+        Q.kurds_DP -= kurds_transfer;
+        Q.kurds_z += kurds_transfer;
+    }
+    
     // Historical economic baseline adjustments
     // Gradually move economic indicators toward historical baselines each year
     if (Q.historical_inflation[Q.year] !== undefined) {
