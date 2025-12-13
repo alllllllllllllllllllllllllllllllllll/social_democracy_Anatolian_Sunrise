@@ -227,8 +227,11 @@ if (Q.month_actions >= 1) {
     if (Q.DP_collapse && Q.year >= 1974 && Q.year <= 1977) {
         // Transfer 80% of DP support to AP (z) over 4 years (1974-1977 inclusive)
         // Game runs in bi-weekly turns: 4 years × 24 turns/year = 96 turns
-        // 80% / 96 turns = 0.833% of current support per turn
-        var dp_transfer_rate = 0.80 / 96;
+        var TOTAL_TRANSFER_PERCENTAGE = 0.80;
+        var YEARS_OF_TRANSFER = 4;
+        var TURNS_PER_YEAR = 24;
+        var TOTAL_TURNS = YEARS_OF_TRANSFER * TURNS_PER_YEAR;
+        var dp_transfer_rate = TOTAL_TRANSFER_PERCENTAGE / TOTAL_TURNS;
         
         // Calculate amount to transfer from each demographic
         var rural_transfer = Q.rural_DP * dp_transfer_rate;
