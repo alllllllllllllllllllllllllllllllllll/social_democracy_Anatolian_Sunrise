@@ -150,15 +150,44 @@ if (Q.month_actions >= 1) {
     // Cyprus Problem effects
     // Check if Cyprus status has changed and apply immediate effects
     if (Q.cyprus_problem != Q.cyprus_last_status) {
-        // Remove previous positive effects if any
-        if (Q.cyprus_confederation_timer > 0) {
+        // First, remove effects from the previous status
+        if (Q.cyprus_last_status == 1) { // Reverse Status Quo effects
+            // Reverse the -3% votershare drop
+            Q.rural_chp += 3;
+            Q.workers_chp += 3;
+            Q.state_employees_chp += 3;
+            Q.alevis_chp += 3;
+            // Reverse the -10% for petty bourgeoisie
+            Q.petty_bourgeoisie_chp += 10;
+            // Reverse coup timer increase
+            Q.coup_timer -= 1;
+            if (Q.coup_timer < 0) Q.coup_timer = 0;
+        } else if (Q.cyprus_last_status == 2) { // Reverse Confederation effects
+            // Remove confederation bonuses
+            Q.rural_chp -= 2;
+            Q.workers_chp -= 2;
+            Q.petty_bourgeoisie_chp -= 2;
+            Q.state_employees_chp -= 2;
+            Q.alevis_chp -= 2;
+            // Clear confederation timer
             Q.cyprus_confederation_timer = 0;
-        }
-        if (Q.cyprus_divided_timer > 0) {
+        } else if (Q.cyprus_last_status == 3) { // Reverse Divided effects
+            // Remove divided bonuses
+            Q.rural_chp -= 10;
+            Q.workers_chp -= 10;
+            Q.petty_bourgeoisie_chp -= 10;
+            Q.state_employees_chp -= 10;
+            Q.alevis_chp -= 10;
+            // Reverse relations penalties
+            Q.us_relation += 30;
+            Q.west_relation += 20;
+            // Reverse coup timer decrease
+            Q.coup_timer += 1;
+            // Clear divided timer
             Q.cyprus_divided_timer = 0;
         }
         
-        // Apply new effects based on current status
+        // Now apply new effects based on current status
         if (Q.cyprus_problem == 1) { // Status Quo
             // -3% votershare drop in all demographics except Kurds and Capitalists
             Q.rural_chp -= 3;
