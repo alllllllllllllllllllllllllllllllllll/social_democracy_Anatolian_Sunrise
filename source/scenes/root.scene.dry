@@ -110,6 +110,9 @@ Q.DP_relation = 20;
 Q.MSP_relation = 10;
 Q.MHP_relation = 10;
 
+// DP collapse variable - if true, DP loses 80% of its support to AP between 1974 and 1977
+Q.DP_collapse = 0;
+
 Q.TIP_leader = "Unorganized";
 // alternative TIP leaders: Mehmet Ali Aybar, Behice Boran
 Q.TIP_party_leader = "Unorganized";
