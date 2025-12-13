@@ -722,13 +722,9 @@ if (Q.chancellor_party = "I") {
     }
 }
 Q.has_event = 0;
-Q.calculate_economy_health = 1; // Run economy health calculator every month
-// Check if it's time to apply economy health effects (every 6 months)
-if (Q.time % 6 == 0) {
-    Q.apply_economy_effects = 1;
-} else {
-    Q.apply_economy_effects = 0;
-}
+Q.calculate_economy_health = 1; // Run economy health calculator every turn
+// Apply economy health effects every turn for gradual changes
+Q.apply_economy_effects = 1;
 // check if there are any cards in #event, and then go to main if not.
 var scene = this.game.scenes['post_event.events_choice'];
 var choices = this._compileChoices(scene);

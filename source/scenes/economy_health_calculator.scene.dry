@@ -62,89 +62,93 @@ if (Q.economy_health > 3) {
     Q.health_economy_status = "In Crisis";
 }
 
-// Apply economic effects only every 6 months when flag is set
+// Apply economic effects each turn when flag is set
+// Effects are scaled per turn to gradually accumulate over time
 if (Q.apply_economy_effects == 1) {
     
     if (Q.economy_health > 3) {
-        // Booming Economy: +5% all demographics, +10% capitalists
+        // Booming Economy: +0.83% per turn all demographics, +1.67% capitalists (percentages rounded)
+        // (equivalent to +5% and +10% over 6 turns / 3 months)
         if (Q.CHP_in_government) {
-            Q.rural_chp += 5;
-            Q.workers_chp += 5;
-            Q.petty_bourgeoisie_chp += 5;
-            Q.state_employees_chp += 5;
-            Q.capitalists_chp += 10;
-            Q.alevis_chp += 5;
-            Q.kurds_chp += 5;
+            Q.rural_chp += 0.833333;
+            Q.workers_chp += 0.833333;
+            Q.petty_bourgeoisie_chp += 0.833333;
+            Q.state_employees_chp += 0.833333;
+            Q.capitalists_chp += 1.666667;
+            Q.alevis_chp += 0.833333;
+            Q.kurds_chp += 0.833333;
         } else if (Q.z_in_government) {
-            Q.rural_z += 5;
-            Q.workers_z += 5;
-            Q.petty_bourgeoisie_z += 5;
-            Q.state_employees_z += 5;
-            Q.capitalists_z += 10;
-            Q.alevis_z += 5;
-            Q.kurds_z += 5;
+            Q.rural_z += 0.833333;
+            Q.workers_z += 0.833333;
+            Q.petty_bourgeoisie_z += 0.833333;
+            Q.state_employees_z += 0.833333;
+            Q.capitalists_z += 1.666667;
+            Q.alevis_z += 0.833333;
+            Q.kurds_z += 0.833333;
         } else if (Q.DP_in_government) {
-            Q.rural_DP += 5;
-            Q.workers_DP += 5;
-            Q.petty_bourgeoisie_DP += 5;
-            Q.state_employees_DP += 5;
-            Q.capitalists_DP += 10;
-            Q.alevis_DP += 5;
-            Q.kurds_DP += 5;
+            Q.rural_DP += 0.833333;
+            Q.workers_DP += 0.833333;
+            Q.petty_bourgeoisie_DP += 0.833333;
+            Q.state_employees_DP += 0.833333;
+            Q.capitalists_DP += 1.666667;
+            Q.alevis_DP += 0.833333;
+            Q.kurds_DP += 0.833333;
         }
     } else if (Q.economy_health >= -5 && Q.economy_health < 0) {
-        // Unhealthy Economy: -2% all demographics
+        // Unhealthy Economy: -0.33% per turn all demographics (percentage rounded)
+        // (equivalent to -2% over 6 turns / 3 months)
         if (Q.CHP_in_government) {
-            Q.rural_chp -= 2;
-            Q.workers_chp -= 2;
-            Q.petty_bourgeoisie_chp -= 2;
-            Q.state_employees_chp -= 2;
-            Q.capitalists_chp -= 2;
-            Q.alevis_chp -= 2;
-            Q.kurds_chp -= 2;
+            Q.rural_chp -= 0.333333;
+            Q.workers_chp -= 0.333333;
+            Q.petty_bourgeoisie_chp -= 0.333333;
+            Q.state_employees_chp -= 0.333333;
+            Q.capitalists_chp -= 0.333333;
+            Q.alevis_chp -= 0.333333;
+            Q.kurds_chp -= 0.333333;
         } else if (Q.z_in_government) {
-            Q.rural_z -= 2;
-            Q.workers_z -= 2;
-            Q.petty_bourgeoisie_z -= 2;
-            Q.state_employees_z -= 2;
-            Q.capitalists_z -= 2;
-            Q.alevis_z -= 2;
-            Q.kurds_z -= 2;
+            Q.rural_z -= 0.333333;
+            Q.workers_z -= 0.333333;
+            Q.petty_bourgeoisie_z -= 0.333333;
+            Q.state_employees_z -= 0.333333;
+            Q.capitalists_z -= 0.333333;
+            Q.alevis_z -= 0.333333;
+            Q.kurds_z -= 0.333333;
         } else if (Q.DP_in_government) {
-            Q.rural_DP -= 2;
-            Q.workers_DP -= 2;
-            Q.petty_bourgeoisie_DP -= 2;
-            Q.state_employees_DP -= 2;
-            Q.capitalists_DP -= 2;
-            Q.alevis_DP -= 2;
-            Q.kurds_DP -= 2;
+            Q.rural_DP -= 0.333333;
+            Q.workers_DP -= 0.333333;
+            Q.petty_bourgeoisie_DP -= 0.333333;
+            Q.state_employees_DP -= 0.333333;
+            Q.capitalists_DP -= 0.333333;
+            Q.alevis_DP -= 0.333333;
+            Q.kurds_DP -= 0.333333;
         }
     } else if (Q.economy_health < -5) {
-        // Crisis Economy: -4% all demographics
+        // Crisis Economy: -0.67% per turn all demographics (percentage rounded)
+        // (equivalent to -4% over 6 turns / 3 months)
         if (Q.CHP_in_government) {
-            Q.rural_chp -= 4;
-            Q.workers_chp -= 4;
-            Q.petty_bourgeoisie_chp -= 4;
-            Q.state_employees_chp -= 4;
-            Q.capitalists_chp -= 4;
-            Q.alevis_chp -= 4;
-            Q.kurds_chp -= 4;
+            Q.rural_chp -= 0.666667;
+            Q.workers_chp -= 0.666667;
+            Q.petty_bourgeoisie_chp -= 0.666667;
+            Q.state_employees_chp -= 0.666667;
+            Q.capitalists_chp -= 0.666667;
+            Q.alevis_chp -= 0.666667;
+            Q.kurds_chp -= 0.666667;
         } else if (Q.z_in_government) {
-            Q.rural_z -= 4;
-            Q.workers_z -= 4;
-            Q.petty_bourgeoisie_z -= 4;
-            Q.state_employees_z -= 4;
-            Q.capitalists_z -= 4;
-            Q.alevis_z -= 4;
-            Q.kurds_z -= 4;
+            Q.rural_z -= 0.666667;
+            Q.workers_z -= 0.666667;
+            Q.petty_bourgeoisie_z -= 0.666667;
+            Q.state_employees_z -= 0.666667;
+            Q.capitalists_z -= 0.666667;
+            Q.alevis_z -= 0.666667;
+            Q.kurds_z -= 0.666667;
         } else if (Q.DP_in_government) {
-            Q.rural_DP -= 4;
-            Q.workers_DP -= 4;
-            Q.petty_bourgeoisie_DP -= 4;
-            Q.state_employees_DP -= 4;
-            Q.capitalists_DP -= 4;
-            Q.alevis_DP -= 4;
-            Q.kurds_DP -= 4;
+            Q.rural_DP -= 0.666667;
+            Q.workers_DP -= 0.666667;
+            Q.petty_bourgeoisie_DP -= 0.666667;
+            Q.state_employees_DP -= 0.666667;
+            Q.capitalists_DP -= 0.666667;
+            Q.alevis_DP -= 0.666667;
+            Q.kurds_DP -= 0.666667;
         }
     }
 }
