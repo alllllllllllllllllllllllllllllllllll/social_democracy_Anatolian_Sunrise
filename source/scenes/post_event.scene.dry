@@ -225,9 +225,9 @@ if (Q.month_actions >= 1) {
     
     // DP Collapse - if enabled, DP loses 80% of its support to AP between 1974 and 1977
     if (Q.DP_collapse && Q.year >= 1974 && Q.year <= 1977) {
-        // Transfer 80% of DP support to AP (z) over 36 months (3 years)
-        // 80% / 36 months = 2.222% per month
-        var dp_transfer_rate = 0.80 / 36;
+        // Transfer 80% of DP support to AP (z) over 48 months (4 years: 1974-1977 inclusive)
+        // 80% / 48 months = 1.667% of current support per month
+        var dp_transfer_rate = 0.80 / 48;
         
         // Calculate amount to transfer from each demographic
         var rural_transfer = Q.rural_DP * dp_transfer_rate;
