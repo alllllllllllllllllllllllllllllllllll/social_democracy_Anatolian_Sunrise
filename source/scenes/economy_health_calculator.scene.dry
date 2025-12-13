@@ -67,7 +67,7 @@ if (Q.economy_health > 3) {
 if (Q.apply_economy_effects == 1) {
     
     if (Q.economy_health > 3) {
-        // Booming Economy: +0.83% per turn all demographics, +1.67% capitalists
+        // Booming Economy: +0.83% per turn all demographics, +1.67% capitalists (percentages rounded)
         // (equivalent to +5% and +10% over 6 turns / 3 months)
         if (Q.CHP_in_government) {
             Q.rural_chp += 0.833333;
@@ -95,7 +95,7 @@ if (Q.apply_economy_effects == 1) {
             Q.kurds_DP += 0.833333;
         }
     } else if (Q.economy_health >= -5 && Q.economy_health < 0) {
-        // Unhealthy Economy: -0.33% per turn all demographics
+        // Unhealthy Economy: -0.33% per turn all demographics (percentage rounded)
         // (equivalent to -2% over 6 turns / 3 months)
         if (Q.CHP_in_government) {
             Q.rural_chp -= 0.333333;
@@ -123,7 +123,7 @@ if (Q.apply_economy_effects == 1) {
             Q.kurds_DP -= 0.333333;
         }
     } else if (Q.economy_health < -5) {
-        // Crisis Economy: -0.67% per turn all demographics
+        // Crisis Economy: -0.67% per turn all demographics (percentage rounded)
         // (equivalent to -4% over 6 turns / 3 months)
         if (Q.CHP_in_government) {
             Q.rural_chp -= 0.666667;
