@@ -411,63 +411,63 @@ if (Q.month_actions >= 1) {
 // Kurdish Nationalism
 // Political Consciousness
 // Eastern crime
-if (Q.eastern_crime = 5) {
+if (Q.eastern_crime == 5) {
         Q.kurdish_political_consciousness  += 0.005;
 }
-if (Q.eastern_crime = 4) {
+if (Q.eastern_crime == 4) {
         Q.kurdish_political_consciousness  += 0.004;
 }
-if (Q.eastern_crime = 3) {
+if (Q.eastern_crime == 3) {
         Q.kurdish_political_consciousness  += 0.003;
 }
-if (Q.eastern_crime = 2) {
+if (Q.eastern_crime == 2) {
         Q.kurdish_political_consciousness  += 0.002;
 }
-if (Q.eastern_crime = 1) {
+if (Q.eastern_crime == 1) {
         Q.kurdish_political_consciousness  += 0.001;
 }
 if (Q.eastern_crime <= 0) {
         Q.kurdish_political_consciousness  -= 0.002;
 }
 // CHP attitude
-if (Q.CHP_kurdish_attitude = 0) {
+if (Q.CHP_kurdish_attitude == 0) {
         Q.kurdish_political_consciousness  -= 0.001;
 }
-if (Q.CHP_kurdish_attitude = 1) {
+if (Q.CHP_kurdish_attitude == 1) {
         Q.kurdish_political_consciousness  += 0.001;
 }
-if (Q.CHP_kurdish_attitude = 2) {
+if (Q.CHP_kurdish_attitude == 2) {
         Q.kurdish_political_consciousness  += 0.002;
 }
 //ddkd
-if (Q.ddkd_formed = 1) {
+if (Q.ddkd_formed == 1) {
         Q.kurdish_political_consciousness  += 0.001;
 }
 
 // Kurdish Radicalism
 // CHP attitude
-if (Q.CHP_kurdish_attitude = 0) {
+if (Q.CHP_kurdish_attitude == 0) {
         Q.kurdish_radicalism  += 0.001;
 }
-if (Q.CHP_kurdish_attitude = 2) {
+if (Q.CHP_kurdish_attitude == 2) {
         Q.kurdish_radicalism  -= 0.001;
 }
 // tip ban
-if (Q.tip_banned = 1) {
+if (Q.tip_banned == 1) {
         Q.kurdish_radicalism  += 0.001;
 }
-if (Q.tip_banned = 0) {
+if (Q.tip_banned == 0) {
         Q.kurdish_radicalism  -= 0.001;
 }
 // ddkd
-if (Q.ddkd_formed = 0) {
+if (Q.ddkd_formed == 0) {
         Q.kurdish_radicalism  += 0.002;
 }
-if (Q.ddkd_formed = 1) {
+if (Q.ddkd_formed == 1) {
         Q.kurdish_radicalism  -= 0.001;
 }
 // army in government
-if (Q.chancellor_party = "I") {
+if (Q.chancellor_party == "I") {
         Q.kurdish_radicalism  += 0.002;
 }
 
@@ -731,7 +731,7 @@ var choices = this._compileChoices(scene);
 if (choices && choices[0].title != "Continue...") {
     Q.has_event = 1;
 } else {
-    has_event = 0;
+    Q.has_event = 0;
 }
 // pre-load all of the event images
 if (this.ui && this.ui.show_portraits) {
