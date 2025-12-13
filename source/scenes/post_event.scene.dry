@@ -169,7 +169,7 @@ if (Q.month_actions >= 1) {
             Q.petty_bourgeoisie_chp -= 2;
             Q.state_employees_chp -= 2;
             Q.alevis_chp -= 2;
-            // Clear confederation timer
+            // Clear confederation timer to prevent gradual waning logic from removing bonuses again
             Q.cyprus_confederation_timer = 0;
         } else if (Q.cyprus_last_status == 3) { // Reverse Divided effects
             // Remove divided bonuses
@@ -183,7 +183,7 @@ if (Q.month_actions >= 1) {
             Q.west_relation += 20;
             // Reverse coup timer decrease
             Q.coup_timer += 1;
-            // Clear divided timer
+            // Clear divided timer to prevent gradual waning logic from removing bonuses again
             Q.cyprus_divided_timer = 0;
         }
         
