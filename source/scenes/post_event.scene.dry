@@ -335,9 +335,9 @@ if (Q.month_actions >= 1) {
             Q.petty_bourgeoisie_chp -= 1;
             Q.state_employees_chp -= 1;
         } else if (Q.z_in_government) {
-            Q.workers_AP -= 1;
-            Q.petty_bourgeoisie_AP -= 1;
-            Q.state_employees_AP -= 1;
+            Q.workers_z -= 1;
+            Q.petty_bourgeoisie_z -= 1;
+            Q.state_employees_z -= 1;
         }
     } else if (Q.agricultural_product_prices >= 0.80 && Q.agricultural_product_prices < 0.90 && Q.agricultural_price_timer >= 3) {
         // Low: -1% to rural every 3 months
@@ -345,7 +345,7 @@ if (Q.month_actions >= 1) {
         if (Q.CHP_in_government) {
             Q.rural_chp -= 1;
         } else if (Q.z_in_government) {
-            Q.rural_AP -= 1;
+            Q.rural_z -= 1;
         }
     } else if (Q.agricultural_product_prices < 0.80 && Q.agricultural_price_timer >= 2) {
         // Very Low: -2% to rural every 2 months
@@ -353,7 +353,7 @@ if (Q.month_actions >= 1) {
         if (Q.CHP_in_government) {
             Q.rural_chp -= 2;
         } else if (Q.z_in_government) {
-            Q.rural_AP -= 2;
+            Q.rural_z -= 2;
         }
     }
     
