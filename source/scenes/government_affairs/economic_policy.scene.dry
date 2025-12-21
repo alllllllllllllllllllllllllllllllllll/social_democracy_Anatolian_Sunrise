@@ -38,7 +38,7 @@ on-arrival: inflation_modifier -= 3; black_market_risk += 1; capitalists_CHP -= 
 Price floors and ceilings are implemented to control the rampant inflation. While the worker families and alike are happy we are intervening on their behalf, the bourgeoisie express their discomfort due to 'needless government interventions'
 
 @debt
-choose-if: west_relation >= 40; us_relation >= 40
+choose-if: west_relation >= 40 and us_relation >= 40
 subtitle: Budget ↑ Exchange Pressure(short term) ↓ Exchange Pressure(long term) ↑↑ Growth ↑
 unavailable-subtitle: The general air of coldness between the western governments and us prevent us from taking debt from the international organizations!
 on-arrival: forex_pressure -= 5; growth_modifier += 0.5; budget += 1; forex_pressure_drift += 1
