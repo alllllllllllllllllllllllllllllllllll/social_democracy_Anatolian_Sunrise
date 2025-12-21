@@ -7,56 +7,6 @@ Q.unemployed_2 = (Q.unemployed !== undefined && Q.unemployed !== null) ? Q.unemp
 Q.inflation_2 = (Q.inflation !== undefined && Q.inflation !== null) ? Q.inflation.toFixed(1) : '15.3';
 Q.economic_growth_2 = (Q.economic_growth !== undefined && Q.economic_growth !== null) ? Q.economic_growth.toFixed(1) : '9.2';
 
-// Calculate scores for color determination (matching economy_health_calculator.scene.dry)
-var inflation_val = (Q.inflation !== undefined && Q.inflation !== null) ? Q.inflation : 15.3;
-var unemployed_val = (Q.unemployed !== undefined && Q.unemployed !== null) ? Q.unemployed : 4.6;
-var growth_val = (Q.economic_growth !== undefined && Q.economic_growth !== null) ? Q.economic_growth : 9.2;
-
-// Calculate Inflation Score
-if (inflation_val >= 0 && inflation_val <= 10) {
-    Q.inflation_score = 1;
-} else if (inflation_val > 10 && inflation_val <= 20) {
-    Q.inflation_score = 0;
-} else if (inflation_val > 20 && inflation_val <= 30) {
-    Q.inflation_score = -1;
-} else if (inflation_val > 30 && inflation_val <= 40) {
-    Q.inflation_score = -2;
-} else if (inflation_val > 40 && inflation_val <= 60) {
-    Q.inflation_score = -4;
-} else if (inflation_val > 60) {
-    Q.inflation_score = -6;
-}
-
-// Calculate Unemployment Score
-if (unemployed_val >= 0 && unemployed_val <= 3) {
-    Q.unemployment_score = 1;
-} else if (unemployed_val > 3 && unemployed_val <= 6) {
-    Q.unemployment_score = 0;
-} else if (unemployed_val > 6 && unemployed_val <= 10) {
-    Q.unemployment_score = -1;
-} else if (unemployed_val > 10 && unemployed_val <= 15) {
-    Q.unemployment_score = -2;
-} else if (unemployed_val > 15 && unemployed_val <= 20) {
-    Q.unemployment_score = -3;
-} else if (unemployed_val > 20) {
-    Q.unemployment_score = -5;
-}
-
-// Calculate GDP Growth Score
-if (growth_val < 0) {
-    Q.growth_score = -5;
-} else if (growth_val >= 0 && growth_val <= 2) {
-    Q.growth_score = -2;
-} else if (growth_val > 2 && growth_val <= 4) {
-    Q.growth_score = -1;
-} else if (growth_val > 4 && growth_val <= 6) {
-    Q.growth_score = 0;
-} else if (growth_val > 6 && growth_val <= 8) {
-    Q.growth_score = 1;
-} else if (growth_val > 8) {
-    Q.growth_score = 2;
-}
-
 // Format production indices
 Q.industrial_index_formatted = Q.industrial_production_index ? Q.industrial_production_index.toFixed(1) : '100.0';
 Q.agricultural_index_formatted = Q.agricultural_production_index ? Q.agricultural_production_index.toFixed(1) : '100.0';
@@ -66,30 +16,28 @@ Q.agricultural_prices_formatted = Q.agricultural_product_prices ? Q.agricultural
 
 // Format forex pressure and determine status
 Q.forex_pressure_formatted = Q.forex_pressure ? Q.forex_pressure.toFixed(1) : '45.0';
-var forex_pressure_val = Q.forex_pressure ? Q.forex_pressure : 45.0;
-
-if (forex_pressure_val <= 20) {
+if (Q.forex_pressure <= 20) {
     Q.forex_pressure_status = "Low";
-} else if (forex_pressure_val > 20 && forex_pressure_val <= 40) {
+} else if (Q.forex_pressure > 20 && Q.forex_pressure <= 40) {
     Q.forex_pressure_status = "Manageable";
-} else if (forex_pressure_val > 40 && forex_pressure_val <= 60) {
+} else if (Q.forex_pressure > 40 && Q.forex_pressure <= 60) {
     Q.forex_pressure_status = "Straining";
-} else if (forex_pressure_val > 60 && forex_pressure_val <= 80) {
+} else if (Q.forex_pressure > 60 && Q.forex_pressure <= 80) {
     Q.forex_pressure_status = "Damaging";
-} else if (forex_pressure_val > 80) {
+} else if (Q.forex_pressure > 80) {
     Q.forex_pressure_status = "Crushing";
 }
 
-// Debug: Log the actual values and scores
+// Debug: Log the actual values
 console.log("=== Economic Status Debug ===");
 console.log("Current year:", Q.year, "month:", Q.month, "week:", Q.week);
-console.log("Inflation raw:", Q.inflation, "formatted:", Q.inflation_2, "score:", Q.inflation_score);
-console.log("Unemployment raw:", Q.unemployed, "formatted:", Q.unemployed_2, "score:", Q.unemployment_score);
-console.log("Growth raw:", Q.economic_growth, "formatted:", Q.economic_growth_2, "score:", Q.growth_score);
+console.log("Inflation raw:", Q.inflation, "formatted:", Q.inflation_2);
+console.log("Unemployment raw:", Q.unemployed, "formatted:", Q.unemployed_2);
+console.log("Growth raw:", Q.economic_growth, "formatted:", Q.economic_growth_2);
 console.log("Industrial Index:", Q.industrial_production_index);
 console.log("Agricultural Index:", Q.agricultural_production_index);
 console.log("Agricultural Prices:", Q.agricultural_product_prices, "Status:", Q.agricultural_price_status);
-console.log("Health Economy Status:", Q.health_economy_status);
+console.log("Historical targets - Inflation:", Q.historical_inflation[Q.year], "Unemployment:", Q.historical_unemployment[Q.year], "GDP:", Q.historical_gdp_growth[Q.year]);
 console.log("==============================");
 if (typeof Q.chp_seats === 'undefined') {
     Q.chp_seats = 143;
@@ -414,18 +362,18 @@ Cyprus Problem: [? if cyprus_problem == 0: Unresolved ?][? if cyprus_problem == 
 
 = Economics
 
-[? if health_economy_status == "Booming": Health of the Economy: <span style="color: #2E8B57;">[+ health_economy_status +]</span> ?][? if health_economy_status == "Stable": Health of the Economy: <span style="color: #FFA500;">[+ health_economy_status +]</span> ?][? if health_economy_status == "Unhealthy": Health of the Economy: <span style="color: #FF6347;">[+ health_economy_status +]</span> ?][? if health_economy_status == "In Crisis": Health of the Economy: <span style="color: #DC143C;">[+ health_economy_status +]</span> ?]
+[? if health_economy_status: Health of the Economy: [+ health_economy_status +] ?]
 
-[? if forex_pressure_formatted: Foreign Exchange Pressure: [? if forex_pressure <= 20: <span style="color: #2E8B57;">[+ forex_pressure_formatted +]</span>?][? if forex_pressure > 20 and forex_pressure <= 40: <span style="color: #90EE90;">[+ forex_pressure_formatted +]</span>?][? if forex_pressure > 40 and forex_pressure <= 60: <span style="color: #FFA500;">[+ forex_pressure_formatted +]</span>?][? if forex_pressure > 60 and forex_pressure <= 80: <span style="color: #FF6347;">[+ forex_pressure_formatted +]</span>?][? if forex_pressure > 80: <span style="color: #DC143C;">[+ forex_pressure_formatted +]</span>?][? if not forex_pressure: [+ forex_pressure_formatted +]?] ([+ forex_pressure_status +]) ?]
+[? if forex_pressure_formatted: Foreign Exchange Pressure: [+ forex_pressure_formatted +] ([+ forex_pressure_status +]) ?]
 
-Inflation: [? if inflation_score == 1: <span style="color: #2E8B57;">[+ inflation_2 +]</span>?][? if inflation_score == 0: <span style="color: #FFA500;">[+ inflation_2 +]</span>?][? if inflation_score == -1: <span style="color: #FF6347;">[+ inflation_2 +]</span>?][? if inflation_score == -2: <span style="color: #FF6347;">[+ inflation_2 +]</span>?][? if inflation_score == -4: <span style="color: #DC143C;">[+ inflation_2 +]</span>?][? if inflation_score == -6: <span style="color: #DC143C;">[+ inflation_2 +]</span>?]%
+Inflation: [+ inflation_2 +]%
 
-Unemployment: [? if unemployment_score == 1: <span style="color: #2E8B57;">[+ unemployed_2 +]</span>?][? if unemployment_score == 0: <span style="color: #FFA500;">[+ unemployed_2 +]</span>?][? if unemployment_score == -1: <span style="color: #FF6347;">[+ unemployed_2 +]</span>?][? if unemployment_score == -2: <span style="color: #FF6347;">[+ unemployed_2 +]</span>?][? if unemployment_score == -3: <span style="color: #DC143C;">[+ unemployed_2 +]</span>?][? if unemployment_score == -5: <span style="color: #DC143C;">[+ unemployed_2 +]</span>?]%
+Unemployment: [+ unemployed_2 +]%
 
-GDP Growth: [? if growth_score == 2: <span style="color: #2E8B57;">[+ economic_growth_2 +]</span>?][? if growth_score == 1: <span style="color: #2E8B57;">[+ economic_growth_2 +]</span>?][? if growth_score == 0: <span style="color: #FFA500;">[+ economic_growth_2 +]</span>?][? if growth_score == -1: <span style="color: #FF6347;">[+ economic_growth_2 +]</span>?][? if growth_score == -2: <span style="color: #FF6347;">[+ economic_growth_2 +]</span>?][? if growth_score == -5: <span style="color: #DC143C;">[+ economic_growth_2 +]</span>?]%
+GDP Growth: [+ economic_growth_2 +]%
 
 Industrial Production Index (1972=100): [+ industrial_index_formatted +]
 
 Agricultural Production Index (1972=100): [+ agricultural_index_formatted +]
 
-Agricultural Product Prices: [? if agricultural_price_status == "Very High" or agricultural_price_status == "High": <span style="color: #2E8B57;">[+ agricultural_prices_formatted +]</span>?][? if agricultural_price_status == "Sufficient": <span style="color: #FFA500;">[+ agricultural_prices_formatted +]</span>?][? if agricultural_price_status == "Low" or agricultural_price_status == "Very Low": <span style="color: #DC143C;">[+ agricultural_prices_formatted +]</span>?][? if not agricultural_price_status: [+ agricultural_prices_formatted +]?] ([+ agricultural_price_status +])
+Agricultural Product Prices: [+ agricultural_prices_formatted +] ([+ agricultural_price_status +])
