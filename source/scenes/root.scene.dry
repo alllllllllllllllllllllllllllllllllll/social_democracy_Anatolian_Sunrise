@@ -497,12 +497,18 @@ Q.agricultural_price_timer = 0; // Timer for applying political effects
 
 // Economic Health System
 Q.economy_health = 0;
+Q.economy_health_raw = 0;
 Q.economy_health_timer = 0;
 Q.inflation_score = 0;
 Q.unemployment_score = 0;
 Q.growth_score = 0;
 Q.health_economy_status = "Stable";
 Q.apply_economy_effects = 0;
+
+// Foreign Exchange Pressure System
+Q.forex_pressure = 45;
+Q.forex_multiplier = 1;
+Q.crisis_forex_flag = 0;
 
 // economic expansion timer
 Q.economic_expansion = 0;
