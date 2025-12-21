@@ -822,8 +822,8 @@ Q.far_right_force += Q.tit_force;
 
 // State forces calculation (strength × militancy)
 Q.police_force = Q.police_strength * Q.police_militancy;
-Q.interior_police_force = Q.interior_police_strength * Q.interior_police_militancy;
-Q.prussian_police_force = Q.prussian_police_strength * Q.prussian_police_militancy;
+Q.interior_police_force = Q.interior_police_strength * Q.interior_police_militancy; // 0 for Turkish context
+Q.prussian_police_force = Q.prussian_police_strength * Q.prussian_police_militancy; // 0 for Turkish context
 
 Q.state_force = Q.police_force + Q.interior_police_force + Q.prussian_police_force;
 
