@@ -31,13 +31,13 @@ if (Q.forex_pressure <= 20) {
 // Debug: Log the actual values
 console.log("=== Economic Status Debug ===");
 console.log("Current year:", Q.year, "month:", Q.month, "week:", Q.week);
-console.log("Inflation raw:", Q.inflation, "formatted:", Q.inflation_2);
-console.log("Unemployment raw:", Q.unemployed, "formatted:", Q.unemployed_2);
-console.log("Growth raw:", Q.economic_growth, "formatted:", Q.economic_growth_2);
+console.log("Inflation final (base+modifier):", Q.inflation, "formatted:", Q.inflation_2);
+console.log("Unemployment final (base+modifier):", Q.unemployed, "formatted:", Q.unemployed_2);
+console.log("Growth final (base+modifier):", Q.economic_growth, "formatted:", Q.economic_growth_2);
 console.log("Industrial Index:", Q.industrial_production_index);
 console.log("Agricultural Index:", Q.agricultural_production_index);
 console.log("Agricultural Prices:", Q.agricultural_product_prices, "Status:", Q.agricultural_price_status);
-console.log("Historical targets - Inflation:", Q.historical_inflation[Q.year], "Unemployment:", Q.historical_unemployment[Q.year], "GDP:", Q.historical_gdp_growth[Q.year]);
+console.log("Historical base values - Inflation:", Q.historical_inflation[Q.year], "Unemployment:", Q.historical_unemployment[Q.year], "GDP:", Q.historical_gdp_growth[Q.year]);
 console.log("==============================");
 if (typeof Q.chp_seats === 'undefined') {
     Q.chp_seats = 143;
