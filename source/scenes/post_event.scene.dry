@@ -118,20 +118,38 @@ if (Q.dissent < 0) {
 
 // Utility helpers for economic model
 var clamp = function(val, min, max) { return Math.max(min, Math.min(max, val)); };
+var FOREX_DRIFT_PER_YEAR = Q.forex_pressure_drift || 2;
+var forexFactors = Q.getForexFactors ? Q.getForexFactors() : {industry: 0.6, agriculture: 0.2, ratio: 3};
+var FOREX_INDUSTRY_FACTOR = forexFactors.industry;
+var AGRICULTURE_TO_INDUSTRY_RATIO = forexFactors.ratio;
+var FOREX_AGRICULTURE_FACTOR = forexFactors.agriculture;
+var INFLATION_DECAY_NEG = 0.5;
+var INFLATION_DECAY_POS = 0.9;
+var GROWTH_DECAY_POS = 0.8;
+var GROWTH_DECAY_NEG = 0.95;
+var UNEMPLOYMENT_DECAY_NEG = 0.7;
+var UNEMPLOYMENT_DECAY_POS = 0.9;
+var preferNumber = function(candidate, fallback) {
+    return (typeof candidate === 'number') ? candidate : fallback;
+};
+var applyDecay = function(value, negativeRate, positiveRate) {
+    return value < 0 ? value * negativeRate : value * positiveRate;
+};
 var refreshBaseEconomicValues = function() {
-    if (Q.historical_inflation[Q.year] !== undefined) { Q.base_inflation = Q.historical_inflation[Q.year]; }
-    if (Q.historical_gdp_growth[Q.year] !== undefined) { Q.base_growth = Q.historical_gdp_growth[Q.year]; }
-    if (Q.historical_unemployment[Q.year] !== undefined) { Q.base_unemployment = Q.historical_unemployment[Q.year]; }
-    if (Q.historical_industrial_index[Q.year] !== undefined) { Q.base_industry_index = Q.historical_industrial_index[Q.year]; }
-    if (Q.historical_agricultural_index[Q.year] !== undefined) { Q.base_agriculture_index = Q.historical_agricultural_index[Q.year]; }
+    var currentYear = Q.year;
+    if (Q.historical_inflation[currentYear] !== undefined) { Q.base_inflation = Q.historical_inflation[currentYear]; }
+    if (Q.historical_gdp_growth[currentYear] !== undefined) { Q.base_growth = Q.historical_gdp_growth[currentYear]; }
+    if (Q.historical_unemployment[currentYear] !== undefined) { Q.base_unemployment = Q.historical_unemployment[currentYear]; }
+    if (Q.historical_industrial_index[currentYear] !== undefined) { Q.base_industry_index = Q.historical_industrial_index[currentYear]; }
+    if (Q.historical_agricultural_index[currentYear] !== undefined) { Q.base_agriculture_index = Q.historical_agricultural_index[currentYear]; }
 };
 
 var syncDirectEconomicChangesToModifiers = function(skipYearChange) {
-    Q.inflation_modifier = Q.inflation_modifier || 0;
-    Q.growth_modifier = Q.growth_modifier || 0;
-    Q.unemployment_modifier = Q.unemployment_modifier || 0;
-    Q.industry_modifier = (Q.industry_modifier !== undefined) ? Q.industry_modifier : (Q.industrial_player_modifier || 0);
-    Q.agriculture_modifier = (Q.agriculture_modifier !== undefined) ? Q.agriculture_modifier : (Q.agricultural_player_modifier || 0);
+    Q.inflation_modifier = preferNumber(Q.inflation_modifier, 0);
+    Q.growth_modifier = preferNumber(Q.growth_modifier, 0);
+    Q.unemployment_modifier = preferNumber(Q.unemployment_modifier, 0);
+    Q.industry_modifier = preferNumber(Q.industry_modifier, preferNumber(Q.industrial_player_modifier, 0));
+    Q.agriculture_modifier = preferNumber(Q.agriculture_modifier, preferNumber(Q.agricultural_player_modifier, 0));
     // Translate any direct edits from cards into modifiers (only when staying in the same year baseline)
     if (!skipYearChange && typeof Q.inflation === 'number' && typeof Q.base_inflation === 'number') {
         var expectedInflation = Q.base_inflation + Q.inflation_modifier;
@@ -156,13 +174,15 @@ var syncDirectEconomicChangesToModifiers = function(skipYearChange) {
 };
 
 var recalcProductionAndHeadlineValues = function() {
-    var forexFactor = 0.6;
     var forexPressure = clamp(Q.forex_pressure || 0, 0, 100);
     Q.forex_pressure = forexPressure;
-    var baseIndustry = (Q.base_industry_index !== undefined) ? Q.base_industry_index : Q.historical_industrial_index[Q.year];
-    var baseAgriculture = (Q.base_agriculture_index !== undefined) ? Q.base_agriculture_index : Q.historical_agricultural_index[Q.year];
-    Q.industrial_production_index = baseIndustry + (Q.industry_modifier || 0) - forexFactor * forexPressure;
-    Q.agricultural_production_index = baseAgriculture + (Q.agriculture_modifier || 0) - (forexFactor / 3) * forexPressure;
+    var resolveBaseValue = (typeof Q.getBaseValue === 'function') ? Q.getBaseValue : null;
+    var currentYear = Q.year;
+    var resolveBase = resolveBaseValue ? function(base, historical) { return resolveBaseValue(base, historical, currentYear, 100); } : function() { return 100; };
+    var baseIndustry = resolveBase(Q.base_industry_index, Q.historical_industrial_index);
+    var baseAgriculture = resolveBase(Q.base_agriculture_index, Q.historical_agricultural_index);
+    Q.industrial_production_index = baseIndustry + (Q.industry_modifier || 0) - FOREX_INDUSTRY_FACTOR * forexPressure;
+    Q.agricultural_production_index = baseAgriculture + (Q.agriculture_modifier || 0) - FOREX_AGRICULTURE_FACTOR * forexPressure;
     if (Q.industrial_production_index < 0) { Q.industrial_production_index = 0; }
     if (Q.agricultural_production_index < 0) { Q.agricultural_production_index = 0; }
     Q.inflation = (Q.base_inflation || 0) + (Q.inflation_modifier || 0);
@@ -172,19 +192,15 @@ var recalcProductionAndHeadlineValues = function() {
 
 var runAnnualEconomicSimulation = function() {
     // Step 1: automatic forex pressure drift
-    Q.forex_pressure = clamp((Q.forex_pressure || 0) + 2, 0, 100);
-    if (Q.forex_pressure_delayed_reduction) {
-        Q.forex_pressure = clamp(Q.forex_pressure - Q.forex_pressure_delayed_reduction, 0, 100);
-        Q.forex_pressure_delayed_reduction = 0;
-    }
-    if (Q.forex_pressure_modifier) {
-        Q.forex_pressure = clamp(Q.forex_pressure + Q.forex_pressure_modifier, 0, 100);
-    }
+    var forexAdjustment = FOREX_DRIFT_PER_YEAR + (Q.forex_pressure_modifier || 0) - (Q.forex_pressure_delayed_reduction || 0);
+    Q.forex_pressure = clamp((Q.forex_pressure || 0) + forexAdjustment, 0, 100);
+    Q.forex_pressure_modifier = 0;
+    Q.forex_pressure_delayed_reduction = 0;
     // Step 2: card effects already stored in modifiers
     // Step 3: structural resistance with asymmetric decay
-    if (Q.inflation_modifier < 0) { Q.inflation_modifier *= 0.5; } else { Q.inflation_modifier *= 0.9; }
-    if (Q.growth_modifier > 0) { Q.growth_modifier *= 0.8; } else { Q.growth_modifier *= 0.95; }
-    if (Q.unemployment_modifier < 0) { Q.unemployment_modifier *= 0.7; } else { Q.unemployment_modifier *= 0.9; }
+    Q.inflation_modifier = applyDecay(Q.inflation_modifier, INFLATION_DECAY_NEG, INFLATION_DECAY_POS);
+    Q.growth_modifier = applyDecay(Q.growth_modifier, GROWTH_DECAY_NEG, GROWTH_DECAY_POS);
+    Q.unemployment_modifier = applyDecay(Q.unemployment_modifier, UNEMPLOYMENT_DECAY_NEG, UNEMPLOYMENT_DECAY_POS);
     // Step 4/5: recompute production indices and headline figures
     recalcProductionAndHeadlineValues();
     Q.last_economy_year = Q.year;
@@ -224,10 +240,10 @@ if (Q.month_actions >= 1) {
         }
     }
     
-    var newYearStarted = (Q.year !== Q.last_economy_year);
+    var shouldRunYearlySimulation = (Q.last_economy_year === null) || (Q.year !== Q.last_economy_year);
     refreshBaseEconomicValues();
-    syncDirectEconomicChangesToModifiers(newYearStarted);
-    if (newYearStarted) {
+    syncDirectEconomicChangesToModifiers(shouldRunYearlySimulation);
+    if (shouldRunYearlySimulation) {
         runAnnualEconomicSimulation();
     } else {
         recalcProductionAndHeadlineValues();

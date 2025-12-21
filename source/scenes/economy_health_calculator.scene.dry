@@ -1,6 +1,11 @@
 title: Economic Health Calculator
 view-if: 0
 on-arrival: {!
+var SYSTEMIC_CRISIS_YEAR_THRESHOLD = 1978;
+var FOREX_THRESHOLD_LOW = 40;
+var FOREX_THRESHOLD_MID = 60;
+var FOREX_THRESHOLD_HIGH = 80;
+var FOREX_DISABLE_THRESHOLD = 70;
 // Calculate Economic Health based on Inflation, Unemployment, and GDP Growth
 
 // Calculate Inflation Score
@@ -52,13 +57,13 @@ if (Q.economic_growth < 0) {
 Q.economy_health_raw = Q.inflation_score + Q.unemployment_score + Q.growth_score;
 
 // Calculate Forex Multiplier based on forex pressure
-if (Q.forex_pressure < 40) {
+if (Q.forex_pressure < FOREX_THRESHOLD_LOW) {
     Q.forex_multiplier = 1.0;
-} else if (Q.forex_pressure >= 40 && Q.forex_pressure < 60) {
+} else if (Q.forex_pressure >= FOREX_THRESHOLD_LOW && Q.forex_pressure < FOREX_THRESHOLD_MID) {
     Q.forex_multiplier = 0.6;
-} else if (Q.forex_pressure >= 60 && Q.forex_pressure < 80) {
+} else if (Q.forex_pressure >= FOREX_THRESHOLD_MID && Q.forex_pressure < FOREX_THRESHOLD_HIGH) {
     Q.forex_multiplier = 0.35;
-} else if (Q.forex_pressure >= 80) {
+} else if (Q.forex_pressure >= FOREX_THRESHOLD_HIGH) {
     Q.forex_multiplier = 0.1;
     Q.crisis_forex_flag = 1;
 }
@@ -82,13 +87,13 @@ if (Q.economy_health > 3) {
 }
 
 // Hard threshold effects
-Q.industrial_cards_disabled = (Q.forex_pressure > 70) ? 1 : 0;
+Q.industrial_cards_disabled = (Q.forex_pressure > FOREX_DISABLE_THRESHOLD) ? 1 : 0;
 if (Q.economy_health < -7) {
     Q.strike_unrest_risk = 1;
 } else {
     Q.strike_unrest_risk = 0;
 }
-if (Q.economy_health < -10 && Q.year >= 1978) {
+if (Q.economy_health < -10 && Q.year >= SYSTEMIC_CRISIS_YEAR_THRESHOLD) {
     Q.systemic_crisis_mode = 1;
 } else if (Q.systemic_crisis_mode && Q.economy_health >= -10) {
     Q.systemic_crisis_mode = 0;
