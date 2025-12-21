@@ -458,7 +458,6 @@ Q.growth_modifier = 0;
 Q.unemployment_modifier = 0;
 Q.industry_modifier = 0;
 Q.agriculture_modifier = 0;
-Q.forex_pressure_modifier = 0;
 Q.forex_pressure_delayed_reduction = 0;
 
 // Set initial economic values from base + modifiers
@@ -492,16 +491,6 @@ Q.historical_agricultural_index = {
 
 Q.base_industry_index = Q.historical_industrial_index[Q.year] || 100;
 Q.base_agriculture_index = Q.historical_agricultural_index[Q.year] || 100;
-
-Q.getBaseValue = function(preferredValue, historicalData, year, defaultValue) {
-    if (typeof preferredValue === 'number') {
-        return preferredValue;
-    }
-    if (historicalData && typeof historicalData[year] === 'number') {
-        return historicalData[year];
-    }
-    return defaultValue;
-};
 
 Q.getForexFactors = function() {
     var industry = Q.forex_industry_penalty || 0.6;

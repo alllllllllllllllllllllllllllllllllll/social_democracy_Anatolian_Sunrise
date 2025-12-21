@@ -37,8 +37,8 @@ if (Q.agricultural_consumption_change && Q.agricultural_consumption_change !== 0
 var forexFactors = Q.getForexFactors ? Q.getForexFactors() : {industry: 0.6, agriculture: 0.2};
 var forexFactor = forexFactors.industry;
 var agricultureFactor = forexFactors.agriculture;
-var baseIndustry = Q.getBaseValue ? Q.getBaseValue(Q.base_industry_index, Q.historical_industrial_index, Q.year, 100) : 100;
-var baseAgriculture = Q.getBaseValue ? Q.getBaseValue(Q.base_agriculture_index, Q.historical_agricultural_index, Q.year, 100) : 100;
+var baseIndustry = (typeof Q.base_industry_index === 'number') ? Q.base_industry_index : (Q.historical_industrial_index[Q.year] !== undefined ? Q.historical_industrial_index[Q.year] : 100);
+var baseAgriculture = (typeof Q.base_agriculture_index === 'number') ? Q.base_agriculture_index : (Q.historical_agricultural_index[Q.year] !== undefined ? Q.historical_agricultural_index[Q.year] : 100);
 var forexPressure = Q.forex_pressure || 0;
 Q.industrial_production_index = baseIndustry + (Q.industry_modifier || 0) - forexFactor * forexPressure;
 Q.agricultural_production_index = baseAgriculture + (Q.agriculture_modifier || 0) - agricultureFactor * forexPressure;
