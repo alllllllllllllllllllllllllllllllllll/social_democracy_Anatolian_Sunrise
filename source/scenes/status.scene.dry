@@ -7,6 +7,34 @@ Q.unemployed_2 = (Q.unemployed !== undefined && Q.unemployed !== null) ? Q.unemp
 Q.inflation_2 = (Q.inflation !== undefined && Q.inflation !== null) ? Q.inflation.toFixed(1) : '15.3';
 Q.economic_growth_2 = (Q.economic_growth !== undefined && Q.economic_growth !== null) ? Q.economic_growth.toFixed(1) : '9.2';
 
+// Add color coding for economic indicators
+// Inflation coloring: Low (< 5%) = green, Medium (5-15%) = yellow, High (> 15%) = red
+if (Q.inflation < 5) {
+    Q.inflation_2_colored = '<span style="color: #2E8B57;">' + Q.inflation_2 + '</span>';
+} else if (Q.inflation >= 5 && Q.inflation < 15) {
+    Q.inflation_2_colored = '<span style="color: #FFA500;">' + Q.inflation_2 + '</span>';
+} else {
+    Q.inflation_2_colored = '<span style="color: #DC143C;">' + Q.inflation_2 + '</span>';
+}
+
+// Unemployment coloring: Low (< 5%) = green, Medium (5-10%) = yellow, High (> 10%) = red
+if (Q.unemployed < 5) {
+    Q.unemployed_2_colored = '<span style="color: #2E8B57;">' + Q.unemployed_2 + '</span>';
+} else if (Q.unemployed >= 5 && Q.unemployed < 10) {
+    Q.unemployed_2_colored = '<span style="color: #FFA500;">' + Q.unemployed_2 + '</span>';
+} else {
+    Q.unemployed_2_colored = '<span style="color: #DC143C;">' + Q.unemployed_2 + '</span>';
+}
+
+// GDP Growth coloring: High (> 3%) = green, Medium (0-3%) = yellow, Negative (< 0%) = red
+if (Q.economic_growth > 3) {
+    Q.economic_growth_2_colored = '<span style="color: #2E8B57;">' + Q.economic_growth_2 + '</span>';
+} else if (Q.economic_growth >= 0 && Q.economic_growth <= 3) {
+    Q.economic_growth_2_colored = '<span style="color: #FFA500;">' + Q.economic_growth_2 + '</span>';
+} else {
+    Q.economic_growth_2_colored = '<span style="color: #DC143C;">' + Q.economic_growth_2 + '</span>';
+}
+
 // Format production indices
 Q.industrial_index_formatted = Q.industrial_production_index ? Q.industrial_production_index.toFixed(1) : '100.0';
 Q.agricultural_index_formatted = Q.agricultural_production_index ? Q.agricultural_production_index.toFixed(1) : '100.0';
@@ -14,18 +42,34 @@ Q.agricultural_index_formatted = Q.agricultural_production_index ? Q.agricultura
 // Format agricultural market data
 Q.agricultural_prices_formatted = Q.agricultural_product_prices ? Q.agricultural_product_prices.toFixed(2) : '1.00';
 
+// Color agricultural prices based on status
+if (Q.agricultural_price_status === "Very High" || Q.agricultural_price_status === "High") {
+    Q.agricultural_prices_formatted_colored = '<span style="color: #2E8B57;">' + Q.agricultural_prices_formatted + '</span>';
+} else if (Q.agricultural_price_status === "Sufficient") {
+    Q.agricultural_prices_formatted_colored = '<span style="color: #FFA500;">' + Q.agricultural_prices_formatted + '</span>';
+} else if (Q.agricultural_price_status === "Low" || Q.agricultural_price_status === "Very Low") {
+    Q.agricultural_prices_formatted_colored = '<span style="color: #DC143C;">' + Q.agricultural_prices_formatted + '</span>';
+} else {
+    Q.agricultural_prices_formatted_colored = Q.agricultural_prices_formatted;
+}
+
 // Format forex pressure and determine status
 Q.forex_pressure_formatted = Q.forex_pressure ? Q.forex_pressure.toFixed(1) : '45.0';
 if (Q.forex_pressure <= 20) {
     Q.forex_pressure_status = "Low";
+    Q.forex_pressure_formatted_colored = '<span style="color: #2E8B57;">' + Q.forex_pressure_formatted + '</span>';
 } else if (Q.forex_pressure > 20 && Q.forex_pressure <= 40) {
     Q.forex_pressure_status = "Manageable";
+    Q.forex_pressure_formatted_colored = '<span style="color: #90EE90;">' + Q.forex_pressure_formatted + '</span>';
 } else if (Q.forex_pressure > 40 && Q.forex_pressure <= 60) {
     Q.forex_pressure_status = "Straining";
+    Q.forex_pressure_formatted_colored = '<span style="color: #FFA500;">' + Q.forex_pressure_formatted + '</span>';
 } else if (Q.forex_pressure > 60 && Q.forex_pressure <= 80) {
     Q.forex_pressure_status = "Damaging";
+    Q.forex_pressure_formatted_colored = '<span style="color: #FF6347;">' + Q.forex_pressure_formatted + '</span>';
 } else if (Q.forex_pressure > 80) {
     Q.forex_pressure_status = "Crushing";
+    Q.forex_pressure_formatted_colored = '<span style="color: #DC143C;">' + Q.forex_pressure_formatted + '</span>';
 }
 
 // Debug: Log the actual values
@@ -364,16 +408,16 @@ Cyprus Problem: [? if cyprus_problem == 0: Unresolved ?][? if cyprus_problem == 
 
 [? if health_economy_status: Health of the Economy: [+ health_economy_status +] ?]
 
-[? if forex_pressure_formatted: Foreign Exchange Pressure: [+ forex_pressure_formatted +] ([+ forex_pressure_status +]) ?]
+[? if forex_pressure_formatted: Foreign Exchange Pressure: {![+ forex_pressure_formatted_colored +]!} ([+ forex_pressure_status +]) ?]
 
-Inflation: [+ inflation_2 +]%
+Inflation: {![+ inflation_2_colored +]!}%
 
-Unemployment: [+ unemployed_2 +]%
+Unemployment: {![+ unemployed_2_colored +]!}%
 
-GDP Growth: [+ economic_growth_2 +]%
+GDP Growth: {![+ economic_growth_2_colored +]!}%
 
 Industrial Production Index (1972=100): [+ industrial_index_formatted +]
 
 Agricultural Production Index (1972=100): [+ agricultural_index_formatted +]
 
-Agricultural Product Prices: [+ agricultural_prices_formatted +] ([+ agricultural_price_status +])
+Agricultural Product Prices: {![+ agricultural_prices_formatted_colored +]!} ([+ agricultural_price_status +])
