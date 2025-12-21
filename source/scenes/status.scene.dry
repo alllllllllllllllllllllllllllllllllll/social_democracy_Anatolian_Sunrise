@@ -364,7 +364,7 @@ Cyprus Problem: [? if cyprus_problem == 0: Unresolved ?][? if cyprus_problem == 
 
 [? if health_economy_status: Health of the Economy: [+ health_economy_status +] ?]
 
-Foreign Exchange Pressure: [+ forex_pressure_formatted +] ([+ forex_pressure_status +])
+[? if forex_pressure_formatted: Foreign Exchange Pressure: [+ forex_pressure_formatted +] ([+ forex_pressure_status +]) ?]
 
 Inflation: [+ inflation_2 +]%
 
