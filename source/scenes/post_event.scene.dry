@@ -868,6 +868,23 @@ Q.democracy_paramilitary = Q.democracy_force_percent >= Math.max(Q.far_left_forc
 Q.state_paramilitary = Q.state_force_percent >= Math.max(Q.far_left_force_percent, Q.far_right_force_percent);
 
 // Determine control intensity levels
+// Reset all control intensity flags first
+Q.far_right_paramilitary_highest = 0;
+Q.far_right_paramilitary_high = 0;
+Q.far_right_paramilitary_med = 0;
+Q.far_right_paramilitary_low = 0;
+
+Q.democracy_paramilitary_highest = 0;
+Q.democracy_paramilitary_high = 0;
+Q.democracy_paramilitary_med = 0;
+Q.democracy_paramilitary_low = 0;
+
+Q.state_paramilitary_highest = 0;
+Q.state_paramilitary_high = 0;
+Q.state_paramilitary_med = 0;
+Q.state_paramilitary_low = 0;
+
+// Set appropriate flags based on current control levels
 if (Q.far_right_paramilitary) {
     if (Q.far_right_force_percent >= 70) Q.far_right_paramilitary_highest = 1;
     else if (Q.far_right_force_percent >= 60) Q.far_right_paramilitary_high = 1;
