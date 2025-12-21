@@ -116,6 +116,99 @@ if (Q.dissent < 0) {
     Q.dissent = 0.95;
 }
 
+// Utility helpers for economic model
+var clamp = function(val, min, max) { return Math.max(min, Math.min(max, val)); };
+var FOREX_DRIFT_PER_YEAR = Q.forex_pressure_drift || 2;
+var forexFactors = Q.getForexFactors ? Q.getForexFactors() : {industry: 0.6, agriculture: 0.2, ratio: 3};
+var FOREX_INDUSTRY_FACTOR = forexFactors.industry;
+var AGRICULTURE_TO_INDUSTRY_RATIO = forexFactors.ratio;
+var FOREX_AGRICULTURE_FACTOR = forexFactors.agriculture;
+var INFLATION_DECAY_NEG = 0.5;
+var INFLATION_DECAY_POS = 0.9;
+var GROWTH_DECAY_POS = 0.8;
+var GROWTH_DECAY_NEG = 0.95;
+var UNEMPLOYMENT_DECAY_NEG = 0.7;
+var UNEMPLOYMENT_DECAY_POS = 0.9;
+var preferNumber = function(candidate, fallback) {
+    return (typeof candidate === 'number') ? candidate : fallback;
+};
+var applyDecay = function(value, negativeRate, positiveRate) {
+    return value < 0 ? value * negativeRate : value * positiveRate;
+};
+var calculateCurrentEconomy = function() {
+    Q.inflation = (Q.base_inflation || 0) + (Q.inflation_modifier || 0);
+    Q.economic_growth = (Q.base_growth || 0) + (Q.growth_modifier || 0);
+    Q.unemployed = (Q.base_unemployment || 0) + (Q.unemployment_modifier || 0);
+};
+var refreshBaseEconomicValues = function() {
+    var currentYear = Q.year;
+    if (Q.historical_inflation[currentYear] !== undefined) { Q.base_inflation = Q.historical_inflation[currentYear]; }
+    if (Q.historical_gdp_growth[currentYear] !== undefined) { Q.base_growth = Q.historical_gdp_growth[currentYear]; }
+    if (Q.historical_unemployment[currentYear] !== undefined) { Q.base_unemployment = Q.historical_unemployment[currentYear]; }
+    if (Q.historical_industrial_index[currentYear] !== undefined) { Q.base_industry_index = Q.historical_industrial_index[currentYear]; }
+    if (Q.historical_agricultural_index[currentYear] !== undefined) { Q.base_agriculture_index = Q.historical_agricultural_index[currentYear]; }
+};
+
+var syncDirectEconomicChangesToModifiers = function(skipYearChange) {
+    Q.inflation_modifier = preferNumber(Q.inflation_modifier, 0);
+    Q.growth_modifier = preferNumber(Q.growth_modifier, 0);
+    Q.unemployment_modifier = preferNumber(Q.unemployment_modifier, 0);
+    Q.industry_modifier = preferNumber(Q.industry_modifier, preferNumber(Q.industrial_player_modifier, 0));
+    Q.agriculture_modifier = preferNumber(Q.agriculture_modifier, preferNumber(Q.agricultural_player_modifier, 0));
+    // Translate any direct edits from cards into modifiers (only when staying in the same year baseline)
+    if (!skipYearChange && typeof Q.inflation === 'number' && typeof Q.base_inflation === 'number') {
+        var expectedInflation = Q.base_inflation + Q.inflation_modifier;
+        if (Q.inflation !== expectedInflation) {
+            Q.inflation_modifier += (Q.inflation - expectedInflation);
+        }
+    }
+    if (!skipYearChange && typeof Q.economic_growth === 'number' && typeof Q.base_growth === 'number') {
+        var expectedGrowth = Q.base_growth + Q.growth_modifier;
+        if (Q.economic_growth !== expectedGrowth) {
+            Q.growth_modifier += (Q.economic_growth - expectedGrowth);
+        }
+    }
+    if (!skipYearChange && typeof Q.unemployed === 'number' && typeof Q.base_unemployment === 'number') {
+        var expectedUnemployment = Q.base_unemployment + Q.unemployment_modifier;
+        if (Q.unemployed !== expectedUnemployment) {
+            Q.unemployment_modifier += (Q.unemployed - expectedUnemployment);
+        }
+    }
+    Q.industrial_player_modifier = Q.industry_modifier;
+    Q.agricultural_player_modifier = Q.agriculture_modifier;
+};
+
+var recalcProductionAndHeadlineValues = function() {
+    var forexPressure = clamp(Q.forex_pressure || 0, 0, 100);
+    Q.forex_pressure = forexPressure;
+    var currentYear = Q.year;
+    var baseIndustry = (typeof Q.base_industry_index === 'number') ? Q.base_industry_index : (Q.historical_industrial_index[currentYear] !== undefined ? Q.historical_industrial_index[currentYear] : 100);
+    var baseAgriculture = (typeof Q.base_agriculture_index === 'number') ? Q.base_agriculture_index : (Q.historical_agricultural_index[currentYear] !== undefined ? Q.historical_agricultural_index[currentYear] : 100);
+    Q.industrial_production_index = baseIndustry + (Q.industry_modifier || 0) - FOREX_INDUSTRY_FACTOR * forexPressure;
+    Q.agricultural_production_index = baseAgriculture + (Q.agriculture_modifier || 0) - FOREX_AGRICULTURE_FACTOR * forexPressure;
+    if (Q.industrial_production_index < 0) { Q.industrial_production_index = 0; }
+    if (Q.agricultural_production_index < 0) { Q.agricultural_production_index = 0; }
+    calculateCurrentEconomy();
+};
+
+var runAnnualEconomicSimulation = function() {
+    // Step 1: automatic forex pressure drift
+    var forexAdjustment = FOREX_DRIFT_PER_YEAR - (Q.forex_pressure_delayed_reduction || 0);
+    Q.forex_pressure = clamp((Q.forex_pressure || 0) + forexAdjustment, 0, 100);
+    Q.forex_pressure_delayed_reduction = 0;
+    // Step 2: card effects already stored in modifiers
+    // Step 3: structural resistance with asymmetric decay
+    Q.inflation_modifier = applyDecay(Q.inflation_modifier, INFLATION_DECAY_NEG, INFLATION_DECAY_POS);
+    Q.growth_modifier = applyDecay(Q.growth_modifier, GROWTH_DECAY_NEG, GROWTH_DECAY_POS);
+    Q.unemployment_modifier = applyDecay(Q.unemployment_modifier, UNEMPLOYMENT_DECAY_NEG, UNEMPLOYMENT_DECAY_POS);
+    // Step 4/5: recompute production indices and headline figures
+    recalcProductionAndHeadlineValues();
+    Q.last_economy_year = Q.year;
+};
+
+refreshBaseEconomicValues();
+syncDirectEconomicChangesToModifiers(false);
+
 // 1. update dates
 if (Q.month_actions >= 1) {
     Q.time += 1;
@@ -145,6 +238,15 @@ if (Q.month_actions >= 1) {
                 Q[timer+'_timer'] -= 1;
             }
         }
+    }
+    
+    var shouldRunYearlySimulation = (Q.last_economy_year === null) || (Q.year !== Q.last_economy_year);
+    refreshBaseEconomicValues();
+    syncDirectEconomicChangesToModifiers(shouldRunYearlySimulation);
+    if (shouldRunYearlySimulation) {
+        runAnnualEconomicSimulation();
+    } else {
+        recalcProductionAndHeadlineValues();
     }
     
     // Cyprus Problem effects
@@ -265,36 +367,6 @@ if (Q.month_actions >= 1) {
         Q.kurds_z += kurds_transfer;
     }
     
-    // Historical economic baseline adjustments
-    // Gradually move economic indicators toward historical baselines each year
-    if (Q.historical_inflation[Q.year] !== undefined) {
-        var target_inflation = Q.historical_inflation[Q.year];
-        var inflation_diff = target_inflation - Q.inflation;
-        // Adjust toward baseline by 1/12th of the difference each month
-        Q.inflation += inflation_diff / 12;
-    }
-    
-    if (Q.historical_unemployment[Q.year] !== undefined) {
-        var target_unemployment = Q.historical_unemployment[Q.year];
-        var unemployment_diff = target_unemployment - Q.unemployed;
-        // Adjust toward baseline by 1/12th of the difference each month
-        Q.unemployed += unemployment_diff / 12;
-    }
-    
-    // Historical production index baseline adjustments
-    // Apply natural economic trends while preserving player modifications
-    if (Q.historical_industrial_index[Q.year] !== undefined) {
-        var historical_baseline = Q.historical_industrial_index[Q.year];
-        // Final index = historical baseline + player modifications
-        Q.industrial_production_index = historical_baseline + Q.industrial_player_modifier;
-    }
-    
-    if (Q.historical_agricultural_index[Q.year] !== undefined) {
-        var agricultural_baseline = Q.historical_agricultural_index[Q.year];
-        // Final index = historical baseline + player modifications
-        Q.agricultural_production_index = agricultural_baseline + Q.agricultural_player_modifier;
-    }
-    
     // Calculate Agricultural Product Prices (Production/Consumption ratio)
     Q.agricultural_product_prices = Q.agricultural_production_index / Q.agricultural_consumption;
     
@@ -362,25 +434,6 @@ if (Q.month_actions >= 1) {
         Q.agricultural_price_timer = 0;
     }
     
-    // Calculate GDP growth based on production indices
-    // Industrial production makes up 1/5 (20%) of economy, agriculture makes up 1/3 (33.3%)
-    if (Q.historical_gdp_growth[Q.year] !== undefined && Q.historical_industrial_index[Q.year] !== undefined && Q.historical_agricultural_index[Q.year] !== undefined) {
-        var base_gdp_growth = Q.historical_gdp_growth[Q.year];
-        
-        // Calculate industrial contribution to GDP growth
-        var industrial_baseline = Q.historical_industrial_index[Q.year];
-        var industrial_difference = Q.industrial_production_index - industrial_baseline;
-        var industrial_gdp_effect = (industrial_difference / industrial_baseline) * 100 * 0.2; // 20% of economy
-        
-        // Calculate agricultural contribution to GDP growth
-        var agricultural_baseline = Q.historical_agricultural_index[Q.year];
-        var agricultural_difference = Q.agricultural_production_index - agricultural_baseline;
-        var agricultural_gdp_effect = (agricultural_difference / agricultural_baseline) * 100 * 0.333; // 33.3% of economy
-        
-        // Apply production effects to GDP growth
-        Q.economic_growth = base_gdp_growth + industrial_gdp_effect + agricultural_gdp_effect;
-    }
-    
     // append to historical party support records
     var party_support_results = {'date': new Date(Q.year, Q.month - 1)};
     for (var party of Q.parties) {
@@ -390,65 +443,6 @@ if (Q.month_actions >= 1) {
     Q.economic_records.push({'date': new Date(Q.year, Q.month - 1),
                              'inflation': Q.inflation,
                              'unemployment': Q.unemployed});
-    // change economic stats...
-    // we're basically implicity drawing a Philips curve
-    // budget deficits lead to some inflation
-    if (Q.budget <= 0 && Q.budget > -2 && Q.inflation < 2.5) {
-        Q.inflation += 0.1;
-    }
-    if (Q.budget <= -2 && Q.budget > -5 && Q.inflation < 5) {
-        Q.inflation += 0.2;
-        if (Q.unemployed >= 12) {
-            Q.inflation -= 0.1;
-        }
-    }
-    if (Q.budget <= -5 && Q.inflation < 10) {
-        Q.inflation += 0.3;
-        if (Q.unemployed >= 15) {
-            Q.inflation -= 0.1;
-        }
-    }
-    // deflation is bad
-    if (Q.inflation < -0.5 && Q.inflation > -5 && Q.unemployed < 15) {
-        Q.unemployed += 0.2;
-    }
-    if (Q.inflation <= -5 && Q.unemployed < 20) {
-        Q.unemployed += 0.3;
-    }
-    // economic growth
-    if (Q.economic_growth < -0.5 && Q.unemployed <= 18) {
-        Q.unemployed += 0.1;
-    }
-    if (Q.economic_growth < -5 && Q.unemployed <= 28) {
-        Q.unemployed += 0.1;
-    }
-    if (Q.economic_growth >= 2 && Q.unemployed >= 17) {
-        Q.unemployed -= 0.1;
-    }
-    if (Q.economic_growth >= 4 && Q.unemployed >= 12) {
-        Q.unemployed -= 0.1;
-    }
-    if (Q.economic_growth >= 6 && Q.unemployed >= 7) {
-        Q.unemployed -= 0.1;
-    }
-    if (Q.economic_growth >= 8 && Q.unemployed >= 3) {
-        Q.unemployed -= 0.1;
-    }
-    if (Q.economic_growth >= 4 && Q.inflation >= 7.5) {
-        Q.economic_growth -= 0.1;
-    }
-    if (Q.economic_growth >= -2.5 && Q.inflation <= -5) {
-        Q.economic_growth -= 0.1;
-    }
-    if (Q.economic_growth >= 7) {
-        Q.economic_growth -= 0.1;
-    }
-    if (Q.economic_growth >= 10) {
-        Q.economic_growth -= 0.2;
-    }
-    if (Q.economic_growth >= 12) {
-        Q.economic_growth -= 0.3;
-    }
 
 // Kurdish Nationalism
 // Political Consciousness
@@ -762,6 +756,9 @@ if (Q.chancellor_party == "I") {
             Q.catholics_CHP -= 6/12;
         }
     }
+    // Ensure economic values remain tied to base paths and modifiers after all adjustments
+    syncDirectEconomicChangesToModifiers(false);
+    recalcProductionAndHeadlineValues();
 }
 Q.has_event = 0;
 Q.calculate_economy_health = 1; // Run economy health calculator every turn
