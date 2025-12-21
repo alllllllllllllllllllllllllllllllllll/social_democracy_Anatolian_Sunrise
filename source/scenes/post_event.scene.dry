@@ -785,6 +785,109 @@ if (this.ui && this.ui.show_portraits) {
 
 if (typeof window !== "undefined" && window.generateBar) {
 }
+
+// Recalculate paramilitary force effectiveness (strength × militancy) every turn
+Q.far_left_force = 0;
+Q.far_right_force = 0;
+Q.state_force = 0;
+Q.democracy_force = 0;
+
+// Far left forces calculation (strength × militancy)
+if (!Q.thkpc_destroyed) {
+    Q.thkpc_force = Q.thkpc_strength * Q.thkpc_militancy;
+    Q.far_left_force += Q.thkpc_force;
+} else {
+    Q.thkpc_strength = 0;
+}
+if (Q.devyol_formed) {
+    Q.devyol_force = Q.devyol_strength * Q.devyol_militancy;
+    Q.far_left_force += Q.devyol_force;
+}
+if (Q.tkpml_formed) {
+    Q.tkpml_force = Q.tkpml_strength * Q.tkpml_militancy;
+    Q.far_left_force += Q.tkpml_force;
+}
+
+// Far right forces calculation (strength × militancy)
+Q.grey_wolves_force = Q.grey_wolves_strength * Q.grey_wolves_militancy;
+Q.far_right_force += Q.grey_wolves_force;
+
+if (Q.raiders_formed) {
+    Q.raiders_force = Q.raiders_strength * Q.raiders_militancy;
+    Q.far_right_force += Q.raiders_force;
+}
+
+Q.tit_force = Q.tit_strength * Q.tit_militancy;
+Q.far_right_force += Q.tit_force;
+
+// State forces calculation (strength × militancy)
+Q.police_force = Q.police_strength * Q.police_militancy;
+Q.interior_police_force = Q.interior_police_strength * Q.interior_police_militancy;
+Q.prussian_police_force = Q.prussian_police_strength * Q.prussian_police_militancy;
+
+Q.state_force = Q.police_force + Q.interior_police_force + Q.prussian_police_force;
+
+// Democratic forces (state forces when not controlled by extremists)
+Q.democracy_force = Q.state_force;
+
+// Total forces for percentage calculation
+Q.total_forces = Q.far_left_force + Q.far_right_force + Q.state_force;
+
+// Convert to percentages
+if (Q.total_forces > 0) {
+    Q.far_left_force_percent = Math.round((Q.far_left_force / Q.total_forces) * 100);
+    Q.far_right_force_percent = Math.round((Q.far_right_force / Q.total_forces) * 100);
+    Q.state_force_percent = Math.round((Q.state_force / Q.total_forces) * 100);
+    Q.democracy_force_percent = Q.state_force_percent;
+    
+    // Individual organization force percentages
+    if (!Q.thkpc_destroyed) {
+        Q.thkpc_force_percent = Math.round((Q.thkpc_force / Q.total_forces) * 100);
+    }
+    if (Q.devyol_formed) {
+        Q.devyol_force_percent = Math.round((Q.devyol_force / Q.total_forces) * 100);
+    }	
+    if (Q.tkpml_formed) {
+        Q.tkpml_force_percent = Math.round((Q.tkpml_force / Q.total_forces) * 100);
+    }
+    Q.grey_wolves_force_percent = Math.round((Q.grey_wolves_force / Q.total_forces) * 100);
+    if (Q.raiders_formed) {
+        Q.raiders_force_percent = Math.round((Q.raiders_force / Q.total_forces) * 100);
+    }
+    Q.tit_force_percent = Math.round((Q.tit_force / Q.total_forces) * 100);
+    
+    Q.police_force_percent = Math.round((Q.police_force / Q.total_forces) * 100);
+    Q.interior_police_force_percent = Math.round((Q.interior_police_force / Q.total_forces) * 100);
+    Q.prussian_police_force_percent = Math.round((Q.prussian_police_force / Q.total_forces) * 100);
+}
+
+// Determine street control levels
+Q.far_right_paramilitary = Q.far_right_force_percent > Q.state_force_percent;
+Q.far_left_paramilitary = Q.far_left_force_percent > Q.state_force_percent;
+Q.democracy_paramilitary = Q.democracy_force_percent >= Math.max(Q.far_left_force_percent, Q.far_right_force_percent);
+Q.state_paramilitary = Q.state_force_percent >= Math.max(Q.far_left_force_percent, Q.far_right_force_percent);
+
+// Determine control intensity levels
+if (Q.far_right_paramilitary) {
+    if (Q.far_right_force_percent >= 70) Q.far_right_paramilitary_highest = 1;
+    else if (Q.far_right_force_percent >= 60) Q.far_right_paramilitary_high = 1;
+    else if (Q.far_right_force_percent >= 50) Q.far_right_paramilitary_med = 1;
+    else Q.far_right_paramilitary_low = 1;
+}
+
+if (Q.democracy_paramilitary) {
+    if (Q.democracy_force_percent >= 70) Q.democracy_paramilitary_highest = 1;
+    else if (Q.democracy_force_percent >= 60) Q.democracy_paramilitary_high = 1;
+    else if (Q.democracy_force_percent >= 50) Q.democracy_paramilitary_med = 1;
+    else Q.democracy_paramilitary_low = 1;
+}
+
+if (Q.state_paramilitary) {
+    if (Q.state_force_percent >= 70) Q.state_paramilitary_highest = 1;
+    else if (Q.state_force_percent >= 60) Q.state_paramilitary_high = 1;
+    else if (Q.state_force_percent >= 50) Q.state_paramilitary_med = 1;
+    else Q.state_paramilitary_low = 1;
+}
 !}
 go-to: economy_health_calculator if calculate_economy_health = 1; events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
 
