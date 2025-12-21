@@ -846,7 +846,7 @@ if (Q.total_forces > 0) {
     }
     if (Q.devyol_formed) {
         Q.devyol_force_percent = Math.round((Q.devyol_force / Q.total_forces) * 100);
-    }	
+    }
     if (Q.tkpml_formed) {
         Q.tkpml_force_percent = Math.round((Q.tkpml_force / Q.total_forces) * 100);
     }
