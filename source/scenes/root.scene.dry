@@ -305,6 +305,7 @@ if (Q.state_paramilitary) {
 }
 
 // Grey Wolves street control vote bonus for middle class (petty bourgeoisie)
+// Applied at initialization only - recalculations happen elsewhere
 if (Q.grey_wolves_force_percent > Q.state_force_percent && Q.grey_wolves_force_percent > Q.far_left_force_percent && Q.grey_wolves_force_percent > 30) {
     Q.grey_wolves_control_bonus = Math.floor((Q.grey_wolves_force_percent - 30) / 10) * 4;
     Q.petty_bourgeoisie_MHP += Q.grey_wolves_control_bonus;
