@@ -2,6 +2,12 @@ title: Status
 new-page: true
 is-special: true
 on-arrival: {!
+// Recalculate economic values from base + modifier before displaying
+// This ensures economy card changes are reflected immediately
+Q.inflation = (Q.base_inflation || 0) + (Q.inflation_modifier || 0);
+Q.economic_growth = (Q.base_growth || 0) + (Q.growth_modifier || 0);
+Q.unemployed = (Q.base_unemployment || 0) + (Q.unemployment_modifier || 0);
+
 // Format economic indicators with proper fallbacks only for display
 Q.unemployed_2 = (Q.unemployed !== undefined && Q.unemployed !== null) ? Q.unemployed.toFixed(1) : '4.6';
 Q.inflation_2 = (Q.inflation !== undefined && Q.inflation !== null) ? Q.inflation.toFixed(1) : '15.3';
@@ -31,13 +37,13 @@ if (Q.forex_pressure <= 20) {
 // Debug: Log the actual values
 console.log("=== Economic Status Debug ===");
 console.log("Current year:", Q.year, "month:", Q.month, "week:", Q.week);
-console.log("Inflation raw:", Q.inflation, "formatted:", Q.inflation_2);
-console.log("Unemployment raw:", Q.unemployed, "formatted:", Q.unemployed_2);
-console.log("Growth raw:", Q.economic_growth, "formatted:", Q.economic_growth_2);
+console.log("Inflation - base:", Q.base_inflation, "modifier:", Q.inflation_modifier, "final:", Q.inflation, "formatted:", Q.inflation_2);
+console.log("Unemployment - base:", Q.base_unemployment, "modifier:", Q.unemployment_modifier, "final:", Q.unemployed, "formatted:", Q.unemployed_2);
+console.log("Growth - base:", Q.base_growth, "modifier:", Q.growth_modifier, "final:", Q.economic_growth, "formatted:", Q.economic_growth_2);
 console.log("Industrial Index:", Q.industrial_production_index);
 console.log("Agricultural Index:", Q.agricultural_production_index);
 console.log("Agricultural Prices:", Q.agricultural_product_prices, "Status:", Q.agricultural_price_status);
-console.log("Historical targets - Inflation:", Q.historical_inflation[Q.year], "Unemployment:", Q.historical_unemployment[Q.year], "GDP:", Q.historical_gdp_growth[Q.year]);
+console.log("Historical base values - Inflation:", Q.historical_inflation[Q.year], "Unemployment:", Q.historical_unemployment[Q.year], "GDP:", Q.historical_gdp_growth[Q.year]);
 console.log("==============================");
 if (typeof Q.chp_seats === 'undefined') {
     Q.chp_seats = 143;
