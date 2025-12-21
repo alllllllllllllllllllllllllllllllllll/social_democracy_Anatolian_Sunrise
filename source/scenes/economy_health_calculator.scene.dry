@@ -66,7 +66,12 @@ if (Q.forex_pressure <= 20) {
 }
 
 // Apply forex multiplier to get final Economic Health
-Q.economy_health = Math.round(Q.economy_health_raw * Q.forex_multiplier);
+// When raw health is positive, multiply; when negative, divide
+if (Q.economy_health_raw >= 0) {
+    Q.economy_health = Math.round(Q.economy_health_raw * Q.forex_multiplier);
+} else {
+    Q.economy_health = Math.round(Q.economy_health_raw / Q.forex_multiplier);
+}
 
 // Set health status text for display
 if (Q.economy_health > 3) {

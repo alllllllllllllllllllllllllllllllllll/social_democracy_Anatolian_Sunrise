@@ -14,6 +14,20 @@ Q.agricultural_index_formatted = Q.agricultural_production_index ? Q.agricultura
 // Format agricultural market data
 Q.agricultural_prices_formatted = Q.agricultural_product_prices ? Q.agricultural_product_prices.toFixed(2) : '1.00';
 
+// Format forex pressure and determine status
+Q.forex_pressure_formatted = Q.forex_pressure ? Q.forex_pressure.toFixed(1) : '45.0';
+if (Q.forex_pressure <= 20) {
+    Q.forex_pressure_status = "Low";
+} else if (Q.forex_pressure > 20 && Q.forex_pressure <= 40) {
+    Q.forex_pressure_status = "Manageable";
+} else if (Q.forex_pressure > 40 && Q.forex_pressure <= 60) {
+    Q.forex_pressure_status = "Straining";
+} else if (Q.forex_pressure > 60 && Q.forex_pressure <= 80) {
+    Q.forex_pressure_status = "Damaging";
+} else if (Q.forex_pressure > 80) {
+    Q.forex_pressure_status = "Crushing";
+}
+
 // Debug: Log the actual values
 console.log("=== Economic Status Debug ===");
 console.log("Current year:", Q.year, "month:", Q.month, "week:", Q.week);
@@ -349,6 +363,8 @@ Cyprus Problem: [? if cyprus_problem == 0: Unresolved ?][? if cyprus_problem == 
 = Economics
 
 [? if health_economy_status: Health of the Economy: [+ health_economy_status +] ?]
+
+Foreign Exchange Pressure: [+ forex_pressure_formatted +] ([+ forex_pressure_status +])
 
 Inflation: [+ inflation_2 +]%
 
