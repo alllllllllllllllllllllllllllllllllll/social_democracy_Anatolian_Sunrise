@@ -226,7 +226,7 @@ function getPartyIdeology(party, Q) {
     switch(party) {
         case 'TIP':
             if (Q.TIP_party_leader === "Unorganized") return '<span style="color: #C42424;">Left Wing</span> (Disorganized)';
-            if (Q.TIP_party_leader === "Behice Boran") return '<span style="color: #607808;">Far Left</span>  (Marxism-Leninism';
+            if (Q.TIP_party_leader === "Behice Boran") return '<span style="color: #607808;">Far Left</span>  (Marxism-Leninism)';
             if (Q.TIP_party_leader === "Mehmet Ali Aybar") return '<span style="color: #C42424;">Left Wing</span> (Democratic Socialism)';
             return 'Unknown';
         case 'CGP':
@@ -243,11 +243,11 @@ function getPartyIdeology(party, Q) {
             if (Q.DP_party_leader === "Bozbeyli") return '<span style="color: #342675;">Right Wing</span> (Conservative Populism)';
             return 'Unknown';
         case 'MSP':
-            if (Q.MSP_party_leader === "Süleyman Arif") return '<span style="color: #01043d;">Far Right</span> (Islamic Conservatism)';
-            if (Q.MSP_party_leader === "Erbakan") return '<span style="color: #01043d;">Far Right</span> (Social Islamism)';
+            if (Q.MSP_party_leader === "Süleyman Arif") return '<span style="color: #3c3e4e;">Far Right</span> (Islamic Conservatism)';
+            if (Q.MSP_party_leader === "Erbakan") return '<span style="color: #3c3e4e ;">Far Right</span> (Social Islamism)';
             return 'Unknown';
         case 'MHP':
-            if (Q.MHP_party_leader === "Alparslan Türkeş") return '<span style="color: #01043d;">Far Right</span> (Turkic-Islamic Synthesis)';
+            if (Q.MHP_party_leader === "Alparslan Türkeş") return '<span style="color: #3c3e4e ;">Far Right</span> (Turkic-Islamic Synthesis)';
             return 'Unknown';
         default:
             return 'Unknown';
