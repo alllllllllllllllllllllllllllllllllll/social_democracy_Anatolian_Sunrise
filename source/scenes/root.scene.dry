@@ -845,7 +845,7 @@ Q.CHP_no_confidence = 0;
 Q.no_confidence_against_CHP = 0;
 
 // Advisors/Leaders
-Q.n_advisors = 3;
+Q.n_advisors = 2;
 // timer - this decrements by 1 every turn, and is set to 5 whenever an advisor action is used, so that you can only use one advisor action every 5 months.
 // let's just put all of the timers here...
 // most party affairs and government affairs cards are on a timer.
@@ -947,6 +947,7 @@ Q.march_on_berlin_timer = 0;
 Q.inonu_advisor = 1; // İsmet İnönü 
 Q.ecevit_advisor = 1; // Bülent Ecevit 
 Q.satir_advisor = 1; // Kemal Satır 
+Q.selcuk_advisor = 1; // test for 4 advisor (1 party leader + 1 secretary + 2 additional advisors) dont forget to remove this
 Q.wels_advisor = 0; // Otto Wels
 Q.muller_advisor = 0; // Hermann Müller
 Q.muller_dead = 0;
