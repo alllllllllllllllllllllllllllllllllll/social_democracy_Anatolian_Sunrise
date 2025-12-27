@@ -6,6 +6,12 @@ var FOREX_THRESHOLD_LOW = 40;
 var FOREX_THRESHOLD_MID = 60;
 var FOREX_THRESHOLD_HIGH = 80;
 var FOREX_DISABLE_THRESHOLD = 70;
+
+// Recalculate economic values from base + modifier to ensure modifiers are applied
+Q.inflation = (Q.base_inflation || 0) + (Q.inflation_modifier || 0);
+Q.economic_growth = (Q.base_growth || 0) + (Q.growth_modifier || 0);
+Q.unemployed = (Q.base_unemployment || 0) + (Q.unemployment_modifier || 0);
+
 // Calculate Economic Health based on Inflation, Unemployment, and GDP Growth
 
 // Calculate Inflation Score
