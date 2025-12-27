@@ -448,11 +448,11 @@ Cyprus Problem: [? if cyprus_problem == 0: Unresolved ?][? if cyprus_problem == 
 
 [? if forex_pressure_formatted: Foreign Exchange Pressure: [+ forex_pressure_formatted +] ([+ forex_pressure_status +]) ?]
 
-Inflation: [+ Q.inflation +]%
+Inflation: [+ inflation +]%
 
-Unemployment: [+ Q.unemployed +]%
+Unemployment: [+ unemployed +]%
 
-GDP Growth: [+ Q.economic_growth +]%
+GDP Growth: [+ economic_growth +]%
 
 Industrial Production Index (1972=100): [+ industrial_index_formatted +]
 
