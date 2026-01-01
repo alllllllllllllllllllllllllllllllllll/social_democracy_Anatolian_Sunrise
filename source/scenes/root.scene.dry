@@ -537,11 +537,6 @@ Q.forex_pressure_drift = 2;
 Q.forex_industry_penalty = 0.6;
 Q.forex_agriculture_ratio = 3;
 Q.forex_agriculture_penalty = Q.forex_industry_penalty/Q.forex_agriculture_ratio;
-var initialForexFactors = Q.getForexFactors();
-var initialIndustryBase = (typeof Q.base_industry_index === 'number') ? Q.base_industry_index : (Q.historical_industrial_index[Q.year] || 100);
-var initialAgricultureBase = (typeof Q.base_agriculture_index === 'number') ? Q.base_agriculture_index : (Q.historical_agricultural_index[Q.year] || 100);
-Q.industrial_production_index = initialIndustryBase + (Q.industry_modifier || 0) - (Q.forex_pressure * initialForexFactors.industry);
-Q.agricultural_production_index = initialAgricultureBase + (Q.agriculture_modifier || 0) - (Q.forex_pressure * initialForexFactors.agriculture);
 Q.last_economy_year = null;
 
 // economic expansion timer
