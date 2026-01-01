@@ -206,8 +206,10 @@ var runAnnualEconomicSimulation = function() {
     Q.last_economy_year = Q.year;
 };
 
-refreshBaseEconomicValues();
-syncDirectEconomicChangesToModifiers(false);
+if (Q.last_economy_year === null) {
+    refreshBaseEconomicValues();
+    syncDirectEconomicChangesToModifiers(false);
+}
 
 // 1. update dates
 if (Q.month_actions >= 1) {
@@ -241,7 +243,9 @@ if (Q.month_actions >= 1) {
     }
     
     var shouldRunYearlySimulation = (Q.last_economy_year === null) || (Q.year !== Q.last_economy_year);
-    refreshBaseEconomicValues();
+    if (shouldRunYearlySimulation) {
+        refreshBaseEconomicValues();
+    }
     syncDirectEconomicChangesToModifiers(shouldRunYearlySimulation);
     if (shouldRunYearlySimulation) {
         runAnnualEconomicSimulation();
