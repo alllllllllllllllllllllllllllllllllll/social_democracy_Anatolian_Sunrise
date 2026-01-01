@@ -189,8 +189,6 @@ var runAnnualEconomicSimulation = function() {
     Q.last_economy_year = Q.year;
 };
 
-syncDirectEconomicChangesToModifiers(Q.last_economy_year === null);
-
 // 1. update dates
 if (Q.month_actions >= 1) {
     Q.time += 1;
