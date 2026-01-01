@@ -117,23 +117,12 @@ if (Q.dissent < 0) {
 }
 
 // Utility helpers for economic model
-var clamp = function(val, min, max) { return Math.max(min, Math.min(max, val)); };
-var FOREX_DRIFT_PER_YEAR = Q.forex_pressure_drift || 2;
 var forexFactors = Q.getForexFactors ? Q.getForexFactors() : {industry: 0.6, agriculture: 0.2, ratio: 3};
 var FOREX_INDUSTRY_FACTOR = forexFactors.industry;
 var AGRICULTURE_TO_INDUSTRY_RATIO = forexFactors.ratio;
 var FOREX_AGRICULTURE_FACTOR = forexFactors.agriculture;
-var INFLATION_DECAY_NEG = 0.5;
-var INFLATION_DECAY_POS = 0.9;
-var GROWTH_DECAY_POS = 0.8;
-var GROWTH_DECAY_NEG = 0.95;
-var UNEMPLOYMENT_DECAY_NEG = 0.7;
-var UNEMPLOYMENT_DECAY_POS = 0.9;
 var preferNumber = function(candidate, fallback) {
     return (typeof candidate === 'number') ? candidate : fallback;
-};
-var applyDecay = function(value, negativeRate, positiveRate) {
-    return value < 0 ? value * negativeRate : value * positiveRate;
 };
 var calculateCurrentEconomy = function() {
     Q.inflation = (Q.base_inflation || 0) + (Q.inflation_modifier || 0);
@@ -179,8 +168,7 @@ var syncDirectEconomicChangesToModifiers = function(skipYearChange) {
 };
 
 var recalcProductionAndHeadlineValues = function() {
-    var forexPressure = clamp(Q.forex_pressure || 0, 0, 100);
-    Q.forex_pressure = forexPressure;
+    var forexPressure = Q.forex_pressure || 0;
     var currentYear = Q.year;
     var baseIndustry = (typeof Q.base_industry_index === 'number') ? Q.base_industry_index : (Q.historical_industrial_index[currentYear] !== undefined ? Q.historical_industrial_index[currentYear] : 100);
     var baseAgriculture = (typeof Q.base_agriculture_index === 'number') ? Q.base_agriculture_index : (Q.historical_agricultural_index[currentYear] !== undefined ? Q.historical_agricultural_index[currentYear] : 100);
@@ -193,21 +181,15 @@ var recalcProductionAndHeadlineValues = function() {
 
 var runAnnualEconomicSimulation = function() {
     // Step 1: automatic forex pressure drift
-    var forexAdjustment = FOREX_DRIFT_PER_YEAR - (Q.forex_pressure_delayed_reduction || 0);
-    Q.forex_pressure = clamp((Q.forex_pressure || 0) + forexAdjustment, 0, 100);
+    var forexAdjustment = (Q.forex_pressure_drift || 0) - (Q.forex_pressure_delayed_reduction || 0);
+    Q.forex_pressure = (Q.forex_pressure || 0) + forexAdjustment;
     Q.forex_pressure_delayed_reduction = 0;
-    // Step 2: card effects already stored in modifiers
-    // Step 3: structural resistance with asymmetric decay
-    Q.inflation_modifier = applyDecay(Q.inflation_modifier, INFLATION_DECAY_NEG, INFLATION_DECAY_POS);
-    Q.growth_modifier = applyDecay(Q.growth_modifier, GROWTH_DECAY_NEG, GROWTH_DECAY_POS);
-    Q.unemployment_modifier = applyDecay(Q.unemployment_modifier, UNEMPLOYMENT_DECAY_NEG, UNEMPLOYMENT_DECAY_POS);
-    // Step 4/5: recompute production indices and headline figures
+    // Step 2: recompute production indices and headline figures
     recalcProductionAndHeadlineValues();
     Q.last_economy_year = Q.year;
 };
 
-refreshBaseEconomicValues();
-syncDirectEconomicChangesToModifiers(false);
+syncDirectEconomicChangesToModifiers(Q.last_economy_year === null);
 
 // 1. update dates
 if (Q.month_actions >= 1) {
@@ -241,7 +223,9 @@ if (Q.month_actions >= 1) {
     }
     
     var shouldRunYearlySimulation = (Q.last_economy_year === null) || (Q.year !== Q.last_economy_year);
-    refreshBaseEconomicValues();
+    if (shouldRunYearlySimulation) {
+        refreshBaseEconomicValues();
+    }
     syncDirectEconomicChangesToModifiers(shouldRunYearlySimulation);
     if (shouldRunYearlySimulation) {
         runAnnualEconomicSimulation();
