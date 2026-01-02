@@ -36,8 +36,8 @@ We try to remove the most obviously biased and corrupt jurists, while leaving mo
 @amnesty
 subtitle: This has been one of our promises for the election[? if MSP_in_government == 1 : and one of the police agreements we had with MSP?].
 choose-if: Amnesty == 0
-unavailable_subtitle: We have already passed a general amnesty.
-on-arrival: grey_wolves_strength += 10; raiders_strength += 5; workers_chp += 2; state_employees_chp += 2; rural_chp += 2; kurds_chp += 2; petty_bourgeoisie += 2; TIP_relation += 5; Amnesty += 1; [? if MSP_in_government == 1 : coalition_dissent -= 1?]
+unavailable-subtitle: We have already passed a general amnesty.
+on-arrival: grey_wolves_strength += 10; raiders_strength += 5; workers_chp += 2; state_employees_chp += 2; rural_chp += 2; kurds_chp += 2; petty_bourgeoisie += 2; TIP_relation += 5; Amnesty += 1; coalition_dissent -= 1 if MSP_in_government == 1
 
 We have kept our campaign promise and released a huge amount of the prisoners held in our prisons. Despite our decent intentions, we have observed a significant increase in street fightings and political violence after the amnesty which needs to be managed.
 
