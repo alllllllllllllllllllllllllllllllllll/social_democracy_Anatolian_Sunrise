@@ -8,9 +8,7 @@ card-image: img/portraits/NecdetUgur.jpg
 
 = Internal Security
 
-The Interior Ministry controls internal security throughout the German Republic. While most police work is delegated to the states, the national security agency can perform special investigations.
-
-As with the state police units and the Reichswehr, the internal police tends to be reactionary, and has serious issues with loyalty to the elected government of the Republic.
+The Interior Ministry controls internal security throughout the Turkish Republic. 
 
 - @loyalty: Improve the loyalty of the Interior Ministry forces.
 - @recruit: Recruit more police forces.
@@ -19,7 +17,8 @@ As with the state police units and the Reichswehr, the internal police tends to 
 - @investigate_far_right: Investigate illegal activity among the far right.
 - @domestic_enemies: Investigate or ban our domestic enemies.
 - @deport_hitler
-- @easterncrime: Strike against the drug smugglers and organized crime along the Southeastern Border
+- @easterncrime: Strike against the drug smugglers and organized crime along the Southeastern Border.
+- @ohal: Declare OHAL(state of emergency) to put an end to the street fighting.
 - @root: Take no action for now.
 - @easy_discard
 - @cancel_advisor_action
@@ -40,7 +39,7 @@ The new police regiments strengthen the state's hold over the streets, though we
 subtitle: -1 budget
 unavailable-subtitle: Not enough budget.
 choose-if: budget >= 1
-on-arrival: police_militancy += 0.1
+on-arrival: police_militancy += 0.1, budget -= 1
 
 The police forces have been supplemented with better weapons and trainings, improving their efficiency.
 
@@ -76,7 +75,7 @@ on-arrival: investigate_far_right += 1; sa_strength -= 20; workers_MHP -= 3; new
 Unfortunately, our investigations have failed to turn up anything. Rumors are that the targets of our investigation were tipped off by infiltrators within the police.
 
 @easterncrime
-choose-if: police_loyalty >= 0.50 and police_force >= 55 and eastern_crime >= 0
+choose-if: police_loyalty >= 0.50 and police_force >= 55 and eastern_crime > 0
 subtitle: The economic problems, largely due to the huge rates of crime and smuggling, in the East constitute a significant factor in the rise of Kurdish Nationalism.
 unavailable-subtitle: [? if police_loyalty <= 0.49 : Our police forces are too disorganized and unloyal for such operations. ?][? if police_force <= 54 : Our police forces aren't strong enough to enforce the law against organized crime in the East! ?][? if eastern_crime < 0 : Large scale crime has already been exterminated in the East. ?]
 on-arrival: police_militancy -= 0.08; eastern_crime -= 1; kurds_chp += 3
@@ -86,3 +85,11 @@ on-arrival: police_militancy -= 0.08; eastern_crime -= 1; kurds_chp += 3
 [? if eastern_crime = 2 : The crime rates have been decreased significantly thanks to the determination of the security forces. ?]
 [? if eastern_crime = 1 : The region has largely been neutralized, with only isolated incidents remaining as remnants of past instability. ?]
 [? if eastern_crime = 0 : The region has been completely neutralized; the region at last enjoy lasting order and stability. Many are grateful at our party for ending the lawlessness which has persisted for centuries. ?]
+
+@ohal
+choose-if: OHAL = 0 and state_force_percent <= 49 or year >= 1978 
+subtitle: Though a drastic move and something we are ideologically opposed to, we may be forced to declare a state of emergency and and restrict the civil rights in order to bring peace to the streets.
+unavailable-subtitle: The situation in the streets still can be managed through conventional means.
+on-arrival: grey_wolves_militancy -= 0.1; grey_wolves_strength -= 8; dev_yol_militancy -= 0.1; dev_yol_strength -= 8; raiders_strength -= 8; workers_chp -= 5; rural_chp -= 3; state_employees_chp -= 3; petty_bourgeoisie_chp -= 3; kurds_chp -= 3; alevis_chp -= 3; OHAL += 1
+
+Our voters are deeply irritated by our decision to initiate the militarization of the streets when we were the party promising to stop it. Ecevit's persona as the uncorrupted fighter for democracy breaks down as we resort to pragmatic actions we normally despise. However, hopefully this will be worth it for the motherland.
