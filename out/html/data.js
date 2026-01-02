@@ -24,7 +24,7 @@ const tooltipList = [{
 },                     
  {
     searchString: "CGP",
-    explanationText: "<img src=img/CGP.jpg> Republican Trust Party"
+    explanationText: "<img src=img/cgplogo.png> Republican Trust Party"
 },
 {
     searchString: "MSP",
