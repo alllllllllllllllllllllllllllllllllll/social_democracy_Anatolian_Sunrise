@@ -1,6 +1,6 @@
 title: Right Kemalists are breaking off!
 subtitle: The battle for CHP reaches its conclusion.
-view-if: year = 1972 and month = 7 and week = 2 and right_kemalists_split = 1
+view-if: year = 1972 and month = 7 and week = 2 and right_kemalist_split = 1
 max-visits: 1
 tags: event
 new-page: true
