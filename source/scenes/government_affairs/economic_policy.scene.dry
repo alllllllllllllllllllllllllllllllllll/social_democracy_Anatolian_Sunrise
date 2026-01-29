@@ -102,7 +102,7 @@ subtitle: Long term solutions targetted at **solving** the structural defects of
 @standby
 choose-if: Tiger == 0 and west_relation >= 30 and us_relation >= 30
 subtitle: **After this we will not be able to intervene in the economy anymore!** Significant public and union backlash; Budget ↑; Exchange Pressure(short term) ↓↓↓; Exchange Pressure(long term) ↓↓; Inflation ↓↓; Growth ↓
-unavailable-subtitle: [? Tiger > 0 : This course of action can not be taken at the same time as the transformation into an export economy. ?][? west_relation < 30 or us_relation < 30 : Our relations with the west are too poor to the point the IMF refuses getting into talks with our government. ?]
+unavailable-subtitle: [? if Tiger > 0 : This course of action can not be taken at the same time as the transformation into an export economy. ?][? if west_relation < 30 or us_relation < 30 : Our relations with the west are too poor to the point the IMF refuses getting into talks with our government. ?]
 on-arrival: budget += 1; imf_agreement = 1; forex_pressure -= 15; forex_pressure_drift -= 1; inflation_modifier -= 4; growth_modifier -= 1; workers_CHP -= 5; rural_CHP -= 3; state_employees_CHP -= 3; petty_bourgeoisie_CHP -= 3; alevis_CHP -= 3; disk_relation -= 10
 
 We are forced to accept austerity measures and abandon state interventions to be bailed out by the IMF. Liberalizations are costly for us politically and betray each belief of ours. What days are we living in.. 

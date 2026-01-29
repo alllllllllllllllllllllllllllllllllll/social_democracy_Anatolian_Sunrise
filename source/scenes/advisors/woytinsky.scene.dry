@@ -30,3 +30,11 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; wtb_support += 2; center_dissent += 10; labor_strength += 1
 
 The WTB-plan, named for its primary supporters Woytinsky, Tarnow, and Baade, has been adopted as the unions' plan for getting us out of the depression. Woytinsky canvasses in favor of this policy through the CHP and the unions.
+
+@carry_out_policy
+title: Carry out the WTB-plan
+choose-if: advisor_action_timer <= 0 and wtb_adopted == 1 and wtb_implemented == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if wtb_adopted == 0 : We have not adopted the WTB-Plan. ?][? if wtb_implemented > 0 : We are already implementing the WTB-Plan. ?]
+on-arrival: advisor_action_timer = 6; wtb_implemented = 1; resources -= 3; labor_strength += 2; growth_modifier += 1; unemployment_modifier -= 1
+
+With the party unified behind Woytinsky's stimulus program, we begin the practical work of rolling it out across the economy.
