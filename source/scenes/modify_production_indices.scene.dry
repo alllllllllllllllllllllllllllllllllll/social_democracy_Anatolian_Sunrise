@@ -33,15 +33,11 @@ if (Q.agricultural_consumption_change && Q.agricultural_consumption_change !== 0
     Q.agricultural_consumption_change = 0;
 }
 
-// Recalculate production indices with forex pressure sensitivity
-var forexFactors = Q.getForexFactors ? Q.getForexFactors() : {industry: 0.6, agriculture: 0.2};
-var forexFactor = forexFactors.industry;
-var agricultureFactor = forexFactors.agriculture;
+// Recalculate production indices without forex pressure impact
 var baseIndustry = (typeof Q.base_industry_index === 'number') ? Q.base_industry_index : (Q.historical_industrial_index[Q.year] !== undefined ? Q.historical_industrial_index[Q.year] : 100);
 var baseAgriculture = (typeof Q.base_agriculture_index === 'number') ? Q.base_agriculture_index : (Q.historical_agricultural_index[Q.year] !== undefined ? Q.historical_agricultural_index[Q.year] : 100);
-var forexPressure = Q.forex_pressure || 0;
-Q.industrial_production_index = baseIndustry + (Q.industry_modifier || 0) - forexFactor * forexPressure;
-Q.agricultural_production_index = baseAgriculture + (Q.agriculture_modifier || 0) - agricultureFactor * forexPressure;
+Q.industrial_production_index = baseIndustry + (Q.industry_modifier || 0);
+Q.agricultural_production_index = baseAgriculture + (Q.agriculture_modifier || 0);
 if (Q.industrial_production_index < 0) { Q.industrial_production_index = 0; }
 if (Q.agricultural_production_index < 0) { Q.agricultural_production_index = 0; }
 
