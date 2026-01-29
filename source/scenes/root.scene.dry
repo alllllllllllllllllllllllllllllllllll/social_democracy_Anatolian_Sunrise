@@ -934,6 +934,9 @@ Q.homosexual_rights_timer = 0;
 Q.municipality_timer = 0;
 Q.economic_democracy_timer = 0;
 Q.coalition_affairs_timer = 0;
+// Economic policy state
+Q.Tiger = 0;
+Q.imf_agreement = 0;
 // event timers
 Q.emergency_cuts_timer = 0;
 Q.unemployment_insurance_timer = 0;
