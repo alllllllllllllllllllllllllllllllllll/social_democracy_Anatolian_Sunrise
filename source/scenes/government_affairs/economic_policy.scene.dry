@@ -48,11 +48,39 @@ We once again reach out to the global market for hot cash to fuel our economy. W
 
 @publicworks
 choose-if: budget >= 1
-subtitle: -1 budget, populist expansion. Budget ↓ Inflation ↑ Unemployment ↓ Exchange Pressure ↑ Growth ↑↑
+subtitle: -1 Budget, populist expansion. Budget ↓ Inflation ↑ Unemployment ↓ Exchange Pressure ↑ Growth ↑↑
 on-arrival: budget -= 1; inflation_modifier += 2; growth_modifier += 1.5; unemployment_modifier -= 1; forex_pressure += 2
 
 We intervene in the economy to foster growth by creating public work programs. 
 
 @mid
+subtitle: Middle term solutions meant to ease the fundamental issues of the economy
+
+- @importban: Implement restrictions on the import of commercial goods to decrease the flow of foreign currency outwards.
+- @export: Incentivize Turkish companies through subsidies to sell their goods abroad and bring in fresh cash.
+- @stateplanning: Reform the inefficient state corporations.
+
+@importban
+subtitle: Slight popularity decrease; Western relations slightly decrease; forex_pressure ↓↓; Industrial Production Index ↑; Agricultural Production Index ↑
+on-arrival: state_employees_CHP -= 2; rural_CHP -= 1; alevis_CHP -= 2; kurds_CHP -= 2; workers_CHP -= 2; capitalists_CHP += 2; west_relation -= 4; us_relation -= 4; forex_pressure -= 4; industrial_production_index_modifier += 3; agricultural_production_index_modifier += 3; economicaction += 1
+max-visits: 3
+
+Even though in the short term our citizens will suffer under higher prices, creating a surplus of foreign exchange is necessary for any real of the economy. Hopefully they will understand..
+
+@export
+choose-if: budget >= 2
+subtitle: -2 Budget; Budget ↓↓; Inflation ↑; Exchange Pressure ↓↓; Growth ↑↑ 
+on-arrival: forex_pressure -= 4; budget -= 2; inflation_modifier += 1.5; growth_modifier += 1.5; capitalists_CHP += 2; economicaction += 1
+
+The Turkish capital has long lacked any sort of competitive capability against foreign companies. Through targetted subsidies for companies choosing to sell their goods abroad and bring in foreign currency, we can perhaps increase their competitiveness on the world stage and build an industry capable of surviving harsh crises. Though the subsidies are a burden on the budget, without making the Turkish industry competitive a permanent economic solution can not be achieved. 
+
+@stateplanning
+subtitle: Union relations slight decrease; Exchange Pressure ↓; Industrial Production ↑; Unemployment ↑
+on-arrival: forex_pressure -= 2; disk_relation -= 4; industrial_production_index_modifier += 3; unemployment_modifier += 0.5; economicaction += 1
+
+Turkey has a mixed market with huge state presence. However as these corporations tend to be heavily corrupt and misfunctioning, reforms getting rid of the inefficient employees and restructuring the outdated business models are necessary to uphold the economy as a whole.
 
 @long
+choose-if: economicaction >= 3
+unavailable-subtitle: We have to take actions regarding the immediate problems of the economy before moving on to structural reforms!
+subtitle: Long term solutions targetted at **solving** the structural defects of the economy.
