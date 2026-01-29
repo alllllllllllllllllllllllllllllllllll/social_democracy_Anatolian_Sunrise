@@ -60,7 +60,11 @@ const colourList = [{
 {
         word: "TKP/ML",
         style: "color: #990000; font-weight: bold;"
-},                   
+},
+{
+        word: "THKO",
+        style: "color: #c4772e; font-weight: bold;"
+},                  
 {
         word: "DP",
         style: "color: #4a4d04; font-weight: bold;"
