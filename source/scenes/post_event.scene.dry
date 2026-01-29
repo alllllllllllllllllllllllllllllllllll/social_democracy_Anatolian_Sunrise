@@ -199,12 +199,11 @@ var recalcProductionAndHeadlineValues = function() {
     calculateCurrentEconomy();
 };
 
-var runAnnualEconomicSimulation = function() {
+var runMonthlyEconomicSimulation = function() {
     // This simulation now runs monthly; rates are scaled to preserve annual totals.
     // Step 1: automatic forex pressure drift
     var forexAdjustment = FOREX_DRIFT_PER_MONTH - ((Q.forex_pressure_delayed_reduction || 0) / MONTHS_PER_YEAR);
     Q.forex_pressure = clamp((Q.forex_pressure || 0) + forexAdjustment, 0, 100);
-    Q.forex_pressure_delayed_reduction = 0;
     // Step 2: card effects already stored in modifiers
     // Step 3: structural resistance with asymmetric decay
     Q.inflation_modifier = applyDecay(Q.inflation_modifier, INFLATION_DECAY_NEG_MONTHLY, INFLATION_DECAY_POS_MONTHLY);
@@ -212,7 +211,6 @@ var runAnnualEconomicSimulation = function() {
     Q.unemployment_modifier = applyDecay(Q.unemployment_modifier, UNEMPLOYMENT_DECAY_NEG_MONTHLY, UNEMPLOYMENT_DECAY_POS_MONTHLY);
     // Step 4/5: recompute production indices and headline figures
     recalcProductionAndHeadlineValues();
-    Q.last_economy_year = Q.year;
 };
 
 if (Q.last_economy_year === null) {
@@ -251,10 +249,14 @@ if (Q.month_actions >= 1) {
         }
     }
     
-    // Run monthly economic simulation to keep values current each month
-    refreshBaseEconomicValues();
-    syncDirectEconomicChangesToModifiers(false);
-    runAnnualEconomicSimulation();
+    // Run monthly economic simulation to keep values current once per month (when the month flips)
+    if (Q.week == 1) {
+        refreshBaseEconomicValues();
+        syncDirectEconomicChangesToModifiers(false);
+        runMonthlyEconomicSimulation();
+    } else {
+        recalcProductionAndHeadlineValues();
+    }
     
     // Cyprus Problem effects
     // Check if Cyprus status has changed and apply immediate effects
