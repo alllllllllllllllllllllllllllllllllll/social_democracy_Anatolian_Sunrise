@@ -39,7 +39,7 @@ The new police regiments strengthen the state's hold over the streets, though we
 subtitle: -1 budget
 unavailable-subtitle: Not enough budget.
 choose-if: budget >= 1
- on-arrival: police_militancy += 0.1; budget -= 1
+on-arrival: police_militancy += 0.1; budget -= 1
 
 The police forces have been supplemented with better weapons and trainings, improving their efficiency.
 
