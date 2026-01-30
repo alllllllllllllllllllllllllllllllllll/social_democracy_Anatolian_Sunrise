@@ -807,8 +807,21 @@ if (typeof window !== "undefined" && window.generateBar) {
 // Recalculate paramilitary force effectiveness (strength × militancy) every turn
 Q.far_left_force = 0;
 Q.far_right_force = 0;
+Q.separatist_force = 0;
 Q.state_force = 0;
 Q.democracy_force = 0;
+
+// Separatist forces calculation (strength × militancy)
+if (Q.kurdish_radicalism >= 0.69) {
+    Q.pkk_formed = 1;
+    Q.pkk_strength = Q.pkk_base_strength * (2 * Q.kurdish_political_consciousness);
+    Q.pkk_force = Q.pkk_strength * Q.pkk_militancy;
+    Q.separatist_force += Q.pkk_force;
+} else {
+    Q.pkk_formed = 0;
+    Q.pkk_strength = 0;
+    Q.pkk_force = 0;
+}
 
 // Far left forces calculation (strength × militancy)
 if (!Q.thkpc_destroyed) {
@@ -849,18 +862,22 @@ Q.state_force = Q.police_force + Q.interior_police_force + Q.prussian_police_for
 Q.democracy_force = Q.state_force;
 
 // Total forces for percentage calculation
-Q.total_forces = Q.far_left_force + Q.far_right_force + Q.state_force;
+Q.total_forces = Q.far_left_force + Q.far_right_force + Q.separatist_force + Q.state_force;
 
 // Convert to percentages
 if (Q.total_forces > 0) {
     Q.far_left_force_percent = Math.round((Q.far_left_force / Q.total_forces) * 100);
     Q.far_right_force_percent = Math.round((Q.far_right_force / Q.total_forces) * 100);
+    Q.separatist_force_percent = Math.round((Q.separatist_force / Q.total_forces) * 100);
     Q.state_force_percent = Math.round((Q.state_force / Q.total_forces) * 100);
     Q.democracy_force_percent = Q.state_force_percent;
     
     // Individual organization force percentages
     if (!Q.thkpc_destroyed) {
         Q.thkpc_force_percent = Math.round((Q.thkpc_force / Q.total_forces) * 100);
+    }
+    if (Q.pkk_formed) {
+        Q.pkk_force_percent = Math.round((Q.pkk_force / Q.total_forces) * 100);
     }
     if (Q.devyol_formed) {
         Q.devyol_force_percent = Math.round((Q.devyol_force / Q.total_forces) * 100);
@@ -882,6 +899,7 @@ if (Q.total_forces > 0) {
 // Determine street control levels
 Q.far_right_paramilitary = Q.far_right_force_percent > Q.state_force_percent;
 Q.far_left_paramilitary = Q.far_left_force_percent > Q.state_force_percent;
+Q.separatist_paramilitary = Q.separatist_force_percent > Q.state_force_percent;
 Q.democracy_paramilitary = Q.democracy_force_percent >= Math.max(Q.far_left_force_percent, Q.far_right_force_percent);
 Q.state_paramilitary = Q.state_force_percent >= Math.max(Q.far_left_force_percent, Q.far_right_force_percent);
 
