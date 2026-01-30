@@ -352,7 +352,7 @@ Police Militarization: [+ police_militancy : militancy +]
 
 Police Loyalty: [+ police_loyalty : loyalty +]
 
-[? if pkk formed: "**Separatists**" ?]
+[? if pkk_formed: "**Separatists**" ?]
 
 [? if pkk_formed: {!<span class="tooltip-text" title="Kurdistan Workers' Party (PKK) is a separatist militant organization.">PKK</span>!} Strength: [+ pkk_strength_2 +] thousand ?]
 
