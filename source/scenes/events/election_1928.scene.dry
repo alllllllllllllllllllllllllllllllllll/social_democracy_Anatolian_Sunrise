@@ -506,7 +506,7 @@ achievement: majority_party
 
 Finally, the CHP can govern alone! Our long campaign of electioneering has paid off. We do not need to worry about coalition government; anything is possible. 
 
-Who should be prime minister?
+Who should be the prime minister?
 
 - @ecevit_chancellor: It is Ecevit's time to shine. Türk halkına layık ol Karaoğlan!
 
@@ -531,6 +531,8 @@ go-to: grand_coalition_CHP_lead if (n_elections <= 1 and largest_party == "CHP")
 title: AP will lead this government.
 subtitle: President [+ president +] has asked Süleyman Demirel and the AP to lead the coalition as the larger party, with us as junior partners.
 on-arrival: CHP_in_government = 1; z_in_government = 1; chancellor = "Süleyman Demirel"; chancellor_party = "AP"; in_grand_coalition = 1
+
+President [+ president +] has asked Süleyman Demirel and the AP to lead the coalition as the larger party, with us as junior partners.
 
 - @ministries: First, we must select our ministries.
 
