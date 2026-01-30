@@ -459,3 +459,5 @@ Industrial Production Index (1972=100): [+ industrial_index_formatted +]
 Agricultural Production Index (1972=100): [+ agricultural_index_formatted +]
 
 Agricultural Product Prices: [+ agricultural_prices_formatted +] ([+ agricultural_price_status +])
+
+!<span style="color: #7A3C00;">The economic values are updated monthly.</span>!} ?]
