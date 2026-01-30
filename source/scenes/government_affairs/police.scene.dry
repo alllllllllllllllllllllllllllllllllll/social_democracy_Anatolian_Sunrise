@@ -15,6 +15,7 @@ The Interior Ministry controls internal security throughout the Turkish Republic
 - @weaponry: Supplement the weaponry and the strength of the police forces.
 - @investigate_corruption: Investigate corruption by big businesses.
 - @investigate_far_right: Investigate illegal activity among the far right.
+- @investigate_separatists: Investigate illegal activity among separatists.
 - @domestic_enemies: Investigate or ban our domestic enemies.
 - @deport_hitler
 - @easterncrime: Strike against the drug smugglers and organized crime along the Southeastern Border.
@@ -73,6 +74,18 @@ on-arrival: investigate_far_right += 1; sa_strength -= 20; workers_MHP -= 3; new
 @investigate_far_right_failure
 
 Unfortunately, our investigations have failed to turn up anything. Rumors are that the targets of our investigation were tipped off by infiltrators within the police.
+
+@investigate_separatists
+go-to: investigate_separatists_success if interior_police_loyalty >= 0.55 and pkk_formed; investigate_separatists_failure if interior_police_loyalty < 0.55 or not pkk_formed
+
+@investigate_separatists_success
+on-arrival: pkk_strength *= 0.7; pkk_militancy -= 0.05
+
+We have struck against PKK cells and confiscated their weapon caches, disrupting their operations.
+
+@investigate_separatists_failure
+
+Our attempts to find separatist militants have failed, and our informants report that leaks may have warned them.
 
 @easterncrime
 choose-if: police_loyalty >= 0.50 and police_force >= 55 and eastern_crime > 0

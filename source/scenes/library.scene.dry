@@ -603,6 +603,10 @@ TİT Militarization: [+ tit_militancy : militancy +]
 
 [? if raiders_formed: Raiders Militarization: [+ raiders_militancy : militancy +] ?]
 
+[? if pkk_formed: {!<span class="tooltip-text" title="Kurdistan Workers' Party (PKK) is a separatist militant organization.">PKK</span>!} Strength: [+ pkk_strength_2 +] thousand ?]
+
+[? if pkk_formed: PKK Militarization: [+ pkk_militancy : militancy +] ?]
+
 **Official military/paramilitary groups:**
 
 {!<span class="tooltip-text" title="Police forces maintain order and state security.">Police Forces</span>!} Strength: [+ police_strength_2 +] thousand
