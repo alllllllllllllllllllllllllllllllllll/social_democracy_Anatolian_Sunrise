@@ -11,6 +11,10 @@ const tooltipList = [{
     explanationText: "<img src=img/TİP_1970'ler.png> Workers Party of Turkey"
 },
 {
+    searchString: "TİP",
+    explanationText: "<img src=img/TİP_1970'ler.png> Workers Party of Turkey"
+},                    
+{
     searchString: "DP",
     explanationText: "<img src=img/DP.png> Democratic Party"
 },
@@ -53,6 +57,10 @@ const colourList = [{
         word: "TIP",
         style: "color: #8B0000; font-weight: bold;"
 },
+{
+        word: "TİP",
+        style: "color: #8B0000; font-weight: bold;"
+},                    
 {
         word: "THKP-C",
         style: "color: #f6D248; font-weight: bold;"
