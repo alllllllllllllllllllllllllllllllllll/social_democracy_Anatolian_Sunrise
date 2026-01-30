@@ -530,8 +530,8 @@ go-to: grand_coalition_CHP_lead if (n_elections <= 1 and largest_party == "CHP")
 @grand_coalition_z_lead
 
 title: AP will lead this government.
-subtitle: President [+ president +] has asked [+ z_leader +] and the AP to lead the coalition as the larger party, with us as junior partners.
-on-arrival: CHP_in_government = 1; z_in_government = 1; chancellor = z_leader; chancellor_party = "AP"; in_grand_coalition = 1
+subtitle: President [+ president +] has asked Süleyman Demirel and the AP to lead the coalition as the larger party, with us as junior partners.
+on-arrival: CHP_in_government = 1; z_in_government = 1; chancellor = Süleyman Demirel; chancellor_party = "AP"; in_grand_coalition = 1
 go-to: ministries
 
 
