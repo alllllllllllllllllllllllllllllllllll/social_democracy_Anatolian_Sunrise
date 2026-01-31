@@ -1026,18 +1026,22 @@ Q.eyuboglu_advisor = 0; // Sabahattin Eyüboğlu (Orthodox Kemalist)
 
 // Function to calculate municipality control level dynamically
 function getMunicipalityControlLevel() {
-    var controlled = Q.municipalities_controlled;
-    if (controlled <= 13) {
-        return 0; // Terrible
-    } else if (controlled <= 26) {
-        return 1; // Poor
-    } else if (controlled <= 40) {
-        return 2; // Divided
-    } else if (controlled <= 50) {
-        return 3; // Satisfactory
-    } else {
-        return 4; // Overwhelming
+    var controlled = Q.municipalities_controlled || 0;
+    var total = Q.total_municipalities || Q.local_total_seats || 67;
+    if (total <= 0) {
+        total = 67;
     }
+    var ratio = controlled / total;
+    if (ratio <= (13 / 67)) {
+        return 0; // Terrible
+    } else if (ratio <= (26 / 67)) {
+        return 1; // Poor
+    } else if (ratio <= (40 / 67)) {
+        return 2; // Divided
+    } else if (ratio <= (50 / 67)) {
+        return 3; // Satisfactory
+    }
+    return 4; // Overwhelming
 }
 
 // Set initial municipality control level
