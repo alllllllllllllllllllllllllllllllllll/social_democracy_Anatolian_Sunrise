@@ -405,7 +405,7 @@ After lengthy negotiations, it appears as the overwhelmingly larger party, we ca
 - @coalition_menu: Try a different governing arrangement.
 
 @ministriesb
-on-arrival: CHP_in_government = 1; MSP_in_government = 1; chancellor "Bülent Ecevit"; chancellor_party = "CHP"
+on-arrival: CHP_in_government = 1; MSP_in_government = 1; chancellor = "Bülent Ecevit"; chancellor_party = "CHP"
 
 We have managed to form a seemingly improbable coalition, lets hope it will be beneficial for the nation.
 
