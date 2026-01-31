@@ -401,11 +401,15 @@ view-if: unholy_coalition >= 226
 
 After lengthy negotiations, it appears as the overwhelmingly larger party, we can form a CHP-MSP government led by Ecevit. We should do our best to not lose the reins to the Islamists.
 
-- @ministriesb: First, we must select our ministries.
+- @ministriesb: Go forward with the coalition proposal.
 - @coalition_menu: Try a different governing arrangement.
 
 @ministriesb
-on-arrival: CHP_in_government = 1; MSP_in_government = 1
+on-arrival: CHP_in_government = 1; MSP_in_government = 1; chancellor "Bülent Ecevit"; chancellor_party = "CHP"
+
+We have managed to form a seemingly improbable coalition, lets hope it will be beneficial for the nation.
+
+- @ministries: First, we must select our ministries
 
 @right_coalition
 title: Refuse to form a government, so that a right-wing coalition may be formed.
