@@ -121,7 +121,7 @@ The situation is dire for the average Turk; we had promised them economic stabil
 view-if: Tiger == 1
 choose-if: Standby == 0
 unavailable-subtitle: This course of action can not be taken at the same time as committing to the privatization demands of the IMF.
-subtitle: This will hike up the inflation! Inflation ↑↑↑; Exchange Pressure(short term) ↓↓; Exchange Pressure(long term) ↓↓↓; Growth ↑↑
+subtitle: Continuing the export orientation. This will hike up the inflation! Inflation ↑↑↑; Exchange Pressure(short term) ↓↓; Exchange Pressure(long term) ↓↓↓; Growth ↑↑
 on-arrival: Tiger += 1; forex_pressure -= 8; inflation_modifier += 17.5; disk_relation -= 15; forex_pressure_drift -= 3; growth_modifier += 2; state_employees_CHP -= 3; rural_CHP -= 3; kurds_CHP -= 3; workers_CHP -= 3; alevis_CHP -= 3; petty_bourgeoisie_CHP -= 3
 
 Finally we are seeing the Turkish companies abandon their inactive stance and move to the global markets. Our citizens have suffered real much, but the light at the end of the tunnel is now beginning to shine through. Lets hope our citizens will forgive us for prescribing the painful medicine.
