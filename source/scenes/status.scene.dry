@@ -455,33 +455,67 @@ Support for the Republic: [+ pro_republic_disp +]%
 
 @interior_affairs
 on-arrival: {!
-Q.police_strength_display = (Q.police_strength || 0).toFixed(1);
-Q.police_loyalty_percent = ((Q.police_loyalty || 0) * 100).toFixed(1);
-Q.police_militancy_display = (Q.police_militancy || 0).toFixed(1);
-if ((Q.municipality_control_level || 0) == 0) {
-    Q.municipality_control_label = "Terrible";
-} else if ((Q.municipality_control_level || 0) == 1) {
-    Q.municipality_control_label = "Poor";
-} else if ((Q.municipality_control_level || 0) == 2) {
-    Q.municipality_control_label = "Divided";
-} else if ((Q.municipality_control_level || 0) == 3) {
-    Q.municipality_control_label = "Satisfactory";
-} else if ((Q.municipality_control_level || 0) == 4) {
-    Q.municipality_control_label = "Overwhelming";
-}
+Q.land_reform_status = Q.land_reform_status || "Land Reform";
+Q.natural_resources_policy = Q.natural_resources_policy || "Private";
+Q.workplace_democracy_status = Q.workplace_democracy_status || "Absent";
+Q.peoples_sector_status = Q.peoples_sector_status || "Non-existant";
+Q.workplace_safety_status = Q.workplace_safety_status || "Dangerous";
+Q.minimum_wage_status = Q.minimum_wage_status || "Low";
+Q.judicial_reform_status = Q.judicial_reform_status || "Reactionary";
+Q.counter_guerilla_status = Q.counter_guerilla_status || "Full strength";
+Q.education_funding_status = Q.education_funding_status || "Decrepit";
+Q.education_curriculum_status = Q.education_curriculum_status || "Rote";
+Q.university_freedom_status = Q.university_freedom_status || "YÖK controlled";
+Q.university_prestige_status = Q.university_prestige_status || "Medium";
+Q.womens_legal_status = Q.womens_legal_status || "Full equality";
+Q.womens_workplace_status = Q.womens_workplace_status || "Discriminated";
+Q.household_violence_status = Q.household_violence_status || "Widespread";
+Q.language_rights_status = Q.language_rights_status || "Restricted";
+Q.ddkd_status = Q.ddkd_formed ? "Active" : "Banned";
+Q.counter_guerilla_discovered = Q.counter_guerilla_discovered || 0;
+Q.eastern_crime_display = (Q.eastern_crime !== undefined && Q.eastern_crime !== null) ? Q.eastern_crime : "Unknown";
 !}
 
 = Interior Affairs
 
-Internal dissent: [+ dissent_percent : dissent +]%
+= Land Reform
 
-Police Strength: [+ police_strength_display +] thousand
+[+ land_reform_status +]
 
-Police Loyalty: [+ police_loyalty_percent +]%
+= Economic Reforms
 
-Police Militancy: [+ police_militancy_display +]
+Natural Resources: [+ natural_resources_policy +]
+Workplace Democracy: [+ workplace_democracy_status +]
+People's Sector: [+ peoples_sector_status +]
 
-Municipality Control: [+ municipalities_controlled +]/[+ total_municipalities +] - [+ municipality_control_label +]
+= Labour
+
+Workplace Safety: [+ workplace_safety_status +]
+Minimum Wage: [+ minimum_wage_status +]
+
+= Judiciary
+
+Judicial Reforms: [+ judicial_reform_status +]
+[? if counter_guerilla_discovered : Counter Guerilla: [+ counter_guerilla_status +] ?]
+
+= Education
+
+Funding: [+ education_funding_status +]
+Curriculum: [+ education_curriculum_status +]
+University freedom: [+ university_freedom_status +]
+University prestige: [+ university_prestige_status +]
+
+= Womens' Rights
+
+Legal Status: [+ womens_legal_status +]
+Workplace status: [+ womens_workplace_status +]
+Household violence: [+ household_violence_status +]
+
+= Kürt Sorunu
+
+Eastern Crime: [+ eastern_crime_display +]
+DDKD: [+ ddkd_status +]
+Language rights: [+ language_rights_status +]
 
 @exterior_affairs
 

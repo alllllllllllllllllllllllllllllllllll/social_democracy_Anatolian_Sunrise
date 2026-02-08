@@ -139,6 +139,25 @@ Q.municipality_control_level = 1; // 0=Terrible, 1=Poor, 2=Divided, 3=Satisfacto
 Q.local_total_seats = 67;
 Q.local_election_threshold = 8;
 
+// Interior affairs policy baselines
+Q.land_reform_status = "Land Reform";
+Q.natural_resources_policy = "Private";
+Q.workplace_democracy_status = "Absent";
+Q.peoples_sector_status = "Non-existant";
+Q.workplace_safety_status = "Dangerous";
+Q.minimum_wage_status = "Low";
+Q.judicial_reform_status = "Reactionary";
+Q.counter_guerilla_discovered = 0;
+Q.counter_guerilla_status = "Full strength";
+Q.education_funding_status = "Decrepit";
+Q.education_curriculum_status = "Rote";
+Q.university_freedom_status = "YÖK controlled";
+Q.university_prestige_status = "Medium";
+Q.womens_legal_status = "Full equality";
+Q.womens_workplace_status = "Discriminated";
+Q.household_violence_status = "Widespread";
+Q.language_rights_status = "Restricted";
+
 // hmm... maybe we can play nice with Hindenburg???
 Q.hindenburg_relation = 25;
 
