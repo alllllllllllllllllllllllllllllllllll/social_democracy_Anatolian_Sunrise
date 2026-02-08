@@ -455,6 +455,30 @@ Support for the Republic: [+ pro_republic_disp +]%
 
 @interior_affairs
 on-arrival: {!
+function mapLevel(level, labels) {
+    if (typeof level === 'number') {
+        var idx = Math.max(0, Math.min(labels.length - 1, Math.round(level)));
+        return labels[idx];
+    }
+    return labels[0];
+}
+
+Q.land_reform_status = mapLevel(Q.land_reform_level, ["None", "Partial", "Land Reform"]);
+Q.natural_resources_policy = mapLevel(Q.natural_resources_level, ["Private", "Mixed", "Public"]);
+Q.workplace_democracy_status = mapLevel(Q.workplace_democracy_level, ["Absent", "Limited", "Strong"]);
+Q.peoples_sector_status = mapLevel(Q.peoples_sector_level, ["Non-existant", "Growing", "Robust"]);
+Q.workplace_safety_status = mapLevel(Q.workplace_safety_level, ["Dangerous", "Improving", "Safe"]);
+Q.minimum_wage_status = mapLevel(Q.minimum_wage_level, ["Low", "Rising", "High"]);
+Q.judicial_reform_status = mapLevel(Q.judicial_reform_level, ["Reactionary", "Reforming", "Progressive"]);
+Q.counter_guerilla_status = mapLevel(Q.counter_guerilla_level, ["Full strength", "Weakened", "Disbanded"]);
+Q.education_funding_status = mapLevel(Q.education_funding_level, ["Decrepit", "Adequate", "Generous"]);
+Q.education_curriculum_status = mapLevel(Q.education_curriculum_level, ["Rote", "Balanced", "Progressive"]);
+Q.university_freedom_status = mapLevel(Q.university_freedom_level, ["YÖK controlled", "Semi-autonomous", "Autonomous"]);
+Q.university_prestige_status = mapLevel(Q.university_prestige_level, ["Low", "Medium", "High"]);
+Q.womens_legal_status = mapLevel(Q.womens_legal_level, ["Restricted", "Partial equality", "Full equality"]);
+Q.womens_workplace_status = mapLevel(Q.womens_workplace_level, ["Discriminated", "Improving", "Equal"]);
+Q.household_violence_status = mapLevel(Q.household_violence_level, ["Widespread", "Declining", "Rare"]);
+Q.language_rights_status = mapLevel(Q.language_rights_level, ["Restricted", "Limited", "Protected"]);
 Q.ddkd_status_display = Q.ddkd_formed ? "Active" : "Banned";
 Q.eastern_crime_display = (Q.eastern_crime !== undefined && Q.eastern_crime !== null) ? Q.eastern_crime : "Unknown";
 !}

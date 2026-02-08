@@ -139,24 +139,24 @@ Q.municipality_control_level = 1; // 0=Terrible, 1=Poor, 2=Divided, 3=Satisfacto
 Q.local_total_seats = 67;
 Q.local_election_threshold = 8;
 
-// Interior affairs policy baselines
-Q.land_reform_status = "Land Reform";
-Q.natural_resources_policy = "Private";
-Q.workplace_democracy_status = "Absent";
-Q.peoples_sector_status = "Non-existant";
-Q.workplace_safety_status = "Dangerous";
-Q.minimum_wage_status = "Low";
-Q.judicial_reform_status = "Reactionary";
+// Interior affairs policy baselines (numeric: 0 = worst/bad start)
+Q.land_reform_level = 0;
+Q.natural_resources_level = 0;
+Q.workplace_democracy_level = 0;
+Q.peoples_sector_level = 0;
+Q.workplace_safety_level = 0;
+Q.minimum_wage_level = 0;
+Q.judicial_reform_level = 0;
 Q.counter_guerilla_discovered = 0;
-Q.counter_guerilla_status = "Full strength";
-Q.education_funding_status = "Decrepit";
-Q.education_curriculum_status = "Rote";
-Q.university_freedom_status = "YÖK controlled";
-Q.university_prestige_status = "Medium";
-Q.womens_legal_status = "Full equality";
-Q.womens_workplace_status = "Discriminated";
-Q.household_violence_status = "Widespread";
-Q.language_rights_status = "Restricted";
+Q.counter_guerilla_level = 0;
+Q.education_funding_level = 0;
+Q.education_curriculum_level = 0;
+Q.university_freedom_level = 0;
+Q.university_prestige_level = 0;
+Q.womens_legal_level = 0;
+Q.womens_workplace_level = 0;
+Q.household_violence_level = 0;
+Q.language_rights_level = 0;
 
 // hmm... maybe we can play nice with Hindenburg???
 Q.hindenburg_relation = 25;
