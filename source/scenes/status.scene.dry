@@ -455,24 +455,7 @@ Support for the Republic: [+ pro_republic_disp +]%
 
 @interior_affairs
 on-arrival: {!
-Q.land_reform_status = Q.land_reform_status || "Land Reform";
-Q.natural_resources_policy = Q.natural_resources_policy || "Private";
-Q.workplace_democracy_status = Q.workplace_democracy_status || "Absent";
-Q.peoples_sector_status = Q.peoples_sector_status || "Non-existant";
-Q.workplace_safety_status = Q.workplace_safety_status || "Dangerous";
-Q.minimum_wage_status = Q.minimum_wage_status || "Low";
-Q.judicial_reform_status = Q.judicial_reform_status || "Reactionary";
-Q.counter_guerilla_status = Q.counter_guerilla_status || "Full strength";
-Q.education_funding_status = Q.education_funding_status || "Decrepit";
-Q.education_curriculum_status = Q.education_curriculum_status || "Rote";
-Q.university_freedom_status = Q.university_freedom_status || "YÖK controlled";
-Q.university_prestige_status = Q.university_prestige_status || "Medium";
-Q.womens_legal_status = Q.womens_legal_status || "Full equality";
-Q.womens_workplace_status = Q.womens_workplace_status || "Discriminated";
-Q.household_violence_status = Q.household_violence_status || "Widespread";
-Q.language_rights_status = Q.language_rights_status || "Restricted";
-Q.ddkd_status = Q.ddkd_formed ? "Active" : "Banned";
-Q.counter_guerilla_discovered = Q.counter_guerilla_discovered || 0;
+Q.ddkd_status_display = Q.ddkd_formed ? "Active" : "Banned";
 Q.eastern_crime_display = (Q.eastern_crime !== undefined && Q.eastern_crime !== null) ? Q.eastern_crime : "Unknown";
 !}
 
@@ -514,7 +497,7 @@ Household violence: [+ household_violence_status +]
 = Kürt Sorunu
 
 Eastern Crime: [+ eastern_crime_display +]
-DDKD: [+ ddkd_status +]
+DDKD: [+ ddkd_status_display +]
 Language rights: [+ language_rights_status +]
 
 @exterior_affairs
