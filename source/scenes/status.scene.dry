@@ -453,6 +453,36 @@ Kurdish National Movement: <span style="color: #E3000F;">**CHP**</span>: [+ kurd
 
 Support for the Republic: [+ pro_republic_disp +]%
 
+@interior_affairs
+on-arrival: {!
+Q.police_strength_display = (Q.police_strength || 0).toFixed(1);
+Q.police_loyalty_percent = ((Q.police_loyalty || 0) * 100).toFixed(1);
+Q.police_militancy_display = (Q.police_militancy || 0).toFixed(1);
+if ((Q.municipality_control_level || 0) == 0) {
+    Q.municipality_control_label = "Terrible";
+} else if ((Q.municipality_control_level || 0) == 1) {
+    Q.municipality_control_label = "Poor";
+} else if ((Q.municipality_control_level || 0) == 2) {
+    Q.municipality_control_label = "Divided";
+} else if ((Q.municipality_control_level || 0) == 3) {
+    Q.municipality_control_label = "Satisfactory";
+} else if ((Q.municipality_control_level || 0) == 4) {
+    Q.municipality_control_label = "Overwhelming";
+}
+!}
+
+= Interior Affairs
+
+Internal dissent: [+ dissent_percent : dissent +]%
+
+Police Strength: [+ police_strength_display +] thousand
+
+Police Loyalty: [+ police_loyalty_percent +]%
+
+Police Militancy: [+ police_militancy_display +]
+
+Municipality Control: [+ municipalities_controlled +]/[+ total_municipalities +] - [+ municipality_control_label +]
+
 @exterior_affairs
 
 = Foreign Relations
