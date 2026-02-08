@@ -139,6 +139,25 @@ Q.municipality_control_level = 1; // 0=Terrible, 1=Poor, 2=Divided, 3=Satisfacto
 Q.local_total_seats = 67;
 Q.local_election_threshold = 8;
 
+// Interior affairs policy baselines (numeric: 0 = worst/bad start)
+Q.land_reform_level = 0;
+Q.natural_resources_level = 0;
+Q.workplace_democracy_level = 0;
+Q.peoples_sector_level = 0;
+Q.workplace_safety_level = 0;
+Q.minimum_wage_level = 0;
+Q.judicial_reform_level = 0;
+Q.counter_guerilla_discovered = 0;
+Q.counter_guerilla_level = 0;
+Q.education_funding_level = 0;
+Q.education_curriculum_level = 0;
+Q.university_freedom_level = 0;
+Q.university_prestige_level = 0;
+Q.womens_legal_level = 0;
+Q.womens_workplace_level = 0;
+Q.household_violence_level = 0;
+Q.language_rights_level = 0;
+
 // hmm... maybe we can play nice with Hindenburg???
 Q.hindenburg_relation = 25;
 
