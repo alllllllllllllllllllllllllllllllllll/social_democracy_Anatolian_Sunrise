@@ -480,7 +480,19 @@ Q.womens_workplace_status = mapLevel(Q.womens_workplace_level, ["Discriminated",
 Q.household_violence_status = mapLevel(Q.household_violence_level, ["Widespread", "Declining", "Rare"]);
 Q.language_rights_status = mapLevel(Q.language_rights_level, ["Restricted", "Limited", "Protected"]);
 Q.ddkd_status_display = Q.ddkd_formed ? "Active" : "Banned";
-Q.eastern_crime_display = (Q.eastern_crime !== undefined && Q.eastern_crime !== null) ? Q.eastern_crime : "Unknown";
+if (Q.eastern_crime <= 0) {
+    Q.eastern_crime_status = "Controlled";
+} else if (Q.eastern_crime == 1) {
+    Q.eastern_crime_status = "Manageable";
+} else if (Q.eastern_crime == 2) {
+    Q.eastern_crime_status = "Decreasing";
+} else if (Q.eastern_crime == 3) {
+    Q.eastern_crime_status = "Medium";
+} else if (Q.eastern_crime == 4) {
+    Q.eastern_crime_status = "Struggling";
+} else {
+    Q.eastern_crime_status = "Widespread";
+}
 !}
 
 = Interior Affairs
@@ -520,7 +532,7 @@ Household violence: [+ household_violence_status +]
 
 = Kürt Sorunu
 
-Eastern Crime: [+ eastern_crime_display +]
+Eastern Crime: [+ eastern_crime_status +]
 DDKD: [+ ddkd_status_display +]
 Language rights: [+ language_rights_status +]
 
