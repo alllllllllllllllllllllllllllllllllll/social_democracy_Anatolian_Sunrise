@@ -468,7 +468,7 @@ Q.natural_resources_policy = mapLevel(Q.natural_resources_level, ["Private", "Mi
 Q.workplace_democracy_status = mapLevel(Q.workplace_democracy_level, ["Absent", "Limited", "Strong"]);
 Q.peoples_sector_status = mapLevel(Q.peoples_sector_level, ["Non-existant", "Growing", "Robust"]);
 Q.workplace_safety_status = mapLevel(Q.workplace_safety_level, ["Dangerous", "Improving", "Safe"]);
-Q.minimum_wage_status = mapLevel(Q.minimum_wage_level, ["Low", "Rising", "High"]);
+Q.minimum_wage_status = mapLevel(Q.minimum_wage_level, ["Low", "Middle-Low", "Middle", "Middle-High", "High"]);
 Q.judicial_reform_status = mapLevel(Q.judicial_reform_level, ["Reactionary", "Reforming", "Progressive"]);
 Q.counter_guerilla_status = mapLevel(Q.counter_guerilla_level, ["Full strength", "Weakened", "Disbanded"]);
 Q.education_funding_status = mapLevel(Q.education_funding_level, ["Decrepit", "Adequate", "Generous"]);
@@ -479,6 +479,7 @@ Q.womens_legal_status = mapLevel(Q.womens_legal_level, ["Restricted", "Partial e
 Q.womens_workplace_status = mapLevel(Q.womens_workplace_level, ["Discriminated", "Improving", "Equal"]);
 Q.household_violence_status = mapLevel(Q.household_violence_level, ["Widespread", "Declining", "Rare"]);
 Q.language_rights_status = mapLevel(Q.language_rights_level, ["Restricted", "Limited", "Protected"]);
+
 Q.ddkd_status_display = Q.ddkd_formed ? "Active" : "Banned";
 if (Q.eastern_crime <= 0) {
     Q.eastern_crime_status = "Controlled";
@@ -504,36 +505,47 @@ if (Q.eastern_crime <= 0) {
 = Economic Reforms
 
 Natural Resources: [+ natural_resources_policy +]
+
 Workplace Democracy: [+ workplace_democracy_status +]
+
 People's Sector: [+ peoples_sector_status +]
 
 = Labour
 
 Workplace Safety: [+ workplace_safety_status +]
+
 Minimum Wage: [+ minimum_wage_status +]
 
 = Judiciary
 
 Judicial Reforms: [+ judicial_reform_status +]
+
 [? if counter_guerilla_discovered : Counter Guerilla: [+ counter_guerilla_status +] ?]
 
 = Education
 
 Funding: [+ education_funding_status +]
+
 Curriculum: [+ education_curriculum_status +]
+
 University freedom: [+ university_freedom_status +]
+
 University prestige: [+ university_prestige_status +]
 
 = Womens' Rights
 
 Legal Status: [+ womens_legal_status +]
+
 Workplace status: [+ womens_workplace_status +]
+
 Household violence: [+ household_violence_status +]
 
 = Kürt Sorunu
 
 Eastern Crime: [+ eastern_crime_status +]
+
 DDKD: [+ ddkd_status_display +]
+
 Language rights: [+ language_rights_status +]
 
 @exterior_affairs
