@@ -1,0 +1,17 @@
+title: DEV-YOL
+subtitle: The socialist thought 
+view-if: year == 1977 and month = 2 and week = 1
+max-visits: 1
+tags: event
+new-page: true
+face-image: 
+
+= DEV-YOL
+
+DEV-YOL formed
+
+@devyol: Uyan artık uykundan uyan!
+
+@devyol
+on-arrival: devyol_formed = 1
+
