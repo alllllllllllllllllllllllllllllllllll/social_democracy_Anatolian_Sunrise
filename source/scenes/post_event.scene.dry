@@ -609,84 +609,47 @@ if (Q.chancellor_party == "I") {
 
     
     ////////////////////////// annual support changes
-    if (Q.year == 1929) {
-        Q.unemployed += 3/12;
-        Q.inflation -= 1/12;
+    if (Q.year == 1974) {      
         // increase MHP vote share
-        Q.new_middle_MHP += 10/12;
-        Q.old_middle_MHP += 10/12;
-        Q.new_middle_CGP -= 5/12;
-        Q.new_middle_DP -= 5/12;
-        Q.workers_TIP += 5/12;
-        Q.sa_strength += 50/12;
-        Q.sh_strength += 100/12;
-        Q.rural_MSP -= 15/12;
-        Q.rural_MHP += 10/12;
-        Q.unemployed_MHP += 18/12;
-    } else if (Q.year == 1930) {
-        Q.rural_MHP += 10/12;
-        Q.rural_MSP -= 15/12;
-        Q.new_middle_DP -= 5/12;
-        Q.old_middle_DP -= 6/12;
-        Q.new_middle_CGP -= 5/12;
-        Q.old_middle_CGP -= 6/12;
-        Q.new_middle_MHP += 10/12;
-        Q.old_middle_MHP += 10/12;
-        Q.new_middle_other += 4/12;
-        Q.old_middle_other += 4/12;
-        Q.unemployed_MHP += 8/12;
-        Q.rural_other += 5/12;
-
-        Q.workers_z += 1/12;
-        Q.old_middle_z += 2/12;
-        Q.new_middle_z += 2/12;
-        if (!Q.works_program) {
-            Q.rural_MHP += 3/12;
-            Q.old_middle_MHP += 5/12;
-            Q.workers_MHP += 2/12;
-            Q.workers_other += 5/12;
-            Q.workers_TIP += 2/12;
-        }
-        Q.sa_strength += 100/12;
-        Q.sh_strength += 100/12;
-    } else if (Q.year == 1931) {
-        Q.catholics_z += 2/12;
-        Q.rural_DP -= 8/12;
-        Q.old_middle_DP -= 8/12;
-        Q.new_middle_DP -= 8/12;
-        Q.old_middle_CGP -= 8/12;
-        Q.new_middle_CGP -= 8/12;
-        Q.sa_strength += 50/12;
-        Q.sh_strength += 50/12;
-        Q.sa_militancy += 0.1/12;
-        Q.old_middle_MHP += 10/12;
-        Q.rural_other -= 5/12;
-        Q.rural_MHP += 9/12;
-        // TODO: economic policies should reduce MHP rurals
-        if (!Q.works_program) {
-            Q.old_middle_DP -= 6/12;
-            Q.new_middle_DP -= 6/12;
-            Q.rural_DP -= 6/12;
-            Q.workers -= 4/12;
-            Q.unemployed_MHP += 7/12;
-            Q.unemployed_TIP += 2/12;
-            Q.rural_other -= 12/12;
-            Q.rural_MHP += 12/12;
-            Q.new_middle_MHP += 12/12;
-            Q.old_middle_MHP += 12/12;
-            Q.workers_MHP += 2/12;
-            Q.workers_TIP += 4/12;
-            Q.sa_strength += 100/12;
-            Q.sh_strength += 50/12;
-        } else if (Q.unemployed > 15) {
-            Q.old_middle_DP -= 4/12;
-            Q.new_middle_DP -= 4/12;
-            Q.rural_DP -= 4/12;
-            Q.unemployed_MHP += 4/12;
-            Q.old_middle_MHP += 4/12;
-            Q.new_middle_MHP += 4/12;
-            Q.rural_MHP += 4/12;
-        }
+        Q.rural_MHP += 1/12;
+        Q.petty_bourgeoisie_MHP += 2/12;
+        Q.grey_wolves_strength += 12/12;
+        Q.grey_wolves_militancy += 0.05/12;
+    } else if (Q.year == 1975) {
+        Q.rural_MHP += 1/12;
+        Q.petty_bourgeoisie_MHP += 2/12;
+        Q.grey_wolves_strength += 15/12;
+        Q.grey_wolves_militancy += 0.05/12;
+      else if (Q.year == 1976) {
+        Q.rural_MHP += 1/12;
+        Q.petty_bourgeoisie_MHP += 2/12;
+        Q.grey_wolves_strength += 20/12;
+        Q.grey_wolves_militancy += 0.05/12;
+        Q.raiders_strength += 20/12
+      else if (Q.year == 1977) {
+        Q.rural_MHP += 1/12;
+        Q.petty_bourgeoisie_MHP += 2/12;
+        Q.grey_wolves_strength += 24/12;
+        Q.grey_wolves_militancy += 0.08/12;
+        Q.raiders_strength += 24/12
+      else if (Q.year == 1978) {
+        Q.rural_MHP += 1/12;
+        Q.petty_bourgeoisie_MHP += 2/12;
+        Q.grey_wolves_strength += 36/12;
+        Q.grey_wolves_militancy += 0.1/12;
+        Q.raiders_strength += 30/12
+        Q.raiders_militancy += 0.05/12
+        Q.devyol_strength += 25/12
+        Q.devyol_militancy += 0.08
+       else if (Q.year == 1979) {
+        Q.rural_MHP += 2/12;
+        Q.petty_bourgeoisie_MHP += 2/12;
+        Q.grey_wolves_strength += 36/12;
+        Q.grey_wolves_militancy += 0.1/12;
+        Q.raiders_strength += 20/12
+        Q.raiders_militancy += 0.05/12
+        Q.devyol_strength += 36/12
+        Q.devyol_militancy += 0.1/12
     } else if (Q.year == 1932) {
         Q.old_middle_other -= 7/12;
         Q.rural_other -= 7/12;
