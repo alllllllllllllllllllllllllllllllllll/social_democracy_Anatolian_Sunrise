@@ -631,19 +631,19 @@ if (Q.chancellor_party == "I") {
         Q.petty_bourgeoisie_MHP += 2/12;
         Q.grey_wolves_strength += (15/12) * econ_paramilitary_multiplier;
         Q.grey_wolves_militancy += 0.05/12;
-      else if (Q.year == 1976) {
+    } else if (Q.year == 1976) {
         Q.rural_MHP += 1/12;
         Q.petty_bourgeoisie_MHP += 2/12;
         Q.grey_wolves_strength += (20/12) * econ_paramilitary_multiplier;
         Q.grey_wolves_militancy += 0.05/12;
         Q.raiders_strength += (20/12) * econ_paramilitary_multiplier;
-      else if (Q.year == 1977) {
+    } else if (Q.year == 1977) {
         Q.rural_MHP += 1/12;
         Q.petty_bourgeoisie_MHP += 2/12;
         Q.grey_wolves_strength += (24/12) * econ_paramilitary_multiplier;
         Q.grey_wolves_militancy += 0.08/12;
         Q.raiders_strength += (24/12) * econ_paramilitary_multiplier;
-      else if (Q.year == 1978) {
+    } else if (Q.year == 1978) {
         Q.rural_MHP += 1/12;
         Q.petty_bourgeoisie_MHP += 2/12;
         Q.grey_wolves_strength += (36/12) * econ_paramilitary_multiplier;
@@ -652,7 +652,7 @@ if (Q.chancellor_party == "I") {
         Q.raiders_militancy += 0.05/12
         Q.devyol_strength += (25/12) * econ_paramilitary_multiplier;
         Q.devyol_militancy += 0.08
-       else if (Q.year == 1979) {
+    } else if (Q.year == 1979) {
         Q.rural_MHP += 2/12;
         Q.petty_bourgeoisie_MHP += 2/12;
         Q.grey_wolves_strength += (36/12) * econ_paramilitary_multiplier;
