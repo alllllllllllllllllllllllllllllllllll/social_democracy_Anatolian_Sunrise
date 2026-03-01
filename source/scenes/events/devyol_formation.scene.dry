@@ -10,7 +10,7 @@ face-image:
 
 DEV-YOL formed
 
-@devyol: Uyan artık uykundan uyan!
+- @devyol: Uyan artık uykundan uyan!
 
 @devyol
 on-arrival: devyol_formed = 1
