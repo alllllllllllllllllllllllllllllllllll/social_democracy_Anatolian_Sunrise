@@ -591,6 +591,14 @@ go-to: menu
 
 [? if devyol_formed: DEV-YOL Militarization: [+ devyol_militancy : militancy +] ?]
 
+[? if devsol_formed: {!<span class="tooltip-text" title="DEV-SOL (Revolutionary Left) is a left-wing militant organization.">DEV-SOL</span>!} Strength: [+ devsol_strength_2 +] thousand ?]
+
+[? if devsol_formed: DEV-SOL Militarization: [+ devsol_militancy : militancy +] ?]
+
+[? if tkpml_formed: {!<span class="tooltip-text" title="TKP/ML is a Maoist terrorist group.">TKP/ML</span>!} Strength: [+ tkpml_strength_2 +] thousand ?]
+
+[? if tkpml_formed: TKP/ML Militarization: [+ tkpml_militancy : militancy +] ?]
+
 !<span class="tooltip-text" title="Grey Wolves (Bozkurtlar) are the militant wing of the Nationalist Movement Party.">Grey Wolves</span>!} Strength: [+ grey_wolves_strength_2 +] thousand
 
 Grey Wolves Militarization: [+ grey_wolves_militancy : militancy +]
