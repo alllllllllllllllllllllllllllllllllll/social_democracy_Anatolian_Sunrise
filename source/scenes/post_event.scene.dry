@@ -915,10 +915,11 @@ if (Q.state_paramilitary) {
     else if (Q.state_force_percent >= 50) Q.state_paramilitary_med = 1;
     else Q.state_paramilitary_low = 1;
 }
+
+if (Q.democracy_paramilitary_low == 1) Q.coup_timer += 2/12;
+if (Q.far_left_paramilitary == 1) Q.coup_timer += 1/12;
+if (Q.grand_coalition == 1) Q.coup_timer -= 1/12;
 !}
-if Q.democracy_paramilitary_low = 1 coup_timer += 2/12
-if Q.far_left_paramilitary = 1 coup_timer += 1/12
-if grand_coalition = 1 coup_timer -= 1/12
 go-to: economy_health_calculator if calculate_economy_health = 1; events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
 
 = [+ month : month +] [+ year +]
