@@ -181,7 +181,7 @@ Q.tkpml_formed = 0;
 Q.tkpml_banned = 0;
 
 Q.devyol_strength = 55;
-Q.devyol_militancy = 0.3;
+Q.devyol_militancy = 0.25;
 Q.devyol_formed = 0;
 Q.devyol_banned = 0;
 
@@ -198,7 +198,7 @@ Q.police_loyalty = 0.65; // Mostly loyal (0.54-0.71 range)
 
 // Far Right organizations  
 Q.grey_wolves_strength = 25;
-Q.grey_wolves_militancy = 0.2;
+Q.grey_wolves_militancy = 0.1;
 Q.grey_wolves_banned = 0;
 
 Q.raiders_strength = 30;
