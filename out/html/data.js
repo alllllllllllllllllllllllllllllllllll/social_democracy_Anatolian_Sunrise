@@ -89,5 +89,13 @@ const colourList = [{
 {
         word: "SBP",
         style: "color: #9E5747; font-weight: bold;"
-}
+},
+{
+        word: "DEV-YOL",
+        style: "color: #d94104; font-weight: bold;"
+},
+{
+        word: "Grey Wolves",
+        style: "color: #190c91; font-weight: bold;"
+},
 ];
