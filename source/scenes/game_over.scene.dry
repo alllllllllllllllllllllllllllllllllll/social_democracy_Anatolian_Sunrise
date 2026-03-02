@@ -123,15 +123,25 @@ if ((Q.welfare > 0 && Q.judicial_reform >= 2 && Q.womens_work >= 1 && Q.family_l
 - @end_game: End game.
 
 
-@hitler_wins
-view-if: (chancellor == "Hitler" or president == "Hitler") and (total_defeat==1 or civil_war_seen == 0)
-title: Adolf Hitler is in undisputed control over Germany.
+@coup
+view-if: coup_timer == 15 and generalstaff = "Semih Sancar"
+title: We have failed to prevent the coup.
 tags: endings
 go-to: eg_menu
 
-Adolf Hitler is in undisputed control over Germany. The CHP, along with all of the democratic forces, have failed.
+We have failed to prevent an army coup. The Turkish democracy trembles in fear as the republic marches into unknown territory.
 
-[? if civil_war_seen == 1 : At the very least, we fought back. Perhaps our resistance will be celebrated in an impossible-to-forsee future. ?]
+@coup_evren
+view-if: coup_timer == 15 and generalstaff = "Kenan Evren"
+title: We have failed to prevent the coup.
+tags: endings
+go-to: eg_menu
+
+The coup of 1980 completely reshaped the Turkish republic. It put an end to organized labour and promoted depoliticazition that gave birth to a generation unwilling to question the authorities. However its consequences would not end here. The neoliberal ANAP would win the elections of 1983 in spite of military opposition and would erase any progression CHP governments may have done in the 70's. Both the right and the left experiences divisions as the tensions between the old generation of leaders before the coup and the new generation of leaders after the coup would arise.
+
+In the 1994 a man from the reformed Islamist party RP would barely acquire a victory in the presence of multiple left wing and right wing parties. This would be the beginning of the career of a man named 'Recep Tayyip Erdoğan'
+
+However, perhaps it would ease your heart knowing that this is only the ending of our timeline and for better or for worse, the leaders of our reality failed to fare better than you did.
 
 @war_against_hitler
 view-if: (chancellor == "Hitler" or president == "Hitler") and (long_war == 1)
