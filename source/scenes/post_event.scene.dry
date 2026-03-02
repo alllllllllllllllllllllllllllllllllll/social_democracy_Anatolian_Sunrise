@@ -916,6 +916,8 @@ if (Q.state_paramilitary) {
     else Q.state_paramilitary_low = 1;
 }
 !}
+if Q.democracy_paramilitary_low = coup_timer += 2/12
+if Q.far_left_paramilitary = coup_timer += 1/12
 go-to: economy_health_calculator if calculate_economy_health = 1; events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
 
 = [+ month : month +] [+ year +]
