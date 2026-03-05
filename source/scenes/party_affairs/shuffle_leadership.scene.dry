@@ -214,7 +214,7 @@ Fethi Çelikbaş has been removed as an advisor. The Right Kemalist faction disa
 title: Remove Müezzinoğlu
 view-if: muezzinoglu_advisor = 1
 tags: remove_muezzinoglu
-on-arrival: muezzinoglu = 0; n_advisors -= 1
+on-arrival: muezzinoglu_advisor = 0; n_advisors -= 1
 go-to: rm_main
 
 @remove_akan
