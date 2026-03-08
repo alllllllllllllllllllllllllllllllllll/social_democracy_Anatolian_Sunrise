@@ -43,10 +43,13 @@ var rk_seats = Q.right_kemalist_split ? 0 : Math.round(1200 * (Q.right_kemalists
 
 // Adjust rounding
 var seat_diff = 1200 - (km_seats + lk_seats + ok_seats + rk_seats);
-if (lk_seats >= ok_seats && lk_seats >= km_seats) {
+var maxSeats = Math.max(km_seats, lk_seats, ok_seats, rk_seats);
+if (lk_seats === maxSeats) {
     lk_seats += seat_diff;
-} else if (ok_seats >= km_seats) {
+} else if (ok_seats === maxSeats) {
     ok_seats += seat_diff;
+} else if (rk_seats === maxSeats) {
+    rk_seats += seat_diff;
 } else {
     km_seats += seat_diff;
 }

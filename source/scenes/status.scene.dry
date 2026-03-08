@@ -604,10 +604,13 @@ Q.rk_congress_seats = Q.right_kemalist_split ? 0 : Math.round(1200 * (Q.right_ke
 
 // Adjust rounding to ensure total is exactly 1200
 var seat_diff = 1200 - (Q.km_congress_seats + Q.lk_congress_seats + Q.ok_congress_seats + Q.rk_congress_seats);
-if (Q.lk_congress_seats >= Q.ok_congress_seats && Q.lk_congress_seats >= Q.km_congress_seats) {
+var maxSeats = Math.max(Q.km_congress_seats, Q.lk_congress_seats, Q.ok_congress_seats, Q.rk_congress_seats);
+if (Q.lk_congress_seats === maxSeats) {
     Q.lk_congress_seats += seat_diff;
-} else if (Q.ok_congress_seats >= Q.km_congress_seats) {
+} else if (Q.ok_congress_seats === maxSeats) {
     Q.ok_congress_seats += seat_diff;
+} else if (Q.rk_congress_seats === maxSeats) {
+    Q.rk_congress_seats += seat_diff;
 } else {
     Q.km_congress_seats += seat_diff;
 }
