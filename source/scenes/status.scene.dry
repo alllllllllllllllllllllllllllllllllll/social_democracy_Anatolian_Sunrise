@@ -97,7 +97,7 @@ for (var _fi = 0; _fi < 4; _fi++) {
     // Detect if a game event modified the global strength since last computation
     var _delta = (Q[_gKey] || 0) - (Q['_last_' + _fKey + '_str'] || 0);
     if (Math.abs(_delta) > 0.001) {
-        // Distribute change uniformly across all quarters
+        // Add full delta to each quarter (weighted avg of q_i+delta = old_avg+delta)
         for (var _qi = 0; _qi < 6; _qi++) {
             Q['q' + _qi + '_' + _fKey + '_str'] = (Q['q' + _qi + '_' + _fKey + '_str'] || 0) + _delta;
             if (Q['q' + _qi + '_' + _fKey + '_str'] < 0) Q['q' + _qi + '_' + _fKey + '_str'] = 0;
@@ -661,34 +661,13 @@ Agricultural Product Prices: [+ agricultural_prices_formatted +] ([+ agricultura
 
 @the_party
 on-arrival: {!
-// Calculate total faction strength
-var total = (Q.kemalist_marxists_strength || 0) + (Q.left_kemalists_strength || 0) + (Q.orthodox_kemalists_strength || 0);
-if (!Q.right_kemalist_split) {
-    total += (Q.right_kemalists_strength || 0);
-}
-if (total <= 0) total = 1;
-
-// Calculate total seats per faction (1200 total)
-Q.km_congress_seats = Math.round(1200 * (Q.kemalist_marxists_strength || 0) / total);
-Q.lk_congress_seats = Math.round(1200 * (Q.left_kemalists_strength || 0) / total);
-Q.ok_congress_seats = Math.round(1200 * (Q.orthodox_kemalists_strength || 0) / total);
-Q.rk_congress_seats = Q.right_kemalist_split ? 0 : Math.round(1200 * (Q.right_kemalists_strength || 0) / total);
-
-// Adjust rounding to ensure total is exactly 1200
-var seat_diff = 1200 - (Q.km_congress_seats + Q.lk_congress_seats + Q.ok_congress_seats + Q.rk_congress_seats);
-var maxSeats = Math.max(Q.km_congress_seats, Q.lk_congress_seats, Q.ok_congress_seats, Q.rk_congress_seats);
-if (Q.lk_congress_seats === maxSeats) {
-    Q.lk_congress_seats += seat_diff;
-} else if (Q.ok_congress_seats === maxSeats) {
-    Q.ok_congress_seats += seat_diff;
-} else if (Q.rk_congress_seats === maxSeats) {
-    Q.rk_congress_seats += seat_diff;
-} else {
-    Q.km_congress_seats += seat_diff;
-}
-
 // Per-quarter seat calculations using per-quarter faction strengths
 var qPcts = [0.20, 0.15, 0.25, 0.20, 0.10, 0.10];
+Q.km_congress_seats = 0;
+Q.lk_congress_seats = 0;
+Q.ok_congress_seats = 0;
+Q.rk_congress_seats = 0;
+
 for (var qi = 0; qi < qPcts.length; qi++) {
     var qSeats = Math.round(qPcts[qi] * 1200);
     var qTotal = (Q['q' + qi + '_km_str'] || 0) + (Q['q' + qi + '_lk_str'] || 0) + (Q['q' + qi + '_ok_str'] || 0);
@@ -702,6 +681,27 @@ for (var qi = 0; qi < qPcts.length; qi++) {
     Q['q' + qi + '_lk'] = Math.round(qSeats * (Q['q' + qi + '_lk_str'] || 0) / qTotal);
     Q['q' + qi + '_ok'] = Math.round(qSeats * (Q['q' + qi + '_ok_str'] || 0) / qTotal);
     Q['q' + qi + '_rk'] = Q.right_kemalist_split ? 0 : Math.round(qSeats * (Q['q' + qi + '_rk_str'] || 0) / qTotal);
+
+    // Accumulate total seats from per-quarter results
+    Q.km_congress_seats += Q['q' + qi + '_km'];
+    Q.lk_congress_seats += Q['q' + qi + '_lk'];
+    Q.ok_congress_seats += Q['q' + qi + '_ok'];
+    Q.rk_congress_seats += Q['q' + qi + '_rk'];
+}
+
+// Adjust rounding to ensure total is exactly 1200
+var seat_diff = 1200 - (Q.km_congress_seats + Q.lk_congress_seats + Q.ok_congress_seats + Q.rk_congress_seats);
+if (seat_diff !== 0) {
+    var maxSeats = Math.max(Q.km_congress_seats, Q.lk_congress_seats, Q.ok_congress_seats, Q.rk_congress_seats);
+    if (Q.lk_congress_seats === maxSeats) {
+        Q.lk_congress_seats += seat_diff;
+    } else if (Q.ok_congress_seats === maxSeats) {
+        Q.ok_congress_seats += seat_diff;
+    } else if (Q.rk_congress_seats === maxSeats) {
+        Q.rk_congress_seats += seat_diff;
+    } else {
+        Q.km_congress_seats += seat_diff;
+    }
 }
 
 // Calculate candidate seats

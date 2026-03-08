@@ -103,6 +103,11 @@ if (total_strength > 0) {
             for (var _j = 0; _j < 6; _j++) {
                 Q['q' + _j + '_' + _pqFKeys[_pqi] + '_str'] = (Q['q' + _j + '_' + _pqFKeys[_pqi] + '_str'] || 0) * _ratio;
             }
+        } else if (_newG <= 0) {
+            // Both old and new are zero/near-zero: zero out per-quarter values
+            for (var _j = 0; _j < 6; _j++) {
+                Q['q' + _j + '_' + _pqFKeys[_pqi] + '_str'] = 0;
+            }
         }
         Q['_last_' + _pqFKeys[_pqi] + '_str'] = _newG;
     }
