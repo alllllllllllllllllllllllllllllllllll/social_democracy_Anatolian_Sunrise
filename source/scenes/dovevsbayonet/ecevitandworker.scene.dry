@@ -22,7 +22,7 @@ After a long suspense, Ecevit answered:
 
 @yes
 subtitle: The battle begins..
-on-arrival: lk_q0_str += 1; lk_q1_str += 1
+on-arrival: q0_lk_str += 1; q1_lk_str += 1
 
 @no
-on-arrival: inonu_stay += 1; lk_q0_str -= 1; lk_q1_str -= 1
+on-arrival: inonu_stay += 1; q0_lk_str -= 1; q1_lk_str -= 1
