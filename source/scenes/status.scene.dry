@@ -85,33 +85,9 @@ if (typeof Q.q0_km_str === 'undefined') {
     }
 }
 
-// Sync per-quarter faction strengths with any game event changes to global values
-var _qW = [0.20, 0.15, 0.25, 0.20, 0.10, 0.10];
-var _fKeys = ['km', 'lk', 'ok', 'rk'];
-var _fGlobals = ['kemalist_marxists_strength', 'left_kemalists_strength', 'orthodox_kemalists_strength', 'right_kemalists_strength'];
-
-for (var _fi = 0; _fi < 4; _fi++) {
-    var _fKey = _fKeys[_fi];
-    var _gKey = _fGlobals[_fi];
-
-    // Detect if a game event modified the global strength since last computation
-    var _delta = (Q[_gKey] || 0) - (Q['_last_' + _fKey + '_str'] || 0);
-    if (Math.abs(_delta) > 0.001) {
-        // Add full delta to each quarter (weighted avg of q_i+delta = old_avg+delta)
-        for (var _qi = 0; _qi < 6; _qi++) {
-            Q['q' + _qi + '_' + _fKey + '_str'] = (Q['q' + _qi + '_' + _fKey + '_str'] || 0) + _delta;
-            if (Q['q' + _qi + '_' + _fKey + '_str'] < 0) Q['q' + _qi + '_' + _fKey + '_str'] = 0;
-        }
-    }
-
-    // Recompute weighted average from per-quarter values
-    var _wavg = 0;
-    for (var _qi = 0; _qi < 6; _qi++) {
-        _wavg += _qW[_qi] * (Q['q' + _qi + '_' + _fKey + '_str'] || 0);
-    }
-    Q[_gKey] = _wavg;
-    Q['_last_' + _fKey + '_str'] = _wavg;
-}
+// Per-quarter faction strengths are the source of truth and are only
+// modified by direct assignment in game events/advisors (not by global sync).
+// Global faction strengths are normalized independently by post_event.
 
 // Compute strength labels from weighted averages
 // Score = faction's share of total active strength × 7
