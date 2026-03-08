@@ -29,43 +29,9 @@ Shall we begin the voting?
 @commence
 go-to: aftervote
 on-display: {!
-// Calculate seats dynamically based on faction strengths and support
-var total = (Q.kemalist_marxists_strength || 0) + (Q.left_kemalists_strength || 0) + (Q.orthodox_kemalists_strength || 0);
-if (!Q.right_kemalist_split) {
-    total += (Q.right_kemalists_strength || 0);
-}
-if (total <= 0) total = 1;
-
-var km_seats = Math.round(1200 * (Q.kemalist_marxists_strength || 0) / total);
-var lk_seats = Math.round(1200 * (Q.left_kemalists_strength || 0) / total);
-var ok_seats = Math.round(1200 * (Q.orthodox_kemalists_strength || 0) / total);
-var rk_seats = Q.right_kemalist_split ? 0 : Math.round(1200 * (Q.right_kemalists_strength || 0) / total);
-
-// Adjust rounding
-var seat_diff = 1200 - (km_seats + lk_seats + ok_seats + rk_seats);
-var maxSeats = Math.max(km_seats, lk_seats, ok_seats, rk_seats);
-if (lk_seats === maxSeats) {
-    lk_seats += seat_diff;
-} else if (ok_seats === maxSeats) {
-    ok_seats += seat_diff;
-} else if (rk_seats === maxSeats) {
-    rk_seats += seat_diff;
-} else {
-    km_seats += seat_diff;
-}
-
-// Calculate Ecevit and İnönü votes based on faction support
-var ecevitSeats = 0, inonuSeats = 0;
-if (Q.kemalist_marxists_support == 1) ecevitSeats += km_seats;
-if (Q.kemalist_marxists_support == 2) inonuSeats += km_seats;
-if (Q.left_kemalists_support == 1) ecevitSeats += lk_seats;
-if (Q.left_kemalists_support == 2) inonuSeats += lk_seats;
-if (Q.orthodox_kemalists_support == 1) ecevitSeats += ok_seats;
-if (Q.orthodox_kemalists_support == 2) inonuSeats += ok_seats;
-if (!Q.right_kemalist_split) {
-    if (Q.right_kemalists_support == 1) ecevitSeats += rk_seats;
-    if (Q.right_kemalists_support == 2) inonuSeats += rk_seats;
-}
+// Use pre-computed congress results from per-quarter strength system
+var ecevitSeats = Q.candidate_1_seats || 0;
+var inonuSeats = Q.candidate_2_seats || 0;
 
 data = [
   {
