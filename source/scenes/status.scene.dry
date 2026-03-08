@@ -586,3 +586,195 @@ Agricultural Production Index (1972=100): [+ agricultural_index_formatted +]
 Agricultural Product Prices: [+ agricultural_prices_formatted +] ([+ agricultural_price_status +])
 
 {!<span style="color: #7A3C00;">The economic values are updated monthly.</span>!}
+
+@the_party
+on-arrival: {!
+// Calculate total faction strength
+var total = (Q.kemalist_marxists_strength || 0) + (Q.left_kemalists_strength || 0) + (Q.orthodox_kemalists_strength || 0);
+if (!Q.right_kemalist_split) {
+    total += (Q.right_kemalists_strength || 0);
+}
+if (total <= 0) total = 1;
+
+// Calculate total seats per faction (1200 total)
+Q.km_congress_seats = Math.round(1200 * (Q.kemalist_marxists_strength || 0) / total);
+Q.lk_congress_seats = Math.round(1200 * (Q.left_kemalists_strength || 0) / total);
+Q.ok_congress_seats = Math.round(1200 * (Q.orthodox_kemalists_strength || 0) / total);
+Q.rk_congress_seats = Q.right_kemalist_split ? 0 : Math.round(1200 * (Q.right_kemalists_strength || 0) / total);
+
+// Adjust rounding to ensure total is exactly 1200
+var seat_diff = 1200 - (Q.km_congress_seats + Q.lk_congress_seats + Q.ok_congress_seats + Q.rk_congress_seats);
+if (Q.lk_congress_seats >= Q.ok_congress_seats && Q.lk_congress_seats >= Q.km_congress_seats) {
+    Q.lk_congress_seats += seat_diff;
+} else if (Q.ok_congress_seats >= Q.km_congress_seats) {
+    Q.ok_congress_seats += seat_diff;
+} else {
+    Q.km_congress_seats += seat_diff;
+}
+
+// Per-quarter seat calculations
+var qPcts = [0.20, 0.15, 0.25, 0.20, 0.10, 0.10];
+for (var qi = 0; qi < qPcts.length; qi++) {
+    var qSeats = Math.round(qPcts[qi] * 1200);
+    Q['q' + qi + '_total'] = qSeats;
+    Q['q' + qi + '_km'] = Math.round(qSeats * (Q.kemalist_marxists_strength || 0) / total);
+    Q['q' + qi + '_lk'] = Math.round(qSeats * (Q.left_kemalists_strength || 0) / total);
+    Q['q' + qi + '_ok'] = Math.round(qSeats * (Q.orthodox_kemalists_strength || 0) / total);
+    Q['q' + qi + '_rk'] = Q.right_kemalist_split ? 0 : Math.round(qSeats * (Q.right_kemalists_strength || 0) / total);
+}
+
+// Calculate candidate seats
+Q.candidate_1_seats = 0;
+Q.candidate_2_seats = 0;
+if (Q.congress_upcoming) {
+    if (Q.kemalist_marxists_support == 1) Q.candidate_1_seats += Q.km_congress_seats;
+    if (Q.kemalist_marxists_support == 2) Q.candidate_2_seats += Q.km_congress_seats;
+    if (Q.left_kemalists_support == 1) Q.candidate_1_seats += Q.lk_congress_seats;
+    if (Q.left_kemalists_support == 2) Q.candidate_2_seats += Q.lk_congress_seats;
+    if (Q.orthodox_kemalists_support == 1) Q.candidate_1_seats += Q.ok_congress_seats;
+    if (Q.orthodox_kemalists_support == 2) Q.candidate_2_seats += Q.ok_congress_seats;
+    if (!Q.right_kemalist_split) {
+        if (Q.right_kemalists_support == 1) Q.candidate_1_seats += Q.rk_congress_seats;
+        if (Q.right_kemalists_support == 2) Q.candidate_2_seats += Q.rk_congress_seats;
+    }
+}
+
+// Determine outline colors based on candidate support
+function getOutline(support) {
+    if (support == 1) return "#ca1010";
+    if (support == 2) return "#9e9e9e";
+    return "none";
+}
+
+// Build parliament data for d3 rendering
+var pData = [];
+if (Q.km_congress_seats > 0) {
+    pData.push({ id: "km", legend: "Kemalist Marxists", name: "KM", seats: Q.km_congress_seats, color: "#701616", outline: getOutline(Q.kemalist_marxists_support) });
+}
+if (Q.lk_congress_seats > 0) {
+    pData.push({ id: "lk", legend: "Left Kemalists", name: "LK", seats: Q.lk_congress_seats, color: "#FFC0CB", outline: getOutline(Q.left_kemalists_support) });
+}
+if (Q.ok_congress_seats > 0) {
+    pData.push({ id: "ok", legend: "Orthodox Kemalists", name: "OK", seats: Q.ok_congress_seats, color: "#5a5f63", outline: getOutline(Q.orthodox_kemalists_support) });
+}
+if (!Q.right_kemalist_split && Q.rk_congress_seats > 0) {
+    pData.push({ id: "rk", legend: "Right Kemalists", name: "RK", seats: Q.rk_congress_seats, color: "#353057", outline: getOutline(Q.right_kemalists_support) });
+}
+window.partyParliamentData = pData;
+
+// Build candidate support text
+Q.candidate_1_supporters = "";
+Q.candidate_2_supporters = "";
+if (Q.congress_upcoming) {
+    var s1 = [], s2 = [];
+    if (Q.left_kemalists_support == 1) s1.push("Left Kemalists");
+    if (Q.left_kemalists_support == 2) s2.push("Left Kemalists");
+    if (Q.kemalist_marxists_support == 1) s1.push("Kemalist Marxists");
+    if (Q.kemalist_marxists_support == 2) s2.push("Kemalist Marxists");
+    if (Q.orthodox_kemalists_support == 1) s1.push("Orthodox Kemalists");
+    if (Q.orthodox_kemalists_support == 2) s2.push("Orthodox Kemalists");
+    if (!Q.right_kemalist_split) {
+        if (Q.right_kemalists_support == 1) s1.push("Right Kemalists");
+        if (Q.right_kemalists_support == 2) s2.push("Right Kemalists");
+    }
+    Q.candidate_1_supporters = s1.length > 0 ? s1.join(", ") : "None";
+    Q.candidate_2_supporters = s2.length > 0 ? s2.join(", ") : "None";
+}
+
+// Portrait mapping
+Q.candidate_1_portrait = "";
+Q.candidate_2_portrait = "";
+if (Q.congress_candidate_1 == "ecevit") Q.candidate_1_portrait = "img/portraits/ecevit3.jpg";
+if (Q.congress_candidate_1 == "inonu") Q.candidate_1_portrait = "img/portraits/IsmetInonu.jpg";
+if (Q.congress_candidate_1 == "kirikoglu") Q.candidate_1_portrait = "img/portraits/KamilKirikoglu.jpg";
+if (Q.congress_candidate_1 == "eyuboglu") Q.candidate_1_portrait = "img/portraits/OrhanEyuboglu.jpeg";
+if (Q.congress_candidate_2 == "ecevit") Q.candidate_2_portrait = "img/portraits/ecevit3.jpg";
+if (Q.congress_candidate_2 == "inonu") Q.candidate_2_portrait = "img/portraits/IsmetInonu.jpg";
+if (Q.congress_candidate_2 == "kirikoglu") Q.candidate_2_portrait = "img/portraits/KamilKirikoglu.jpg";
+if (Q.congress_candidate_2 == "eyuboglu") Q.candidate_2_portrait = "img/portraits/OrhanEyuboglu.jpeg";
+
+// Candidate name mapping
+Q.candidate_1_name = "";
+Q.candidate_2_name = "";
+if (Q.congress_candidate_1 == "ecevit") Q.candidate_1_name = "Bülent Ecevit";
+if (Q.congress_candidate_1 == "inonu") Q.candidate_1_name = "İsmet İnönü";
+if (Q.congress_candidate_1 == "kirikoglu") Q.candidate_1_name = "Kamil Kırıkoğlu";
+if (Q.congress_candidate_1 == "eyuboglu") Q.candidate_1_name = "Orhan Eyüboğlu";
+if (Q.congress_candidate_2 == "ecevit") Q.candidate_2_name = "Bülent Ecevit";
+if (Q.congress_candidate_2 == "inonu") Q.candidate_2_name = "İsmet İnönü";
+if (Q.congress_candidate_2 == "kirikoglu") Q.candidate_2_name = "Kamil Kırıkoğlu";
+if (Q.congress_candidate_2 == "eyuboglu") Q.candidate_2_name = "Orhan Eyüboğlu";
+
+// Leader portrait (when no congress)
+Q.leader_portrait = "";
+if (Q.CHP_party_leader == "İnönü" || Q.CHP_party_leader == "inonu") Q.leader_portrait = "img/portraits/IsmetInonu.jpg";
+if (Q.CHP_party_leader == "Ecevit" || Q.CHP_party_leader == "ecevit") Q.leader_portrait = "img/portraits/ecevit3.jpg";
+!}
+
+= The Party
+
+[? if congress_upcoming : {!<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+<div style="text-align: center; width: 45%;">
+<img src="!}[+ candidate_1_portrait +]{!" style="width: 70px; height: 70px; border-radius: 50%; border: 3px solid #ca1010; object-fit: cover;">
+<div style="font-weight: bold; font-size: 0.85em; margin-top: 4px; color: #ca1010;">!}[+ candidate_1_name +]{!</div>
+<div style="font-size: 0.7em; margin-top: 2px;">!}[+ candidate_1_supporters +]{!</div>
+<div style="font-size: 0.75em; font-weight: bold; margin-top: 2px;">!}[+ candidate_1_seats +]{! seats</div>
+</div>
+<div style="text-align: center; width: 45%;">
+<img src="!}[+ candidate_2_portrait +]{!" style="width: 70px; height: 70px; border-radius: 50%; border: 3px solid #9e9e9e; object-fit: cover;">
+<div style="font-weight: bold; font-size: 0.85em; margin-top: 4px; color: #9e9e9e;">!}[+ candidate_2_name +]{!</div>
+<div style="font-size: 0.7em; margin-top: 2px;">!}[+ candidate_2_supporters +]{!</div>
+<div style="font-size: 0.75em; font-weight: bold; margin-top: 2px;">!}[+ candidate_2_seats +]{! seats</div>
+</div>
+</div>!} ?]
+
+[? if not congress_upcoming : {!<div style="text-align: center; margin-bottom: 10px;">
+<img src="!}[+ leader_portrait +]{!" style="width: 80px; height: 80px; border-radius: 50%; border: 3px solid #E3000F; object-fit: cover;">
+<div style="font-weight: bold; font-size: 0.9em; margin-top: 4px;">Party Leader: !}[+ CHP_party_leader +]{!</div>
+</div>!} ?]
+
+= Congress Seat Distribution
+
+{!<svg id="party-parliament" style="width: 100%; height: 130px;"> </svg>!}
+
+{!<div style="font-size: 0.75em; margin-top: 4px;">
+<span style="color: #701616;">&#9632;</span> Kemalist Marxists: !}[+ km_congress_seats +]{! &nbsp;
+<span style="color: #FFC0CB;">&#9632;</span> Left Kemalists: !}[+ lk_congress_seats +]{!<br>
+<span style="color: #5a5f63;">&#9632;</span> Orthodox Kemalists: !}[+ ok_congress_seats +]{! &nbsp;!}
+[? if not right_kemalist_split : {!<span style="color: #353057;">&#9632;</span> Right Kemalists: !}[+ rk_congress_seats +] ?]
+{!</div>!}
+
+= Party Quarters
+
+{!<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.7em;">
+<div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
+<div style="font-weight: bold;">The Grassroots (20%)</div>
+<div><span style="color: #701616;">KM:</span> !}[+ q0_km +]{! <span style="color: #FFC0CB;">LK:</span> !}[+ q0_lk +]{!</div>
+<div><span style="color: #5a5f63;">OK:</span> !}[+ q0_ok +]{! <span style="color: #353057;">RK:</span> !}[+ q0_rk +]{!</div>
+</div>
+<div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
+<div style="font-weight: bold;">The Base (15%)</div>
+<div><span style="color: #701616;">KM:</span> !}[+ q1_km +]{! <span style="color: #FFC0CB;">LK:</span> !}[+ q1_lk +]{!</div>
+<div><span style="color: #5a5f63;">OK:</span> !}[+ q1_ok +]{! <span style="color: #353057;">RK:</span> !}[+ q1_rk +]{!</div>
+</div>
+<div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
+<div style="font-weight: bold;">Party Bureaucracy (25%)</div>
+<div><span style="color: #701616;">KM:</span> !}[+ q2_km +]{! <span style="color: #FFC0CB;">LK:</span> !}[+ q2_lk +]{!</div>
+<div><span style="color: #5a5f63;">OK:</span> !}[+ q2_ok +]{! <span style="color: #353057;">RK:</span> !}[+ q2_rk +]{!</div>
+</div>
+<div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
+<div style="font-weight: bold;">TBMM Delegation (20%)</div>
+<div><span style="color: #701616;">KM:</span> !}[+ q3_km +]{! <span style="color: #FFC0CB;">LK:</span> !}[+ q3_lk +]{!</div>
+<div><span style="color: #5a5f63;">OK:</span> !}[+ q3_ok +]{! <span style="color: #353057;">RK:</span> !}[+ q3_rk +]{!</div>
+</div>
+<div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
+<div style="font-weight: bold;">Party Intelligentsia (10%)</div>
+<div><span style="color: #701616;">KM:</span> !}[+ q4_km +]{! <span style="color: #FFC0CB;">LK:</span> !}[+ q4_lk +]{!</div>
+<div><span style="color: #5a5f63;">OK:</span> !}[+ q4_ok +]{! <span style="color: #353057;">RK:</span> !}[+ q4_rk +]{!</div>
+</div>
+<div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
+<div style="font-weight: bold;">Local Leaderships (10%)</div>
+<div><span style="color: #701616;">KM:</span> !}[+ q5_km +]{! <span style="color: #FFC0CB;">LK:</span> !}[+ q5_lk +]{!</div>
+<div><span style="color: #5a5f63;">OK:</span> !}[+ q5_ok +]{! <span style="color: #353057;">RK:</span> !}[+ q5_rk +]{!</div>
+</div>
+</div>!}

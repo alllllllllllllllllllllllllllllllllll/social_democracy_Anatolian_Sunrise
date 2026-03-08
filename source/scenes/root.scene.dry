@@ -60,6 +60,18 @@ Q.right_kemalist_deal = 0;
 Q.right_kemalists_resign = 0;
 Q.right_kemalist_split = 0;
 
+// Congress tracking
+Q.congress_upcoming = 1;
+Q.congress_year = 1972;
+Q.congress_month = 5;
+Q.congress_candidate_1 = "ecevit";
+Q.congress_candidate_2 = "inonu";
+// Faction support: 1 = candidate_1 (Ecevit), 2 = candidate_2 (İnönü), 0 = undecided
+Q.kemalist_marxists_support = 0;
+Q.left_kemalists_support = 1;
+Q.orthodox_kemalists_support = 2;
+Q.right_kemalists_support = 2;
+
 // secret events...
 Q.unions_independent = 0;
 Q.centrists_resign = 0;

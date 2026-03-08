@@ -29,19 +29,54 @@ Shall we begin the voting?
 @commence
 go-to: aftervote
 on-display: {!
+// Calculate seats dynamically based on faction strengths and support
+var total = (Q.kemalist_marxists_strength || 0) + (Q.left_kemalists_strength || 0) + (Q.orthodox_kemalists_strength || 0);
+if (!Q.right_kemalist_split) {
+    total += (Q.right_kemalists_strength || 0);
+}
+if (total <= 0) total = 1;
+
+var km_seats = Math.round(1200 * (Q.kemalist_marxists_strength || 0) / total);
+var lk_seats = Math.round(1200 * (Q.left_kemalists_strength || 0) / total);
+var ok_seats = Math.round(1200 * (Q.orthodox_kemalists_strength || 0) / total);
+var rk_seats = Q.right_kemalist_split ? 0 : Math.round(1200 * (Q.right_kemalists_strength || 0) / total);
+
+// Adjust rounding
+var seat_diff = 1200 - (km_seats + lk_seats + ok_seats + rk_seats);
+if (lk_seats >= ok_seats && lk_seats >= km_seats) {
+    lk_seats += seat_diff;
+} else if (ok_seats >= km_seats) {
+    ok_seats += seat_diff;
+} else {
+    km_seats += seat_diff;
+}
+
+// Calculate Ecevit and İnönü votes based on faction support
+var ecevitSeats = 0, inonuSeats = 0;
+if (Q.kemalist_marxists_support == 1) ecevitSeats += km_seats;
+if (Q.kemalist_marxists_support == 2) inonuSeats += km_seats;
+if (Q.left_kemalists_support == 1) ecevitSeats += lk_seats;
+if (Q.left_kemalists_support == 2) inonuSeats += lk_seats;
+if (Q.orthodox_kemalists_support == 1) ecevitSeats += ok_seats;
+if (Q.orthodox_kemalists_support == 2) inonuSeats += ok_seats;
+if (!Q.right_kemalist_split) {
+    if (Q.right_kemalists_support == 1) ecevitSeats += rk_seats;
+    if (Q.right_kemalists_support == 2) inonuSeats += rk_seats;
+}
+
 data = [
   {
       "id": "Ecevitists",
       "legend": "Ecevitists",
       "name": "Ecevit",
-      "seats": 714,
+      "seats": ecevitSeats,
       "color": "#ca1010",
   },  
   {
       "id": "inonuists",
       "legend": "inonuists",
       "name": "inonu",
-      "seats": 507,
+      "seats": inonuSeats,
       "color": "#9e9e9e",
   },
 ];
@@ -60,15 +95,9 @@ if (window && d3) {
     parliament.enter.fromCenter(true).smallToBig(true);
     parliament.exit.toCenter(false).bigToSmall(true);
     d3.select("#reichstag").datum(data).call(parliament);
- // --- Tally votes ---
-    var ecevitVotes = 0, inonuVotes = 0;
-    data.forEach(function(d) {
-        if (d.name === "Ecevit") ecevitVotes += d.seats;
-        if (d.name === "İnönü") inonuVotes += d.seats;
-    });
 
     // Expose result
-    ecevitVictory = (ecevitVotes > inonuVotes);   // plain variable for view-if
+    ecevitVictory = (ecevitSeats > inonuSeats);
     try { if (typeof Q !== "undefined") Q.ecevitVictory = ecevitVictory; } catch(e) {}
 }
 !}
@@ -92,6 +121,7 @@ The election of Sırrı Atalay has made the party's future direction clear. It w
 
 @inonu_resigns
 on-arrival: {! 
+Q.congress_upcoming = 0;
 Q.CHP_party_leader = "Ecevit";
 Q.chp_party_leader = "Ecevit";
 Q.left_kemalists_dissent -= 20;
@@ -132,6 +162,6 @@ go-to: shuffle_leadership
 
 @inonu_wins
 view-if: not ecevitVictory
-on-arrival: orthodox_kemalists_strength += 10
+on-arrival: {! Q.orthodox_kemalists_strength += 10; Q.congress_upcoming = 0; !}
 
 The old guard has somehow managed to pull a victory with this vote. The Left is heavily demoralized over losing their intra-party majority and many of them focus their criticism on Ecevit, and his perceived romanticism.

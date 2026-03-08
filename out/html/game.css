@@ -261,6 +261,24 @@ blockquote + blockquote.attribution {
     background-color: var(--tab-hover-color);
 }
 
+/* Party sidebar */
+#party_qualities {
+    text-indent: 0;
+    line-height: 1.3em;
+}
+#party_qualities p {
+    text-indent: 0;
+}
+#party_qualities h1 {
+    font-size: 1.1em;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-shadow: rgba(255, 255, 255, 0.75) 2px 2px 2px,
+                 rgba(0, 0, 0, 0.1) -1px -1px 2px;
+}
+
 
 .overlay {
     background: rgba(0,0,0,0.7);
