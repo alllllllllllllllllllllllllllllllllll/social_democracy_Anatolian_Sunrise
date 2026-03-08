@@ -381,15 +381,18 @@ function getPartyIdeology(party, Q) {
   window.renderPartyParliament = function() {
       var svgEl = document.getElementById('party-parliament');
       if (!svgEl || !window.partyParliamentData || window.partyParliamentData.length === 0) return;
-      // Clear any existing content
-      d3.select("#party-parliament").selectAll("*").remove();
+      var isFirstRender = !window.partyParliamentRendered;
+      if (isFirstRender) {
+          d3.select("#party-parliament").selectAll("*").remove();
+      }
       var width = svgEl.parentElement ? svgEl.parentElement.offsetWidth : 220;
       if (width <= 0) width = 220;
       var parliament = d3.parliament();
       parliament.width(width).height(width).innerRadiusCoef(0.4);
-      parliament.enter.fromCenter(true).smallToBig(true);
-      parliament.exit.toCenter(false).bigToSmall(true);
+      parliament.enter.fromCenter(isFirstRender).smallToBig(isFirstRender);
+      parliament.exit.toCenter(false).bigToSmall(isFirstRender);
       d3.select("#party-parliament").datum(window.partyParliamentData).call(parliament);
+      window.partyParliamentRendered = true;
   };
 
   window.changeTab = function(newTab, tabId) {
