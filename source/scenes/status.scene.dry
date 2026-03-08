@@ -713,6 +713,7 @@ if (Q.congress_upcoming) {
 
 // Determine outline colors based on candidate support
 function getOutline(support) {
+    if (!Q.congress_upcoming) return "none";
     if (support == 1) return "#ca1010";
     if (support == 2) return "#9e9e9e";
     return "none";
