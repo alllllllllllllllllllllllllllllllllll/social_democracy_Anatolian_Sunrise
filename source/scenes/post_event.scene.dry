@@ -92,26 +92,6 @@ if (total_strength > 0) {
         Q.right_kemalists_strength = 100*Q.right_kemalists_strength/total_strength;
     }
 
-    // Sync per-quarter values after normalization (proportional scaling)
-    var _pqFKeys = ['km', 'lk', 'ok', 'rk'];
-    var _pqGKeys = ['kemalist_marxists_strength', 'left_kemalists_strength', 'orthodox_kemalists_strength', 'right_kemalists_strength'];
-    for (var _pqi = 0; _pqi < 4; _pqi++) {
-        var _lastWavg = Q['_last_' + _pqFKeys[_pqi] + '_str'];
-        var _newG = Q[_pqGKeys[_pqi]];
-        if (_lastWavg && _lastWavg > 0.001) {
-            var _ratio = _newG / _lastWavg;
-            for (var _j = 0; _j < 6; _j++) {
-                Q['q' + _j + '_' + _pqFKeys[_pqi] + '_str'] = (Q['q' + _j + '_' + _pqFKeys[_pqi] + '_str'] || 0) * _ratio;
-            }
-        } else if (_newG <= 0) {
-            // Both old and new are zero/near-zero: zero out per-quarter values
-            for (var _j = 0; _j < 6; _j++) {
-                Q['q' + _j + '_' + _pqFKeys[_pqi] + '_str'] = 0;
-            }
-        }
-        Q['_last_' + _pqFKeys[_pqi] + '_str'] = _newG;
-    }
-
     // Calculate total dissent, excluding right_kemalists if they have resigned or split
     var total_dissent = Q.kemalist_marxists_strength*Q.kemalist_marxists_dissent + Q.left_kemalists_strength*Q.left_kemalists_dissent + Q.orthodox_kemalists_strength*Q.orthodox_kemalists_dissent;
     if (!Q.right_kemalists_resign && !Q.right_kemalist_split) {
