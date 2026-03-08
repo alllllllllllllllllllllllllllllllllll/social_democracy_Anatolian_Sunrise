@@ -50,12 +50,12 @@ Q.factions = ['kemalist_marxists', 'left_kemalists', 'orthodox_kemalists', 'righ
 
 // Per-quarter faction strengths (source of truth)
 // Quarters: Grassroots(20%), Base(15%), Bureaucracy(25%), TBMM(20%), Intelligentsia(10%), Local Leadership(10%)
-Q.q0_km_str = 2; Q.q0_lk_str = 3; Q.q0_ok_str = 2; Q.q0_rk_str = 2;
-Q.q1_km_str = 1; Q.q1_lk_str = 3; Q.q1_ok_str = 2; Q.q1_rk_str = 3;
-Q.q2_km_str = 1; Q.q2_lk_str = 2; Q.q2_ok_str = 3; Q.q2_rk_str = 3;
+Q.q0_km_str = 2; Q.q0_lk_str = 4; Q.q0_ok_str = 2; Q.q0_rk_str = 1;
+Q.q1_km_str = 1; Q.q1_lk_str = 4; Q.q1_ok_str = 2; Q.q1_rk_str = 1;
+Q.q2_km_str = 0; Q.q2_lk_str = 2; Q.q2_ok_str = 4; Q.q2_rk_str = 1;
 Q.q3_km_str = 1; Q.q3_lk_str = 3; Q.q3_ok_str = 3; Q.q3_rk_str = 2;
-Q.q4_km_str = 4; Q.q4_lk_str = 3; Q.q4_ok_str = 1; Q.q4_rk_str = 2;
-Q.q5_km_str = 2; Q.q5_lk_str = 3; Q.q5_ok_str = 2; Q.q5_rk_str = 2;
+Q.q4_km_str = 2; Q.q4_lk_str = 4; Q.q4_ok_str = 2; Q.q4_rk_str = 1;
+Q.q5_km_str = 1; Q.q5_lk_str = 3; Q.q5_ok_str = 3; Q.q5_rk_str = 1;
 
 // Compute initial global strengths as weighted averages of per-quarter values
 var _qW = [0.20, 0.15, 0.25, 0.20, 0.10, 0.10];
