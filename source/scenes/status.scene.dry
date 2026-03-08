@@ -70,6 +70,78 @@ if (typeof Q.right_kemalist_deal === 'undefined') {
 if (typeof Q.right_kemalists_resign === 'undefined') {
     Q.right_kemalists_resign = 0;
 }
+
+// Initialize per-quarter strengths if they don't exist (backward compatibility with saves)
+if (typeof Q.q0_km_str === 'undefined') {
+    var _qWInit = [0.20, 0.15, 0.25, 0.20, 0.10, 0.10];
+    var _fKeysInit = ['km', 'lk', 'ok', 'rk'];
+    var _fGlobalsInit = ['kemalist_marxists_strength', 'left_kemalists_strength', 'orthodox_kemalists_strength', 'right_kemalists_strength'];
+    for (var _fii = 0; _fii < 4; _fii++) {
+        var _val = Q[_fGlobalsInit[_fii]] || 0;
+        for (var _qii = 0; _qii < 6; _qii++) {
+            Q['q' + _qii + '_' + _fKeysInit[_fii] + '_str'] = _val;
+        }
+        Q['_last_' + _fKeysInit[_fii] + '_str'] = _val;
+    }
+}
+
+// Sync per-quarter faction strengths with any game event changes to global values
+var _qW = [0.20, 0.15, 0.25, 0.20, 0.10, 0.10];
+var _fKeys = ['km', 'lk', 'ok', 'rk'];
+var _fGlobals = ['kemalist_marxists_strength', 'left_kemalists_strength', 'orthodox_kemalists_strength', 'right_kemalists_strength'];
+
+for (var _fi = 0; _fi < 4; _fi++) {
+    var _fKey = _fKeys[_fi];
+    var _gKey = _fGlobals[_fi];
+
+    // Detect if a game event modified the global strength since last computation
+    var _delta = (Q[_gKey] || 0) - (Q['_last_' + _fKey + '_str'] || 0);
+    if (Math.abs(_delta) > 0.001) {
+        // Add full delta to each quarter (weighted avg of q_i+delta = old_avg+delta)
+        for (var _qi = 0; _qi < 6; _qi++) {
+            Q['q' + _qi + '_' + _fKey + '_str'] = (Q['q' + _qi + '_' + _fKey + '_str'] || 0) + _delta;
+            if (Q['q' + _qi + '_' + _fKey + '_str'] < 0) Q['q' + _qi + '_' + _fKey + '_str'] = 0;
+        }
+    }
+
+    // Recompute weighted average from per-quarter values
+    var _wavg = 0;
+    for (var _qi = 0; _qi < 6; _qi++) {
+        _wavg += _qW[_qi] * (Q['q' + _qi + '_' + _fKey + '_str'] || 0);
+    }
+    Q[_gKey] = _wavg;
+    Q['_last_' + _fKey + '_str'] = _wavg;
+}
+
+// Compute strength labels from weighted averages
+// Score = faction's share of total active strength × 7
+// Scale: 0-0.5 Nonexistant, 0.5-1.5 Very weak, 1.5-2.5 Weak,
+// 2.5-3.5 Medium, 3.5-4.5 High, 4.5-5.5 Very High, 5.5+ & > others combined = Hegemonic
+var _fTotal = (Q.kemalist_marxists_strength || 0) + (Q.left_kemalists_strength || 0) + (Q.orthodox_kemalists_strength || 0);
+if (!Q.right_kemalist_split) {
+    _fTotal += (Q.right_kemalists_strength || 0);
+}
+if (_fTotal <= 0) _fTotal = 1;
+
+function _strengthLabel(score, myStr, othersStr) {
+    if (score >= 5.5 && myStr > othersStr) return "Hegemonic";
+    if (score >= 4.5) return "Very High";
+    if (score >= 3.5) return "High";
+    if (score >= 2.5) return "Medium";
+    if (score >= 1.5) return "Weak";
+    if (score >= 0.5) return "Very weak";
+    return "Nonexistant";
+}
+
+var _kmS = (Q.kemalist_marxists_strength || 0);
+var _lkS = (Q.left_kemalists_strength || 0);
+var _okS = (Q.orthodox_kemalists_strength || 0);
+var _rkS = Q.right_kemalist_split ? 0 : (Q.right_kemalists_strength || 0);
+
+Q.km_strength_label = _strengthLabel((_kmS / _fTotal) * 7, _kmS, _lkS + _okS + _rkS);
+Q.lk_strength_label = _strengthLabel((_lkS / _fTotal) * 7, _lkS, _kmS + _okS + _rkS);
+Q.ok_strength_label = _strengthLabel((_okS / _fTotal) * 7, _okS, _kmS + _lkS + _rkS);
+Q.rk_strength_label = Q.right_kemalist_split ? "Nonexistant" : _strengthLabel((_rkS / _fTotal) * 7, _rkS, _kmS + _lkS + _okS);
 !}
 
 = Status
@@ -179,13 +251,13 @@ Municipality Control: [+ municipalities_controlled +]/[+ total_municipalities +]
 
 = Internal Factions of the CHP
 
-{!<span class="tooltip-text" title="Marxists within the party desire a realignment of the party alongside Socialist elements. Even though many intellectuals such as Tevfik Rüştü Aras and Doğan Avcıoğlu subscribe to this faction, there is no central organization nor a figure that leads the Marxist camp, largely due to ideological differences. However the general secretary, Kamil Kırıkoğlu, is the most prominent member in the party.">Kemalist Marxists</span>!} strength: [+ kemalist_marxists_strength : strength +], dissent: [+ kemalist_marxists_dissent : dissent +]
+{!<span class="tooltip-text" title="Marxists within the party desire a realignment of the party alongside Socialist elements. Even though many intellectuals such as Tevfik Rüştü Aras and Doğan Avcıoğlu subscribe to this faction, there is no central organization nor a figure that leads the Marxist camp, largely due to ideological differences. However the general secretary, Kamil Kırıkoğlu, is the most prominent member in the party.">Kemalist Marxists</span>!} strength: [+ km_strength_label +], dissent: [+ kemalist_marxists_dissent : dissent +]
 
-{!<span class="tooltip-text" title="Left Kemalists aka the Left of Center movement is a movement within CHP led by poet Bülent Ecevit which wishes to compliment the Progressive nature of the party with Social Democracy and in face of the growing urban working class, instead of swimming against the current, desires to lead the stream.">Left Kemalists</span>!} strength: [+ left_kemalists_strength : strength +], dissent: [+ left_kemalists_dissent : dissent +]
+{!<span class="tooltip-text" title="Left Kemalists aka the Left of Center movement is a movement within CHP led by poet Bülent Ecevit which wishes to compliment the Progressive nature of the party with Social Democracy and in face of the growing urban working class, instead of swimming against the current, desires to lead the stream.">Left Kemalists</span>!} strength: [+ lk_strength_label +], dissent: [+ left_kemalists_dissent : dissent +]
 
-{!<span class="tooltip-text" title="CHP was created as a middle class party to reinforce the Kemalist and the semi-bourgeoisie revolution of the military intelligentsia. Mostly the remnants of the one party era and lead by the illustrious right-man in command of Ataturk, İsmet İnönü, the Orthodox Kemalists reject any intrusion into the Left in fears of CHP losing its identity as the party that gave birth to the Turkish Republic, as a nation-state found on Corporatist principles.">Orthodox Kemalists</span>!} strength: [+ orthodox_kemalists_strength : strength +], dissent: [+ orthodox_kemalists_dissent : dissent +]
+{!<span class="tooltip-text" title="CHP was created as a middle class party to reinforce the Kemalist and the semi-bourgeoisie revolution of the military intelligentsia. Mostly the remnants of the one party era and lead by the illustrious right-man in command of Ataturk, İsmet İnönü, the Orthodox Kemalists reject any intrusion into the Left in fears of CHP losing its identity as the party that gave birth to the Turkish Republic, as a nation-state found on Corporatist principles.">Orthodox Kemalists</span>!} strength: [+ ok_strength_label +], dissent: [+ orthodox_kemalists_dissent : dissent +]
 
-{!<span class="tooltip-text" title="Seeing the rising Left of Center movement as a pivot to Socialism and Communism, the Right Kemalists advocate for an increased emphasis on Kemalist Nationalism and Corporatism which would serve as a third and moderate alternative to the two wings of Turkish politics, the &quot;unnational&quot; left and the &quot;backward&quot; right. Even though Right Kemalists have formed a party led by Turhan Feyzioğlu, they still have many sympathizers within the party.">Right Kemalists</span>!} strength: [+ right_kemalists_strength : strength +], dissent: [+ right_kemalists_dissent : dissent +]
+{!<span class="tooltip-text" title="Seeing the rising Left of Center movement as a pivot to Socialism and Communism, the Right Kemalists advocate for an increased emphasis on Kemalist Nationalism and Corporatism which would serve as a third and moderate alternative to the two wings of Turkish politics, the &quot;unnational&quot; left and the &quot;backward&quot; right. Even though Right Kemalists have formed a party led by Turhan Feyzioğlu, they still have many sympathizers within the party.">Right Kemalists</span>!} strength: [+ rk_strength_label +], dissent: [+ right_kemalists_dissent : dissent +]
 [? if right_kemalist_split : {!<span style="color: #7A3C00;">Following Ecevit's ascension, the Right Kemalist faction has left the party to join the non-socialist opposition.</span>!} ?]
 [? if not right_kemalist_split and right_kemalist_deal : {!<span style="color: #7A3C00;">Satır's compromise keeps the Right Kemalists inside the CHP—at least for now.</span>!} ?]
 
@@ -586,3 +658,231 @@ Agricultural Production Index (1972=100): [+ agricultural_index_formatted +]
 Agricultural Product Prices: [+ agricultural_prices_formatted +] ([+ agricultural_price_status +])
 
 {!<span style="color: #7A3C00;">The economic values are updated monthly.</span>!}
+
+@the_party
+on-arrival: {!
+// Per-quarter seat calculations using per-quarter faction strengths
+var qPcts = [0.20, 0.15, 0.25, 0.20, 0.10, 0.10];
+Q.km_congress_seats = 0;
+Q.lk_congress_seats = 0;
+Q.ok_congress_seats = 0;
+Q.rk_congress_seats = 0;
+
+function _qLabel(v) {
+    if (v < 0.5) return "Nonexistent";
+    if (v < 1.5) return "Very Weak";
+    if (v < 2.5) return "Weak";
+    if (v < 3.5) return "Medium";
+    if (v < 4.5) return "Strong";
+    return "Very Strong";
+}
+
+for (var qi = 0; qi < qPcts.length; qi++) {
+    var qSeats = Math.round(qPcts[qi] * 1200);
+    var qTotal = (Q['q' + qi + '_km_str'] || 0) + (Q['q' + qi + '_lk_str'] || 0) + (Q['q' + qi + '_ok_str'] || 0);
+    if (!Q.right_kemalist_split) {
+        qTotal += (Q['q' + qi + '_rk_str'] || 0);
+    }
+    if (qTotal <= 0) qTotal = 1;
+
+    Q['q' + qi + '_total'] = qSeats;
+    Q['q' + qi + '_km'] = Math.round(qSeats * (Q['q' + qi + '_km_str'] || 0) / qTotal);
+    Q['q' + qi + '_lk'] = Math.round(qSeats * (Q['q' + qi + '_lk_str'] || 0) / qTotal);
+    Q['q' + qi + '_ok'] = Math.round(qSeats * (Q['q' + qi + '_ok_str'] || 0) / qTotal);
+    Q['q' + qi + '_rk'] = Q.right_kemalist_split ? 0 : Math.round(qSeats * (Q['q' + qi + '_rk_str'] || 0) / qTotal);
+
+    // Per-quarter strength text labels
+    Q['q' + qi + '_km_label'] = _qLabel(Q['q' + qi + '_km_str'] || 0);
+    Q['q' + qi + '_lk_label'] = _qLabel(Q['q' + qi + '_lk_str'] || 0);
+    Q['q' + qi + '_ok_label'] = _qLabel(Q['q' + qi + '_ok_str'] || 0);
+    Q['q' + qi + '_rk_label'] = Q.right_kemalist_split ? "Nonexistent" : _qLabel(Q['q' + qi + '_rk_str'] || 0);
+
+    // Accumulate total seats from per-quarter results
+    Q.km_congress_seats += Q['q' + qi + '_km'];
+    Q.lk_congress_seats += Q['q' + qi + '_lk'];
+    Q.ok_congress_seats += Q['q' + qi + '_ok'];
+    Q.rk_congress_seats += Q['q' + qi + '_rk'];
+}
+
+// Adjust rounding to ensure total is exactly 1200
+var seat_diff = 1200 - (Q.km_congress_seats + Q.lk_congress_seats + Q.ok_congress_seats + Q.rk_congress_seats);
+if (seat_diff !== 0) {
+    var maxSeats = Math.max(Q.km_congress_seats, Q.lk_congress_seats, Q.ok_congress_seats, Q.rk_congress_seats);
+    if (Q.lk_congress_seats === maxSeats) {
+        Q.lk_congress_seats += seat_diff;
+    } else if (Q.ok_congress_seats === maxSeats) {
+        Q.ok_congress_seats += seat_diff;
+    } else if (Q.rk_congress_seats === maxSeats) {
+        Q.rk_congress_seats += seat_diff;
+    } else {
+        Q.km_congress_seats += seat_diff;
+    }
+}
+
+// Calculate candidate seats
+Q.candidate_1_seats = 0;
+Q.candidate_2_seats = 0;
+if (Q.congress_upcoming) {
+    if (Q.kemalist_marxists_support == 1) Q.candidate_1_seats += Q.km_congress_seats;
+    if (Q.kemalist_marxists_support == 2) Q.candidate_2_seats += Q.km_congress_seats;
+    if (Q.left_kemalists_support == 1) Q.candidate_1_seats += Q.lk_congress_seats;
+    if (Q.left_kemalists_support == 2) Q.candidate_2_seats += Q.lk_congress_seats;
+    if (Q.orthodox_kemalists_support == 1) Q.candidate_1_seats += Q.ok_congress_seats;
+    if (Q.orthodox_kemalists_support == 2) Q.candidate_2_seats += Q.ok_congress_seats;
+    if (!Q.right_kemalist_split) {
+        if (Q.right_kemalists_support == 1) Q.candidate_1_seats += Q.rk_congress_seats;
+        if (Q.right_kemalists_support == 2) Q.candidate_2_seats += Q.rk_congress_seats;
+    }
+}
+
+// Determine outline colors based on candidate support
+function getOutline(support) {
+    if (support == 1) return "#ca1010";
+    if (support == 2) return "#9e9e9e";
+    return "none";
+}
+
+// Build parliament data for d3 rendering
+var pData = [];
+if (Q.km_congress_seats > 0) {
+    pData.push({ id: "km", legend: "Kemalist Marxists", name: "KM", seats: Q.km_congress_seats, color: "#701616", outline: getOutline(Q.kemalist_marxists_support) });
+}
+if (Q.lk_congress_seats > 0) {
+    pData.push({ id: "lk", legend: "Left Kemalists", name: "LK", seats: Q.lk_congress_seats, color: "#FFC0CB", outline: getOutline(Q.left_kemalists_support) });
+}
+if (Q.ok_congress_seats > 0) {
+    pData.push({ id: "ok", legend: "Orthodox Kemalists", name: "OK", seats: Q.ok_congress_seats, color: "#5a5f63", outline: getOutline(Q.orthodox_kemalists_support) });
+}
+if (!Q.right_kemalist_split && Q.rk_congress_seats > 0) {
+    pData.push({ id: "rk", legend: "Right Kemalists", name: "RK", seats: Q.rk_congress_seats, color: "#353057", outline: getOutline(Q.right_kemalists_support) });
+}
+window.partyParliamentData = pData;
+
+// Build candidate support text
+Q.candidate_1_supporters = "";
+Q.candidate_2_supporters = "";
+if (Q.congress_upcoming) {
+    var s1 = [], s2 = [];
+    if (Q.left_kemalists_support == 1) s1.push("Left Kemalists");
+    if (Q.left_kemalists_support == 2) s2.push("Left Kemalists");
+    if (Q.kemalist_marxists_support == 1) s1.push("Kemalist Marxists");
+    if (Q.kemalist_marxists_support == 2) s2.push("Kemalist Marxists");
+    if (Q.orthodox_kemalists_support == 1) s1.push("Orthodox Kemalists");
+    if (Q.orthodox_kemalists_support == 2) s2.push("Orthodox Kemalists");
+    if (!Q.right_kemalist_split) {
+        if (Q.right_kemalists_support == 1) s1.push("Right Kemalists");
+        if (Q.right_kemalists_support == 2) s2.push("Right Kemalists");
+    }
+    Q.candidate_1_supporters = s1.length > 0 ? s1.join(", ") : "None";
+    Q.candidate_2_supporters = s2.length > 0 ? s2.join(", ") : "None";
+}
+
+// Portrait mapping
+Q.candidate_1_portrait = "";
+Q.candidate_2_portrait = "";
+if (Q.congress_candidate_1 == "ecevit") Q.candidate_1_portrait = "img/portraits/ecevit3.jpg";
+if (Q.congress_candidate_1 == "inonu") Q.candidate_1_portrait = "img/portraits/IsmetInonu.jpg";
+if (Q.congress_candidate_1 == "kirikoglu") Q.candidate_1_portrait = "img/portraits/KamilKirikoglu.jpg";
+if (Q.congress_candidate_1 == "eyuboglu") Q.candidate_1_portrait = "img/portraits/OrhanEyuboglu.jpeg";
+if (Q.congress_candidate_2 == "ecevit") Q.candidate_2_portrait = "img/portraits/ecevit3.jpg";
+if (Q.congress_candidate_2 == "inonu") Q.candidate_2_portrait = "img/portraits/IsmetInonu.jpg";
+if (Q.congress_candidate_2 == "kirikoglu") Q.candidate_2_portrait = "img/portraits/KamilKirikoglu.jpg";
+if (Q.congress_candidate_2 == "eyuboglu") Q.candidate_2_portrait = "img/portraits/OrhanEyuboglu.jpeg";
+
+// Candidate name mapping
+Q.candidate_1_name = "";
+Q.candidate_2_name = "";
+if (Q.congress_candidate_1 == "ecevit") Q.candidate_1_name = "Bülent Ecevit";
+if (Q.congress_candidate_1 == "inonu") Q.candidate_1_name = "İsmet İnönü";
+if (Q.congress_candidate_1 == "kirikoglu") Q.candidate_1_name = "Kamil Kırıkoğlu";
+if (Q.congress_candidate_1 == "eyuboglu") Q.candidate_1_name = "Orhan Eyüboğlu";
+if (Q.congress_candidate_2 == "ecevit") Q.candidate_2_name = "Bülent Ecevit";
+if (Q.congress_candidate_2 == "inonu") Q.candidate_2_name = "İsmet İnönü";
+if (Q.congress_candidate_2 == "kirikoglu") Q.candidate_2_name = "Kamil Kırıkoğlu";
+if (Q.congress_candidate_2 == "eyuboglu") Q.candidate_2_name = "Orhan Eyüboğlu";
+
+// Leader portrait (when no congress)
+Q.leader_portrait = "";
+if (Q.CHP_party_leader == "İnönü" || Q.CHP_party_leader == "inonu") Q.leader_portrait = "img/portraits/IsmetInonu.jpg";
+if (Q.CHP_party_leader == "Ecevit" || Q.CHP_party_leader == "ecevit") Q.leader_portrait = "img/portraits/ecevit3.jpg";
+!}
+
+= The Party
+
+[? if congress_upcoming : {!<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+<div style="text-align: center; width: 45%;">
+<img src="!}[+ candidate_1_portrait +]{!" style="width: 70px; height: 70px; border-radius: 50%; border: 3px solid #ca1010; object-fit: cover;">
+<div style="font-weight: bold; font-size: 0.85em; margin-top: 4px; color: #ca1010;">!}[+ candidate_1_name +]{!</div>
+<div style="font-size: 0.7em; margin-top: 2px;">!}[+ candidate_1_supporters +]{!</div>
+<div style="font-size: 0.75em; font-weight: bold; margin-top: 2px;">!}[+ candidate_1_seats +]{! seats</div>
+</div>
+<div style="text-align: center; width: 45%;">
+<img src="!}[+ candidate_2_portrait +]{!" style="width: 70px; height: 70px; border-radius: 50%; border: 3px solid #9e9e9e; object-fit: cover;">
+<div style="font-weight: bold; font-size: 0.85em; margin-top: 4px; color: #9e9e9e;">!}[+ candidate_2_name +]{!</div>
+<div style="font-size: 0.7em; margin-top: 2px;">!}[+ candidate_2_supporters +]{!</div>
+<div style="font-size: 0.75em; font-weight: bold; margin-top: 2px;">!}[+ candidate_2_seats +]{! seats</div>
+</div>
+</div>!} ?]
+
+[? if not congress_upcoming : {!<div style="text-align: center; margin-bottom: 10px;">
+<img src="!}[+ leader_portrait +]{!" style="width: 80px; height: 80px; border-radius: 50%; border: 3px solid #E3000F; object-fit: cover;">
+<div style="font-weight: bold; font-size: 0.9em; margin-top: 4px;">Party Leader: !}[+ CHP_party_leader +]{!</div>
+</div>!} ?]
+
+= Congress Seat Distribution
+
+{!<svg id="party-parliament" style="width: 100%; height: 130px;"> </svg>!}
+
+{!<div style="font-size: 0.75em; margin-top: 4px;">
+<span style="color: #701616;">&#9632;</span> Kemalist Marxists: !}[+ km_congress_seats +]{! (<em>!}[+ km_strength_label +]{!</em>) &nbsp;
+<span style="color: #FFC0CB;">&#9632;</span> Left Kemalists: !}[+ lk_congress_seats +]{! (<em>!}[+ lk_strength_label +]{!</em>)<br>
+<span style="color: #5a5f63;">&#9632;</span> Orthodox Kemalists: !}[+ ok_congress_seats +]{! (<em>!}[+ ok_strength_label +]{!</em>) &nbsp;!}
+[? if not right_kemalist_split : {!<span style="color: #353057;">&#9632;</span> Right Kemalists: !}[+ rk_congress_seats +]{! (<em>!}[+ rk_strength_label +]{!</em>)!} ?]
+{!</div>!}
+
+= Party Quarters
+
+{!<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.7em;">
+<div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
+<div style="font-weight: bold;">The Grassroots (20%)</div>
+<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q0_km_label +]{!</div>
+<div><span style="color: #FFC0CB;">Left Kemalists:</span> !}[+ q0_lk_label +]{!</div>
+<div><span style="color: #5a5f63;">Orthodox Kemalists:</span> !}[+ q0_ok_label +]{!</div>!}
+[? if not right_kemalist_split : {!<div><span style="color: #353057;">Right Kemalists:</span> !}[+ q0_rk_label +]{!</div>!} ?]
+{!</div>
+<div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
+<div style="font-weight: bold;">The Base (15%)</div>
+<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q1_km_label +]{!</div>
+<div><span style="color: #FFC0CB;">Left Kemalists:</span> !}[+ q1_lk_label +]{!</div>
+<div><span style="color: #5a5f63;">Orthodox Kemalists:</span> !}[+ q1_ok_label +]{!</div>!}
+[? if not right_kemalist_split : {!<div><span style="color: #353057;">Right Kemalists:</span> !}[+ q1_rk_label +]{!</div>!} ?]
+{!</div>
+<div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
+<div style="font-weight: bold;">Party Bureaucracy (25%)</div>
+<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q2_km_label +]{!</div>
+<div><span style="color: #FFC0CB;">Left Kemalists:</span> !}[+ q2_lk_label +]{!</div>
+<div><span style="color: #5a5f63;">Orthodox Kemalists:</span> !}[+ q2_ok_label +]{!</div>!}
+[? if not right_kemalist_split : {!<div><span style="color: #353057;">Right Kemalists:</span> !}[+ q2_rk_label +]{!</div>!} ?]
+{!</div>
+<div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
+<div style="font-weight: bold;">TBMM Delegation (20%)</div>
+<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q3_km_label +]{!</div>
+<div><span style="color: #FFC0CB;">Left Kemalists:</span> !}[+ q3_lk_label +]{!</div>
+<div><span style="color: #5a5f63;">Orthodox Kemalists:</span> !}[+ q3_ok_label +]{!</div>!}
+[? if not right_kemalist_split : {!<div><span style="color: #353057;">Right Kemalists:</span> !}[+ q3_rk_label +]{!</div>!} ?]
+{!</div>
+<div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
+<div style="font-weight: bold;">Party Intelligentsia (10%)</div>
+<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q4_km_label +]{!</div>
+<div><span style="color: #FFC0CB;">Left Kemalists:</span> !}[+ q4_lk_label +]{!</div>
+<div><span style="color: #5a5f63;">Orthodox Kemalists:</span> !}[+ q4_ok_label +]{!</div>!}
+[? if not right_kemalist_split : {!<div><span style="color: #353057;">Right Kemalists:</span> !}[+ q4_rk_label +]{!</div>!} ?]
+{!</div>
+<div style="border: 1px solid #ccc; padding: 4px; border-radius: 3px;">
+<div style="font-weight: bold;">Local Leaderships (10%)</div>
+<div><span style="color: #701616;">Kemalist Marxists:</span> !}[+ q5_km_label +]{!</div>
+<div><span style="color: #FFC0CB;">Left Kemalists:</span> !}[+ q5_lk_label +]{!</div>
+<div><span style="color: #5a5f63;">Orthodox Kemalists:</span> !}[+ q5_ok_label +]{!</div>!}
+[? if not right_kemalist_split : {!<div><span style="color: #353057;">Right Kemalists:</span> !}[+ q5_rk_label +]{!</div>!} ?]
+{!</div>
+</div>!}

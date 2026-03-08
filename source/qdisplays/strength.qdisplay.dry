@@ -1,8 +1,10 @@
 
 # faction strength
 
-(0..10) weak
-(10..25) moderate
-(25..40) strong
-(40..60) very strong
-(60..) dominant
+(0..0.5) Nonexistant
+(0.5..1.5) Very weak
+(1.5..2.5) Weak
+(2.5..3.5) Medium
+(3.5..4.5) High
+(4.5..5.5) Very High
+(5.5..) Hegemonic

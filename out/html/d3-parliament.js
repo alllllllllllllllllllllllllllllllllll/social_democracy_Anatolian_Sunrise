@@ -127,6 +127,9 @@ d3.parliament = function() {
             var seatY = function(d) { return d.cartesian.y; };
             var seatColor = function(d) { return d.party.color; };
             var seatOutline = function(d) { return d.party.outline; };
+            var seatStrokeWidth = function(d) {
+                return (d.party.outline && d.party.outline !== "none") ? 2 : 0;
+            };
             var seatRadius = function(d) {
                 var r = 0.4 * rowWidth;
                 if (d.data && typeof d.data.size === 'number') {
@@ -158,6 +161,7 @@ d3.parliament = function() {
             circlesEnter.attr("r", enter.smallToBig ? 0 : seatRadius);
             circlesEnter.attr("fill", seatColor);
             circlesEnter.attr("stroke", seatOutline);
+            circlesEnter.attr("stroke-width", seatStrokeWidth);
             if (enter.fromCenter || enter.smallToBig) {
                 var t = circlesEnter.transition().duration(function() { return 1000 + Math.random()*800; });
                 if (enter.fromCenter) {
@@ -186,7 +190,8 @@ d3.parliament = function() {
                 .attr("cy", seatY)
                 .attr("r", seatRadius)
                 .attr("fill", seatColor)
-                .attr("stroke", seatOutline);
+                .attr("stroke", seatOutline)
+                .attr("stroke-width", seatStrokeWidth);
 
             /* animation removing seats from the parliament */
             if (exit.toCenter || exit.bigToSmall) {

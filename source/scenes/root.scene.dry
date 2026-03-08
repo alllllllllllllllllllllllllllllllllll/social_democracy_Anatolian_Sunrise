@@ -47,18 +47,48 @@ Q.dissent_percent = 5;
 
 // factions
 Q.factions = ['kemalist_marxists', 'left_kemalists', 'orthodox_kemalists', 'right_kemalists'];
-// should this be normalized to 100%?
-Q.kemalist_marxists_strength = 5;
+
+// Per-quarter faction strengths (source of truth)
+// Quarters: Grassroots(20%), Base(15%), Bureaucracy(25%), TBMM(20%), Intelligentsia(10%), Local Leadership(10%)
+Q.q0_km_str = 2; Q.q0_lk_str = 4; Q.q0_ok_str = 2; Q.q0_rk_str = 1;
+Q.q1_km_str = 1; Q.q1_lk_str = 4; Q.q1_ok_str = 2; Q.q1_rk_str = 1;
+Q.q2_km_str = 0; Q.q2_lk_str = 2; Q.q2_ok_str = 4; Q.q2_rk_str = 1;
+Q.q3_km_str = 1; Q.q3_lk_str = 3; Q.q3_ok_str = 3; Q.q3_rk_str = 2;
+Q.q4_km_str = 2; Q.q4_lk_str = 4; Q.q4_ok_str = 2; Q.q4_rk_str = 1;
+Q.q5_km_str = 1; Q.q5_lk_str = 3; Q.q5_ok_str = 3; Q.q5_rk_str = 1;
+
+// Compute initial global strengths as weighted averages of per-quarter values
+var _qW = [0.20, 0.15, 0.25, 0.20, 0.10, 0.10];
+var _fKeys = ['km', 'lk', 'ok', 'rk'];
+var _fGlobals = ['kemalist_marxists_strength', 'left_kemalists_strength', 'orthodox_kemalists_strength', 'right_kemalists_strength'];
+for (var _fi = 0; _fi < 4; _fi++) {
+    var _sum = 0;
+    for (var _qi = 0; _qi < 6; _qi++) {
+        _sum += _qW[_qi] * Q['q' + _qi + '_' + _fKeys[_fi] + '_str'];
+    }
+    Q[_fGlobals[_fi]] = _sum;
+    Q['_last_' + _fKeys[_fi] + '_str'] = _sum;
+}
+
 Q.kemalist_marxists_dissent = 20;
-Q.left_kemalists_strength = 35;
 Q.left_kemalists_dissent = 20;
-Q.orthodox_kemalists_strength = 25;
 Q.orthodox_kemalists_dissent = 5;
-Q.right_kemalists_strength = 25;
 Q.right_kemalists_dissent = 10;
 Q.right_kemalist_deal = 0;
 Q.right_kemalists_resign = 0;
 Q.right_kemalist_split = 0;
+
+// Congress tracking
+Q.congress_upcoming = 1;
+Q.congress_year = 1972;
+Q.congress_month = 5;
+Q.congress_candidate_1 = "ecevit";
+Q.congress_candidate_2 = "inonu";
+// Faction support: 1 = candidate_1 (Ecevit), 2 = candidate_2 (İnönü), 0 = undecided
+Q.kemalist_marxists_support = 0;
+Q.left_kemalists_support = 1;
+Q.orthodox_kemalists_support = 2;
+Q.right_kemalists_support = 2;
 
 // secret events...
 Q.unions_independent = 0;

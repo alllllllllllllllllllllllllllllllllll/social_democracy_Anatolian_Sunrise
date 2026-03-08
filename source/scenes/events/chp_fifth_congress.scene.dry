@@ -29,19 +29,23 @@ Shall we begin the voting?
 @commence
 go-to: aftervote
 on-display: {!
+// Use pre-computed congress results from per-quarter strength system
+var ecevitSeats = Q.candidate_1_seats || 0;
+var inonuSeats = Q.candidate_2_seats || 0;
+
 data = [
   {
       "id": "Ecevitists",
       "legend": "Ecevitists",
       "name": "Ecevit",
-      "seats": 714,
+      "seats": ecevitSeats,
       "color": "#ca1010",
   },  
   {
       "id": "inonuists",
       "legend": "inonuists",
       "name": "inonu",
-      "seats": 507,
+      "seats": inonuSeats,
       "color": "#9e9e9e",
   },
 ];
@@ -60,15 +64,9 @@ if (window && d3) {
     parliament.enter.fromCenter(true).smallToBig(true);
     parliament.exit.toCenter(false).bigToSmall(true);
     d3.select("#reichstag").datum(data).call(parliament);
- // --- Tally votes ---
-    var ecevitVotes = 0, inonuVotes = 0;
-    data.forEach(function(d) {
-        if (d.name === "Ecevit") ecevitVotes += d.seats;
-        if (d.name === "İnönü") inonuVotes += d.seats;
-    });
 
     // Expose result
-    ecevitVictory = (ecevitVotes > inonuVotes);   // plain variable for view-if
+    ecevitVictory = (ecevitSeats > inonuSeats);
     try { if (typeof Q !== "undefined") Q.ecevitVictory = ecevitVictory; } catch(e) {}
 }
 !}
@@ -92,6 +90,7 @@ The election of Sırrı Atalay has made the party's future direction clear. It w
 
 @inonu_resigns
 on-arrival: {! 
+Q.congress_upcoming = 0;
 Q.CHP_party_leader = "Ecevit";
 Q.chp_party_leader = "Ecevit";
 Q.left_kemalists_dissent -= 20;
@@ -132,6 +131,6 @@ go-to: shuffle_leadership
 
 @inonu_wins
 view-if: not ecevitVictory
-on-arrival: orthodox_kemalists_strength += 10
+on-arrival: {! Q.orthodox_kemalists_strength += 10; Q.congress_upcoming = 0; !}
 
 The old guard has somehow managed to pull a victory with this vote. The Left is heavily demoralized over losing their intra-party majority and many of them focus their criticism on Ecevit, and his perceived romanticism.

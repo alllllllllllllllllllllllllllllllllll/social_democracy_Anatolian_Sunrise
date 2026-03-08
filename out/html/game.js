@@ -367,13 +367,38 @@ function getPartyIdeology(party, Q) {
       $('#qualities').append(dendryUI.contentToHTML.convert(displayContent));
   };
 
+  window.updatePartySidebar = function() {
+      $('#party_qualities').empty();
+      var scene = dendryUI.game.scenes['status.the_party'];
+      if (!scene) return;
+      dendryUI.dendryEngine._runActions(scene.onArrival);
+      var displayContent = dendryUI.dendryEngine._makeDisplayContent(scene.content, true);
+      $('#party_qualities').append(dendryUI.contentToHTML.convert(displayContent));
+      // Render d3 parliament diagram after DOM update
+      window.renderPartyParliament();
+  };
+
+  window.renderPartyParliament = function() {
+      var svgEl = document.getElementById('party-parliament');
+      if (!svgEl || !window.partyParliamentData || window.partyParliamentData.length === 0) return;
+      // Clear any existing content
+      d3.select("#party-parliament").selectAll("*").remove();
+      var width = svgEl.parentElement ? svgEl.parentElement.offsetWidth : 220;
+      if (width <= 0) width = 220;
+      var parliament = d3.parliament();
+      parliament.width(width).height(width).innerRadiusCoef(0.4);
+      parliament.enter.fromCenter(true).smallToBig(true);
+      parliament.exit.toCenter(false).bigToSmall(true);
+      d3.select("#party-parliament").datum(window.partyParliamentData).call(parliament);
+  };
+
   window.changeTab = function(newTab, tabId) {
       if (tabId == 'poll_tab' && dendryUI.dendryEngine.state.qualities.historical_mode) {
           window.alert('Polls are not available in historical mode.');
           return;
       }
       var tabButton = document.getElementById(tabId);
-      var tabButtons = document.getElementsByClassName('tab_button');
+      var tabButtons = document.getElementById('stats_sidebar').getElementsByClassName('tab_button');
       for (i = 0; i < tabButtons.length; i++) {
         tabButtons[i].className = tabButtons[i].className.replace(' active', '');
       }
@@ -384,6 +409,7 @@ function getPartyIdeology(party, Q) {
 
   window.onDisplayContent = function() {
       window.updateSidebar();
+      window.updatePartySidebar();
   };
 
   /*
