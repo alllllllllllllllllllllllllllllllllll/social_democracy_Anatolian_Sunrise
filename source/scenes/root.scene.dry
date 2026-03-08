@@ -1118,7 +1118,6 @@ this.state.disableSaves = true;
 go-to: 1928_main
 
 @tutorial
-go-to: start
 
 To start off, on the left side of the screen, one will encounter various tabs that will display information about the political, social and economic situation of the nation. 	
 
@@ -1130,11 +1129,16 @@ The 'Defense' tab shows the status of the paramilitary organizations that hold i
 
 The 'Polls' tab shows the vote percentage of the various parties around the nation and how popular they are in specific demographics. The National Kurdish Movement has the potential to spread and increase its demographic percentage if Kurdish Nationalism manages to reach a breakthrough among the previously politically inactive Kurds.	
 
-The 'Exterior Affairs' tab shows the international relations of our nation and the status of the various diplomatic crises that the nation will encounter. 	
+The 'Exterior Affairs' tab shows the international relations of our nation and the status of the various diplomatic crises that the nation will encounter. 
 
 The 'Economics' tab is one of the most striking points of the game and presents a complex economic simulation that will need to be managed by the players. The general health of the economy is a parameter affected by the other variables that affects everything ranging from party popularity to political violence. The Turkish economy is very vulnerable to the possible turbulances in the world economy and the fundamental issues that cause this weakness need to be resolved before another crisis hits and wracks the nation like a train.	
 
 Advisors are the influential politicians aligned with the party that take part in its governance and are able to take unique actions that varies from advisor to advisor. With actions being able to be taken one in specific periods of time, the players need to make the best of the actions that their advisors can provide, and create the suitable combination that will help them forward their cause and the party.
+
+- @returnn: Return
+
+@returnn
+go-to: start
 
 @1928_main
 audio: shuffle music/50yilmarsi.mp3 music/Yeni_Bir_Turkiye.mp3 music/Oy_Gulum_Oy.mp3 music/Canim_Ecevit.mp3 music/Dısarda_Kar_Yagiyor.mp3 music/Sev_Kardesim_Senay.mp3 music/Neye_Geldim_Dunyaya.mp3 music/Kumsaldaki_Izler_Juanito.mp3 music/Semiramis_Pekkan_Senden_Vazgecemem.mp3 music/Genclik_Basimda_Duman.mp3 music/Ersan_Erdura_Acılar_Surekli_Olamaz.mp3 music/Juanito_Arkadasimin_Askisin.mp3 music/Nilufer_dunya_donuyor.mp3 music/Nilufer_selam_soyle.mp3
