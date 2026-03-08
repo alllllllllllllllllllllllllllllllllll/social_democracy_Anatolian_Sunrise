@@ -627,7 +627,7 @@ Overall dissent: [+ dissent_percent : dissent +]
 
 Marixst Kemalists are a marginalized group with their idea of synthesis between Marxism and Kemalism being seen as treacherous by many. They view the Kemalist revolution as a step towards Socialism and in the case of MDD(National Democratic Revolution)'ers, want to complete it with another revolution that would come from the ranks of the military. Many of the Marxist Kemalists are prisoned right now due to their support of the 9 March coup attempt which was conducted by the Socialist members of the Turkish army.
 
-Strength: [+ kemalist_marxists_strength : strength +]
+Strength: [+ km_strength_label +]
 
 Dissent: [+ kemalist_marxists_dissent : dissent +]
 
@@ -635,7 +635,7 @@ Dissent: [+ kemalist_marxists_dissent : dissent +]
 
 The Left Kemalists are a group of reformers who want to sway <span style="color: #E3000F;">**CHP**</span> from its authoritarian stance of "For the people, in spite of the people". Led by Bülent Ecevit, they have been gaining power within the party since 1965 and now seems to be overshadowing the old guard in strength and rhetoric. The Left Kemalists want to complete the Kemalist revolution through the spread of progressive values and the improvement of the lives of the labourers, so that Turkey can become the modern republic, in peace with the values of civilazition as Atatürk once envisioned.
 
-Strength: [+ left_kemalists_strength : strength +]
+Strength: [+ lk_strength_label +]
 
 Dissent: [+ left_kemalists_dissent : dissent +]
 
@@ -643,7 +643,7 @@ Dissent: [+ left_kemalists_dissent : dissent +]
 
 The Orthodox Kemalists' perception of Atatürk and Kemalism is much more solid and impervious. Continuing the one party era ideology of "for the people, in spite of the people" Orthodox Kemalists keep advocating for a top-down modernization and reject any motion of class differences or conflict. 
 
-Strength: [+ orthodox_kemalists_strength : strength +]
+Strength: [+ ok_strength_label +]
 
 Dissent: [+ orthodox_kemalists_dissent : dissent +]
 
@@ -651,7 +651,7 @@ Dissent: [+ orthodox_kemalists_dissent : dissent +]
 
 The Right Kemalists have an especially nationalistic perception of Atatürk, and perhaps share more in ideology with the counter revolutionaries than they do with the other Kemalists. They have increasingly been sidelined by the Left Kemalists during the last decade and even though they have split into a party of their own, CGP, sympathizers of Right Kemalism are still in <span style="color: #E3000F;">**CHP**</span> and search for any opportunity to prevent the rise of Ecevit.
 
-Strength: [+ right_kemalists_strength : strength +]
+Strength: [+ rk_strength_label +]
 
 Dissent: [+ right_kemalists_dissent : dissent +]
 

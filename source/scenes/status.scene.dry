@@ -71,7 +71,49 @@ if (typeof Q.right_kemalists_resign === 'undefined') {
     Q.right_kemalists_resign = 0;
 }
 
-// Compute weighted average faction strength labels
+// Initialize per-quarter strengths if they don't exist (backward compatibility with saves)
+if (typeof Q.q0_km_str === 'undefined') {
+    var _qWInit = [0.20, 0.15, 0.25, 0.20, 0.10, 0.10];
+    var _fKeysInit = ['km', 'lk', 'ok', 'rk'];
+    var _fGlobalsInit = ['kemalist_marxists_strength', 'left_kemalists_strength', 'orthodox_kemalists_strength', 'right_kemalists_strength'];
+    for (var _fii = 0; _fii < 4; _fii++) {
+        var _val = Q[_fGlobalsInit[_fii]] || 0;
+        for (var _qii = 0; _qii < 6; _qii++) {
+            Q['q' + _qii + '_' + _fKeysInit[_fii] + '_str'] = _val;
+        }
+        Q['_last_' + _fKeysInit[_fii] + '_str'] = _val;
+    }
+}
+
+// Sync per-quarter faction strengths with any game event changes to global values
+var _qW = [0.20, 0.15, 0.25, 0.20, 0.10, 0.10];
+var _fKeys = ['km', 'lk', 'ok', 'rk'];
+var _fGlobals = ['kemalist_marxists_strength', 'left_kemalists_strength', 'orthodox_kemalists_strength', 'right_kemalists_strength'];
+
+for (var _fi = 0; _fi < 4; _fi++) {
+    var _fKey = _fKeys[_fi];
+    var _gKey = _fGlobals[_fi];
+
+    // Detect if a game event modified the global strength since last computation
+    var _delta = (Q[_gKey] || 0) - (Q['_last_' + _fKey + '_str'] || 0);
+    if (Math.abs(_delta) > 0.001) {
+        // Distribute change uniformly across all quarters
+        for (var _qi = 0; _qi < 6; _qi++) {
+            Q['q' + _qi + '_' + _fKey + '_str'] = (Q['q' + _qi + '_' + _fKey + '_str'] || 0) + _delta;
+            if (Q['q' + _qi + '_' + _fKey + '_str'] < 0) Q['q' + _qi + '_' + _fKey + '_str'] = 0;
+        }
+    }
+
+    // Recompute weighted average from per-quarter values
+    var _wavg = 0;
+    for (var _qi = 0; _qi < 6; _qi++) {
+        _wavg += _qW[_qi] * (Q['q' + _qi + '_' + _fKey + '_str'] || 0);
+    }
+    Q[_gKey] = _wavg;
+    Q['_last_' + _fKey + '_str'] = _wavg;
+}
+
+// Compute strength labels from weighted averages
 // Score = faction's share of total active strength × 7
 // Scale: 0-0.5 Nonexistant, 0.5-1.5 Very weak, 1.5-2.5 Weak,
 // 2.5-3.5 Medium, 3.5-4.5 High, 4.5-5.5 Very High, 5.5+ & > others combined = Hegemonic
@@ -645,15 +687,21 @@ if (Q.lk_congress_seats === maxSeats) {
     Q.km_congress_seats += seat_diff;
 }
 
-// Per-quarter seat calculations
+// Per-quarter seat calculations using per-quarter faction strengths
 var qPcts = [0.20, 0.15, 0.25, 0.20, 0.10, 0.10];
 for (var qi = 0; qi < qPcts.length; qi++) {
     var qSeats = Math.round(qPcts[qi] * 1200);
+    var qTotal = (Q['q' + qi + '_km_str'] || 0) + (Q['q' + qi + '_lk_str'] || 0) + (Q['q' + qi + '_ok_str'] || 0);
+    if (!Q.right_kemalist_split) {
+        qTotal += (Q['q' + qi + '_rk_str'] || 0);
+    }
+    if (qTotal <= 0) qTotal = 1;
+
     Q['q' + qi + '_total'] = qSeats;
-    Q['q' + qi + '_km'] = Math.round(qSeats * (Q.kemalist_marxists_strength || 0) / total);
-    Q['q' + qi + '_lk'] = Math.round(qSeats * (Q.left_kemalists_strength || 0) / total);
-    Q['q' + qi + '_ok'] = Math.round(qSeats * (Q.orthodox_kemalists_strength || 0) / total);
-    Q['q' + qi + '_rk'] = Q.right_kemalist_split ? 0 : Math.round(qSeats * (Q.right_kemalists_strength || 0) / total);
+    Q['q' + qi + '_km'] = Math.round(qSeats * (Q['q' + qi + '_km_str'] || 0) / qTotal);
+    Q['q' + qi + '_lk'] = Math.round(qSeats * (Q['q' + qi + '_lk_str'] || 0) / qTotal);
+    Q['q' + qi + '_ok'] = Math.round(qSeats * (Q['q' + qi + '_ok_str'] || 0) / qTotal);
+    Q['q' + qi + '_rk'] = Q.right_kemalist_split ? 0 : Math.round(qSeats * (Q['q' + qi + '_rk_str'] || 0) / qTotal);
 }
 
 // Calculate candidate seats
