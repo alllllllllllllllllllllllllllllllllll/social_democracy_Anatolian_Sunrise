@@ -35,30 +35,38 @@ Enforcing party discipline reduces dissent, but it could lead to an exit of diss
 @concessions_rightists
 title: Give concessions to the right kemalists.
 view-if: right_kemalists_dissent > 30 and not right_kemalists_resign
-on-arrival: right_kemalists_dissent -= 7; left_kemalists_dissent += 5; kemalist_marxists_dissent += 10
+on-arrival: {! Q.right_kemalists_dissent -= 7; Q.left_kemalists_dissent += 5; Q.kemalist_marxists_dissent += 10; if (Q.congress_upcoming && Q.right_kemalists_support == 0) { Q.right_kemalists_support = 2; } !}
 
 We attempt to appease the Right through decreasing the volume of our left wing rhetoric and our progressive standing. Though it works to some extent, the left wing of the party accuses us of cooperating with the counter revolutionaries.
+
+[? if congress_upcoming and right_kemalists_support == 2 : The Right Kemalists, pleased by our concessions, have thrown their support behind İnönü at the upcoming congress. ?]
 
 @concessions_orthodox
 title: Give concessions to the orthodox kemalists
 view-if: orthodox_kemalists_dissent > 30
-on-arrival: orthodox_kemalists_dissent -= 7; left_kemalists_dissent += 5
+on-arrival: {! Q.orthodox_kemalists_dissent -= 7; Q.left_kemalists_dissent += 5; if (Q.congress_upcoming && Q.orthodox_kemalists_support == 0) { Q.orthodox_kemalists_support = 2; } !}
 
 We promise to take less radical positions against the establishment. The delegates who carried us to the party leadership question why we are dealing with the old guard.
+
+[? if congress_upcoming and orthodox_kemalists_support == 2 : The Orthodox Kemalists, appreciating our moderation, rally behind İnönü for the congress vote. ?]
 
 @concessions_left
 title: Give concessions to the left kemalists
 view-if: left_kemalists_dissent > 30
-on-arrival: left_kemalists_dissent -= 10
+on-arrival: {! Q.left_kemalists_dissent -= 10; if (Q.congress_upcoming && Q.left_kemalists_support == 0) { Q.left_kemalists_support = 1; } !}
 
 We are the party of the center left and there is no reason why we cant strengthen our ties with the delegates who brought us where we are.
+
+[? if congress_upcoming and left_kemalists_support == 1 : Reassured by our commitment, the Left Kemalists reaffirm their support for Ecevit at the congress. ?]
 
 @concessions_marxist
 title: Give concessions to marxists.
 view-if: kemalist_marxists_dissent > 30
-on-arrival: kemalist_marxists_dissent -= 7; orthodox_kemalists_dissent += 5
+on-arrival: {! Q.kemalist_marxists_dissent -= 7; Q.orthodox_kemalists_dissent += 5; if (Q.congress_upcoming && Q.kemalist_marxists_support == 0) { Q.kemalist_marxists_support = 1; } !}
 
 We reach out to the intellectuals to our left and take their ideas for our new party platform. The Traditionalists are wary of cooperating with the "unnational" Marxists.
+
+[? if congress_upcoming and kemalist_marxists_support == 1 : The Kemalist Marxists, emboldened by our outreach, declare their support for Ecevit at the congress. ?]
 
 @do_nothing
 title: Let the factions argue with themselves.

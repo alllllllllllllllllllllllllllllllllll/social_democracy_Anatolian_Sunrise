@@ -10,7 +10,44 @@ In response to the rising Left of Center movement, Kemal Satır has called for a
 
 İnönü has reluctantly accepted the proposal and our party is heading towards its perhaps most crucial congress in decades, one that will decide the fate of both the party and the nation.
 
-- @letsgo: Bring it on.
+The battle lines are being drawn. We must secure as much support as we can before the vote.
+
+- @rally_km_ecevit: Rally the Kemalist Marxists behind Ecevit.
+- @rally_km_inonu: Rally the Kemalist Marxists behind İnönü.
+- @sway_ok: Convince the Orthodox Kemalists to withdraw their support for İnönü.
+- @no_lobbying: Focus on other matters for now.
+
+@rally_km_ecevit
+view-if: kemalist_marxists_support != 1
+on-arrival: {! Q.kemalist_marxists_support = 1; Q.kemalist_marxists_dissent -= 5; !}
+
+The Kemalist Marxists, energized by the reformist platform, agree to throw their weight behind Ecevit at the upcoming congress.
+
+- @letsgo: Boynuz kulağı geçmeli..
+
+@rally_km_inonu
+view-if: kemalist_marxists_support != 2
+on-arrival: {! Q.kemalist_marxists_support = 2; Q.kemalist_marxists_dissent += 5; !}
+
+Despite some grumbling from the radicals, the Kemalist Marxists are convinced to back İnönü's established leadership at the congress.
+
+- @letsgo: Boynuz kulağı geçmeli..
+
+@sway_ok
+view-if: orthodox_kemalists_support == 2
+choose-if: orthodox_kemalists_dissent >= 20
+unavailable-subtitle: The Orthodox Kemalists are too firmly behind İnönü.
+on-arrival: {! Q.orthodox_kemalists_support = 0; Q.orthodox_kemalists_dissent += 10; !}
+
+After tense discussions, some Orthodox Kemalists agree to remain neutral. They withdraw their formal endorsement of İnönü, though many remain sympathetic to the old guard.
+
+- @letsgo: Boynuz kulağı geçmeli..
+
+@no_lobbying
+
+We have other priorities at the moment. The factions will make their own choices.
+
+- @letsgo: Boynuz kulağı geçmeli..
 
 @letsgo
 subtitle: Boynuz kulağı geçmeli..
