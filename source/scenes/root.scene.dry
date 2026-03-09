@@ -1085,9 +1085,9 @@ function getMunicipalityControlLevel() {
         return 0; // Terrible
     } else if (ratio <= (26 / 67)) {
         return 1; // Poor
-    } else if (ratio <= (40 / 67)) {
+    } else if (ratio <= (34 / 67)) {
         return 2; // Divided
-    } else if (ratio <= (50 / 67)) {
+    } else if (ratio <= (40 / 67)) {
         return 3; // Satisfactory
     }
     return 4; // Overwhelming
