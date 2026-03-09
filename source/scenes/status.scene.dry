@@ -736,22 +736,32 @@ if (!Q.right_kemalist_split && Q.rk_congress_seats > 0) {
 window.partyParliamentData = pData;
 
 // Build candidate support text
+// Faction support values: 0 = undecided, 1 = candidate_1, 2 = candidate_2
+// Set these in any on-arrival block to change faction backing, e.g.:
+//   Q.kemalist_marxists_support = 1;  // back candidate 1
+//   Q.orthodox_kemalists_support = 0; // withdraw support
 Q.candidate_1_supporters = "";
 Q.candidate_2_supporters = "";
+Q.undecided_factions = "";
 if (Q.congress_upcoming) {
-    var s1 = [], s2 = [];
+    var s1 = [], s2 = [], su = [];
     if (Q.left_kemalists_support == 1) s1.push("Left Kemalists");
-    if (Q.left_kemalists_support == 2) s2.push("Left Kemalists");
+    else if (Q.left_kemalists_support == 2) s2.push("Left Kemalists");
+    else su.push("Left Kemalists");
     if (Q.kemalist_marxists_support == 1) s1.push("Kemalist Marxists");
-    if (Q.kemalist_marxists_support == 2) s2.push("Kemalist Marxists");
+    else if (Q.kemalist_marxists_support == 2) s2.push("Kemalist Marxists");
+    else su.push("Kemalist Marxists");
     if (Q.orthodox_kemalists_support == 1) s1.push("Orthodox Kemalists");
-    if (Q.orthodox_kemalists_support == 2) s2.push("Orthodox Kemalists");
+    else if (Q.orthodox_kemalists_support == 2) s2.push("Orthodox Kemalists");
+    else su.push("Orthodox Kemalists");
     if (!Q.right_kemalist_split) {
         if (Q.right_kemalists_support == 1) s1.push("Right Kemalists");
-        if (Q.right_kemalists_support == 2) s2.push("Right Kemalists");
+        else if (Q.right_kemalists_support == 2) s2.push("Right Kemalists");
+        else su.push("Right Kemalists");
     }
     Q.candidate_1_supporters = s1.length > 0 ? s1.join(", ") : "None";
     Q.candidate_2_supporters = s2.length > 0 ? s2.join(", ") : "None";
+    Q.undecided_factions = su.length > 0 ? su.join(", ") : "";
 }
 
 // Portrait mapping
@@ -800,6 +810,7 @@ if (Q.CHP_party_leader == "Ecevit" || Q.CHP_party_leader == "ecevit") Q.leader_p
 <div style="font-size: 0.75em; font-weight: bold; margin-top: 2px;">!}[+ candidate_2_seats +]{! seats</div>
 </div>
 </div>!} ?]
+[? if congress_upcoming and undecided_factions : {!<div style="text-align: center; font-size: 0.7em; color: #888; margin-bottom: 6px;"><em>Undecided: !}[+ undecided_factions +]{!</em></div>!} ?]
 
 [? if not congress_upcoming : {!<div style="text-align: center; margin-bottom: 10px;">
 <img src="!}[+ leader_portrait +]{!" style="width: 80px; height: 80px; border-radius: 50%; border: 3px solid #E3000F; object-fit: cover;">
