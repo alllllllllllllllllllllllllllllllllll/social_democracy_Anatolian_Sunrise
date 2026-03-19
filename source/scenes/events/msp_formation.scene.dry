@@ -19,5 +19,4 @@ While MNP's lifetime was cut short by the 12 March Memorandum, the movement has 
 - @msp:Önce Ahlak ve Maneviyat!
 
 @msp
-
- 
+on-arrival: z_rural -= 2; MSP_rural += 2; z_petty_bourgeoisie -= 5; MSP_petty_bourgeoisie += 5
