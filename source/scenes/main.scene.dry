@@ -74,7 +74,7 @@ is-deck: true
 
 
 @dovevsbayonet
-title: Dove vs Bayonet
+title: Congress Affairs
 card-image: img/dovevsbayonet.png
 view-if: CHP_party_leader == "İnönü"
 is-deck: true
