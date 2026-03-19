@@ -378,21 +378,53 @@ function getPartyIdeology(party, Q) {
       window.renderPartyParliament();
   };
 
+  window._lastParliamentDataKey = null;
+  window._cachedParliamentSVGContent = null;
+
   window.renderPartyParliament = function() {
       var svgEl = document.getElementById('party-parliament');
       if (!svgEl || !window.partyParliamentData || window.partyParliamentData.length === 0) return;
-      var isFirstRender = !window.partyParliamentRendered;
-      if (isFirstRender) {
-          d3.select("#party-parliament").selectAll("*").remove();
+
+      // Build a key from the current data to detect changes
+      var dataKey = JSON.stringify(window.partyParliamentData.map(function(p) {
+          return { id: p.id, seats: p.seats, color: p.color, outline: p.outline };
+      }));
+
+      // If data hasn't changed and we have cached SVG content, reuse it
+      if (dataKey === window._lastParliamentDataKey && window._cachedParliamentSVGContent) {
+          svgEl.innerHTML = window._cachedParliamentSVGContent;
+          return;
       }
+
+      var isFirstRender = !window.partyParliamentRendered;
+
+      // Always clear SVG and interrupt any running D3 transitions
+      d3.select("#party-parliament").selectAll("*").interrupt().remove();
+
       var width = svgEl.parentElement ? svgEl.parentElement.offsetWidth : 220;
       if (width <= 0) width = 220;
       var parliament = d3.parliament();
       parliament.width(width).height(width).innerRadiusCoef(0.4);
       parliament.enter.fromCenter(isFirstRender).smallToBig(isFirstRender);
-      parliament.exit.toCenter(false).bigToSmall(isFirstRender);
+      parliament.update.animate(false);
+      parliament.exit.toCenter(false).bigToSmall(false);
       d3.select("#party-parliament").datum(window.partyParliamentData).call(parliament);
       window.partyParliamentRendered = true;
+
+      // Cache the rendered SVG content for reuse
+      if (!isFirstRender) {
+          window._lastParliamentDataKey = dataKey;
+          window._cachedParliamentSVGContent = svgEl.innerHTML;
+      } else {
+          // First render has animations; cache after they complete
+          setTimeout(function() {
+              var el = document.getElementById('party-parliament');
+              if (el) {
+                  window._lastParliamentDataKey = dataKey;
+                  window._cachedParliamentSVGContent = el.innerHTML;
+              }
+          }, 2000);
+      }
   };
 
   window.changeTab = function(newTab, tabId) {
