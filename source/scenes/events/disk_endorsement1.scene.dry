@@ -24,7 +24,7 @@ He opened up the phone and dialed [? if disk_relation >= 49 : Bay Ecevit's perso
 
 @endorse
 subtitle: We have managed DİSK to endorse us thanks to our good relations!
-view-if: disk_relation >= 49 or union_reform  == yes
+view-if: disk_relation > 49 or union_reform  == yes
 on-arrival: disk_endorsement = true; disk_relation += 3
 
 DİSK will rally the industrial workers that otherwise aligned with TİP and other smaller Socialist parties. Socialists and Social Democrats show meaningful example of collaboration at a time of crisis.                                
