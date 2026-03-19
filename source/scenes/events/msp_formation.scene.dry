@@ -1,5 +1,5 @@
-title: MSP Formation
-subtitle: The reorganization of the Islamist movement.
+title: MSP formation
+subtitle: The reorganization of the Islamist movement
 view-if: year == 1972 and month = 10 and week = 2
 max-visits: 1
 tags: event
