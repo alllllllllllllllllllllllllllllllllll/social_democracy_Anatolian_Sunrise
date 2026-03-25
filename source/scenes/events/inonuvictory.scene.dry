@@ -5,14 +5,11 @@ max-visits: 1
 tags: event
 new-page: true
 on-arrival: {!
-// Realign party quarter strengths: the purge eliminates Kemalist Marxists
-// and Left Kemalists from all institutions, with Orthodox and Right Kemalists
-// absorbing their positions.
-Q.q0_km_str = 0; Q.q0_lk_str = 1; Q.q0_ok_str = 5; Q.q0_rk_str = 3;
-Q.q1_km_str = 0; Q.q1_lk_str = 1; Q.q1_ok_str = 4; Q.q1_rk_str = 3;
-Q.q2_km_str = 0; Q.q2_lk_str = 0; Q.q2_ok_str = 5; Q.q2_rk_str = 2;
+Q.q0_km_str = 1; Q.q0_lk_str = 2; Q.q0_ok_str = 5; Q.q0_rk_str = 3;
+Q.q1_km_str = 1; Q.q1_lk_str = 3; Q.q1_ok_str = 2; Q.q1_rk_str = 2;
+Q.q2_km_str = 0; Q.q2_lk_str = 1; Q.q2_ok_str = 5; Q.q2_rk_str = 2;
 Q.q3_km_str = 0; Q.q3_lk_str = 1; Q.q3_ok_str = 5; Q.q3_rk_str = 3;
-Q.q4_km_str = 0; Q.q4_lk_str = 1; Q.q4_ok_str = 5; Q.q4_rk_str = 3;
+Q.q4_km_str = 1; Q.q4_lk_str = 1; Q.q4_ok_str = 5; Q.q4_rk_str = 3;
 Q.q5_km_str = 0; Q.q5_lk_str = 1; Q.q5_ok_str = 5; Q.q5_rk_str = 2;
 !}
 on-display: {!
@@ -25,6 +22,8 @@ cardEl.appendChild(image);
 var contentDiv = document.querySelector("#page #mid_panel #content");
 contentDiv.appendChild(cardEl);
 !}
+
+= **The Grey Purge**
 
 After our loss in the congress last month, İnönü has in a fit of rage utilized the brief timeframe before a new opposition forms to purge all the supporters of the Left of Center movement and members aligned with Ecevit from all the institutions of the party.
 
