@@ -1,5 +1,5 @@
 title: İnönü reads Ecevit's inauguration speech from his home
-view-if: year == 1972 and month = 6 and week = 1
+view-if: year == 1972 and month = 6 and week = 1 and CHP_party_leader == "Ecevit"
 max-visits: 1
 tags: event
 new-page: true
