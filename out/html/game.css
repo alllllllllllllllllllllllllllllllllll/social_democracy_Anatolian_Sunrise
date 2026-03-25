@@ -422,6 +422,13 @@ a.card:focus .card-tooltip, a.card:hover .card-tooltip {
   vertical-align: bottom;
   object-fit: cover;
 }
+.face-figure2 {
+  border: 5px solid var(--card-border-color);
+  max-width: 100%;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  overflow: hidden;
+}
 
 /*
  * sprite stuff- feel free to comment out/remove if not using
