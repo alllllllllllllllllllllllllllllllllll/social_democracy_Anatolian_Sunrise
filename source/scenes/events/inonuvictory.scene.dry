@@ -1,0 +1,18 @@
+title: **The Gray Purge**
+subtitle: İnönü has begun purging members of the Left of Center!
+view-if: year == 1972 and month = 6 and week = 1 and CHP_party_leader == "İnonu"
+max-visits: 1
+tags: event
+new-page: true
+face-image: img/bayonet.jpeg
+
+After our loss in the congress last month, İnönü has in a fit of rage utilized the brief timeframe before a new opposition forms to purge all the supporters of the Left of Center movement and members aligned with Ecevit from all the institutions of the party.
+
+Starting with the prominent Socialist General Secretary Kamil Kırıkoğlu, both the Marxists and the Social Democrats quickly were eliminated from their positions in the party. While Ecevit vowed to continue the struggle, it appears so that the hopes and dreams for a brighter future have been broken; at least within the CHP.
+ 
+The sun falls below the horizon and the night begins.
+  
+- @bye: Game Over.
+
+@bye
+go-to: game_over
