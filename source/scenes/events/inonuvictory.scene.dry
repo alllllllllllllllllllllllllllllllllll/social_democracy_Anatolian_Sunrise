@@ -4,6 +4,7 @@ view-if: year == 1972 and month = 6 and week = 1 and CHP_party_leader == "İnön
 max-visits: 1
 tags: event
 new-page: true
+priority: 0
 on-arrival: {!
 Q.q0_km_str = 1; Q.q0_lk_str = 2; Q.q0_ok_str = 5; Q.q0_rk_str = 3;
 Q.q1_km_str = 1; Q.q1_lk_str = 3; Q.q1_ok_str = 2; Q.q1_rk_str = 2;
