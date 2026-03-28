@@ -1,6 +1,6 @@
 title: Nihat Erim resigns from prime ministership!
 subtitle: The first of the many?
-view-if: year = 1972 and month = 6 and week = 1 and chancellor = "Nihat Erim"
+view-if: year = 1972 and month = 6 and week = 1 and chancellor = "Nihat Erim" and CHP_party_leader = "Ecevit"
 max-visits: 1
 tags: event
 priority: 0
