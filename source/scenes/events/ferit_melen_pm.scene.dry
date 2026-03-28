@@ -3,6 +3,7 @@ subtitle: The first of the many?
 view-if: year = 1972 and month = 6 and week = 1 and chancellor = "Nihat Erim"
 max-visits: 1
 tags: event
+priority: 0
 new-page: true
 face-image: img/Nihaterim.png
 
