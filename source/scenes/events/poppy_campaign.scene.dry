@@ -1,10 +1,10 @@
 title: Poppy Harvestation Ban
 subtitle: How vigorously are we going to campaign on this issue?
-view-if: year = 1973 and month = 9 and week = 1
+view-if: year = 1973 and month = 8 and week = 2
 max-visits: 1
 tags: event
 new-page: true
-face-image: out/html/img/images (20).jpeg
+face-image: img/poppy.jpeg
 
  = Poppy Harvestation Ban
 
@@ -12,7 +12,7 @@ face-image: out/html/img/images (20).jpeg
 
  Yet, with the invention of modern distillation methods a far darker side of poppy has been discovered. The plant can be used to produce the extremely dangerous drug heroin and Turkish opium is currently said to be flooding the Western markets: specifically, the US's one.
 
- For the last decade the Americans have repeatedly made their stance firm and have been asking for a total ban on the culvation of the plant. This demand was reaffirmed even when the Turkish authorities offered to greatly monitor the production of opium and try to attempt any leakage into the black market by offering higher prices. Though absurd, concepts such as a total ban of military products or Turkey's removal from the NATO have been thrown around by the American officials in case Turkey did not yield. President Nixon is even said to have discussed bombing the Blue Mosque, a pinnacle of Islamic and Ottoman architecture, with his advisors. 
+ For the last decade the Americans have repeatedly made their stance firm and have been asking for a total ban on the culvation of the plant. This demand was reaffirmed even when the Turkish authorities offered to greatly monitor the production of opium and try to attempt any leakage into the black market by offering higher prices. Though absurd, concepts such as a total ban of military products or Turkey's removal from the NATO have been thrown around by the American officials in case Turkey did not yield. President Nixon is even said to have discussed **bombing** the Blue Mosque, a pinnacle of Islamic and Ottoman architecture, with his advisors. 
 
  Finally a deal was finalized between the American and the Nihat Erim governments in early 1972 to first decrease the regional scope of poppy harvestation and then eliminate its production entirely. In exchange, the Americans would make a payment of 35 million dollars for the development efforts of substitutive crops and payment for the farmers destroying a year's worth of poppy crops instead of selling them to the market.
 
@@ -20,8 +20,8 @@ face-image: out/html/img/images (20).jpeg
 
  We can choose to either campaign heavily on this front or refrain from taking a firm stance. After all, you cant break a promise you didnt make, can you?
 
- - @banyes: We will not yield to American pressure. We will remove the ban on the cultivation of opium. Make this a central part of our campaign.
- - @banno: Refrain from taking any firm stances. Perhaps we can renegotiate the deal once we come to power.
+- @banyes: We will not yield to American pressure. We will remove the ban on the cultivation of opium. Make this a central part of our campaign.
+- @banno: Refrain from taking any firm stances. Perhaps we can renegotiate the deal once we come to power.
 
 @banyes
 on-arrival: rural_CHP += 2; poppy_campaign = 1
