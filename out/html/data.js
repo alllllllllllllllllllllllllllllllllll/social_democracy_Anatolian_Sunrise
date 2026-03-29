@@ -37,6 +37,10 @@ const tooltipList = [{
 {
     searchString: "MHP",
     explanationText: "<img src=img/MHP.png> Nationalist Movement Party"
+},
+{
+    searchString: "Blue Mosque",
+    explanationText: "<img src=img/blue_mosque.jpeg>"
 },                     
 ];
 
@@ -56,12 +60,11 @@ const colourList = [{
 {
         word: "TIP",
         style: "color: #8B0000; font-weight: bold;"
-},
-                   
+},                  
 {
         word: "Raiders",
         style: "color: #367824; font-weight: bold;"
-},                    
+},                                       
 {
         word: "THKP-C",
         style: "color: #f6D248; font-weight: bold;"
@@ -98,4 +101,8 @@ const colourList = [{
         word: "Grey Wolves",
         style: "color: #190c91; font-weight: bold;"
 },
+{
+        word: "Blue Mosque",
+        style: "color: #42b6f5; font-weight: bold;"
+},                                        
 ];
