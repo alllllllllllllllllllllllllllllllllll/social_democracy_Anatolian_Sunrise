@@ -23,12 +23,14 @@ on-arrival: advisor_action_timer = 3; tip_relation += 5; disk_relation += 2; wor
 We present the benefits of the political freedom and university autonomy to the parliament against any attempts to alter it. Leftist organizations offer their gratitude for defending the laws that allow them to organize efficiently.
 
 @diskrelation
+subtitle: Sav can help improve our relations with the DİSK labor union.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 3
 go-to: union_relations
 
 @bar
+subtitle: Sav can strengthen our influence in the Turkish bar association.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 3; state_employees_chp += 5; chp_law += 1

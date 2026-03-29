@@ -24,6 +24,7 @@ on-arrival: advisor_action_timer = 3
 Belli reports that THKP-C militants may be planning an attack to prevent the execution of Deniz Gezmiş.
 
 @tip1
+subtitle: Belli can gather information about the situation of Socialist intellectuals under the junta.
 view-if: year == 1972 or (year == 1973 and month <= 10)
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
@@ -36,6 +37,7 @@ Many Socialists report undergoing horrible tortures after being arrested.
 İlhan Selçuk, in his memoirs.
 
 @tip
+subtitle: Belli can help us connect with the unaffiliated Socialist voterbase.
 view-if: (year == 1973 and month >= 10) or year == 1974
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]

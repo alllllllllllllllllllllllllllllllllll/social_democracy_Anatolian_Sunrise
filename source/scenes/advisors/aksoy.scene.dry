@@ -15,12 +15,14 @@ The chief of the technocratic delegation behind the 1960 Constitution, Aksoy is 
 - @root: Return to main
 
 @internationalaffairs
+subtitle: Aksoy can manage our international relations with fellow social democratic parties.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 3;
 go-to: international_relations
 
 @europe
+subtitle: Aksoy's European Council experience can help us improve relations with the West.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 3; {!
@@ -34,6 +36,7 @@ if (Q.cyprus_problem == 0 || Q.cyprus_problem == 1 || Q.cyprus_problem == 2) {
 [? if cyprus_problem == 3 : The dispute over Cyprus and our operation has rendered any diplomatic breakthroughs improbable. ?]
 
 @AET
+subtitle: We can attempt to join the European Economic Community.
 choose-if: CHP_in_government = 1 and advisor_action_timer = 0
 unavailable-subtitle: CHP is not in government. [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 3;
