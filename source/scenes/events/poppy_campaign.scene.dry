@@ -1,0 +1,34 @@
+title: Poppy Harvestation Ban
+subtitle: How vigorously are we going to campaign on this issue?
+view-if: year = 1973 and month = 9 and week = 1
+max-visits: 1
+tags: event
+new-page: true
+face-image: out/html/img/images (20).jpeg
+
+ = Poppy Harvestation Ban
+
+ Poppy plants had always had a special place in Islamic culture due to the relaxative properties of the glue that is released when the plant is cut open. Indeed, poppy glue can be a moderately potent depressant when chewed and it has been used for that purpose for ages, even being rumoured to have been utilized by the Order of Assassins in the 12th Century to calm down their operatives.
+
+ Yet, with the invention of modern distillation methods a far darker side of poppy has been discovered. The plant can be used to produce the extremely dangerous drug heroin and Turkish opium is currently said to be flooding the Western markets: specifically, the US's one.
+
+ For the last decade the Americans have repeatedly made their stance firm and have been asking for a total ban on the culvation of the plant. This demand was reaffirmed even when the Turkish authorities offered to greatly monitor the production of opium and try to attempt any leakage into the black market by offering higher prices. Though absurd, concepts such as a total ban of military products or Turkey's removal from the NATO have been thrown around by the American officials in case Turkey did not yield. President Nixon is even said to have discussed bombing the Blue Mosque, a pinnacle of Islamic and Ottoman architecture, with his advisors. 
+
+ Finally a deal was finalized between the American and the Nihat Erim governments in early 1972 to first decrease the regional scope of poppy harvestation and then eliminate its production entirely. In exchange, the Americans would make a payment of 35 million dollars for the development efforts of substitutive crops and payment for the farmers destroying a year's worth of poppy crops instead of selling them to the market.
+
+ Almost all other parties have released moderate comments about the issue and we have a chance to enhance our populist credentials by taking a firmer stance. Many Turkish citizens view the deal as American interference in national matters and its unlikely a single substitutive crop can be found to replace the poppy production completely. In addition a lot of our provinces' rural economy depends on the revenue from the poppy harvestation which is used in a variety of industries.
+
+ We can choose to either campaign heavily on this front or refrain from taking a firm stance. After all, you cant break a promise you didnt make, can you?
+
+ - @banyes: We will not yield to American pressure. We will remove the ban on the cultivation of opium. Make this a central part of our campaign.
+ - @banno: Refrain from taking any firm stances. Perhaps we can renegotiate the deal once we come to power.
+
+@banyes
+on-arrival: rural_CHP += 2; poppy_campaign = 1
+
+Ecevit tours the Aegean provinces specializing in poppy harvestation and promises to revert the undue exertion of American pressure on the nation. Many farmers who had to spoil their land by planting lesser quality substitution goods feel attracted by this messaging and rural crowds circling Ecevit's iconic campaign bus grow larger and larger. 
+
+@banno
+on-arrival: rural_CHP -= 1; q5_lk_str -= 0.5
+
+Though we make sure to not entirely sideline the issue, our voters expected a firmer stance from the 'populist' Ecevit and his party. Though the topic is eventually lost in the flow of the election cycle, it would be impossible not to notice the disappointment in the eyes of many, those families whose livelihood depended on opium harvestation. The local party organizations also express their disapproval over the party leadership's seeming abandonment of the rural Aegean provinces.
