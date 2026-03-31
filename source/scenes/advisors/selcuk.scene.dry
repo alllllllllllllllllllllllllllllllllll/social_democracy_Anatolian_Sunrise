@@ -16,6 +16,7 @@ new-page: true
 - @root: Return to main
 
 @organization
+subtitle: Selçuk can leverage his connections with socialist circles to improve our relations with the far left.
 view-if: year <= 1975 and kemalist_marxist_dissent <= 25
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
@@ -24,6 +25,7 @@ on-arrival: advisor_action_timer = 3; tip_relation += 6
 Since TIP has ceased to exist as a party, many socialists want to continue their struggle somewhere and our attempts are welcomed fondly.
 
 @organization1
+subtitle: Selçuk can leverage his connections with socialist circles to improve our relations with the far left.
 view-if: year >= 1974 and kemalist_marxist_dissent <= 25
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
@@ -32,12 +34,14 @@ on-arrival: advisor_action_timer = 3; tip_relation += 4
 With the reestablishment of TİP and other small leftist parties, there is less of an incentive for the socialist circles to cooperate with <span style="color: #E3000F;">**CHP**</span> directly. Still, our efforts are taken seriously and valued.
 
 @author
+subtitle: Selçuk can use his journalism to support our media efforts.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 3
 go-to: media
 
 @marxistdissent
+subtitle: Selçuk can help decrease dissent among the Kemalist Marxists.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 3; kemalist_marxists_dissent -= 10

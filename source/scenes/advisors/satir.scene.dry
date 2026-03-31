@@ -14,6 +14,7 @@ Kemal Satır is a prominent member of the Orthodox wing within the party. Once t
 - @root: Return to main
 
 @leave
+subtitle: Perhaps we can convince Satır and the orthodox right to not splinter the party.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 3; right_kemalist_deal = 1
@@ -23,6 +24,7 @@ Satır's position and ours is inherently irreconcilable, and the right wing stan
 We have promised the orthodox right a say in future appointments in exchange for their cooperation. They will hold their fire—for now.
 
 @health
+subtitle: As a former doctor, Satır can serve as the Minister of Health.
 on-arrival: advisor_action_timer = 3
 choose-if: CHP_in_government = 1 and advisor_action_timer = 0
 unavailable-subtitle: <span style="color: #E3000F;">**CHP**</span> is not in government. [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]

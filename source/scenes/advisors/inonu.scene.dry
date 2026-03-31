@@ -14,6 +14,7 @@ new-page: true
 - @root: Return to main
 
 @campaign
+subtitle: İnönü can continue to campaign as usual, though internal party strife may undermine his efforts.
 go-to: campaigning
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]

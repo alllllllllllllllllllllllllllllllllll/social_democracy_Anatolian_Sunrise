@@ -15,6 +15,7 @@ Orhan Eyüboğlu is the vice secretary of the <span style="color: #E3000F;">**CH
 - @root: Return to main
 
 @orthodoxdissent
+subtitle: Eyüboğlu can help reduce dissent among the Orthodox Kemalists by mediating between the factions.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 3; orthodox_kemalist_dissent -= 7
@@ -22,12 +23,14 @@ on-arrival: advisor_action_timer = 3; orthodox_kemalist_dissent -= 7
 Eyüboğlu assures key Orthodox figures and decreases dissent.
 
 @partyorganization
+subtitle: Eyüboğlu can help manage the party organizations.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 3
 go-to: party_organizations
 
 @localgovernence
+subtitle: Eyüboğlu's experience as governor of İstanbul can help manage our municipalities.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 3
