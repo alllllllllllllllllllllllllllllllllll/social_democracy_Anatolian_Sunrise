@@ -400,7 +400,7 @@ Mustafa Üstündağ is now an advisor.
 
 @add_rahsan
 title: Rahşan Ecevit
-subtitle: The wife of our new party leader, Bülent Ecevit. While she isnt a politician herself, the party can still benefit from her personality. {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising ?]
+subtitle: The wife of our new party leader, Bülent Ecevit. While she isn't a politician herself, the party can still benefit from her personality. {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising ?]
 is-card: true
 card-image: img/portraits/RahsanEcevit.jpeg
 tags: left_kemalist_advisor
@@ -412,7 +412,7 @@ Rahşan Ecevit is now an advisor.
 
 @add_topuz
 title: Ali Topuz
-subtitle: Ali Topuz is an architect heavily involvedin the civil society organizations and expertises in agriculture and land reform. {!<br><br>!}[? if difficulty < 0 : Actions - Agriculture Ministry, Land Reform ?]
+subtitle: Ali Topuz is an architect heavily involved in the civil society organizations and expertises in agriculture and land reform. {!<br><br>!}[? if difficulty < 0 : Actions - Agriculture Ministry, Land Reform ?]
 is-card: true
 card-image: img/portraits/AliTopuz.jpeg
 tags: left_kemalist_advisor
