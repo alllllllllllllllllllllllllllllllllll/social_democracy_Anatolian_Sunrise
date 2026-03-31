@@ -301,7 +301,7 @@ Kamil Kırıkoğlu is now an advisor.
 
 @add_avcioglu
 title: Doğan Avcıoğlu
-subtitle: Doğan Avcıoğlu is a famous Marxist historian, economist, politician and an author. He is the defacto theoretician behind the National Democratic Revolution movement. {!<br><br>!}[? if difficulty < 0 : Actions - TBD ?]
+subtitle: Doğan Avcıoğlu is a famous Marxist historian, economist, politician and an author. He is the defacto theoretician behind the National Democratic Revolution movement. {!<br><br>!}[? if difficulty < 0 : Actions - Land Reform Policy, Minister of Economy, Socialist Newspaper ?]
 is-card: true
 card-image: img/portraits/AvciogluDogan.jpg
 view-if: avcioglu_advisor = 0 and n_advisors < 3
@@ -313,7 +313,7 @@ Doğan Avcıoğlu is now an advisor.
 
 @add_selcuk
 title: İlhan Selçuk
-subtitle: İlhan Selçuk is a journalist and author for the Cumhuriyet newspaper, affiliated with us. He has been imprisoned since the memorandum of 71' due to his affiliation with the National Democratic Revolution movement.
+subtitle: İlhan Selçuk is a journalist and author for the Cumhuriyet newspaper, affiliated with us. He has been imprisoned since the memorandum of 71' due to his affiliation with the National Democratic Revolution movement. {!<br><br>!}[? if difficulty < 0 : Actions - Far Left Relations, Media, Reduce Marxist Dissent ?]
 is-card: true
 card-image: img/portraits/IlhanSelcuk.jpg
 view-if: selcuk_advisor = 0 and n_advisors < 3
@@ -325,7 +325,7 @@ tags: kemalist_marxist_advisor
 
 @add_belli
 title: Mihri Belli
-subtitle: Mihri Belli, the original conceptualizer of National Democratic Revolution, is a Socialist revolutionary that has strong ties with the far left movements.
+subtitle: Mihri Belli, the original conceptualizer of National Democratic Revolution, is a Socialist revolutionary that has strong ties with the far left movements. {!<br><br>!}[? if difficulty < 0 : Actions - Far Left Intelligence, Socialist Intellectual Contacts, Socialist Voterbase ?]
 is-card: true
 card-image: img/portraits/MihriBelli.jpg
 view-if: belli_advisor = 0 and n_adviors < 3
@@ -340,7 +340,7 @@ Mihri Belli is now a contact.
 
 @add_ecevit
 title: Bülent Ecevit
-subtitle: Bülent Ecevit is the current speaker of our party and is the defacto leader of the Left of Center movement.
+subtitle: Bülent Ecevit is the current speaker of our party and is the defacto leader of the Left of Center movement. {!<br><br>!}[? if difficulty < 0 : Actions - Rally the Reformists, Unite the Party, Mass Rallies, Party Organizations ?]
 is-card: true
 card-image: img/portraits/ecevit3.jpg
 tags: left_kemalist_advisor
@@ -352,7 +352,7 @@ Bülent Ecevit is now an advisor
 
 @add_baykal
 title: Deniz Baykal
-subtitle: A rising figure within the party partially due to his doctorate on the 1965 elections, Baykal is experienced in financial and international affairs.
+subtitle: A rising figure within the party partially due to his doctorate on the 1965 elections, Baykal is experienced in financial and international affairs. {!<br><br>!}[? if difficulty < 0 : Actions - International Party Relations, Economic Policy, Coalition Building ?]
 is-card: true
 card-image: img/portraits/DenizBaykal.jpg
 tags: left_kemalist_advisor
@@ -364,7 +364,7 @@ Deniz Baykal is now an advisor.
 
 @add_gunes
 title: Turan Güneş
-subtitle: Turan Güneş is a Social Democratic politician that expertises in international relations.
+subtitle: Turan Güneş is a Social Democratic politician that expertises in international relations. {!<br><br>!}[? if difficulty < 0 : Actions - International Relations, Foreign Ministry, Social Democratic Theory ?]
 is-card: true
 card-image: img/portraits/TuranGunes.jpg
 tags: left_kemalist_advisor
@@ -376,7 +376,7 @@ Turan Güneş is now an advisor.
 
 @add_aksoy
 title: Muammer Aksoy
-subtitle: The chief of the delegation behind the progressive 1960 Constitution, Muammer Aksoy is a lawyer and author.
+subtitle: The chief of the delegation behind the progressive 1960 Constitution, Muammer Aksoy is a lawyer and author. {!<br><br>!}[? if difficulty < 0 : Actions - International Relations, European Council Relations, European Economic Community ?]
 is-card: true
 card-image: img/portraits/MuammerAksoy.jpg
 tags: left_kemalist_advisor
@@ -388,7 +388,7 @@ Muammer Aksoy is now an advisor.
 
 @add_ustundag
 title: Mustafa Üstündağ
-subtitle: Mustafa Üstündağ is a reformist pedagogue from our party.
+subtitle: Mustafa Üstündağ is a reformist pedagogue from our party. {!<br><br>!}[? if difficulty < 0 : Actions - Education Reform ?]
 is-card: true
 card-image: img/portraits/MustafaUstundag.png
 tags: left_kemalist_advisor
@@ -400,7 +400,7 @@ Mustafa Üstündağ is now an advisor.
 
 @add_rahsan
 title: Rahşan Ecevit
-subtitle: The wife of our new party leader, Bülent Ecevit. While she isnt a politician herself, the party can still benefit from her personality.
+subtitle: The wife of our new party leader, Bülent Ecevit. While she isnt a politician herself, the party can still benefit from her personality. {!<br><br>!}[? if difficulty < 0 : Actions - Emergency Fundraising ?]
 is-card: true
 card-image: img/portraits/RahsanEcevit.jpeg
 tags: left_kemalist_advisor
@@ -412,7 +412,7 @@ Rahşan Ecevit is now an advisor.
 
 @add_topuz
 title: Ali Topuz
-subtitle: Ali Topuz is an architect heavily involvedin the civil society organizations and expertises in agriculture and land reform.
+subtitle: Ali Topuz is an architect heavily involvedin the civil society organizations and expertises in agriculture and land reform. {!<br><br>!}[? if difficulty < 0 : Actions - Agriculture Ministry, Land Reform ?]
 is-card: true
 card-image: img/portraits/AliTopuz.jpeg
 tags: left_kemalist_advisor
@@ -424,7 +424,7 @@ Ali Topuz is now an advisor.
 
 @add_sav
 title: Önder Sav
-subtitle: Önder Sav is a prominent Social Democratic politician and legal expert who advocates for judicial reform and constitutional rights.
+subtitle: Önder Sav is a prominent Social Democratic politician and legal expert who advocates for judicial reform and constitutional rights. {!<br><br>!}[? if difficulty < 0 : Actions - Constitutional Defense, DİSK Relations, Bar Association ?]
 is-card: true
 card-image: img/portraits/OnderSav.jpg
 tags: left_kemalist_advisor
@@ -439,7 +439,7 @@ go-to: advisor_menu
 
 @add_inonu
 title: İsmet İnönü
-subtitle: The hero of the republic, right hand man of the Atatürk and former prime minister. The illustrious old wolf has been the party leader since 1938.
+subtitle: The hero of the republic, right hand man of the Atatürk and former prime minister. The illustrious old wolf has been the party leader since 1938. {!<br><br>!}[? if difficulty < 0 : Actions - Campaign, Stay in Party ?]
 is-card: true
 card-image: img/portraits/IsmetInonu.jpg
 tags: orthodox_kemalist_advisor
@@ -451,7 +451,7 @@ go-to: advisor_menu
 
 @add_satir
 title: Kemal Satır
-subtitle: Kemal Satır is a former doctor and one of the prominent names among the Orthodoxs.
+subtitle: Kemal Satır is a former doctor and one of the prominent names among the Orthodoxs. {!<br><br>!}[? if difficulty < 0 : Actions - Prevent Party Splinter, Health Ministry ?]
 is-card: true
 card-image: img/portraits/KemalSatir.png
 tags: orthodox_kemalist_advisor
@@ -463,7 +463,7 @@ Kemal Satır is now an advisor.
 
 @add_eyuboglu
 title: Orhan Eyüboğlu
-subtitle: Orhan Eyüboğlu is a lawyer and one of the supporters of İnönü
+subtitle: Orhan Eyüboğlu is a lawyer and one of the supporters of İnönü. {!<br><br>!}[? if difficulty < 0 : Actions - Reduce Orthodox Dissent, Party Organizations, Local Governance ?]
 is-card: true
 card-image: img/portraits/OrhanEyuboglu.jpeg
 tags: orthodox_kemalist_advisor
@@ -516,7 +516,7 @@ Fethi Çelikbaş is now an advisor.
 
 @add_muezzinoglu
 title: Ziya Müezzinoğlu
-subtitle: Ziya Müezzinoğlu is an experienced economist expertising in international trade.
+subtitle: Ziya Müezzinoğlu is an experienced economist expertising in international trade. {!<br><br>!}[? if difficulty < 0 : Actions - Trade Ministry, European Relations ?]
 is-card: true
 card-image: img/portraits/Muezzinoglu.jpg
 view-if: muezzinoglu_advisor = 0 and n_advisors < 3
@@ -526,7 +526,7 @@ tags: nonfactional_advisor
 
 @add_erdem
 title: Tarhan Erdem
-subtitle: Tarhan Erdem is a technocratic engineer expertising in industrial development.
+subtitle: Tarhan Erdem is a technocratic engineer expertising in industrial development. {!<br><br>!}[? if difficulty < 0 : Actions - Industry Ministry ?]
 is-card: true
 card-image: img/portraits/TarhanErdem.jpg
 view-if: erdem_advisor = 0 and n_advisors < 3
@@ -536,7 +536,7 @@ tags: nonfactional_advisor
 
 @add_ugur
 title: Mustafa Necdet Uğur
-subtitle: Mustafa Necdet Uğur is the former head of the police department of İstanbul and also its former mayor.
+subtitle: Mustafa Necdet Uğur is the former head of the police department of İstanbul and also its former mayor. {!<br><br>!}[? if difficulty < 0 : Actions - Interior Ministry ?]
 is-card: true
 card-image: img/portraits/NecdetUgur.jpg
 view-if: ugur_advisor = 0 and n_advisors < 3
