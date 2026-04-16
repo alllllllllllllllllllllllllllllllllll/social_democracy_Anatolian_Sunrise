@@ -159,6 +159,9 @@ Q.CHP_leader = "İnönü";
 // alternative <span style="color: #E3000F;">**CHP**</span> leader: Ecevit
 Q.CHP_party_leader = "İnönü";
 Q.chp_party_leader = "İnönü";
+Q.party_leader_id = "inonu";
+Q.party_secretary = "Kırıkoğlu";
+Q.party_secretary_id = "kirikoglu";
 Q.MHP_leader = "Alparslan Türkeş"
 Q.MHP_party_leader = "Alparslan Türkeş"
 
@@ -918,7 +921,7 @@ Q.CHP_no_confidence = 0;
 Q.no_confidence_against_CHP = 0;
 
 // Advisors/Leaders
-Q.n_advisors = 3;
+Q.n_advisors = 2;
 // timer - this decrements by 1 every turn, and is set to 5 whenever an advisor action is used, so that you can only use one advisor action every 5 months.
 // let's just put all of the timers here...
 // most party affairs and government affairs cards are on a timer.
@@ -1021,9 +1024,10 @@ Q.march_on_berlin_timer = 0;
 
 
 // all the initial advisors are centrists.
-Q.inonu_advisor = 1; // İsmet İnönü 
-Q.ecevit_advisor = 1; // Bülent Ecevit 
-Q.satir_advisor = 1; // Kemal Satır 
+Q.inonu_advisor = 1; // İsmet İnönü (Party Leader)
+Q.kirikoglu_advisor = 1; // Kamil Kırıkoğlu (Party Secretary)
+Q.ecevit_advisor = 1; // Bülent Ecevit (Member)
+Q.satir_advisor = 1; // Kemal Satır (Member)
 Q.wels_advisor = 0; // Otto Wels
 Q.muller_advisor = 0; // Hermann Müller
 Q.muller_dead = 0;
@@ -1176,9 +1180,9 @@ The 'Exterior Affairs' tab shows the international relations of our nation and t
 
 The 'Economics' tab is one of the most striking points of the game and presents a complex economic simulation that will need to be managed by the players. The general health of the economy is a parameter affected by the other variables that affects everything ranging from party popularity to political violence. The Turkish economy is very vulnerable to the possible turbulances in the world economy and the fundamental issues that cause this weakness need to be resolved before another crisis hits and wracks the nation like a train.	
 
-= Advisors
+= Party Leadership
 
-Advisors are the influential politicians aligned with the party that take part in its governance and are able to take unique actions that varies from advisor to advisor. With actions being able to be taken one in specific periods of time, the players need to make the best of the actions that their advisors can provide, and create the suitable combination that will help them forward their cause and the party.
+The Party Leadership represents the top figures of the CHP. The Party Leader and Party Secretary are fixed positions that change through events, while the two Member slots can be changed via the Shuffle Leadership card. Each leadership member can take unique actions, but actions are limited to one per a specific period of time. Build a dynamic and competent team to lead the party forward.
 
 - @returnn: Return
 
