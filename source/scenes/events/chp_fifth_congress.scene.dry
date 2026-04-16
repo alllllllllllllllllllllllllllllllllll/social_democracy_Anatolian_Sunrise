@@ -99,9 +99,14 @@ Q.kemalist_marxists_dissent -= 10;
 Q.disk_relation += 10;
 Q.TIP_relation += 10;
 Q.MHP_relation -= 5;
-// Ecevit moves from member to leader (no longer counted in n_advisors)
-// İnönü moves from leader to member (now counted in n_advisors)
-// Net change: 0 for the leader swap itself
+// Leader swap: Ecevit moves from member to leader (-1), İnönü from leader to member (+1)
+// Net n_advisors change is 0, but apply explicitly for clarity
+if (Q.ecevit_advisor) {
+    Q.n_advisors -= 1; // Ecevit leaves member pool
+}
+if (Q.inonu_advisor) {
+    Q.n_advisors += 1; // İnönü enters member pool
+}
 if (!Q.right_kemalist_deal) {
     if (typeof Q.right_kemalists_strength !== "undefined") {
         Q.right_kemalists_strength = 0;

@@ -921,6 +921,7 @@ Q.CHP_no_confidence = 0;
 Q.no_confidence_against_CHP = 0;
 
 // Advisors/Leaders
+// n_advisors counts only swappable member slots (not leader or secretary)
 Q.n_advisors = 2;
 // timer - this decrements by 1 every turn, and is set to 5 whenever an advisor action is used, so that you can only use one advisor action every 5 months.
 // let's just put all of the timers here...
@@ -1024,10 +1025,12 @@ Q.march_on_berlin_timer = 0;
 
 
 // all the initial advisors are centrists.
-Q.inonu_advisor = 1; // İsmet İnönü (Party Leader)
-Q.kirikoglu_advisor = 1; // Kamil Kırıkoğlu (Party Secretary)
-Q.ecevit_advisor = 1; // Bülent Ecevit (Member)
-Q.satir_advisor = 1; // Kemal Satır (Member)
+// Leader and Secretary have advisor=1 for display but are NOT counted in n_advisors.
+// Only Members (Ecevit, Satır) are counted in n_advisors.
+Q.inonu_advisor = 1; // İsmet İnönü (Party Leader — not in n_advisors)
+Q.kirikoglu_advisor = 1; // Kamil Kırıkoğlu (Party Secretary — not in n_advisors)
+Q.ecevit_advisor = 1; // Bülent Ecevit (Member — counted in n_advisors)
+Q.satir_advisor = 1; // Kemal Satır (Member — counted in n_advisors)
 Q.wels_advisor = 0; // Otto Wels
 Q.muller_advisor = 0; // Hermann Müller
 Q.muller_dead = 0;
