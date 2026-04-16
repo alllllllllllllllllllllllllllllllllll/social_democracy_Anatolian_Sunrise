@@ -498,7 +498,7 @@ function getPartyIdeology(party, Q) {
     var leaderId = Q.party_leader_id || "";
     var secretaryId = Q.party_secretary_id || "";
 
-    // Sort: leader first, then secretary, then members
+    // Sort: leader first, then secretary, then members (alphabetically by id)
     cards.sort(function(a, b) {
       function rank(card) {
         var id = card.id || "";
@@ -508,7 +508,14 @@ function getPartyIdeology(party, Q) {
         if (shortId === secretaryId) return 1;
         return 2;
       }
-      return rank(a) - rank(b);
+      var ra = rank(a), rb = rank(b);
+      if (ra !== rb) return ra - rb;
+      // Among members, sort alphabetically by id for consistent ordering
+      var idA = (a.id || "").toLowerCase();
+      var idB = (b.id || "").toLowerCase();
+      if (idA < idB) return -1;
+      if (idA > idB) return 1;
+      return 0;
     });
 
     // Build the pinned cards HTML using jQuery (matching the engine's approach)
@@ -537,17 +544,17 @@ function getPartyIdeology(party, Q) {
         $li.addClass("secretary-card");
       }
 
-      // Add role title above the portrait
+      // Add role title above the portrait (always present for vertical alignment)
       var roleLabel = "";
       if (shortId === leaderId) {
         roleLabel = "Party Leader";
       } else if (shortId === secretaryId) {
         roleLabel = "Party Secretary";
+      } else if (shortId !== "shuffle_leadership_pinned") {
+        roleLabel = "Member";
       }
-      if (roleLabel) {
-        var $role = window.jQuery("<span>").addClass("card-role-label").text(roleLabel);
-        $li.append($role);
-      }
+      var $role = window.jQuery("<span>").addClass("card-role-label").html(roleLabel || "&nbsp;");
+      $li.append($role);
 
       var $a = window.jQuery("<a>").addClass("card").attr({href: "#", "card-id": card.id, title: card.title});
       var $caption = window.jQuery("<span>").addClass("card-caption").text(card.title);
