@@ -89,17 +89,44 @@ if (typeof Q.q0_km_str === 'undefined') {
 // modified by direct assignment in game events/advisors (not by global sync).
 // Global faction strengths are normalized independently by post_event.
 
+// Compute party leadership bonus for q2 (Bureaucracy): +1 per faction figure in leadership
+var _afPairsS = (Q._advisor_factions || 'kirikoglu:km,avcioglu:km,selcuk:km,belli:km,ecevit:lk,baykal:lk,gunes:lk,aksoy:lk,ustundag:lk,rahsan:lk,topuz:lk,sav:lk,inonu:ok,satir:ok,eyuboglu:ok,gogus:rk,paksut:rk,celikbas:rk,muezzinoglu:nf,erdem:nf,ugur:nf,akan:nf').split(',');
+var _afMapS = {};
+for (var _piS = 0; _piS < _afPairsS.length; _piS++) {
+    var _ppS = _afPairsS[_piS].split(':');
+    _afMapS[_ppS[0]] = _ppS[1];
+}
+var _q2Bonus = {km: 0, lk: 0, ok: 0, rk: 0};
+var _aNamesS = Object.keys(_afMapS);
+for (var _aniS = 0; _aniS < _aNamesS.length; _aniS++) {
+    if (Q[_aNamesS[_aniS] + '_advisor'] === 1 && _afMapS[_aNamesS[_aniS]] !== 'nf') {
+        _q2Bonus[_afMapS[_aNamesS[_aniS]]] += 1;
+    }
+}
+
 // Compute strength labels from weighted averages of per-quarter faction strengths
 // Quarter weights: Grassroots(20%), Base(15%), Bureaucracy(25%), TBMM(20%), Intelligentsia(10%), Local(10%)
+// q2 effective = q2 base + party leadership bonus
 // Scale: 0-0.5 Nonexistant, 0.5-1.5 Very weak, 1.5-2.5 Weak,
 // 2.5-3.5 Medium, 3.5-4.5 High, 4.5-5.5 Very High, 5.5+ & > others combined = Hegemonic
 var _qWgts = [0.20, 0.15, 0.25, 0.20, 0.10, 0.10];
+var _fKeysS = ['km', 'lk', 'ok', 'rk'];
 var _kmAvg = 0, _lkAvg = 0, _okAvg = 0, _rkAvg = 0;
 for (var _qi = 0; _qi < 6; _qi++) {
-    _kmAvg += _qWgts[_qi] * (Q['q' + _qi + '_km_str'] || 0);
-    _lkAvg += _qWgts[_qi] * (Q['q' + _qi + '_lk_str'] || 0);
-    _okAvg += _qWgts[_qi] * (Q['q' + _qi + '_ok_str'] || 0);
-    _rkAvg += _qWgts[_qi] * (Q['q' + _qi + '_rk_str'] || 0);
+    var _kmVal = (Q['q' + _qi + '_km_str'] || 0);
+    var _lkVal = (Q['q' + _qi + '_lk_str'] || 0);
+    var _okVal = (Q['q' + _qi + '_ok_str'] || 0);
+    var _rkVal = (Q['q' + _qi + '_rk_str'] || 0);
+    if (_qi === 2) {
+        _kmVal += _q2Bonus.km;
+        _lkVal += _q2Bonus.lk;
+        _okVal += _q2Bonus.ok;
+        _rkVal += _q2Bonus.rk;
+    }
+    _kmAvg += _qWgts[_qi] * _kmVal;
+    _lkAvg += _qWgts[_qi] * _lkVal;
+    _okAvg += _qWgts[_qi] * _okVal;
+    _rkAvg += _qWgts[_qi] * _rkVal;
 }
 
 function _strengthLabel(score, myAvg, othersAvg) {
@@ -637,6 +664,21 @@ Agricultural Product Prices: [+ agricultural_prices_formatted +] ([+ agricultura
 
 @the_party
 on-arrival: {!
+// Compute party leadership bonus for q2 (Bureaucracy)
+var _afPairsT = (Q._advisor_factions || 'kirikoglu:km,avcioglu:km,selcuk:km,belli:km,ecevit:lk,baykal:lk,gunes:lk,aksoy:lk,ustundag:lk,rahsan:lk,topuz:lk,sav:lk,inonu:ok,satir:ok,eyuboglu:ok,gogus:rk,paksut:rk,celikbas:rk,muezzinoglu:nf,erdem:nf,ugur:nf,akan:nf').split(',');
+var _afMapT = {};
+for (var _piT = 0; _piT < _afPairsT.length; _piT++) {
+    var _ppT = _afPairsT[_piT].split(':');
+    _afMapT[_ppT[0]] = _ppT[1];
+}
+var _q2BonusT = {km: 0, lk: 0, ok: 0, rk: 0};
+var _aNamesT = Object.keys(_afMapT);
+for (var _aniT = 0; _aniT < _aNamesT.length; _aniT++) {
+    if (Q[_aNamesT[_aniT] + '_advisor'] === 1 && _afMapT[_aNamesT[_aniT]] !== 'nf') {
+        _q2BonusT[_afMapT[_aNamesT[_aniT]]] += 1;
+    }
+}
+
 // Per-quarter seat calculations using per-quarter faction strengths
 var qPcts = [0.20, 0.15, 0.25, 0.20, 0.10, 0.10];
 Q.km_congress_seats = 0;
@@ -654,24 +696,30 @@ function _qLabel(v) {
 }
 
 for (var qi = 0; qi < qPcts.length; qi++) {
+    // For q2 (Bureaucracy), add party leadership bonus to effective values
+    var _eKm = (Q['q' + qi + '_km_str'] || 0) + (qi === 2 ? _q2BonusT.km : 0);
+    var _eLk = (Q['q' + qi + '_lk_str'] || 0) + (qi === 2 ? _q2BonusT.lk : 0);
+    var _eOk = (Q['q' + qi + '_ok_str'] || 0) + (qi === 2 ? _q2BonusT.ok : 0);
+    var _eRk = (Q['q' + qi + '_rk_str'] || 0) + (qi === 2 ? _q2BonusT.rk : 0);
+
     var qSeats = Math.round(qPcts[qi] * 1200);
-    var qTotal = (Q['q' + qi + '_km_str'] || 0) + (Q['q' + qi + '_lk_str'] || 0) + (Q['q' + qi + '_ok_str'] || 0);
+    var qTotal = _eKm + _eLk + _eOk;
     if (!Q.right_kemalist_split) {
-        qTotal += (Q['q' + qi + '_rk_str'] || 0);
+        qTotal += _eRk;
     }
     if (qTotal <= 0) qTotal = 1;
 
     Q['q' + qi + '_total'] = qSeats;
-    Q['q' + qi + '_km'] = Math.round(qSeats * (Q['q' + qi + '_km_str'] || 0) / qTotal);
-    Q['q' + qi + '_lk'] = Math.round(qSeats * (Q['q' + qi + '_lk_str'] || 0) / qTotal);
-    Q['q' + qi + '_ok'] = Math.round(qSeats * (Q['q' + qi + '_ok_str'] || 0) / qTotal);
-    Q['q' + qi + '_rk'] = Q.right_kemalist_split ? 0 : Math.round(qSeats * (Q['q' + qi + '_rk_str'] || 0) / qTotal);
+    Q['q' + qi + '_km'] = Math.round(qSeats * _eKm / qTotal);
+    Q['q' + qi + '_lk'] = Math.round(qSeats * _eLk / qTotal);
+    Q['q' + qi + '_ok'] = Math.round(qSeats * _eOk / qTotal);
+    Q['q' + qi + '_rk'] = Q.right_kemalist_split ? 0 : Math.round(qSeats * _eRk / qTotal);
 
-    // Per-quarter strength text labels
-    Q['q' + qi + '_km_label'] = _qLabel(Q['q' + qi + '_km_str'] || 0);
-    Q['q' + qi + '_lk_label'] = _qLabel(Q['q' + qi + '_lk_str'] || 0);
-    Q['q' + qi + '_ok_label'] = _qLabel(Q['q' + qi + '_ok_str'] || 0);
-    Q['q' + qi + '_rk_label'] = Q.right_kemalist_split ? "Nonexistent" : _qLabel(Q['q' + qi + '_rk_str'] || 0);
+    // Per-quarter strength text labels (use effective values)
+    Q['q' + qi + '_km_label'] = _qLabel(_eKm);
+    Q['q' + qi + '_lk_label'] = _qLabel(_eLk);
+    Q['q' + qi + '_ok_label'] = _qLabel(_eOk);
+    Q['q' + qi + '_rk_label'] = Q.right_kemalist_split ? "Nonexistent" : _qLabel(_eRk);
 
     // Accumulate total seats from per-quarter results
     Q.km_congress_seats += Q['q' + qi + '_km'];

@@ -293,7 +293,7 @@ subtitle: Kamil Kırıkoğlu is the general secretary of the party and a respect
 is-card: true
 card-image: img/portraits/KamilKirikoglu.jpg
 view-if: kirikoglu_advisor = 0 and n_advisors < 2 and party_leader_id != "kirikoglu" and party_secretary_id != "kirikoglu"
-on-arrival: kirikoglu_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
+on-arrival: kirikoglu_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: kemalist_marxist_advisor
 
@@ -305,7 +305,7 @@ subtitle: Doğan Avcıoğlu is a famous Marxist historian, economist, politician
 is-card: true
 card-image: img/portraits/AvciogluDogan.jpg
 view-if: avcioglu_advisor = 0 and n_advisors < 2 and party_leader_id != "avcioglu" and party_secretary_id != "avcioglu"
-on-arrival: avcioglu_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 10
+on-arrival: avcioglu_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: kemalist_marxist_advisor
 
@@ -317,7 +317,7 @@ subtitle: İlhan Selçuk is a journalist and author for the Cumhuriyet newspaper
 is-card: true
 card-image: img/portraits/IlhanSelcuk.jpg
 view-if: selcuk_advisor = 0 and n_advisors < 2 and party_leader_id != "selcuk" and party_secretary_id != "selcuk"
-on-arrival: selcuk_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
+on-arrival: selcuk_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: kemalist_marxist_advisor
 
@@ -329,7 +329,7 @@ subtitle: Mihri Belli, the original conceptualizer of National Democratic Revolu
 is-card: true
 card-image: img/portraits/MihriBelli.jpg
 view-if: belli_advisor = 0 and n_advisors < 2 and party_leader_id != "belli" and party_secretary_id != "belli"
-on-arrival: belli_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
+on-arrival: belli_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: kemalist_marxist_advisor
 
@@ -345,7 +345,7 @@ is-card: true
 card-image: img/portraits/ecevit3.jpg
 tags: left_kemalist_advisor
 view-if: ecevit_advisor = 0 and n_advisors < 2 and party_leader_id != "ecevit" and party_secretary_id != "ecevit"
-on-arrival: ecevit_advisor = 1; n_advisors += 1; left_kemalists_strength += 10
+on-arrival: ecevit_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
 Bülent Ecevit is now a member
@@ -357,7 +357,7 @@ is-card: true
 card-image: img/portraits/DenizBaykal.jpg
 tags: left_kemalist_advisor
 view-if: baykal_advisor = 0 and n_advisors < 2 and party_leader_id != "baykal" and party_secretary_id != "baykal"
-on-arrival: baykal_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+on-arrival: baykal_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
 Deniz Baykal is now a member.
@@ -369,7 +369,7 @@ is-card: true
 card-image: img/portraits/TuranGunes.jpg
 tags: left_kemalist_advisor
 view-if: gunes_advisor = 0 and n_advisors < 2 and party_leader_id != "gunes" and party_secretary_id != "gunes"
-on-arrival: gunes_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+on-arrival: gunes_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
 Turan Güneş is now a member.
@@ -381,7 +381,7 @@ is-card: true
 card-image: img/portraits/MuammerAksoy.jpg
 tags: left_kemalist_advisor
 view-if: aksoy_advisor = 0 and n_advisors < 2 and party_leader_id != "aksoy" and party_secretary_id != "aksoy"
-on-arrival: aksoy_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+on-arrival: aksoy_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
 Muammer Aksoy is now a member.
@@ -393,7 +393,7 @@ is-card: true
 card-image: img/portraits/MustafaUstundag.png
 tags: left_kemalist_advisor
 view-if: ustundag_advisor = 0 and n_advisors < 2 and party_leader_id != "ustundag" and party_secretary_id != "ustundag"
-on-arrival: ustundag_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+on-arrival: ustundag_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
 Mustafa Üstündağ is now a member.
@@ -405,7 +405,7 @@ is-card: true
 card-image: img/portraits/RahsanEcevit.jpeg
 tags: left_kemalist_advisor
 view-if: rahsan_advisor = 0 and n_advisors < 2 and CHP_party_leader == "Ecevit" and party_leader_id != "rahsan" and party_secretary_id != "rahsan"
-on-arrival: rahsan_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+on-arrival: rahsan_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
 Rahşan Ecevit is now a member.
@@ -417,7 +417,7 @@ is-card: true
 card-image: img/portraits/AliTopuz.jpeg
 tags: left_kemalist_advisor
 view-if: topuz_advisor = 0 and n_advisors < 2 and party_leader_id != "topuz" and party_secretary_id != "topuz"
-on-arrival: topuz_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+on-arrival: topuz_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
 Ali Topuz is now a member.
@@ -429,7 +429,7 @@ is-card: true
 card-image: img/portraits/OnderSav.jpg
 tags: left_kemalist_advisor
 view-if: sav_advisor = 0 and n_advisors < 2 and party_leader_id != "sav" and party_secretary_id != "sav"
-on-arrival: sav_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+on-arrival: sav_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
 Önder Sav is now a member.
@@ -482,7 +482,7 @@ subtitle: Ali İhsan Göğüs is a staunch opponent of the left of center moveme
 is-card: true
 card-image: img/portraits/AliIhsanGogus.jpg
 view-if: chp_party_leader == "İnönü" and gogus_advisor = 0 and n_advisors < 2 and party_leader_id != "gogus" and party_secretary_id != "gogus"
-on-arrival: gogus_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
+on-arrival: gogus_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: right_kemalist_advisor
 
@@ -494,7 +494,7 @@ subtitle: Emin Paksüt is a Right Kemalist intellectual and former minister of p
 is-card: true
 card-image: img/portraits/Eminpaksut.jpeg
 view-if: chp_party_leader == "İnönü" and paksut_advisor = 0 and n_advisors < 2 and party_leader_id != "paksut" and party_secretary_id != "paksut"
-on-arrival: paksut_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
+on-arrival: paksut_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: right_kemalist_advisor
 
@@ -506,7 +506,7 @@ subtitle: Fethi Çelikbaş is a pragmatist Right Kemalist politician and former 
 is-card: true
 card-image: img/portraits/FethiCelikbas.jpeg
 view-if: chp_party_leader == "İnönü" and celikbas_advisor = 0 and n_advisors < 2 and party_leader_id != "celikbas" and party_secretary_id != "celikbas"
-on-arrival: celikbas_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
+on-arrival: celikbas_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: right_kemalist_advisor
 
