@@ -489,7 +489,71 @@ function getPartyIdeology(party, Q) {
     if (window.dendryUI.dark_mode) {
         document.body.classList.add('dark-mode');
     }
-    window.pinnedCardsDescription = "Advisor cards - actions are only usable once per 6 months.";
+    window.pinnedCardsDescription = "Party Leadership - actions are only usable once per 6 months.";
+  };
+
+  // Override displayPinnedCards to add gold/silver borders and sort leader > secretary > members
+  window.displayPinnedCards = function(cards) {
+    var Q = window.dendryUI.dendryEngine.state.qualities;
+    var leaderId = Q.party_leader_id || "";
+    var secretaryId = Q.party_secretary_id || "";
+
+    // Sort: leader first, then secretary, then members
+    cards.sort(function(a, b) {
+      function rank(card) {
+        var id = card.id || "";
+        // card ids are like "advisors.inonu" — extract the part after the dot
+        var shortId = id.indexOf(".") >= 0 ? id.substring(id.lastIndexOf(".") + 1) : id;
+        if (shortId === leaderId) return 0;
+        if (shortId === secretaryId) return 1;
+        return 2;
+      }
+      return rank(a) - rank(b);
+    });
+
+    // Build the pinned cards HTML using jQuery (matching the engine's approach)
+    var $content = window.jQuery("#content") || window.jQuery("#main-content");
+    var desc = "Pinned cards - click a card to play.";
+    if (window.pinnedCardsDescription) {
+      desc = window.pinnedCardsDescription;
+    }
+    if (Q.pinnedCardsDescription) {
+      desc = Q.pinnedCardsDescription;
+    }
+    $content.append(window.jQuery("<hr>"));
+    $content.append(window.jQuery("<p>").addClass("pinned-text-description").text(desc));
+
+    var $ul = window.jQuery("<ul>").addClass("pinned-cards");
+    for (var i = 0; i < cards.length; i++) {
+      var card = cards[i];
+      var $li = window.jQuery("<li>").addClass("pinned-card");
+
+      // Determine if this card is leader or secretary
+      var cardId = card.id || "";
+      var shortId = cardId.indexOf(".") >= 0 ? cardId.substring(cardId.lastIndexOf(".") + 1) : cardId;
+      if (shortId === leaderId) {
+        $li.addClass("leader-card");
+      } else if (shortId === secretaryId) {
+        $li.addClass("secretary-card");
+      }
+
+      var $a = window.jQuery("<a>").addClass("card").attr({href: "#", "card-id": card.id, title: card.title});
+      var $caption = window.jQuery("<span>").addClass("card-caption").text(card.title);
+
+      if (card.image) {
+        var $img = window.jQuery("<img>").addClass("card-img").attr({src: card.image});
+        $a.append($img);
+      }
+      if (card.subtitle) {
+        var $tooltip = window.jQuery("<span>").addClass("card-tooltip").text(card.subtitle);
+        $a.append($tooltip);
+      }
+
+      $li.append($a);
+      $li.append($caption);
+      $ul.append($li);
+    }
+    $content.append($ul);
   };
 
 }());

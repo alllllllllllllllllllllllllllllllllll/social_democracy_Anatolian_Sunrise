@@ -93,11 +93,15 @@ on-arrival: {!
 Q.congress_upcoming = 0;
 Q.CHP_party_leader = "Ecevit";
 Q.chp_party_leader = "Ecevit";
+Q.party_leader_id = "ecevit";
 Q.left_kemalists_dissent -= 20;
 Q.kemalist_marxists_dissent -= 10;
 Q.disk_relation += 10;
 Q.TIP_relation += 10;
 Q.MHP_relation -= 5;
+// Ecevit moves from member to leader (no longer counted in n_advisors)
+// İnönü moves from leader to member (now counted in n_advisors)
+// Net change: 0 for the leader swap itself
 if (!Q.right_kemalist_deal) {
     if (typeof Q.right_kemalists_strength !== "undefined") {
         Q.right_kemalists_strength = 0;
@@ -124,7 +128,7 @@ This marks the end of an era. The old wolf who held firm control over his party 
 [? if right_kemalist_split : The Right Kemalist faction refuses to accept Ecevit's victory and walks out of the congress hall. Their cadres disperse towards the CGP and other right-wing groupings, leaving our party firmly in the hands of the reformists. ?]
 [? if not right_kemalist_split and right_kemalist_deal : Thanks to the understanding we struck with Satır before the vote, the Right Kemalists grit their teeth and remain within the party—at least for the moment. ?]
 
-- @shufflement: Now its time for a reshufflement of the party advisorship. We will need a dynamic and competent team to lead our party to victory.
+- @shufflement: Now its time for a reshufflement of the party leadership. We will need a dynamic and competent team to lead our party to victory.
 
 @shufflement
 go-to: shuffle_leadership
