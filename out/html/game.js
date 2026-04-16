@@ -537,6 +537,18 @@ function getPartyIdeology(party, Q) {
         $li.addClass("secretary-card");
       }
 
+      // Add role title above the portrait
+      var roleLabel = "";
+      if (shortId === leaderId) {
+        roleLabel = "Party Leader";
+      } else if (shortId === secretaryId) {
+        roleLabel = "Party Secretary";
+      }
+      if (roleLabel) {
+        var $role = window.jQuery("<span>").addClass("card-role-label").text(roleLabel);
+        $li.append($role);
+      }
+
       var $a = window.jQuery("<a>").addClass("card").attr({href: "#", "card-id": card.id, title: card.title});
       var $caption = window.jQuery("<span>").addClass("card-caption").text(card.title);
 

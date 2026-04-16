@@ -127,7 +127,7 @@ d3.parliament = function() {
             var seatColor = function(d) { return d.party.color; };
             var seatOutline = function(d) { return d.party.outline; };
             var seatStrokeWidth = function(d) {
-                return (d.party.outline && d.party.outline !== "none") ? 2 : 0;
+                return (d.party.outline && d.party.outline !== "none") ? 1 : 0;
             };
             var seatRadius = function(d) {
                 var r = 0.4 * rowWidth;
