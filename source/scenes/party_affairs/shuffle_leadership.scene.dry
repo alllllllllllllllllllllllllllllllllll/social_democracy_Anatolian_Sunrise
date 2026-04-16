@@ -9,56 +9,56 @@ go-to: rm_main
 
 Changing the leadership of the party is painful, but perhaps it is necessary to adapt to changing circumstances.
 
-Removing advisors will increase dissent from their faction of the party, while selecting advisors will increase a faction's strength.
+Removing members will increase dissent from their faction of the party, while selecting members will increase a faction's strength.
 
-- @rm_main: Remove advisors
-- @add_advisors: Add advisors
-- @remove_none: Don't change advisors.
+- @rm_main: Remove members
+- @add_advisors: Add members
+- @remove_none: Don't change members.
 - @easy_discard
 
 
 ###################### removing leaders
 
 @rm_main
-title: Remove advisors.
+title: Remove members.
 tags: kemalist_marxist_advisor, left_kemalist_advisor, orthodox_kemalist_advisor, right_kemalist_advisor, nonfactional_advisor 
 frequency: 1
 
 - #remove_advisor
-- @add_advisors: Add advisors
+- @add_advisors: Add members
 
 @remove_none
-title: Stop changing advisors.
+title: Stop changing members.
 go-to: root
 tags: remove_advisor
 
 
 @remove_inonu
 title: Remove İnönü
-view-if: inonu_advisor = 1
+view-if: inonu_advisor = 1 and party_leader_id != "inonu"
 on-arrival: inonu_advisor = 0; orthodox_kemalists_dissent += 10; n_advisors -= 1
 tags: remove_advisor
 go-to: rm_main
 
-İnönü has been removed as an advisor. The Orthodox Kemalist faction deeply disapproves.
+İnönü has been removed as a member. The Orthodox Kemalist faction deeply disapproves.
 
 @remove_satir
 title: Remove Satır
-view-if: satir_advisor = 1
+view-if: satir_advisor = 1 and party_leader_id != "satir" and party_secretary_id != "satir"
 on-arrival: satir_advisor = 0; orthodox_kemalists_dissent += 10; n_advisors -= 1
 tags: remove_advisor
 go-to: rm_main
 
-Satır has been removed as an advisor. The Orthodox Kemalist faction disapproves.
+Satır has been removed as a member. The Orthodox Kemalist faction disapproves.
 
 @remove_eyuboglu
 title: Remove Eyüboğlu
-view-if: eyuboglu_advisor = 1
+view-if: eyuboglu_advisor = 1 and party_leader_id != "eyuboglu" and party_secretary_id != "eyuboglu"
 on-arrival: eyuboglu_advisor = 0; orthodox_kemalists_dissent += 5; n_advisors -= 1
 tags: remove_advisor
 go-to: rm_main
 
-Eyüboğlu has been removed as an advisor. The Orthodox Kemalist faction disapproves.
+Eyüboğlu has been removed as a member. The Orthodox Kemalist faction disapproves.
 
 
 # left kemalists
@@ -66,100 +66,100 @@ Eyüboğlu has been removed as an advisor. The Orthodox Kemalist faction disappr
 
 @remove_ecevit
 title: Remove Ecevit
-view-if: ecevit_advisor = 1
+view-if: ecevit_advisor = 1 and party_leader_id != "ecevit" and party_secretary_id != "ecevit"
 tags: remove_advisor
 on-arrival: ecevit_advisor = 0; left_kemalists_dissent += 10; n_advisors -= 1
 go-to: rm_main
 
-Ecevit has been removed as an advisor. The Left Kemalist faction deeply disapproves.
+Ecevit has been removed as a member. The Left Kemalist faction deeply disapproves.
 
 @remove_baykal
 title: Remove Baykal
-view-if: baykal_advisor = 1
+view-if: baykal_advisor = 1 and party_leader_id != "baykal" and party_secretary_id != "baykal"
 tags: remove_advisor
 on-arrival: baykal_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Baykal has been removed as an advisor. The Left Kemalist faction disapproves.
+Baykal has been removed as a member. The Left Kemalist faction disapproves.
 
 @remove_aksoy
 title: Remove Aksoy
-view-if: aksoy_advisor = 1
+view-if: aksoy_advisor = 1 and party_leader_id != "aksoy" and party_secretary_id != "aksoy"
 tags: remove_advisor
 on-arrival: aksoy_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Aksoy has been removed as an advisor. The Left Kemalist faction disapproves.
+Aksoy has been removed as a member. The Left Kemalist faction disapproves.
 
 @remove_ustundag
 title: Remove Üstündağ
-view-if: ustundag_advisor = 1
+view-if: ustundag_advisor = 1 and party_leader_id != "ustundag" and party_secretary_id != "ustundag"
 tags: remove_advisor
 on-arrival: ustundag_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Üstündağ has been removed as an advisor. The Left Kemalist faction disapproves.
+Üstündağ has been removed as a member. The Left Kemalist faction disapproves.
 
 @remove_rahsan
 title: Remove Rahşan
-view-if: rahsan_advisor = 1 and CHP_party_leader == "Ecevit"
+view-if: rahsan_advisor = 1 and CHP_party_leader == "Ecevit" and party_leader_id != "rahsan" and party_secretary_id != "rahsan"
 tags: remove_advisor
 on-arrival: rahsan_advisor = 0; n_advisors -= 1
 go-to: rm_main
 
-Rahşan has been removed as an advisor.
+Rahşan has been removed as a member.
 
 @remove_topuz
 title: Remove Topuz
-view-if: topuz_advisor = 1
+view-if: topuz_advisor = 1 and party_leader_id != "topuz" and party_secretary_id != "topuz"
 tags: remove_advisor
 on-arrival: topuz_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Ali Topuz has been removed as an advisor. The Left Kemalist faction disapproves.
+Ali Topuz has been removed as a member. The Left Kemalist faction disapproves.
 
 @remove_gunes
 title: Remove Güneş
-view-if: gunes_advisor = 1
+view-if: gunes_advisor = 1 and party_leader_id != "gunes" and party_secretary_id != "gunes"
 tags: remove_advisor
 on-arrival: gunes_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Turan Güneş has been removed as an advisor. The Left Kemalist faction disapproves.
+Turan Güneş has been removed as a member. The Left Kemalist faction disapproves.
 
 @remove_sav
 title: Remove Sav
-view-if: sav_advisor = 1
+view-if: sav_advisor = 1 and party_leader_id != "sav" and party_secretary_id != "sav"
 tags: remove_advisor
 on-arrival: sav_advisor = 0; left_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Önder Sav has been removed as an advisor. The Left Kemalist faction disapproves.
+Önder Sav has been removed as a member. The Left Kemalist faction disapproves.
 
 
 # kemalist marxists
 
 @remove_avcioglu
 title: Remove Avcıoğlu
-view-if: avcioglu_advisor = 1
+view-if: avcioglu_advisor = 1 and party_leader_id != "avcioglu" and party_secretary_id != "avcioglu"
 tags: remove_advisor
 on-arrival: avcioglu_advisor = 0; kemalist_marxists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Avcıoğlu has been removed as an advisor. The Kemalist Marxist faction disapproves.
+Avcıoğlu has been removed as a member. The Kemalist Marxist faction disapproves.
 
 @remove_selcuk
 title: Remove Selçuk
-view-if: selcuk_advisor = 1
+view-if: selcuk_advisor = 1 and party_leader_id != "selcuk" and party_secretary_id != "selcuk"
 tags: remove_advisor
 on-arrival: selcuk_advisor = 0; kemalist_marxists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Selçuk has been removed as an advisor. The Kemalist Marxist faction disapproves. 
+Selçuk has been removed as a member. The Kemalist Marxist faction disapproves. 
 
 @remove_belli
 title: Remove Belli
-view-if: belli_advisor = 1
+view-if: belli_advisor = 1 and party_leader_id != "belli" and party_secretary_id != "belli"
 tags: remove_advisor
 on-arrival: belli_advisor = 0; kemalist_marxists_dissent += 2; n_advisors -= 1
 go-to: rm_main
@@ -168,42 +168,42 @@ Belli has been removed from our list of contacts. The Kemalist Marxist faction s
 
 @remove_kirikoglu
 title: Remove Kırıkoğlu
-view-if: kirikoglu_advisor = 1
+view-if: kirikoglu_advisor = 1 and party_leader_id != "kirikoglu" and party_secretary_id != "kirikoglu"
 tags: remove_advisor
 on-arrival: kirikoglu_advisor = 0; kemalist_marxists_dissent += 3; n_advisors -= 1
 go-to: rm_main
 
-Kamil Kırıkoğlu has been removed as an advisor. The Kemalist Marxist faction disapproves.
+Kamil Kırıkoğlu has been removed as a member. The Kemalist Marxist faction disapproves.
 
 
 # right kemalists
 
 @remove_gogus
 title: Remove Göğüş
-view-if: gogus_advisor = 1
+view-if: gogus_advisor = 1 and party_leader_id != "gogus" and party_secretary_id != "gogus"
 tags: remove_advisor
 on-arrival: gogus_advisor = 0; right_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Ali İhsan Göğüs has been removed as an advisor. The Right Kemalist faction disapproves.
+Ali İhsan Göğüs has been removed as a member. The Right Kemalist faction disapproves.
 
 @remove_paksut
 title: Remove Paksüt
-view-if: paksut_advisor = 1
+view-if: paksut_advisor = 1 and party_leader_id != "paksut" and party_secretary_id != "paksut"
 tags: remove_advisor
 on-arrival: paksut_advisor = 0; right_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Emin Paksüt has been removed as an advisor. The Right Kemalist faction disapproves.
+Emin Paksüt has been removed as a member. The Right Kemalist faction disapproves.
 
 @remove_celikbas
 title: Remove Çelikbaş
-view-if: celikbas_advisor = 1
+view-if: celikbas_advisor = 1 and party_leader_id != "celikbas" and party_secretary_id != "celikbas"
 tags: remove_advisor
 on-arrival: celikbas_advisor = 0; right_kemalists_dissent += 5; n_advisors -= 1
 go-to: rm_main
 
-Fethi Çelikbaş has been removed as an advisor. The Right Kemalist faction disapproves.
+Fethi Çelikbaş has been removed as a member. The Right Kemalist faction disapproves.
 
 
 ## nonfactional
@@ -212,28 +212,28 @@ Fethi Çelikbaş has been removed as an advisor. The Right Kemalist faction disa
 
 @remove_muezzinoglu
 title: Remove Müezzinoğlu
-view-if: muezzinoglu_advisor = 1
+view-if: muezzinoglu_advisor = 1 and party_leader_id != "muezzinoglu" and party_secretary_id != "muezzinoglu"
 tags: remove_advisor
 on-arrival: muezzinoglu_advisor = 0; n_advisors -= 1
 go-to: rm_main
 
 @remove_akan
 title: Remove Akan
-view-if: akan_advisor = 1
+view-if: akan_advisor = 1 and party_leader_id != "akan" and party_secretary_id != "akan"
 tags: remove_advisor
 on-arrival: akan_advisor = 0; n_advisors -= 1
 go-to: rm_main
 
 @remove_erdem
 title: Remove Erdem
-view-if: erdem_advisor = 1
+view-if: erdem_advisor = 1 and party_leader_id != "erdem" and party_secretary_id != "erdem"
 tags: remove_advisor
 on-arrival: erdem_advisor = 0; n_advisors -= 1
 go-to: rm_main
 
 @remove_ugur
 title: Remove Uğur
-view-if: ugur_advisor = 1
+view-if: ugur_advisor = 1 and party_leader_id != "ugur" and party_secretary_id != "ugur"
 tags: remove_advisor
 on-arrival: ugur_advisor = 0; n_advisors -= 1
 go-to: rm_main
@@ -241,13 +241,13 @@ go-to: rm_main
 ####################### adding advisors
 
 @add_advisors
-title: Add advisors
-choose-if: n_advisors < 3
-unavailable-subtitle: Maximum of 3 advisors.
+title: Add members
+choose-if: n_advisors < 2
+unavailable-subtitle: Maximum of 2 members.
 go-to: advisor_menu
 
 @advisor_menu
-title: Add other advisors.
+title: Add other members.
 tags: kemalist_marxist_advisor, left_kemalist_advisor, orthodox_kemalist_advisor, right_kemalist_advisor, nonfactional_advisor
 frequency: 1
 
@@ -256,32 +256,32 @@ frequency: 1
 - @left_kemalist: Add Left Kemalists
 - @orthodox_kemalist: Add Orthodox Kemalists
 - @right_kemalist: Add Right Kemalists
-- @nonfactional: Add non-factional advisors
-- @rm_main: Remove advisors instead.
-- @remove_none: Stop changing advisors.
+- @nonfactional: Add non-factional members
+- @rm_main: Remove members instead.
+- @remove_none: Stop changing members.
 
 @kemalist_marxist
-view-if: n_advisors < 3
+view-if: n_advisors < 2
 
 - #kemalist_marxist_advisor
 
 @left_kemalist
-view-if: n_advisors < 3
+view-if: n_advisors < 2
 
 - #left_kemalist_advisor
 
 @orthodox_kemalist
-view-if: n_advisors < 3
+view-if: n_advisors < 2
 
 - #orthodox_kemalist_advisor
 
 @right_kemalist
-view-if: right_kemalists_strength > 0 and n_advisors < 3
+view-if: right_kemalists_strength > 0 and n_advisors < 2
 
 - #right_kemalist_advisor
 
 @nonfactional
-view-if: n_advisors < 3
+view-if: n_advisors < 2
 
 - #nonfactional_advisor
 
@@ -292,44 +292,44 @@ title: Kamil Kırıkoğlu
 subtitle: Kamil Kırıkoğlu is the general secretary of the party and a respected member of the Marxist clique.
 is-card: true
 card-image: img/portraits/KamilKirikoglu.jpg
-view-if: kirikoglu_advisor = 0 and n_advisors < 3
-on-arrival: kirikoglu_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
+view-if: kirikoglu_advisor = 0 and n_advisors < 2 and party_leader_id != "kirikoglu" and party_secretary_id != "kirikoglu"
+on-arrival: kirikoglu_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: kemalist_marxist_advisor
 
-Kamil Kırıkoğlu is now an advisor.
+Kamil Kırıkoğlu is now a member.
 
 @add_avcioglu
 title: Doğan Avcıoğlu
 subtitle: Doğan Avcıoğlu is a famous Marxist historian, economist, politician and an author. He is the defacto theoretician behind the National Democratic Revolution movement. {!<br><br>!}[? if difficulty < 2 : Actions - Land Reform Policy, Minister of Economy, İhtilal Newspaper ?]
 is-card: true
 card-image: img/portraits/AvciogluDogan.jpg
-view-if: avcioglu_advisor = 0 and n_advisors < 3
-on-arrival: avcioglu_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 10
+view-if: avcioglu_advisor = 0 and n_advisors < 2 and party_leader_id != "avcioglu" and party_secretary_id != "avcioglu"
+on-arrival: avcioglu_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: kemalist_marxist_advisor
 
-Doğan Avcıoğlu is now an advisor.
+Doğan Avcıoğlu is now a member.
 
 @add_selcuk
 title: İlhan Selçuk
 subtitle: İlhan Selçuk is a journalist and author for the Cumhuriyet newspaper, affiliated with us. He has been imprisoned since the memorandum of 71' due to his affiliation with the National Democratic Revolution movement. {!<br><br>!}[? if difficulty < 2 : Actions - Left Relations, Media, Reduce Marxist Dissent ?]
 is-card: true
 card-image: img/portraits/IlhanSelcuk.jpg
-view-if: selcuk_advisor = 0 and n_advisors < 3
-on-arrival: selcuk_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
+view-if: selcuk_advisor = 0 and n_advisors < 2 and party_leader_id != "selcuk" and party_secretary_id != "selcuk"
+on-arrival: selcuk_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: kemalist_marxist_advisor
 
-İlhan Selçuk is now an advisor.
+İlhan Selçuk is now a member.
 
 @add_belli
 title: Mihri Belli
 subtitle: Mihri Belli, the original conceptualizer of National Democratic Revolution, is a Socialist revolutionary that has strong ties with the far left movements. {!<br><br>!}[? if difficulty < 2 : Actions - THKP-C Intelligence, Socialist Intellectuals, TİP Relations ?]
 is-card: true
 card-image: img/portraits/MihriBelli.jpg
-view-if: belli_advisor = 0 and n_advisors < 3
-on-arrival: belli_advisor = 1; n_advisors += 1; kemalist_marxists_strength += 5
+view-if: belli_advisor = 0 and n_advisors < 2 and party_leader_id != "belli" and party_secretary_id != "belli"
+on-arrival: belli_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: kemalist_marxist_advisor
 
@@ -344,11 +344,11 @@ subtitle: Bülent Ecevit is the current speaker of our party and is the defacto 
 is-card: true
 card-image: img/portraits/ecevit3.jpg
 tags: left_kemalist_advisor
-view-if: ecevit_advisor = 0 and n_advisors < 3
-on-arrival: ecevit_advisor = 1; n_advisors += 1; left_kemalists_strength += 10
+view-if: ecevit_advisor = 0 and n_advisors < 2 and party_leader_id != "ecevit" and party_secretary_id != "ecevit"
+on-arrival: ecevit_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-Bülent Ecevit is now an advisor
+Bülent Ecevit is now a member
 
 @add_baykal
 title: Deniz Baykal
@@ -356,11 +356,11 @@ subtitle: A rising figure within the party partially due to his doctorate on the
 is-card: true
 card-image: img/portraits/DenizBaykal.jpg
 tags: left_kemalist_advisor
-view-if: baykal_advisor = 0 and n_advisors < 3
-on-arrival: baykal_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+view-if: baykal_advisor = 0 and n_advisors < 2 and party_leader_id != "baykal" and party_secretary_id != "baykal"
+on-arrival: baykal_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-Deniz Baykal is now an advisor.
+Deniz Baykal is now a member.
 
 @add_gunes
 title: Turan Güneş
@@ -368,11 +368,11 @@ subtitle: Turan Güneş is a Social Democratic politician that expertises in int
 is-card: true
 card-image: img/portraits/TuranGunes.jpg
 tags: left_kemalist_advisor
-view-if: gunes_advisor = 0 and n_advisors < 3
-on-arrival: gunes_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+view-if: gunes_advisor = 0 and n_advisors < 2 and party_leader_id != "gunes" and party_secretary_id != "gunes"
+on-arrival: gunes_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-Turan Güneş is now an advisor.
+Turan Güneş is now a member.
 
 @add_aksoy
 title: Muammer Aksoy
@@ -380,11 +380,11 @@ subtitle: The chief of the delegation behind the progressive 1960 Constitution, 
 is-card: true
 card-image: img/portraits/MuammerAksoy.jpg
 tags: left_kemalist_advisor
-view-if: aksoy_advisor = 0 and n_advisors < 3
-on-arrival: aksoy_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+view-if: aksoy_advisor = 0 and n_advisors < 2 and party_leader_id != "aksoy" and party_secretary_id != "aksoy"
+on-arrival: aksoy_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-Muammer Aksoy is now an advisor.
+Muammer Aksoy is now a member.
 
 @add_ustundag
 title: Mustafa Üstündağ
@@ -392,11 +392,11 @@ subtitle: Mustafa Üstündağ is a reformist pedagogue from our party. {!<br><br
 is-card: true
 card-image: img/portraits/MustafaUstundag.png
 tags: left_kemalist_advisor
-view-if: ustundag_advisor = 0 and n_advisors < 3
-on-arrival: ustundag_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+view-if: ustundag_advisor = 0 and n_advisors < 2 and party_leader_id != "ustundag" and party_secretary_id != "ustundag"
+on-arrival: ustundag_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-Mustafa Üstündağ is now an advisor.
+Mustafa Üstündağ is now a member.
 
 @add_rahsan
 title: Rahşan Ecevit
@@ -404,11 +404,11 @@ subtitle: The wife of our new party leader, Bülent Ecevit. While she isn't a po
 is-card: true
 card-image: img/portraits/RahsanEcevit.jpeg
 tags: left_kemalist_advisor
-view-if: rahsan_advisor = 0 and n_advisors < 3 and CHP_party_leader == "Ecevit"
-on-arrival: rahsan_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+view-if: rahsan_advisor = 0 and n_advisors < 2 and CHP_party_leader == "Ecevit" and party_leader_id != "rahsan" and party_secretary_id != "rahsan"
+on-arrival: rahsan_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-Rahşan Ecevit is now an advisor.
+Rahşan Ecevit is now a member.
 
 @add_topuz
 title: Ali Topuz
@@ -416,11 +416,11 @@ subtitle: Ali Topuz is an architect heavily involved in the civil society organi
 is-card: true
 card-image: img/portraits/AliTopuz.jpeg
 tags: left_kemalist_advisor
-view-if: topuz_advisor = 0 and n_advisors < 3
-on-arrival: topuz_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+view-if: topuz_advisor = 0 and n_advisors < 2 and party_leader_id != "topuz" and party_secretary_id != "topuz"
+on-arrival: topuz_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-Ali Topuz is now an advisor.
+Ali Topuz is now a member.
 
 @add_sav
 title: Önder Sav
@@ -428,11 +428,11 @@ subtitle: Önder Sav is a prominent Social Democratic politician and legal exper
 is-card: true
 card-image: img/portraits/OnderSav.jpg
 tags: left_kemalist_advisor
-view-if: sav_advisor = 0 and n_advisors < 3
-on-arrival: sav_advisor = 1; n_advisors += 1; left_kemalists_strength += 5
+view-if: sav_advisor = 0 and n_advisors < 2 and party_leader_id != "sav" and party_secretary_id != "sav"
+on-arrival: sav_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-Önder Sav is now an advisor.
+Önder Sav is now a member.
 
 
 # orthodox kemalist
@@ -443,11 +443,11 @@ subtitle: The hero of the republic, right hand man of the Atatürk and former pr
 is-card: true
 card-image: img/portraits/IsmetInonu.jpg
 tags: orthodox_kemalist_advisor
-view-if: inonu_dead = 0 and inonu_advisor = 0 and n_advisors < 3
+view-if: inonu_dead = 0 and inonu_advisor = 0 and n_advisors < 2 and party_leader_id != "inonu" and party_secretary_id != "inonu"
 on-arrival: inonu_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-İsmet İnönü is now an advisor.
+İsmet İnönü is now a member.
 
 @add_satir
 title: Kemal Satır
@@ -455,11 +455,11 @@ subtitle: Kemal Satır is a former doctor and one of the prominent names among t
 is-card: true
 card-image: img/portraits/KemalSatir.png
 tags: orthodox_kemalist_advisor
-view-if: chp_party_leader == "İnönü" and satir_advisor = 0 and n_advisors < 3
+view-if: chp_party_leader == "İnönü" and satir_advisor = 0 and n_advisors < 2 and party_leader_id != "satir" and party_secretary_id != "satir"
 on-arrival: satir_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-Kemal Satır is now an advisor.
+Kemal Satır is now a member.
 
 @add_eyuboglu
 title: Orhan Eyüboğlu
@@ -467,11 +467,11 @@ subtitle: Orhan Eyüboğlu is a lawyer and one of the supporters of İnönü. {!
 is-card: true
 card-image: img/portraits/OrhanEyuboglu.jpeg
 tags: orthodox_kemalist_advisor
-view-if: eyuboglu_advisor = 0 and n_advisors < 3
+view-if: eyuboglu_advisor = 0 and n_advisors < 2 and party_leader_id != "eyuboglu" and party_secretary_id != "eyuboglu"
 on-arrival: eyuboglu_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 
-Orhan Eyüboğlu is now an advisor.
+Orhan Eyüboğlu is now a member.
 
 
 # right kemalist leaders
@@ -481,36 +481,36 @@ title: Ali İhsan Göğüs
 subtitle: Ali İhsan Göğüs is a staunch opponent of the left of center movement and has served as the minister of tourism in the Nihat Erim cabinet.
 is-card: true
 card-image: img/portraits/AliIhsanGogus.jpg
-view-if: chp_party_leader == "İnönü" and gogus_advisor = 0 and n_advisors < 3
-on-arrival: gogus_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
+view-if: chp_party_leader == "İnönü" and gogus_advisor = 0 and n_advisors < 2 and party_leader_id != "gogus" and party_secretary_id != "gogus"
+on-arrival: gogus_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: right_kemalist_advisor
 
-Ali İhsan Göğüs is now an advisor.
+Ali İhsan Göğüs is now a member.
 
 @add_paksut
 title: Emin Paksüt
 subtitle: Emin Paksüt is a Right Kemalist intellectual and former minister of public works.
 is-card: true
 card-image: img/portraits/Eminpaksut.jpeg
-view-if: chp_party_leader == "İnönü" and paksut_advisor = 0 and n_advisors < 3
-on-arrival: paksut_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
+view-if: chp_party_leader == "İnönü" and paksut_advisor = 0 and n_advisors < 2 and party_leader_id != "paksut" and party_secretary_id != "paksut"
+on-arrival: paksut_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: right_kemalist_advisor
 
-Emin Paksüt is now an advisor.
+Emin Paksüt is now a member.
 
 @add_celikbas
 title: Fethi Çelikbaş
 subtitle: Fethi Çelikbaş is a pragmatist Right Kemalist politician and former minister of Industry and economy.
 is-card: true
 card-image: img/portraits/FethiCelikbas.jpeg
-view-if: chp_party_leader == "İnönü" and celikbas_advisor = 0 and n_advisors < 3
-on-arrival: celikbas_advisor = 1; n_advisors += 1; right_kemalists_strength += 5
+view-if: chp_party_leader == "İnönü" and celikbas_advisor = 0 and n_advisors < 2 and party_leader_id != "celikbas" and party_secretary_id != "celikbas"
+on-arrival: celikbas_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: right_kemalist_advisor
 
-Fethi Çelikbaş is now an advisor.
+Fethi Çelikbaş is now a member.
 
 # Nonfactional advisors
 
@@ -519,7 +519,7 @@ title: Ziya Müezzinoğlu
 subtitle: Ziya Müezzinoğlu is an experienced economist expertising in international trade. {!<br><br>!}[? if difficulty < 2 : Actions - Minister of Trade, European Relations ?]
 is-card: true
 card-image: img/portraits/Muezzinoglu.jpg
-view-if: muezzinoglu_advisor = 0 and n_advisors < 3
+view-if: muezzinoglu_advisor = 0 and n_advisors < 2 and party_leader_id != "muezzinoglu" and party_secretary_id != "muezzinoglu"
 on-arrival: muezzinoglu_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: nonfactional_advisor
@@ -529,7 +529,7 @@ title: Tarhan Erdem
 subtitle: Tarhan Erdem is a technocratic engineer expertising in industrial development. {!<br><br>!}[? if difficulty < 2 : Actions - Minister of Industry ?]
 is-card: true
 card-image: img/portraits/TarhanErdem.jpg
-view-if: erdem_advisor = 0 and n_advisors < 3
+view-if: erdem_advisor = 0 and n_advisors < 2 and party_leader_id != "erdem" and party_secretary_id != "erdem"
 on-arrival: erdem_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: nonfactional_advisor
@@ -539,7 +539,7 @@ title: Mustafa Necdet Uğur
 subtitle: Mustafa Necdet Uğur is the former head of the police department of İstanbul and also its former mayor. {!<br><br>!}[? if difficulty < 2 : Actions - Interior Minister ?]
 is-card: true
 card-image: img/portraits/NecdetUgur.jpg
-view-if: ugur_advisor = 0 and n_advisors < 3
+view-if: ugur_advisor = 0 and n_advisors < 2 and party_leader_id != "ugur" and party_secretary_id != "ugur"
 on-arrival: ugur_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: nonfactional_advisor
@@ -549,7 +549,7 @@ title: Tarık Akan
 subtitle: Tarık Akan is an actor from the Yeşilçam cinema and even though he seems unwilling to participate in active politics, he also seems sympathethic to the direction our party has taken..
 is-card: true
 card-image: img/portraits/TarikAkan.jpg
-view-if: akan_advisor = 0 and n_advisors < 3 and CHP_party_leader == "Ecevit" and year >= 1975
+view-if: akan_advisor = 0 and n_advisors < 2 and CHP_party_leader == "Ecevit" and year >= 1975 and party_leader_id != "akan" and party_secretary_id != "akan"
 on-arrival: akan_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: nonfactional_advisor

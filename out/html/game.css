@@ -361,6 +361,13 @@ div.blank-card {
   margin-bottom: 0.5em;
 }
 
+.leader-card a.card {
+  border-color: gold;
+}
+.secretary-card a.card {
+  border-color: silver;
+}
+
 .card-in-hand, .pinned-card, .deck {
   display: inline-block;
   position: relative;
