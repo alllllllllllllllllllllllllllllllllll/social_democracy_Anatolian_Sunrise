@@ -362,7 +362,7 @@ div.blank-card {
 }
 
 .leader-card a.card {
-  border-color: gold;
+  border-color: #B8860B;
 }
 .secretary-card a.card {
   border-color: silver;
@@ -387,6 +387,14 @@ div.blank-card {
   text-align: center;
   display: block;
   font-size: 1em;
+}
+
+.card-role-label {
+  text-align: center;
+  display: block;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-bottom: 2px;
 }
 
 .card-tooltip {
