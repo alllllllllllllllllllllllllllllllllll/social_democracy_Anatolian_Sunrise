@@ -118,10 +118,10 @@ for (var _qi = 0; _qi < 6; _qi++) {
     var _okVal = (Q['q' + _qi + '_ok_str'] || 0);
     var _rkVal = (Q['q' + _qi + '_rk_str'] || 0);
     if (_qi === 2) {
-        _kmVal += _q2Bonus.km;
-        _lkVal += _q2Bonus.lk;
-        _okVal += _q2Bonus.ok;
-        _rkVal += _q2Bonus.rk;
+        _kmVal = Math.max(0, _kmVal + _q2Bonus.km);
+        _lkVal = Math.max(0, _lkVal + _q2Bonus.lk);
+        _okVal = Math.max(0, _okVal + _q2Bonus.ok);
+        _rkVal = Math.max(0, _rkVal + _q2Bonus.rk);
     }
     _kmAvg += _qWgts[_qi] * _kmVal;
     _lkAvg += _qWgts[_qi] * _lkVal;
@@ -696,11 +696,12 @@ function _qLabel(v) {
 }
 
 for (var qi = 0; qi < qPcts.length; qi++) {
-    // For q2 (Bureaucracy), add party leadership bonus to effective values
+    // For q2 (Bureaucracy), add party leadership bonus to effective values (clamped to >= 0)
     var _eKm = (Q['q' + qi + '_km_str'] || 0) + (qi === 2 ? _q2BonusT.km : 0);
     var _eLk = (Q['q' + qi + '_lk_str'] || 0) + (qi === 2 ? _q2BonusT.lk : 0);
     var _eOk = (Q['q' + qi + '_ok_str'] || 0) + (qi === 2 ? _q2BonusT.ok : 0);
     var _eRk = (Q['q' + qi + '_rk_str'] || 0) + (qi === 2 ? _q2BonusT.rk : 0);
+    if (qi === 2) { _eKm = Math.max(0, _eKm); _eLk = Math.max(0, _eLk); _eOk = Math.max(0, _eOk); _eRk = Math.max(0, _eRk); }
 
     var qSeats = Math.round(qPcts[qi] * 1200);
     var qTotal = _eKm + _eLk + _eOk;

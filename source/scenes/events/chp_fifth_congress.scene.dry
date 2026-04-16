@@ -101,10 +101,10 @@ Q.TIP_relation += 10;
 Q.MHP_relation -= 5;
 // Leader swap: Ecevit moves from member to leader (-1), İnönü from leader to member (+1)
 // Net n_advisors change is 0, but apply explicitly for clarity
-if (Q.ecevit_advisor) {
+if (Q.ecevit_advisor === 1) {
     Q.n_advisors -= 1; // Ecevit leaves member pool
 }
-if (Q.inonu_advisor) {
+if (Q.inonu_advisor === 1) {
     Q.n_advisors += 1; // İnönü enters member pool
 }
 if (!Q.right_kemalist_deal) {

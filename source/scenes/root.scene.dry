@@ -89,7 +89,7 @@ for (var _fi = 0; _fi < 4; _fi++) {
     var _sum = 0;
     for (var _qi = 0; _qi < 6; _qi++) {
         var _val = Q['q' + _qi + '_' + _fKeys[_fi] + '_str'];
-        if (_qi === 2) _val += _q2Bonus[_fKeys[_fi]]; // add leadership bonus to q2
+        if (_qi === 2) _val = Math.max(0, _val + _q2Bonus[_fKeys[_fi]]); // add leadership bonus to q2, clamp >= 0
         _sum += _qW[_qi] * _val;
     }
     Q[_fGlobals[_fi]] = _sum;
