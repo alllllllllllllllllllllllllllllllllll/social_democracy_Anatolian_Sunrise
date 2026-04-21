@@ -14,18 +14,18 @@ In our media and campaign materials, who should we consider as our main opponent
 [? if enemies != 0 : Previously, we had considered the [+ enemies +] as our prior enemies. Is a change of direction necessary? ?]
 
 - @military: The military that is strangling our democracy
-- @anti_dem: The radical organizations to our left and right, THKP-C, MHP and MSP
+- @anti_dem: The radical groups to our left and right, Communists, MHP and MSP
 - @far_right: The reactionaries - the MHP and MSP.
 - @MHP: The MHP alone.
-- @THKPC: Anti-parliamentary leftist groups, primarily THKP-C
-- @bourgeois: The bourgeois parties - the Center and DP.
+- @THKPC: Anti-parliamentary leftist groups such as THKP-C and TKP/ML
+- @bourgeois: The liberal parties - AP and DP.
 - @easy_discard
 
 @military
 view-if: CHP_party_leader == "Ecevit"
-on-arrival: enemies = "military"; coup_timer += 1; left_kemalists_strength += 5; left_kemalists_dissent -= 5; orthodox_kemalists_dissent += 5; right_kemalists_dissent += 10; z_relation += 5
+on-arrival: enemies = "military"; coup_timer += 1; lk_q0_str += 1; lk_q1_str += 1; z_relation += 5
 
-Targeting the military establishment appeals to the left wing of our party and aligns with democratic reform goals, but alienates our orthodox and right-wing factions who prefer stability. This stance may also increase coup risk and improve relations with the Justice Party.
+A stance against the military interventions is widely popular with our grassroots and the base. This stance may also increase coup risk and improve relations with the Justice Party.
 
 @anti_dem
 on-arrival: enemies = "radical organizations"; center_strength += 5; reformist_strength += 5; left_dissent += 5; workers_TIP -= 2; workers_MHP -= 2; workers_MSP -= 2; TIP_relation -= 10
