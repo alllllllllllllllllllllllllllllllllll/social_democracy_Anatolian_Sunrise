@@ -22,7 +22,7 @@ In our media and campaign materials, who should we consider as our main opponent
 - @easy_discard
 
 @military
-view-if: CHP_party_leader == "Ecevit" and I_in_government = 1
+view-if: CHP_party_leader == "Ecevit" and CHP_in_government = 1
 on-arrival: enemies = "military"; coup_timer += 1; lk_q0_str += 1; lk_q1_str += 1; z_relation += 5
 
 A stance against the military interventions is widely popular with our grassroots and the base. This stance may also increase coup risk and improve relations with the Justice Party.
@@ -33,23 +33,23 @@ on-arrival: enemies = "bourgeois parties"; z_relation -= 10; CHP_workers += 1; C
 We naturally focus our efforts against our biggest electoral opponent. Our promises of wealth redistribution and the decentralization of the economy succeed in drawing the masses unsatisfied with the pro-large business policies of AP. However its undeniable how the tensions between the cadres of the two parties is rising and we will struggle with cooperating with them in the future. 
 
 @anti_dem
-on-arrival: enemies = "radical organizations"; workers_MSP -= 3; workers_MHP -= 3; workers_TIP -= 3 state_employees_MHP -= 2; state_employees_MSP -= 2; petty_bourgeoisie_MSP -= 2; petty_bourgeoisie_MHP -= 2; grey_wolves_strength -= 4; DEVYOL_strength -= 4; TIP_relation -= 10; [ if year <= 1977 : MSP_relation -= 10; MHP_relation -= 10]
+on-arrival: enemies = "radical organizations"; workers_MSP -= 3; workers_MHP -= 3; workers_TIP -= 3; state_employees_MHP -= 2; state_employees_MSP -= 2; petty_bourgeoisie_MSP -= 2; petty_bourgeoisie_MHP -= 2; grey_wolves_strength -= 4; DEVYOL_strength -= 4; TIP_relation -= 10; MSP_relation -= 10 if year <= 1977; MHP_relation -= 10 if year <= 1977
 
 We focus our party efforts on raising awareness against left wing and right wing radicals and their paramilitary efforts. However this might hamper our ability to reconcile with the TIP in the future.
 
-[if year >= 1977 : Many of our delegates are also confused as to why we are focusing our efforts on the smaller parties and not the larger AP.]
+[? if year >= 1977 : Many of our delegates are also confused as to why we are focusing our efforts on the smaller parties and not the larger AP. ?]
 
-[if kirikoglu = secretary : Kırıkoğlu in a brief visit to Ecevit's office mentions how it would be a mistake to strike leftist civil
+[? if party_secretary_id == "kirikoglu" : Kırıkoğlu in a brief visit to Ecevit's office mentions how it would be a mistake to strike leftist civil organizations. ?]
 
 @far_right
-on-arrival: enemies = "far right"; left_kemalist_dissent -= 0.5; kemalist_marxist_dissent -= 0.5; orthodox_kemalist_dissent -= 0.5; MSP_relation -= 10; MHP_relation -= 10; z_relation -5
+on-arrival: enemies = "far right"; left_kemalist_dissent -= 0.5; kemalist_marxist_dissent -= 0.5; orthodox_kemalist_dissent -= 0.5; MSP_relation -= 10; MHP_relation -= 10; z_relation -= 5
 
 Attacking the reactionary far right is popular among the entire party. However AP is irritated by our unwillingness to raise the same level of opposition against the far left.
 
-[if year >= 1977 : Many of our delegates are also confused as to why we are focusing our efforts on the smaller parties splitting the right vote and not the larger AP.]
+[? if year >= 1977 : Many of our delegates are also confused as to why we are focusing our efforts on the smaller parties splitting the right vote and not the larger AP. ?]
 
 @MHP
-on-arrival: enemies = "MHP"; state_employees_MHP -= 1; workers_MHP -= 1; petty_bourgeoisie -= 1; grey_wolves_strength -= grey_wolves_strength/10
+on-arrival: enemies = "MHP"; state_employees_MHP -= 1; workers_MHP -= 1; petty_bourgeoisie_MHP -= 1; grey_wolves_strength -= grey_wolves_strength/10
 
 [? if grey_wolves_street_control < 30 or MHP_r < 10 : The MHP is a tiny party right now, with more bark than bite. Many in our party are questioning our choices. ?][? if grey_wolves_street_control >= 30 : The quasi fascists and their militant dogs are the most urgent problem for us to deal with. ?]
 
