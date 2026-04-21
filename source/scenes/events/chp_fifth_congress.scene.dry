@@ -105,7 +105,7 @@ if (Q.ecevit_advisor === 1) {
     Q.n_advisors -= 1; // Ecevit leaves member pool
 }
 if (Q.inonu_advisor === 1) {
-    Q.n_advisors += 1; // İnönü enters member pool
+    Q.inonu_advisor = 0; // İnönü deselected as member
 }
 if (!Q.right_kemalist_deal) {
     if (typeof Q.right_kemalists_strength !== "undefined") {
