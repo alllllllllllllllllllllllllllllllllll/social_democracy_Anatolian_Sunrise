@@ -22,7 +22,7 @@ In our media and campaign materials, who should we consider as our main opponent
 - @easy_discard
 
 @military
-view-if: CHP_party_leader == "Ecevit" and CHP_in_government = 1
+view-if: CHP_party_leader == "Ecevit" and I_government = 1
 on-arrival: enemies = "military"; coup_timer += 1; lk_q0_str += 1; lk_q1_str += 1; z_relation += 5
 
 A stance against the military interventions is widely popular with our grassroots and the base. This stance may also increase coup risk and improve relations with the Justice Party.
