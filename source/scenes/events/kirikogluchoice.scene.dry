@@ -1,0 +1,47 @@
+title: The Sheep in a Wolf's Clothing
+subtitle: Party Secretary Kırıkoğlu has to make a choice between İnönü and Ecevit
+view-if: year == 1972 and month = 4 and week = 2
+max-visits: 1
+tags: event
+new-page: true
+
+= The Sheep in a Wolf's Clothing
+	
+Bay İnönü's dining room was covered in clouds of smoke and tears. In a room full of party bureaucrats in their devouring and shouting in black suits Kırıkoğlu stood alone; with his white suit covered with a black coat.
+
+He never wanted to be a part of this meal. Never wanted to be in this foresaken static party even! A party full of elitist bureaucrats away from and uninterested in the actual suffering of the workers and the masses. However circumstances had carried him to the spot of the secretariat. Not because İnönü or the other elites had a liking for his ideological stances. No, he had carried himself here through pure effort and discipline so that CHP can succeed in its historic mission of establishing an actual democracy with the barriers against a mass Socialist party removed. He did not care about what would happen to CHP next; it might as well end up in the dustbin of history.
+
+He thought of the alternatives. Ecevit? No. He was merely a social democrat interested more in mauling the Marxists than he was in solving the actual problems of the workers. He did not have the capacity of controlling over such a large party as such an undisciplined man. Perhaps what irritated him the most was that he was the one who had brought him into the party, and he was the man led by destiny to led the movement against İnönü.
+
+Yet, what other choice did he have?
+
+He was suddenly waken up from his thoughts with İnönü facing towards him.
+
+- 'So, Kamil, who do you think is going to win this struggle?'
+
++ 'The one between you and Bülent, sir?
+
+- 'Yes. Who do you think is going to win the congress?
+
+The whole room was now echoing with the sound of silence.
+
++ 'Sir, you have gathered the winds of history against yourself. **You are going to lose the upcoming congress.**'
+
+- 'Do you think so, Kamil? Is it my fault that Satır decided to push for a congress without my directives? Was the coup my fault also?'
+
++ 'Sir, you were the one who took Bülent out from Aladdin's Lamp with your moves. You cant ask me to put him back when it was your moves which led to his rise.'
+
+- 'And who are you standing with, Kamil?'
+
++ 'You have to be replaced for CHP to reach its historical objective, sir. I wish things could have been different.'
+
+The decrepit chairman rose from his seat with his finger now pointing towards Kırıkoğlu.
+
++ 'Kamil, are you going to make THIS MAN the prime minister? This bandit?'
+
+- @kirikoglubye: But Kırıkoğlu did not answer. He walked out the old, wooden door and unleashed himself into the darkest night outside.
+
+@kirikoglubye:
+on-arrival: kemalist_marxists_support = 1
+  
+Now we as the Left Kemalists can expect the Marxists in the party to lend us their support in the congress. **Time will tell whether this alliance will be one of convenience or unity**.
