@@ -1,0 +1,47 @@
+title: Intraparty Influence
+new-page: true
+view-if: chp_party_leader = 'Ecevit'
+on-arrival: month_actions += 1; enemies_timer = 8
+is-card: true
+card-image: img/chpleadership.jpg
+tags: party_affairs
+
+= Intraparty Influence
+
+Now that we as the reformists have gained power in the party, we have the chance to consolidate our hold over various segments of the party.
+
+- @q0: Increase reformist presence in the grassroots and the youth wing.
+- @q1: Propagate Social Democratic ideals among the electorate.
+- @q3: Strengthen our hold over the parliament delegates.
+- @q4: Sponsor intellectuals aligned with the left of center cause.
+- @q5: Place Social Democrats in positions of power within our municipalities.
+
+@q0
+choose-if: resources > 0
+unavailable-subtitle: Not enough resources.
+subtitle: -1 resources
+on-arrival: resources -= 1; q0_lk_str += 1
+
+@q1
+choose-if: resources > 0
+unavailable-subtitle: Not enough resources.
+subtitle: -1 resources
+on-arrival: resources -= 1; q1_lk_str += 1
+
+@q3
+choose-if: resources > 0
+unavailable-subtitle: Not enough resources.
+subtitle: -1 resources
+on-arrival: resources -= 1; q2_lk_str += 1
+
+@q4
+choose-if: resources > 0
+unavailable-subtitle: Not enough resources.
+subtitle: -1 resources
+on-arrival: resources -= 1; q3_lk_str += 1
+
+@q5
+choose-if: resources > 0
+unavailable-subtitle: Not enough resources.
+subtitle: -1 resources
+on-arrival: resources -= 1; q4_lk_str += 1
