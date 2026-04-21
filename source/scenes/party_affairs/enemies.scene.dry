@@ -1,8 +1,8 @@
 title: Choosing Our Enemies
 new-page: true
-view-if: year <= 1980 and enemies_timer <= 0
+view-if: year <= 1980 and enemies_timer <= 0 and chp_party_leader = 'Ecevit'
 on-arrival: month_actions += 1; enemies_timer = 18
-max-visits: 3
+max-visits: 4
 is-card: true
 card-image: img/ahtapot.jpg
 tags: party_affairs
@@ -14,40 +14,48 @@ In our media and campaign materials, who should we consider as our main opponent
 [? if enemies != 0 : Previously, we had considered the [+ enemies +] as our prior enemies. Is a change of direction necessary? ?]
 
 - @military: The military that is strangling our democracy
+- @bourgeois: Our liberal arch nemesis - AP.
 - @anti_dem: The radical groups to our left and right, Communists, MHP and MSP
 - @far_right: The reactionaries - the MHP and MSP.
 - @MHP: The MHP alone.
 - @THKPC: Anti-parliamentary leftist groups such as THKP-C and TKP/ML
-- @bourgeois: The liberal parties - AP and DP.
 - @easy_discard
 
 @military
-view-if: CHP_party_leader == "Ecevit"
+view-if: CHP_party_leader == "Ecevit" and I_in_government = 1
 on-arrival: enemies = "military"; coup_timer += 1; lk_q0_str += 1; lk_q1_str += 1; z_relation += 5
 
 A stance against the military interventions is widely popular with our grassroots and the base. This stance may also increase coup risk and improve relations with the Justice Party.
 
-@anti_dem
-on-arrival: enemies = "radical organizations"; center_strength += 5; reformist_strength += 5; left_dissent += 5; workers_TIP -= 2; workers_MHP -= 2; workers_MSP -= 2; TIP_relation -= 10
+@bourgeois
+on-arrival: enemies = "bourgeois parties"; z_relation -= 10; CHP_workers += 1; CHP_state_employees += 1; CHP_rural += 1; CHP_kurds += 1; CHP_petty_bourgeoisie += 2; z_workers -= 1; z_state_employees -= 1; z_rural -= 1; z_kurds -= 1; z_petty_bourgeoisie -= 1
 
-Attacking the far right and left is popular among all but the left wing of our party, who would prefer to be fighting the bourgeois parties. This might also hamper our ability to reconcile with the TIP in the future.
+We naturally focus our efforts against our biggest electoral opponent. Our promises of wealth redistribution and the decentralization of the economy succeed in drawing the masses unsatisfied with the pro-large business policies of AP. However its undeniable how the tensions between the cadres of the two parties is rising and we will struggle with cooperating with them in the future. 
+
+@anti_dem
+on-arrival: enemies = "radical organizations"; workers_MSP -= 3; workers_MHP -= 3; workers_TIP -= 3 state_employees_MHP -= 2; state_employees_MSP -= 2; petty_bourgeoisie_MSP -= 2; petty_bourgeoisie_MHP -= 2; grey_wolves_strength -= 4; DEVYOL_strength -= 4; TIP_relation -= 10; [ if year <= 1977 : MSP_relation -= 10; MHP_relation -= 10]
+
+We focus our party efforts on raising awareness against left wing and right wing radicals and their paramilitary efforts. However this might hamper our ability to reconcile with the TIP in the future.
+
+[if year >= 1977 : Many of our delegates are also confused as to why we are focusing our efforts on the smaller parties and not the larger AP.]
+
+[if kirikoglu = secretary : Kırıkoğlu in a brief visit to Ecevit's office mentions how it would be a mistake to strike leftist civil
 
 @far_right
-on-arrival: enemies = "far right"; left_strength += 5; left_dissent -= 5; workers_MHP -= 3; workers_MSP -= 3;
+on-arrival: enemies = "far right"; left_kemalist_dissent -= 0.5; kemalist_marxist_dissent -= 0.5; orthodox_kemalist_dissent -= 0.5; MSP_relation -= 10; MHP_relation -= 10; z_relation -5
 
-Attacking the far right is popular among the entire party, although the left considers the bourgeois parties to be just as dangerous, while the right is critical of our lack of response to the TIP. Our bourgeois coalition partners are also skeptical of our lack of commitment to anti-communism.
+Attacking the reactionary far right is popular among the entire party. However AP is irritated by our unwillingness to raise the same level of opposition against the far left.
+
+[if year >= 1977 : Many of our delegates are also confused as to why we are focusing our efforts on the smaller parties splitting the right vote and not the larger AP.]
 
 @MHP
-on-arrival: enemies = "MHP"; neorevisionist_strength += 5; nazi_urgency += 1; workers_MHP -= 4;
+on-arrival: enemies = "MHP"; state_employees_MHP -= 1; workers_MHP -= 1; petty_bourgeoisie -= 1; grey_wolves_strength -= grey_wolves_strength/10
 
-[? if nazi_urgency == 0 or MHP_r < 10 : The MHP is a tiny party right now, with more bark than bite. Many in our party are questioning our choices. ?][? if nazi_urgency > 0 and MHP_r >= 10 : The Nazis are the most urgent problem for us to deal with. ?]
+[? if grey_wolves_street_control < 30 or MHP_r < 10 : The MHP is a tiny party right now, with more bark than bite. Many in our party are questioning our choices. ?][? if grey_wolves_street_control >= 30 : The quasi fascists and their militant dogs are the most urgent problem for us to deal with. ?]
 
 @THKPC
-on-arrival: enemies = "THKPC"; left_kemalists_dissent += 5; orthodox_kemalists_dissent -= 5; right_kemalists_dissent -= 5; workers_TIP -= 3; TIP_relation -= 5;
+on-arrival: enemies = "THKPC"; coup_timer -= 1; TIP_relation -= 5; workers_TIP -= 3; workers_CHP += 3; z_relation += 4; q5_lk_str -= 1
 
-Attacking the far-left THKP-C and similar organizations appeals to our more moderate factions, but may alienate the left wing of our party and hurt relations with the TIP.
+Attacking the far-left THKP-C and similar organizations allows us to repair our relations with the military establishment. Though it is targetted towards far left **militants**, Socialist intellectuals express their disapproval of the party targetting the left when the grey wolves butcher leftist students in the streets and AP maul the workers' movement.
 
-@bourgeois
-on-arrival: enemies = "bourgeois parties"; left_strength += 8; left_dissent -= 5; DP_relation -= 5;z_relation -= 5; TIP_relation += 5; reformist_dissent += 8; workers_z -= 3; coalition_dissent += 1
-
-Our anti-bourgeois rhetoric is popular among the left, but may make it harder to build the coalitions that are necessary for government in the future.
+Many of the intellectuals associated with CHP too question our decision to move against the so called 'smaller evil'.
