@@ -1,7 +1,7 @@
 title: Intraparty Influence
 new-page: true
-view-if: chp_party_leader = 'Ecevit'
-on-arrival: month_actions += 1; enemies_timer = 8
+view-if: chp_party_leader = 'Ecevit' and intraparty_timer <= 0
+on-arrival: month_actions += 1; intraparty_timer = 8
 is-card: true
 card-image: img/chpleadership.jpg
 tags: party_affairs
@@ -15,6 +15,7 @@ Now that we as the reformists have gained power in the party, we have the chance
 - @q3: Strengthen our hold over the parliament delegates.
 - @q4: Sponsor intellectuals aligned with the left of center cause.
 - @q5: Place Social Democrats in positions of power within our municipalities.
+- @easy_discard
 
 @q0
 choose-if: resources > 0
