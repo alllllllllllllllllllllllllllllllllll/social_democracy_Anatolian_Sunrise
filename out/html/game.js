@@ -97,11 +97,31 @@
   window.disableAudio = function() {
       window.dendryUI.toggle_audio(false);
       window.dendryUI.saveSettings();
+      window.updateMusicBtn();
   };
 
   window.enableAudio = function() {
       window.dendryUI.toggle_audio(true);
       window.dendryUI.saveSettings();
+      window.updateMusicBtn();
+  };
+
+  window.updateMusicBtn = function() {
+      var disabled = window.dendryUI && window.dendryUI.disable_audio;
+      var onIcon = document.getElementById('music-on-icon');
+      var offIcon = document.getElementById('music-off-icon');
+      if (onIcon && offIcon) {
+          onIcon.style.display = disabled ? 'none' : 'inline';
+          offIcon.style.display = disabled ? 'inline' : 'none';
+      }
+  };
+
+  window.toggleMusicButton = function() {
+      if (window.dendryUI && window.dendryUI.disable_audio) {
+          window.enableAudio();
+      } else {
+          window.disableAudio();
+      }
   };
 
   window.enableImages = function() {
@@ -490,6 +510,7 @@ function getPartyIdeology(party, Q) {
         document.body.classList.add('dark-mode');
     }
     window.pinnedCardsDescription = "Party Leadership - actions are only usable once per 6 months.";
+    window.updateMusicBtn();
   };
 
   // Override displayPinnedCards to add gold/silver borders and sort leader > secretary > members
