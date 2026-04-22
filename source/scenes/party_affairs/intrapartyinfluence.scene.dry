@@ -32,16 +32,16 @@ on-arrival: resources -= 1; q1_lk_str += 1
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; q2_lk_str += 1
+on-arrival: resources -= 1; q3_lk_str += 1
 
 @q4
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; q3_lk_str += 1
+on-arrival: resources -= 1; q4_lk_str += 1
 
 @q5
 choose-if: resources > 0
 unavailable-subtitle: Not enough resources.
 subtitle: -1 resources
-on-arrival: resources -= 1; q4_lk_str += 1
+on-arrival: resources -= 1; q5_lk_str += 1
