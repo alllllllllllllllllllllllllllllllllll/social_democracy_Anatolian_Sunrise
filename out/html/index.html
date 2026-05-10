@@ -18,42 +18,8 @@
   </head>
   <body>
     <button id="music-toggle-btn" onclick="window.toggleMusicButton()" title="Toggle Music" aria-label="Toggle Music">
-      <svg id="music-on-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" width="48" height="40">
-        <defs>
-          <marker id="music-ah-on" viewBox="0 0 10 10" refX="9" refY="5"
-                  markerWidth="8" markerHeight="8" orient="auto" markerUnits="userSpaceOnUse">
-            <path d="M 0 0 L 10 5 L 0 10 Z" fill="#666"/>
-          </marker>
-        </defs>
-        <path d="M2,22 L2,78 L28,78 L52,50 L28,22 Z" fill="#111"/>
-        <circle cx="28" cy="50" r="10" fill="#111"/>
-        <line x1="54" y1="50" x2="96" y2="50" stroke="#666" stroke-width="2" marker-end="url(#music-ah-on)"/>
-        <line x1="54" y1="50" x2="93" y2="35" stroke="#666" stroke-width="2" marker-end="url(#music-ah-on)"/>
-        <line x1="54" y1="50" x2="86" y2="22" stroke="#666" stroke-width="2" marker-end="url(#music-ah-on)"/>
-        <line x1="54" y1="50" x2="74" y2="12" stroke="#666" stroke-width="2" marker-end="url(#music-ah-on)"/>
-        <line x1="54" y1="50" x2="93" y2="65" stroke="#666" stroke-width="2" marker-end="url(#music-ah-on)"/>
-        <line x1="54" y1="50" x2="86" y2="78" stroke="#666" stroke-width="2" marker-end="url(#music-ah-on)"/>
-        <line x1="54" y1="50" x2="74" y2="88" stroke="#666" stroke-width="2" marker-end="url(#music-ah-on)"/>
-      </svg>
-      <svg id="music-off-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" width="48" height="40" style="display:none">
-        <defs>
-          <marker id="music-ah-off" viewBox="0 0 10 10" refX="9" refY="5"
-                  markerWidth="8" markerHeight="8" orient="auto" markerUnits="userSpaceOnUse">
-            <path d="M 0 0 L 10 5 L 0 10 Z" fill="#666"/>
-          </marker>
-        </defs>
-        <path d="M2,22 L2,78 L28,78 L52,50 L28,22 Z" fill="#111"/>
-        <circle cx="28" cy="50" r="10" fill="#111"/>
-        <line x1="54" y1="50" x2="96" y2="50" stroke="#666" stroke-width="2" marker-end="url(#music-ah-off)"/>
-        <line x1="54" y1="50" x2="93" y2="35" stroke="#666" stroke-width="2" marker-end="url(#music-ah-off)"/>
-        <line x1="54" y1="50" x2="86" y2="22" stroke="#666" stroke-width="2" marker-end="url(#music-ah-off)"/>
-        <line x1="54" y1="50" x2="74" y2="12" stroke="#666" stroke-width="2" marker-end="url(#music-ah-off)"/>
-        <line x1="54" y1="50" x2="93" y2="65" stroke="#666" stroke-width="2" marker-end="url(#music-ah-off)"/>
-        <line x1="54" y1="50" x2="86" y2="78" stroke="#666" stroke-width="2" marker-end="url(#music-ah-off)"/>
-        <line x1="54" y1="50" x2="74" y2="88" stroke="#666" stroke-width="2" marker-end="url(#music-ah-off)"/>
-        <line x1="4" y1="4" x2="116" y2="96" stroke="red" stroke-width="14" stroke-linecap="round"/>
-        <line x1="116" y1="4" x2="4" y2="96" stroke="red" stroke-width="14" stroke-linecap="round"/>
-      </svg>
+      <img id="music-on-icon" src="img/music_on.png" width="48" height="40" alt="Music On"/>
+      <img id="music-off-icon" src="img/music_off.png" width="48" height="40" alt="Music Off" style="display:none"/>
     </button>
 
     <div class="background" id="bg2">
