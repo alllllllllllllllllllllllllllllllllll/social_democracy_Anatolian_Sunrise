@@ -929,30 +929,29 @@ if (Q.economy_health < -5) {
     Q.democracystatus -= 5/24;
 }
 
-// 2. Street fighting attrition: yearly decrease of police_strength based on state control tier.
+// 2. Street fighting attrition: yearly decrease of democracystatus based on state control tier.
 if (Q.year >= 1930 && !Q.streetfighting_joever) {
     if (Q.state_force_percent > 80) {
         // street fightings are scarce: no decrease
     } else if (Q.state_force_percent >= 70) {
         // street fightings are under control: -1 per year
-        Q.police_strength -= 1/24;
+        Q.democracystatus -= 1/24;
     } else if (Q.state_force_percent >= 60) {
         // street fightings are increasing: -2 per year
-        Q.police_strength -= 2/24;
+        Q.democracystatus -= 2/24;
     } else if (Q.state_force_percent >= 50) {
         // street fightings are slipping out of control: -4 per year
-        Q.police_strength -= 4/24;
+        Q.democracystatus -= 4/24;
     } else if (Q.state_force_percent >= 30) {
         // street fightings have split neighborhoods: -6 per year
-        Q.police_strength -= 6/24;
+        Q.democracystatus -= 6/24;
     } else if (Q.state_force_percent >= 20) {
         // street fightings at critical levels: -8 per year
-        Q.police_strength -= 8/24;
+        Q.democracystatus -= 8/24;
     } else {
         // street fightings are anarchic: -12 per year
-        Q.police_strength -= 12/24;
+        Q.democracystatus -= 12/24;
     }
-    if (Q.police_strength < 10) Q.police_strength = 10;
 }
 
 // 3. DİSK vs TÜRK-İŞ balance
