@@ -149,8 +149,6 @@ Q.rk_strength_label = Q.right_kemalist_split ? "Nonexistant" : _strengthLabel(_r
 
 = Status
 
-Status of the Turkish Democracy: [+ democracystatus : democracystatus +]
-
 [? if week == 1: [+ month : month +] [+ year +] (Week 1) ?][? if week == 2: [+ month : month +] [+ year +] (Week 3) ?]
 
 Resources available: [+ resources +]
@@ -163,6 +161,8 @@ Resources available: [+ resources +]
 [? if CHP_in_government and (in_left_front or in_popular_front): TIP coalition dissent: [+ TIP_coalition_dissent : coalition_dissent +] ?]
 
 Internal dissent: [+ dissent_percent : dissent +]
+
+Status of the Turkish Democracy: [+ democracystatus : democracystatus +]
 
 = Government
 
