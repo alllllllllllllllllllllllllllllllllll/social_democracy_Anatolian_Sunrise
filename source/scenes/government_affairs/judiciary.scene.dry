@@ -31,7 +31,7 @@ on-arrival: democracystatus += 2; TIP_relation += 5; moderationn += 1
 As we put an end to purely political persecution, many leftist intellectuals are thankful for alleviating some of the 
 
 @prioritize
-on-arrival: police_loyalty -= 0.05; grey_wolves_strength -= 5%; raiders_strength -= 5%
+on-arrival: police_loyalty -= 0.05; grey_wolves_strength -= 4; raiders_strength -= 6
 
 We prioritize the persecution of right winger militants. Mass arrests curb the influence of right wing paramilitaries, at least for now.
 
