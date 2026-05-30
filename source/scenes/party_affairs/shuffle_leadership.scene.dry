@@ -376,7 +376,7 @@ Turan Güneş is now a member.
 
 @add_aksoy
 title: Muammer Aksoy
-subtitle: The chief of the delegation behind the progressive 1960 Constitution, Muammer Aksoy is a lawyer and author. {!<br><br>!}[? if difficulty < 2 : Actions - International Relations, European Council, AET Application ?]
+subtitle: The chief of the delegation behind the progressive 1960 Constitution, Muammer Aksoy is a lawyer and author. {!<br><br>!}[? if difficulty < 2 : Actions - Minister of Justice, International Relations, European Council, EEC Application ?]
 is-card: true
 card-image: img/portraits/MuammerAksoy.jpg
 tags: left_kemalist_advisor
