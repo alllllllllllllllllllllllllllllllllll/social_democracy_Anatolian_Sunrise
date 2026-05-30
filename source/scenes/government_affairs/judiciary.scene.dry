@@ -65,7 +65,7 @@ subtitle: Thanks to our previous efforts in limiting the activities of the DGMs,
 view-if: resistt > 2
 on-arrival: democracystatus += 2
 
-Even if the DGMs will not be banned due to the risk of a direct conflict with the military, our efforts contribute to the stability of the republic and the belief in democracy. 
+Even if the DGMs will not be banned outright now due to the risk of a direct conflict with the military, our efforts contribute to the stability of the republic and the belief in democracy. 
 
 @KMD
 on-arrival: grey_wolves_strength -= 2; raiders_strength -= 2
