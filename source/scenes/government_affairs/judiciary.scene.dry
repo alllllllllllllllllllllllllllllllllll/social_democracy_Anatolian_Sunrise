@@ -63,7 +63,9 @@ We take the battle to the DGMs and do everything in our ministrial power to limi
 @constitutionalcourt
 subtitle: Thanks to our previous efforts in limiting the activities of the DGMs, we can finally dispatch them to the constitutional court.
 view-if: resistt > 2
-on-arrival: democracystatus += 2
+choose-if: resistt = 3
+unavailable-subtitle: We have already brought the DGMs to the constitutional court!
+on-arrival: democracystatus += 2; resistt += 1
 
 Even if the DGMs will not be banned outright now due to the risk of a direct conflict with the military, our efforts contribute to the stability of the republic and the belief in democracy. 
 
