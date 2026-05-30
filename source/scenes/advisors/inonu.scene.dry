@@ -9,15 +9,16 @@ new-page: true
 
 İnönü is the old wolf at the helm of the party. Once the right hand-man of Atatürk, as a hero of the war of liberation he has been the party leader for the past 34 years. He is the primary representative of the old and elitist attitude of the party and is under increasing attacks by the reformists, led by Ecevit. Will he be able to survive as the sole hegemon?
 
-- @campaign: İnönü can continue to campaign as if nothing is happening inside the party. However its doubtful how much that can help him..
+- @campaign: Campaigning
 - @stay: Can we convince İnönü to stay in the party even if he loses the leadership?
 - @root: Return to main
 
 @campaign
+subtitle: İnönü can continue to campaign as if nothing is happening inside the party. However its doubtful how much that can help him..
 go-to: campaigning
-choose-if: advisor_action_timer = 0
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 3;
+choose-if: advisor_action_timer = 0 and year < 1973 and month < 5
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if year == 1972 and month > 5 : İnönü is struggling with severe health problems and coupled with his old age he is not in a state for campaigning! ?] [? if year > 1972 : İnönü is struggling with severe health problems and coupled with his old age he is not in a state for campaigning! ?]
+on-arrival: advisor_action_timer = 3
 
 @stay
 subtitle: Even if he doesn't believe it to be a possibility..
