@@ -61,6 +61,6 @@ on-arrival: democracystatus += 2
 Even if the DGMs will not be banned due to the risk of a direct conflict with the military, our efforts contribute to the stability of the republic and the belief in democracy. 
 
 @KMD
-on-arrival: grey_wolves_strength -= 2, raiders_strength -= 2
+on-arrival: grey_wolves_strength -= 2; raiders_strength -= 2
 
 We open investigations into the proceedings of the KMD. While actually banning them would be unconstitutional, our efforts put their activities under pressure and each investigation we conduct decreases their effectiveness in influencing the rural electorate. 
