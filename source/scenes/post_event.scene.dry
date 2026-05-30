@@ -920,6 +920,58 @@ if (Q.democracy_paramilitary_low == 1) Q.coup_timer += 2/12;
 if (Q.far_left_paramilitary == 1) Q.coup_timer += 1/12;
 if (Q.grand_coalition == 1) Q.coup_timer -= 1/12;
 
+// ── democracystatus modifiers ──────────────────────────────────────────────
+
+// 1. Economy: per-tick drain (−10/yr in crisis, −5/yr if unhealthy)
+if (Q.economy_health < -5) {
+    Q.democracystatus -= 10/24;
+} else if (Q.economy_health >= -5 && Q.economy_health < 0) {
+    Q.democracystatus -= 5/24;
+}
+
+// 2. Paramilitary activity: escalating drain based on how long hostile
+//    paramilitaries have been dominant (pressure tracked in ticks).
+if (Q.far_right_paramilitary || Q.far_left_paramilitary || Q.separatist_paramilitary) {
+    Q.paramilitary_pressure_timer = (Q.paramilitary_pressure_timer || 0) + 1;
+    var pp = Q.paramilitary_pressure_timer;
+    if (pp >= 48) {
+        Q.democracystatus -= 5/24;
+    } else if (pp >= 24) {
+        Q.democracystatus -= 3/24;
+    } else if (pp >= 12) {
+        Q.democracystatus -= 2/24;
+    } else {
+        Q.democracystatus -= 1/24;
+    }
+} else {
+    Q.paramilitary_pressure_timer = 0;
+}
+
+// 3. DİSK vs TÜRK-İŞ balance
+if (Q.disk_turkis_conflict >= 0.80) {
+    // Total TÜRK-İŞ Dominance → overwhelming DİSK weakness
+    Q.democracystatus -= 4/24;
+} else if (Q.disk_turkis_conflict >= 0.60) {
+    // TÜRK-İŞ leaning → slightly weaker DİSK
+    Q.democracystatus -= 2/24;
+} else if (Q.disk_turkis_conflict < 0.20) {
+    // Total DİSK Dominance → overwhelming DİSK strength
+    Q.democracystatus += 4/24;
+} else if (Q.disk_turkis_conflict < 0.40) {
+    // DİSK leaning → slightly stronger DİSK
+    Q.democracystatus += 2/24;
+}
+
+// 4. High Kurdish radicalism (−2/yr)
+if (Q.kurdish_radicalism >= 0.69) {
+    Q.democracystatus -= 2/24;
+}
+
+// Clamp democracystatus to [0, 100]
+Q.democracystatus = Math.max(0, Math.min(100, Q.democracystatus));
+
+// ─────────────────────────────────────────────────────────────────────────
+
 // 25% monthly coup chance if democracystatus is at the lowest interval
 Q.coup_roll_success = 0;
 if (Q.democracystatus < 9.9 && Q.week == 1 && Q.coup_timer < 15 && Math.random() < 0.25) {

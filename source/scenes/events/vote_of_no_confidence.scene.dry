@@ -38,6 +38,7 @@ on-arrival: {!
     Q.education_minister_party = "I";
     Q.trade_minister_party = "I";
     Q.industrial_minister_party = "I";
+    Q.democracystatus -= 5;
 !}
 
 The vote succeeds and our government falls. New elections will be held soon.
