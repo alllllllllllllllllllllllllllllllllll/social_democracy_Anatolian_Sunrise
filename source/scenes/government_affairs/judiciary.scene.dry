@@ -10,8 +10,9 @@ tags: govt_affairs, cabinet
 
 Justice Ministry 
 
-Justice is the main instrument through the state establishes trust and belief in its authority. If we don't do the necessary reforms curbing right wing influence in the bureaucracy and prevent political persecutions, it will be the stability of our democracy which will suffer the most. Likewise, improving the fairness of our judicial affairs can reestablish the trust in democracy at a time when every group awaits its faltering for political benefit. 
+Justice is the main instrument through which the state establishes trust and belief in its authority. If we don't do the necessary reforms curbing right wing influence in the bureaucracy and prevent political persecutions, it will be the stability of our democracy which will suffer the most. Likewise, improving the fairness of our judicial affairs can reestablish the trust in our democracy at a time when every group awaits its faltering for political benefit. 
 
+- @amnesty: Launch a general amnesty.
 - @moderation: Release a circular note of moderation in political cases.
 - @prioritize: Prioritize the investigation of right winger political violence.
 - @prisonreform: Work on improving the treatment of political prisoners in prisons.
@@ -21,6 +22,13 @@ Justice is the main instrument through the state establishes trust and belief in
 - @KMD: Persecute the anti communist KMD which has been used as a tool of fearmongering against moderate leftists for long.
 - @easy_discard
 - @cancel_advisor_action
+
+@amnesty
+subtitle: This has been one of our promises for the election[? if MSP_in_government == 1 : and one of the police agreements we had with MSP?].
+choose-if: Amnesty == 0
+unavailable_subtitle: We have already passed a general amnesty.
+on-arrival: grey_wolves_strength += 10; grey_wolves_militancy += 0.05; raiders_strength += 5; workers_chp += 2; state_employees_chp += 2; rural_chp += 2; kurds_chp += 2; petty_bourgeoisie += 2; TIP_relation += 5; Amnesty += 1; coalition_dissent -= 1 if MSP_in_government == 1
+We have kept our campaign promise and released a huge amount of the prisoners held in our prisons. Despite our decent intentions, we have observed a significant increase in street fightings and political violence after the amnesty which needs to be managed.
 
 @moderation
 subtitle: Many leftists have been wrongfully prosecuted for unproven crimes and dubious investigations. We can order the courts to maintain moderation in such political cases
