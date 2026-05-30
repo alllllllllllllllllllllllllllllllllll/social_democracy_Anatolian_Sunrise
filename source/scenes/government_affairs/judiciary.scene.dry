@@ -25,7 +25,7 @@ Justice is the main instrument through the state establishes trust and belief in
 @moderation
 subtitle: Many leftists have been wrongfully prosecuted for unproven crimes and dubious investigations. We can order the courts to maintain moderation in such political cases
 choose-if: moderationn < 1
-unavailable-if: We have already released a circular note!
+unavailable-subtitle: We have already released a circular note!
 on-arrival: democracystatus += 2; TIP_relation += 5; moderationn += 1
 
 As we put an end to purely political persecution, many leftist intellectuals are thankful for alleviating some of the 
