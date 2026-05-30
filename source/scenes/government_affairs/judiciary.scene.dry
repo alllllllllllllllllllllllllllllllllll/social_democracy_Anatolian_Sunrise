@@ -1,4 +1,4 @@
-title: Judiciary Reform
+title: Justice Ministry
 new-page: true
 is-card: true
 view-if: CHP_in_government = 1 and justice_minister_party = "CHP" and judiciary_timer = 0
@@ -9,37 +9,62 @@ tags: govt_affairs, cabinet
 = Justice Ministry
 
 Justice Ministry 
-[? if judicial_reform <= 0 : There is great demand in our membership for reforming the judiciary, although this may bring us into a collision course with our coalition allies. ?]
-[? if judicial_reform == 1 : We have started on the path to judicial reform. While some of the most antideluvian and biased justices have been replaced, many still remain. More should be done. ?]
-[? if judicial_reform >= 2 : We have successfully reformed the judiciary, to some extent. At the very least, the courts will not actively obstruct our attempts to prosecute crimes committed by the far-right. ?]
 
-- @reform: Carry out substantial judicial reforms,
-- @minor_reforms: Carry out minor judicial reforms.
-- @amnesty: Launch a general amnesty
-- @as_is: Leave the judiciary as it is.
+Justice is the main instrument through the state establishes trust and belief in its authority. If we don't do the necessary reforms curbing right wing influence in the bureaucracy and prevent political persecutions, it will be the stability of our democracy which will suffer the most. Likewise, improving the fairness of our judicial affairs can reestablish the trust in democracy at a time when every group awaits its faltering for political benefit. 
+
+- @moderation: Release a circular note of moderation in political cases.
+- @prioritize: Prioritize the investigation of right winger political violence.
+- @prisonreform: Work on improving the treatment of political prisoners in prisons.
+- @investigate: Investigate accusations of police violence and torture.
+- @resist: Resist against DGM, the state security courts.
+- @constitutionalcourt: Bring the DGMs to the constitutional court!
+- @KMD: Persecute the anti communist KMD which has been used as a tool of fearmongering against moderate leftists for long.
 - @easy_discard
 - @cancel_advisor_action
 
-@reform
-subtitle: -1 budget
-unavailable-subtitle: Not enough budget.
-choose-if: budget >= 1
-on-arrival: budget -= 1; democratization += 2; coalition_dissent += 1 if in_grand_coalition == 1; workers_CHP += 5*(1-dissent) if democratization >= 3; judicial_reform += 2; pro_republic += 5*(1-dissent); coup_progress += 1; coalition_dissent += 1 if historical_mode
+**Siyasi davalarda ölçülülük genelgesi**
+- Demokratikleşme +1
+- TİP ilişkileri +5
 
-We investigate jurists who have shown themselves to have biased or corrupt behavior, and try to remove them, replacing them with more democratically-oriented jurists. This obviously raises quite a great deal of ire in conservative circles, including within our coalition. 
+@moderation
+subtitle: Many leftists have been wrongfully prosecuted for unproven crimes and dubious investigations. We can order the courts to maintain moderation in such political cases
+choose-if: moderationn < 1
+unavailable-if: We have already released a circular note!
+on-arrival: democracystatus += 2; TIP_relation += 5; moderationn += 1
 
-@minor_reforms
-on-arrival: democratization += 1; workers_CHP += 3*(1-dissent) if democratization >= 3; judicial_reform += 1; pro_republic += 3*(1-dissent); judiciary_timer += 6
+As we put an end to purely political persecution, many leftist intellectuals are thankful for alleviating some of the 
 
-We try to remove the most obviously biased and corrupt jurists, while leaving most of the system intact. It is slow work reforming the judiciary.
+@prioritize
+on-arrival: police_loyalty -= 0.05; grey_wolves_strength -= 5%; raiders_strength -= 5%
 
-@amnesty
-subtitle: This has been one of our promises for the election[? if MSP_in_government == 1 : and one of the police agreements we had with MSP?].
-choose-if: Amnesty == 0
-unavailable_subtitle: We have already passed a general amnesty.
-on-arrival: grey_wolves_strength += 10; raiders_strength += 5; workers_chp += 2; state_employees_chp += 2; rural_chp += 2; kurds_chp += 2; petty_bourgeoisie += 2; TIP_relation += 5; Amnesty += 1; coalition_dissent -= 1 if MSP_in_government == 1
+We prioritize the persecution of right winger militants. Mass arrests curb the influence of right wing paramilitaries, at least for now.
 
-We have kept our campaign promise and released a huge amount of the prisoners held in our prisons. Despite our decent intentions, we have observed a significant increase in street fightings and political violence after the amnesty which needs to be managed.
+@prisonreform
+subtitle: Political prisoners are often mistreated and placed in the same cells as rapists and murderers. 
+on-arrival: democracystatus += 1; TIP_relation += 3; disk_relation += 3
 
-@as_is
-go-to: root
+Both TIP and the left wing syndicate DISK express their gratitude for our efforts in improving the status of political prisoners.
+
+@investigate
+on-arrival: democracystatus += 2; police_loyalty -= 0.1; kurds_chp += 3; alevis_chp += 4; kurdish_radicalism -= 0.05
+
+Our investigations reveal infuriating cases of cooperation with right wing groups in persecuting Kurds and Alevis. As the state finally begins taking action against such atrocities, these groups are thankful towards both our party and the democratic system. 
+
+@resist
+subtitle: The DGMs are special courts created after the 12 March Memorandum which are responsible for the cases 'involving the security of the state' but actually have often used to persecute intellectuals and leftists.
+view-if: resistt < 2
+on-arrival: democracystatus += 1; TIP_relation += 3; disk_relation += 3; resistt += 1
+
+We take the battle to the DGMs and do everything in our ministrial power to limit their scale and activity. Leftist groups express their approval of our resistance but we have to do more to completely mutilate the DGMs.
+
+@constitutionalcourt
+subtitle: Thanks to our previous efforts in limiting the activities of the DGMs, we can finally dispatch them to the constitutional court.
+view-if: resistt > 2
+on-arrival: democracystatus += 2
+
+Even if the DGMs will not be banned due to the risk of a direct conflict with the military, our efforts contribute to the stability of the republic and the belief in democracy. 
+
+@KMD
+on-arrival: grey_wolves_strength -= 2, raiders_strength -= 2
+
+We open investigations into the proceedings of the KMD. While actually banning them would be unconstitutional, our efforts put their activities under pressure and each investigation we conduct decreases their effectiveness in influencing the rural electorate. 
