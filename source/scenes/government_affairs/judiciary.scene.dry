@@ -22,10 +22,6 @@ Justice is the main instrument through the state establishes trust and belief in
 - @easy_discard
 - @cancel_advisor_action
 
-**Siyasi davalarda ölçülülük genelgesi**
-- Demokratikleşme +1
-- TİP ilişkileri +5
-
 @moderation
 subtitle: Many leftists have been wrongfully prosecuted for unproven crimes and dubious investigations. We can order the courts to maintain moderation in such political cases
 choose-if: moderationn < 1
