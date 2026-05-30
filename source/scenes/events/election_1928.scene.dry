@@ -3,7 +3,7 @@ new-page: true
 tags: event
 priority: -1
 view-if: (year = next_election_year and month >= next_election_month) or (year > next_election_year)
-on-departure: month_actions += 1; in_election = 0; next_election_year = next_election_year + 4; n_elections += 1; next_election_time = time + 48; papen_chancellor_timer = 4;
+on-departure: month_actions += 1; in_election = 0; next_election_year = next_election_year + 4; n_elections += 1; next_election_time = time + 48; papen_chancellor_timer = 4; democracystatus += 20;
 set-jump: post_election_1928
 face-image: img/ataturkveinonu.jpg
 
@@ -435,7 +435,7 @@ go-to: right_coalition_2
 
 @right_coalition_2
 view-if: right_coalition >= 226
-on-arrival: CHP_in_government = 0; CHP_toleration = 0; AP_in_government = 1; DP_in_government = 1; MSP_in_government = 1; chancellor = "Süleyman Demirel"; chancellor_party = "AP"; foreign_minister_party = "DP"; interior_minister_party = "MSP"; justice_minister_party = "MSP"; labor_minister_party = "AP"; reichswehr_minister_party = "I"; economic_minister_party = "DP"; finance_minister_party = "AP"; agriculture_minister_party = "MSP"; in_right_coalition = 1;
+on-arrival: CHP_in_government = 0; CHP_toleration = 0; AP_in_government = 1; DP_in_government = 1; MSP_in_government = 1; chancellor = "Süleyman Demirel"; chancellor_party = "AP"; foreign_minister_party = "DP"; interior_minister_party = "MSP"; justice_minister_party = "MSP"; labor_minister_party = "AP"; reichswehr_minister_party = "I"; economic_minister_party = "DP"; finance_minister_party = "AP"; agriculture_minister_party = "MSP"; in_right_coalition = 1; democracystatus -= 5;
 
 Even though DP is unwilling to reconcile with Demirel and AP, an arrangement is created between AP, DP and MSP. [? if year < 1976: Our performance in the elections disappoint many in the party and doubts begin to emerge about the actual effectiveness of the Karaoğlan wave.. ?] [? if year >= 1976: Many in our party begin to think that the Karaoğlan wave is starting to crack and rumors of various unpleasant talks begin arriving to Ecevit's office in Ankara.. ?]
 
@@ -534,7 +534,7 @@ go-to: grand_coalition_CHP_lead if (n_elections <= 1 and largest_party == "CHP")
 @grand_coalition_z_lead
 title: AP will lead this government.
 subtitle: President [+ president +] has asked Süleyman Demirel and the AP to lead the coalition as the larger party, with us as junior partners.
-on-arrival: CHP_in_government = 1; z_in_government = 1; chancellor = "Süleyman Demirel"; chancellor_party = "AP"; in_grand_coalition = 1
+on-arrival: CHP_in_government = 1; z_in_government = 1; chancellor = "Süleyman Demirel"; chancellor_party = "AP"; in_grand_coalition = 1; democracystatus += 10;
 
 President [+ president +] has asked Süleyman Demirel and the AP to lead the coalition as the larger party, with us as junior partners.
 
@@ -619,7 +619,7 @@ title: It is Ecevit's time to shine.
 choose-if: z_relation >= 64
 unavailable-subtitle: Even though a national unity government could be agreed upon, AP has stated they will not accept Ecevit as prime minister.
 subtitle: AP has reluctantly accepted Ecevit's bid for prime ministership. Türk halkına layık ol Karaoğlan!
-on-arrival: CHP_in_government = 1; z_in_government = 1; chancellor = "Bülent Ecevit"; chancellor_party = "CHP"; in_grand_coalition = 1; leverage -= 10
+on-arrival: CHP_in_government = 1; z_in_government = 1; chancellor = "Bülent Ecevit"; chancellor_party = "CHP"; in_grand_coalition = 1; leverage -= 10; democracystatus += 10;
 go-to: ministries
 
 @eyuboglu
@@ -627,7 +627,7 @@ title: As a compromise name, we can offer the name of Orhan Eyüboğlu.
 choose-if: z_relation >= 49
 unavailable-subtitle: you aren't supposed to be here.
 subtitle: Although originally an Orthodox Kemalist, Eyüboğlu has repeatedly proven his loyalty and capability. Now it rests upon his shoulders to form a coalition that can satisfy both sides.
-on-arrival: CHP_in_government = 1; z_in_government = 1; chancellor = "Orhan Eyüboğlu"; chancellor_party = "CHP"; in_grand_coalition = 1;
+on-arrival: CHP_in_government = 1; z_in_government = 1; chancellor = "Orhan Eyüboğlu"; chancellor_party = "CHP"; in_grand_coalition = 1; democracystatus += 10;
 go-to: ministries
 
 
