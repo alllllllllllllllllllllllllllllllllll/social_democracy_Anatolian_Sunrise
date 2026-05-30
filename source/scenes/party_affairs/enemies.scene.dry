@@ -28,12 +28,12 @@ on-arrival: enemies = "military"; coup_timer += 1; lk_q0_str += 1; lk_q1_str += 
 A stance against the military interventions is widely popular with our grassroots and the base. This stance may also increase coup risk and improve relations with the Justice Party.
 
 @bourgeois
-on-arrival: enemies = "bourgeois parties"; z_relation -= 10; CHP_workers += 1; CHP_state_employees += 1; CHP_rural += 1; CHP_kurds += 1; CHP_petty_bourgeoisie += 2; z_workers -= 1; z_state_employees -= 1; z_rural -= 1; z_kurds -= 1; z_petty_bourgeoisie -= 1
+on-arrival: enemies = "bourgeois parties"; z_relation -= 10; CHP_workers += 1; CHP_state_employees += 1; CHP_rural += 1; CHP_kurds += 1; CHP_petty_bourgeoisie += 2; z_workers -= 1; z_state_employees -= 1; z_rural -= 1; z_kurds -= 1; z_petty_bourgeoisie -= 1; democracystatus -= 2
 
-We naturally focus our efforts against our biggest electoral opponent. Our promises of wealth redistribution and the decentralization of the economy succeed in drawing the masses unsatisfied with the pro-large business policies of AP. However its undeniable how the tensions between the cadres of the two parties is rising and we will struggle with cooperating with them in the future. 
+We naturally focus our efforts against our biggest electoral opponent. Our promises of wealth redistribution and the decentralization of the economy succeed in drawing the masses unsatisfied with the pro-large business policies of AP. However its undeniable how the tensions between the cadres of the two parties is rising and we will struggle with cooperating with them in the future. High tensions between the two largest parties would not bode well for the long term health of our fragile democracy... 
 
 @anti_dem
-on-arrival: enemies = "radical organizations"; workers_MSP -= 3; workers_MHP -= 3; workers_TIP -= 3; state_employees_MHP -= 2; state_employees_MSP -= 2; petty_bourgeoisie_MSP -= 2; petty_bourgeoisie_MHP -= 2; grey_wolves_strength -= 4; DEVYOL_strength -= 4; TIP_relation -= 10; MSP_relation -= 10 if year <= 1977; MHP_relation -= 10 if year <= 1977
+on-arrival: enemies = "radical organizations"; workers_MSP -= 3; workers_MHP -= 3; workers_TIP -= 3; state_employees_MHP -= 2; state_employees_MSP -= 2; petty_bourgeoisie_MSP -= 2; petty_bourgeoisie_MHP -= 2; grey_wolves_strength -= 4; DEVYOL_strength -= 4; TIP_relation -= 10; MSP_relation -= 10 if year <= 1977; MHP_relation -= 10 if year <= 1977; democracystatus += 1
 
 We focus our party efforts on raising awareness against left wing and right wing radicals and their paramilitary efforts. However this might hamper our ability to reconcile with the TIP in the future.
 
