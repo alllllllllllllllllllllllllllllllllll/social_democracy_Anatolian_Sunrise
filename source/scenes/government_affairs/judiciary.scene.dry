@@ -35,7 +35,7 @@ choose-if: moderationn < 1
 unavailable-subtitle: We have already released a circular note!
 on-arrival: democracystatus += 2; TIP_relation += 5; moderationn += 1
 
-As we put an end to purely political persecution, many leftist intellectuals are thankful for alleviating some of the 
+As we put an end to purely political persecution, many leftist intellectuals are thankful for us alleviating some of the oppressive burden forced onto them.
 
 @prioritize
 on-arrival: police_loyalty -= 0.05; grey_wolves_strength -= 4; raiders_strength -= 6
