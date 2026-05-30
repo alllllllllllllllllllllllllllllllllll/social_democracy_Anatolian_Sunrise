@@ -149,6 +149,8 @@ Q.rk_strength_label = Q.right_kemalist_split ? "Nonexistant" : _strengthLabel(_r
 
 = Status
 
+Status of the Turkish Democracy: [+ democracystatus : democracystatus +]
+
 [? if week == 1: [+ month : month +] [+ year +] (Week 1) ?][? if week == 2: [+ month : month +] [+ year +] (Week 3) ?]
 
 Resources available: [+ resources +]
