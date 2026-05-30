@@ -56,7 +56,7 @@ Our investigations reveal infuriating cases of cooperation with right wing group
 
 @resist
 subtitle: The DGMs are special courts created after the 12 March Memorandum which are responsible for the cases 'involving the security of the state' but actually have often used to persecute intellectuals and leftists.
-view-if: resistt < 2
+view-if: resistt < 3
 on-arrival: democracystatus += 1; TIP_relation += 3; disk_relation += 3; resistt += 1
 
 We take the battle to the DGMs and do everything in our ministrial power to limit their scale and activity. Leftist groups express their approval of our resistance but we have to do more to completely mutilate the DGMs.
