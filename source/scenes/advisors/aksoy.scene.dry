@@ -9,10 +9,17 @@ new-page: true
 
 The chief of the technocratic delegation behind the 1960 Constitution, Aksoy is an author and lawyer. In favor of stronger ties with the Western Europe, he is in contact with the European Council, having served as its Turkish delegate in the past.
 
+- @justice: Minister of Justice
 - @internationalaffairs: Aksoy can manage our international relations with fellow social democratic parties.
 - @europe: Aksoy's delegation in the European Council can help us improve relations.
 - @AET: This seems like a long shot but we can attempt to join the AET(European Economic Community).
 - @root: Return to main
+
+@justice
+choose-if: CHP_in_government = 1 and (justice_minister_party = "CHP") and advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if CHP_in_government = 0 : CHP is not in government. ?][? if justice_minister_party != "CHP" : The CHP does not control the ministry of justice. ?]
+on-arrival: advisor_action_timer = 3
+go-to: judiciary
 
 @internationalaffairs
 choose-if: advisor_action_timer = 0
