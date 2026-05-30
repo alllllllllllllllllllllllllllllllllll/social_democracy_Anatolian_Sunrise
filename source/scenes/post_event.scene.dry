@@ -929,22 +929,30 @@ if (Q.economy_health < -5) {
     Q.democracystatus -= 5/24;
 }
 
-// 2. Paramilitary activity: escalating drain based on how long hostile
-//    paramilitaries have been dominant (pressure tracked in ticks).
-if (Q.far_right_paramilitary || Q.far_left_paramilitary || Q.separatist_paramilitary) {
-    Q.paramilitary_pressure_timer = (Q.paramilitary_pressure_timer || 0) + 1;
-    var pp = Q.paramilitary_pressure_timer;
-    if (pp >= 48) {
-        Q.democracystatus -= 5/24;
-    } else if (pp >= 24) {
-        Q.democracystatus -= 3/24;
-    } else if (pp >= 12) {
-        Q.democracystatus -= 2/24;
+// 2. Street fighting attrition: yearly decrease of police_strength based on state control tier.
+if (Q.year >= 1930 && !Q.streetfighting_joever) {
+    if (Q.state_force_percent > 80) {
+        // street fightings are scarce: no decrease
+    } else if (Q.state_force_percent >= 70) {
+        // street fightings are under control: -1 per year
+        Q.police_strength -= 1/24;
+    } else if (Q.state_force_percent >= 60) {
+        // street fightings are increasing: -2 per year
+        Q.police_strength -= 2/24;
+    } else if (Q.state_force_percent >= 50) {
+        // street fightings are slipping out of control: -4 per year
+        Q.police_strength -= 4/24;
+    } else if (Q.state_force_percent >= 30) {
+        // street fightings have split neighborhoods: -6 per year
+        Q.police_strength -= 6/24;
+    } else if (Q.state_force_percent >= 20) {
+        // street fightings at critical levels: -8 per year
+        Q.police_strength -= 8/24;
     } else {
-        Q.democracystatus -= 1/24;
+        // street fightings are anarchic: -12 per year
+        Q.police_strength -= 12/24;
     }
-} else {
-    Q.paramilitary_pressure_timer = 0;
+    if (Q.police_strength < 10) Q.police_strength = 10;
 }
 
 // 3. DİSK vs TÜRK-İŞ balance
