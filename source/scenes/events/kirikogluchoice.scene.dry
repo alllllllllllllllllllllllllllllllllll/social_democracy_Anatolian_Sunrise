@@ -1,4 +1,4 @@
-title: The Sheep in a Wolf's Clothing
+title: The Sheep in Wolf's Clothing
 subtitle: Party Secretary Kırıkoğlu has to make a choice between İnönü and Ecevit
 view-if: year == 1972 and month = 4 and week = 2
 max-visits: 1
@@ -6,7 +6,7 @@ tags: event
 new-page: true
 face-image: img/kirikogluchoice.png
 
-= The Sheep in a Wolf's Clothing
+= The Sheep in Wolf's Clothing
 	
 Bay İnönü's dining room was covered in clouds of smoke and tears. In a room full of party bureaucrats devouring and shouting in black suits Kırıkoğlu stood alone; with his white suit covered with a black coat.
 
@@ -38,7 +38,7 @@ The whole room was now echoing with the sound of silence.
 
 The decrepit chairman rose from his seat with his finger now pointing towards Kırıkoğlu.
 
-/ 'Kamil, are you going to make THIS MAN the prime minister? This bandit?'
+/ 'Kamil, are you going to make THIS man the prime minister? This bandit?'
 
 - @kirikoglubye: But Kırıkoğlu did not answer. He walked out the old, wooden door and unleashed himself into the darkest night outside.
 
