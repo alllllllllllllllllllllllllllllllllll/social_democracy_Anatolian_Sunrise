@@ -1,9 +1,9 @@
 
-(..9.9) Marching towards a coup
-(9.9..24.9) Hanging on by a thread
-(24.9..39.9) Troubled
-(39.9..49.9) Unstable
-(49.9..59.9) Stable
-(59.9..74.9) Decent
-(74.9..89.9) Excellent
-(89.9..) Atatürk's Dream
+(..9.9) <span style="color: #CC0000;"><strong>Marching towards a coup</strong></span>
+(9.9..24.9) <span style="color: #DD3300;"><strong>Hanging on by a thread</strong></span>
+(24.9..39.9) <span style="color: #EE7700;"><strong>Troubled</strong></span>
+(39.9..49.9) <span style="color: #CCBB00;"><strong>Unstable</strong></span>
+(49.9..59.9) <span style="color: #88BB00;"><strong>Stable</strong></span>
+(59.9..74.9) <span style="color: #44AA00;"><strong>Decent</strong></span>
+(74.9..89.9) <span style="color: #228800;"><strong>Excellent</strong></span>
+(89.9..) <span style="color: #006600;"><strong>Atatürk's Dream</strong></span>

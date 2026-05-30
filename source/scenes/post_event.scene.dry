@@ -919,8 +919,15 @@ if (Q.state_paramilitary) {
 if (Q.democracy_paramilitary_low == 1) Q.coup_timer += 2/12;
 if (Q.far_left_paramilitary == 1) Q.coup_timer += 1/12;
 if (Q.grand_coalition == 1) Q.coup_timer -= 1/12;
+
+// 25% monthly coup chance if democracystatus is at the lowest interval
+Q.coup_roll_success = 0;
+if (Q.democracystatus < 9.9 && Q.week == 1 && Q.coup_timer < 15 && Math.random() < 0.25) {
+    Q.coup_roll_success = 1;
+    Q.coup_timer = 15;
+}
 !}
-go-to: economy_health_calculator if calculate_economy_health = 1; events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
+go-to: game_over if coup_roll_success = 1; economy_health_calculator if calculate_economy_health = 1; events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
 
 = [+ month : month +] [+ year +]
 
