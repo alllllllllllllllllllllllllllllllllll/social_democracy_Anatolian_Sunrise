@@ -124,7 +124,7 @@ if ((Q.welfare > 0 && Q.judicial_reform >= 2 && Q.womens_work >= 1 && Q.family_l
 
 
 @coup
-view-if: coup_timer == 15 and generalstaff = "Semih Sancar"
+view-if: coup_timer >= 15 and generalstaff = "Semih Sancar"
 title: We have failed to prevent the coup.
 tags: endings
 go-to: eg_menu
@@ -132,7 +132,7 @@ go-to: eg_menu
 We have failed to prevent an army coup. The Turkish democracy trembles in fear as the republic marches into unknown territory.
 
 @coup_evren
-view-if: coup_timer == 15 and generalstaff = "Kenan Evren"
+view-if: coup_timer >= 15 and generalstaff = "Kenan Evren"
 title: We have failed to prevent the coup.
 tags: endings
 go-to: eg_menu

@@ -979,11 +979,16 @@ Q.democracystatus = Math.max(0, Math.min(100, Q.democracystatus));
 
 // ─────────────────────────────────────────────────────────────────────────
 
-// 25% monthly coup chance if democracystatus is at the lowest interval
+// Coup trigger: fires automatically when TSK is mutinous and acting (coup_timer >= 15),
+// or with a 25% monthly chance when democracystatus drops below 10.
 Q.coup_roll_success = 0;
-if (Q.democracystatus < 9.9 && Q.week == 1 && Q.coup_timer < 15 && Math.random() < 0.25) {
-    Q.coup_roll_success = 1;
-    Q.coup_timer = 15;
+if (Q.week == 1 && !Q.army_in_government && !Q.tsk_pacified) {
+    if (Q.coup_timer >= 15) {
+        Q.coup_roll_success = 1;
+    } else if (Q.democracystatus < 10 && Math.random() < 0.25) {
+        Q.coup_roll_success = 1;
+        Q.coup_timer = 15;
+    }
 }
 !}
 go-to: game_over if coup_roll_success = 1; economy_health_calculator if calculate_economy_health = 1; events_choice if has_event = 1; main if has_event = 0 and difficulty >= 0; main.main_easy if has_event = 0 and difficulty < 0
