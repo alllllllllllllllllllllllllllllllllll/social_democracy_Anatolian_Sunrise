@@ -79,7 +79,7 @@ We launch a campaign of inspections into the spendings of the army. The army vie
 
 @modernize
 subtitle: -1 budget.
-on-arrival: -1 budget; unemployment modifier -= 0.5; army_land_strength += 0.1; army_naval_strength += 0.1; army_aerial_strength += 0.1; industrial_production_index_modifier += 4
+on-arrival: budget -= 1; unemployment_modifier -= 0.5; army_land_strength += 0.1; army_naval_strength += 0.1; army_aerial_strength += 0.1; industrial_production_index_modifier += 4
 
 @ASELSAN
 subtitle: -1 budget. The TCG-Kocatepe incident has revealed the need for us to develop an independent arms industry, form a new Turkish arms company!
