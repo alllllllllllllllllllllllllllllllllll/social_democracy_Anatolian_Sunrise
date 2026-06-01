@@ -5,6 +5,7 @@ tags: govt_affairs, cabinet
 on-arrival: military_policy_timer += 6; month_actions += 1
 view-if: CHP_in_government = 1 and reichswehr_minister_party = "CHP" and military_policy_timer <= 0
 card-image: img/portraits/LeberJulius.jpg
+go-to: menu
 
 = National Defense Ministry
 
