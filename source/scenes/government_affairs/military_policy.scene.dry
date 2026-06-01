@@ -1,47 +1,90 @@
-title: Military Policy
+title: National Defense Ministry
 new-page: true
 is-card: true
 tags: govt_affairs, cabinet
 on-arrival: military_policy_timer += 6; month_actions += 1
 view-if: CHP_in_government = 1 and reichswehr_minister_party = "CHP" and military_policy_timer <= 0
 card-image: img/portraits/LeberJulius.jpg
-#subtitle: Dealing with the Reichswehr.
 
-= Military Policy
+= National Defense Ministry
 
-The Reichswehr is a deeply reactionary institution that has been generally hostile to any notion of socialism or democracy. However, we now control the military as part of the government. What should we do to reform it?
+@menu
 
-- @increase_funding: Increase funding for the military to purchase its loyalty.
-- @decrease_funding: Reduce funding for the military so we have more for social spending.
-- @reform: Conduct a thorough reform of the ranks, reducing the influence of reactionaries and making it more hospitable to us.
+The National Defense Ministry is the institution that enables cooperation between the civil government and the army high command. It is responsible for establishing the army budget managing the logistical needs of the armed forces. We can also use the ministry to ease down tensions with the army.
+
+- @OYAK: Increase state support for the officers' investment fund, OYAK.
+- @OYAKstrict: Open investigations on the spending of the OYAK funds.
+- @budget: Increase the budget of the army.
+- @budgetdecrease: Launch a campaign of inspections into the financial spending of the military.
+- @modernize: Modernize army factories.
+- @ASELSAN: Form ASELSAN.
 - @root: No change to military policy.
 - @easy_discard
 - @cancel_advisor_action
 
-@increase_funding
-subtitle: -1 budget
-choose-if: budget >= 1
-unavailable-subtitle: We do not have the budget.
-on-arrival: budget -= 1; coalition_dissent -= 1 if coalition_dissent > 0; reichswehr_loyalty += 0.07 if reichswehr_loyalty < 1; reichswehr_strength += 20; left_dissent += 5; TIP_coalition_dissent += 1; west_relation -= 1; east_relation -= 1; reparations_negotiation -= 1; eu_progress -= 1; economic_growth += 0.1
+@OYAK
+subtitle: -1 budget.
+on-arrival: coup_timer -= 1; budget -= 1
 
-The military and the center-right parties are pleasantly surprised that we would increase military funding. Our membership tends to be anti-military, and is less enthused. Germany's neighbors are watching our military buildup with worry. [? if reparations >= 0 : This is not good for the reparations negotiations. ?]
+Despite the army officials claim that they represent a group of interest wholly devoted to the defense of the republic and not interested in petty material matters, they too constitute a player in the financial sector. State funding for their private investment fund ease the worries of the many and improve our relations with them.
 
-@decrease_funding
-subtitle: +1 budget
-unavailable-subtitle: There is nothing left to cut.
-choose-if: reichswehr_strength > 0
-on-arrival: budget += 1; coalition_dissent += 1 if in_grand_coalition == 1; DP_relation -= 8; reichswehr_militancy -= 1; reichswehr_strength -= 20; sh_strength += 15; sa_strength += 5; sh_militancy += 0.05; reichswehr_loyalty -= 0.05 if reichswehr_loyalty > 0; coup_progress += 1; coup_progress += 1 if reichswehr_loyalty < 0.2; coup_progress += 1 if reichswehr_loyalty < 0.1; coup_progress += 1 if reichswehr_loyalty <= 0; reichswehr_goal_completed = 1; economic_growth -= 0.1
+@OYAKstrict
+subtitle: It is a known fact that the army exerts influence over the financial and civil sectors through the OYAK funds.
+choose-if: CGP_in_government == 0
+unavailable_subtitle: Our coalition partner CGP is hostile to any attempts at limiting the influence of the army!
+on-arrival: democracystatus += 2; coup_timer += 1
 
-The military has fewer guns and fewer soldiers. There is no hint of a coup yet, but we do not know where the line will be drawn. The center-right parties are committed to the military and deeply opposed to our budget cuts.
+Our investigations reveal connections formed between the major industrial conglomerates and the army officers. While these intrusions into the affairs of the army will provide stability for our democracy by limiting the influence of the armed forces, we need to be careful about angering the army too much.
 
-Many demobilized soldiers have joined the right-wing paramilitaries such as the Stahlhelm and SA, and weapons are missing from our stockpiles.
+@budget
+subtitle: -1 budget. We will have to decide how the increased budget will be spent.
 
-@reform
-subtitle: -1 budget
-choose-if: budget >= 1 and reichswehr_loyalty < 1
-unavailable-subtitle: [? if budget < 1 : We do not have the budget. ?][? if reichswehr_loyalty >= 1 : The Reichswehr is already fully loyal to the democratic government. ?]
-on-arrival: coalition_dissent += 1 if in_grand_coalition == 1; reichswehr_loyalty += 0.15; reichswehr_militancy -= 0.5 if reichswehr_loyalty < 0.5; budget -= 1; coup_progress += 1; DP_relation -= 5; pacifism += 1; democratization += 1;
+- @local: Switch MKE deliveries towards internal production.
+- @local2: Continue switching MKE deliveries towards internal production.
+- @westernimport: Import military equipment directly from the West.
+- @ee: Do not increase the military budget.
 
-Our efforts are at least somewhat successful; we have changed the recruiting and training patterns so that more soldiers from non-reactionary backgrounds can join, hopefully changing the culture of the forces. We have also removed some of the officers who supported the previous Kapp putsch.
+@local
+subtitle: -1 budget. MKE, Mechanical and Chemical Industry Corporation, is our main supplier of army products. However we are currently dependent on Western imports.
+view-if: MKE == 0
+on-arrival: budget -= 1; MKE += 1; capitalist_chp += 3; petty_bourgeoisie += 2; forex_pressure -= 3; unemployment_modifier -= 0.4; growth_modifier += 0.4; industrial_production_index_modifier += 4
 
-The center-right parties are committed to the military and deeply suspicious of our efforts to reform it.
+We begin shifting our equipment supplies from imports towards internal producers. Even though this is costly in the short term due to reestablishing our supply lines, the change improves our dependence on foreign currency and aid.
+
+We will be able to retake this action without a budget decrease in the future.
+
+@local2
+subtitle: MKE, Mechanical and Chemical Industry Corporation, is our main supplier of army products. However we are currently dependent on Western imports.
+view-if: MKE > 0
+on-arrival: MKE += 1; capitalist_chp += 3; petty_bourgeoisie += 2; forex_pressure -= 2; unemployment_modifier -= 0.4; growth_modifier += 0.4; army_land_strength += 0.05; army_naval_strength += 0.05; army_aerial_strength += 0.05; industrial_production_index_modifier += 4
+
+We continue improving our arms industry capabilities. Due to our sustained efforts our armed capabilities have begun improving, though to a lesser extent than would have been if we simply imported these equipments. 
+
+@westernimport
+subtitle: -1 budget. This has been our policy for long.
+on-arrival: army_land_strength += 0.1; army_naval_strength += 0.1; army_aerial_strength += 0.1; budget -= 1
+
+We import weaponry from Western countries to meet our equipment demands as usual.
+
+@ee
+go-to: menu
+
+@budgetdecrease
+on-arrival: coup_timer += 2; budget += 1
+subtitle: +1 budget.
+choose-if: CGP_in_government == 0
+unavailable-subtitle: Our coalition partner CGP is hostile to any attempts at limiting the influence of the army!
+
+We launch a campaign of inspections into the spendings of the army. The army views attempts at curbing excessive spending as an act of disrespect and many high ranking officials privately express their disapproval.
+
+@modernize
+subtitle: -1 budget.
+on-arrival: -1 budget; unemployment modifier -= 0.5; army_land_strength += 0.1; army_naval_strength += 0.1; army_aerial_strength += 0.1; industrial_production_index_modifier += 4
+
+@ASELSAN
+subtitle: -1 budget. The TCG-Kocatepe incident has revealed the need for us to develop an independent arms industry, form a new Turkish arms company!
+view-if: aselsann == 0 and year > 1974
+on-arrival: coup_timer -= 1; aselsann += 1; army_land_strength += 0.1; army_naval_strength += 0.1; army_aerial_strength += 0.1; budget -= 1
+
+The high command congratulate us for taking such a historic step.
+
