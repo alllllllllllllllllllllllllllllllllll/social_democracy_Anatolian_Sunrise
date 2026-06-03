@@ -15,4 +15,5 @@ new-page: true
 @ministry	
 choose-if: advisor_action_timer = 0 and CHP_in_government = 1 and reichswehr_minister_party = "CHP"
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if CHP_in_government = 0 : <span style="color: #E3000F;">**CHP**</span> is not in government. ?][? if reichswehr_minister_party != "CHP" : The CHP does not control the National Defense Ministry. ?]
-on-arrival: advisor_action_timer = 3
+on-arrival: advisor_action_timer = 3; military_policy_timer -= 6; last_advisor_action = 1
+go-to: military_policy
