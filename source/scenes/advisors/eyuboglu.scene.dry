@@ -30,5 +30,5 @@ go-to: party_organizations
 @localgovernence
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 3
+on-arrival: advisor_action_timer = 3; last_advisor_action = 1
 go-to: municipalities
