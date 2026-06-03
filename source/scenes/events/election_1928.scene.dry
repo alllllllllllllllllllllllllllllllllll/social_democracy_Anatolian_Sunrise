@@ -784,7 +784,7 @@ unavailable-subtitle: We do not have enough leverage
 tags: mins_1928
 choose-if: leverage >= 10
 view-if: education_minister_party != "CHP"
-on-arrival: leverage -= 10; education_ministry_party = "CHP"; education_minister = "Üstündağ"
+on-arrival: leverage -= 10; education_minister_party = "CHP"; education_minister = "Üstündağ"
 
 Mustafa Üstündağ of the CHP has been appointed Education Minister.
 
