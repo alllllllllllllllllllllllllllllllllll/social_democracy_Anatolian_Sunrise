@@ -454,6 +454,10 @@ Reichswehr: [+ reichswehr_minister_party +]
 
 Agriculture: [+ agriculture_minister_party +]
 
+Industrial: [+ industrial_minister_party +]
+
+Education: [+ education_minister_party +]
+
 
 @demographics
 go-to: menu
