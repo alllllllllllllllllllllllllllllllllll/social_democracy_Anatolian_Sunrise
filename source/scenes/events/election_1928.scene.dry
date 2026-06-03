@@ -773,7 +773,8 @@ unavailable-subtitle: We do not have enough leverage
 tags: mins_1928
 choose-if: leverage >= 10
 view-if: industrial_minister_party != "CHP"
-on-arrival: leverage -= 10; industrial_ministry_party = "CHP"; industrial_minister = "Erdem"
+on-arrival: leverage -= 10; industrial_minister_party = "CHP"; industrial_minister = "Erdem"
+go-to: ministries
 
 Tarhan Erdem of the CHP has been appointed Industrial Minister.
 
@@ -785,6 +786,7 @@ tags: mins_1928
 choose-if: leverage >= 10
 view-if: education_minister_party != "CHP"
 on-arrival: leverage -= 10; education_minister_party = "CHP"; education_minister = "Üstündağ"
+go-to: ministries
 
 Mustafa Üstündağ of the CHP has been appointed Education Minister.
 
