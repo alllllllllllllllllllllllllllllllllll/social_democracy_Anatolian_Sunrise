@@ -1,0 +1,18 @@
+title: Hasan Esat Işık
+is-pinned-card: true
+tags: advisor
+card-image: img/portraits/Hasan_Esat_Isik.jpg
+view-if: isik_advisor = 1
+new-page: true 
+
+= Hasan Esat Işık
+
+ Hasan Esat Işık is a diplomat of Georgian descent. Since retiring from the ministry of foreign affairs he has become our leading candidate for the National Defense Ministry.
+
+- @ministry: Minister of National Defense
+- @root: Return to main	
+
+@ministry	
+choose-if: advisor_action_timer = 0 and CHP_in_government = 1 and reichswehr_minister_party = "CHP"
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if CHP_in_government = 0 : <span style="color: #E3000F;">**CHP**</span> is not in government. ?][? if reichswehr_minister_party != "CHP" : The CHP does not control the National Defense Ministry. ?]
+on-arrival: advisor_action_timer = 3
