@@ -217,6 +217,13 @@ tags: remove_advisor
 on-arrival: muezzinoglu_advisor = 0; n_advisors -= 1
 go-to: rm_main
 
+@remove_isik
+title: Remove Işık
+view-if: isik_advisor = 1 and party_leader_id != "isik" and party_secretary_id != "isik"
+tags: remove_advisor
+on-arrival: isik_advisor = 0; n_advisors -= 1
+go-to: rm_main
+
 @remove_akan
 title: Remove Akan
 view-if: akan_advisor = 1 and party_leader_id != "akan" and party_secretary_id != "akan"
@@ -521,6 +528,16 @@ is-card: true
 card-image: img/portraits/Muezzinoglu.jpg
 view-if: muezzinoglu_advisor = 0 and n_advisors < 2 and party_leader_id != "muezzinoglu" and party_secretary_id != "muezzinoglu"
 on-arrival: muezzinoglu_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+tags: nonfactional_advisor
+
+@add_isik
+title: Hasan Esat Işık
+subtitle: Hasan Esat Işık is a diplomat of Georgian descent. Since retiring from the ministry of foreign affairs he has become our leading candidate for the Ministry of National Defense. {!<br><br>!}[? if difficulty < 2 : Actions - Minister of National Defense ?]
+is-card: true
+card-image: img/portraits/Hasan_Esat_Isik.jpg
+view-if: isik_advisor = 0 and n_advisors < 2 and party_leader_id != "isik" and party_secretary_id != "isik"
+on-arrival: isik_advisor = 1; n_advisors += 1
 go-to: advisor_menu
 tags: nonfactional_advisor
 
