@@ -28,7 +28,7 @@ As Ecevit says one of the most important features of Social Democracy is the sup
 
 @curriculum
 subtitle: -2 budget. This will include changes in classroom sizes, the educational material used and objectives.
-on-arrival: unemployment_modifier -= 0.3; growth_modifier += 0.3; democracystatus += 3; rural_chp += 1; petty_bourgeoisie += 3; workers_chp += 3; alevis_chp += 3 kurds_chp += 3; curriculumm += 1
+on-arrival: unemployment_modifier -= 0.3; growth_modifier += 0.3; democracystatus += 3; rural_chp += 1; petty_bourgeoisie += 3; workers_chp += 3; alevis_chp += 3; kurds_chp += 3; curriculumm += 1
 choose-if: curriculumm == 0
 unavailable-subtitle: We have already reformed our curriculum!
 
@@ -69,7 +69,7 @@ on-arrival: budget -= 1; workers_chp += 4; state_employees_chp += 1; petty_bourg
 subtitle: +1 budget.
 on-arrival: budget += 1; MSP_relation -= 10 
 choose-if: MSP_in_government == 0 and z_in_government == 0 and DP_in_government == 0 and imamhatipp < 3
-unavailable-subtitle: [? if imamhatipp < 3 : Our right wing coalition partners will not let us cut funding for the religious schools! ?] [? if imamhatipp >= 3 ; We have already cut their funding to oblivion! ?]
+unavailable-subtitle: [? if imamhatipp < 3 : Our right wing coalition partners will not let us cut funding for the religious schools! ?] [? if imamhatipp >= 3 : We have already cut their funding to oblivion! ?]
 
 @TRT
 on-arrival: state_employees_chp += 1; workers_chp += 1; petty_bourgeoisie += 1
