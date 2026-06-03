@@ -18,7 +18,7 @@ The chief of the technocratic delegation behind the 1960 Constitution, Aksoy is 
 @justice
 choose-if: CHP_in_government = 1 and justice_minister_party = "CHP" and advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if CHP_in_government = 0 : CHP is not in government. ?][? if justice_minister_party != "CHP" : The CHP does not control the ministry of justice. ?]
-on-arrival: advisor_action_timer = 3
+on-arrival: advisor_action_timer = 3; judiciary_timer -= 6; last_advisor_action = 1
 go-to: judiciary
 
 @internationalaffairs
