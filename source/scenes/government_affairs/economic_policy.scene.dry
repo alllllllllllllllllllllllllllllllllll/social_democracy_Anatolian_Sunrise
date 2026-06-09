@@ -52,8 +52,8 @@ We once again reach out to the global market for hot cash to fuel our economy. W
 
 @publicworks
 choose-if: budget >= 1 and imf_agreement == 0
-unavailable-subtitle: [? if imf_agreement = 1 : We have agreed with the IMF to not pursue state interventions! ?]
-subtitle: -1 Budget, populist expansion. Budget ↓ Inflation ↑ Unemployment ↓ Exchange Pressure ↑ Growth ↑↑
+unavailable-subtitle: [? if budget == 0 : Requires 1 budget. ?] [? if imf_agreement = 1 : We have agreed with the IMF to not pursue state interventions! ?]
+subtitle: -1 budget, populist expansion. Budget ↓ Inflation ↑ Unemployment ↓ Exchange Pressure ↑ Growth ↑↑
 on-arrival: budget -= 1; inflation_modifier += 2; growth_modifier += 1.5; unemployment_modifier -= 1; forex_pressure += 2; economicaction += 1
 
 We intervene in the economy to foster growth by creating public work programs. 
