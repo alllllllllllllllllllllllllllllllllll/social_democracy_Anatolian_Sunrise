@@ -1,4 +1,4 @@
-title: Labor Affairs
+title: Labour Affairs
 new-page: true
 is-card: true
 tags: govt_affairs, cabinet
@@ -7,41 +7,105 @@ view-if: CHP_in_government = 1 and labor_minister_party = "CHP" and labor_affair
 card-image: img/portraits/OnderSav.jpg
 #subtitle: Addressing labor unrest and strikes.
 
-= Labor Affairs
+= Labour Affairs
 
-The industrial Ruhr region is aflame with labor unrest. The employers have started a major lockout to force the workers to take more cuts to wages and benefits.  There is a need for the Labor Ministry to arbitrate in conflicts between employers and workers.
+The most remarkable part of our agenda as the Democratic Left is our focus on improving the standards of labour. Currently Turkish labourers suffer from low wages contrasted with ever increasing prices and lack of representation in their workplaces.
 
-- @support_labor: Support labor in their demands.
-- @support_employers: Support the employers in their demands.
-- @balance: Try to strike a compromise between the sides.
-- @easy_discard
-#- @cancel_advisor_action
+The cornerstore of our labour policy is the creation of a 'People's Sector' which relates to a hypothethical third sector of the economy in addition to the private and state sectors. Such a sector would be fostered through the creation of a public fund from the salaries of our labourers and be used to buy stocks of various Turkish firms to permanently eliminate monopolies and distribute the benefits of our productive capability across the whole nation.
 
-@support_labor
-subtitle: Popular among the workers, this will alienate the bourgeoisie.
-on-arrival: labor_strength += 5; labor_dissent -= 5; left_kemalists_dissent -= 5; workers_chp += 4*(1-dissent); coalition_dissent += 1; DP_relation -= 4; capital_strike_progress += 1 if DP_relation <= 30; capital_strike_progress += 1 if unemployed > 15; capital_strike_progress += 1 if unemployed > 24; labor_goal_completed += 1; inflation += 0.1; pro_labor += 1; strike_term_seen += 1; economic_growth -= 0.1;
+Our relations with the labour movement also depends on the actions we will take to improve the workers' lives.
 
-Supporting labor is always popular in the CHP, although many of the parties to our right represent the employers, and they are less enthused.
+@labour_menu
 
-@support_employers
-subtitle: Popular among the bourgeoisie, much less so among the workers.
-on-arrival: labor_dissent += 8; workers_chp -= 3; coalition_dissent -= 1 if coalition_dissent > 0; DP_relation += 5;z_relation += 5; workers_TIP += 3; TIP_coalition_dissent += 1; TIP_relation -= 8; capital_strike_progress -= 1 if capital_strike_progress > 1; capital_strike_progress -= 1 if capital_strike_progress > 8; pro_labor -= 1; strike_term_seen += 1
+- @onetime: One time reforms.
+- @repeatable: Long term repeatable reforms.
 
-The more radical workers despise our suppression of their strikes, recalling the days of Friedrich Ebert.
+@onetime
 
-@balance
-subtitle: Both sides need to share the pain in the current crisis.
-choose-if: disk_relation <= 49
-unavailable-subtitle: DISK does not trust us enough to mediate.
-on-arrival: labor_dissent += 4; workers_chp -= 2; TIP_coalition_dissent += 1; TIP_relation -= 5; strike_term_seen += 1
+- @national: Implement a system of collective bargaining in major industries.
+- @kit: Implement Workplace Democracy in state companies, KİTs, through worker advisory representatives.
+- @ikincilgrev: Partially legalize secondary strikes.
+- @healthinspections: Make health inspections in large factories mandatory.
+- @lokavt: Harden the prequisites of employer lockouts.
+- @labour_menu: Return to the Labour Menu.
 
-Many workers are unhappy at our compromises, but they will learn to accept that we are all in a shared struggle against economic forces.
+@national
+on-arrival: nationall += 1; disk_relation += 5; unemployment_modifier += 0.2; growth_modifier -= 0.2; inflation += 0.5; workers_chp += 4; democracystatus += 1
+choose-if: nationall < 1
+unavailable-subtitle: We have already implemented collective bargaining!
 
+Until now the employers were able to avoid paying their employees their rightful salaries by singling them out and forcing them to sign inhumane contracts. We shall allow that no more. Through collective bargaining the workers will stand as a united block against monopolist pressure. 
 
+Due to the regularization of salaries inflation has slightly increased but this is nothing compared to its benefits.
 
-# options: support the workers in their demands, pushing back against the employers.
-# this is the approach favored by the unions. While they do not get everything they desire, an agreement favorable to the workers is reached. The employer associations and their bourgeois allies accuse us of overstepping our bounds.
-# try to make some compromise between the sides. Both sides need to share the pain in the current crisis.
-# whatever it takes, end the strikes and unrest as soon as possible.
-# this is not our business to intervene.
-# We are the party of labor, and it is not our business to intervene? There is incredulity in the ranks. The workers are less likely to trust us in the future.
+@kit
+on-arrival: kitt += 1; disk_relation += 5; inflation_modifier += 0.5; unemployment_modifier += 0.2; z_relation -= 8; dp_relation -= 8; msp_relation -= 4; democracystatus += 1; workers_chp += 4
+choose-if: kitt < 1
+unavailable-subtitle: We have already passed workplace democracy reforms!
+
+Though we are against Marxism and claim to be an indigenous leftist movement, the workers' lack of control over the goods they produce with their labour just as concerns us as the Marxists. Though not full management, electing worker advisor represenatives for the management of the state corporations will both improve labour conditions and foster beneficial connections between the company administrators and workers.
+
+However the right sees this as an attempt at bringing 'ungodly' Socialism and our relations visibly deteriorate. 
+
+@ikincilgrev
+subtitle: Secondary strikes are additional strikes launched by labourers of other industries to support the workers striking in the case of exploitation.
+on-arrival: ikincilgrevv += 1; disk_relation += 8; inflation_modifier += 0.2; growth_modifier -= 0.2; unemployment_modifier += 0.2; z_relation -= 5; workers_chp += 4
+choose-if: ikincilgrevv < 1
+unavailable-subtitle: We have already legalized secondary strikes to some extent!
+
+Even though secondary strikes have been banned until now, we foster loopholes enabling the workers to support their brothers in need. AP accuses of creating class conflict and calls our actions unlawful.
+
+@healthinspections
+on-arrival: healthinspectionss += 1; disk_relation += 5; democracystatus += 1; inflation_modifier += 0.2; unemployment_modifier += 0.2; growth_modifier -= 0.1
+choose-if: healthinspectionss < 1
+unavailable-subtitle: We have already made health inspections mandatory in large factories!
+
+Major factories have often been able to avoid workplace safety and health inspections through fostered ties with the right wing administrations. We shall allow that no more by making yearly inspections mandatory.
+
+@lokavt
+subtitle: Employer lockouts are the inverse of worker strikes; in times of disagreement the employers lock their workplaces out and refuse to pay the workers their salaries until the workers succumb to their demands.
+on-arrival: lokavtt += 1; disk_relation += 8; z_relation -= 5; democracystatus += 1; inflation_modifier += 0.5; unemployment_modifier -= 0.2
+choose-if: lokavtt < 1
+unavaliable-subtitle: We have already hardened justification of employer lockouts!
+
+We are preventing employers from cheating through negotiations of wage and many other things through unlawful lockouts.
+
+@repeatable
+
+- @hukukikoruma: Increase legal protections for syndicate representatives.
+- @workplaceinspections: Ramp up workplace inspections.
+- @syndicaterecognition: Ease the conditions for the recognization of syndicates for negotiations
+- @SSK: Expand the Social Security Institution, SSK.
+- @istihdam: Launch a programme of state employment.
+- @labour_menu: Return to the Labour Menu.
+
+@hukukikoruma
+on-arrival: disk_relation += 4; inflation_modifier += 0.2; unemployment_modifier -= 0.2; democracystatus += 1
+
+Syndicate representatives, often from the left wing DİSK, are often harassed by both owners of big business and the sycophant state officials following the lead of their de-facto financers. We are preventing this onslaught by increasing legal protections for the union representatives.
+
+@workplaceinspections
+on-arrival: disk_relation += 2; workers_chp += 3; unemployment_modifier += 0.2; inflation_modifier += 0.2
+
+Workplace investigations regarding violation of the labour laws is one of the important responsibilities of the Labour Ministry. The workers appreciate us finally taking action on this front.
+
+@syndicaterecognition
+on-arrival: disk_relation += 4; democracystatus += 1
+
+Some of our smaller syndicates have struggled with getting recognition from the state in order to engage in negotiations of wages and many other things which left their member workers unrepresented. Easing up such restrictions will strengthen belief in the mutual negotiations.
+
+@SSK
+subtitle: -1 budget. A lot of our workers depend on state support to make it to the end of the month!
+choose-if: budget > 1
+unavailable-subtitle: Requires 1 budget.
+on-arrival: disk_relation += 4; budget -= 1; inflation += 0.2; unemployment += 0.5; workers_chp += 6(1 - dissent)
+
+We increased spending for the Social Security Institute. Our labourers appreciate this greatly.
+
+@istihdam
+subtitle: -1 budget.
+choose-if: budget > 1
+unavailable-subtitle: Requires 1 budget.
+on-arrival: disk_relation += 2; police_loyalty -= 0.05; growth_modifier += 0.5; inflation_modifier += 0.5; unemployment_modifier -= 1.5
+
+We recruit many of our unemployed citizens in various state institutions. These efforts boost our growth and employment values, though police loyalty is impacted to some extent.
