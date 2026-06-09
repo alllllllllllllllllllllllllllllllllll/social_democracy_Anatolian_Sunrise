@@ -491,7 +491,7 @@ if (Q.chancellor_party == 'I') {
     Q.army_in_government = 0;
 }
 
-Q.budget = 4;
+Q.budget = 1;
 
 // Proportion of different social groups - Turkish demographics circa 1972-1977
 Q.rural = 45; // Rural population
@@ -914,6 +914,7 @@ Q.middle_east_relation = 45;
 // Cyprus Problem status: 0 = Unresolved, 1 = Status Quo, 2 = Confederation, 3 = Divided
 Q.cyprus_problem = 0;
 Q.gunesplan = 0
+Q.denktasplan = 0
 // Cyprus effects tracking
 Q.cyprus_last_status = 0; // Track previous status to detect changes
 Q.cyprus_confederation_timer = 0; // Timer for confederation positive effects (60 months = 5 years)
