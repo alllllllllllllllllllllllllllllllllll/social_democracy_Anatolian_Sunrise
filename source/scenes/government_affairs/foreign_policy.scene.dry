@@ -2,7 +2,7 @@ title: Foreign Policy
 new-page: true
 is-card: true
 tags: govt_affairs, cabinet
-on-arrival: month_actions += 1; foreign_policy_timer += 8
+on-arrival: month_actions += 1; foreign_policy_timer += 6
 view-if: CHP_in_government = 1 and foreign_minister_party = "CHP" and  foreign_policy_timer <= 0
 card-image: img/portraits/TuranGunes.jpg
 go-to: fp_menu
@@ -10,194 +10,67 @@ go-to: fp_menu
 
 = Foreign Policy
 
-What should our foreign policy priority be?
+Turkey is at the intersection of the global blocs and even though we are a member of NATO, we have to manage our relations with all our neighbors. There are four main partners we have to consider: The United States, Western Europe, The USSR and the Middle East.
+
+Through our foreign policy initiatives we can secure trade agreements, loans and decide our level of integration in the Western alliance.
 
 @fp_menu
 
+- @west: Manage our relations with the West.
+- @east: Manage our relations with the Soviets.
+- @middleeast: Manage our relations with the Middle East.
+
+@west
+
+- @improve_us
 - @improve_west
-- @improve_east
-- @improve_soviet
-- @customs_union
-- @negotiate
-- @reduce_reparations
-- @expose
-- @european_union
-- @european_union_2
-- @concordat_negotiate
-- @concordat
-- @support_austria
-- @support_austria_2
-- @root: Do not enact any policies for now.
-- @easy_discard
-- @cancel_advisor_action
+- @negotiategunes: Negotiate the Güneş Plan for the creation of a confederation in Cyprus with the US.
+- @negotiatedenktas: Negotiate the Denktaş Plan for the creation of a confederation in Cyprus with the US.
+- @aet: Apply to join the European Economic Community, EEC!
+- @americanbase: As a reaction to the arms embargo, close the American bases in our soil!
+
+@improve_us
+on-arrival: us_relation += 5
+
+We improve our relations with the United States.
 
 @improve_west
-title: Improve our relations with the Western Europe.
-on-arrival: west_relation += 4;
+on-arrival: west_relation += 5
 
-Turkey has a lot to gain from decent relations with the west. [? if cyprus_problem == 3 : However the prospect of such decent relations have been erased with the division of Cyprus. ?]
+We improve our relations with Western Europe.
 
-@improve_east
-title: Improve our relations with our eastern neighbors.
-on-arrival: east_relation += 2;
+@negotiategunes:
+subtitle: The Güneş Plan is a plan for the reunification of Cyprus under a confederation created by our exterior minister Turan Güneş. The plan suggests splitting the island into many decentralized zones across the island along ethnic lines. We have to negotiate a deal before the US Congress approves an arms embargo against us at the end of the year!
+view-if: cyprus_problem == 3 and year < 1975
+choose-if: foreign_minister_party = "CHP"
+on-arrival: gunesplan += 1
 
-We also aim to improve relations with our eastern neighbors, Poland and Czechoslovakia, who are righfully terrified of German aggression. Hopefully we can convince them of our peaceful intentions.
+We negotiate the plan with our American counterparts who act as mediators between us and the Greeks. We have to sustain our efforts for a breakthrough in the negotiations.
 
-@improve_soviet
-title: Improve our relations with the Soviet Union.
-subtitle: We could also broach the question of the TIP...
+@negotiatedenktas:
+subtitle: Even though we have lost our chance with the Güneş Plan, it may still be possible to find a peaceful end to the Cyprus Problem. The Denktaş Plan is a plan for the reunification of Cyprus under a confederation created by the Turkish Cypriot leader Rauf Denktaş. The plan unlike the Güneş Plan entails a division of the island into two halves roughly along the invasion lines.
+view-if: cyprus_problem == 3 and year >= 1975
+choose-if: foreign_minister_party = "CHP" and us_relation > 40
+unavailable-subtitle: Our relations with the US are not good enough to negotiate the Denktaş Plan!
+on-arrival: denktasplan += 1
 
-The Soviet Union also suffered from the international order created by the Treaty of Versailles; they have been participating in our secret rearmament program. The Treaty of Rapallo in 1922 affirmed our friendly relations.
+Despite the strained relations we make attempts at negotiating an end to the Cyprus problem.
 
-The Soviets are asking for economic and developmental assistance. They are still a poor country on the whole, and are desperately trying to catch up to the western powers. There is a chance that our anti-communist coalition partners would be upset, but we could assuage them by asking the Soviets for secret assistance in training and equiping the Reichswehr.
-
-- @soviet_economic_aid_yes_mil: Provide aid, in exchange for Reichswehr assistance.
-- @soviet_economic_aid_yes: Provide aid, in exchange for only good relations.
-- @soviet_economic_aid_no: Don't provide aid.
-
-@soviet_economic_aid_yes_mil
-choose-if: budget >= 1
-subtitle: -1 budget
-on-arrival: budget -= 1; soviet_relation += 1; reichswehr_militancy += 0.2; reichswehr_loyalty += 0.05; foreign_goal_completed += 1
-
-The Soviets are pleased that we have sent them aid, and have agreed to help train our military. The Reichswehr appreciates our support.
-
-@soviet_economic_aid_yes
-choose-if: budget >= 1
-subtitle: -1 budget
-on-arrival: budget -= 1; soviet_relation += 2; coalition_dissent += 1; foreign_goal_completed += 1
-
-The Soviets are pleased that we have sent them aid, and have not asked for anything specific in exchange. Our coalition partners are less pleased.
-
-- @TIP: Ask if Moscow could help repair our relations with the TIP.
-- @wittorf: Do the Soviets know about the Wittorf Affair? Do they know that we know?
-- @root: Do not mention the TIP.
-
-@soviet_economic_aid_no
-
-The Soviets are slightly upset, but they seemed to expect this answer.
-
-
-@TIP
-on-arrival: TIP_relation += 8*(1-dissent); communist_coalition += 1 if TIP_foreign_seen == 0; TIP_foreign_seen = 1
-
-We also mention the TIP in our conversations with the Soviet ambassador. They claim that the TIP is entirely independent of the Soviet government, and that the conflict is Thälmann's doing. But, soon after our conversation we notice a slight improvement in attitudes from the TIP.
-
-@wittorf
-view-if: wittorf_secret = 1 and ((year = 1929 and month < 6) or year = 1928) and wittorf_soviet_union = 0
-unavailable-subtitle: It is impossible that Stalin and the Comintern could be moved on their policy.
-on-arrival: wittorf_soviet_union = 1; TIP_relation += 6*(1-dissent); TIP_foreign_seen = 1
+@aet
+subtitle: Even though we will probably not see the end of our application process in the 1970's, the application may greatly benefit our nation in the decades to come.
+choose-if: economicreform == 1; inflation < 20; growth > 4; unemployment < 10; west_relation >= 70; cyprus_problem == 2 or 4
+unavailable-subtitle: We have not achieve the prequisites for an application yet! The prequisites we have to achieve are: a reform of the Turkish economy, decent economic figures, good relations with Western Europe, a peaceful end to the Cyprus problem.
+on-arrival: aet += 1; democracystatus += 3
 max-visits: 1
 
-Of course Stalin and the various leaders of the Comintern know about the Wittorf Affair, but they do not seem to know that we know as well. The Comintern was planning to build a narrative around the affair that absolves Thälmann, but perhaps now they will be less inclined to defend him.
+We have officially applied to join the ECC! Though it will take many years before our application opens the door for our membership, this is a great step for the future of Turkish Democracy.
 
-
-@customs_union
-title: Form a customs union with Austria?
-subtitle: This will likely incur the wrath of France.
-unavailable-subtitle: This is superseded by the European Union.
-choose-if: eu = 0
-view-if: black_thursday_seen = 1 and customs_union = 0
-
-The right has long desired closer ties with Austria, with the eventual goal of the merger of the two German-speaking countries. A customs union with Austria is the first step towards this goal. Additionally, many believe that a union with Austria would improve our current economic circumstances.
-
-However, the Allies, especially France, are likely to object. This agreement would break the terms of the Versailles Treaty, and could lead to economic sanctions, further hurting our economy.
-
-- @customs_union_2: Yes, do it!
-- @fp_menu: No, we should do something else.
-
-@customs_union_2
-on-arrival: banking_crisis_timer = 2; customs_union = 1; west_relation -= 2; east_relation -= 2;z_relation += 6; DP_relation += 6; coalition_dissent -= 1 if coalition_dissent > 0; coup_progress -= 1
+@americanbase
+choose-if: cyprus_problem == 3
+on-arrival: rural_chp += 3; workers_chp += 3; state_employees_chp += 3; petty_bourgeoisie_chp += 3; alevis_chp += 3; us_relation -= 0.1
 max-visits: 1
 
-We have formed a customs union with Austria! The right-wing parties are praising us for this unexpected turn of events.
-
-Immediately, France and other neighboring countries lodge their protests. The longer-term response is yet to be seen.
+With the exception of the İncirlik base we closed down all the American bases in our country as a reaction to the arms embargo. Our people cherish this determination though our relations with the US has deteriorated even further.
 
 
-@negotiate
-title: Negotiate regarding our remaining obligations from the Treaty of Versailles.
-subtitle: [? if young_plan_seen == 1 : After passing the Young Plan, France has committed to withdrawing from the Rhineland. Now, we must see if they can reduce our reparations further, given the economic depression. ?]
-view-if: reparations > -2 and reparations_negotiation < 3
-on-arrival: west_relation += 1; reparations_negotiation += 1; reparations_negotiation += 1 if pacifism >= 3; reparations_negotiations += 1 if nationalism <= 50; reparations_negotiation += 1 if west_relation >= 3
-
-Negotiations procede smoothly for the most part. The Western powers are convinced of Germany's sincerity and goodwill. [? if nationalism <= 50 or pacifism >= 3 : They are pleased to see that we are renouncing militarism. ?]
-
-
-@reduce_reparations
-title: The Western Allies are finally willing to pause our reparations payments!
-subtitle: Our negotiations have been successful.
-view-if: reparations_negotiation >= 3 and black_thursday_seen == 1 and reparations > -2
-on-arrival: west_relation += 1; reparations = -2; budget += 2 if hoover_memorandum_seen == 0; budget += 1 if hoover_memorandum_seen == 1; coalition_dissent -= 1 if coalition_dissent > 0; workers_CHP += 8*(1-dissent); old_middle_CHP += 5*(1-dissent); new_middle_CHP += 5*(1-dissent); rural_CHP += 5*(1-dissent); coup_progress -= 2 if coup_progress > 2; economic_growth += 0.7; economic_growth += 0.5 if economic_growth < 0
-max-visits: 1
-
-Finally, given both the economic circumstances and our continued negotiations, the Western Allies are willing to pause our reparations payments! Much of the credit must go to American president Hoover, who has been friendlier towards us than the Europeans.
-
-This has reduced tensions within our government, and our party has gotten credit for the achievement.
-
-@expose
-title: Expose the secret rearmament plans of the previous foreign ministry!
-view-if: rearmament_exposed == 0
-on-arrival: west_relation += 2; east_relation += 1; nationalism -= 5*(1-dissent); pro_republic += 5*(1-dissent); coalition_dissent += 1; rearmament_exposed += 1; reparations_negotiation += 3; coup_progress += 2
-
-The previous foreign ministry, despite its benevolent and peaceful face, was secretly helping the Reichswehr to build up its forces, in contravention of the Treaty of Versailles.
-
-The Allies are grateful of our exposure and repudiation of militarism. Our partners in the coalition are less supportive.
-
-
-@concordat_negotiate
-title: Negotiate a Concordat between the Germany and the Vatican.
-view-if: prussian_concordat = 1 and reichskonkordat = 0 and reichskonkordat_progress < 4
-on-arrival: reichskonkordat_progress += 2; reichskonkordat_progress -= 1 if abortion_rights; reichskonkordat_progress -= 1 if family_law;z_relation += 3*(1-dissent)
-
-The Roman Catholic Church is interested in furthering relations with the German Republic, seeing us as preferable to the old anti-Catholic policies of the Empire. We are working towards the signing of a Concordat, an agreement between the Vatican and the Republic that formally recognizes the Church's rights and interests in the country. The Center Party is especially interested in making this agreement.
-
-[? if family_law : Our liberalized divorce policies make it difficult to build relations with the Vatican. ?] [? if abortion : Our legalization of abortion make it difficult to connect with the Church. ?]
-
-@concordat
-title: We can sign a Concordat with the Vatican!
-view-if: reichskonkordat_progress >= 4 and reichskonkordat = 0
-on-arrival: reichskonkordat = 1;z_relation += 15*(1-dissent); catholics_CHP += 8*(1-dissent); catholics_z += 5 if in_weimar_coalition or in_grand_coalition or in_popular_front;
-achievement: reichskonkordat
-
-We have successfully signed a Concordat between Germany and the Roman Catholic Church! This treaty defines a formal relationship between the Church and the German state, guaranteeing freedom of worship for Catholics, and the right of the church to appoint their own clergy. Catholics in Germany are pleased, as are their representatives in the Center Party.
-
-@support_austria
-title: Diplomatically support Austrian democracy against the Dollfuß dictatorship.
-view-if: austrian_parliament_seen = 1 and austrian_civil_war_seen = 0
-on-arrival: sdapo_strength += 1; left_dissent -= 3; center_dissent -= 3
-
-We provide verbal backing to Austrian democracy, wage a war of words against Austrofascism, and promulgate additional trade sanctions. Time will tell if it will be enough.
-
-@support_austria_2
-title: Provide material support to Austrian democracy against the Dollfuß dictatorship.
-subtitle: -1 budget
-choose-if: budget >= 1
-view-if: austrian_parliament_seen = 1 and austrian_civil_war_seen = 0
-on-arrival: budget -= 1; sdapo_strength += 3; left_dissent -= 6; center_dissent -= 6
-
-In public, we provide verbal backing to Austrian democracy, wage a war of words against Austrofascism, and promulgate additional trade sanctions. Privately, we provide financial and various forms of "support" to our comrades in Austria in their struggle against dictatorship.
-
-@european_union
-title: Take steps to form a "European Union".
-subtitle: Is a "United States of Europe" possible?
-unavailable-subtitle: [? if west_relation < 5 : Our relations with the West are not good enough. ?] [? if east_relation < 4 : Our relations with the East are not good enough. ?]
-view-if: reparations <= -2 and eu_progress < 2 and eu = 0
-choose-if: west_relation >= 5 and east_relation >= 4
-on-arrival: eu_progress += 1; west_relation += 1
-
-Forming a "United States of Europe" has long been part of the Social Democratic foreign program. Finally, we are taking steps towards it. Given our positive relations with the other countries of Europe, we can begin to hold multilateral negotiations for more European federalism. It will take time to hammer out the exact shape of this future "European Union", however.
-
-
-@european_union_2
-title: We can sign a treaty to form a European Union!
-view-if: west_relation >= 5 and east_relation >= 4 and eu_progress >= 2
-on-arrival: eu = 1; unemployed -= 2 if unemployed >= 10; inflation += 2 if inflation <= -2; inflation -= 1 if inflation >= 4.5; workers_CHP += 5*(1-dissent); new_middle_CHP += 5*(1-dissent); old_middle_CHP += 5*(1-dissent); rural_CHP += 4*(1-dissent); catholics_CHP += 4*(1-dissent); unemployed_CHP += 4*(1-dissent); pro_republic += 5; nationalism -= 5; budget += 1; economic_growth += 1; economic_growth += 1 if economic_growth < 3
-max-visits: 1
-achievement: eu
-
-Along with France, Great Britain, and many other states of Western and Eastern Europe, we have signed a treaty to form a European Union! It is hoped that Europe has learned the lessons of the Great War; never again will there be another war that tears the continent apart.
-
-A major component of the union is the free movement of people and goods across the countries of Europe, as well as the stabilization of currency exchange rates. This provides new markets for German products and new sources of investment.
-
-Fascist Italy remains a problem, and the Soviet Union also lies outside the system. But for now, there is new hope for peace and prosperity throughout the continent.
+@east
