@@ -969,6 +969,17 @@ if (Q.disk_turkis_conflict >= 0.80) {
     Q.democracystatus += 2/24;
 }
 
+// DİSK-TÜRK-İŞ power dynamic yearly drift
+if (!Q.CHP_in_government) {
+    // CHP not in government: drift towards TÜRK-İŞ by 8/year
+    Q.disk_turkis_conflict += 0.08/24;
+} else if (Q.labor_minister_party == 'CHP') {
+    // CHP holds labour ministry: drift towards DİSK by 8/year
+    Q.disk_turkis_conflict -= 0.08/24;
+}
+// CHP in government but not controlling labour ministry: no change
+Q.disk_turkis_conflict = Math.max(0, Math.min(1, Q.disk_turkis_conflict));
+
 // 4. High Kurdish radicalism (−2/yr)
 if (Q.kurdish_radicalism >= 0.69) {
     Q.democracystatus -= 2/24;
