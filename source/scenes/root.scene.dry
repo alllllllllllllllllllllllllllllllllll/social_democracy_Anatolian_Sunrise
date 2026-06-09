@@ -887,6 +887,9 @@ Q.unemployment_insurance_seen = 0;
 Q.unemployment_insurance_threshold = 10;
 Q.blutmai = 0;
 
+// 
+Q.economicreform = 0
+
 // have we reformed these institutions to be more democratic?
 Q.judicial_reform = 0;
 Q.bureaucratic_reform = 0;
@@ -915,6 +918,7 @@ Q.middle_east_relation = 45;
 Q.cyprus_problem = 0;
 Q.gunesplan = 0
 Q.denktasplan = 0
+Q.armsembargo = 0
 // Cyprus effects tracking
 Q.cyprus_last_status = 0; // Track previous status to detect changes
 Q.cyprus_confederation_timer = 0; // Timer for confederation positive effects (60 months = 5 years)
