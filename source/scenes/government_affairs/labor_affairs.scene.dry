@@ -66,7 +66,7 @@ Major factories have often been able to avoid workplace safety and health inspec
 subtitle: Employer lockouts are the inverse of worker strikes; in times of disagreement the employers lock their workplaces out and refuse to pay the workers their salaries until the workers succumb to their demands.
 on-arrival: lokavtt += 1; disk_relation += 8; z_relation -= 5; democracystatus += 1; inflation_modifier += 0.5; unemployment_modifier -= 0.2
 choose-if: lokavtt < 1
-unavaliable-subtitle: We have already hardened justification of employer lockouts!
+unavailable-subtitle: We have already hardened justification of employer lockouts!
 
 We are preventing employers from cheating through negotiations of wage and many other things through unlawful lockouts.
 
@@ -98,7 +98,7 @@ Some of our smaller syndicates have struggled with getting recognition from the 
 subtitle: -1 budget. A lot of our workers depend on state support to make it to the end of the month!
 choose-if: budget > 1
 unavailable-subtitle: Requires 1 budget.
-on-arrival: disk_relation += 4; budget -= 1; inflation += 0.2; unemployment += 0.5; workers_chp += 6(1 - dissent)
+on-arrival: disk_relation += 4; budget -= 1; inflation += 0.2; unemployment += 0.5; workers_chp += 6 * (1 - dissent)
 
 We increased spending for the Social Security Institute. Our labourers appreciate this greatly.
 
