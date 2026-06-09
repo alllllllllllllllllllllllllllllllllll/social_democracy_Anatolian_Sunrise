@@ -640,7 +640,8 @@ Middle East: [+ middle_east_relation : relationships +]
 
 = The Cyprus Problem
 
-Cyprus Problem: [? if cyprus_problem == 0: Unresolved ?][? if cyprus_problem == 1: Status Quo ?][? if cyprus_problem == 2: Confederation ?][? if cyprus_problem == 3: Divided ?]
+Cyprus Problem: [? if cyprus_problem == 0: Unresolved ?][? if cyprus_problem == 1: Status Quo ?][? if cyprus_problem == 2: 1960 Agreement Restored ?][? if cyprus_problem == 3: Divided ?][? if cyprus_problem == 4: Confederation ?]
+
 
 @economy
 
