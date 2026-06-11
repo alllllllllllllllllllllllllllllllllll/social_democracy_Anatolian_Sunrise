@@ -18,6 +18,9 @@ Through our foreign policy initiatives we can secure trade agreements, loans and
 - @west: Manage our relations with the West.
 - @east: Manage our relations with the Soviets.
 - @middleeast: Manage our relations with the Middle East.
+- @root: No change to foreign policy.
+- @easy_discard
+- @cancel_advisor_action
 
 @west
 
