@@ -11,6 +11,7 @@ new-page: true
 
 - @constitution: The constitution of 1960 is the very document that has allowed new ideologies and movements to arise thanks to its liberality and emphasis on political freedom.
 - @diskrelation: Sav has associations with DİSK thanks to his experience in the job associations.
+- @labourministry: As Labour Minister, Sav can manage labour affairs.
 - @bar: Sav is a rising star within the Turkish bar and can steer the bar in a progressive direction
 - @root: Return to main
 
@@ -27,6 +28,14 @@ choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 on-arrival: advisor_action_timer = 3
 go-to: union_relations
+
+@labourministry
+title: Labour Affairs
+subtitle: As Labour Minister, Sav can manage labour affairs.
+choose-if: advisor_action_timer = 0 and CHP_in_government = 1 and labor_minister_party = "CHP"
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if labor_minister_party != "CHP" : The CHP does not control the Labour Ministry. ?]
+on-arrival: advisor_action_timer = 3; labor_affairs_timer -= 6; last_advisor_action = 1
+go-to: labor_affairs
 
 @bar
 choose-if: advisor_action_timer = 0
