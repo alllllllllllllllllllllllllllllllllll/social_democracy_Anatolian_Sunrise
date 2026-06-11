@@ -20,6 +20,9 @@ Our relations with the labour movement also depends on the actions we will take 
 
 - @onetime: One time reforms.
 - @repeatable: Long term repeatable reforms.
+- @root: No change to labour policy.
+- @easy_discard
+- @cancel_advisor_action
 
 @onetime
 
