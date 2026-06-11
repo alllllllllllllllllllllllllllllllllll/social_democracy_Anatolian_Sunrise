@@ -23,7 +23,8 @@ go-to: international_relations
 @foreignministry
 choose-if: advisor_action_timer = 0 and CHP_in_government = 1 and foreign_minister_party = "CHP"
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if CHP_in_government = 0 : The CHP is not in government. ?][? if foreign_minister_party != "CHP" : The CHP does not control the foreign ministry. ?]
-on-arrival: advisor_action_timer = 3
+on-arrival: advisor_action_timer = 3; foreign_policy_timer -= 6; last_advisor_action = 1
+go-to: foreign_policy
 
 @theory
 choose-if: advisor_action_timer = 0
