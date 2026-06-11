@@ -28,6 +28,7 @@ Through our foreign policy initiatives we can secure trade agreements, loans and
 - @negotiatedenktas: Negotiate the Denktaş Plan for the creation of a confederation in Cyprus with the US.
 - @aet: Apply to join the European Economic Community, EEC!
 - @americanbase: As a reaction to the arms embargo, close the American bases in our soil!
+- @fp_menu: Return to the foreign policy menu.
 
 @improve_us
 on-arrival: us_relation += 5
@@ -74,3 +75,81 @@ With the exception of the İncirlik base we closed down all the American bases i
 
 
 @east
+choose-if: z_in_goverment == 0 and DP_in_government == 0
+unavailable-subtitle: Our coalition partners prevent us from fostering relations with the Soviets!
+
+- @improve_east: Improve relations with the Soviet Union.
+- @friendship: Sign a treaty of Turkish-Soviet Friendship.
+- @credits: Borrow loans from the Soviet Union.
+- @treaty: Sign a treaty of economic cooperation.
+- @export: Export opium and other agricultural products to the Eastern Bloc.
+- @romanianoil: Purchase oil from Romania.
+- @fp_menu: Return to the foreign policy menu.
+
+@improve_east
+on-arrival: soviet_relation += 5
+
+Even though we are on the other side of the Iron Curtain, the Soviet Union is our largest neighbor. We improve our relations with the Soviets.
+
+@friendship
+on-arrival: friendshipp += 1; soviet_relation += 10; us_relation -= 10; west_relation -= 5; growth_modifier += 0.5
+choose-if: friendshipp == 0 and soviet_relation >= 35
+unavailable-subtitle: [? if friendshipp > 0 : We have already signed a treaty of friendship! ?] [? if soviet_relation < 40 : Our relationship with the USSR is not decent enough! ?]
+
+Despite our previous disagreements the Soviets have been willing to consider normalization. We have signed a treaty of 'Decent Neighborhood and Friendly Cooperation' with the Soviets which will faciliate diplomatic and economic ties between the two nations. If we intend to reconsider our current relationship with the USSR and move towards a positive direction we have to continue building up mutual cooperation. However our reconciliation with the USSR has brought significant backlash from the US and Western Europe. We have to walk on a thin thread if Ecevit is not to become another Allende.
+
+@credits
+on-arrival: budget += 2; us_relation -= 5; friendshipp += 1
+choose-if: friendshipp == 1 and soviet_relation >= 50
+view-if: frienshipp == not 2
+unavailable-subtitle: [? if friendshipp < 1 : We need to normalize our relations through a friendship treaty first! ?] [? if soviet_relation < 50 : Our relationship with the USSR is not decent enough! ?]
+
+We borrow a long term loan from the Soviet Union.
+
+@treaty
+on-arrival: growth_modifier += 0.7; unemployment_modifier -= 0.5; inflation_modifier += 1.5: us_relation -= 5
+choose-if: friendshipp == 2 and soviet_relation >= 60
+unavailable-subtitle: [? if friendshipp < 2 : We need to normalize our relations and increase economic cooperation by taking loans first! ?] [? if soviet_relation < 60 : Our relationship with the USSR is not decent enough! ?]
+
+A Turkish-Soviet economic cooperation treaty seals our efforts of reconciliation. Our economy will greatly benefit from this maneuver.
+
+@export
+on-arrival: agricultural_consumption += 4; inflation_modifier += 0.5 
+choose-if: friendshipp == 2
+unavailable-subtitle: [? if friendshipp < 2 : We need to normalize our relations and increase economic cooperation by taking loans first! ?]
+max-visits: 2
+
+We establish the corridors for our farmers and landowners to sell agricultural products such as opium and wheat, increasing demand for the increasing supply but also conversely increasing inflation.
+
+@romanianoil
+choose-if: friendship >= 1
+on-arrival: forex_pressure -= 4; inflation_modifier -= 2; oil += 1
+unavailable-subtitle: [? if friendshipp < 1 : We need to normalize our relations through a friendship treaty first! ?] 
+
+
+# Doğu ile alakalı hariciye
+(AP veya DP varsa yok)
+1) **Türk-Sovyet Dostluk Antlaşması**
+- eğer doğu ile ilişki x sayısının üzerindeyse
+**sonuçlar**:
+- "İyi Komşuluk ve Dostça İşbirliği Siyasal Belgesi" imzalanır
+- büyüme +
+2) **Doğu Kredileri**
+- eğer dostluk antlaşması imzalanmışsa
+- ve ilişkiler x sayısının üzerindeyse
+**sonuçlar**:
+- (tek seferlik) bütçe +2 ya da +3, sonra bu seçenek "ekonomik işbirliğini artır" haline gelecek
+3) **Türk Sovyet ekonomi antlaşması**
+- eğer dostluk antlaşması imzalanmışsa
+- eğer doğu kredileri alınmışsa
+- eğer doğu işbirliği x kere artırılmışsa
+**sonuçlar**:
+- büyüme +
+- işsizlik -
+- enflasyon +
+- batı ilişkileri -
+4) **Romanya petrol antlaşması**
+- eğer dostluk antlaşması imzalanmışsa
+**sonuçlar**:
+- enflasyon -
+- foreign exchange pressure -
