@@ -6,13 +6,12 @@ on-arrival: month_actions += 1; foreign_policy_timer += 6
 view-if: CHP_in_government = 1 and foreign_minister_party = "CHP" and  foreign_policy_timer <= 0
 card-image: img/portraits/TuranGunes.jpg
 go-to: fp_menu
-#subtitle: International relations and dealing with Versailles.
 
 = Foreign Policy
 
 Turkey is in the intersection of the global blocs and even though we are a member of NATO, we have to manage our relations with all our neighbors. There are four main partners we have to consider: The United States, Western Europe, The USSR and the Middle East.
 
-Through our foreign policy initiatives we can secure trade agreements, loans and decide our level of integration in the Western alliance.
+Through our foreign policy initiatives we can secure trade agreements, loans and decide our level of integration in the Western alliance. CHP's foreign policy up until now has been one of armed non-interventionism, often summed up in Atatürk's saying '**Peace at home, peace in the world.**'. Even though since the 1950's the nation has moved towards the Western Alliance and NATO, decent and peaceful relations with all our neighbors is a key tenet of our foreign policy.
 
 @fp_menu
 
@@ -21,6 +20,8 @@ Through our foreign policy initiatives we can secure trade agreements, loans and
 - @middleeast: Manage our relations with the Middle East.
 
 @west
+
+Turkey is a crucial member of the Western Alliance and of NATO. Our Western allies will act as the primary mediators of any diplomatic crisis arising concerning Turkey so maintaining decent ties is a necessity.
 
 - @improve_us
 - @improve_west
@@ -78,11 +79,13 @@ With the exception of the İncirlik base we closed down all the American bases i
 choose-if: z_in_goverment == 0 and DP_in_government == 0
 unavailable-subtitle: Our coalition partners prevent us from fostering relations with the Soviets!
 
+Up until now our relations with the Eastern Bloc have been cold at best. However after Stalin's death the Soviet attitude towards Turkey have shifted towards a reconciliatory direction. Even though we should keep our relations with the West in mind, we have a lot to gain from improved relations with the Soviet Union.
+
 - @improve_east: Improve relations with the Soviet Union.
 - @friendship: Sign a treaty of Turkish-Soviet Friendship.
 - @credits: Borrow loans from the Soviet Union.
 - @treaty: Sign a treaty of economic cooperation.
-- @export: Export opium and other agricultural products to the Eastern Bloc.
+- @export: Export agricultural products to the Eastern Bloc.
 - @romanianoil: Purchase oil from Romania.
 - @fp_menu: Return to the foreign policy menu.
 
@@ -114,42 +117,88 @@ unavailable-subtitle: [? if friendshipp < 2 : We need to normalize our relations
 A Turkish-Soviet economic cooperation treaty seals our efforts of reconciliation. Our economy will greatly benefit from this maneuver.
 
 @export
-on-arrival: agricultural_consumption += 4; inflation_modifier += 0.5 
+on-arrival: agricultural_consumption += 4; inflation_modifier += 0.5; rural_chp += 1
 choose-if: friendshipp == 2
 unavailable-subtitle: [? if friendshipp < 2 : We need to normalize our relations and increase economic cooperation by taking loans first! ?]
-max-visits: 2
 
-We establish the corridors for our farmers and landowners to sell agricultural products such as opium and wheat, increasing demand for the increasing supply but also conversely increasing inflation.
+We establish the corridors for our farmers and landowners to sell agricultural products such as citrus and wheat, increasing demand for the increasing supply but also conversely increasing inflation.
 
 @romanianoil
 choose-if: friendship >= 1
 on-arrival: forex_pressure -= 4; inflation_modifier -= 2; oil += 1
 unavailable-subtitle: [? if friendshipp < 1 : We need to normalize our relations through a friendship treaty first! ?] 
+max-visits: 1
+
+Turkey largely depends on foreign energy to power its growing industry and cities. Our dependence to oil in such a sense has destabilized our economy when the oil procies soured, like in the oil crisis of 1973. We safeguard our access to the the supply of oil to mitigate the effects of any future crisis.
+
+@middleeast
+
+The Middle East is currently roughly divided into two blocs, the Conservative Monarchies and the Socialist Pan-Arabists. However thankfully we do not have to pick a side and we should work towards fostering ties with both factions. The Gulf Monarchies have stronger relations with the US while conversely the Pan-Arabists are closer to the USSR, a factor we should keep in mind when improving relations. Due to the Iranian Monarchy's hostile attitude towards us, improving relations with them is not an option.
+
+- @arabrelation: Improve relations with the Arabian States.
+- @trade: Foster trade with the Arabian States.
+- @panarab1: Increase economic ties with the Pan-Arabists.
+- @panarab2: Increase economic ties with the Pan-Arabists.
+- @monarchy1: Increase economic ties with the Gulf Monarchies.
+- @monarchy2: Increase economic ties with the Gulf Monarchies.
+- @fko: Form official relations with the Palestine Liberation Organization, PLO.
+- @fp_menu: Return to the foreign policy menu.
+
+@arabrelation
+on-arrival: middle_east_relation += 5
+
+We improve relations with the Gulf Monarchies and the Pan Arabists.
+
+@trade
+subtitle: Exporting agricultural products can act as a new stream of revenue.
+choose-if: middle_east_relation >= 50
+unavailable-subtitle: We have to improve our relations with the Arabian states first! 
+on-arrival: tradee += 1; growth_modifier += 0.3; inflation_modifier -= 0.5; agricultural_consumption += 4; forex_pressure -= 2; rural_chp += 1
+
+We increase our trade with our Arabian neighbors. By exporting agricultural products we are able to both decrease foreign exchange pressure and increase the revenues of our farmers. 
+
+@panarab1
+subtitle: As a first step we can acquire loans for purchasing oil.
+choose-if: middle_east_relation >= 55 and tradee > 0
+view-if: panarabb == 0
+unavailable-subtitle: [? if middle_east_relation < 55 : We have to improve our relations with the Pan-Arabist nations first! ?] [? if tradee == 0 : We have to improve bilateral trade first! ?]
+on-arrival: panarabb += 1; budget += 2; inflation_modifier -= 1: growth_modifier -= 0.4; oil += 1; forex_pressure -= 2
+
+Oil loans allow us to build resistance for any future turbulence in global petrol prices. The payments however will have a negative impact on our economic growth.
+
+@panarab2
+subtitle: We can help the Pan-Arabists bypass Western sanctions by acting as a trade hub in-between.
+choose-if: middle_east_relation >= 55 and tradee > 0
+view-if: panarabb == 1
+unavailable-subtitle: [? if middle_east_relation < 55 : We have to improve our relations with the Pan-Arabist nations first! ?] [? if tradee == 0 : We have to improve bilateral trade first! ?]
+on-arrival: inflation_modifier -= 0.5: growth_modifier += 0.4; us_relation -= 5
+
+Acting as trade mediators boosts our growth and decreases inflation. However our assisting of the sanction bypassing does not go unnoticed by the US.
+
+@monarchy1
+subtitle: As a first step we can acquire loans for purchasing oil.
+choose-if: middle_east_relation >= 55 and tradee > 0
+view-if: monarchyy == 0
+unavailable-subtitle: [? if middle_east_relation < 55 : We have to improve our relations with the Conservative Monarchies first! ?] [? if tradee == 0 : We have to improve bilateral trade first! ?]
+on-arrival: monarchyy += 1; budget += 1; inflation_modifier -= 0.5: growth_modifier -= 0.4; oil += 1; forex_pressure -= 2
+
+Oil loans allow us to build resistance for any future turbulence in global petrol prices. The payments however will have a negative impact on our economic growth.
+
+@monarchy2
+subtitle: We can send workers to bring in foreign currency. 
+choose-if: middle_east_relation >= 55 and tradee > 0
+view-if: monarchyy == 1
+unavailable-subtitle: [? if middle_east_relation < 55 : We have to improve our relations with the Conservative Monarchies first! ?] [? if tradee == 0 : We have to improve bilateral trade first! ?]
+on-arrival: unemployment_modifier -= 0.4; inflation_modifier -= 0.5: forex_pressure -= 2
+
+Through a series of agreements on temporary working permits, many of our unemployed citizens go to work in the Gulf Monarchies. 
+
+@fko
+subtitle: Many in CHP and Turkey as a whole are sympathethic to the Palestinian cause.
+choose-if: fkoo == 0
+unavailable-subtitle: We have already formed official relations with the PLA!
+on-arrival: fkoo += 1 us_relation -= 10; west_relation -= 5; middle_east_relation += 10; rural_chp += 2; state_employees_chp += 2; workers_chp += 2; petty_bourgeoisie_chp += 2; alevis_chp += 2; msp_relation += 5; coalition_dissent -= 1 if msp_in_government == 1
+
+Even though we are not a player in the Israel-Palestine conflict, recognizing the PLA as a legitimate actor can grant us popularity, stronger relations with the Middle East and possible easing down of the tensions with the internal Islamists. [? if msp_in_government == 1 : Erbakan supports this action as well which decreased coalition dissent. ?] Besides the pragmatic reasons, many on the left of our party are sympathethic to the Palestinian cause.
 
 
-# Doğu ile alakalı hariciye
-(AP veya DP varsa yok)
-1) **Türk-Sovyet Dostluk Antlaşması**
-- eğer doğu ile ilişki x sayısının üzerindeyse
-**sonuçlar**:
-- "İyi Komşuluk ve Dostça İşbirliği Siyasal Belgesi" imzalanır
-- büyüme +
-2) **Doğu Kredileri**
-- eğer dostluk antlaşması imzalanmışsa
-- ve ilişkiler x sayısının üzerindeyse
-**sonuçlar**:
-- (tek seferlik) bütçe +2 ya da +3, sonra bu seçenek "ekonomik işbirliğini artır" haline gelecek
-3) **Türk Sovyet ekonomi antlaşması**
-- eğer dostluk antlaşması imzalanmışsa
-- eğer doğu kredileri alınmışsa
-- eğer doğu işbirliği x kere artırılmışsa
-**sonuçlar**:
-- büyüme +
-- işsizlik -
-- enflasyon +
-- batı ilişkileri -
-4) **Romanya petrol antlaşması**
-- eğer dostluk antlaşması imzalanmışsa
-**sonuçlar**:
-- enflasyon -
-- foreign exchange pressure -
