@@ -149,6 +149,14 @@ Q.rk_strength_label = Q.right_kemalist_split ? "Nonexistant" : _strengthLabel(_r
 
 = Status
 
+{!<svg id="cyprus" viewBox="0 0 450 850" width="200" height="380" style="display:block; margin:auto; border: 3px solid #3B3B3B;">
+  <style>
+    .district { fill: #E1B300; stroke: #000000; stroke-width: 2px; }
+    .district:hover { fill: #FFD700; opacity: 0.8; cursor: pointer; }
+  </style>
+
+  <text x="225" y="833" text-anchor="middle" font-size="22" fill="#333">Click on districts to view specific information</text>
+
 [? if week == 1: [+ month : month +] [+ year +] (Week 1) ?][? if week == 2: [+ month : month +] [+ year +] (Week 3) ?]
 
 Resources available: [+ resources +]
