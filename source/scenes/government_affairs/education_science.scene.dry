@@ -69,7 +69,7 @@ on-arrival: budget -= 1; workers_chp += 4; state_employees_chp += 1; petty_bourg
 
 @imamhatip
 subtitle: +1 budget.
-on-arrival: budget += 1; MSP_relation -= 10 
+on-arrival: budget += 1; MSP_relation -= 10; imamhatipp += 1
 choose-if: MSP_in_government == 0 and z_in_government == 0 and DP_in_government == 0 and imamhatipp < 3
 unavailable-subtitle: [? if imamhatipp < 3 : Our right wing coalition partners will not let us cut funding for the religious schools! ?] [? if imamhatipp >= 3 : We have already cut their funding to oblivion! ?]
 
