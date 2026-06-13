@@ -22,7 +22,7 @@ on-arrival: advisor_action_timer = 3
 go-to: international_relations
 
 @economy
-choose-if: CHP_in_government = 1 and finance_minister_party = "CHP") and advisor_action_timer = 0
+choose-if: CHP_in_government = 1 and finance_minister_party = "CHP" and advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if CHP_in_government = 0 : CHP is not in government. ?][? if finance_minister_party != "CHP" : The CHP does not control the finance ministry. ?]
 on-arrival: advisor_action_timer = 3; fiscal_policy_timer -= 6; last_advisor_action = 1
 go-to: fiscal_policy
