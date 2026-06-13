@@ -71,81 +71,6 @@ Borrowing from the treasury increases inflation but perhaps it can be worth it d
 
 - @istikraz: Borrow domestic loans. 
 - @denetim: Increase tax payments inspections. 
-
-@istikraz
-subtitle: +1 budget. 
-on-arrival: budget += 1; kurds_chp -= 1; alevis_chp -= 1; rural_chp -= 1; workers_
-
-# Tekrarlı
-A) **Yeniler**
-1) Lüks ithalat gümrüğünü artır (AP varsa yok)
-- bütçe +1
-- kapitalist CHP desteği -
-- Batı ilişkileri -
-2) İç istikraz
-- bütçe +
-- CHP popülerliği genel -
-- enflasyon +
-3) Vergi denetimlerini artır
-- bütçe +1
-- CHP popülerliği genel -
-
-B) **Vanilla**
-1) Genel vergileri artır
-- bütçe +2, yıllık bütçe +2
-- CHP popülerliği genel -
-- enflasyon -
-- büyüme -
-- işsizlik +
-2) Genel vergileri azalt
-- bütçe -2, yıllık bütçe -2
-- CHP popülerliği genel +
-- enflasyon +
-- büyüme +
-- işsizlik -
-3) Üst gelirli vergilerini artır
-- bütçe +1, yıllık bütçe +1
-- kapitalist CHP popülerliği -
-- enflasyon -
-- büyüme -
-- işsizlik -
-4) Üst gelirli vergilerini azalt
-- bütçe -1, yıllık bütçe -1
-- kapitalist CHP popülerliği +
-- enflasyon +
-- büyüme +
-- işsizlik +
-5) Alt gelirli vergilerini artır
-- bütçe +1, yıllık bütçe +1
-- işçi CHP popülerliği -
-- taşra CHP popülerliği -
-- bürokrat CHP popülerliği -
-- KOBİ CHP popülerliği -
-- enflasyon -
-- büyüme -
-- işsizlik +
-6) Alt gelirli vergilerini azalt
-- bütçe -1, yıllık bütçe -1
-- işçi CHP popülerliği +
-- taşra CHP popülerliği +
-- bürokrat CHP popülerliği +
-- KOBİ CHP popülerliği +
-- enflasyon +
-- büyüme +
-- işsizlik -
-7) Vergileri daha progresif yap
-- kapitalist CHP popülerliği -
-- işçi CHP popülerliği +
-- taşra CHP popülerliği +
-- bürokrat CHP popülerliği +
-- KOBİ CHP popülerliği +
-8) Vergileri daha regresif yap
-- kapitalist CHP popülerliği +
-- işçi CHP popülerliği -
-- taşra CHP popülerliği -
-- bürokrat CHP popülerliği -
-- KOBİ CHP popülerliği -
-
 - @raise_rich: Increase taxes on the rich.
 - @raise_poor
 - @raise_overall: Increase overall taxes.
@@ -155,14 +80,27 @@ B) **Vanilla**
 - @raise_progressive: Make the tax system more progressive by raising taxes on the rich and cutting them for the poor.
 - @regressive
 - @tariffs
-- @root: Do not change the tax system.
+- @fiscal_menu: Return to the finance menu.
 - @easy_discard
 - @cancel_advisor_action
+
+
+@istikraz
+subtitle: +1 budget. 
+on-arrival: budget += 1; kurds_chp -= 1; alevis_chp -= 1; rural_chp -= 1; workers_chp -= 1; state_employees_chp -= 1; petty_bourgeoisie_chp -= 1; inflation_modifier += 1.2
+
+Domestic loans boost our budget in the short term but increase discontentment and inflation.
+
+@denetim
+subtitle: +1 budget
+on-arrival: budget += 1; kurds_chp -= 1; alevis_chp -= 1; rural_chp -= 1; workers_chp -= 1; state_employees_chp -= 1; petty_bourgeoisie_chp -= 1; democracystatus += 1
+
+We tighten our supervision over tax payments. However it appears so that a huge amount of our population is involved in tax evasion which creates discontment.
 
 @raise_progressive
 subtitle: This does not change overall revenue. [? if lower_tax_rates < -5 : Lower-class tax rates are too low to cut anymore. ?] [? if upper_tax_rates > 5 : Upper-class tax rates are too high to increase. ?]
 choose-if: lower_tax_rates >= -5 and upper_tax_rates <= 5
-on-arrival: workers_CHP += 6*(1-dissent); old_middle_CHP -= 4; new_middle_CHP -= 4; coalition_dissent += 1 if in_grand_coalition; DP_relation -= 4; finance_goal_completed += 1; upper_tax_rates += 1; lower_tax_rates -= 1; capital_strike_progress += 1; capital_strike_progress += 1 if upper_tax_rates > 1; capital_strike_progress += 1 if upper_tax_rates > 3; new_middle_CHP -= 2 if upper_tax_rates > 1; old_middle_CHP -= 2 if upper_tax_rates > 1
+on-arrival: workers_chp += 4*(1-dissent); rural_chp += 3*(1-dissent); petty_bourgepisie_chp -= 2; capitalist_chp -= 5; coalition_dissent += 1 if in_grand_coalition; z_relation -= 4; upper_tax_rates += 1; lower_tax_rates -= 1; capital_strike_progress += 1; capital_strike_progress += 1 if upper_tax_rates > 1; capital_strike_progress += 1 if upper_tax_rates > 3; new_middle_CHP -= 2 if upper_tax_rates > 1; old_middle_CHP -= 2 if upper_tax_rates > 1
 
 Making the tax system more progressive is popular among our base, but it upsets our bourgeois coalition partners, as well as our minimal number of bourgeois voters.
 
