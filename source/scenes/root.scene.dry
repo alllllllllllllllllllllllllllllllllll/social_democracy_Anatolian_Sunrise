@@ -492,6 +492,7 @@ if (Q.chancellor_party == 'I') {
 }
 
 Q.budget = 1;
+Q.yearly_budget = 0;
 
 // Proportion of different social groups - Turkish demographics circa 1972-1977
 Q.rural = 45; // Rural population

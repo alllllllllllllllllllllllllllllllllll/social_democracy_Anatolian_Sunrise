@@ -240,7 +240,7 @@ if (Q.month_actions >= 1) {
             Q.month = 1;
             Q.year += 1;
             if (Q.CHP_in_government) {
-                Q.budget += 4;
+                Q.budget += 4 + (Q.yearly_budget || 0);
             }
             if (Q.historical_mode) {
                 Q.resources += 2;
