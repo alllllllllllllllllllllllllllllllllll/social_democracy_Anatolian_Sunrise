@@ -10,7 +10,7 @@ new-page: true
 A young and energetic figure within the party, Baykal can use his expertise in financial and international affairs to help the party move forward. He also supports a temporary coalition with the Islamist MSP in case <span style="color: #E3000F;">**CHP**</span> is not able to win a majority in the next elections.
 
 - @internationalaffairs: International Party Relations.
-- @economy: Minister of Economy/Finance.
+- @economy: Minister of Finance.
 - @coalitiontalks: Inter Party Relations.
 - @root: Return to main
 
@@ -22,11 +22,10 @@ on-arrival: advisor_action_timer = 3
 go-to: international_relations
 
 @economy
-subtitle: Baykal supports planned industrialization and mixed economics.
-choose-if: CHP_in_government = 1 and (economic_minister_party = "CHP" or finance_minister_party = "CHP") and advisor_action_timer = 0
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if CHP_in_government = 0 : CHP is not in government. ?][? if economic_minister_party != "CHP" and finance_minister_party != "CHP" : The CHP does not control the economic or finance ministry. ?]
+choose-if: CHP_in_government = 1 and finance_minister_party = "CHP") and advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if CHP_in_government = 0 : CHP is not in government. ?][? if finance_minister_party != "CHP" : The CHP does not control the finance ministry. ?]
 on-arrival: advisor_action_timer = 3; economic_policy_timer -= 12; last_advisor_action = 1
-go-to: economic_policy
+go-to: fiscal_policy
 
 @coalitiontalks
 subtitle: Baykal can help create or sustain coalitions with parties that would normally be unthinkable.
