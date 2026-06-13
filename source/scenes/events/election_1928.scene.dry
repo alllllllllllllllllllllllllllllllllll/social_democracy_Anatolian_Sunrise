@@ -142,7 +142,7 @@ Q.left_coalition = (Q.chp_seats || 0) + (Q.TIP_seats || 0);
 // Progressive coalition isn't going to be implemented as a distinct coalition but it's the coalition that lets you pass improved women's rights/gay rights
 Q.progressive_coalition = Q.chp_seats + Q.TIP_seats + Q.CGP_seats + sapdSeats;
 
-Q.leverage = Q.chp_seats;
+Q.leverage = Q.chp_seats/2;
 
 Q.grand_coalition_failed = 0;
 // Reset government and ministers... Based on Brüning's 1930 govt
