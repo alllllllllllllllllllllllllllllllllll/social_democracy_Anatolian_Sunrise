@@ -14,9 +14,10 @@ Ziya Müezzinoğlu is an experienced economist who has served as a member of eco
 - @root: Return to main	
 
 @ministry	
-choose-if: advisor_action_timer = 0 and CHP_in_government = 1 and trade_minister_party = "CHP"
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if CHP_in_government = 0 : <span style="color: #E3000F;">**CHP**</span> is not in government. ?][? if trade_minister_party != "CHP" : The CHP does not control the trade ministry. ?]
-on-arrival: advisor_action_timer = 3
+choose-if: advisor_action_timer = 0 and CHP_in_government = 1 and economic_minister_party = "CHP"
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if CHP_in_government = 0 : <span style="color: #E3000F;">**CHP**</span> is not in government. ?][? if economic_minister_party != "CHP" : The CHP does not control the trade ministry. ?]
+on-arrival: advisor_action_timer = 3; economic_policy_timer -= 8
+go-to: economic_policy
 
 @europe
 choose-if: advisor_action_timer = 0
