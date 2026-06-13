@@ -113,9 +113,9 @@ unavailable-subtitle: [? if friendshipp < 1 : We need to normalize our relations
 We borrow a long term loan from the Soviet Union.
 
 @treaty
-on-arrival: growth_modifier += 0.7; unemployment_modifier -= 0.5; inflation_modifier += 1.5; us_relation -= 5
-choose-if: friendshipp == 2 and soviet_relation >= 60
-unavailable-subtitle: [? if friendshipp < 2 : We need to normalize our relations and increase economic cooperation by taking loans first! ?] [? if soviet_relation < 60 : Our relationship with the USSR is not decent enough! ?]
+on-arrival: growth_modifier += 0.7; unemployment_modifier -= 0.5; inflation_modifier += 1.5; us_relation -= 5; treatyy += 1
+choose-if: friendshipp == 2 and soviet_relation >= 60 and treatyy == 0
+unavailable-subtitle: [if treatyy == 1 : We have already signed a treaty of economic cooperation! ?] [? if friendshipp < 2 : We need to normalize our relations and increase economic cooperation by taking loans first! ?] [? if soviet_relation < 60 : Our relationship with the USSR is not decent enough! ?] 
 
 A Turkish-Soviet economic cooperation treaty seals our efforts of reconciliation. Our economy will greatly benefit from this maneuver.
 
