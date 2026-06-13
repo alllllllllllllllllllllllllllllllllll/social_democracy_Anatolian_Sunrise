@@ -19,4 +19,4 @@ Roughly 30 delegates, led by Kemal Satır first and foremost, have collectively 
 - @leave: Perhaps it's for the better..
 
 @leave
-on-arrival: chp_seats -= 32; others_seats += 32
+on-arrival: chp_seats -= 32; other_seats += 32
