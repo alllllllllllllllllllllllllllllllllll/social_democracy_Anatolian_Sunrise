@@ -706,14 +706,27 @@ go-to: ministries
 
 Mustafa Necdet Uğur of the CHP has been appointed Interior Minister.
 
-@economic
-title: Economic Ministry
-subtitle: The Economic Ministry controls the government budget and the broader economy.
+@finance
+title: Finance Ministry
+subtitle: The Finance Ministry controls the government budget, taxation and tariffs. 
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 20 
 view-if: economic_minister_party != "CHP"
-on-arrival: leverage -= 20; economic_minister_party = "CHP"; economic_minister = "Baykal"
+on-arrival: leverage -= 15; finance_minister_party = "CHP"; finance_minister = "Baykal"
+go-to: ministries
+
+Deniz Baykal of the CHP has been appointed Finance Minister.
+
+
+@economic
+title: Economic Ministry
+subtitle: The Economic Ministry controls the broader economy.
+unavailable-subtitle: We do not have enough leverage.
+tags: mins_1928
+choose-if: leverage >= 20 
+view-if: economic_minister_party != "CHP"
+on-arrival: leverage -= 20; economic_minister_party = "CHP"; economic_minister = "Muezzinoglu"
 go-to: ministries
 
 Ziya Müezzinoğlu of the CHP has been appointed Economic Minister.
@@ -755,16 +768,16 @@ tags: mins_1928
 Ali Topuz of the CHP has been appointed Agriculture Minister.
 
 @reichswehr
-title: Reichswehr Ministry
-subtitle: The Ministry responsible for the armed forces is not typically our domain; General Groener and the bourgeois-conservatives will be displeased.
+title: National Defense Ministry
+subtitle: The National Defense Ministry is responsible for communication between the government and the high command and the management of the army budget. 
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 15 
 view-if: reichswehr_minister_party != "CHP"
-on-arrival: leverage -= 15; reichswehr_minister_party = "CHP"; reichswehr_minister = "Leber"
+on-arrival: leverage -= 15; reichswehr_minister_party = "CHP"; reichswehr_minister = "Isik"
 go-to: ministries
 
-Julius Leber of the CHP has been appointed Reichswehr Minister.
+Hasan Esat Işık of the CHP has been appointed National Defense Minister.
 
 @industry
 title: Industrial Ministry
