@@ -58,7 +58,7 @@ Our regulation of speculative loans have forced companies to divert funds toward
 @cutspending
 subtitle: +1 budget.
 on-arrival: state_employees_chp -= 2; rural_chp -= 1; workers_chp -= 2; kurds_chp -= 2; alevis_chp -= 2; petty_bourgeoisie_chp -= 2; cutspending_timer += 12; budget += 1
-choose-if: cutspending_timer <= 0
+choose-if: cutspending_timer == 0
 unavailable-subtitle: We have already frozen government funds this year!
 
 Freezing the funds hurts our governmental services.
@@ -66,7 +66,7 @@ Freezing the funds hurts our governmental services.
 @avans
 subtitle: +1 budget.
 on-arrival: avans_timer += 12; budget += 1; inflation_modifier += 1.5
-choose-if: avans_timer <= 0
+choose-if: avans_timer == 0
 unavailable-subtitle: We have already borrowed treasure loans this year!
 
 Borrowing from the treasury increases inflation but perhaps it can be worth it depending on how we spend the extra budget..
@@ -177,15 +177,24 @@ title: Change tariffs instead.
 
 Tariffs, or taxes on international imports, are another way to finance our government.
 
-Historically, CHP has been supportive of higher tariffs to defend local industries and faciliate industrialization without international competition. Have 
+Historically, CHP has been supportive of higher tariffs to defend local industries and faciliate industrialization without international competition. It is also a core tenet of the import substitution model. Has the economic situation changed enough to warrant a shift?
 
 Current tariff level: [+ tariffs : taxation +]
 
+- @luxury_tariffs: Raise tariffs on luxury products.
 - @raise_tariffs
 - @lower_tariffs
 - @fiscal_menu: Change domestic taxes instead of tariffs.
 - @root: Do not change tariffs or taxes.
 - @easy_discard
+
+@luxury_tariffs
+subtitle: +1 budget.
+choose-if: z_in_government == 0
+unavailable-subtitle: AP prevents us raising luxury tariffs!
+on-arrival: capitalists_chp -= 4; west_relation -= 3; budget += 1
+
+We raise tariffs on luxury products. 
 
 @raise_tariffs
 title: Raise tariffs on imports.
@@ -193,16 +202,14 @@ subtitle: +2 budget. Other countries will retaliate by increasing tariffs of the
 choose-if: tariffs <= 5
 on-arrival: tariffs += 1; inflation += 3 if inflation > 0; inflation += 0.5 if inflation <= 0; unemployed += 1.5; budget += 2; workers_chp -= 5; rural_chp += 4*(1-dissent); state_employees_chp -= 5; petty_bourgeoisie_chp += 4*(1 - dissent); CGP_relation -= 5; DP_relation -= 5; z_relation -= 5; west_relation -= 5; us_relation -= 5; peoples_party_support += 1; growth_modifier -= 1; capital_strike_progress += 1 if tariffs >= 3
 
-Increasing tariffs leads to higher prices for basic goods, increasing inflation and hurting consumption among the working class. Retaliatory tariffs reduce the competitiveness of Turkish exports, raising unemployment among workers. They also lead to an atmosphere of international suspicion, reducing our ability to negotiate with other countries.
-
-On the other hand, agricultural producers and some the petty bourgoeisie benefit from higher tariffs, as farmers can now command higher prices for grain, and formerly uncompetitive businesses are now able to function.
+Raising tariffs make our local industries more profitable which results in higher growth and lower unemployment.
 
 @lower_tariffs
 title: Lower tariffs on imports.
 choose-if: budget >= 2 and tariffs > -5
 subtitle: -2 budget. [? if tariffs <= -5 : There are no tariffs left to cut. ?]
-on-arrival: tariffs -= 1; budget -= 2; inflation -= 2; workers_CHP += 4*(1-dissent); state_employees_chp += 4*(1-dissent); rural_chp -= 4; old_middle_CHP -= 3; west_relation += 5; us_relation += 5; east_relation += 1; economic_growth += 0.8;
+on-arrival: tariffs -= 1; budget -= 2; inflation -= 2; workers_CHP += 4*(1-dissent); state_employees_chp += 4*(1-dissent); rural_chp -= 4; old_middle_CHP -= 3; west_relation += 5; us_relation += 5; east_relation += 1; economic_growth -= 0.5; unemployment_modifier += 0.5
 
-Lowering tariffs helps workers and the urban poor by reducing prices for basic necessities. In addition, other countries are pleased by lower tariffs, and are more willing to negotiate on many issues.
+Lowering tariffs hurts our local industries which depend on state privilages. 
 
-Farmers are hurt by this policy, as cheap imported grain leads to ruin for some small producers. In general, cheap imports are detrimental for small-scale industries aimed at the domestic market.
+Farmers are hurt by this policy, as cheap imported grain leads to ruin for some small producers.
