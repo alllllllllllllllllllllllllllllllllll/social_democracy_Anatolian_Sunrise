@@ -22,6 +22,10 @@ Lower-income tax rates: [+ lower_tax_rates : taxation +]
 - @onetime: One time reforms.
 - @yearly: Yearly reforms.
 - @repeatable: Repeatable reforms.
+- @root: Do not change fiscal policies.
+- @easy_discard
+- @cancel_advisor_action
+
 
 @onetime
 
