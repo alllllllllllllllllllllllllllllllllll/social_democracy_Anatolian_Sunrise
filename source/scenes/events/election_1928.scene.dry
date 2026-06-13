@@ -712,7 +712,7 @@ subtitle: The Finance Ministry controls the government budget, taxation and tari
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
 choose-if: leverage >= 20 
-view-if: economic_minister_party != "CHP"
+view-if: finance_minister_party != "CHP"
 on-arrival: leverage -= 15; finance_minister_party = "CHP"; finance_minister = "Baykal"
 go-to: ministries
 
