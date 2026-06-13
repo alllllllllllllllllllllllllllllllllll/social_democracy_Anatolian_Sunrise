@@ -10,7 +10,7 @@ go-to: fiscal_menu
 
 = Fiscal Policy
 
-Fiscal policy involves issues of taxation and budget.
+Fiscal policy involves issues of taxation and budget. 
 
 
 @fiscal_menu
@@ -18,6 +18,133 @@ Fiscal policy involves issues of taxation and budget.
 Upper-income tax rates: [+ upper_tax_rates : taxation +]
 
 Lower-income tax rates: [+ lower_tax_rates : taxation +]
+
+- @onetime: One time reforms.
+- @yearly: Yearly reforms.
+- @repeatable: Repeatable reforms.
+
+@onetime
+
+- @vergidilimi: Reform the tax brackets for different income levels.
+- @speculative: Restrict speculative loans.
+- @fiscal_menu: Return to the fiscal menu.
+
+@vergidilimi
+subtitle: This will benefit groups with low income and hurt the higher income bracket.
+on-arrival: worker_chp += 4*(dissent - 1); rural_chp += 1*(dissent - 1); state_employees_chp += 2*(dissent - 1); z_relation -= 5; DP_relation -= 5; vergidilimii += 1
+choose-if: vergidilimii == 0
+unavailable-subtitle: [? if vergidilimii == 1 : We have already reformed the tax brackets! ?] 
+
+Due to the rampant inflation of the last few years, many lower income families have been pushed into the higher taxed income brackets without any actual improvement in their purchasing power. We adjust the tax brackets accordingly with inflation and make up for the lost tax revenue by creating a new tax bracket for the highest earning individuals.
+
+@speculative
+subtitle: Speculative loans are used by companies to buy each others' stocks which creates the façade of growth without any improvement in production. 
+on-arrival: industrial_production_index += 5; growth_modifier += 0.5;  west_relation -= 5; us_relation -= 5; capitalist_chp -= 10; unemployment_modifier -= 0.5; speculativee += 1
+choose-if: speculativee == 0 and z_in_government == 0
+unavailable-subtitle: [? if speculativee == 1 : We have already implemented restrictions on speculative loans! ?] [? if z_in_government == 1 : AP is against any tax reform undermining the rich! ?]
+
+Our regulation of speculative loans have forced companies to divert funds towards expansion instead of stocks dealing, pushing real growth up and unemployment down. However the international bankers are irritated by us disciplining our financial market which worsens our relation with Western governments.
+
+@yearly
+
+- @cutspending: Temporarily freeze the funds of government agencies.
+- @avans: Borrow loans from the treasury.
+- @fiscal_menu: Return to the fiscal menu.
+
+@cutspending
+subtitle: +1 budget.
+on-arrival: state_employees_chp -= 2; rural_chp -= 1; workers_chp -= 2; kurds_chp -= 2; alevis_chp -= 2; petty_bourgeoisie_chp -= 2; cutspending_timer += 12; budget += 1
+choose-if: cutspending_timer <= 0
+unavailable-subtitle: We have already frozen government funds this year!
+
+Freezing the funds hurts our governmental services.
+
+@avans
+subtitle: +1 budget.
+on-arrival: avans_timer += 12; budget += 1; inflation_modifier += 1.5
+choose-if: avans_timer <= 0
+unavailable-subtitle: We have already borrowed treasure loans this year!
+
+Borrowing from the treasury increases inflation but perhaps it can be worth it depending on how we spend the extra budget..
+
+@repeatable
+
+- @istikraz: Borrow domestic loans. 
+- @denetim: Increase tax payments inspections. 
+
+@istikraz
+subtitle: +1 budget. 
+on-arrival: budget += 1; kurds_chp -= 1; alevis_chp -= 1; rural_chp -= 1; workers_
+
+# Tekrarlı
+A) **Yeniler**
+1) Lüks ithalat gümrüğünü artır (AP varsa yok)
+- bütçe +1
+- kapitalist CHP desteği -
+- Batı ilişkileri -
+2) İç istikraz
+- bütçe +
+- CHP popülerliği genel -
+- enflasyon +
+3) Vergi denetimlerini artır
+- bütçe +1
+- CHP popülerliği genel -
+
+B) **Vanilla**
+1) Genel vergileri artır
+- bütçe +2, yıllık bütçe +2
+- CHP popülerliği genel -
+- enflasyon -
+- büyüme -
+- işsizlik +
+2) Genel vergileri azalt
+- bütçe -2, yıllık bütçe -2
+- CHP popülerliği genel +
+- enflasyon +
+- büyüme +
+- işsizlik -
+3) Üst gelirli vergilerini artır
+- bütçe +1, yıllık bütçe +1
+- kapitalist CHP popülerliği -
+- enflasyon -
+- büyüme -
+- işsizlik -
+4) Üst gelirli vergilerini azalt
+- bütçe -1, yıllık bütçe -1
+- kapitalist CHP popülerliği +
+- enflasyon +
+- büyüme +
+- işsizlik +
+5) Alt gelirli vergilerini artır
+- bütçe +1, yıllık bütçe +1
+- işçi CHP popülerliği -
+- taşra CHP popülerliği -
+- bürokrat CHP popülerliği -
+- KOBİ CHP popülerliği -
+- enflasyon -
+- büyüme -
+- işsizlik +
+6) Alt gelirli vergilerini azalt
+- bütçe -1, yıllık bütçe -1
+- işçi CHP popülerliği +
+- taşra CHP popülerliği +
+- bürokrat CHP popülerliği +
+- KOBİ CHP popülerliği +
+- enflasyon +
+- büyüme +
+- işsizlik -
+7) Vergileri daha progresif yap
+- kapitalist CHP popülerliği -
+- işçi CHP popülerliği +
+- taşra CHP popülerliği +
+- bürokrat CHP popülerliği +
+- KOBİ CHP popülerliği +
+8) Vergileri daha regresif yap
+- kapitalist CHP popülerliği +
+- işçi CHP popülerliği -
+- taşra CHP popülerliği -
+- bürokrat CHP popülerliği -
+- KOBİ CHP popülerliği -
 
 - @raise_rich: Increase taxes on the rich.
 - @raise_poor
@@ -71,7 +198,7 @@ title: Cut consumption taxes for the poor.
 subtitle: -2 budget
 unavailable-subtitle: -2 budget - [? if lower_tax_rates < -5: Tax rates are already too low. ?]
 choose-if: budget >= 2 and lower_tax_rates >= -5
-on-arrival: budget -= 2; lower_tax_rates -= 1; workers_CHP += 5*(1-dissent); unemployed -= 0.7 if unemployed >= 5; inflation += 0.6; economic_growth += 0.4; finance_goal_completed += 1; labor_dissent -= 3; left_dissent -= 3;
+on-arrival: budget -= 2; lower_tax_rates -= 1; workers_CHP += 5*(1-dissent); unemployed -= 0.7 if unemployed >= 5; inflation += 0.6; economic_growth += 0.4; finance_goal_completed += 1; left_kemalist_dissent -= 3; kemalist_marxist_dissent -= 3;
 
 Our tax cuts disproportionately benefit the poor and working class.
 
@@ -108,7 +235,7 @@ title: Change tariffs instead.
 
 Tariffs, or taxes on international imports, are another way to finance our government.
 
-Historically, socialists have been in favor of free trade and a low-tariff regime. Workers in export-oriented industries benefit from free trade, and they also benefit from lower prices for imported necessities. Do the present economic circumstances change these calculations?
+Historically, CHP has been supportive of higher tariffs to defend local industries and faciliate industrialization without international competition. Have 
 
 Current tariff level: [+ tariffs : taxation +]
 
@@ -122,17 +249,17 @@ Current tariff level: [+ tariffs : taxation +]
 title: Raise tariffs on imports.
 subtitle: +2 budget. Other countries will retaliate by increasing tariffs of their own. [? if tariffs > 5 : Further increases in tariffs will not raise revenue, as we have already nearly reached econonmic autarky. ?]
 choose-if: tariffs <= 5
-on-arrival: tariffs += 1; inflation += 1 if inflation > 0; inflation += 0.5 if inflation <= 0; unemployed += 1.5; budget += 2; workers_CHP -= 5; unemployed_CHP -= 5; rural_CHP += 4*(1-dissent); old_middle_CHP += 3*(1-dissent); CGP_relation -= 5; DP_relation -= 2; west_relation -= 1; east_relation -= 1; reparations_negotiation -= 2; eu_progress -= 1 if eu_progress > 0; peoples_party_support += 1; economic_growth -= 0.4; capital_strike_progress += 1 if tariffs >= 3
+on-arrival: tariffs += 1; inflation += 3 if inflation > 0; inflation += 0.5 if inflation <= 0; unemployed += 1.5; budget += 2; workers_chp -= 5; rural_chp += 4*(1-dissent); state_employees_chp -= 5; petty_bourgeoisie_chp += 4*(1 - dissent); CGP_relation -= 5; DP_relation -= 5; z_relation -= 5; west_relation -= 5; us_relation -= 5 peoples_party_support += 1; growth_modifier -= 1; capital_strike_progress += 1 if tariffs >= 3
 
-Increasing tariffs leads to higher prices for basic goods, increasing inflation and hurting consumption among the working class. Retaliatory tariffs reduce the competitiveness of German exports, raising unemployment among workers. They also lead to an atmosphere of international suspicion, reducing our ability to negotiate with other countries.
+Increasing tariffs leads to higher prices for basic goods, increasing inflation and hurting consumption among the working class. Retaliatory tariffs reduce the competitiveness of Turkish exports, raising unemployment among workers. They also lead to an atmosphere of international suspicion, reducing our ability to negotiate with other countries.
 
-On the other hand, agricultural producers and some small businesses benefit from higher tariffs, as farmers can now command higher prices for grain, and formerly uncompetitive businesses are now able to function.
+On the other hand, agricultural producers and some the petty bourgoeisie benefit from higher tariffs, as farmers can now command higher prices for grain, and formerly uncompetitive businesses are now able to function.
 
 @lower_tariffs
 title: Lower tariffs on imports.
 choose-if: budget >= 2 and tariffs > -5
 subtitle: -2 budget. [? if tariffs <= -5 : There are no tariffs left to cut. ?]
-on-arrival: tariffs -= 1; budget -= 2; inflation -= 0.5; workers_CHP += 4*(1-dissent); unemployed_CHP += 4*(1-dissent); rural_CHP -= 5; old_middle_CHP -= 3; west_relation += 1; east_relation += 1; eu_progress += 1 if eu_progress > 0; economic_growth += 0.4;
+on-arrival: tariffs -= 1; budget -= 2; inflation -= 2; workers_CHP += 4*(1-dissent); state_employees_chp += 4*(1-dissent); rural_chp -= 4; old_middle_CHP -= 3; west_relation += 5; us_relation += 5; east_relation += 1; economic_growth += 0.8;
 
 Lowering tariffs helps workers and the urban poor by reducing prices for basic necessities. In addition, other countries are pleased by lower tariffs, and are more willing to negotiate on many issues.
 
