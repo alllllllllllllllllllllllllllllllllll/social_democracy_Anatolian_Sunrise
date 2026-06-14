@@ -1,8 +1,8 @@
 title: Industrial Policy
 new-page: true
 is-card: true
-on-arrival: agricultural_policy_timer += 6; month_actions += 1
-view-if: CHP_in_government = 1 and (industrial_minister_party = "CHP") and industrial_policy_timer == 0
+on-arrival: industrial_policy_timer += 6; month_actions += 1
+view-if: CHP_in_government = 1 and industrial_minister_party = "CHP" and industrial_policy_timer == 0
 card-image: img/portraits/TarhanErdem.jpg
 tags: govt_affairs, cabinet
 
@@ -12,13 +12,47 @@ Turkey is undergoing a boom in industrial growth assisted by the state in accord
 
 We need to complete the evolution towards an export economy to build an economy resistant to the turbulences in the price of raw materials.
 
-- @industry1: Basic industrialization push
-- @capacity: Employ workers at the maximum level in the state-owned interprises, KİTs.
+- @industry1: Basic industrialization push.
 - @uretim: Divert industrial production away from consumer goods and towards towards capital and assembly products.
+- @elektronik: Move towards high-tech products with great margins of profit such as electronics.
+- @capacity: Employ workers at the maximum level in the state-owned interprises, KİTs.
 - @kobi: Concentrate small and middle sized interprises into cooperatives.
-- @kredi: Shift beneficial loans towards exporting big industry
-- @elektronik: Move towards high-tech products with great margins of profit such as electronics
+- @kredi: Shift beneficial loans towards exporting big industry.
+- @elektronik: Move towards high-tech products with great margins of profit such as electronics.
+- @demiryolu: Restart investment for railway construction.
 
+@industry1
+subtitle: -3 budget. This will assist our efforts for economic reorientation towards exports.
+on-arrival: budget -= 3; industrial_production_index += 10; capitalist_chp += 5; petty_bourgeoisie += 2; growth_modidifer += 1.5; unemployment_modifier -= 0.5; inflation_modifier += 3.5; industryy += 1; economicaction += 0.5; forex_pressure += 4
+choose-if: industryy == 0 and budget >= 3
+unavailable-subtitle: [? if budget < 3 : We do not have enough budget! ?] [? if industryy == 1 : We have already begun an industrialization push! ?] 
+
+A significant budget is gathered for a final effort to bring our industry to modern standards. Plans are drawn, modern machinery is bought and our nation moves forward in its economic development. 
+
+@uretim
+on-arrival: growth_modifier += 0.5; inflation_modifier += 0.8; forex_pressure -= 3; economicaction += 0.25
+choose-if: capacityy == 1
+unavailable-subtitle: We have not begun an industrialization push yet!
+
+Through incentives and the state planning organization, DPT, we push our factories to focus on assembly and capital products to be sold abroad. This lessens our dependence on the constant flow of foreign currency and increases growth, even though the price of everyday products increases with inflation.
+
+@elektronik
+subtitle: -2 budget. 
+on-arrival: growth_modifier += 1.5; inflation_modifier += 3; forex_pressure += 4; forex_pressure_drift -= 1; unemployment -= 0.5; electronicc += 1
+choose-if: electronicc == 0 and budget >= 2
+unavailable-subtitle: [? if budget < 2 : We do not have enough budget! ?] [? if electronicc == 1 : We have already begun an industrialization push! ?] 
+
+As another step of our economic reform we promote the production of tech products with wide margins of profit. 
+
+@capacity
+on-arrival: forex_pressure += 1; inflation_modifier -= 1; growth_modifier += 0.4; unemployment -= 0.8: capacityy += 1
+choose-if: capacityy == 0
+unavailable-subtitle: We are already pushing our employment to the limit!
+
+We maximize our employments in the state-run industries, pushing growth up and unemployment down.  
+
+@kobi
+on-arrival: 
 
 1) **Temel Sanayi Hamlesi** - 1 kere tıklanır
 - bütçe -3
