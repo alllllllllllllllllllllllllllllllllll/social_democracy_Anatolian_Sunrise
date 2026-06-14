@@ -64,7 +64,7 @@ Despite the strained relations we make attempts at negotiating an end to the Cyp
 @aet
 subtitle: Even though we will probably not see the end of our application process in the 1970's, the application may greatly benefit our nation in the decades to come.
 choose-if: economicreform == 1 and inflation < 20 and growth > 4 and unemployment < 10 and west_relation >= 70 and (cyprus_problem == 2 or cyprus_problem == 4)
-unavailable-subtitle: We have not achieve the prequisites for an application yet! The prequisites we have to achieve are: a reform of the Turkish economy, decent economic figures, good relations with Western Europe, a peaceful end to the Cyprus problem.
+unavailable-subtitle: We have not achieved the prequisites for an application yet! The prequisites we have to achieve are: a reform of the Turkish economy, decent economic figures, good relations with Western Europe, a peaceful end to the Cyprus problem.
 on-arrival: aet += 1; democracystatus += 3
 max-visits: 1
 
