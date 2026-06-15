@@ -47,7 +47,7 @@ unavailable-subtitle: [? if budget < 2 : We do not have enough budget! ?] [? if 
 As another step of our economic reform we promote the production of tech products with wide margins of profit. 
 
 @capacity
-on-arrival: forex_pressure += 1; inflation_modifier -= 1; growth_modifier += 0.4; unemployment_modifier -= 0.8: capacityy += 1; industrial_production_index += 3
+on-arrival: forex_pressure += 1; inflation_modifier -= 1; growth_modifier += 0.4; unemployment_modifier -= 0.8; capacityy += 1; industrial_production_index += 3
 choose-if: capacityy == 0
 unavailable-subtitle: We are already pushing our employment to the limit!
 
@@ -67,7 +67,7 @@ We shift beneficial loans towards exporting industries which tend to be more con
 
 @demiryolu
 subtitle: Asphalt highways became the primary mode of transportation as the Turkish economy shifted towards free market policies in the 1950's. Promoting railroads can promote growth and accompany our industrial promotions.
-on-arrival: budget -= 1; growth_modifier += 1; inflation_modifier -= 2: demiryoluu += 1; industrial_production_index += 5
+on-arrival: budget -= 1; growth_modifier += 1; inflation_modifier -= 2; demiryoluu += 1; industrial_production_index += 5
 choose-if: demiryoluu == 0
 unavailable-subtitle: We have already financed expansion of the railroad lines!
 
