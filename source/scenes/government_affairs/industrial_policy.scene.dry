@@ -18,8 +18,10 @@ We need to complete the evolution towards an export economy to build an economy 
 - @capacity: Employ workers at the maximum level in the state-owned interprises, KİTs.
 - @kobi: Concentrate small and middle sized interprises into cooperatives.
 - @kredi: Shift beneficial loans towards exporting big industry.
-- @elektronik: Move towards high-tech products with great margins of profit such as electronics.
 - @demiryolu: Restart investment for railway construction.
+- @root: No change to industrial policy.
+- @easy_discard
+- @cancel_advisor_action
 
 @industry1
 subtitle: -3 budget. This will assist our efforts for economic reorientation towards exports.
@@ -34,57 +36,39 @@ on-arrival: growth_modifier += 0.5; inflation_modifier += 0.8; forex_pressure -=
 choose-if: capacityy == 1
 unavailable-subtitle: We have not begun an industrialization push yet!
 
-Through incentives and the state planning organization, DPT, we push our factories to focus on assembly and capital products to be sold abroad. This lessens our dependence on the constant flow of foreign currency and increases growth, even though the price of everyday products increases with inflation.
+Through incentives and the state planning agency, DPT, we push our factories to focus on assembly and capital products to be sold abroad. This lessens our dependence on the constant flow of foreign currency and increases growth, even though the price of everyday products increases with inflation.
 
 @elektronik
 subtitle: -2 budget. 
-on-arrival: growth_modifier += 1.5; inflation_modifier += 3; forex_pressure += 4; forex_pressure_drift -= 1; unemployment -= 0.5; electronicc += 1
+on-arrival: growth_modifier += 1.5; inflation_modifier += 3; forex_pressure += 4; forex_pressure_drift -= 1; unemployment -= 0.5; electronicc += 1; industrial_production_index += 5
 choose-if: electronicc == 0 and budget >= 2
 unavailable-subtitle: [? if budget < 2 : We do not have enough budget! ?] [? if electronicc == 1 : We have already begun an industrialization push! ?] 
 
 As another step of our economic reform we promote the production of tech products with wide margins of profit. 
 
 @capacity
-on-arrival: forex_pressure += 1; inflation_modifier -= 1; growth_modifier += 0.4; unemployment -= 0.8: capacityy += 1
+on-arrival: forex_pressure += 1; inflation_modifier -= 1; growth_modifier += 0.4; unemployment -= 0.8: capacityy += 1; industrial_production_index += 3
 choose-if: capacityy == 0
 unavailable-subtitle: We are already pushing our employment to the limit!
 
 We maximize our employments in the state-run industries, pushing growth up and unemployment down.  
 
 @kobi
-on-arrival: 
+on-arrival: unemployment_modifier -= 0.3; growth_modifier += 0.4; inflation_modifier -= 0.8; capitalist_chp -= 3; petty_bourgeoisie_chp += 3; industrial_production_index += 3
 
-1) **Temel Sanayi Hamlesi** - 1 kere tıklanır
-- bütçe -3
-- büyüme +
-- işsizlik -
-- enflasyon +
-2) **Üretimi yeniden yapılandır** (tüketim mallarından ara mallar ve yatırım mallarına) - çok kez tıklanabilir
-- döviz ihtiyacı -
-- enflasyon +
-- büyüme +
-3) **Tam Kapasite Sanayi Programı** - 1 kere tıklanır
-- döviz ihtiyacı +
-- enflasyon -
-- büyüme +
-- işsizlik -
-4) **Küçük ve orta ölçekli sanayi işletmelerini kümeleştir** - çok kez tıklanabilir
-- işsizlik -
-- büyüme +
-- enflasyon -
-- kapitalist CHP desteği -
-- petit burjuva CHP desteği +
-5) **Sanayi kredilerini yeniden şekillendir ve yönlendir** - çok kez tıklanabilir (MSP varsa yok)
-- enflasyon -
-- büyüme +
-6) **Elektronik ve gemi sektörüne yönel** - 1 kere tıklanır
-- bütçe -2
-- büyüme +
-- enflasyon +
-- işsizlik -
-7) **Demiryollarına yatırımı yeniden başlat** - 1 kere tıklanır
-- bütçe -1
-- büyüme +
-- enflasyon -
-- (eğer Köykent progress 1<'se köykent progress +1)
-  
+We utilize the state, planning agency, DPT, to promote concentration of smaller businesses in industrial zones. As smaller businesses gather possible rivals for Turkish industrial giant begin to take shape. 
+
+@kredi
+choose-if: MSP_in_government == 0
+unavailable-subtitle: MSP is the party of the anatolian petty bourgeoisie! They will prevent this action.
+on-arrival: growth_modifier += 0.6; inflation_modifier -= 1.5; petty_bourgeoisie_chp -= 4; industrial_production_index += 5
+
+We shift beneficial loans towards exporting industries which tend to be more concentrated and in the hands of the big capital. While this promotes growth, we should be careful not to push our small producers to the brink of financial struggle.
+
+@demiryolu
+subtitle: Asphalt highways became the primary mode of transportation as the Turkish economy shifted towards free market policies in the 1950's. Promoting railroads can promote growth and accompany our industrial promotions.
+on-arrival: budget -= 1; growth_modifier += 1; inflation_modifier -= 2: demiryoluu += 1; industrial_production_index += 5
+choose-if: demiryoluu == 0
+unavailable-subtitle: We have already financed expansion of the railroad lines!
+
+Politics expresses itself in many forms, including even in the basic railroads and highways. While the planned economy of the CHP one party era led to a network of railroads connecting the concentrated industrial zones, as a switch towards free market economics happened in the 1950's under Adnan Menderes's tenure, highways and roads were prioritized to connect the many new decentralized interprises. Now that we are beginning direct investments and planning again, railroad expansions can improve our industrialization efforts.
