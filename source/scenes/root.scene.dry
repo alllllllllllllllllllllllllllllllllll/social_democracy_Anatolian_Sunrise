@@ -468,6 +468,7 @@ Q.tsk_pacified = 0;
 Q.kurdish_political_consciousness = 0.20; // Starting position: Low (0.14-0.24)
 Q.kurdish_radicalism = 0.25; // Starting position: Medium-low (0.24-0.44)
 
+
 // Factors affecting Kurdish Nationalism
 // Consciousness
 Q.eastern_crime = 5
@@ -669,10 +670,10 @@ Q.sapd_formed = 0;
 // Rural (45% of population)
 Q.rural_TIP = 0.4;
 Q.rural_chp = 17;
-Q.rural_z = 46; // AP uses 'z' variable
+Q.rural_z = 44; // AP uses 'z' variable
 Q.rural_CGP = 3;
 Q.rural_DP = 15;
-Q.rural_MSP = 12.6;
+Q.rural_MSP = 14.6;
 Q.rural_MHP = 3;
 Q.rural_other = 3;
 
