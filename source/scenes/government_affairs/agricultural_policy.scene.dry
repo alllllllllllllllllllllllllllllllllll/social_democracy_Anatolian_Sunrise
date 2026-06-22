@@ -7,51 +7,94 @@ card-image: img/portraits/AliTopuz.jpg
 tags: govt_affairs, cabinet
 #subtitle: Issues of farmer financing, grain purchasing, and land reform.
 
+@agriculture_menu
+
 = Agricultural Policy
 
 Turkey is largely a rural nation that depends on agricultural production. Even though we historically have had problems with connecting with our rural provinces, as a governing party we must address the needs of our farmers. Feudalism still persists in the countryside which has to be dealt with.[? if rural_policy = 0 : We have yet not agreed on a party policy on agriculture. ?]
 
-- @land_reform
-- @agricultural_finance
-- @pro_consumer
-- @state_buyer
-- @root: Do not enact any policies for now.
-- @easy_discard
-- @cancel_advisor_action
+- @koykent: Actions regarding the Köykent project.
+- @regular: Actions for land reform.
 
-@land_reform
-title: Land Reform
-subtitle: -1 budget - Break up the large aristocratic estates and give land to landless peasants.
-unavailable-subtitle: [? if budget <= 0 : Requires 1 budget. ?] [? if rural_policy = 0 : We have not yet agreed on a land reform programme. ?]
-choose-if: judicial_reform >= 2 and budget > 0
-on-arrival: budget -= 1; land_reform += 1; coalition_dissent += 1; rural_CHP += 5*(1-dissent); rural_MHP -= 4*(1-dissent); unemployed -= 1 if unemployed >= 5; DP_relation -= 5;z_relation -= 4; left_strength += 8; left_dissent -= 5; rural_sol += 3; rural_policy += 1; coup_progress += 1; agriculture_goal_completed += 1;
-max-visits: 4
+@koykent
+choose-if: land_reform == 3
+unavailable-subtitle: We have not selected the Köykent project for our agricultural policy!
 
-With our policy of land reform, we are acquiring farmland from large estates, and giving the land to farmworkers' associations and small peasants. In essence, this brings class struggle to the countryside, breaking the semi-feudal property relations present in East Prussia and other areas with large estates. The bourgeois parties and large farmers despise our intrusion into the sacredness of private property, while leftists are cautiously optimistic.
+The Köykent project proposes the concentration of small and dispersed villages into larger rural settlements where key social services and industries using agricultural resources would be concentrated. 
 
+- @begin: Begin the rural concentration efforts.
+- @spread: Spread the Köykent settlements across Anatolia.
+- @yatirim: Increase funding for the Köykent settlements.
+- @agriculture_menu: Go back to the agricultural menu.
 
-@agricultural_finance
-title: Agricultural Subsidies
-subtitle: -1 budget - Increase financing for agricultural credit and insurance.
-choose-if: budget >= 1
-on-arrival: budget -= 1; agricultural_finance += 1; rural_chp += 4*(1-dissent); agricultural_production_index += 4
+# Köykent
+0) **Political Rally kartında land reform'da değişiklik**
+- eğer Köykent seçilirse CHP kırsal desteği -, Köykent progress = 0
+- eğer toprak reformu seçilirse CHP kırsal desteği +
+- eğer kooperatifleşme seçilirse AP ile ilişki +
 
-We have increased financial support for small farmers, providing access to credit and insurance, saving them from privation and slightly increasing agricultural production.
+1) **Köykent başlangıcı** (1 kere yapılır)
+- land reform'da Köykent seçilmişse
+**sonuçlar**:
+- Köykent progress +1
+- bütçe -1
+- CHP kırsal desteği +
+- sağ partilerle ilişkiler -
 
+2) **Köykent'i Türkiye'ye yay** (1 kere yapılır)
+- eğer Köykent progress 1 varsa
+**sonuçlar**:
+- Köykent progress +1
+- bütçe -3
+- CHP kırsal desteği +
+- büyüme +
+- işsizlik -
+- enflasyon +
+- sağ partilerle ilişkiler -
 
-@pro_consumer
-title: Food Procurement
-subtitle: -1 budget - Provide inexpensive food for workers.
-choose-if: budget >= 1
-on-arrival: budget -= 1; pro_consumer += 1; workers_chp += 4*(1-dissent); coalition_dissent += 1
+3) **Köykent yatırımlarını artır** (2 kere yapılabilir)
+- eğer Köykent progress 2 varsa
+**sonuçlar**:
+- Köykent progress +1
+- bütçe -1
+- CHP kırsal desteği +
+- büyüme +
+- işsizlik - 
+- enflasyon -
+- sağ partilerle ilişkiler -# Köykent
 
-We have increased state purchasing of food staples to provide to urban workers and the poor. This benefits workers more than it benefits farmers, as we are negotiating for lower purchase prices. [? if black_thursday_seen and (in_weimar_coalition or in_grand_coalition) : Our coalition partners consider this policy to be a wasteful handout. ?]
+@regular
 
-@state_buyer
-title: State Buyer
-subtitle: -2 budget - Create a state monopoly for grain purchases, guaranteeing prices for farmers and stable prices for consumers. [? if judicial_reform < 2 : The judiciary would never allow this. ?]
-choose-if: budget >= 2 and judicial_reform >= 2
-on-arrival: budget -= 2; state_buyer = 1; rural_CHP += 5*(1-dissent); rural_MHP -= 3*(1-dissent); workers_CHP += 4*(1-dissent); unemployed_CHP += 5*(1-dissent); coalition_dissent += 1 if (in_grand_coalition or in_weimar_coalition); DP_relation -= 5;z_relation -= 3; peoples_party_support += 1; rural_policy += 2; capital_strike_progress += 1; economic_growth += 0.4;
-max-visits: 1
+- @landreform: Purchase and redistribute land.
+- @cooperative: Support cooperative formation. 
+- @east: Support agriculture in the East with special subsidies. 
+- @hashas: Re-legalize Poppy cultivation. 
 
-Our new purchasing agency guarantees fair prices for farmers, while also providing lower food prices for workers and the urban poor. This policy necessitates heavy spending and an unprecedented level of state intervention in the economy, raising the ire of conservative economists.
+# Diğerleri
+1) **Toprak Reformu** - x kere yapılır (x belirlenmeli)
+- eğer land reform kartında 1 ya da 2 seçildiyse
+**sonuçlar**:
+- bütçe -1
+- işsizlik -
+- büyüme +
+- (eğer Köykent progress 1<'se köykent progress +1)
+- CHP kırsal desteği +
+- sağ partilerle (CGP hariç) ilişkiler -
+2) **Kooperatifleşmeyi destekle**
+**sonuçlar**:
+- büyüme +
+- enflasyon -
+- CHP kırsal desteği +
+3) **Doğu'da tarıma destek ol**
+**sonuçlar**:
+- Bütçe -1
+- Kürt radikalizmi -
+- CHP Kürt oyu
+- CHP alevi oyu
+- enflasyon +
+- büyüme +
+4) **Haşhaş ekimine tekrardan izin ver**
+**sonuçlar**:
+- bütçe +1
+- CHP kırsal desteği +
+- Batıyla ilişkiler -
