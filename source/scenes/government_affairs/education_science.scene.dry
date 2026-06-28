@@ -26,6 +26,7 @@ As Ecevit says one of the most important features of Social Democracy is the sup
 - @halkegitim: Create adult education centers: Halk Eğitim.
 - @student: Form student councils in universities and enable student representation.
 - @teacher: Loosen restrictions on the teachers' freedom of expression in classrooms.
+- @koykent: Expand education opportunities in the Köykents.
 - @noonetime: Return to the ministry menu.
 
 @curriculum
@@ -50,6 +51,26 @@ subtitle: -1 budget.
 on-arrival: democracystatus += 3; z_relation -= 5; msp_relation -= 5; dp_relation -= 5; teacherr += 1; growth_modifier += 0.2
 choose-if: teacherr == 0 and MSP_in_government == 0 and z_in_government == 0 and DP_in_government == 0
 unavailable-subtitle: [? if teacherr == 0 : Our right wing coalition partners prevent us from passing this reform! ?] [? if teacherr == 1 : We have already increased political freedoms for our teachers! ?]
+
+@koykent
+subtitle: -1 budget.
+on-arrival: democracystatus += 2; budget -= 2; growth_modifier += 0.5; unemployment_modifier -= 1; rural_chp += 4; z_relation -= 5; DP_relation -= 5; CGP_relation -= 5; MSP_relation -= 5; koykent_progress += 1
+choose-if: budget >= 1 and curriculumm > 0 and koykent_progress >= 2
+unavailable-subtitle: [? if budget < 1 : We dont have enough budget! ?] [? if curriculum == 0 : We havent reformed our curriculum yet! ?] [? if koykent_progress < 2 : We have to move on with Köykent formation first! ?]
+
+We open vocational schools aimed at intellectual and expertise growth in the Köykent settlements. 
+
+# Köykentlerde eğitim olanaklarını genişlet
+(1 kere yapılır)
+- eğer Köykent progress 2<'yse
+- eğer Müfredat reformu yapılmışsa
+**sonuçlar**:
+- bütçe -2
+- Köykent progress +1
+- büyüme +
+- işsizlik -
+- CHP kırsal desteği +
+- sağ partilerle ilişkiler -
 
 @noonetime
 go-to: ed_menu
