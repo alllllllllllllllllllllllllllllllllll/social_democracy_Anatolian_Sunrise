@@ -67,8 +67,8 @@ on-arrival: koykent_progress += 1; budget -= 1; rural_chp += 2; z_relation -= 5;
 
 @landreform
 subtitle: -1 budget.
-choose-if: (land_reform == 1 or land_reform == 2) and budget >= 1 and landreform_done <= 2
-unavailable-subtitle: [? if budget < 1 : We don't have enough budget! ?][? if land_reform == 0 : We haven't picked a land reform policy yet! ?][? if land_reform == 3 : Land redistribution is handled through the Köykent project! ?][? if landreform_done >= 3 : We have already carried out our land reform program to the full extent. ?]
+choose-if: land_reform > 1 and budget >= 1 and landreform_done <= 2
+unavailable-subtitle: [? if budget < 1 : We don't have enough budget! ?][? if land_reform == 0 : We haven't picked a land reform policy yet! ?][? if land_reform == 1 : Land Reform is not in our agricultural policy. ?][? if landreform_done >= 3 : We have already carried out our land reform program to the full extent. ?]
 on-arrival: budget -= 1; unemployment_modifier -= 0.5; growth_modifier += 0.4; if koykent_progress < 1 : koykent_progress += 1; rural_chp += 4; z_relation -= 5; DP_relation -= 5; MSP_relation -= 5; landreform_done += 1
 
 We use the ministry to purchase and redistribute agricultural land among our farmers and rural citizens. The rural population welcomes these measures, while the right-wing parties are predictably hostile.
@@ -91,8 +91,8 @@ We direct special subsidies toward eastern agricultural regions, helping develop
 
 @hashas
 subtitle: +1 budget.
-choose-if: hashas_done == 0
-unavailable-subtitle: [? if hashas_done == 1 : We have already re-legalized poppy cultivation. ?]
+choose-if: hashas_done == 0 and poppy_harvestation == 0
+unavailable-subtitle: [? if hashas_done == 1 : We have already re-legalized poppy cultivation. ?] [? if poppy_harvestation == 1 : Poppy cultivation is currently legal. ?]
 on-arrival: budget += 1; rural_chp += 3; west_relation -= 5; hashas_done = 1
 
 We overturn the ban on poppy cultivation, allowing Turkish farmers to once again grow this traditional and profitable crop. Western governments express their displeasure, but our rural constituents welcome the decision.
