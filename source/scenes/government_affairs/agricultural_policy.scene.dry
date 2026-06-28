@@ -48,7 +48,7 @@ Our efforts upset the right wing parties of course, since their political existe
 subtitle: -3 budget. We shall continue our efforts and begin the construction of Köykent settlements on a large scale.
 choose-if: koykent_progress == 1 and budget >= 3 and spreadd == 0
 unavailable-subtitle: [? if koykent_progress < 1 : We have already begun popularizing Köykents! ?] [? if budget < 3 : We don't have enough budget! ?] [? if spreadd == 1 : We have already begun spreading Köykent settlements! ?]
-on-arrival: koykent_progress += 1; budget -= 3; rural_chp += 6; z_relation -= 5; CGP_relation -= 5; DP_relation -= 5; MSP_relation -= 5; growth_modifier += 0.2; unemployment_modifier -= 0.4; inflation_modifier += 0.8: spreadd += 1
+on-arrival: koykent_progress += 1; budget -= 3; rural_chp += 6; z_relation -= 5; CGP_relation -= 5; DP_relation -= 5; MSP_relation -= 5; growth_modifier += 0.2; unemployment_modifier -= 0.4; inflation_modifier += 0.8; spreadd += 1
 
 The Köykent programme is popularized across Anatolia and serious funds are diverted towards rural transformation.
 
@@ -56,7 +56,7 @@ The Köykent programme is popularized across Anatolia and serious funds are dive
 subtitle: -1 budget. 
 choose-if: spreadd == 1 and yatirimm <= 2 and budget >= 1
 unavailable-subtitle: [? if spreadd == 0 : We have to complete the framework of the programme first! ?] [? if budget < 1 : We don't have enough budget! ?] [? if yatirimm == 3 : We have invested enough funds for the continuation of the project. ?]
-on-arrival: koykent_progress += 1; budget -= 1; rural_chp += 2; z_relation -= 5; DP_relation -= 5; CGP_relation -= 5; MSP_relation -= 5; growth_modifier += 0.5; unemployment_modifier -= 1; inflation_modifier += 2: yatirimm += 1
+on-arrival: koykent_progress += 1; budget -= 1; rural_chp += 2; z_relation -= 5; DP_relation -= 5; CGP_relation -= 5; MSP_relation -= 5; growth_modifier += 0.5; unemployment_modifier -= 1; inflation_modifier += 2; yatirimm += 1
 
 @regular
 
