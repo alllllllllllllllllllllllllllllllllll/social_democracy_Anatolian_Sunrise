@@ -7,6 +7,14 @@ card-image: img/portraits/AliTopuz.jpg
 tags: govt_affairs, cabinet
 #subtitle: Issues of farmer financing, grain purchasing, and land reform.
 
+go-to: land_reform_redirect if land_reform == 0; agriculture_menu
+
+@land_reform_redirect
+
+We have not yet settled on a land reform policy. We must address this first before taking action at the Ministry of Agriculture.
+
+go-to: land_reform
+
 @agriculture_menu
 
 = Agricultural Policy
@@ -59,40 +67,32 @@ on-arrival: koykent_progress += 1; budget -= 1; rural_chp += 2; z_relation -= 5;
 
 @landreform
 subtitle: -1 budget.
-choose-if: land_reform > 1 and budget >= 1
-unavailable-subtitle: [? budget < 1 : We don't have enough budget! ?] [? land_reform == 1 : We havent picked land reform as our agricultural policy! ?]
-on-arrival: budget -= 1; unemployment_modifier -= 0.5; growth_modifier += 0.4; if koykent_progress == 0 : koykent_progress += 1; rural_chp += 4
+choose-if: land_reform > 1 and budget >= 1 and landreform_done <= 2
+unavailable-subtitle: [? if budget < 1 : We don't have enough budget! ?][? if land_reform == 0 : We haven't picked a land reform policy yet! ?][? if land_reform == 1 : Land Reform is not in our agricultural policy. ?][? if landreform_done >= 3 : We have already carried out our land reform program to the full extent. ?]
+on-arrival: budget -= 1; unemployment_modifier -= 0.5; growth_modifier += 0.4; if koykent_progress < 1 : koykent_progress += 1; rural_chp += 4; z_relation -= 5; DP_relation -= 5; MSP_relation -= 5; landreform_done += 1
 
-
-We use the ministry to purchase and redistribute agricultural land among our farmers and rural citizens.
+We use the ministry to purchase and redistribute agricultural land among our farmers and rural citizens. The rural population welcomes these measures, while the right-wing parties are predictably hostile.
 
 @cooperative
+subtitle: Support cooperative formation.
+choose-if: cooperative_done <= 2
+unavailable-subtitle: [? if cooperative_done >= 3 : We have already done all we can to support cooperative formation. ?]
+on-arrival: growth_modifier += 0.3; inflation_modifier -= 0.5; rural_chp += 3; cooperative_done += 1
 
-# Diğerleri
-1) **Toprak Reformu** - x kere yapılır (x belirlenmeli)
-- eğer land reform kartında 1 ya da 2 seçildiyse
-**sonuçlar**:
-- bütçe -1
-- işsizlik -
-- büyüme +
-- (eğer Köykent progress 1<'se köykent progress +1)
-- CHP kırsal desteği +
-- sağ partilerle (CGP hariç) ilişkiler -
-2) **Kooperatifleşmeyi destekle**
-**sonuçlar**:
-- büyüme +
-- enflasyon -
-- CHP kırsal desteği +
-3) **Doğu'da tarıma destek ol**
-**sonuçlar**:
-- Bütçe -1
-- Kürt radikalizmi -
-- CHP Kürt oyu
-- CHP alevi oyu
-- enflasyon +
-- büyüme +
-4) **Haşhaş ekimine tekrardan izin ver**
-**sonuçlar**:
-- bütçe +1
-- CHP kırsal desteği +
-- Batıyla ilişkiler -
+By supporting the formation of agricultural cooperatives, we help small farmers pool their resources, access better credit, and bring their goods to market more efficiently. The countryside becomes more productive and prices are stabilized.
+
+@east
+subtitle: -1 budget.
+choose-if: budget >= 1 and east_agri_done <= 2
+unavailable-subtitle: [? if budget < 1 : We don't have enough budget! ?][? if east_agri_done >= 3 : We have already implemented our eastern agricultural support program to its full extent. ?]
+on-arrival: budget -= 1; kurdish_radicalism -= 0.05; kurds_chp += 3; alevis_chp += 2; inflation_modifier += 0.5; growth_modifier += 0.3; east_agri_done += 1
+
+We direct special subsidies toward eastern agricultural regions, helping develop farming communities in Anatolia's east. Economic development eases grievances and reduces the appeal of radical movements among the Kurdish and Alevi populations.
+
+@hashas
+subtitle: +1 budget.
+choose-if: hashas_done == 0 and poppy_harvestation == 0
+unavailable-subtitle: [? if hashas_done == 1 : We have already re-legalized poppy cultivation. ?] [? if poppy_harvestation == 1 : Poppy cultivation is currently legal. ?]
+on-arrival: budget += 1; rural_chp += 3; west_relation -= 5; hashas_done = 1
+
+We overturn the ban on poppy cultivation, allowing Turkish farmers to once again grow this traditional and profitable crop. Western governments express their displeasure, but our rural constituents welcome the decision.
