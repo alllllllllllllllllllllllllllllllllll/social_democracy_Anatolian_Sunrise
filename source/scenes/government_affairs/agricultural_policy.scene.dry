@@ -69,7 +69,7 @@ on-arrival: koykent_progress += 1; budget -= 1; rural_chp += 2; z_relation -= 5;
 subtitle: -1 budget.
 choose-if: land_reform > 1 and budget >= 1 and landreform_done <= 2
 unavailable-subtitle: [? if budget < 1 : We don't have enough budget! ?][? if land_reform == 0 : We haven't picked a land reform policy yet! ?][? if land_reform == 1 : Land Reform is not in our agricultural policy. ?][? if landreform_done >= 3 : We have already carried out our land reform program to the full extent. ?]
-on-arrival: budget -= 1; unemployment_modifier -= 0.5; growth_modifier += 0.4; if koykent_progress < 1 : koykent_progress += 1; rural_chp += 4; z_relation -= 5; DP_relation -= 5; MSP_relation -= 5; landreform_done += 1
+on-arrival: budget -= 1; unemployment_modifier -= 0.5; growth_modifier += 0.4; rural_chp += 4; z_relation -= 5; DP_relation -= 5; MSP_relation -= 5; landreform_done += 1
 
 We use the ministry to purchase and redistribute agricultural land among our farmers and rural citizens. The rural population welcomes these measures, while the right-wing parties are predictably hostile.
 
