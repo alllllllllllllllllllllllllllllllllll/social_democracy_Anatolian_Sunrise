@@ -19,6 +19,7 @@ We need to complete the evolution towards an export economy to build an economy 
 - @kobi: Concentrate small and middle sized interprises into cooperatives.
 - @kredi: Shift beneficial loans towards exporting big industry.
 - @demiryolu: Restart investment for railway construction.
+- @koykentindustry: Promote local industries in the Köykents. 
 - @root: No change to industrial policy.
 - @easy_discard
 - @cancel_advisor_action
@@ -72,3 +73,11 @@ choose-if: demiryoluu == 0
 unavailable-subtitle: We have already financed expansion of the railroad lines!
 
 Politics expresses itself in many forms, including even in the basic railroads and highways. While the planned economy of the CHP one party era led to a network of railroads connecting the concentrated industrial zones, as a switch towards free market economics happened in the 1950's under Adnan Menderes's tenure, highways and roads were prioritized to connect the many new decentralized interprises. Now that we are beginning direct investments and planning again, railroad expansions can improve our industrialization efforts.
+
+@koykentindustry
+subtitle: -1 budget. 
+choose-if: koykenttt == 0 and koykent_progress >= 2 and budget >= 1
+unavailable-subtitle: [? if koykenttt > 0 : We have already done this action! ?] [? if koykent_progress < 2 : We have to move on with Köykent formation with the agricultural ministry first! ?] [? if budget < 1 : We dont have enough budget! ?]
+on-arrival: koykent_progress += 1; koykenttt += 1; petty_bourgeoisie_chp += 3; rural_chp += 3; growth_modifier += 0.8; unemployment_modifier -= 1
+
+We promote artisans and small shareholder workships and factories in the Köykent settlements, promoting growth and lowering unemployment.
