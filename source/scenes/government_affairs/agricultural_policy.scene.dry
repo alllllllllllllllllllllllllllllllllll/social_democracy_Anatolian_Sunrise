@@ -14,54 +14,41 @@ tags: govt_affairs, cabinet
 Turkey is largely a rural nation that depends on agricultural production. Even though we historically have had problems with connecting with our rural provinces, as a governing party we must address the needs of our farmers. Feudalism still persists in the countryside which has to be dealt with.[? if rural_policy = 0 : We have yet not agreed on a party policy on agriculture. ?]
 
 - @koykent: Actions regarding the Köykent project.
-- @regular: Actions for land reform.
+- @regular: Actions for land reform and cooperatives.
 
 @koykent
 choose-if: land_reform == 3
 unavailable-subtitle: We have not selected the Köykent project for our agricultural policy!
 
-The Köykent project proposes the concentration of small and dispersed villages into larger rural settlements where key social services and industries using agricultural resources would be concentrated. 
-
+The Köykent, literally a fusion of the words 'town' and 'village', project proposes the concentration of small and dispersed villages into larger rural settlements where key social services and industries using agricultural resources would be concentrated. Turkish villages are currently dispersed across the most uninhabitable sections of Anatolia such as mountains and hills as a persisting mark of the war-torn years of Ottoman rule. The Köykent Project is a necessary milestone in the path towards providing livelihoods on modern standards for our Turkish villagery, forgotten by authorities supposed to develop and foster them for ages.  
 - @begin: Begin the rural concentration efforts.
 - @spread: Spread the Köykent settlements across Anatolia.
 - @yatirim: Increase funding for the Köykent settlements.
 - @agriculture_menu: Go back to the agricultural menu.
 
-# Köykent
-0) **Political Rally kartında land reform'da değişiklik**
-- eğer Köykent seçilirse CHP kırsal desteği -, Köykent progress = 0
-- eğer toprak reformu seçilirse CHP kırsal desteği +
-- eğer kooperatifleşme seçilirse AP ile ilişki +
+@begin
+subtitle: -1 budget. We will begin our efforts by assigning a preliminary Köykent for each few villages and preparing the infrastructure for social services and workshops.
+choose-if: koykent_progress == 0 and budget >= 1
+unavailable-subtitle: [? if koykent_progress > 0 : We have already begun Köykent formations! ?] [? budget < 1 : We don't have enough budget! ?]
+on-arrival: koykent_progress += 1; budget -= 1; rural_chp += 3; z_relation -= 5; CGP_relation -= 5; DP_relation -= 5; MSP_relation -= 5
 
-1) **Köykent başlangıcı** (1 kere yapılır)
-- land reform'da Köykent seçilmişse
-**sonuçlar**:
-- Köykent progress +1
-- bütçe -1
-- CHP kırsal desteği +
-- sağ partilerle ilişkiler -
+We begin crafting the plans for how we shall approach the distribution of social services and which industry should be promoted in which region. The Turkish villager has been chained to poverty and reaction for ages; we will make sure this era is over once and for all.
 
-2) **Köykent'i Türkiye'ye yay** (1 kere yapılır)
-- eğer Köykent progress 1 varsa
-**sonuçlar**:
-- Köykent progress +1
-- bütçe -3
-- CHP kırsal desteği +
-- büyüme +
-- işsizlik -
-- enflasyon +
-- sağ partilerle ilişkiler -
+Our efforts upset the right wing parties of course, since their political existence relies on the ignorance and backwardness of the people.
 
-3) **Köykent yatırımlarını artır** (2 kere yapılabilir)
-- eğer Köykent progress 2 varsa
-**sonuçlar**:
-- Köykent progress +1
-- bütçe -1
-- CHP kırsal desteği +
-- büyüme +
-- işsizlik - 
-- enflasyon -
-- sağ partilerle ilişkiler -# Köykent
+@spread
+subtitle: -3 budget. We shall continue our efforts and begin the construction of Köykent settlements on a large scale.
+choose-if: koykent_progress == 1 and budget >= 3 and spreadd == 0
+unavailable-subtitle: [? if koykent_progress < 1 : We have already begun popularizing Köykents! ?] [? budget < 3 : We don't have enough budget! ?] [? spreadd == 1 : We have already begun spreading Köykent settlements! ?]
+on-arrival: koykent_progress += 1; budget -= 3; rural_chp += 6; z_relation -= 5; CGP_relation -= 5; DP_relation -= 5; MSP_relation -= 5; growth_modifier += 0.2; unemployment_modifier -= 0.4; inflation_modifier += 0.8: spreadd += 1
+
+The Köykent programme is popularized across Anatolia and serious funds are diverted towards rural transformation.
+
+@yatirim
+subtitle: -1 budget. 
+choose-if: spreadd == 1 and yatirimm <= 2 and budget >= 1
+unavailable-subtitle: [? spreadd == 0 : We have to complete the framework of the programme first! ?] [? budget < 1 : We don't have enough budget! ?] [? yatirim == 3 : We have invested enough funds for the continuation of the project. ?]
+on-arrival: koykent_progress += 1; budget -= 1; rural_chp += 2; z_relation -= 5; DP_relation -= 5; CGP_relation -= 5; MSP_relation -= 5; growth_modifier += 0.5; unemployment_modifier -= 1; inflation_modifier += 2: yatirimm += 1
 
 @regular
 
@@ -69,6 +56,17 @@ The Köykent project proposes the concentration of small and dispersed villages 
 - @cooperative: Support cooperative formation. 
 - @east: Support agriculture in the East with special subsidies. 
 - @hashas: Re-legalize Poppy cultivation. 
+
+@landreform
+subtitle: -1 budget.
+choose-if: land_reform > 1 and budget >= 1
+unavailable-subtitle: [? budget < 1 : We don't have enough budget! ?] [? land_reform == 1 : We havent picked land reform as our agricultural policy! ?]
+on-arrival: budget -= 1; unemployment_modifier -= 0.5; growth_modifier += 0.4; if koykent_progress == 0 : koykent_progress += 1; rural_chp += 4
+
+
+We use the ministry to purchase and redistribute agricultural land among our farmers and rural citizens.
+
+@cooperative
 
 # Diğerleri
 1) **Toprak Reformu** - x kere yapılır (x belirlenmeli)
