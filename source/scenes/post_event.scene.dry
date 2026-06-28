@@ -778,6 +778,19 @@ if (this.ui && this.ui.show_portraits) {
 if (typeof window !== "undefined" && window.generateBar) {
 }
 
+// Land Reform effects
+if (Q.koykent_progress >= 5) {
+    Q.rural_chp += 15
+    Q.democracystatus += 10
+}
+if (Q.land_reform_progress >= 3) {
+    Q.rural_chp += 10
+    Q.democracystatus += 5
+}
+if (Q.cooperative_progress >= 3) {
+    Q.rural_chp += 5
+}
+
 // Recalculate paramilitary force effectiveness (strength × militancy) every turn
 Q.far_left_force = 0;
 Q.far_right_force = 0;
