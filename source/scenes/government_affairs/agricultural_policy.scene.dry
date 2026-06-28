@@ -6,14 +6,7 @@ view-if: CHP_in_government = 1 and (agriculture_minister_party = "CHP") and agri
 card-image: img/portraits/AliTopuz.jpg
 tags: govt_affairs, cabinet
 #subtitle: Issues of farmer financing, grain purchasing, and land reform.
-
-go-to: land_reform_redirect if land_reform == 0; agriculture_menu
-
-@land_reform_redirect
-
-We have not yet settled on a land reform policy. We must address this first before taking action at the Ministry of Agriculture.
-
-go-to: land_reform
+go-to: land_reform if land_reform == 0
 
 @agriculture_menu
 
