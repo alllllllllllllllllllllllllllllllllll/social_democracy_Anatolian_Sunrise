@@ -666,6 +666,11 @@ Q.parties = ['chp', 'TIP', 'z', 'CGP', 'DP', 'MSP', 'MHP', 'other'];
 // TODO: add 'sapd' later on
 Q.sapd_formed = 0;
 
+// Land Reform mechanics
+Q.koykent_progress = 0;
+Q.land_reform_progress = 0;
+Q.cooperative_progress = 0;
+
 // Support for party by social group - Turkish political alignment baseline (1972)
 // Rural (45% of population)
 Q.rural_TIP = 0.4;
