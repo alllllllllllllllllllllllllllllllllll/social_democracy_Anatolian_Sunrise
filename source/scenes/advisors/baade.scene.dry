@@ -9,20 +9,10 @@ new-page: true
 
 Baade is one of the few agricultural experts in the CHP, and an unorthodox economist.
 
-- @agriculture
 - @rural_campaign
 - @rural_land_reform_policy
 - @depression
 - @root: Return to main
-
-@agriculture
-title: Agricultural Policy
-subtitle: Baade is the Minister of Agriculture.
-choose-if: advisor_action_timer <= 0 and CHP_in_government and agriculture_minister_party == "CHP"
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if not CHP_in_government : The CHP is not in government. ?][? if agriculture_minister_party != "CHP": The CHP does not have the Agriculture Ministry. ?]
-on-arrival: advisor_action_timer = 6; agricultural_policy_timer -= 6; last_advisor_action = 1
-go-to: agricultural_policy
-
 
 @rural_campaign
 title: Rural Campaign
