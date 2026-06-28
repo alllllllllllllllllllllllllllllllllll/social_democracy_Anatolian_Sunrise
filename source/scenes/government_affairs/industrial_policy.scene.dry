@@ -26,7 +26,7 @@ We need to complete the evolution towards an export economy to build an economy 
 
 @industry1
 subtitle: -3 budget. This will assist our efforts for our reorientation towards an export economy. 
-on-arrival: budget -= 3; industrial_production_index += 10; capitalist_chp += 5; petty_bourgeoisie += 2; growth_modidifer += 1.5; unemployment_modifier -= 0.5; inflation_modifier += 3.5; industryy += 1; economicaction += 0.5; forex_pressure += 4
+on-arrival: budget -= 3; industrial_production_index += 10; capitalist_chp += 5; petty_bourgeoisie += 2; growth_modidifer += 1.5; unemployment_modifier -= 0.5; inflation_modifier += 3.5; industryy += 1; economicaction += 1; forex_pressure += 4
 choose-if: industryy == 0 and budget >= 3
 unavailable-subtitle: [? if budget < 3 : We do not have enough budget! ?] [? if industryy == 1 : We have already begun an industrialization push! ?] 
 
