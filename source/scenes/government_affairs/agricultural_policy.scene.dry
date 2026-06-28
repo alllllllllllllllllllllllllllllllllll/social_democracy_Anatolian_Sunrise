@@ -55,7 +55,7 @@ The Köykent programme is popularized across Anatolia and serious funds are dive
 @yatirim
 subtitle: -1 budget. 
 choose-if: spreadd == 1 and yatirimm <= 2 and budget >= 1
-unavailable-subtitle: [? spreadd == 0 : We have to complete the framework of the programme first! ?] [? budget < 1 : We don't have enough budget! ?] [? yatirim == 3 : We have invested enough funds for the continuation of the project. ?]
+unavailable-subtitle: [? spreadd == 0 : We have to complete the framework of the programme first! ?] [? budget < 1 : We don't have enough budget! ?] [? yatirimm == 3 : We have invested enough funds for the continuation of the project. ?]
 on-arrival: koykent_progress += 1; budget -= 1; rural_chp += 2; z_relation -= 5; DP_relation -= 5; CGP_relation -= 5; MSP_relation -= 5; growth_modifier += 0.5; unemployment_modifier -= 1; inflation_modifier += 2: yatirimm += 1
 
 @regular
