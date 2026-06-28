@@ -1002,6 +1002,7 @@ Q.fundraising_timer = 0;
 Q.ideology_timer = 0;
 Q.intraparty_timer = 0
 Q.poppy_campaign = 0;
+Q.poppy_harvestation = 1;
 Q.inter_party_relationships_timer = 0;
 Q.international_relations_timer = 0;
 Q.western_socialist_contacts = 0;
