@@ -792,15 +792,15 @@ if (Q.cooperative_progress >= 3) {
 }
 
 // Economic reform results
-if (Q.Tiger >= 2 and Q.year == 1978 ) {
+if (Q.Tiger >= 2 && Q.year == 1978 ) {
     Q.base_inflation -= 30
     Q.base_growth += 3
 }
-if (Q.Tiger >= 2 and Q.year == 1979 ) {
+if (Q.Tiger >= 2 && Q.year == 1979 ) {
     Q.base_inflation -= 30
     Q.base_growth += 3
 }
-if (Q.Tiger >= 2 and Q.year == 1980 ) {
+if (Q.Tiger >= 2 && Q.year == 1980 ) {
     Q.base_inflation -= 30
     Q.base_growth += 3
 }
