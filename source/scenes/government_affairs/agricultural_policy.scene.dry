@@ -7,11 +7,12 @@ card-image: img/portraits/AliTopuz.jpg
 tags: govt_affairs, cabinet
 #subtitle: Issues of farmer financing, grain purchasing, and land reform.
 
-@agriculture_menu
 
 = Agricultural Policy
 
 Turkey is largely a rural nation that depends on agricultural production. Even though we historically have had problems with connecting with our rural provinces, as a governing party we must address the needs of our farmers. Feudalism still persists in the countryside which has to be dealt with.[? if rural_policy = 0 : We have yet not agreed on a party policy on agriculture. ?]
+
+@agriculture_menu
 
 - @koykent: Actions regarding the Köykent project.
 - @regular: Actions for land reform and cooperatives.
