@@ -13,6 +13,7 @@ We are the self proclaimed party of positivism, the party of science and arts. H
 - @theaters: Diverting some of our resources to the theaters may be a worthy investment.
 - @anatolianrock: A new music genre, blending anatolian culture with western rock music, Anatolian Rock is rising in popularity and many of their artists are sympathethic to the progressive ideals. Why couldn't we support these artists?
 - @mobilecinemas: Our rural regions lack access to many of the modern forms of art and a new interesting idea that has been proposed in the party has been to recruit mobile cinemas to reach out to our rural citizens.
+- @mobilecinemas2: Now that we have prepared the infrastructure for the mobile cinemas; we can begin utilizing them in full capacity.
 - @literature: Many literature circles are sympathethic to the democratic left and with an already thriving tradition, literature can become a front for advancing social ideas.
 - @easy_discard
 
@@ -38,7 +39,8 @@ The new genre spread like wildfire within the youth, bringing along with itself 
 
 @mobilecinemas
 subtitle: -2 resources
-choose-if: resources >= 2 and cinemavalue <= 2
+choose-if: resources >= 2
+view-if: cinemavalue == 0
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 2; rural_chp += 1; cinemavalue += 1
 	
@@ -48,7 +50,8 @@ The first stations are employed and satisfying results arrive from the test roun
 
 @mobilecinemas2
 subtitle: -1 resources
-choose-if: resources >= 1 and cinemavalue >= 2
+choose-if: resources >= 1
+view-if: cinemavalue >= 1
 unavailable-subtitle: Not enough resources.
 on-arrival: resources -= 1; rural_chp += 3; cinemavalue += 1
 
