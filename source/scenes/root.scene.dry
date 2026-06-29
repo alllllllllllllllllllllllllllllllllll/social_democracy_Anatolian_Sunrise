@@ -480,7 +480,28 @@ Q.ddkd_formed = 0
 // tip being banned
 // ddkd here too
 
-// Land Reform effects
+// Oil effects
+if (Q.oil == 1) {
+    Q.base_inflation -= 7.5
+}
+if (Q.oil == 2) {
+    Q.base_inflation -= 15
+}
+if (Q.oil == 3) {
+    Q.base_inflation -= 22.5
+}
+if (Q.oil == 4) {
+    Q.base_inflation -= 30
+}
+// Land reform effects
+if (Q.land_reform_progress >= 3) {
+    Q.rural_chp += 10
+    Q.democracystatus += 5
+}
+if (Q.cooperative_progress >= 3) {
+    Q.rural_chp += 5
+}
+
 if (Q.koykent_progress >= 5) {
     Q.rural_chp += 15
     Q.democracystatus += 10
