@@ -1,7 +1,7 @@
 title: Cabinet
 is-pinned-card: true
 tags: advisor
-card-image: img/muller_cabinet.jpg
+card-image: img/ecevit3.jpg
 view-if: difficulty < 0 and CHP_in_government and chancellor_party = "CHP"
 on-arrival: last_cabinet_action = 1
 new-page: true 
