@@ -897,7 +897,7 @@ tags: drop_mins_1928
 go-to: ministries
 
 @drop_reichswehr
-title: Drop the Reichswehr Ministry.
+title: Drop the National Defence Ministry.
 view-if: reichswehr_minister_party = "CHP"
 on-arrival: reichswehr_minister_party = "I"; reichswehr_minister = "Groener"; leverage += 15;
 tags: drop_mins_1928
