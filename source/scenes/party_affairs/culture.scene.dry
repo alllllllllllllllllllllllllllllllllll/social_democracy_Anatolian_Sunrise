@@ -53,7 +53,7 @@ subtitle: -1 resources
 choose-if: resources >= 1
 view-if: cinemavalue >= 1
 unavailable-subtitle: Not enough resources.
-on-arrival: resources -= 1; rural_chp += 3; cinemavalue += 1
+on-arrival: resources -= 1; rural_chp += 2; cinemavalue += 1
 
 Our investments in the cinema sector have paid off and now <span style="color: #E3000F;">**CHP**</span> has a significant tool to reach out to the rural electorate.
 
