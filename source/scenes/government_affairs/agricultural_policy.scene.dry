@@ -57,7 +57,7 @@ on-arrival: koykent_progress += 1; budget -= 1; rural_chp += 2; z_relation -= 5;
 - @cooperative: Support cooperative formation. 
 - @east: Support agriculture in the East with special subsidies. 
 - @hashas: Re-legalize Poppy cultivation. 
-- @agriculture_menu
+- @agriculture_menu: Go back to the agricultural menu.
 
 @landreform
 subtitle: -1 budget.
