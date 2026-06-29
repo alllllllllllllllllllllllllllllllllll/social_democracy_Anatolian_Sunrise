@@ -490,7 +490,7 @@ if (Q.oil == 2) {
 if (Q.oil == 3) {
     Q.base_inflation -= 22.5
 }
-if (Q.oil == 4) {
+if (Q.oil >= 4) {
     Q.base_inflation -= 30
 }
 // Land reform effects
