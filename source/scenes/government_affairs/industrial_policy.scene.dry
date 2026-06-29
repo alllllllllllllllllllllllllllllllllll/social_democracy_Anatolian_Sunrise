@@ -1,10 +1,10 @@
 title: Industrial Policy
 new-page: true
 is-card: true
+tags: govt_affairs, cabinet
 on-arrival: industrial_policy_timer += 6; month_actions += 1
 view-if: CHP_in_government = 1 and industrial_minister_party = "CHP" and industrial_policy_timer == 0
 card-image: img/portraits/TarhanErdem.jpg
-tags: govt_affairs, cabinet
 
 = Industrial Policy
 
