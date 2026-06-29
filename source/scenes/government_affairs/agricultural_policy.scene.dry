@@ -7,7 +7,6 @@ card-image: img/portraits/AliTopuz.jpg
 tags: govt_affairs, cabinet
 #subtitle: Issues of farmer financing, grain purchasing, and land reform.
 
-
 = Agricultural Policy
 
 Turkey is largely a rural nation that depends on agricultural production. Even though we historically have had problems with connecting with our rural provinces, as a governing party we must address the needs of our farmers. Feudalism still persists in the countryside which has to be dealt with.[? if rural_policy = 0 : We have yet not agreed on a party policy on agriculture. ?]
@@ -22,6 +21,7 @@ choose-if: land_reform == 3
 unavailable-subtitle: We have not selected the Köykent project for our agricultural policy!
 
 The Köykent, literally a fusion of the words 'town' and 'village', project proposes the concentration of small and dispersed villages into larger rural settlements where key social services and industries using agricultural resources would be concentrated. Turkish villages are currently dispersed across the most uninhabitable sections of Anatolia such as mountains and hills as a persisting mark of the war-torn years of Ottoman rule. The Köykent Project is a necessary milestone in the path towards providing livelihoods on modern standards for our Turkish villagery, forgotten by authorities supposed to develop and foster them for ages.  
+
 - @begin: Begin the rural concentration efforts.
 - @spread: Spread the Köykent settlements across Anatolia.
 - @yatirim: Increase funding for the Köykent settlements.
@@ -57,6 +57,7 @@ on-arrival: koykent_progress += 1; budget -= 1; rural_chp += 2; z_relation -= 5;
 - @cooperative: Support cooperative formation. 
 - @east: Support agriculture in the East with special subsidies. 
 - @hashas: Re-legalize Poppy cultivation. 
+- @agriculture_menu
 
 @landreform
 subtitle: -1 budget.
