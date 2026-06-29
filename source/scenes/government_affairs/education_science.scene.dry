@@ -54,9 +54,10 @@ unavailable-subtitle: [? if teacherr == 0 : Our right wing coalition partners pr
 
 @koykent
 subtitle: -1 budget.
-on-arrival: democracystatus += 2; budget -= 2; growth_modifier += 0.5; unemployment_modifier -= 1; rural_chp += 4; z_relation -= 5; DP_relation -= 5; CGP_relation -= 5; MSP_relation -= 5; koykent_progress += 1
-choose-if: budget >= 1 and curriculumm > 0 and koykent_progress >= 2
-unavailable-subtitle: [? if budget < 1 : We dont have enough budget! ?] [? if curriculum == 0 : We havent reformed our curriculum yet! ?] [? if koykent_progress < 2 : We have to move on with Köykent formation first! ?]
+on-arrival: democracystatus += 2; budget -= 2; growth_modifier += 0.5; unemployment_modifier -= 1; rural_chp += 4; z_relation -= 5; DP_relation -= 5; CGP_relation -= 5; MSP_relation -= 5; koykent_progress += 1; koykentegitimm += 1
+choose-if: budget >= 1 and curriculumm > 0 and koykent_progress >= 2 and koykentegitimm == 0
+unavailable-subtitle: [? if budget < 1 : We dont have enough budget! ?] [? if curriculum == 0 : We havent reformed our curriculum yet! ?] [? if koykent_progress < 2 : We have to move on with Köykent formation first! ?] [? if koykentegitimm == 1 : We have already improved educational opportunities in the Köykents. ?]
+
 
 We open vocational schools aimed at intellectual and expertise growth in the Köykent settlements. 
 
