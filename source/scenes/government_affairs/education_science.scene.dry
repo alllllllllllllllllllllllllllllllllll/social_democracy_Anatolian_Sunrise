@@ -60,18 +60,6 @@ unavailable-subtitle: [? if budget < 1 : We dont have enough budget! ?] [? if cu
 
 We open vocational schools aimed at intellectual and expertise growth in the Köykent settlements. 
 
-# Köykentlerde eğitim olanaklarını genişlet
-(1 kere yapılır)
-- eğer Köykent progress 2<'yse
-- eğer Müfredat reformu yapılmışsa
-**sonuçlar**:
-- bütçe -2
-- Köykent progress +1
-- büyüme +
-- işsizlik -
-- CHP kırsal desteği +
-- sağ partilerle ilişkiler -
-
 @noonetime
 go-to: ed_menu
 
