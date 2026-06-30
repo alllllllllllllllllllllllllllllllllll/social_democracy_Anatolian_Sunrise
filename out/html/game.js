@@ -249,6 +249,11 @@ function getPartyIdeology(party, Q) {
             if (Q.TIP_party_leader === "Behice Boran") return '<span style="color: #607808;">Far Left</span>  (Marxism-Leninism)';
             if (Q.TIP_party_leader === "Mehmet Ali Aybar") return '<span style="color: #C42424;">Left Wing</span> (Democratic Socialism)';
             return 'Unknown';
+        case 'TİP':
+            if (Q.TIP_party_leader === "Unorganized") return '<span style="color: #C42424;">Left Wing</span> (Disorganized)';
+            if (Q.TIP_party_leader === "Behice Boran") return '<span style="color: #607808;">Far Left</span>  (Marxism-Leninism)';
+            if (Q.TIP_party_leader === "Mehmet Ali Aybar") return '<span style="color: #C42424;">Left Wing</span> (Democratic Socialism)';
+            return 'Unknown';
         case 'CGP':
             if (Q.CGP_party_leader === "Feyzioğlu") return '<span style="color: #484863;">Center-Center Right</span> (Right Kemalism)';
             return 'Unknown';
@@ -282,6 +287,11 @@ function getPartyIdeology(party, Q) {
         if (!Q) return baseTooltip.explanationText;
         
         if (searchString === 'TIP' && Q['TIP_relation'] !== undefined) {
+            var ideology = getPartyIdeology(searchString, Q);
+            var relationText = getRelationshipText(Q['TIP_relation']);
+            return baseTooltip.explanationText + '<br>Politics: ' + ideology + '<br>Relation: ' + relationText;
+        }
+         if (searchString === 'TİP' && Q['TIP_relation'] !== undefined) {
             var ideology = getPartyIdeology(searchString, Q);
             var relationText = getRelationshipText(Q['TIP_relation']);
             return baseTooltip.explanationText + '<br>Politics: ' + ideology + '<br>Relation: ' + relationText;
