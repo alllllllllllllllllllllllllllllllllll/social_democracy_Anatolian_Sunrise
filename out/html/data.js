@@ -118,6 +118,10 @@ const colourList = [{
         style: "color: #190c91; font-weight: bold;"
 },
 {
+        word: "TİT",
+        style: "color: #181B18; font-weight: bold;"
+},                    
+{
         word: "Blue Mosque",
         style: "color: #42b6f5; font-weight: bold;"
 },                                        
