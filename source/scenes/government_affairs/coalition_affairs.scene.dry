@@ -39,7 +39,7 @@ By transferring campaign funds to our coalition partners, we can make our polici
 
 No. We will not do this.
 
-@bring_down2
+@bring_down
 subtitle: Bring down this government before our opponents do. There is no guarantee we will be able to force a snap election!
 view-if: z_votes <= 35 and z_votes < chp_votes
 on-arrival: CHP_in_government = 0; in_grand_coalition = 0; in_weimar_coalition = 0 chancellor = "Süleyman Demirel"; chancellor_party = "AP"; z_in_government = 1; MHP_in_government = 1; MSP_in_government = 1; DP_in_government; democracystatus -= 5
