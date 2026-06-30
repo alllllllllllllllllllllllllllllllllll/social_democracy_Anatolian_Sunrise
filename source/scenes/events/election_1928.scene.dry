@@ -37,7 +37,7 @@ Fine. President [+ president +] has taken the unprecedented step of canceling th
 Let us hope this does not backfire.
 
 @post_election_1928
-on-arrival: {!
+on-arrival: I_in_government = 0; {!
 // set old results
 // election threshold constitutional reform
 // banning parties
