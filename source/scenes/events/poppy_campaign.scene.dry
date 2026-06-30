@@ -24,11 +24,11 @@ face-image: img/poppy.jpeg
 - @banno: Refrain from taking any firm stances. Perhaps we can renegotiate the deal once we come to power.
 
 @banyes
-on-arrival: rural_CHP += 2; poppy_campaign = 1
+on-arrival: rural_chp += 2; poppy_campaign = 1
 
 Ecevit tours the Aegean provinces specializing in poppy harvestation and promises to revert the undue exertion of American pressure on the nation. Many farmers who had to spoil their land by planting lesser quality substitution goods feel attracted by this messaging and rural crowds circling Ecevit's iconic campaign bus grow larger and larger. 
 
 @banno
-on-arrival: rural_CHP -= 1; q5_lk_str -= 0.5
+on-arrival: rural_chp -= 1; q5_lk_str -= 0.5
 
 Though we make sure to not entirely sideline the issue, our voters expected a firmer stance from the 'populist' Ecevit and his party. Though the topic is eventually lost in the flow of the election cycle, it would be impossible not to notice the disappointment in the eyes of many, those families whose livelihood depended on opium harvestation. The local party organizations also express their disapproval over the party leadership's seeming abandonment of the rural Aegean provinces.
