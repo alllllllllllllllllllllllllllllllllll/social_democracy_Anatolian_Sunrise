@@ -39,6 +39,10 @@ const tooltipList = [{
     explanationText: "<img src=img/MSP.png> National Salvation Party"
 },
 {
+    searchString: "MNP",
+    explanationText: "<img src=img/mnp.png> National Order Party. The predecessor to MSP."
+},                     
+{
     searchString: "MHP",
     explanationText: "<img src=img/MHP.png> Nationalist Movement Party"
 },
@@ -89,6 +93,10 @@ const colourList = [{
         word: "MSP",
         style: "color: #045421; font-weight: bold;"
 },
+{
+        word: "MNP",
+        style: "color: #045421; font-weight: bold;"
+},                    
 {
         word: "MHP",
         style: "color: #954B00; font-weight: bold;"
