@@ -42,7 +42,7 @@ No. We will not do this.
 @bring_down
 subtitle: Bring down this government before our opponents do. There is no guarantee we will be able to force a snap election!
 view-if: z_votes <= 35 and z_votes < chp_votes
-on-arrival: CHP_in_government = 0; in_grand_coalition = 0; in_weimar_coalition = 0 chancellor = "Süleyman Demirel"; chancellor_party = "AP"; z_in_government = 1; MHP_in_government = 1; MSP_in_government = 1; DP_in_government = 1; democracystatus -= 5
+on-arrival: CHP_in_government = 0; in_grand_coalition = 0; in_weimar_coalition = 0; chancellor = "Süleyman Demirel"; chancellor_party = "AP"; z_in_government = 1; MHP_in_government = 1; MSP_in_government = 1; DP_in_government = 1; democracystatus -= 5
 
 We have called for a vote of no confidence in ourselves, and have brought down this government. However the right wing parties, seeing our electoral potential, refused snap elections and formed a 'Nationalist Front' coalition among themselves, comprising: AP, DP, MSP and MHP.
 
