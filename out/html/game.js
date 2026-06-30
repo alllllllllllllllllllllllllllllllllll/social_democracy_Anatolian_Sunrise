@@ -357,6 +357,11 @@ function getPartyIdeology(party, Q) {
             var morale = getMilitancyText(Q.devyol_militancy);
             return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Militarization' + militancy;
         }
+        if (searchString === 'TİT' && Q.tit_strength !== undefined) {
+            var strength = Q.tit_strength ? Q.tit_strength : '0';
+            var morale = getMilitancyText(Q.tit_militancy);
+            return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Militarization' + militancy;
+        }
         return baseTooltip.explanationText;
     }
   
