@@ -35,6 +35,27 @@ on-arrival: unemployment_modifier -= 0.3; growth_modifier += 0.3; democracystatu
 choose-if: curriculumm == 0
 unavailable-subtitle: We have already reformed our curriculum!
 
+**Müfredat Reformu**
+- Our schools have fallen behind the needs of the age, depriving our economy of the qualified workers it requires. We shall allow that no more by replacing rote instruction with research, practical training and creative work.
+**Halk Eğitim Merkezleri kur**
+- Millions of citizens have been left without literacy, vocational training or access to culture after their school years. We shall allow that no more by establishing Adult Education Centres throughout the country.
+**Üniversitelerde öğrenci temsilciliği**
+- Students have been excluded from decisions concerning their own education, while their demands for representation have too often been treated as a threat. We shall allow that no more by establishing elected student councils in every university.
+**Öğretmen özgürlüğü yasası**
+- Teachers have been subjected to political pressure, arbitrary punishment and the threat of exile. We shall allow that no more by protecting their freedom of expression and reviewing politically motivated penalties.
+ **Burs ve parasız yatılı eğitim genişlemesi**
+- Family income and place of birth have too often determined which children may continue their education. We shall allow that no more by expanding scholarships, free boarding places and student dormitories.
+ **İmam Hatip yatırımlarını azalt**
+- Educational investment has been directed towards new İmam Hatip projects while general, technical and vocational schools remained neglected. We shall allow that no more by redirecting funds towards the genuine needs of national education.
+**TRT eğitim yayınlarını yatırım yap**
+- Radio and television have not been used sufficiently to bring education to isolated villages and districts. We shall allow that no more by expanding TRT broadcasts in literacy, agriculture, health, vocational training and school subjects.
+**Sanat ve Spor alanları yarat**
+- Arts and sports have remained privileges concentrated among the wealthy and in the great cities. We shall allow that no more by constructing public cultural and sporting facilities in schools, neighbourhoods and districts.
+**Daha çok okul aç**
+- Many villages and underdeveloped regions still lack adequate schools. We shall allow that no more by beginning a national school-building campaign centred upon the most neglected areas.
+**Köykentlerde eğitim olanaklarını genişlet**
+- Village children have been deprived of secondary and vocational education, forcing many to leave their communities in order to study. We shall allow that no more by making the Köykents educational and cultural centres for the surrounding villages.
+
 @halkegitim
 subtitle: -1 budget. 
 on-arrival: rural_chp += 1; petty_bourgeoisie_chp += 2; workers_chp += 4; alevis_chp += 3; kurds_chp += 3; halkegitimm += 1; growth_modifier += 0.2
