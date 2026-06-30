@@ -68,7 +68,11 @@ const colourList = [{
 {
         word: "TIP",
         style: "color: #8B0000; font-weight: bold;"
-},                  
+},
+{
+        word: "TİP",
+        style: "color: #8B0000; font-weight: bold;"
+},                    
 {
         word: "Raiders",
         style: "color: #367824; font-weight: bold;"
