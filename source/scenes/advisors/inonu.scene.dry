@@ -16,7 +16,7 @@ new-page: true
 @campaign
 subtitle: İnönü can continue to campaign as if nothing is happening inside the party. However its doubtful how much that can help him..
 go-to: campaigning
-choose-if: advisor_action_timer = 0 and year < 1973 and month < 5
+choose-if: advisor_action_timer = 0 and year < 1973 and month < 6
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if year == 1972 and month > 5 : İnönü is struggling with severe health problems and coupled with his old age he is not in a state for campaigning! ?] [? if year > 1972 : İnönü is struggling with severe health problems and coupled with his old age he is not in a state for campaigning! ?]
 on-arrival: advisor_action_timer = 3
 
