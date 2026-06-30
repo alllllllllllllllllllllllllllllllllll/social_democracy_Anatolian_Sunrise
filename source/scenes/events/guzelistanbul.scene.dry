@@ -1,0 +1,42 @@
+title: The 'Güzel İstanbul' Affair
+subtitle: The affair regarding a statue... or perhaps more? 
+view-if: year = 1974 and month = 3 and week = 2 and MSP_in_government == 1 and CHP_in_government == 1
+max-visits: 1
+tags: event
+new-page: true
+face-image: img/guzelistanbul.jpg
+on-display: {!
+var cardEl = document.createElement('div');
+cardEl.className = "face-figure2";
+var image = new Image();
+image.className = "face-img";
+image.src = "img/guzelistanbul2.jpg";
+cardEl.appendChild(image);
+var contentDiv = document.querySelector("#page #mid_panel #content");
+contentDiv.appendChild(cardEl);
+!}
+
+= The 'Güzel İstanbul' Affair
+
+The contrast between Kemalism and Islamism isn't only in the political sphere but has connotations for social and artistic life as well. In the Islamic culture sculpture has long been shunned due to the hostility towards idolatry and paganism that each prophet was told to have fought against. In contrast, since the foundation of the republic the Kemalists have spent great efforts to import western arts including sculpture in order to break with the nation's Ottoman past.
+
+Last week, on the 10th of March, some artists displayed the sculpture of a naked woman in the popular Yıldız Park in İstanbul, titled 'Güzel İstanbul' or 'Beautiful İstanbul'
+
+Displaying a naked woman looking up towards the sky and bound by shackles on her wrists, the statue is intended to be a universal representation of the emancipation of women. However the conservative newspapers and news outlets have quickly begun attacking the statue for its nudity, with the Islamist Sabah newspaper saying it 'morally corrupted Muslim Turks' for its displaying of Female genitals.
+
+The tensions quickly came to a head as a group entered the park in the midnight on the 18th of March. In a 'sledgehammer operation', the group assaulted the statue, broke it from its plinth and ripped its arm off, disposing it in a dumpster afterwards. While the statue is in a repairable state, the event has showcased the rising tensions between the two sides of the political aisle.
+
+Ministers from MSP and vice-prime minister Erbakan has called for the removal of the statue while intellectuals pressure the party to not bow to the whims of the Islamists and defend the right of artistic expression. Many in the party are also in favor of preserving the statue.
+
+ - @no: We will not bow to the fundamentalists. Repair the statue and place it back in the park. This isn't about one statue only but rather a mentality.
+ - @giveup: We have no choice but to remove the statue. One statue isn't worth wracking the coalition...
+
+ @no
+ on-arrival: MSP_relation -= 5; coalition_dissent += 1; q4_lk_str += 1; q2_lk_str += 1
+
+ We refuse to accept the demands of the Islamists. Even though our relations with MSP and the stability of the coalition takes a hit, we defend our progressive credentials which reaffirms the belief of the intellectuals and our base in the Left of Center movement. 
+
+ @giveup
+ on-arrival: kemalist_marxists_dissent += 5; left_kemalist_dissent += 5; orthodox_kemalists_dissent += 5; state_employees_chp -= 2; q4_lk_str -= 1
+
+ With prime minister Ecevit's orders, the statue was withdrawn from public and placed in an isolated part of the park and left sideways next to a tree. The Islamists claim victory and its claimed in the Sabah newspaper that 'the operation has been successful' and that 'the will of the people have spoken'. Many artists express disappointment with the party leadership for not defending its values and ethics, a comment virtually all factions in the party also agree with.
