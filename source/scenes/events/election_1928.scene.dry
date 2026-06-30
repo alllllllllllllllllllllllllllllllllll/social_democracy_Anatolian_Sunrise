@@ -747,9 +747,9 @@ title: Foreign Ministry
 subtitle: The Foreign Ministry manages the foreign relations of the Turkish Republic.
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
-choose-if: leverage >= 10 
+choose-if: leverage >= 15 
 view-if: foreign_minister_party != "CHP"
-on-arrival: leverage -= 10; foreign_minister_party = "CHP"; foreign_minister = "Gunes"
+on-arrival: leverage -= 15; foreign_minister_party = "CHP"; foreign_minister = "Gunes"
 go-to: ministries
 
 Turan Güneş of the CHP has been appointed Foreign Minister.
@@ -758,11 +758,11 @@ Turan Güneş of the CHP has been appointed Foreign Minister.
 title: Agricultural Ministry
 subtitle: The Agriculture Ministry manages the agricultural production and the wellbeing of the rural settlements.
 unavailable-subtitle: We do not have enough leverage.
+tags: mins_1928
 choose-if: leverage >= 10 
 view-if: agriculture_minister_party != "CHP"
 on-arrival: leverage -= 10; agriculture_minister_party = "CHP"; agriculture_minister = "Topuz"
 go-to: ministries
-tags: mins_1928
 
 Ali Topuz of the CHP has been appointed Agriculture Minister.
 
@@ -771,9 +771,9 @@ title: National Defense Ministry
 subtitle: The National Defense Ministry is responsible for communication between the government and the high command and the management of the army budget. 
 unavailable-subtitle: We do not have enough leverage.
 tags: mins_1928
-choose-if: leverage >= 15 
+choose-if: leverage >= 10 
 view-if: reichswehr_minister_party != "CHP"
-on-arrival: leverage -= 15; reichswehr_minister_party = "CHP"; reichswehr_minister = "Isik"
+on-arrival: leverage -= 10; reichswehr_minister_party = "CHP"; reichswehr_minister = "Isik"
 go-to: ministries
 
 Hasan Esat Işık of the CHP has been appointed National Defense Minister.
@@ -885,7 +885,7 @@ go-to: ministries
 @drop_foreign
 title: Drop the Foreign Ministry.
 view-if: foreign_minister_party = "CHP"
-on-arrival: foreign_minister_party = "DP"; foreign_minister = "Stresemann"; foreign_minister = "Curtius" if streseman_dead; leverage += 10; foreign_minister_party = "AP" if in_weimar_coalition or in_popular_front; foreign_minister = "Wirth" if in_weimar_coalition or in_popular_front;
+on-arrival: foreign_minister_party = "I"; leverage += 15
 tags: drop_mins_1928
 go-to: ministries
 
@@ -899,7 +899,7 @@ go-to: ministries
 @drop_reichswehr
 title: Drop the National Defence Ministry.
 view-if: reichswehr_minister_party = "CHP"
-on-arrival: reichswehr_minister_party = "I"; reichswehr_minister = "Groener"; leverage += 15;
+on-arrival: reichswehr_minister_party = "I"; reichswehr_minister = "Groener"; leverage += 10;
 tags: drop_mins_1928
 go-to: ministries
 
