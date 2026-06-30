@@ -9,7 +9,7 @@ new-page: true
 
  Tarhan Erdem is an engineer who has previously proven his technocratic value with his successfully experiences in the National Sugar Factories.
 
- - @industry: Erdem can take actions as the Minister of Industry.
+- @industry: Erdem can take actions as the Minister of Industry.
   
 @industry
 choose-if: advisor_action_timer = 0 and CHP_in_government = 1 and industrial_minister_party = "CHP"
