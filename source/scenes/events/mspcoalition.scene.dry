@@ -1,0 +1,26 @@
+title: An Unholy Coalition
+subtitle: How long is it going to last?
+view-if: year = 1973 and month = 12 and week = 1 and MSP_in_government == 1 and CHP_in_government == 1
+max-visits: 1
+tags: event
+new-page: true
+on-display: {!
+var cardEl = document.createElement('div');
+cardEl.className = "face-figure2";
+var image = new Image();
+image.className = "face-img";
+image.src = "img/eceviterbakan1.png";
+cardEl.appendChild(image);
+var contentDiv = document.querySelector("#page #mid_panel #content");
+contentDiv.appendChild(cardEl);
+!}
+
+= An Unholy Coalition
+
+Even though we made great gains in the last general elections, our party was still unable to reach a parliamentary majority. This resulted in a majority right wing parliament with a sizeable center left CHP presence and many expected us to be locked out of power once more. However due to disagreements between AP and MSP, we have been able to form a government for the first time in a decade. However it would be erronous to think of this government as a truly stable cabinet to govern for an entire term; it is merely a stepping stone for both sides in pursuit of their political objectives, after which it would be thrown into the dustbin of history.
+
+The Far Right Islamist MSP's willingness to form a government with us, the defenders of the republic and secularism only came as an attempt for MSP to distinguish itself from AP and the moderate right. The ideological differences between the two parties are too wide for a stable coalition and keeping it together will cost a lot of political capital. And even then we will not be able to be sure MSP will not sink the leaking ship. 
+
+For the duration of our coalition, coalition dissent will tick upwards automaticly. We will need to tread carefully and make the necessary political sacrifices if we want the coalition to survive as long as possible.
+
+- @root: How long will it take for the leaking ship to sink?
