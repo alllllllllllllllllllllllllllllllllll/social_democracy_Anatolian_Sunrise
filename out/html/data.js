@@ -20,7 +20,7 @@ const tooltipList = [{
 },
 {
     searchString: "THKO",
-    explanationText: "<img src=img/thko.jpg> A Marxist-Leninist terrorist group inspired by the Cuban revolution and Guevarism"
+    explanationText: "<img src=img/thko.jpeg> A Marxist-Leninist terrorist group inspired by the Cuban revolution and Guevarism"
 },                     
 {
     searchString: "THKP-C",
