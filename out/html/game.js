@@ -330,23 +330,32 @@ function getPartyIdeology(party, Q) {
             var militancy = getMilitancyText(Q['paramilitary-name_militancy']);
             return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Militarization: ' + militancy;
         }
-        
-        if (searchString === 'Sri Lanka Armed Forces' && Q.slaf_strength !== undefined) {
-            var strength = Q.slaf_strength ? Q.slaf_strength : '0';
-            var morale = getLoyaltyText(Q.slaf_morale);
-            return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Morale: ' + morale;
-        }
       
         if (searchString === 'THKP-C' && Q.thkpc_strength !== undefined) {
             var strength = Q.thkpc_strength ? Q.thkpc_strength : '0';
-            var morale = getLoyaltyText(Q.thkpc_morale);
-            return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Morale: ' + morale;
+            var morale = getMilitancyText(Q.thkpc_militancy);
+            return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Militarization' + militancy;
         }
        
         if (searchString === 'TKP/ML' && Q.tkpml_strength !== undefined) {
             var strength = Q.tkpml_strength ? Q.tkpml_strength : '0';
-            var morale = getLoyaltyText(Q.tkpml_morale);
-            return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Morale: ' + morale;
+            var morale = getMilitancyText(Q.tkpml_militancy);
+            return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Militarization' + militancy;
+        }
+         if (searchString === 'Grey Wolves' && Q.grey_wolves_strength !== undefined) {
+            var strength = Q.grey_wolves_strength ? Q.grey_wolves_strength : '0';
+            var morale = getMilitancyText(Q.grey_wolves_militancy);
+            return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Militarization' + militancy;
+        }
+        if (searchString === 'Raiders' && Q.raiders_strength !== undefined) {
+            var strength = Q.raiders_strength ? Q.raiders_strength : '0';
+            var morale = getMilitancyText(Q.raiders_militancy);
+            return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Militarization' + militancy;
+        }
+        if (searchString === 'DEV-YOL' && Q.devyol_strength !== undefined) {
+            var strength = Q.devyol_strength ? Q.devyol_strength : '0';
+            var morale = getMilitancyText(Q.devyol_militancy);
+            return baseTooltip.explanationText + '<br>Strength: ' + strength + 'k<br>Militarization' + militancy;
         }
         return baseTooltip.explanationText;
     }
