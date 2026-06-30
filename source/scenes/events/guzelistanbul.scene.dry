@@ -7,9 +7,9 @@ new-page: true
 face-image: img/guzelistanbul.jpg
 on-display: {!
 var cardEl = document.createElement('div');
-cardEl.className = "face-figure2";
+cardEl.className = "face-figure2 guzelistanbul-figure";
 var image = new Image();
-image.className = "face-img";
+image.className = "face-img guzelistanbul-img";
 image.src = "img/guzelistanbul2.jpg";
 cardEl.appendChild(image);
 var contentDiv = document.querySelector("#page #mid_panel #content");
