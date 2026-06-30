@@ -48,7 +48,7 @@ const tooltipList = [{
 },
 {
     searchString: "Blue Mosque",
-    explanationText: "<img src=img/blue_mosque.jpeg>"
+    explanationText: "<img src=img/blue_mosque.jpeg> The Blue Mosque(Sultanahmet Camii) is one of the most iconic monuments of Ottoman architecture, built between 1606-1617. Its famous for being the first Turkish Mosque with 6 minarets."
 },                     
 ];
 
