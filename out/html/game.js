@@ -281,10 +281,6 @@ function getPartyIdeology(party, Q) {
         
         if (!Q) return baseTooltip.explanationText;
         
-        if (searchString === 'party-name' && Q['party-name_relation'] !== undefined) {
-            var relationText = getRelationshipText(Q['party-name_relation']);
-            return baseTooltip.explanationText + '<br>Relation: ' + relationText;
-        }
         if (searchString === 'TIP' && Q['TIP_relation'] !== undefined) {
             var ideology = getPartyIdeology(searchString, Q);
             var relationText = getRelationshipText(Q['TIP_relation']);
