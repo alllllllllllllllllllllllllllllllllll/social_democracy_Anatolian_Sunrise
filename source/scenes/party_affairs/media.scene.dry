@@ -33,6 +33,8 @@ We keep our silence in the face of atrocities and injustice. The nation is overw
 @critique
 title: The military government needs to go. Defy the laws and protest against the recent actions of the Junta.
 view-if: CHP_party_leader == "Ecevit"
+choose-if: I_in_government == 1
+unavailable-subtitle: The army has withdrawn their hands from the fragile democracy, for now...
 on-arrival: workers_chp += 2; petty_bourgeoisie_chp += 2; kemalist_marxists_dissent -= 5; coup_timer += 1; critique += 1
 
 We direct our media attention to the authoritarian actions of the junta governments, such as the banning of worker strikes and the torture of left wing intellectuals in prisons. We will not bow to the whims of the appointed.
