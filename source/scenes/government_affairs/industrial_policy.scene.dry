@@ -72,7 +72,7 @@ on-arrival: budget -= 1; growth_modifier += 1; inflation_modifier -= 2; demiryol
 choose-if: demiryoluu == 0
 unavailable-subtitle: We have already financed expansion of the railroad lines!
 
-Politics expresses itself in many forms, including even in the basic railroads and highways. While the planned economy of the CHP one party era led to a network of railroads connecting the concentrated industrial zones, as a switch towards free market economics happened in the 1950's under Adnan Menderes's tenure, highways and roads were prioritized to connect the many new decentralized interprises. Now that we are beginning direct investments and planning again, railroad expansions can improve our industrialization efforts.
+Politics expresses itself in many forms, including even in the basic railroads and highways. While the state-guided economy of the CHP-lead one-party era resulted in networks of railroads being built across the country, a switch towards car-centric infrastructure happened in the early 1950's under Adnan Menderes's tenure, where cars as the epitome of individualism and liberty gained preference over the 'collectivist/communist' trains. Now that we are beginning direct investments and planning again, railroad expansions can improve our industrialization efforts.
 
 @koykentindustry
 subtitle: -1 budget. 
