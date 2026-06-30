@@ -778,6 +778,14 @@ if (this.ui && this.ui.show_portraits) {
 if (typeof window !== "undefined" && window.generateBar) {
 }
 
+// MSP coalition decay
+if (Q.MSP_in_government == 1 && Q.CHP_in_government == 1 && Q.cyprus_problem == 0) {
+    Q.coalition_dissent -= 5/24
+}
+if (Q.MSP_in_government == 1 && Q.CHP_in_government == 1 && Q.cyprus_problem == 1) {
+    Q.coalition_dissent -= 5/24
+}
+
 // Recalculate paramilitary force effectiveness (strength × militancy) every turn
 Q.far_left_force = 0;
 Q.far_right_force = 0;
