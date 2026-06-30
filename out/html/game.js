@@ -311,7 +311,7 @@ function getPartyIdeology(party, Q) {
             var relationText = getRelationshipText(Q['MHP_relation']);
             return baseTooltip.explanationText + '<br>Politics: ' + ideology + '<br>Relation: ' + relationText;
         }
-        if (searchString === 'CHP' !== undefined) {
+        if (searchString === 'CHP') {
             var ideology = getPartyIdeology(searchString, Q);
             return baseTooltip.explanationText + '<br>Politics: ' + ideology;
         }
