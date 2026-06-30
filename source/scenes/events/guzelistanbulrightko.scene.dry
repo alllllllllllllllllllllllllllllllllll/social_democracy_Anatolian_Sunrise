@@ -29,3 +29,6 @@ The tensions quickly came to a head as a group entered the park in the midnight 
 However the Demirel government seems to have bowed down to the whims of the fundamentalists to not anger their coalition partner MSP. Islamists claim victory as the statue is disposed in a construction site, far away from the public but close to the value AP apperantly attributes to the right of free expression.
 
 - @yes: The 'moderate' right bowing to the radicals? Surely its not a long trend...
+
+@yes
+on-arrival: z_relation -= 4
