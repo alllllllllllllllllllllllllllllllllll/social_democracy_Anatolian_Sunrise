@@ -35,26 +35,7 @@ on-arrival: unemployment_modifier -= 0.3; growth_modifier += 0.3; democracystatu
 choose-if: curriculumm == 0
 unavailable-subtitle: We have already reformed our curriculum!
 
-**Müfredat Reformu**
-- Our schools have fallen behind the needs of the age, depriving our economy of the qualified workers it requires. We shall allow that no more by replacing rote instruction with research, practical training and creative work.
-**Halk Eğitim Merkezleri kur**
-- Millions of citizens have been left without literacy, vocational training or access to culture after their school years. We shall allow that no more by establishing Adult Education Centres throughout the country.
-**Üniversitelerde öğrenci temsilciliği**
-- Students have been excluded from decisions concerning their own education, while their demands for representation have too often been treated as a threat. We shall allow that no more by establishing elected student councils in every university.
-**Öğretmen özgürlüğü yasası**
-- Teachers have been subjected to political pressure, arbitrary punishment and the threat of exile. We shall allow that no more by protecting their freedom of expression and reviewing politically motivated penalties.
- **Burs ve parasız yatılı eğitim genişlemesi**
-- Family income and place of birth have too often determined which children may continue their education. We shall allow that no more by expanding scholarships, free boarding places and student dormitories.
- **İmam Hatip yatırımlarını azalt**
-- Educational investment has been directed towards new İmam Hatip projects while general, technical and vocational schools remained neglected. We shall allow that no more by redirecting funds towards the genuine needs of national education.
-**TRT eğitim yayınlarını yatırım yap**
-- Radio and television have not been used sufficiently to bring education to isolated villages and districts. We shall allow that no more by expanding TRT broadcasts in literacy, agriculture, health, vocational training and school subjects.
-**Sanat ve Spor alanları yarat**
-- Arts and sports have remained privileges concentrated among the wealthy and in the great cities. We shall allow that no more by constructing public cultural and sporting facilities in schools, neighbourhoods and districts.
-**Daha çok okul aç**
-- Many villages and underdeveloped regions still lack adequate schools. We shall allow that no more by beginning a national school-building campaign centred upon the most neglected areas.
-**Köykentlerde eğitim olanaklarını genişlet**
-- Village children have been deprived of secondary and vocational education, forcing many to leave their communities in order to study. We shall allow that no more by making the Köykents educational and cultural centres for the surrounding villages.
+Our schools have fallen behind the needs of the age, depriving our economy of the qualified workers it requires. We shall allow that no more by replacing rote instruction with research, practical training and creative work.
 
 @halkegitim
 subtitle: -1 budget. 
@@ -62,10 +43,14 @@ on-arrival: rural_chp += 1; petty_bourgeoisie_chp += 2; workers_chp += 4; alevis
 choose-if: halkegitimm == 0
 unavailable-subtitle: We have already created the Halk Eğitim centers!
 
+Millions of citizens have been left without literacy, vocational training or access to culture after their school years. We shall allow that no more by establishing Adult Education Centres throughout the country.
+
 @student
 on-arrival: tip_relation += 5; workers_tip += 2; alevis_tip += 2; kurds_tip += 2; petty_bourgeoisie_tip += 1; workers_chp += 2; alevis_chp += 2; kurds_chp += 2; petty_bourgeoisie_chp += 2; z_relation -= 5; MSP_relation -= 5; DP_relation -= 5; studentt += 1
 choose-if: studentt == 0
 unavailable-subtitle: We have already fostered student representation!
+
+Students have been excluded from decisions concerning their own education, while their demands for representation have too often been treated as a threat. We shall allow that no more by establishing elected student councils in every university.
 
 @teacher
 subtitle: -1 budget.
@@ -73,14 +58,15 @@ on-arrival: democracystatus += 3; z_relation -= 5; msp_relation -= 5; dp_relatio
 choose-if: teacherr == 0 and MSP_in_government == 0 and z_in_government == 0 and DP_in_government == 0
 unavailable-subtitle: [? if teacherr == 0 : Our right wing coalition partners prevent us from passing this reform! ?] [? if teacherr == 1 : We have already increased political freedoms for our teachers! ?]
 
+Teachers have been subjected to political pressure, arbitrary punishment and the threat of exile. We shall allow that no more by protecting their freedom of expression and reviewing politically motivated penalties.
+
 @koykent
 subtitle: -1 budget.
 on-arrival: democracystatus += 2; budget -= 2; growth_modifier += 0.5; unemployment_modifier -= 1; rural_chp += 4; z_relation -= 5; DP_relation -= 5; CGP_relation -= 5; MSP_relation -= 5; koykent_progress += 1; koykentegitimm += 1
 choose-if: budget >= 1 and curriculumm > 0 and koykent_progress >= 2 and koykentegitimm == 0
 unavailable-subtitle: [? if budget < 1 : We dont have enough budget! ?] [? if curriculum == 0 : We havent reformed our curriculum yet! ?] [? if koykent_progress < 2 : We have to move on with Köykent formation first! ?] [? if koykentegitimm == 1 : We have already improved educational opportunities in the Köykents. ?]
 
-
-We open vocational schools aimed at intellectual and expertise growth in the Köykent settlements. 
+Village children have been deprived of secondary and vocational education, forcing many to leave their communities in order to study. We shall allow that no more by making the Köykents educational and cultural centres for the surrounding villages.
 
 @noonetime
 go-to: ed_menu
@@ -98,22 +84,32 @@ go-to: ed_menu
 subtitle: -1 budget. 
 on-arrival: budget -= 1; workers_chp += 4; state_employees_chp += 1; petty_bourgeoisie += 1; alevis_chp += 1; kurds_chp += 1; rural_chp += 1; growth_modifier +=  0.2
 
+Family income and place of birth have too often determined which children may continue their education. We shall allow that no more by expanding scholarships, free boarding places and student dormitories.
+
 @imamhatip
 subtitle: +1 budget.
 on-arrival: budget += 1; MSP_relation -= 10; imamhatipp += 1
 choose-if: MSP_in_government == 0 and z_in_government == 0 and DP_in_government == 0 and imamhatipp < 3
 unavailable-subtitle: [? if imamhatipp < 3 : Our right wing coalition partners will not let us cut funding for the religious schools! ?] [? if imamhatipp >= 3 : We have already cut their funding to oblivion! ?]
 
+Educational investment has been directed towards new İmam Hatip projects while general, technical and vocational schools remained neglected. We shall allow that no more by redirecting funds towards the genuine needs of national education.
+
 @TRT
 on-arrival: state_employees_chp += 1; workers_chp += 1; petty_bourgeoisie += 1
+
+Radio and television have not been used sufficiently to bring education to isolated villages and districts. We shall allow that no more by expanding TRT broadcasts in literacy, agriculture, health, vocational training and school subjects.
 
 @art
 subtitle: -1 budget.
 on-arrival: budget -= 1; workers_chp += 3; petty_bourgeoisie_chp += 1; state_employees_chp += 2; alevis_chp += 1
 
+Arts and sports have remained privileges concentrated among the wealthy and in the great cities. We shall allow that no more by constructing public cultural and sporting facilities in schools, neighbourhoods and districts.
+
 @more
 subtitle: -1 budget.
 on-arrival: budget -= 1; workers_chp += 3; rural_chp += 2
+
+Many villages and underdeveloped regions still lack adequate schools. We shall allow that no more by beginning a national school-building campaign centred upon the most neglected areas.
 
 @norepeatable
 go-to: ed_menu
