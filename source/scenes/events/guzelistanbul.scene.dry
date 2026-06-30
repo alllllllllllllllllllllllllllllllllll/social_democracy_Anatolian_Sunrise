@@ -13,7 +13,7 @@ image.className = "face-img";
 image.src = "img/guzelistanbul2.jpg";
 cardEl.appendChild(image);
 var contentDiv = document.querySelector("#page #mid_panel #content");
-contentDiv.appendChild(cardEl);
+mid_panelDiv.appendChild(cardEl);
 !}
 
 = The 'Güzel İstanbul' Affair
