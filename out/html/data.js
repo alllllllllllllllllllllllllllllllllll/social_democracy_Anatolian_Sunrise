@@ -29,8 +29,12 @@ const tooltipList = [{
 {
     searchString: "TKP/ML",
     explanationText: "<img src=img/TKPML.svg.png> A Marxist-Leninist-Maoist terrorist group"
+},
+{
+    searchString: "TİT",
+    explanationText: "An Ultranationalist terrorist organization that the public knows almost nothing about."
 },                     
- {
+{
     searchString: "CGP",
     explanationText: "<img src=img/cgplogo.png> Republican Trust Party"
 },
