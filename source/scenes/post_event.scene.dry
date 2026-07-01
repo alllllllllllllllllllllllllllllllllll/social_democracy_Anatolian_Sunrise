@@ -997,6 +997,63 @@ if (Q.kurdish_radicalism >= 0.69) {
 Q.democracystatus = Math.max(0, Math.min(100, Q.democracystatus));
 
 // ─────────────────────────────────────────────────────────────────────────
+// ONE-TIME POLICY EFFECTS - Applied once when thresholds are reached
+
+// Oil effects (applied once)
+if (Q.oil >= 1 && !Q.oil_effect_applied) {
+    if (Q.oil == 1) {
+        Q.base_inflation -= 7.5;
+    }
+    if (Q.oil == 2) {
+        Q.base_inflation -= 15;
+    }
+    if (Q.oil == 3) {
+        Q.base_inflation -= 22.5;
+    }
+    if (Q.oil >= 4) {
+        Q.base_inflation -= 30;
+    }
+    Q.oil_effect_applied = true;
+}
+
+// Land reform effects (applied once)
+if (Q.land_reform_progress >= 3 && !Q.land_reform_effect_applied) {
+    Q.rural_chp += 10;
+    Q.democracystatus += 5;
+    Q.land_reform_effect_applied = true;
+}
+
+// Cooperative effects (applied once)
+if (Q.cooperative_progress >= 3 && !Q.cooperative_effect_applied) {
+    Q.rural_chp += 5;
+    Q.cooperative_effect_applied = true;
+}
+
+// Köykent effects (applied once)
+if (Q.koykent_progress >= 5 && !Q.koykent_effect_applied) {
+    Q.rural_chp += 15;
+    Q.democracystatus += 10;
+    Q.koykent_effect_applied = true;
+}
+
+// Tiger economic reform effects (year-specific, applied once per year)
+if (Q.Tiger >= 2 && Q.year == 1978 && !Q.tiger_1978_effect_applied) {
+    Q.base_inflation -= 30;
+    Q.base_growth += 3;
+    Q.tiger_1978_effect_applied = true;
+}
+if (Q.Tiger >= 2 && Q.year == 1979 && !Q.tiger_1979_effect_applied) {
+    Q.base_inflation -= 30;
+    Q.base_growth += 3;
+    Q.tiger_1979_effect_applied = true;
+}
+if (Q.Tiger >= 2 && Q.year == 1980 && !Q.tiger_1980_effect_applied) {
+    Q.base_inflation -= 30;
+    Q.base_growth += 3;
+    Q.tiger_1980_effect_applied = true;
+}
+
+// ─────────────────────────────────────────────────────────────────────────
 
 // Coup trigger: fires automatically when TSK is mutinous and acting (coup_timer >= 15),
 // or with a 25% monthly chance when democracystatus drops below 10.
