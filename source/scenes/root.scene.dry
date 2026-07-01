@@ -672,7 +672,7 @@ Q.agricultural_consumption_change = 0;
 
 // Agricultural Product Prices System
 Q.agricultural_consumption = 100; // Base consumption level (can be modified by player actions)
-Q.agricultural_product_prices = 1.0; // Production/Consumption ratio
+Q.agricultural_product_prices = 1.0; // Consumption/Production ratio
 Q.agricultural_price_status = "Sufficient"; // Text status for display
 Q.agricultural_price_timer = 0; // Timer for applying political effects
 
