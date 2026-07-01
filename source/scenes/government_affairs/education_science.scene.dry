@@ -31,17 +31,17 @@ As Ecevit says one of the most important features of Social Democracy is the sup
 
 @curriculum
 subtitle: -2 budget. This will include changes in classroom sizes, the educational material used and objectives.
-on-arrival: unemployment_modifier -= 0.3; growth_modifier += 0.3; democracystatus += 3; rural_chp += 1; petty_bourgeoisie += 3; workers_chp += 3; alevis_chp += 3; kurds_chp += 3; curriculumm += 1
-choose-if: curriculumm == 0
-unavailable-subtitle: We have already reformed our curriculum!
+choose-if: curriculumm == 0 and budget >= 2
+unavailable-subtitle: [? if curriculumm == 1 : We have already reformed our curriculum! ?] [? if budget < 2 : We don't have enough budget! ?]
+on-arrival: unemployment_modifier -= 0.3; growth_modifier += 0.3; democracystatus += 3; rural_chp += 1; petty_bourgeoisie += 3; workers_chp += 3; alevis_chp += 3; kurds_chp += 3; curriculumm += 1; budget -= 2
 
 Our schools have fallen behind the needs of the age, depriving our economy of the qualified workers it requires. We shall allow that no more by replacing rote instruction with research, practical training and creative work.
 
 @halkegitim
 subtitle: -1 budget. 
-on-arrival: rural_chp += 1; petty_bourgeoisie_chp += 2; workers_chp += 4; alevis_chp += 3; kurds_chp += 3; halkegitimm += 1; growth_modifier += 0.2
-choose-if: halkegitimm == 0
-unavailable-subtitle: We have already created the Halk Eğitim centers!
+choose-if: halkegitimm == 0 and budget >= 1
+unavailable-subtitle: [? if halkegitimm == 1 : We have already created the Halk Eğitim centers! ?] [? if budget < 1 : We don't have enough budget! ?]
+on-arrival: rural_chp += 1; petty_bourgeoisie_chp += 2; workers_chp += 4; alevis_chp += 3; kurds_chp += 3; halkegitimm += 1; growth_modifier += 0.2; budget -= 1
 
 Millions of citizens have been left without literacy, vocational training or access to culture after their school years. We shall allow that no more by establishing Adult Education Centres throughout the country.
 
@@ -54,9 +54,9 @@ Students have been excluded from decisions concerning their own education, while
 
 @teacher
 subtitle: -1 budget.
-on-arrival: democracystatus += 3; z_relation -= 5; msp_relation -= 5; dp_relation -= 5; teacherr += 1; growth_modifier += 0.2
-choose-if: teacherr == 0 and MSP_in_government == 0 and z_in_government == 0 and DP_in_government == 0
-unavailable-subtitle: [? if teacherr == 0 : Our right wing coalition partners prevent us from passing this reform! ?] [? if teacherr == 1 : We have already increased political freedoms for our teachers! ?]
+choose-if: teacherr == 0 and MSP_in_government == 0 and z_in_government == 0 and DP_in_government == 0 and budget >= 1
+unavailable-subtitle: [? if budget < 1 : We don't have enough budget! ?] [? if teacherr == 1 : We have already increased political freedoms for our teachers! ?] [? if MSP_in_government == 1 or z_in_government == 1 or DP_in_government == 1 : Our right wing coalition partners prevent us from passing this reform! ?]
+on-arrival: democracystatus += 3; z_relation -= 5; msp_relation -= 5; dp_relation -= 5; teacherr += 1; growth_modifier += 0.2; budget -= 1
 
 Teachers have been subjected to political pressure, arbitrary punishment and the threat of exile. We shall allow that no more by protecting their freedom of expression and reviewing politically motivated penalties.
 
@@ -82,6 +82,8 @@ go-to: ed_menu
 
 @scholarship
 subtitle: -1 budget. 
+choose-if: budget >= 1
+unavailable-subtitle: We don't have enough budget!
 on-arrival: budget -= 1; workers_chp += 4; state_employees_chp += 1; petty_bourgeoisie += 1; alevis_chp += 1; kurds_chp += 1; rural_chp += 1; growth_modifier +=  0.2
 
 Family income and place of birth have too often determined which children may continue their education. We shall allow that no more by expanding scholarships, free boarding places and student dormitories.
@@ -101,12 +103,16 @@ Radio and television have not been used sufficiently to bring education to isola
 
 @art
 subtitle: -1 budget.
+choose-if: budget >= 1
+unavailable-subtitle: We don't have enough budget!
 on-arrival: budget -= 1; workers_chp += 3; petty_bourgeoisie_chp += 1; state_employees_chp += 2; alevis_chp += 1
 
 Arts and sports have remained privileges concentrated among the wealthy and in the great cities. We shall allow that no more by constructing public cultural and sporting facilities in schools, neighbourhoods and districts.
 
 @more
 subtitle: -1 budget.
+choose-if: budget >= 1
+unavailable-subtitle: We don't have enough budget!
 on-arrival: budget -= 1; workers_chp += 3; rural_chp += 2
 
 Many villages and underdeveloped regions still lack adequate schools. We shall allow that no more by beginning a national school-building campaign centred upon the most neglected areas.

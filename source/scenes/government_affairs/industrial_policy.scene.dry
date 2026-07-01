@@ -67,10 +67,10 @@ on-arrival: growth_modifier += 0.6; inflation_modifier -= 1.5; petty_bourgeoisie
 We shift beneficial loans towards exporting industries which tend to be more concentrated and in the hands of the big capital. While this promotes growth, we should be careful not to push our small producers to the brink of financial struggle.
 
 @demiryolu
-subtitle: Asphalt highways became the primary mode of transportation as the Turkish economy shifted towards free market policies in the 1950's. Promoting railroads can promote growth and accompany our industrial promotions.
+subtitle: -1 budget. Asphalt highways became the primary mode of transportation as the Turkish economy shifted towards free market policies in the 1950's. Promoting railroads can promote growth and accompany our industrial promotions.
+choose-if: demiryoluu == 0 and budget >= 1
+unavailable-subtitle: [? if demiryoluu == 1 : We have already financed expansion of the railroad lines! ?] [? if budget < 1 : We don't have enough budget! ?]
 on-arrival: budget -= 1; growth_modifier += 1; inflation_modifier -= 2; demiryoluu += 1; industrial_production_index += 5
-choose-if: demiryoluu == 0
-unavailable-subtitle: We have already financed expansion of the railroad lines!
 
 Politics expresses itself in many forms, including even in the basic railroads and highways. While the state-guided economy of the CHP-lead one-party era resulted in networks of railroads being built across the country, a switch towards car-centric infrastructure happened in the early 1950's under Adnan Menderes's tenure, where cars as the epitome of individualism and liberty gained preference over the 'collectivist/communist' trains. Now that we are beginning direct investments and planning again, railroad expansions can improve our industrialization efforts.
 
