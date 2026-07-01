@@ -208,6 +208,7 @@ Raising tariffs make our local industries more profitable which results in highe
 title: Lower tariffs on imports.
 choose-if: budget >= 2 and tariffs > -5
 subtitle: -2 budget. [? if tariffs <= -5 : There are no tariffs left to cut. ?]
+unavailable-subtitle: [? if budget < 2 : We don't have enough budget! ?] [? if tariffs <= -5 : There are no tariffs left to cut. ?]
 on-arrival: tariffs -= 1; budget -= 2; inflation -= 2; workers_CHP += 4*(1-dissent); state_employees_chp += 4*(1-dissent); rural_chp -= 4; old_middle_CHP -= 3; west_relation += 5; us_relation += 5; east_relation += 1; economic_growth -= 0.5; unemployment_modifier += 0.5
 
 Lowering tariffs hurts our local industries which depend on state privilages. 

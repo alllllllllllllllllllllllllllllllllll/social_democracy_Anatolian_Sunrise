@@ -25,6 +25,8 @@ The National Defense Ministry is the institution that enables cooperation betwee
 
 @OYAK
 subtitle: -1 budget.
+choose-if: budget >= 1
+unavailable-subtitle: We don't have enough budget!
 on-arrival: coup_timer -= 1; budget -= 1
 
 Despite the army officials claim that they represent a group of interest wholly devoted to the defense of the republic and not interested in petty material matters, they too constitute a player in the financial sector. State funding for their private investment fund ease the worries of the many and improve our relations with them.
@@ -48,6 +50,8 @@ subtitle: -1 budget. We will have to decide how the increased budget will be spe
 @local
 subtitle: -1 budget. MKE, Mechanical and Chemical Industry Corporation, is our main supplier of army products. However we are currently dependent on Western imports.
 view-if: MKE == 0
+choose-if: budget >= 1
+unavailable-subtitle: We don't have enough budget!
 on-arrival: budget -= 1; MKE += 1; capitalist_chp += 3; petty_bourgeoisie += 2; forex_pressure -= 3; unemployment_modifier -= 0.4; growth_modifier += 0.4; industrial_production_index_modifier += 4
 
 We begin shifting our equipment supplies from imports towards internal producers. Even though this is costly in the short term due to reestablishing our supply lines, the change improves our dependence on foreign currency and aid.
@@ -63,6 +67,8 @@ We continue improving our arms industry capabilities. Due to our sustained effor
 
 @westernimport
 subtitle: -1 budget. This has been our policy for long.
+choose-if: budget >= 1
+unavailable-subtitle: We don't have enough budget!
 on-arrival: army_land_strength += 0.1; army_naval_strength += 0.1; army_aerial_strength += 0.1; budget -= 1
 
 We import weaponry from Western countries to meet our equipment demands as usual.
@@ -80,11 +86,15 @@ We launch a campaign of inspections into the spendings of the army. The army vie
 
 @modernize
 subtitle: -1 budget.
+choose-if: budget >= 1
+unavailable-subtitle: We don't have enough budget!
 on-arrival: budget -= 1; unemployment_modifier -= 0.5; army_land_strength += 0.1; army_naval_strength += 0.1; army_aerial_strength += 0.1; industrial_production_index_modifier += 4
 
 @ASELSAN
 subtitle: -1 budget. The TCG-Kocatepe incident has revealed the need for us to develop an independent arms industry, form a new Turkish arms company!
 view-if: aselsann == 0 and year > 1974
+choose-if: budget >= 1
+unavailable-subtitle: We don't have enough budget!
 on-arrival: coup_timer -= 1; aselsann += 1; army_land_strength += 0.1; army_naval_strength += 0.1; army_aerial_strength += 0.1; budget -= 1
 
 The high command congratulate us for taking such a historic step.
