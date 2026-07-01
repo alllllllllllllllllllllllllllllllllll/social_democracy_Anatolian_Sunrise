@@ -385,8 +385,8 @@ if (Q.month_actions >= 1) {
         Q.kurds_z += kurds_transfer;
     }
     
-    // Calculate Agricultural Product Prices (Production/Consumption ratio)
-    Q.agricultural_product_prices = Q.agricultural_production_index / Q.agricultural_consumption;
+    // Calculate Agricultural Product Prices (Consumption/Production ratio)
+    Q.agricultural_product_prices = Q.agricultural_consumption / Q.agricultural_production_index;
     
     // Set agricultural price status text
     if (Q.agricultural_product_prices > 1.20) {

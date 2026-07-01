@@ -42,7 +42,7 @@ if (Q.industrial_production_index < 0) { Q.industrial_production_index = 0; }
 if (Q.agricultural_production_index < 0) { Q.agricultural_production_index = 0; }
 
 // Recalculate Agricultural Product Prices after any changes
-Q.agricultural_product_prices = Q.agricultural_production_index / Q.agricultural_consumption;
+Q.agricultural_product_prices = Q.agricultural_consumption / Q.agricultural_production_index;
 
 // Update agricultural price status text
 if (Q.agricultural_product_prices > 1.20) {
