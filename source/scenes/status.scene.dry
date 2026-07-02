@@ -64,6 +64,9 @@ if (typeof Q.majority_threshold === 'undefined') {
 if (typeof Q.right_kemalist_split === 'undefined') {
     Q.right_kemalist_split = 0;
 }
+if (typeof Q.orthodox_kemalist_destruction === 'undefined') {
+    Q.orthodox_kemalist_destruction = 0;
+}
 if (typeof Q.right_kemalist_deal === 'undefined') {
     Q.right_kemalist_deal = 0;
 }
