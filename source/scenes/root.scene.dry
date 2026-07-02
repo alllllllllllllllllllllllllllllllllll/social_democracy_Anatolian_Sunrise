@@ -103,6 +103,7 @@ Q.right_kemalists_dissent = 10;
 Q.right_kemalist_deal = 0;
 Q.right_kemalists_resign = 0;
 Q.right_kemalist_split = 0;
+Q.orthodox_kemalist_destruction = 0;
 
 // Congress tracking
 Q.congress_upcoming = 1;
