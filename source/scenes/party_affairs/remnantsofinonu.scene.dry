@@ -1,0 +1,61 @@
+title: Remnants of İnönü
+new-page: true
+on-arrival: month_actions += 1; remnants_of_inonu_timer = 4
+is-card: true
+tags: party_affairs
+view-if: CHP_party_leader == "Ecevit" and remnants_of_inonu_timer == 0 and inonuu == 0
+card-image: img/inonu2.png
+
+= Remnants of İnönü
+
+Since the party congress which brought Ecevit to the leadership, the cliques who have not yet endorsed the Social Democratic shift in CHP have either migrated to CGP or been left without a head in the party. Such groups are currently disorganized in the party which creates the perfect opportunity for making sure our interpretation of Kemalism is widely accepted throughout the party.  If we want to turn CHP truly into a Social Democratic party of the people, we have to abandon our former elitist attitudes. And for this mission the party needs to rid itself of the old guard still powerful in the party and remove the remnants of İnönü. We have to purge such outdated elements as a natural progression now that we hold executive power. 
+
+If we can decrease the old guard influence enough, we can dismantle their clique as a whole!
+
+- @grassroots: Remove old guard influence from the grassroots. 
+- @base: Curb the appeal of old guard rhetoric in our base.
+- @leadership: Remove members of the old guard from the party leadership.
+- @tbmm: Consolidate the delegates of TBMM behind Social Democracy.
+- @intellectual: Contract Orthodox Kemalist sentiments among the party Intelligentsia.
+- @local: Wane old guard influence over the municipalities and local party chapters.
+- @finishoff: Dismantle the Orthodox Kemalist clique!
+- @root: We should not do anything about old guard influence at the moment.
+- @easy_discard
+- @cancel_advisor_action
+
+@grassroots
+on-arrival: q0_ok_str -= 2
+
+We diminish old guard influence over our party grassroots through meetings and deliberations with the youth's and women's chapters.
+
+@base
+on-arrival: q1_ok_str -= 2
+
+By focusing on the propagation of Social Democratic ideals in our rallies, we showcase the shifting nature of the party to our base.
+
+@leadership
+on-arrival: q2_ok_str -= 2
+
+We decrease old guard control over the party bureaucracy.
+
+@tbmm
+on-arrival: q3_ok_str -= 2
+
+Meetings with our TBMM delegates make sure they are loyal to the new course of the party.
+
+@intellectual
+on-arrival: q4_ok_str -= 2
+
+The 'Left of the Center' movement is already popular among much of the Kemalist intelligentsia. However we ease the worries of concerned ones by reaffirming our belief in Atatürk and his view of a modern Turkey.
+
+@local
+on-arrival: q5_ok_str -= 2
+
+We gradually purge the local chapters of our party through the executive powers of the party leadership.
+
+@finishoff
+choose-if: ok_congress_seats <= 200
+unavailable-subtitle: Orthodox Kemalists need to have less than 200 seats in the projected party congress for their clique to be dismantled!
+on-arrival: orthodox_kemalist_destruction = 1
+
+We are finally able to end old guard influence over the party and complete the transformation towards a Social Democratic party! Based on an archaic interpretation of progressivism and fear over class politics, Orthodox Kemalism chained the party to electoral failures. Now our party has properly evolved to suit the needs of the time and become the true representative of the masses pushed into poverty. Now Orthodox Kemalism is no longer a prominent current in the party and its clique has collapsed into irrelevancy.
