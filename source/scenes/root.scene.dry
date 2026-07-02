@@ -801,7 +801,7 @@ Q.anti_democratic_coalition = Q.TIP_seats + Q.MHP_seats + Q.MSP_seats;
 Q.neo_weimar_coalition = Q.chp_seats + Q.CGP_seats + Q.z_seats + Q.DP_seats + Q.other_seats;
 Q.hitler_right_coalition = Q.z_seats + Q.MSP_seats + Q.MHP_seats;
 Q.progressive_coalition = Q.chp_seats + Q.TIP_seats + Q.CGP_seats + sapdSeats;
-Q.leverage = Q.chp_seats/2;
+Q.leverage = Q.chp_seats/1.5;
 
 // sapd isn't formed yet, but it may be formed
 Q.sapd_r = 0;
